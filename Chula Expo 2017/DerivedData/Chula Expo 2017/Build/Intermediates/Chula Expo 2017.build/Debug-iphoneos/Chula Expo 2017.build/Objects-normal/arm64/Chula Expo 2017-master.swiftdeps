@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "7a5e1da6e6d46b3e07931be6e74e081b"
+build_time: [535999761, 597667000]
+inputs:
+  "/Users/pakpoom/Documents/Developer/Chula Expo/Chula Expo 2017/Chula Expo 2017/ViewController.swift": [535999753, 0]
+  "/Users/pakpoom/Documents/Developer/Chula Expo/Chula Expo 2017/Chula Expo 2017/AppDelegate.swift": [535999753, 0]

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F4A9D821E10287A00713580 /* chula_expo_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D811E10287A00713580 /* chula_expo_logo.jpg */; };
+		5F4A9D841E10288000713580 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D831E10288000713580 /* checkmark.png */; };
 		5F4FE4021E0CF29200AF9D5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4FE4011E0CF29200AF9D5B /* AppDelegate.swift */; };
 		5F4FE4041E0CF29200AF9D5B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4FE4031E0CF29200AF9D5B /* ViewController.swift */; };
 		5F4FE4071E0CF29200AF9D5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4FE4051E0CF29200AF9D5B /* Main.storyboard */; };
@@ -24,11 +26,11 @@
 		5F4FE42B1E0CF64900AF9D5B /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4FE42A1E0CF64900AF9D5B /* FourthViewController.swift */; };
 		5F4FE42D1E0CF65100AF9D5B /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4FE42C1E0CF65100AF9D5B /* FifthViewController.swift */; };
 		5F4FE42F1E0D1E6100AF9D5B /* InterestedTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4FE42E1E0D1E6100AF9D5B /* InterestedTopicViewController.swift */; };
-		5F5E2D6E1E0D755E00F80B53 /* chula_expo_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E2D6D1E0D755E00F80B53 /* chula_expo_logo.jpg */; };
-		5F5E2D721E0FE45200F80B53 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5E2D711E0FE45200F80B53 /* checkmark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F4A9D811E10287A00713580 /* chula_expo_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chula_expo_logo.jpg; path = Assets.xcassets/chula_expo_logo.jpg; sourceTree = "<group>"; };
+		5F4A9D831E10288000713580 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = Assets.xcassets/checkmark.png; sourceTree = "<group>"; };
 		5F4FE3FE1E0CF29200AF9D5B /* Chula Expo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4FE4011E0CF29200AF9D5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4FE4031E0CF29200AF9D5B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,8 +50,6 @@
 		5F4FE42A1E0CF64900AF9D5B /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5F4FE42C1E0CF65100AF9D5B /* FifthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		5F4FE42E1E0D1E6100AF9D5B /* InterestedTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTopicViewController.swift; sourceTree = "<group>"; };
-		5F5E2D6D1E0D755E00F80B53 /* chula_expo_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chula_expo_logo.jpg; path = ../../../../../Downloads/chula_expo_logo.jpg; sourceTree = "<group>"; };
-		5F5E2D711E0FE45200F80B53 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = ../../../../../Downloads/checkmark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +85,9 @@
 				5F4FE4011E0CF29200AF9D5B /* AppDelegate.swift */,
 				5F4FE4031E0CF29200AF9D5B /* ViewController.swift */,
 				5F4FE4051E0CF29200AF9D5B /* Main.storyboard */,
-				5F5E2D6D1E0D755E00F80B53 /* chula_expo_logo.jpg */,
+				5F4A9D831E10288000713580 /* checkmark.png */,
+				5F4A9D811E10287A00713580 /* chula_expo_logo.jpg */,
 				5F4FE42E1E0D1E6100AF9D5B /* InterestedTopicViewController.swift */,
-				5F5E2D711E0FE45200F80B53 /* checkmark.png */,
 				5F4FE4211E0CF54100AF9D5B /* FifthView.storyboard */,
 				5F4FE4241E0CF62D00AF9D5B /* FirstViewController.swift */,
 				5F4FE4261E0CF63600AF9D5B /* SecondViewController.swift */,
@@ -167,7 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4FE40F1E0CF29200AF9D5B /* LaunchScreen.storyboard in Resources */,
-				5F5E2D721E0FE45200F80B53 /* checkmark.png in Resources */,
+				5F4A9D841E10288000713580 /* checkmark.png in Resources */,
 				5F4FE40C1E0CF29200AF9D5B /* Assets.xcassets in Resources */,
 				5F4FE4181E0CF3E900AF9D5B /* FirstView.storyboard in Resources */,
 				5F4FE41E1E0CF50B00AF9D5B /* ThirdView.storyboard in Resources */,
@@ -175,7 +175,7 @@
 				5F4FE4071E0CF29200AF9D5B /* Main.storyboard in Resources */,
 				5F4FE4201E0CF52900AF9D5B /* FourthView.storyboard in Resources */,
 				5F4FE4231E0CF54100AF9D5B /* FifthView.storyboard in Resources */,
-				5F5E2D6E1E0D755E00F80B53 /* chula_expo_logo.jpg in Resources */,
+				5F4A9D821E10287A00713580 /* chula_expo_logo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

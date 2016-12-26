@@ -13,6 +13,9 @@
 		5F4A9D9A1E10300900713580 /* Chula_Expo_2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D981E10300900713580 /* Chula_Expo_2017.xcdatamodeld */; };
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
 		5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */; };
+		5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */; };
+		5F5C7D3E1E10D37E00C9D0F2 /* chula_expo_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */; };
+		5F5C7D401E10D39000C9D0F2 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		5F4A9D9B1E10300900713580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4A9D9E1E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F4A9DA01E10300900713580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
+		5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chula_expo_logo.jpg; path = Assets.xcassets/chula_expo_logo.jpg; sourceTree = "<group>"; };
+		5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = Assets.xcassets/checkmark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			children = (
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
 				5F4A9D931E10300900713580 /* ViewController.swift */,
+				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */,
+				5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */,
 				5F4A9D951E10300900713580 /* Main.storyboard */,
 				5F4A9D9B1E10300900713580 /* Assets.xcassets */,
 				5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */,
@@ -128,7 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
+				5F5C7D401E10D39000C9D0F2 /* checkmark.png in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
+				5F5C7D3E1E10D37E00C9D0F2 /* chula_expo_logo.jpg in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +154,7 @@
 				5F4A9D941E10300900713580 /* ViewController.swift in Sources */,
 				5F4A9D9A1E10300900713580 /* Chula_Expo_2017.xcdatamodeld in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
+				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +316,7 @@
 				5F4A9DA51E10300900713580 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

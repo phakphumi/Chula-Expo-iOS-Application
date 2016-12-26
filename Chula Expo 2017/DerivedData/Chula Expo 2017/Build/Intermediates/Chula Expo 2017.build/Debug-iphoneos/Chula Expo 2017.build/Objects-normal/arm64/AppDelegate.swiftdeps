@@ -6,29 +6,29 @@ provides-nominal:
 provides-member:
 - ["C15Chula_Expo_201711AppDelegate", ""]
 provides-dynamic-lookup:
-- "applicationWillResignActive"
-- "applicationDidEnterBackground"
-- "persistentContainer"
-- "application"
-- "applicationWillEnterForeground"
-- "window"
 - "applicationDidBecomeActive"
-- "saveContext"
+- "persistentContainer"
 - "applicationWillTerminate"
+- "window"
+- "application"
+- "applicationDidEnterBackground"
+- "applicationWillResignActive"
+- "saveContext"
+- "applicationWillEnterForeground"
 depends-top-level:
-- "AppDelegate"
 - !private "fatalError"
-- "UIResponder"
+- !private "NSError"
+- "UIApplicationLaunchOptionsKey"
 - "NSPersistentContainer"
 - "UIApplication"
 - "CastingPrecedence"
-- "Bool"
-- !private "NSError"
-- "UIApplicationDelegate"
 - "UIWindow"
+- "UIApplicationDelegate"
+- "UIResponder"
 - !private "StringLiteralType"
 - !private "BooleanLiteralType"
-- "UIApplicationLaunchOptionsKey"
+- "Bool"
+- "AppDelegate"
 depends-member:
 - !private ["Ps9AnyObject", "NSPersistentContainer"]
 - ["Ps9AnyObject", "application"]

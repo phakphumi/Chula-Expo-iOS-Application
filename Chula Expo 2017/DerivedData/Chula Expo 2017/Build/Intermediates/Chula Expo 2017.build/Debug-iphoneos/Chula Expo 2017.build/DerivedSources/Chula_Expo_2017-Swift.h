@@ -141,6 +141,13 @@ SWIFT_CLASS("_TtC15Chula_Expo_201711AppDelegate")
 @class NSBundle;
 @class NSCoder;
 
+SWIFT_CLASS("_TtC15Chula_Expo_201724InterestedViewController")
+@interface InterestedViewController : UIViewController
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC15Chula_Expo_201714ViewController")
 @interface ViewController : UIViewController
 - (void)viewDidLoad;

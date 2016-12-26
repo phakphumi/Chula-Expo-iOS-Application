@@ -6,8 +6,8 @@ provides-nominal:
 provides-member:
 - ["C15Chula_Expo_201720FourthViewController", ""]
 provides-dynamic-lookup:
-- "viewDidLoad"
 - "didReceiveMemoryWarning"
+- "viewDidLoad"
 depends-top-level:
 - "FourthViewController"
 - "UIViewController"

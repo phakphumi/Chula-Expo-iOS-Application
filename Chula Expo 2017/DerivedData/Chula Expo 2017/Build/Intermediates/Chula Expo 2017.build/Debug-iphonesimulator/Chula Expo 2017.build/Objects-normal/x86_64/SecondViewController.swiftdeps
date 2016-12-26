@@ -6,11 +6,11 @@ provides-nominal:
 provides-member:
 - ["C15Chula_Expo_201720SecondViewController", ""]
 provides-dynamic-lookup:
-- "viewDidLoad"
 - "didReceiveMemoryWarning"
+- "viewDidLoad"
 depends-top-level:
-- "UIViewController"
 - "SecondViewController"
+- "UIViewController"
 depends-member:
 - ["Ps9AnyObject", "didReceiveMemoryWarning"]
 - !private ["Ps9AnyObject", "init"]

@@ -18,13 +18,24 @@ class InterestedViewController: UIViewController {
     
     let baseImageViewTag = 100
     let baseUICoverTag = 1000
+    let image = [
+                    UIImage(named: "technology.jpg"),
+                    UIImage(named: "engineering.jpg"),
+                    UIImage(named: "medical.jpg"),
+                    UIImage(named: "architecture.jpg")
+                ]
+    let textLabel = [
+                        "Technology",
+                        "Engineering",
+                        "Medical",
+                        "Architecture"
+                    ]
     
     var descText = ["Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
                     "dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
                     "to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,",
                     "remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing"]
     @IBOutlet var doneButton: UIButton!
-    @IBOutlet var topLabel: UILabel!
     @IBOutlet var descLabel: UILabel!
     
     @IBAction func doneButton(_ sender: UIButton) {
@@ -47,11 +58,19 @@ class InterestedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createGradientLayer()
+        createGradientNavBar()
         
-        createImageView()
+        createTopicSlidebar()
         
         descLabel.sizeToFit()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         
     }
     
@@ -227,31 +246,35 @@ class InterestedViewController: UIViewController {
     }
     
     
-    func createGradientLayer() {
+    func createGradientNavBar() {
         
-        //Begin, define gradient layer scale
-        let gradientLayerWidth = topLabel.bounds.size.width
-        let gradientLayerHeight = topLabel.bounds.size.height
-        //End, define
-        
-        //Begin, define gradient color shade from RGB(202,92,171) to RGB(109,86,187)
+        //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
         let headGradientColor = UIColor(red: 0.8, green: 0.36, blue: 0.67, alpha: 1).cgColor
-        let tailGradientColor = UIColor(red: 0.43, green: 0.34, blue: 0.73, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.565, green: 0.44, blue: 0.77, alpha: 1).cgColor
         //
         
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: gradientLayerWidth, height: gradientLayerHeight)
+        var navIncludeStatFrame = navigationController!.navigationBar.bounds
+        navIncludeStatFrame.size.height += 20
+        gradientLayer.frame = navIncludeStatFrame
         gradientLayer.colors = [headGradientColor, tailGradientColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         //End
         
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
         
     }
     
-    func createImageView() {
+    func createTopicSlidebar() {
         print(self.view.bounds.height)
         
         //Begin, define movingView scale with width 56% and height 37.5% of screen and making top margin 17.25% from top of screen
@@ -276,7 +299,7 @@ class InterestedViewController: UIViewController {
             //Begin, create image view with the circle mask
             imageView.append(UIImageView(frame: CGRect(x: 0, y: 0, width: imageViewWidth, height: imageViewHeight)))
             
-            imageView[i].image = UIImage(named: "chula_expo_logo.jpg")
+            imageView[i].image = image[i]
             
             imageView[i].tag = baseImageViewTag + i
             
@@ -288,9 +311,9 @@ class InterestedViewController: UIViewController {
             //End
             
             //Begin, define imageLabel scale by 100% of movingViewWidth and 8% of movingViewHeight and also imageLabelTopMargin(Space between image and label) by 92% from the top of movingViewHeight
-            let imageLabelWidth = movingView[i].frame.width
-            let imageLabelHeight = movingView[i].frame.height * 0.08
-            let imageLabelTopMargin = movingView[i].frame.height * 0.92
+            let imageLabelWidth = movingView[i].bounds.width
+            let imageLabelHeight = movingView[i].bounds.height * 0.08
+            let imageLabelTopMargin = movingView[i].bounds.height * 0.92
             //End, define
             
             //Begin, create text label below the image
@@ -300,7 +323,7 @@ class InterestedViewController: UIViewController {
             
             imageLabel[i].font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightSemibold)
             
-            imageLabel[i].text = "Chula Expo"
+            imageLabel[i].text = textLabel[i]
             //End
             
             movingView[i].addSubview(imageView[i])

@@ -23,6 +23,13 @@
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
 		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
 		5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */; };
+		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
+		5FCE0A7A1E11503400E5DB16 /* mark_zuckerberg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A791E11503400E5DB16 /* mark_zuckerberg.jpg */; };
+		5FCE0A7C1E116A0300E5DB16 /* register_checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7B1E116A0300E5DB16 /* register_checkmark.png */; };
+		5FCE0A811E11A6F800E5DB16 /* technology.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7D1E11A6F800E5DB16 /* technology.jpg */; };
+		5FCE0A821E11A6F800E5DB16 /* medical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */; };
+		5FCE0A831E11A6F800E5DB16 /* engineering.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */; };
+		5FCE0A841E11A6F800E5DB16 /* architecture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A801E11A6F800E5DB16 /* architecture.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +51,13 @@
 		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
 		5F5C7D4D1E10DDCC00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Third.storyboard; sourceTree = "<group>"; };
 		5F5C7D501E10DE1500C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fourth.storyboard; sourceTree = "<group>"; };
+		5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5FCE0A791E11503400E5DB16 /* mark_zuckerberg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mark_zuckerberg.jpg; path = Assets.xcassets/mark_zuckerberg.jpg; sourceTree = "<group>"; };
+		5FCE0A7B1E116A0300E5DB16 /* register_checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register_checkmark.png; path = Assets.xcassets/register_checkmark.png; sourceTree = "<group>"; };
+		5FCE0A7D1E11A6F800E5DB16 /* technology.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = technology.jpg; path = Assets.xcassets/technology.jpg; sourceTree = "<group>"; };
+		5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = medical.jpg; path = Assets.xcassets/medical.jpg; sourceTree = "<group>"; };
+		5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = engineering.jpg; path = Assets.xcassets/engineering.jpg; sourceTree = "<group>"; };
+		5FCE0A801E11A6F800E5DB16 /* architecture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = architecture.jpg; path = Assets.xcassets/architecture.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +93,14 @@
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
 				5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */,
 				5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */,
+				5FCE0A7B1E116A0300E5DB16 /* register_checkmark.png */,
+				5FCE0A791E11503400E5DB16 /* mark_zuckerberg.jpg */,
+				5FCE0A7D1E11A6F800E5DB16 /* technology.jpg */,
+				5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */,
+				5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */,
+				5FCE0A801E11A6F800E5DB16 /* architecture.jpg */,
 				5F4A9D951E10300900713580 /* Main.storyboard */,
+				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
 				5F25B2361E10E086008A3B11 /* FirstViewController.swift */,
@@ -160,7 +181,13 @@
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
 				5F5C7D401E10D39000C9D0F2 /* checkmark.png in Resources */,
 				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
+				5FCE0A831E11A6F800E5DB16 /* engineering.jpg in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
+				5FCE0A7A1E11503400E5DB16 /* mark_zuckerberg.jpg in Resources */,
+				5FCE0A811E11A6F800E5DB16 /* technology.jpg in Resources */,
+				5FCE0A821E11A6F800E5DB16 /* medical.jpg in Resources */,
+				5FCE0A841E11A6F800E5DB16 /* architecture.jpg in Resources */,
+				5FCE0A7C1E116A0300E5DB16 /* register_checkmark.png in Resources */,
 				5F5C7D3E1E10D37E00C9D0F2 /* chula_expo_logo.jpg in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
@@ -179,6 +206,7 @@
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				5F25B2371E10E086008A3B11 /* FirstViewController.swift in Sources */,
+				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
 				5F4A9D9A1E10300900713580 /* Chula_Expo_2017.xcdatamodeld in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
@@ -337,6 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SPG965W4E9;
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CPCU41.Chula-Expo-2017";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +379,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SPG965W4E9;
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CPCU41.Chula-Expo-2017";
 				PRODUCT_NAME = "$(TARGET_NAME)";

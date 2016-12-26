@@ -175,17 +175,59 @@ SWIFT_CLASS("_TtC15Chula_Expo_201724InterestedViewController")
 @property (nonatomic, copy) NSArray<NSNumber *> * _Nonnull selectedObject;
 @property (nonatomic, readonly) NSInteger baseImageViewTag;
 @property (nonatomic, readonly) NSInteger baseUICoverTag;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull textLabel;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull descText;
 @property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified doneButton;
-@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified topLabel;
 @property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified descLabel;
 - (IBAction)doneButton:(UIButton * _Nonnull)sender;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
 - (void)wasTappedWithGestureRecognizer:(UITapGestureRecognizer * _Nonnull)gestureRecognizer;
 - (void)wasDraggedWithGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)createGradientNavBar;
+- (void)createTopicSlidebar;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIPickerView;
+@class UITextField;
+@class UITouch;
+@class UIEvent;
+
+SWIFT_CLASS("_TtC15Chula_Expo_201722RegisterViewController")
+@interface RegisterViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+@property (nonatomic, readonly, strong) UIPickerView * _Nonnull genderPicker;
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull gender;
+@property (nonatomic) NSInteger careerType;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified emailField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified ageField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified genderField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified schoolOrCompanyField;
+@property (nonatomic, strong) IBOutlet UITextField * _Null_unspecified gradeOrPositionField;
+@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified profileImage;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified student;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified worker;
+@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified studentCheckmark;
+@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified workerCheckmark;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified schoolOrCompany;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified gradeOrPosition;
+- (IBAction)doneButton:(UIButton * _Nonnull)sender;
+- (IBAction)selectStudent:(UIButton * _Nonnull)sender;
+- (IBAction)selectWorker:(id _Nonnull)sender;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView;
+- (NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component;
+- (NSString * _Nullable)pickerView:(UIPickerView * _Nonnull)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+- (void)pickerView:(UIPickerView * _Nonnull)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+- (BOOL)textFieldShouldReturn:(UITextField * _Nonnull)textField;
+- (void)stylingProfileImage;
+- (void)stylingTextFieldWithTextField:(UITextField * _Nonnull)textField;
 - (void)createGradientLayer;
-- (void)createImageView;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

@@ -139,14 +139,32 @@ SWIFT_CLASS("_TtC15Chula_Expo_201711AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC15Chula_Expo_201719FirstViewController")
+@interface FirstViewController : UIViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15Chula_Expo_201720FourthViewController")
+@interface FourthViewController : UIViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIView;
 @class UIImageView;
 @class UILabel;
 @class UIButton;
 @class UITapGestureRecognizer;
 @class UIPanGestureRecognizer;
-@class NSBundle;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC15Chula_Expo_201724InterestedViewController")
 @interface InterestedViewController : UIViewController
@@ -173,8 +191,17 @@ SWIFT_CLASS("_TtC15Chula_Expo_201724InterestedViewController")
 @end
 
 
-SWIFT_CLASS("_TtC15Chula_Expo_201714ViewController")
-@interface ViewController : UIViewController
+SWIFT_CLASS("_TtC15Chula_Expo_201720SecondViewController")
+@interface SecondViewController : UIViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC15Chula_Expo_201719ThirdViewController")
+@interface ThirdViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="Bap-VH-9zT">
             <objects>
-                <viewController id="rBa-NL-8Ua" sceneMemberID="viewController">
+                <viewController id="rBa-NL-8Ua" customClass="SecondViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xea-ZP-mMX"/>
                         <viewControllerLayoutGuide type="bottom" id="dcX-s3-PvN"/>
@@ -32,7 +32,7 @@
         <scene sceneID="YMa-fC-YEw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bBm-ic-pP8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maps" id="fib-pk-ifI"/>
+                    <tabBarItem key="tabBarItem" title="Maps" id="fib-pk-ifI" customClass="S"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2IQ-wG-YmE">

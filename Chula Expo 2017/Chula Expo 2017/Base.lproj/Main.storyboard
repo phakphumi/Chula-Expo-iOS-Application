@@ -41,7 +41,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YTo-Kw-Nx1"/>
                     <connections>
-                        <segue destination="Brk-R1-mjU" kind="show" id="Mxe-1N-eC0"/>
+                        <segue destination="Brk-R1-mjU" kind="show" identifier="toInterestedView" id="Mxe-1N-eC0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G6t-uB-Uby" userLabel="First Responder" sceneMemberID="firstResponder"/>

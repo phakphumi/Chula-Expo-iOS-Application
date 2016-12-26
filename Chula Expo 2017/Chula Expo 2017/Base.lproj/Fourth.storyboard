@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="13E-4h-fRa">
             <objects>
-                <viewController id="hFQ-z7-4kg" sceneMemberID="viewController">
+                <viewController id="hFQ-z7-4kg" customClass="FirstViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tl5-dx-Zfb"/>
                         <viewControllerLayoutGuide type="bottom" id="EVT-n1-d3g"/>

@@ -16,6 +16,10 @@
 		5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */; };
 		5F5C7D3E1E10D37E00C9D0F2 /* chula_expo_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */; };
 		5F5C7D401E10D39000C9D0F2 /* checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */; };
+		5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */; };
+		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
+		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
+		5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
 		5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chula_expo_logo.jpg; path = Assets.xcassets/chula_expo_logo.jpg; sourceTree = "<group>"; };
 		5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkmark.png; path = Assets.xcassets/checkmark.png; sourceTree = "<group>"; };
+		5F5C7D421E10DC6A00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/First.storyboard; sourceTree = "<group>"; };
+		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
+		5F5C7D4D1E10DDCC00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Third.storyboard; sourceTree = "<group>"; };
+		5F5C7D501E10DE1500C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fourth.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,10 @@
 				5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */,
 				5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */,
 				5F4A9D951E10300900713580 /* Main.storyboard */,
+				5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */,
+				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
+				5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */,
+				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
 				5F4A9D9B1E10300900713580 /* Assets.xcassets */,
 				5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */,
 				5F4A9DA01E10300900713580 /* Info.plist */,
@@ -138,9 +150,13 @@
 			files = (
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
 				5F5C7D401E10D39000C9D0F2 /* checkmark.png in Resources */,
+				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
 				5F5C7D3E1E10D37E00C9D0F2 /* chula_expo_logo.jpg in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
+				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
+				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
+				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +191,38 @@
 				5F4A9D9E1E10300900713580 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F5C7D421E10DC6A00C9D0F2 /* Base */,
+			);
+			name = First.storyboard;
+			sourceTree = "<group>";
+		};
+		5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F5C7D4A1E10DD9D00C9D0F2 /* Base */,
+			);
+			name = Second.storyboard;
+			sourceTree = "<group>";
+		};
+		5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F5C7D4D1E10DDCC00C9D0F2 /* Base */,
+			);
+			name = Third.storyboard;
+			sourceTree = "<group>";
+		};
+		5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F5C7D501E10DE1500C9D0F2 /* Base */,
+			);
+			name = Fourth.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

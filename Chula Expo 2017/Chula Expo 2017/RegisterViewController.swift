@@ -22,11 +22,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var gradeOrPositionField: UITextField!
     @IBOutlet var profileImage: UIImageView!
     
-    @IBOutlet var student: UIButton!
-    @IBOutlet var worker: UIButton!
+    var student: UIButton!
+    var worker: UIButton!
     
-    @IBOutlet var studentCheckmark: UIImageView!
-    @IBOutlet var workerCheckmark: UIImageView!
+    var studentCheckmark: UIImageView!
+    var workerCheckmark: UIImageView!
     
     
     @IBOutlet var schoolOrCompany: UILabel!
@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    @IBAction func selectStudent(_ sender: UIButton) {
+    func tapOnCareerRadio() {
         
         if careerType == 1 {
             
@@ -60,14 +60,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             gradeOrPosition.text = "GRADE/YEAR"
             gradeOrPositionField.placeholder = "3"
             
-        }
-        
-    }
-    
-    
-    @IBAction func selectWorker(_ sender: Any) {
-        
-        if careerType == 0 {
+        } else {
             
             careerType = 1 // set to worker
             
@@ -88,7 +81,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         }
         
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +90,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         createGradientLayer()
         
-        stylingProfileImage()
+        createProfileImageView()
+        
+        createNameLabelView()
+        
+        createCareerRadio()
         
         emailField.tag = 1
         ageField.tag = 2
@@ -217,6 +213,83 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         border.borderWidth = width
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
+        
+    }
+    
+    func createCareerRadio() {
+        
+        let careerViewWidth = self.view.bounds.width * 0.82
+        let careerViewHeight = CGFloat(28)
+        let careerViewTopMargin = self.view.bounds.height * 0.39
+        
+        let careerView = UIView(frame: CGRect(x: self.view.bounds.width / 2 - careerViewWidth / 2, y: careerViewTopMargin, width: careerViewWidth, height: careerViewHeight))
+        careerView.layer.backgroundColor = UIColor(red: 0.8863, green: 0.53725, blue: 0.7961, alpha: 1).cgColor
+        careerView.layer.cornerRadius = careerViewHeight / 2
+        
+        let buttonWidth = careerView.bounds.width / 2 - 2
+        let buttonHeight = careerViewHeight - 2
+        
+        student = UIButton(frame: CGRect(x: 1, y: 1, width: buttonWidth, height: buttonHeight))
+        student.layer.cornerRadius = buttonHeight / 2
+        student.layer.backgroundColor = UIColor.white.cgColor
+        student.setTitle("Student", for: .normal)
+        student.setTitleColor(UIColor.black, for: .normal)
+        
+        
+        worker = UIButton(frame: CGRect(x: careerView.bounds.width / 2 + 1, y: 1, width: buttonWidth, height: buttonHeight))
+        worker.layer.cornerRadius = buttonHeight / 2
+        worker.layer.backgroundColor = nil
+        worker.setTitle("Worker", for: .normal)
+        worker.setTitleColor(UIColor.white, for: .normal)
+        
+        studentCheckmark = UIImageView(frame: CGRect(x: 8, y: 6, width: 18, height: 16))
+        studentCheckmark.image = UIImage(named: "register_checkmark.png")
+        
+        workerCheckmark = UIImageView(frame: CGRect(x: careerView.bounds.width / 2 + 8, y: 6, width: 18, height: 16))
+        workerCheckmark.image = nil
+        
+        careerView.addSubview(student)
+        careerView.addSubview(worker)
+        careerView.addSubview(studentCheckmark)
+        careerView.addSubview(workerCheckmark)
+        
+        self.view.addSubview(careerView)
+        
+        student.addTarget(self, action: #selector(RegisterViewController.tapOnCareerRadio), for: .touchUpInside)
+        worker.addTarget(self, action: #selector(RegisterViewController.tapOnCareerRadio), for: .touchUpInside)
+        
+    }
+    
+    func createNameLabelView() {
+        
+        let nameLabelViewWidth = self.view.bounds.width * 0.82
+        let nameLabelViewHegiht = CGFloat(30)
+        let nameLabelViewTopMargin = self.view.bounds.height * 0.285
+        
+        
+        let nameLabelView = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht))
+        nameLabelView.font = nameLabelView.font.withSize(25)
+        nameLabelView.textAlignment = NSTextAlignment.center
+        nameLabelView.textColor = UIColor.white
+        nameLabelView.text = "Mark Zuckerberg"
+        
+        self.view.addSubview(nameLabelView)
+        
+    }
+    
+    func createProfileImageView() {
+        
+        let imageViewWidthAndHeight = self.view.bounds.height * 0.21
+        let imageViewTopMargin = self.view.bounds.height * 0.064
+        
+        let imageView = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - imageViewWidthAndHeight / 2, y: imageViewTopMargin, width: imageViewWidthAndHeight, height: imageViewWidthAndHeight))
+        imageView.image = UIImage(named: "mark_zuckerberg.jpg")
+        imageView.layer.cornerRadius = imageView.bounds.height / 2
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 3
+        imageView.layer.masksToBounds = true
+        
+        self.view.addSubview(imageView)
         
     }
     

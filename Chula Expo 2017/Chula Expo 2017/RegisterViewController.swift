@@ -20,8 +20,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var genderField: UITextField!
     @IBOutlet var schoolOrCompanyField: UITextField!
     @IBOutlet var gradeOrPositionField: UITextField!
-    @IBOutlet var profileImage: UIImageView!
     
+    var imageProfileView: UIImageView!
     var student: UIButton!
     var worker: UIButton!
     
@@ -36,49 +36,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBAction func doneButton(_ sender: UIButton) {
         
         performSegue(withIdentifier: "toInterestedView", sender: self)
-        
-    }
-    
-    func tapOnCareerRadio() {
-        
-        if careerType == 1 {
-            
-            careerType = 0 // set to student
-            
-            worker.setTitleColor(UIColor.white, for: .normal)
-            worker.layer.backgroundColor = nil
-            workerCheckmark.image = nil
-            
-            student.setTitleColor(UIColor.black, for: .normal)
-            student.layer.backgroundColor = UIColor.white.cgColor
-            studentCheckmark.image = UIImage(named: "register_checkmark.png")
-            
-            
-            schoolOrCompany.text = "SCHOOL/UNIVERSITY"
-            schoolOrCompanyField.placeholder = "Chulalongkorn University"
-            
-            gradeOrPosition.text = "GRADE/YEAR"
-            gradeOrPositionField.placeholder = "3"
-            
-        } else {
-            
-            careerType = 1 // set to worker
-            
-            student.setTitleColor(UIColor.white, for: .normal)
-            student.layer.backgroundColor = nil
-            studentCheckmark.image = nil
-            
-            worker.setTitleColor(UIColor.black, for: .normal)
-            worker.layer.backgroundColor = UIColor.white.cgColor
-            workerCheckmark.image = UIImage(named: "register_checkmark.png")
-            
-            schoolOrCompany.text = "COMPANY/ORGANIZATION"
-            schoolOrCompanyField.placeholder = "Example Company"
-            
-            gradeOrPosition.text = "POSITION"
-            gradeOrPositionField.placeholder = "Software Engineering"
-            
-        }
         
     }
     
@@ -111,6 +68,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         genderPicker.delegate = self
         genderPicker.dataSource = self
         genderField.inputView = genderPicker
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
@@ -184,6 +144,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
 
     }
 
+    
+    
     /*
     // MARK: - Navigation
 
@@ -194,12 +156,27 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     */
     
-    func stylingProfileImage() {
+    func keyboardWillShow(notification: NSNotification) {
         
-        profileImage.layer.cornerRadius = profileImage.bounds.height / 2
-        profileImage.layer.borderColor = UIColor.white.cgColor
-        profileImage.layer.borderWidth = 3
-        profileImage.layer.masksToBounds = true
+        let heightToDecrease = self.view.bounds.height * 0.15
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            self.view.frame.origin.y -= keyboardSize.height - heightToDecrease
+            
+        }
+    
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        let heightToDecrease = self.view.bounds.height * 0.15
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+
+            self.view.frame.origin.y += keyboardSize.height - heightToDecrease
+            
+        }
         
     }
     
@@ -282,14 +259,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         let imageViewWidthAndHeight = self.view.bounds.height * 0.21
         let imageViewTopMargin = self.view.bounds.height * 0.064
         
-        let imageView = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - imageViewWidthAndHeight / 2, y: imageViewTopMargin, width: imageViewWidthAndHeight, height: imageViewWidthAndHeight))
-        imageView.image = UIImage(named: "mark_zuckerberg.jpg")
-        imageView.layer.cornerRadius = imageView.bounds.height / 2
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 3
-        imageView.layer.masksToBounds = true
+        imageProfileView = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - imageViewWidthAndHeight / 2, y: imageViewTopMargin, width: imageViewWidthAndHeight, height: imageViewWidthAndHeight))
+        imageProfileView.image = UIImage(named: "mark_zuckerberg.jpg")
+        imageProfileView.layer.cornerRadius = imageProfileView.bounds.height / 2
+        imageProfileView.layer.borderColor = UIColor.white.cgColor
+        imageProfileView.layer.borderWidth = 3
+        imageProfileView.layer.masksToBounds = true
         
-        self.view.addSubview(imageView)
+        self.view.addSubview(imageProfileView)
         
     }
     
@@ -314,6 +291,49 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         //End
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+        
+    }
+    
+    func tapOnCareerRadio() {
+        
+        if careerType == 1 {
+            
+            careerType = 0 // set to student
+            
+            worker.setTitleColor(UIColor.white, for: .normal)
+            worker.layer.backgroundColor = nil
+            workerCheckmark.image = nil
+            
+            student.setTitleColor(UIColor.black, for: .normal)
+            student.layer.backgroundColor = UIColor.white.cgColor
+            studentCheckmark.image = UIImage(named: "register_checkmark.png")
+            
+            
+            schoolOrCompany.text = "SCHOOL/UNIVERSITY"
+            schoolOrCompanyField.placeholder = "Chulalongkorn University"
+            
+            gradeOrPosition.text = "GRADE/YEAR"
+            gradeOrPositionField.placeholder = "3"
+            
+        } else {
+            
+            careerType = 1 // set to worker
+            
+            student.setTitleColor(UIColor.white, for: .normal)
+            student.layer.backgroundColor = nil
+            studentCheckmark.image = nil
+            
+            worker.setTitleColor(UIColor.black, for: .normal)
+            worker.layer.backgroundColor = UIColor.white.cgColor
+            workerCheckmark.image = UIImage(named: "register_checkmark.png")
+            
+            schoolOrCompany.text = "COMPANY/ORGANIZATION"
+            schoolOrCompanyField.placeholder = "Example Company"
+            
+            gradeOrPosition.text = "POSITION"
+            gradeOrPositionField.placeholder = "Software Engineering"
+            
+        }
         
     }
 

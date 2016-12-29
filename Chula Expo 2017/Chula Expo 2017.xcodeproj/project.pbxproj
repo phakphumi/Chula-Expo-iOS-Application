@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
+		5F18D57F1E14E87E00EF81E6 /* chula_expo_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F18D57E1E14E87E00EF81E6 /* chula_expo_logo_white.png */; };
 		5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2301E10E006008A3B11 /* SecondViewController.swift */; };
 		5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2321E10E018008A3B11 /* ThirdViewController.swift */; };
 		5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2341E10E027008A3B11 /* FourthViewController.swift */; };
@@ -23,6 +25,11 @@
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
 		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
 		5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */; };
+		5F9FB0891E150EDE00E984AB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
+		5F9FB08A1E150EDE00E984AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
+		5F9FB08B1E150EDE00E984AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
+		5F9FB08C1E150EDE00E984AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
+		5F9FB08E1E15167C00E984AB /* facebook_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9FB08D1E15167C00E984AB /* facebook_logo.png */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
 		5FCE0A7A1E11503400E5DB16 /* mark_zuckerberg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A791E11503400E5DB16 /* mark_zuckerberg.jpg */; };
 		5FCE0A7C1E116A0300E5DB16 /* register_checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7B1E116A0300E5DB16 /* register_checkmark.png */; };
@@ -33,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F18D57E1E14E87E00EF81E6 /* chula_expo_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chula_expo_logo_white.png; path = Assets.xcassets/chula_expo_logo_white.png; sourceTree = "<group>"; };
 		5F25B2301E10E006008A3B11 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5F25B2321E10E018008A3B11 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5F25B2341E10E027008A3B11 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +60,12 @@
 		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
 		5F5C7D4D1E10DDCC00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Third.storyboard; sourceTree = "<group>"; };
 		5F5C7D501E10DE1500C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fourth.storyboard; sourceTree = "<group>"; };
+		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
+		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		5F9FB08D1E15167C00E984AB /* facebook_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook_logo.png; path = Assets.xcassets/facebook_logo.png; sourceTree = "<group>"; };
 		5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5FCE0A791E11503400E5DB16 /* mark_zuckerberg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mark_zuckerberg.jpg; path = Assets.xcassets/mark_zuckerberg.jpg; sourceTree = "<group>"; };
 		5FCE0A7B1E116A0300E5DB16 /* register_checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = register_checkmark.png; path = Assets.xcassets/register_checkmark.png; sourceTree = "<group>"; };
@@ -65,6 +80,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F9FB08C1E150EDE00E984AB /* FBSDKShareKit.framework in Frameworks */,
+				5F9FB0891E150EDE00E984AB /* Bolts.framework in Frameworks */,
+				5F9FB08A1E150EDE00E984AB /* FBSDKCoreKit.framework in Frameworks */,
+				5F9FB08B1E150EDE00E984AB /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +93,7 @@
 		5F4A9D851E10300900713580 = {
 			isa = PBXGroup;
 			children = (
+				5F9FB0841E150EDE00E984AB /* Frameworks */,
 				5F4A9D901E10300900713580 /* Chula Expo 2017 */,
 				5F4A9D8F1E10300900713580 /* Products */,
 			);
@@ -90,8 +110,11 @@
 		5F4A9D901E10300900713580 /* Chula Expo 2017 */ = {
 			isa = PBXGroup;
 			children = (
+				5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */,
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
 				5F5C7D3D1E10D37E00C9D0F2 /* chula_expo_logo.jpg */,
+				5F18D57E1E14E87E00EF81E6 /* chula_expo_logo_white.png */,
+				5F9FB08D1E15167C00E984AB /* facebook_logo.png */,
 				5F5C7D3F1E10D39000C9D0F2 /* checkmark.png */,
 				5FCE0A7B1E116A0300E5DB16 /* register_checkmark.png */,
 				5FCE0A791E11503400E5DB16 /* mark_zuckerberg.jpg */,
@@ -100,6 +123,7 @@
 				5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */,
 				5FCE0A801E11A6F800E5DB16 /* architecture.jpg */,
 				5F4A9D951E10300900713580 /* Main.storyboard */,
+				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
@@ -116,6 +140,17 @@
 				5F4A9D981E10300900713580 /* Chula_Expo_2017.xcdatamodeld */,
 			);
 			path = "Chula Expo 2017";
+			sourceTree = "<group>";
+		};
+		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F9FB0851E150EDE00E984AB /* Bolts.framework */,
+				5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */,
+				5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */,
+				5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +187,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = SPG965W4E9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -181,7 +221,9 @@
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
 				5F5C7D401E10D39000C9D0F2 /* checkmark.png in Resources */,
 				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
+				5F9FB08E1E15167C00E984AB /* facebook_logo.png in Resources */,
 				5FCE0A831E11A6F800E5DB16 /* engineering.jpg in Resources */,
+				5F18D57F1E14E87E00EF81E6 /* chula_expo_logo_white.png in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
 				5FCE0A7A1E11503400E5DB16 /* mark_zuckerberg.jpg in Resources */,
 				5FCE0A811E11A6F800E5DB16 /* technology.jpg in Resources */,
@@ -203,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				5F25B2371E10E086008A3B11 /* FirstViewController.swift in Sources */,
@@ -363,7 +406,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
 				DEVELOPMENT_TEAM = SPG965W4E9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -377,7 +430,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
 				DEVELOPMENT_TEAM = SPG965W4E9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

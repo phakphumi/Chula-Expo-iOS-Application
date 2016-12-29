@@ -14,6 +14,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     let gender = ["Male", "Female"]
     
     var careerType = 0 // 0 = Student , 1 = Worker
+    var isFrameMove = false // false when frame did not move, true when frame did move
+    var name: String!
+    var imageProfile: UIImage!
     
     @IBOutlet var emailField: UITextField!
     @IBOutlet var ageField: UITextField!
@@ -43,7 +46,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        UIApplication.shared.statusBarStyle = .lightContent
         
         createGradientLayer()
         
@@ -67,10 +69,24 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         genderPicker.delegate = self
         genderPicker.dataSource = self
+        
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = false
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RegisterViewController.doneButtonGenderPicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RegisterViewController.cancelButtonGenderPicker))
+        
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+        toolbar.isUserInteractionEnabled = true
+        
+        genderField.inputAccessoryView = toolbar
         genderField.inputView = genderPicker
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
     }
     
@@ -108,28 +124,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        genderField.text = gender[row]
-        
-        // Try to find next responder
-        if let nextField = self.view.viewWithTag(genderField.tag + 1) as? UITextField {
-            
-            nextField.becomeFirstResponder()
-            
-        } else {
-            
-            // Not found, so remove keyboard.
-            genderField.resignFirstResponder()
-            
-        }
-        
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         // Try to find next responder
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            
+            if nextField == genderField {
+                
+                textField.resignFirstResponder()
+                
+            }
             
             nextField.becomeFirstResponder()
             
@@ -142,6 +146,27 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         return false
 
+    }
+    
+    func cancelButtonGenderPicker() {
+        
+        genderField.resignFirstResponder()
+        
+    }
+    
+    func doneButtonGenderPicker() {
+        
+        genderField.text = gender[genderPicker.selectedRow(inComponent: 0)]
+        
+        // Try to find next responder
+        if let nextField = self.view.viewWithTag(genderField.tag + 1) as? UITextField {
+            
+            genderField.resignFirstResponder()
+            
+            nextField.becomeFirstResponder()
+            
+        }
+        
     }
 
     
@@ -158,11 +183,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillShow(notification: NSNotification) {
         
-        let heightToDecrease = self.view.bounds.height * 0.15
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if !isFrameMove {
             
-            self.view.frame.origin.y -= keyboardSize.height - heightToDecrease
+            isFrameMove = true
+        
+            let heightToDecrease = self.view.bounds.height * 0.15
+            
+        
+        
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+                self.view.frame.origin.y -= keyboardSize.height - heightToDecrease
+            
+            }
             
         }
     
@@ -170,12 +203,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillHide(notification: NSNotification) {
         
-        let heightToDecrease = self.view.bounds.height * 0.15
-        
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-
-            self.view.frame.origin.y += keyboardSize.height - heightToDecrease
+        if isFrameMove {
             
+            isFrameMove = false
+        
+            let heightToDecrease = self.view.bounds.height * 0.15
+        
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+
+                self.view.frame.origin.y += keyboardSize.height - heightToDecrease
+            
+            }
+        
         }
         
     }
@@ -239,7 +278,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func createNameLabelView() {
         
-        let nameLabelViewWidth = self.view.bounds.width * 0.82
+        let nameLabelViewWidth = self.view.bounds.width * 0.95
         let nameLabelViewHegiht = CGFloat(30)
         let nameLabelViewTopMargin = self.view.bounds.height * 0.285
         
@@ -248,7 +287,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         nameLabelView.font = nameLabelView.font.withSize(25)
         nameLabelView.textAlignment = NSTextAlignment.center
         nameLabelView.textColor = UIColor.white
-        nameLabelView.text = "Mark Zuckerberg"
+        nameLabelView.text = name
         
         self.view.addSubview(nameLabelView)
         
@@ -260,7 +299,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         let imageViewTopMargin = self.view.bounds.height * 0.064
         
         imageProfileView = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - imageViewWidthAndHeight / 2, y: imageViewTopMargin, width: imageViewWidthAndHeight, height: imageViewWidthAndHeight))
-        imageProfileView.image = UIImage(named: "mark_zuckerberg.jpg")
+        imageProfileView.image = self.imageProfile
         imageProfileView.layer.cornerRadius = imageProfileView.bounds.height / 2
         imageProfileView.layer.borderColor = UIColor.white.cgColor
         imageProfileView.layer.borderWidth = 3

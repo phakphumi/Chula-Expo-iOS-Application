@@ -342,9 +342,10 @@ class InterestedViewController: UIViewController {
             
             view.addSubview(movingView[i])
             
+            movingView[i].isUserInteractionEnabled = true
+            
             //Begin, create gestureRecognizer to moving the object
             let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(InterestedViewController.wasDragged(gestureRecognizer:)))
-            movingView[i].isUserInteractionEnabled = true
             movingView[i].addGestureRecognizer(dragGestureRecognizer)
             //End
             

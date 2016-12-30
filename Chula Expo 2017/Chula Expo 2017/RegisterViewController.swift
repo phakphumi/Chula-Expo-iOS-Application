@@ -13,11 +13,14 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     let genderPicker = UIPickerView()
     let gender = ["Male", "Female"]
     
+    var nameView = 0 // 0 = Label, 1 = Text Field
     var careerType = 0 // 0 = Student , 1 = Worker
     var isFrameMove = false // false when frame did not move, true when frame did move
     var name: String!
     var imageProfile: UIImage!
+    var activeField: UITextField!
     
+    @IBOutlet var nameField: UITextField!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var ageField: UITextField!
     @IBOutlet var genderField: UITextField!
@@ -37,7 +40,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var gradeOrPosition: UILabel!
     
 
-    @IBAction func doneButton(_ sender: UIButton) {
+    @IBAction func nextButton(_ sender: UIButton) {
         
         performSegue(withIdentifier: "toInterestedView", sender: self)
         
@@ -60,7 +63,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         ageField.tag = 2
         genderField.tag = 3
         schoolOrCompanyField.tag = 4
-        gradeOrPositionField.tag = 5
+        gradeOrPositionField.tag = 5        
         
         stylingTextField(textField: emailField)
         stylingTextField(textField: ageField)
@@ -97,15 +100,44 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.view.endEditing(true)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == nameField {
+            
+            toggleNameLabel()
+            
+            textField.resignFirstResponder()
+            
+        } else {
+        
+            // Try to find next responder
+            if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            
+                nextField.becomeFirstResponder()
+            
+            } else {
+            
+                // Not found, so remove keyboard.
+                textField.resignFirstResponder()
+                
+            }
+            
+        }
+        
+        return false
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        activeField = textField
         
     }
     
@@ -123,24 +155,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         return gender[row]
         
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        // Try to find next responder
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            
-            nextField.becomeFirstResponder()
-            
-        } else {
-            
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
-            
-        }
-        
-        return false
-
     }
     
     func cancelButtonGenderPicker() {
@@ -176,7 +190,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillShow(notification: NSNotification) {
         
-        if !isFrameMove {
+        if !isFrameMove && activeField != nameField {
             
             isFrameMove = true
         
@@ -201,7 +215,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillHide(notification: NSNotification) {
         
-        if isFrameMove {
+        if isFrameMove && activeField != nameField {
             
             isFrameMove = false
                 
@@ -227,13 +241,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         let remainingGradientHeight = gradientHeight - movingFrame - UIApplication.shared.statusBarFrame.height
         
         let movingLabel = remainingGradientHeight / 2 - remainingNameLabelViewTopMargin
-        
-        print(movingFrame)
-        print(nameLabelViewTopMargin)
-        print(gradientHeight)
-        print(remainingNameLabelViewTopMargin)
-        print(remainingGradientHeight)
-        print(movingLabel)
         
         UIView.animate(withDuration: 0.5) {
             
@@ -329,12 +336,56 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
+    func tapOnCareerRadio() {
+        
+        if careerType == 1 {
+            
+            careerType = 0 // set to student
+            
+            worker.setTitleColor(UIColor.white, for: .normal)
+            worker.layer.backgroundColor = nil
+            workerCheckmark.image = nil
+            
+            student.setTitleColor(UIColor.black, for: .normal)
+            student.layer.backgroundColor = UIColor.white.cgColor
+            studentCheckmark.image = UIImage(named: "register_checkmark.png")
+            
+            
+            schoolOrCompany.text = "SCHOOL/UNIVERSITY"
+            schoolOrCompanyField.placeholder = "Chulalongkorn University"
+            
+            gradeOrPosition.text = "GRADE/YEAR"
+            gradeOrPositionField.placeholder = "3"
+            
+        } else {
+            
+            careerType = 1 // set to worker
+            
+            student.setTitleColor(UIColor.white, for: .normal)
+            student.layer.backgroundColor = nil
+            studentCheckmark.image = nil
+            
+            worker.setTitleColor(UIColor.black, for: .normal)
+            worker.layer.backgroundColor = UIColor.white.cgColor
+            workerCheckmark.image = UIImage(named: "register_checkmark.png")
+            
+            schoolOrCompany.text = "COMPANY/ORGANIZATION"
+            schoolOrCompanyField.placeholder = "Example Company"
+            
+            gradeOrPosition.text = "POSITION"
+            gradeOrPositionField.placeholder = "Software Engineering"
+            
+        }
+        
+    }
+    
     func createNameLabelView() {
         
-        let nameLabelViewWidth = self.view.bounds.width * 0.95
+        let nameLabelViewWidth = self.view.bounds.width * 0.85
         let nameLabelViewHegiht = CGFloat(30)
         let nameLabelViewTopMargin = self.view.bounds.height * 0.285
         
+        nameField.frame = CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2 + 500, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht)
         
         nameLabelView = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht))
         nameLabelView.font = nameLabelView.font.withSize(25)
@@ -342,7 +393,50 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         nameLabelView.textColor = UIColor.white
         nameLabelView.text = name
         
+        //Begin, create tap gestureRecognizer to select item
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.toggleNameLabel))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        nameLabelView.isUserInteractionEnabled = true
+        nameLabelView.addGestureRecognizer(tapGestureRecognizer)
+        //End
+        
         self.view.addSubview(nameLabelView)
+        
+    }
+    
+    func toggleNameLabel() {
+        
+        if nameView == 0 {
+            
+            nameView = 1
+        
+            nameField.text = nameLabelView.text
+            
+            nameField.becomeFirstResponder()
+        
+            UIView.animate(withDuration: 0.5) {
+            
+                self.nameField.transform = CGAffineTransform(translationX: -500, y: 0)
+            
+                self.nameLabelView.transform = CGAffineTransform(translationX: -500, y: 0)
+            
+            }
+            
+        } else {
+            
+            nameView = 0
+            
+            nameLabelView.text = nameField.text
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.nameField.transform = CGAffineTransform(translationX: 0, y: 0)
+                
+                self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: 0)
+                
+            })
+            
+        }
         
     }
     
@@ -386,47 +480,4 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func tapOnCareerRadio() {
-        
-        if careerType == 1 {
-            
-            careerType = 0 // set to student
-            
-            worker.setTitleColor(UIColor.white, for: .normal)
-            worker.layer.backgroundColor = nil
-            workerCheckmark.image = nil
-            
-            student.setTitleColor(UIColor.black, for: .normal)
-            student.layer.backgroundColor = UIColor.white.cgColor
-            studentCheckmark.image = UIImage(named: "register_checkmark.png")
-            
-            
-            schoolOrCompany.text = "SCHOOL/UNIVERSITY"
-            schoolOrCompanyField.placeholder = "Chulalongkorn University"
-            
-            gradeOrPosition.text = "GRADE/YEAR"
-            gradeOrPositionField.placeholder = "3"
-            
-        } else {
-            
-            careerType = 1 // set to worker
-            
-            student.setTitleColor(UIColor.white, for: .normal)
-            student.layer.backgroundColor = nil
-            studentCheckmark.image = nil
-            
-            worker.setTitleColor(UIColor.black, for: .normal)
-            worker.layer.backgroundColor = UIColor.white.cgColor
-            workerCheckmark.image = UIImage(named: "register_checkmark.png")
-            
-            schoolOrCompany.text = "COMPANY/ORGANIZATION"
-            schoolOrCompanyField.placeholder = "Example Company"
-            
-            gradeOrPosition.text = "POSITION"
-            gradeOrPositionField.placeholder = "Software Engineering"
-            
-        }
-        
-    }
-
 }

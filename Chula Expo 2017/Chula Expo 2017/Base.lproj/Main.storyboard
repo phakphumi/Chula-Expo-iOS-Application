@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbF-gx-5w7">
-                                <rect key="frame" x="41" y="301.5" width="292" height="16"/>
+                                <rect key="frame" x="41" y="302" width="292" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="CEA-TN-oXH"/>
                                     <constraint firstAttribute="width" constant="292" id="rF2-ER-tFL"/>
@@ -89,7 +89,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="553-tw-m1o">
-                                <rect key="frame" x="41" y="355.5" width="125" height="16"/>
+                                <rect key="frame" x="41" y="356" width="125" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="WT1-VS-JkW"/>
                                     <constraint firstAttribute="width" constant="125" id="mrE-93-Fke"/>
@@ -99,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENDER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ2-Yb-B3e">
-                                <rect key="frame" x="208" y="355.5" width="125" height="16"/>
+                                <rect key="frame" x="208" y="356" width="125" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="dBz-hv-93h"/>
                                     <constraint firstAttribute="height" constant="16" id="ik6-l8-Jyr"/>
@@ -109,7 +109,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOOL/UNIVERSITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM5-7f-HMq">
-                                <rect key="frame" x="41" y="414.5" width="292" height="16"/>
+                                <rect key="frame" x="41" y="415" width="292" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="292" id="9GF-Kr-AJt"/>
                                     <constraint firstAttribute="height" constant="16" id="FXo-Rb-1iL"/>
@@ -119,7 +119,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRADE/YEAR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2DM-ua-Kd8">
-                                <rect key="frame" x="40" y="473.5" width="292" height="16"/>
+                                <rect key="frame" x="40" y="474" width="292" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="292" id="5Oi-Dq-lFe"/>
                                     <constraint firstAttribute="height" constant="16" id="xro-oZ-DDT"/>
@@ -129,7 +129,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="example@mail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdK-kN-mzP">
-                                <rect key="frame" x="41" y="318.5" width="292" height="30"/>
+                                <rect key="frame" x="41" y="319" width="292" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6sJ-4K-xwm"/>
                                     <constraint firstAttribute="width" constant="292" id="8gH-YT-m9D"/>
@@ -142,7 +142,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="32" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Li9-NK-GIM">
-                                <rect key="frame" x="41" y="377.5" width="125" height="30"/>
+                                <rect key="frame" x="41" y="378" width="125" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="Kvu-j8-Mn1"/>
                                     <constraint firstAttribute="height" constant="30" id="RuH-FZ-UT0"/>
@@ -155,7 +155,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Male" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kig-2w-yjh">
-                                <rect key="frame" x="208" y="377.5" width="125" height="30"/>
+                                <rect key="frame" x="208" y="378" width="125" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="aL6-zC-lX5"/>
                                     <constraint firstAttribute="width" constant="125" id="gXQ-rS-gRh"/>
@@ -168,7 +168,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Chulalongkorn University" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qum-fi-euU">
-                                <rect key="frame" x="41" y="436.5" width="292" height="30"/>
+                                <rect key="frame" x="41" y="437" width="292" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="6nk-eU-Pna"/>
                                     <constraint firstAttribute="width" constant="292" id="pG0-o4-ugD"/>
@@ -181,7 +181,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjU-rA-BHH">
-                                <rect key="frame" x="41" y="495.5" width="292" height="30"/>
+                                <rect key="frame" x="41" y="496" width="292" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jDx-Oz-Rd5"/>
                                     <constraint firstAttribute="width" constant="292" id="tdB-lE-FA7"/>
@@ -191,6 +191,16 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="jlo-Yc-bvp" id="Zig-Cn-4aY"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter your full name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="glb-eJ-D6W">
+                                <rect key="frame" x="500" y="221" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jlo-Yc-bvp" id="MpE-PW-iZs"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -243,6 +253,7 @@
                         <outlet property="genderField" destination="kig-2w-yjh" id="XfW-15-Qwr"/>
                         <outlet property="gradeOrPosition" destination="2DM-ua-Kd8" id="bud-UF-blv"/>
                         <outlet property="gradeOrPositionField" destination="hjU-rA-BHH" id="7XJ-Uc-yAj"/>
+                        <outlet property="nameField" destination="glb-eJ-D6W" id="2XZ-7m-CyE"/>
                         <outlet property="schoolOrCompany" destination="vM5-7f-HMq" id="BT1-HX-EI5"/>
                         <outlet property="schoolOrCompanyField" destination="Qum-fi-euU" id="hpB-Cv-huc"/>
                         <segue destination="Brk-R1-mjU" kind="show" identifier="toInterestedView" id="Mxe-1N-eC0"/>

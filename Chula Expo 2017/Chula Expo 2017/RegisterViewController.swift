@@ -25,6 +25,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var gradeOrPositionField: UITextField!
     
     var imageProfileView: UIImageView!
+    var nameLabelView: UILabel!
     var student: UIButton!
     var worker: UIButton!
     
@@ -129,12 +130,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         // Try to find next responder
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             
-            if nextField == genderField {
-                
-                textField.resignFirstResponder()
-                
-            }
-            
             nextField.becomeFirstResponder()
             
         } else {
@@ -161,8 +156,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         // Try to find next responder
         if let nextField = self.view.viewWithTag(genderField.tag + 1) as? UITextField {
             
-            genderField.resignFirstResponder()
-            
             nextField.becomeFirstResponder()
             
         }
@@ -188,12 +181,17 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             isFrameMove = true
         
             let heightToDecrease = self.view.bounds.height * 0.15
-            
-        
         
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            
-                self.view.frame.origin.y -= keyboardSize.height - heightToDecrease
+                
+                self.hideImageView()
+                self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease)
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.view.transform = CGAffineTransform(translationX: 0, y: -(keyboardSize.height - heightToDecrease))
+                    
+                })
             
             }
             
@@ -206,15 +204,70 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         if isFrameMove {
             
             isFrameMove = false
-        
-            let heightToDecrease = self.view.bounds.height * 0.15
-        
-            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                
+            self.showImageView()
+            self.moveLabelToBeginning()
 
-                self.view.frame.origin.y += keyboardSize.height - heightToDecrease
-            
-            }
+            UIView.animate(withDuration: 0.5, animations: {
+                    
+                self.view.transform = CGAffineTransform(translationX: 0, y: 0)
+                    
+            })
         
+        }
+        
+    }
+    
+    func moveLabelToCenterOfGradient(movingFrame: CGFloat) {
+        
+        let nameLabelViewTopMargin = self.view.bounds.height * 0.285
+        let gradientHeight = self.view.bounds.height * 0.352
+        
+        let remainingNameLabelViewTopMargin = nameLabelViewTopMargin - movingFrame
+        let remainingGradientHeight = gradientHeight - movingFrame - UIApplication.shared.statusBarFrame.height
+        
+        let movingLabel = remainingGradientHeight / 2 - remainingNameLabelViewTopMargin
+        
+        print(movingFrame)
+        print(nameLabelViewTopMargin)
+        print(gradientHeight)
+        print(remainingNameLabelViewTopMargin)
+        print(remainingGradientHeight)
+        print(movingLabel)
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: movingLabel)
+            
+        }
+        
+        
+    }
+    
+    func moveLabelToBeginning() {
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: 0)
+            
+        }
+        
+    }
+    
+    func hideImageView() {
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.imageProfileView.transform = CGAffineTransform(translationX: 0, y: -300)
+            
+        }
+        
+    }
+    
+    func showImageView() {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.imageProfileView.transform = CGAffineTransform(translationX: 0, y: 0)
         }
         
     }
@@ -283,7 +336,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         let nameLabelViewTopMargin = self.view.bounds.height * 0.285
         
         
-        let nameLabelView = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht))
+        nameLabelView = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht))
         nameLabelView.font = nameLabelView.font.withSize(25)
         nameLabelView.textAlignment = NSTextAlignment.center
         nameLabelView.textColor = UIColor.white

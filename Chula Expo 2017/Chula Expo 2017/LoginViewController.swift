@@ -19,13 +19,21 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        createGradientLayer()
+        if FBSDKAccessToken.current() != nil {
+            
+            profileUpdate()
+            
+        } else {
         
-        createLogo()
+            createGradientLayer()
         
-        createFacebookLoginButton()
+            createLogo()
         
-        createGuestLoginButton()
+            createFacebookLoginButton()
+        
+            createGuestLoginButton()
+        
+        }
         
     }
     
@@ -39,6 +47,38 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             registerViewController.name = self.name
             registerViewController.imageProfile = self.imageProfile
+            
+        }
+        
+    }
+    
+    func profileUpdate() {
+        
+        if let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"]) {
+            
+            graphRequest.start(completionHandler: { (connection, result, error) in
+                
+                if error != nil {
+                    
+                    print(error!)
+                    
+                } else {
+                    
+                    if let userDetails = result as? [String: String] {
+                        
+                        let userID = userDetails["id"]!
+                        
+                        self.name = userDetails["name"]!
+                        
+                        self.setImageProfile(userID: userID)
+                        
+                        self.performSegue(withIdentifier: "toRegister", sender: self)
+                        
+                    }
+                    
+                }
+                
+            })
             
         }
         
@@ -70,36 +110,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 if (result?.grantedPermissions.contains("email"))! {
                     
-                    if let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"]) {
-                        
-                        graphRequest.start(completionHandler: { (connection, result, error) in
-                            
-                            if error != nil {
-                                
-                                print(error!)
-                                
-                            } else {
-                                
-                                if let userDetails = result as? [String: String] {
-                                    
-                                    self.name = userDetails["name"]!
-                                    
-                                    let userID = userDetails["id"]!
-                                    let facebookProfileUrl = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")
-                                    
-                                    if let data = NSData(contentsOf: facebookProfileUrl!) {
-                                        self.imageProfile = UIImage(data: data as Data)
-                                    }
-                                    
-                                    self.performSegue(withIdentifier: "toRegister", sender: self)
-                                    
-                                }
-                                
-                            }
-                            
-                        })
-                        
-                    }
+                    self.profileUpdate()
                     
                 }
                 
@@ -109,13 +120,24 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     
+    func setImageProfile(userID: String) {
+        
+        let facebookProfileUrl = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")
+        
+        if let data = NSData(contentsOf: facebookProfileUrl!) {
+            
+            self.imageProfile = UIImage(data: data as Data)
+            
+        }
+        
+    }
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
-        print("Logged out")
         
     }
 

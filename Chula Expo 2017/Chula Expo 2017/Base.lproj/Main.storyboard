@@ -74,8 +74,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="31"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="doneButton:" destination="Brk-R1-mjU" eventType="touchUpInside" id="HEk-Vs-doY"/>
-                                    <action selector="doneButton:" destination="jlo-Yc-bvp" eventType="touchUpInside" id="nWc-qN-wV8"/>
+                                    <action selector="nextButton:" destination="jlo-Yc-bvp" eventType="touchUpInside" id="OZg-RN-GCK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbF-gx-5w7">

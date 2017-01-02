@@ -142,6 +142,8 @@ class InterestedViewController: UIViewController {
     
     func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
+        let distanceToChangeTopic = self.view.bounds.width * 0.26
+        
         //Begin, define movingView scale with height 37.5% of screen and making top margin 17.25% from top of screen
         let movingViewHeight = self.view.bounds.height * 0.375
         let movingViewTopMargin = self.view.bounds.height * 0.1725
@@ -171,50 +173,67 @@ class InterestedViewController: UIViewController {
             
             let currentViewIndex = movingView.index(of: touchedMovingView)!
             
-            if touchedMovingView.center.x > self.view.bounds.width - 100 && currentViewIndex != 0 {
+            if touchedMovingView.center.x > self.view.bounds.width - distanceToChangeTopic && currentViewIndex != 0 {
                 
                 descLabel.text = descText[currentViewIndex - 1]
+                
+                movingView[currentViewIndex].isUserInteractionEnabled = false
+                movingView[currentViewIndex - 1].isUserInteractionEnabled = true
+                
                 //Begin, moving right
                 let xPreviousViewFromCenter = movingView[currentViewIndex-1].center.x - self.view.bounds.width / 2 // check how next view far from center
                 
                 for i in 0..<4 {
                     
-                    baseCenterMovingView[i] = movingView[i].center.x - xPreviousViewFromCenter
-                    movingView[i].center.x = baseCenterMovingView[i]
                     
-                    let xFromCenter = movingView[i].center.x - self.view.bounds.width / 2 // check how far from center
-                    
-                    //Begin, scale to small the movingView when moving more than 25
-                    let scale = min(pow(abs(25 / xFromCenter),1/4), 1)
-                    
-                    let stretch = CGAffineTransform(scaleX: scale, y: scale)
-                    
-                    movingView[i].transform = stretch
-                    //End
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.baseCenterMovingView[i] = self.movingView[i].center.x - xPreviousViewFromCenter
+                        self.movingView[i].center.x = self.baseCenterMovingView[i]
+                        
+                        let xFromCenter = self.movingView[i].center.x - self.view.bounds.width / 2 // check how far from center
+                        
+                        //Begin, scale to small the movingView when moving more than 25
+                        let scale = min(pow(abs(25 / xFromCenter),1/4), 1)
+                        
+                        let stretch = CGAffineTransform(scaleX: scale, y: scale)
+                        
+                        self.movingView[i].transform = stretch
+                        //End
+                        
+                    })
                     
                 }
                 //End
                 
-            } else if touchedMovingView.center.x < 100 && currentViewIndex+1 != movingView.count {
+            } else if touchedMovingView.center.x < distanceToChangeTopic && currentViewIndex+1 != movingView.count {
                 
                 descLabel.text = descText[currentViewIndex + 1]
+                
+                movingView[currentViewIndex].isUserInteractionEnabled = false
+                movingView[currentViewIndex + 1].isUserInteractionEnabled = true
+                
                 //Begin, moving left
                 let xNextViewFromCenter = movingView[currentViewIndex+1].center.x - self.view.bounds.width / 2 // check how next view far from center
                 
                 for i in 0..<4 {
                     
-                    baseCenterMovingView[i] = movingView[i].center.x - xNextViewFromCenter
-                    movingView[i].center.x = baseCenterMovingView[i]
-                    
-                    let xFromCenter = movingView[i].center.x - self.view.bounds.width / 2 // check how far from center
-                    
-                    //Begin, scale to small the movingView when moving more than 25
-                    let scale = min(pow(abs(25 / xFromCenter),1/4), 1)
-                    
-                    let stretch = CGAffineTransform(scaleX: scale, y: scale)
-                    
-                    movingView[i].transform = stretch
-                    //End
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.baseCenterMovingView[i] = self.movingView[i].center.x - xNextViewFromCenter
+                        self.movingView[i].center.x = self.baseCenterMovingView[i]
+                        
+                        let xFromCenter = self.movingView[i].center.x - self.view.bounds.width / 2 // check how far from center
+                        
+                        //Begin, scale to small the movingView when moving more than 25
+                        let scale = min(pow(abs(25 / xFromCenter),1/4), 1)
+                        
+                        let stretch = CGAffineTransform(scaleX: scale, y: scale)
+                        
+                        self.movingView[i].transform = stretch
+                        //End
+                        
+                    })
                     
                 }
                 //End
@@ -224,17 +243,21 @@ class InterestedViewController: UIViewController {
                 //Begin, not moving
                 for i in 0..<4 {
                     
-                    movingView[i].center.x = baseCenterMovingView[i]
-                    
-                    let xFromCenter = movingView[i].center.x - self.view.bounds.width / 2 // check how far from center
-                    
-                    //Begin, scale to small the movingView when moving more than 25
-                    let scale = min(pow(abs(25 / xFromCenter),1/4), 1)
-                    
-                    let stretch = CGAffineTransform(scaleX: scale, y: scale)
-                    
-                    movingView[i].transform = stretch
-                    //End
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.movingView[i].center.x = self.baseCenterMovingView[i]
+                        
+                        let xFromCenter = self.movingView[i].center.x - self.view.bounds.width / 2 // check how far from center
+                        
+                        //Begin, scale to small the movingView when moving more than 25
+                        let scale = min(pow(abs(25 / xFromCenter),1/4), 1)
+                        
+                        let stretch = CGAffineTransform(scaleX: scale, y: scale)
+                        
+                        self.movingView[i].transform = stretch
+                        //End
+                        
+                    })
                     
                 }
                 //End
@@ -342,13 +365,13 @@ class InterestedViewController: UIViewController {
             
             view.addSubview(movingView[i])
             
-            movingView[i].isUserInteractionEnabled = true
+            movingView[i].isUserInteractionEnabled = false
             
             //Begin, create gestureRecognizer to moving the object
             let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(InterestedViewController.wasDragged(gestureRecognizer:)))
             movingView[i].addGestureRecognizer(dragGestureRecognizer)
             //End
-            
+
             
             //Begin, create tap gestureRecognizer to select item
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
@@ -357,6 +380,8 @@ class InterestedViewController: UIViewController {
             //End
             
         }
+        
+        movingView[0].isUserInteractionEnabled = true
         
     }
     

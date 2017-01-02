@@ -190,23 +190,40 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillShow(notification: NSNotification) {
         
-        if !isFrameMove && activeField != nameField {
+        let heightToDecrease = self.view.bounds.height * 0.15
+        
+        if !isFrameMove && activeField != nameField && activeField != genderField{
             
             isFrameMove = true
-        
-            let heightToDecrease = self.view.bounds.height * 0.15
         
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 
                 self.hideImageView()
+                 
                 self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease)
                 
                 UIView.animate(withDuration: 0.5, animations: {
-                    
+                        
                     self.view.transform = CGAffineTransform(translationX: 0, y: -(keyboardSize.height - heightToDecrease))
                     
                 })
             
+            }
+            
+        } else if activeField == genderField{
+            
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                
+                self.hideImageView()
+                
+                self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease - (genderPicker.inputAccessoryView?.frame.height)!)
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                        
+                    self.view.transform = CGAffineTransform(translationX: 0, y: -(keyboardSize.height - heightToDecrease - (self.genderPicker.inputAccessoryView?.frame.height)!))
+                    
+                })
+                
             }
             
         }

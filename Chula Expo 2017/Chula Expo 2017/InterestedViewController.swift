@@ -58,6 +58,8 @@ class InterestedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.clipsToBounds = true
+        
         createGradientNavBar()
         
         createTopicSlidebar()

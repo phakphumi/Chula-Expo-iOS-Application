@@ -6,40 +6,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Third View Controller-->
-        <scene sceneID="oyJ-39-nHa">
-            <objects>
-                <viewController id="ZEZ-ZG-WeD" customClass="ThirdViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="n2z-du-HbI"/>
-                        <viewControllerLayoutGuide type="bottom" id="uqF-4E-mWH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2fv-mf-mTT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Third Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIr-8r-J1K">
-                                <rect key="frame" x="93" y="309.5" width="189" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="dIr-8r-J1K" firstAttribute="centerY" secondItem="2fv-mf-mTT" secondAttribute="centerY" id="7bc-ib-piV"/>
-                            <constraint firstItem="dIr-8r-J1K" firstAttribute="centerX" secondItem="2fv-mf-mTT" secondAttribute="centerX" id="ixu-94-vGg"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="rVh-Nx-F4E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6KG-h3-4C3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2471.1999999999998" y="978.26086956521749"/>
-        </scene>
         <!--Events-->
         <scene sceneID="MpV-vr-efI">
             <objects>
@@ -53,12 +23,148 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ZEZ-ZG-WeD" kind="relationship" relationship="rootViewController" id="7Gp-Gh-gQh"/>
+                        <segue destination="j9g-G1-AE9" kind="relationship" relationship="rootViewController" id="RbH-YP-deA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P1-iy-5Nb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1532" y="978.26086956521749"/>
+        </scene>
+        <!--Facity Table View Controller-->
+        <scene sceneID="l3x-rG-uog">
+            <objects>
+                <tableViewController id="j9g-G1-AE9" customClass="FacityTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="AXo-eT-foM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facityCell" rowHeight="61" id="rt3-jW-bBj" customClass="FacityTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="rt3-jW-bBj" id="kSJ-xl-3WP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-eb-xTV">
+                                            <rect key="frame" x="18" y="7.5" width="40" height="40"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="pic"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="CUF-aF-Pbp"/>
+                                                <constraint firstAttribute="height" constant="40" id="gMm-Lz-qoX"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52l-P6-1dl">
+                                            <rect key="frame" x="68" y="17" width="299" height="21"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="name"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bhG-eb-xTV" secondAttribute="bottom" constant="3" id="1lF-8v-AS6"/>
+                                        <constraint firstItem="52l-P6-1dl" firstAttribute="leading" secondItem="bhG-eb-xTV" secondAttribute="trailing" constant="10" id="aHa-yv-OV4"/>
+                                        <constraint firstItem="bhG-eb-xTV" firstAttribute="top" secondItem="kSJ-xl-3WP" secondAttribute="topMargin" id="jHo-m4-P8R"/>
+                                        <constraint firstItem="52l-P6-1dl" firstAttribute="trailing" secondItem="kSJ-xl-3WP" secondAttribute="trailingMargin" id="kFZ-VT-TuK"/>
+                                        <constraint firstItem="52l-P6-1dl" firstAttribute="top" secondItem="kSJ-xl-3WP" secondAttribute="topMargin" constant="9" id="v5h-pX-pDw"/>
+                                        <constraint firstItem="bhG-eb-xTV" firstAttribute="leading" secondItem="kSJ-xl-3WP" secondAttribute="leadingMargin" constant="10" id="y58-hC-Blw"/>
+                                        <constraint firstItem="52l-P6-1dl" firstAttribute="centerY" secondItem="bhG-eb-xTV" secondAttribute="centerY" id="yDE-Z7-PWP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="facCell"/>
+                                <connections>
+                                    <outlet property="facityLogo" destination="bhG-eb-xTV" id="0nC-eP-HGa"/>
+                                    <outlet property="facityName" destination="52l-P6-1dl" id="oPB-d4-WWn"/>
+                                    <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="VVA-6N-Oe3">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j9g-G1-AE9" id="0UK-sr-qIn"/>
+                            <outlet property="delegate" destination="j9g-G1-AE9" id="4Vg-sj-j12"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fwI-eO-0qg">
+                        <barButtonItem key="backBarButtonItem" title=" " id="j0z-HN-fbG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="htI-VW-heB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2503" y="978"/>
+        </scene>
+        <!--Event Table View Controller-->
+        <scene sceneID="WbX-0K-f7K">
+            <objects>
+                <tableViewController id="lHK-QI-0zL" customClass="EventTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRp-lX-jKb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventDetail" rowHeight="61" id="o8q-i0-43g" customClass="EventCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="61"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8q-i0-43g" id="pgh-kq-aVc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-Un-AD7">
+                                            <rect key="frame" x="8" y="8" width="45" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TimeStart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-VZ-KsF">
+                                            <rect key="frame" x="8" y="31" width="76" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eventName" destination="7hW-Un-AD7" id="Du1-l5-EAX"/>
+                                    <outlet property="startTime" destination="I2a-VZ-KsF" id="k7u-YN-xv3"/>
+                                    <segue destination="RpB-ic-SmS" kind="show" id="74J-4M-7nc">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lHK-QI-0zL" id="Lfn-FI-oVn"/>
+                            <outlet property="delegate" destination="lHK-QI-0zL" id="VxB-J1-0xH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQd-de-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3538" y="978"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="82D-96-9FN">
+            <objects>
+                <viewController id="RpB-ic-SmS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O1p-53-pLU"/>
+                        <viewControllerLayoutGuide type="bottom" id="dfp-IW-hos"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Y4-Vj-g6c">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWk-py-5pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4362" y="978"/>
         </scene>
     </scenes>
 </document>

@@ -37,6 +37,8 @@
 		5FCE0A821E11A6F800E5DB16 /* medical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */; };
 		5FCE0A831E11A6F800E5DB16 /* engineering.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */; };
 		5FCE0A841E11A6F800E5DB16 /* architecture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A801E11A6F800E5DB16 /* architecture.jpg */; };
+		80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */; };
+		800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = medical.jpg; path = Assets.xcassets/medical.jpg; sourceTree = "<group>"; };
 		5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = engineering.jpg; path = Assets.xcassets/engineering.jpg; sourceTree = "<group>"; };
 		5FCE0A801E11A6F800E5DB16 /* architecture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = architecture.jpg; path = Assets.xcassets/architecture.jpg; sourceTree = "<group>"; };
+		80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewCell.swift; sourceTree = "<group>"; };
+		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,10 +132,9 @@
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
 				5F25B2361E10E086008A3B11 /* FirstViewController.swift */,
+				80073CDC1E1E315400C1F64E /* Third_events */,
 				5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */,
 				5F25B2301E10E006008A3B11 /* SecondViewController.swift */,
-				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
-				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
 				5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */,
 				5F25B2341E10E027008A3B11 /* FourthViewController.swift */,
 				5F4A9D9B1E10300900713580 /* Assets.xcassets */,
@@ -151,6 +154,17 @@
 				5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		80073CDC1E1E315400C1F64E /* Third_events */ = {
+			isa = PBXGroup;
+			children = (
+				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
+				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
+				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
+				80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */,
+			);
+			name = Third_events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +268,8 @@
 				5F4A9D9A1E10300900713580 /* Chula_Expo_2017.xcdatamodeld in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
+				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
+				80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

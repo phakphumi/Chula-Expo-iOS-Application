@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="EventData" representedClassName="EventData" syncable="YES" codeGenerationType="class">
-        <attribute name="canReserve" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="des" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="EventData" representedClassName="EventData" syncable="YES">
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="facity" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isHighlight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numOfseat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="shortDes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="tumbnail" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EventData" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="EventData" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

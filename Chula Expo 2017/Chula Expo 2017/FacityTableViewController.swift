@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 class FacityTableViewController: UITableViewController {
     
     struct facity
@@ -15,6 +15,9 @@ class FacityTableViewController: UITableViewController {
         var name: String = ""
         var logoName: String = ""
     }
+    
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     var facityList : [Array<facity>] =
     [
@@ -50,6 +53,7 @@ class FacityTableViewController: UITableViewController {
         title = "Events"
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        updateDatabase()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -62,6 +66,28 @@ class FacityTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    private func updateDatabase(){
+        managedObjectContext?.perform {
+            _ = EventData.addData(withName: "TEST2 Tomorrow", facityIs: "Human City", inManageobjectcontext: self.managedObjectContext!)
+        }
+        do{
+            try self.managedObjectContext?.save()
+            print("saved")
+        } catch let error{
+            print("saveError with \(error)")
+        }
+        printDatabaseStatistics()
+    }
+    
+    private func printDatabaseStatistics(){
+        managedObjectContext?.perform {
+            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "EventData")){
+                print("\(result.count)")
+            }
+        }
+    }
+
 
     // MARK: - Table view data source
 
@@ -100,4 +126,17 @@ class FacityTableViewController: UITableViewController {
         }
         return nil
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectFacity"{
+            print ("select fac")
+            print ( (sender as? FacityTableViewCell)?.name ?? "nil")
+            if let dest = segue.destination as? EventsTableViewController{
+                dest.facity = (sender as? FacityTableViewCell)?.name
+                dest.managedObjectContext = managedObjectContext
+            }
+            segue.destination.title = (sender as? FacityTableViewCell)?.name
+        }
+    }
+    
 }

@@ -15,7 +15,6 @@
 		5F25B2371E10E086008A3B11 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2361E10E086008A3B11 /* FirstViewController.swift */; };
 		5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D911E10300900713580 /* AppDelegate.swift */; };
 		5F4A9D971E10300900713580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D951E10300900713580 /* Main.storyboard */; };
-		5F4A9D9A1E10300900713580 /* Chula_Expo_2017.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D981E10300900713580 /* Chula_Expo_2017.xcdatamodeld */; };
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
 		5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */; };
 		5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */; };
@@ -37,8 +36,14 @@
 		5FCE0A821E11A6F800E5DB16 /* medical.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */; };
 		5FCE0A831E11A6F800E5DB16 /* engineering.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */; };
 		5FCE0A841E11A6F800E5DB16 /* architecture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FCE0A801E11A6F800E5DB16 /* architecture.jpg */; };
+		800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 800641D61E215A7F00760834 /* Model.xcdatamodeld */; };
+		800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */; };
+		800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */; };
 		80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */; };
 		800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */; };
+		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
+		80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */; };
+		80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +56,6 @@
 		5F4A9D8E1E10300900713580 /* Chula Expo 2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo 2017.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A9D911E10300900713580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4A9D961E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5F4A9D991E10300900713580 /* Chula_Expo_2017.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chula_Expo_2017.xcdatamodel; sourceTree = "<group>"; };
 		5F4A9D9B1E10300900713580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4A9D9E1E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F4A9DA01E10300900713580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,8 +79,14 @@
 		5FCE0A7E1E11A6F800E5DB16 /* medical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = medical.jpg; path = Assets.xcassets/medical.jpg; sourceTree = "<group>"; };
 		5FCE0A7F1E11A6F800E5DB16 /* engineering.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = engineering.jpg; path = Assets.xcassets/engineering.jpg; sourceTree = "<group>"; };
 		5FCE0A801E11A6F800E5DB16 /* architecture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = architecture.jpg; path = Assets.xcassets/architecture.jpg; sourceTree = "<group>"; };
+		800641D71E215A7F00760834 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewCell.swift; sourceTree = "<group>"; };
 		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewController.swift; sourceTree = "<group>"; };
+		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +150,7 @@
 				5F4A9D9B1E10300900713580 /* Assets.xcassets */,
 				5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */,
 				5F4A9DA01E10300900713580 /* Info.plist */,
-				5F4A9D981E10300900713580 /* Chula_Expo_2017.xcdatamodeld */,
+				800641D61E215A7F00760834 /* Model.xcdatamodeld */,
 			);
 			path = "Chula Expo 2017";
 			sourceTree = "<group>";
@@ -160,9 +170,14 @@
 			isa = PBXGroup;
 			children = (
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
+				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
+				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
+				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
 				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
 				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
+				80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */,
 				80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */,
+				80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */,
 			);
 			name = Third_events;
 			sourceTree = "<group>";
@@ -259,15 +274,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
+				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
 				5F25B2371E10E086008A3B11 /* FirstViewController.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
+				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
-				5F4A9D9A1E10300900713580 /* Chula_Expo_2017.xcdatamodeld in Sources */,
+				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
+				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
+				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
 				80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */,
 			);
@@ -434,7 +454,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CPCU41.Chula-Expo-2017";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -458,7 +478,7 @@
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CPCU41.Chula-Expo-2017";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -490,13 +510,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5F4A9D981E10300900713580 /* Chula_Expo_2017.xcdatamodeld */ = {
+		800641D61E215A7F00760834 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5F4A9D991E10300900713580 /* Chula_Expo_2017.xcdatamodel */,
+				800641D71E215A7F00760834 /* Model.xcdatamodel */,
 			);
-			currentVersion = 5F4A9D991E10300900713580 /* Chula_Expo_2017.xcdatamodel */;
-			path = Chula_Expo_2017.xcdatamodeld;
+			currentVersion = 800641D71E215A7F00760834 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

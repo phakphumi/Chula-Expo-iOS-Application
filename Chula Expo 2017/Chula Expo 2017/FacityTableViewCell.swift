@@ -66,4 +66,6 @@ class FacityTableViewCell: UITableViewCell {
         facityLogo.layer.cornerRadius = facityLogo.bounds.height / 2
         facityLogo.layer.masksToBounds = true
     }
+    
+    
 }

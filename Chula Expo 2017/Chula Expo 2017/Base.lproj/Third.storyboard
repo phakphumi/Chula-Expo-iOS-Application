@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,7 +54,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52l-P6-1dl">
-                                            <rect key="frame" x="68" y="17" width="299" height="21"/>
+                                            <rect key="frame" x="73" y="17" width="294" height="21"/>
                                             <accessibility key="accessibilityConfiguration" identifier="name"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
@@ -63,11 +62,10 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="bhG-eb-xTV" secondAttribute="bottom" constant="3" id="1lF-8v-AS6"/>
-                                        <constraint firstItem="52l-P6-1dl" firstAttribute="leading" secondItem="bhG-eb-xTV" secondAttribute="trailing" constant="10" id="aHa-yv-OV4"/>
+                                        <constraint firstItem="52l-P6-1dl" firstAttribute="leading" secondItem="bhG-eb-xTV" secondAttribute="trailing" constant="15" id="aHa-yv-OV4"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bhG-eb-xTV" secondAttribute="bottom" id="aSl-1A-FY5"/>
                                         <constraint firstItem="bhG-eb-xTV" firstAttribute="top" secondItem="kSJ-xl-3WP" secondAttribute="topMargin" id="jHo-m4-P8R"/>
                                         <constraint firstItem="52l-P6-1dl" firstAttribute="trailing" secondItem="kSJ-xl-3WP" secondAttribute="trailingMargin" id="kFZ-VT-TuK"/>
-                                        <constraint firstItem="52l-P6-1dl" firstAttribute="top" secondItem="kSJ-xl-3WP" secondAttribute="topMargin" constant="9" id="v5h-pX-pDw"/>
                                         <constraint firstItem="bhG-eb-xTV" firstAttribute="leading" secondItem="kSJ-xl-3WP" secondAttribute="leadingMargin" constant="10" id="y58-hC-Blw"/>
                                         <constraint firstItem="52l-P6-1dl" firstAttribute="centerY" secondItem="bhG-eb-xTV" secondAttribute="centerY" id="yDE-Z7-PWP"/>
                                     </constraints>
@@ -97,16 +95,16 @@
             </objects>
             <point key="canvasLocation" x="2503" y="978"/>
         </scene>
-        <!--Event Table View Controller-->
+        <!--Events Table View Controller-->
         <scene sceneID="WbX-0K-f7K">
             <objects>
-                <tableViewController id="lHK-QI-0zL" customClass="EventTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="lHK-QI-0zL" customClass="EventsTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRp-lX-jKb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventDetail" rowHeight="61" id="o8q-i0-43g" customClass="EventCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventDetail" rowHeight="61" id="o8q-i0-43g" customClass="EventTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8q-i0-43g" id="pgh-kq-aVc">
@@ -114,7 +112,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-Un-AD7">
-                                            <rect key="frame" x="8" y="8" width="45" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="45" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -130,8 +128,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="eventName" destination="7hW-Un-AD7" id="Du1-l5-EAX"/>
-                                    <outlet property="startTime" destination="I2a-VZ-KsF" id="k7u-YN-xv3"/>
+                                    <outlet property="eventName" destination="7hW-Un-AD7" id="0YH-dN-wrv"/>
+                                    <outlet property="startTime" destination="I2a-VZ-KsF" id="cxL-3w-zMJ"/>
                                     <segue destination="RpB-ic-SmS" kind="show" id="74J-4M-7nc">
                                         <nil key="action"/>
                                     </segue>
@@ -146,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQd-de-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3538" y="978"/>
+            <point key="canvasLocation" x="3536.8000000000002" y="977.36131934032994"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="82D-96-9FN">

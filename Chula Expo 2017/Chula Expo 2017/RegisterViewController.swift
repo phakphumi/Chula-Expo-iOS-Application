@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     let genderPicker = UIPickerView()
     let gender = ["Male", "Female"]
@@ -111,8 +111,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         if textField == nameField {
             
-            toggleNameLabel()
-            
             textField.resignFirstResponder()
             
         } else {
@@ -175,6 +173,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         }
         
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            imageProfileView.image = image
+            
+        } else {
+            
+            print("error while access photo library")
+            
+        }
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
 
     
     
@@ -192,7 +206,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         let heightToDecrease = self.view.bounds.height * 0.15
         
-        if !isFrameMove && activeField != nameField && activeField != genderField{
+        //Check If Will move the frame and nameField is active
+        if nameView == 1 {
+            
+            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                
+                self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease)
+                
+            }
+            
+        }
+        
+        if !isFrameMove && activeField != genderField{
             
             isFrameMove = true
         
@@ -232,7 +257,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillHide(notification: NSNotification) {
         
-        if isFrameMove && activeField != nameField {
+        if activeField == nameField {
+            
+            hideNameField()
+            
+        }
+        
+        if isFrameMove {
             
             isFrameMove = false
                 
@@ -261,7 +292,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         UIView.animate(withDuration: 0.5) {
             
-            self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: movingLabel)
+            if self.activeField == self.nameField {
+                
+                self.nameField.transform = CGAffineTransform(translationX: -500, y: movingLabel)
+                
+                self.nameLabelView.transform = CGAffineTransform(translationX: -500, y: movingLabel)
+                
+            } else {
+            
+                self.nameField.transform = CGAffineTransform(translationX: 0, y: movingLabel)
+                
+                self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: movingLabel)
+            
+            }
             
         }
         
@@ -271,6 +314,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     func moveLabelToBeginning() {
         
         UIView.animate(withDuration: 0.5) {
+            
+            self.nameField.transform = CGAffineTransform(translationX: 0, y: 0)
             
             self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: 0)
             
@@ -411,7 +456,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         nameLabelView.text = name
         
         //Begin, create tap gestureRecognizer to select item
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.toggleNameLabel))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.showNameField))
         tapGestureRecognizer.numberOfTapsRequired = 1
         nameLabelView.isUserInteractionEnabled = true
         nameLabelView.addGestureRecognizer(tapGestureRecognizer)
@@ -421,41 +466,24 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func toggleNameLabel() {
+    func showNameField() {
         
-        if nameView == 0 {
-            
-            nameView = 1
+        nameView = 1
         
-            nameField.text = nameLabelView.text
-            
-            nameField.becomeFirstResponder()
+        nameField.text = nameLabelView.text
         
-            UIView.animate(withDuration: 0.5) {
-            
-                self.nameField.transform = CGAffineTransform(translationX: -500, y: 0)
-            
-                self.nameLabelView.transform = CGAffineTransform(translationX: -500, y: 0)
-            
-            }
-            
-        } else {
-            
-            nameView = 0
-            
-            nameLabelView.text = nameField.text
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                
-                self.nameField.transform = CGAffineTransform(translationX: 0, y: 0)
-                
-                self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: 0)
-                
-            })
-            
-        }
+        nameField.becomeFirstResponder()
         
     }
+    
+    func hideNameField() {
+        
+        nameView = 0
+        
+        nameLabelView.text = nameField.text
+        
+    }
+    
     
     func createProfileImageView() {
         
@@ -469,7 +497,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         imageProfileView.layer.borderWidth = 3
         imageProfileView.layer.masksToBounds = true
         
+        //Begin, create tap gestureRecognizer to select item
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.changeProfilePicture))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        imageProfileView.isUserInteractionEnabled = true
+        imageProfileView.addGestureRecognizer(tapGestureRecognizer)
+        //End
+        
         self.view.addSubview(imageProfileView)
+        
+    }
+    
+    func changeProfilePicture() {
+        
+        let imagePickerController = UIImagePickerController()
+        
+        imagePickerController.delegate = self
+        
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        imagePickerController.allowsEditing = false
+        
+        self.present(imagePickerController, animated: true, completion: nil)
         
     }
     

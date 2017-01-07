@@ -42,7 +42,35 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
 
     @IBAction func nextButton(_ sender: UIButton) {
         
-        performSegue(withIdentifier: "toInterestedView", sender: self)
+        var message = ""
+        
+        if emailField.text == "" || ageField.text == "" || genderField.text == "" || schoolOrCompanyField.text == "" || gradeOrPositionField.text == "" {
+            
+            message = "Please fill all field."
+            
+        } else if Int(ageField.text!)! > 120 {
+            
+            message = "Please correct your age."
+            
+        } else if Int(gradeOrPositionField.text!)! > 12 {
+            
+            message = "Please correct your grade."
+            
+        } else {
+            
+            performSegue(withIdentifier: "toInterestedView", sender: self)
+            
+        }
+        
+        if message != "" {
+        
+            let error = UIAlertController(title: "Error!", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+            error.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        
+            self.present(error, animated: true, completion: nil)
+            
+        }
         
     }
     
@@ -76,7 +104,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         let toolbar = UIToolbar()
         toolbar.barStyle = UIBarStyle.default
-        toolbar.isTranslucent = false
+        toolbar.isTranslucent = true
         toolbar.sizeToFit()
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RegisterViewController.doneButtonGenderPicker))
@@ -88,6 +116,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         genderField.inputAccessoryView = toolbar
         genderField.inputView = genderPicker
+        
+        ageField.inputAccessoryView = toolbar
+        gradeOrPositionField.inputAccessoryView = toolbar
         
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -163,12 +194,21 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func doneButtonGenderPicker() {
         
-        genderField.text = gender[genderPicker.selectedRow(inComponent: 0)]
+        if activeField == genderField {
+         
+            genderField.text = gender[genderPicker.selectedRow(inComponent: 0)]
+        
+        }
         
         // Try to find next responder
-        if let nextField = self.view.viewWithTag(genderField.tag + 1) as? UITextField {
+        if let nextField = self.view.viewWithTag(activeField.tag + 1) as? UITextField {
             
             nextField.becomeFirstResponder()
+            
+        } else {
+            
+            // Not found, so remove keyboard.
+            activeField.resignFirstResponder()
             
         }
         

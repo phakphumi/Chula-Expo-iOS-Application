@@ -320,9 +320,7 @@
                             <constraint firstItem="3GY-ar-QqY" firstAttribute="trailing" secondItem="geN-yO-9yY" secondAttribute="trailingMargin" id="5Hr-Dz-1uB"/>
                             <constraint firstItem="LXr-hu-mgR" firstAttribute="top" secondItem="c2F-Ac-vgm" secondAttribute="bottom" constant="29" id="6yW-rd-DyC"/>
                             <constraint firstItem="c2F-Ac-vgm" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="AgD-cd-Jd1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LXr-hu-mgR" secondAttribute="trailing" constant="80" id="BwO-30-sch"/>
                             <constraint firstItem="3GY-ar-QqY" firstAttribute="leading" secondItem="geN-yO-9yY" secondAttribute="leadingMargin" id="KLe-Fe-RY2"/>
-                            <constraint firstItem="LXr-hu-mgR" firstAttribute="leading" secondItem="geN-yO-9yY" secondAttribute="leadingMargin" constant="79" id="crb-zo-YeO"/>
                             <constraint firstItem="LXr-hu-mgR" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="p5J-dO-Z63"/>
                             <constraint firstItem="3GY-ar-QqY" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="qSJ-eH-j8P"/>
                         </constraints>

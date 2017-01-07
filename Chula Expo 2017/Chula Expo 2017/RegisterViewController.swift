@@ -380,10 +380,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         worker.setTitle("Worker", for: .normal)
         worker.setTitleColor(UIColor.white, for: .normal)
         
-        studentCheckmark = UIImageView(frame: CGRect(x: 8, y: 6, width: 18, height: 16))
+        studentCheckmark = UIImageView(frame: CGRect(x: 8, y: careerView.bounds.height / 2 - 9, width: 18, height: 18))
         studentCheckmark.image = UIImage(named: "register_checkmark.png")
         
-        workerCheckmark = UIImageView(frame: CGRect(x: careerView.bounds.width / 2 + 8, y: 6, width: 18, height: 16))
+        workerCheckmark = UIImageView(frame: CGRect(x: careerView.bounds.width / 2 + 8, y: careerView.bounds.height / 2 - 9, width: 18, height: 18))
         workerCheckmark.image = nil
         
         careerView.addSubview(student)

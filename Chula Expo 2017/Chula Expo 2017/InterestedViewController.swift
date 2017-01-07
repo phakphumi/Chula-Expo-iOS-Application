@@ -41,7 +41,7 @@ class InterestedViewController: UIViewController {
     @IBAction func doneButton(_ sender: UIButton) {
         
         //Begin, create confirm alert when user click done button
-        let confirm = UIAlertController(title: "Are you sure to done this process?", message: "You can't come back later", preferredStyle: UIAlertControllerStyle.alert)
+        let confirm = UIAlertController(title: "Are you sure to done this process?", message: "You can change your profile later in setting", preferredStyle: UIAlertControllerStyle.alert)
         
         confirm.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
             

@@ -292,16 +292,6 @@
                                     <action selector="doneButton:" destination="Brk-R1-mjU" eventType="touchUpInside" id="JB8-q9-Tkd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXr-hu-mgR">
-                                <rect key="frame" x="95.5" y="421" width="184" height="126"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="184" id="A5A-JI-Ate"/>
-                                    <constraint firstAttribute="height" constant="126" id="ibg-G1-zZn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2F-Ac-vgm">
                                 <rect key="frame" x="16" y="307" width="343" height="53"/>
                                 <constraints>
@@ -312,17 +302,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXr-hu-mgR">
+                                <rect key="frame" x="95" y="389" width="184" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="LbD-6n-VdL"/>
+                                    <constraint firstAttribute="width" constant="184" id="Pgb-8s-N0e"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c2F-Ac-vgm" firstAttribute="centerY" secondItem="geN-yO-9yY" secondAttribute="centerY" id="0NB-B5-jP1"/>
                             <constraint firstItem="AWu-JC-nO3" firstAttribute="top" secondItem="3GY-ar-QqY" secondAttribute="bottom" constant="20" id="425-Hy-CiD"/>
                             <constraint firstItem="3GY-ar-QqY" firstAttribute="trailing" secondItem="geN-yO-9yY" secondAttribute="trailingMargin" id="5Hr-Dz-1uB"/>
+                            <constraint firstItem="LXr-hu-mgR" firstAttribute="top" secondItem="c2F-Ac-vgm" secondAttribute="bottom" constant="29" id="6yW-rd-DyC"/>
                             <constraint firstItem="c2F-Ac-vgm" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="AgD-cd-Jd1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LXr-hu-mgR" secondAttribute="trailing" constant="80" id="BwO-30-sch"/>
                             <constraint firstItem="3GY-ar-QqY" firstAttribute="leading" secondItem="geN-yO-9yY" secondAttribute="leadingMargin" id="KLe-Fe-RY2"/>
-                            <constraint firstItem="LXr-hu-mgR" firstAttribute="top" secondItem="c2F-Ac-vgm" secondAttribute="bottom" constant="61" id="W0C-6Q-UMu"/>
-                            <constraint firstItem="LXr-hu-mgR" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="dIy-8L-c2K"/>
-                            <constraint firstItem="3GY-ar-QqY" firstAttribute="top" secondItem="LXr-hu-mgR" secondAttribute="bottom" constant="38" id="kYf-xq-zdN"/>
+                            <constraint firstItem="LXr-hu-mgR" firstAttribute="leading" secondItem="geN-yO-9yY" secondAttribute="leadingMargin" constant="79" id="crb-zo-YeO"/>
+                            <constraint firstItem="LXr-hu-mgR" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="p5J-dO-Z63"/>
                             <constraint firstItem="3GY-ar-QqY" firstAttribute="centerX" secondItem="geN-yO-9yY" secondAttribute="centerX" id="qSJ-eH-j8P"/>
                         </constraints>
                     </view>

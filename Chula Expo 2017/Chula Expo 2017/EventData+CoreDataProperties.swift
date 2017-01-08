@@ -10,9 +10,11 @@ import Foundation
 import CoreData
 
 
-extension EventData {
+extension EventData
+{
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<EventData> {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<EventData>
+    {
         return NSFetchRequest<EventData>(entityName: "EventData");
     }
 
@@ -23,10 +25,14 @@ extension EventData {
     @NSManaged public var longDesc: String?
     @NSManaged public var shortDesc: String?
     @NSManaged public var facity: String?
+    @NSManaged public var locationDesc: String?
+    @NSManaged public var canReserve: Bool
+    @NSManaged public var numOfSeat: Int16
     
     var dateSection: String
     {
-        get{
+        get
+        {
             if self.startTime!.isToday()
             {
                 return "TODAY"
@@ -45,9 +51,6 @@ extension EventData {
                 dateFormatter.dateFormat = "MMMM dd, EEE H m"
                 return dateFormatter.string(from: startTime! as Date)
             }
-            
         }
     }
-
-
 }

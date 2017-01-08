@@ -11,52 +11,71 @@ import UIKit
 class EventTableViewCell: UITableViewCell
 {
 
-    var name: String?{
-        didSet{
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    var name: String?
+    {
+        didSet
+        {
             updateUI()
-            eventName.sizeToFit()
         }
     }
-    var sTime: NSDate?{
-        didSet{
+    var startTime: NSDate?
+    {
+        didSet
+        {
             updateUI()
-            startTime.sizeToFit()
+        }
+    }
+    var endTime: NSDate?
+        {
+        didSet
+        {
+            updateUI()
+        }
+    }
+    var locationDesc: String?
+    {
+        didSet
+        {
+            updateUI()
         }
     }
     
-    @IBOutlet weak var eventName: UILabel!
-    @IBOutlet weak var startTime: UILabel!
+   
     
-    private func updateUI(){
-        eventName.text = nil
-        startTime.text = nil
+    private func updateUI()
+    {
+        
+        //Reset
+        
+        nameLabel.text = nil
+        timeLabel.text = nil
+        locationLabel.text = nil
         
         
-        if let name1 = name{
-            eventName.text = name1
+        if let eventName = name
+        {
+            nameLabel.text = eventName
         }
-        if let start = sTime{
-            if start.isToday()
-            {
-                self.startTime.text = "TODAY"
-            }
-            else if start.isTomorrow()
-            {
-                self.startTime.text = "TOMORROW"
-            }
-            else if start.isYesterday()
-            {
-                self.startTime.text = "YESTERDAY"
-            }
-            else
-            {
+        if let eventStartTime = startTime
+        {
+            if let eventEndTime = endTime{
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MMMM dd, EEE H m"
-                self.startTime.text = dateFormatter.string(from: start as Date)
+                dateFormatter.dateFormat = "H:mm"
+                let sTime = dateFormatter.string(from: eventStartTime as Date)
+                let eTime = dateFormatter.string(from: eventEndTime as Date)
+                timeLabel.text = "\(sTime) - \(eTime)"
             }
         }
-    }
+        if let eventLocationDesc = locationDesc
+        {
+            locationLabel.text = eventLocationDesc
+        }
     
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

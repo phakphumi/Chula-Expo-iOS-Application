@@ -44,6 +44,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         var message = ""
         
+        validateStylingTextField(textField: emailField)
+        validateStylingTextField(textField: ageField)
+        validateStylingTextField(textField: genderField)
+        validateStylingTextField(textField: schoolOrCompanyField)
+        validateStylingTextField(textField: gradeOrPositionField)
+        
         if emailField.text == "" || ageField.text == "" || genderField.text == "" || schoolOrCompanyField.text == "" || gradeOrPositionField.text == "" {
             
             message = "Please fill all field."
@@ -52,9 +58,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
             message = "Please correct your age."
             
+            warningStylingTextField(textField: ageField)
+            
         } else if Int(gradeOrPositionField.text!)! > 12 {
             
             message = "Please correct your grade."
+            
+            warningStylingTextField(textField: gradeOrPositionField)
             
         } else {
             
@@ -78,7 +88,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         createGradientLayer()
         
         createProfileImageView()
@@ -387,6 +396,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         let width = CGFloat(2.0)
         border.borderColor = UIColor(red: 0.83, green: 0.83, blue: 0.83, alpha: 0.20).cgColor
         border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width: textField.frame.size.width, height: textField.frame.size.height)
+        border.zPosition = -1
         
         border.borderWidth = width
         textField.layer.addSublayer(border)
@@ -394,11 +404,40 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
+    func validateStylingTextField(textField: UITextField) {
+        
+        let border = (textField.layer.sublayers?[0])! as CALayer
+        
+        if textField.text != "" {
+            
+            border.borderColor = UIColor(red: 0.83, green: 0.83, blue: 0.83, alpha: 0.20).cgColor
+            
+        } else {
+            
+            border.borderColor = UIColor.red.withAlphaComponent(0.2).cgColor
+            
+        }
+        
+    }
+    
+    func warningStylingTextField(textField: UITextField) {
+        
+        let border = (textField.layer.sublayers?[0])! as CALayer
+        border.borderColor = UIColor.red.withAlphaComponent(0.2).cgColor
+        
+    }
+    
     func createCareerRadio() {
         
         let careerViewWidth = self.view.bounds.width * 0.82
         let careerViewHeight = CGFloat(28)
-        let careerViewTopMargin = self.view.bounds.height * 0.39
+        var careerViewTopMargin = self.view.bounds.height * 0.39
+        
+        if self.view.bounds.height < 667 {
+            
+            careerViewTopMargin = self.view.bounds.height * 0.38
+            
+        }
         
         let careerView = UIView(frame: CGRect(x: self.view.bounds.width / 2 - careerViewWidth / 2, y: careerViewTopMargin, width: careerViewWidth, height: careerViewHeight))
         careerView.layer.backgroundColor = UIColor(red: 0.8863, green: 0.53725, blue: 0.7961, alpha: 1).cgColor

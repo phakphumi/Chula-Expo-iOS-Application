@@ -8,8 +8,8 @@
 
 import UIKit
 import CoreData
-class FacityTableViewController: UITableViewController {
-    
+class FacityTableViewController: UITableViewController
+{
     struct facity
     {
         var name: String = ""
@@ -62,28 +62,45 @@ class FacityTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateDatabase(){
-        managedObjectContext?.perform {
-            _ = EventData.addData(withName: "TEST2 Tomorrow", facityIs: "Human City", inManageobjectcontext: self.managedObjectContext!)
+    private func updateDatabase()
+    {
+        managedObjectContext?.perform
+        {
+           
+            _ = EventData.addData(
+                name: "Test",
+                facity: "Smart City",
+                locationDesc: "308 ENG3 Building",
+                startTime: NSDate(timeIntervalSinceNow: 1000),
+                endTime: NSDate(timeIntervalSinceNow: 3000),
+                shortDesc: "", longDesc: "",
+                canReserve: true,
+                numOfSeat: 99,
+                inManageobjectcontext: self.managedObjectContext!
+            )
         }
-        do{
+        do
+        {
             try self.managedObjectContext?.save()
             print("saved")
-        } catch let error{
+        }
+        catch let error {
             print("saveError with \(error)")
         }
         printDatabaseStatistics()
     }
     
-    private func printDatabaseStatistics(){
+    private func printDatabaseStatistics()
+    {
         managedObjectContext?.perform {
             if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "EventData")){
-                print("\(result.count)")
+                print("Total datas in coredata \(result.count)")
             }
         }
     }
@@ -129,7 +146,7 @@ class FacityTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectFacity"{
-            print ("select fac")
+            print ("select facity ")
             print ( (sender as? FacityTableViewCell)?.name ?? "nil")
             if let dest = segue.destination as? EventsTableViewController{
                 dest.facity = (sender as? FacityTableViewCell)?.name

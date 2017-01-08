@@ -13,30 +13,42 @@ import CoreData
 public class EventData: NSManagedObject
 {
     
-    class func addData(withName name: String, facityIs facity: String, inManageobjectcontext context: NSManagedObjectContext) -> EventData?
+    class func addData(
+        name: String,
+        facity: String,
+        locationDesc: String,
+        startTime: NSDate,
+        endTime: NSDate,
+        shortDesc: String,
+        longDesc: String,
+        canReserve: Bool,
+        numOfSeat: Int16,
+        inManageobjectcontext context: NSManagedObjectContext
+        ) -> EventData?
+   
     {
-        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
         request.predicate = NSPredicate(format: "facity = %@ AND name = %@", facity, name)
         
         if let result = (try? context.fetch(request))?.first as? EventData
         {
-            // found this tweet in the database, return it ...
-            result.name = name
-            result.facity = facity
-            result.startTime = NSDate(timeIntervalSinceNow: 86400)
-            print("Found \(result.name) AND updated")
-            
+            // found this event in the database, return it ...
+            print("Found \(result.name)")
             return result
             
-        } else if let newData = NSEntityDescription.insertNewObject(forEntityName: "EventData", into: context) as? EventData
+        }
+        else if let newData = NSEntityDescription.insertNewObject(forEntityName: "EventData", into: context) as? EventData
         {
-            // created a new tweet in the database
-            // load it up with information from the Twitter.Tweet ...
+            // created a new event in the database
             newData.name = name
             newData.facity = facity
-            newData.startTime = NSDate(timeIntervalSinceNow: 86400)
-            
+            newData.locationDesc = locationDesc
+            newData.startTime = startTime
+            newData.endTime = endTime
+            newData.shortDesc = shortDesc
+            newData.longDesc = longDesc
+            newData.canReserve = canReserve
+            newData.numOfSeat = numOfSeat
             return newData
         }
         return nil

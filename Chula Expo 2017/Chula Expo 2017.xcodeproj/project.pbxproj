@@ -33,6 +33,7 @@
 		800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */; };
 		80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */; };
 		800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */; };
+		802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F13B21E23FC240098A687 /* BookTableViewCell.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */; };
 		80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */; };
@@ -68,6 +69,7 @@
 		800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewCell.swift; sourceTree = "<group>"; };
 		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewController.swift; sourceTree = "<group>"; };
+		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
+				802F13B21E23FC240098A687 /* BookTableViewCell.swift */,
 				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
 				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
 				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
@@ -272,6 +275,7 @@
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
+				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
 				5F23F3931E2278B500ACA6A7 /* SlideshowCell.swift in Sources */,

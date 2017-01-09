@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,25 +23,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzV-00-xea" id="rzI-bd-8nG">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W36-Ij-M6F">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="W36-Ij-M6F" secondAttribute="height" multiplier="3:2" id="I5q-Lv-6OB"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="W36-Ij-M6F" secondAttribute="bottom" id="3IA-dX-Kq8"/>
-                                        <constraint firstItem="W36-Ij-M6F" firstAttribute="top" secondItem="rzI-bd-8nG" secondAttribute="top" id="5TM-NA-jPA"/>
-                                        <constraint firstAttribute="trailing" secondItem="W36-Ij-M6F" secondAttribute="trailing" id="9n8-I2-J8z"/>
-                                        <constraint firstItem="W36-Ij-M6F" firstAttribute="leading" secondItem="rzI-bd-8nG" secondAttribute="leading" id="vtf-kB-PmR"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="slideshowView" destination="W36-Ij-M6F" id="eoG-pG-7Cb"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

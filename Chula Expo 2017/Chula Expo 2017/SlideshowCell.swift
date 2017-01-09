@@ -10,19 +10,49 @@ import UIKit
 
 class SlideshowCell: UITableViewCell {
     
-    @IBOutlet var slideshowView: UIView!
+    var slideshowView = UIView()
+    var slideshowImage = [UIImage(named: "chula_expo_logo.png"), UIImage(named: "medical.png")]
+    var slideshowImageView = [UIImageView]()
+    var timer = Timer()
+    var slideTagCounter = 1
     
-    var slideshowImage = [UIImageView]()
+    
+    let slideshowTag = 10
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: slideshowView.bounds.width, height: slideshowView.bounds.height))
-        imageView.image = UIImage(named: "chula_expo_logo.png")
+        slideshowView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
+        slideshowView.tag = slideshowTag
         
-        slideshowImage.append(imageView)
-        slideshowView.addSubview(slideshowImage[0])
+        for i in 0..<slideshowImage.count {
+            
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: slideshowView.bounds.width, height: slideshowView.bounds.height))
+
+            imageView.image = slideshowImage[i]
+            imageView.tag = i+1
+            if i == 0 {
+                
+                imageView.alpha = 1
+                
+            } else {
+                
+                imageView.alpha = 0
+                
+            }
+            
+            slideshowImageView.append(imageView)
+            
+            slideshowView.addSubview(imageView)
+            
+        }
+        
+        self.addSubview(slideshowView)
+        
+        slideshowView = self.viewWithTag(slideshowTag)!
+        
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(SlideshowCell.autoSliding), userInfo: nil, repeats: true)
         
     }
 
@@ -30,6 +60,52 @@ class SlideshowCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func autoSliding() {
+        
+        if slideTagCounter + 1 <= slideshowImage.count {
+            
+            let current = slideshowView.viewWithTag(slideTagCounter)
+            let next = slideshowView.viewWithTag(slideTagCounter + 1)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                current?.alpha = 0
+                next?.alpha = 1
+                
+            }, completion: { (success) in
+                
+                if success {
+                    
+                    self.slideTagCounter += 1
+                    
+                }
+                
+            })
+            
+        } else {
+            
+            let current = slideshowView.viewWithTag(slideTagCounter)
+            let next = slideshowView.viewWithTag(1)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                current?.alpha = 0
+                next?.alpha = 1
+                
+            }, completion: { (success) in
+                
+                if success {
+                    
+                    self.slideTagCounter = 1
+                    
+                }
+                
+            })
+            
+        }
+        
     }
 
 }

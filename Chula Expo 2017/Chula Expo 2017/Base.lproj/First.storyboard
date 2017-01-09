@@ -4,41 +4,49 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
-        <scene sceneID="Ucm-S9-HeU">
+        <!--CHULA EXPO 2017-->
+        <scene sceneID="9a2-qj-wO0">
             <objects>
-                <viewController id="pBE-sv-ymR" customClass="FirstViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cMA-Po-cAq"/>
-                        <viewControllerLayoutGuide type="bottom" id="ol5-o3-MGr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Lc4-uD-mNX">
+                <tableViewController id="pre-TW-rfj" customClass="FirstViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" id="qp8-P5-QHg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNV-8o-CAb">
-                                <rect key="frame" x="100.5" y="309.5" width="174" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="RNV-8o-CAb" firstAttribute="centerX" secondItem="Lc4-uD-mNX" secondAttribute="centerX" id="ffT-aS-Tqk"/>
-                            <constraint firstItem="RNV-8o-CAb" firstAttribute="centerY" secondItem="Lc4-uD-mNX" secondAttribute="centerY" id="l9R-XV-KX7"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="rnJ-V0-29D"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m8z-nn-a9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Slideshow" rowHeight="250" id="gzV-00-xea" customClass="SlideshowCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzV-00-xea" id="rzI-bd-8nG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pre-TW-rfj" id="m7K-tl-3Jl"/>
+                            <outlet property="delegate" destination="pre-TW-rfj" id="OZt-ym-5Le"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="CHULA EXPO 2017" id="kVi-9w-cEO">
+                        <barButtonItem key="leftBarButtonItem" image="qr_code" id="ND6-Px-TVV">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="0Lv-2Q-AHT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="homeTableView" destination="qp8-P5-QHg" id="Alr-oP-lAp"/>
+                        <outlet property="tableView" destination="qp8-P5-QHg" id="hYd-eJ-Jab"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6h-k9-Sot" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2032.8" y="-208.24587706146929"/>
+            <point key="canvasLocation" x="2072.8000000000002" y="-208.24587706146929"/>
         </scene>
         <!--Home-->
         <scene sceneID="xfw-kA-U27">
@@ -53,7 +61,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="pBE-sv-ymR" kind="relationship" relationship="rootViewController" id="w3f-UB-m9o"/>
+                        <segue destination="pre-TW-rfj" kind="relationship" relationship="rootViewController" id="hKq-E4-LSD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Som-J2-QLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -61,4 +69,7 @@
             <point key="canvasLocation" x="1093.5999999999999" y="-208.24587706146929"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="qr_code" width="20" height="20"/>
+    </resources>
 </document>

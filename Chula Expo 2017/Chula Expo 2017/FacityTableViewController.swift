@@ -111,34 +111,48 @@ class FacityTableViewController: UITableViewController
     override func numberOfSections(in tableView: UITableView) -> Int
     {
         // #warning Incomplete implementation, return the number of sections
-        return facityList.count
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        // #warning Incomplete implementation, return the number of rows
-        return facityList[section].count
+        if section == 0{
+            return 1
+        }
+        else{
+            return facityList[section-1].count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "facityCell", for: indexPath)
+        var cell: UITableViewCell
         
-        if let facityCell = cell as? FacityTableViewCell
-        {
-            facityCell.name = facityList[indexPath.section][indexPath.row].name
-            facityCell.logo = facityList[indexPath.section][indexPath.row].logoName
+        if indexPath.row == 0 && indexPath.section == 0{
+            cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
+            cell.selectionStyle = .none
         }
-        // Configure the cell...
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "facityCell", for: indexPath)
+            
+            if let facityCell = cell as? FacityTableViewCell
+            {
+                facityCell.name = facityList[indexPath.section-1][indexPath.row].name
+                facityCell.logo = facityList[indexPath.section-1][indexPath.row].logoName
+            }
+        }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         if (section == 0){
-            return "CITY"
+            return nil
         }
         if (section == 1){
+            return "CITY"
+        }
+        if (section == 2){
             return "FACULTY"
         }
         return nil

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="voe-43-7YQ">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -34,26 +34,69 @@
             <objects>
                 <tableViewController id="j9g-G1-AE9" customClass="FacityTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="AXo-eT-foM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facityCell" rowHeight="61" id="rt3-jW-bBj" customClass="FacityTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="61"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bookCell" rowHeight="69" id="rt3-jW-bBj" customClass="BookTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="rt3-jW-bBj" id="kSJ-xl-3WP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-eb-xTV">
-                                            <rect key="frame" x="18" y="7.5" width="40" height="40"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="W8S-gw-a9e">
+                                            <rect key="frame" x="8" y="8" width="398" height="75"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bke-JI-d6z">
+                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="75"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                    <state key="normal" title="My Bookmark" image="bookmarkIcon">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-v7-n2y">
+                                                    <rect key="frame" x="199" y="0.0" width="199" height="75"/>
+                                                    <state key="normal" title="My Booking" image="bookingIcon">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="75" id="gJJ-TB-abO"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="W8S-gw-a9e" firstAttribute="leading" secondItem="kSJ-xl-3WP" secondAttribute="leadingMargin" id="8RK-yn-5Xv"/>
+                                        <constraint firstItem="W8S-gw-a9e" firstAttribute="top" secondItem="kSJ-xl-3WP" secondAttribute="topMargin" id="Rvi-iu-9Ey"/>
+                                        <constraint firstItem="W8S-gw-a9e" firstAttribute="centerX" secondItem="kSJ-xl-3WP" secondAttribute="centerX" id="hOv-Kt-cHZ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="W8S-gw-a9e" secondAttribute="trailing" id="hy7-Ea-jf7"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="W8S-gw-a9e" secondAttribute="bottom" id="pXa-UK-pUe"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="facCell"/>
+                                <connections>
+                                    <outlet property="Bookingbutton" destination="iOo-v7-n2y" id="W7X-rC-g2l"/>
+                                    <outlet property="bookmarkButton" destination="bke-JI-d6z" id="3Lk-t6-Eyb"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facityCell" rowHeight="232" id="8MU-0w-g10" customClass="FacityTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="97" width="414" height="232"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="8MU-0w-g10" id="WYg-1z-Giw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="231"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2zz-Eo-UOg">
+                                            <rect key="frame" x="18" y="8" width="40" height="40"/>
                                             <accessibility key="accessibilityConfiguration" identifier="pic"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="CUF-aF-Pbp"/>
-                                                <constraint firstAttribute="height" constant="40" id="gMm-Lz-qoX"/>
+                                                <constraint firstAttribute="height" constant="40" id="730-kH-uIm"/>
+                                                <constraint firstAttribute="width" constant="40" id="vsb-8p-mie"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52l-P6-1dl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtm-PP-WeE">
                                             <rect key="frame" x="73" y="17" width="294" height="21"/>
                                             <accessibility key="accessibilityConfiguration" identifier="name"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -62,21 +105,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="52l-P6-1dl" firstAttribute="leading" secondItem="bhG-eb-xTV" secondAttribute="trailing" constant="15" id="aHa-yv-OV4"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="bhG-eb-xTV" secondAttribute="bottom" id="aSl-1A-FY5"/>
-                                        <constraint firstItem="bhG-eb-xTV" firstAttribute="top" secondItem="kSJ-xl-3WP" secondAttribute="topMargin" id="jHo-m4-P8R"/>
-                                        <constraint firstItem="52l-P6-1dl" firstAttribute="trailing" secondItem="kSJ-xl-3WP" secondAttribute="trailingMargin" id="kFZ-VT-TuK"/>
-                                        <constraint firstItem="bhG-eb-xTV" firstAttribute="leading" secondItem="kSJ-xl-3WP" secondAttribute="leadingMargin" constant="10" id="y58-hC-Blw"/>
-                                        <constraint firstItem="52l-P6-1dl" firstAttribute="centerY" secondItem="bhG-eb-xTV" secondAttribute="centerY" id="yDE-Z7-PWP"/>
+                                        <constraint firstItem="Vtm-PP-WeE" firstAttribute="centerY" secondItem="2zz-Eo-UOg" secondAttribute="centerY" id="O6K-6E-Zq8"/>
+                                        <constraint firstItem="Vtm-PP-WeE" firstAttribute="leading" secondItem="2zz-Eo-UOg" secondAttribute="trailing" constant="15" id="RRi-sa-70v"/>
+                                        <constraint firstItem="2zz-Eo-UOg" firstAttribute="leading" secondItem="WYg-1z-Giw" secondAttribute="leadingMargin" constant="10" id="d3X-hA-ucD"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2zz-Eo-UOg" secondAttribute="bottom" id="d6O-TM-7vW"/>
+                                        <constraint firstItem="Vtm-PP-WeE" firstAttribute="trailing" secondItem="WYg-1z-Giw" secondAttribute="trailingMargin" id="vZf-sz-RGq"/>
+                                        <constraint firstItem="2zz-Eo-UOg" firstAttribute="top" secondItem="WYg-1z-Giw" secondAttribute="topMargin" id="zKp-Qm-MDY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="facCell"/>
                                 <connections>
-                                    <outlet property="facityLogo" destination="bhG-eb-xTV" id="0nC-eP-HGa"/>
-                                    <outlet property="facityName" destination="52l-P6-1dl" id="oPB-d4-WWn"/>
-                                    <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="VVA-6N-Oe3">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <outlet property="facityLogo" destination="2zz-Eo-UOg" id="Gcd-X4-dUW"/>
+                                    <outlet property="facityName" destination="Vtm-PP-WeE" id="LAy-Vr-eht"/>
+                                    <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="2wu-U8-CVK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -93,22 +134,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htI-VW-heB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="978"/>
+            <point key="canvasLocation" x="2502.898550724638" y="977.44565217391312"/>
         </scene>
         <!--Events Table View Controller-->
         <scene sceneID="WbX-0K-f7K">
             <objects>
                 <tableViewController id="lHK-QI-0zL" customClass="EventsTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRp-lX-jKb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventDetail" rowHeight="61" id="o8q-i0-43g" customClass="EventTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="61"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8q-i0-43g" id="pgh-kq-aVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-Un-AD7">
@@ -163,7 +204,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dfp-IW-hos"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7Y4-Vj-g6c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -173,4 +214,8 @@
             <point key="canvasLocation" x="4362" y="978"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bookingIcon" width="27" height="20"/>
+        <image name="bookmarkIcon" width="17" height="24"/>
+    </resources>
 </document>

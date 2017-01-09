@@ -26,6 +26,7 @@
 		5F9FB08A1E150EDE00E984AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
 		5F9FB08B1E150EDE00E984AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
 		5F9FB08C1E150EDE00E984AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
+		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
 		800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 800641D61E215A7F00760834 /* Model.xcdatamodeld */; };
 		800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */; };
@@ -60,6 +61,7 @@
 		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		5FB054581E23CEEF00428428 /* TagController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagController.swift; sourceTree = "<group>"; };
 		5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		800641D71E215A7F00760834 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
 				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
+				5FB054581E23CEEF00428428 /* TagController.swift */,
 				5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */,
 			);
 			name = First_home;
@@ -277,6 +280,7 @@
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
 				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
+				5FB054591E23CEEF00428428 /* TagController.swift in Sources */,
 				80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

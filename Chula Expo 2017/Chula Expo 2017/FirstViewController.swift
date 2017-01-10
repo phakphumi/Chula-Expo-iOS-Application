@@ -50,7 +50,7 @@ class FirstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath) as! SlideshowCell
-        cell.isUserInteractionEnabled = false
+        cell.selectionStyle = .none
         
         let slideshowView = cell.viewWithTag(cell.slideshowTag)
         

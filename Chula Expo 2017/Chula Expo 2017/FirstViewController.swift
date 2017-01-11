@@ -50,11 +50,11 @@ class FirstViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath) as! SlideshowCell
-        cell.isUserInteractionEnabled = false
+        cell.selectionStyle = .none
         
         let slideshowView = cell.viewWithTag(cell.slideshowTag)
         
-        slideshowView?.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 250)
+        slideshowView?.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
         slideshowView?.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
         
         return cell
@@ -65,21 +65,7 @@ class FirstViewController: UITableViewController {
     
         if indexPath.row == 0 {
 
-            return self.view.bounds.width * 2 / 3
-            
-        } else {
-            
-            return 100
-            
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.row == 0 {
-            
-            return self.view.bounds.width * 2 / 3
+            return self.view.bounds.width * 220 / 375
             
         } else {
             

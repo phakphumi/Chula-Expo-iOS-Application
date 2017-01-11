@@ -29,6 +29,11 @@ class FirstViewController: UITableViewController {
 //        tableView.rowHeight = UITableViewAutomaticDimension
         
     }
+    @IBAction func qrcode(_ sender: UIBarButtonItem) {
+        
+        tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

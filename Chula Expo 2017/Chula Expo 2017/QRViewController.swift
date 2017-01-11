@@ -26,6 +26,8 @@ class QRViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        self.tabBarController?.tabBar.layer.zPosition = -1
+        
         name = "Mark Zuckerburg"
         schoolOrCompany = "Havard University"
         

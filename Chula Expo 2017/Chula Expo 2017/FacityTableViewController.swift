@@ -54,6 +54,8 @@ class FacityTableViewController: UITableViewController
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         updateDatabase()
+        createGradientNavBar()
+        setNeedsStatusBarAppearanceUpdate()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -61,7 +63,7 @@ class FacityTableViewController: UITableViewController
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -168,6 +170,34 @@ class FacityTableViewController: UITableViewController
             }
             segue.destination.title = (sender as? FacityTableViewCell)?.name
         }
+    }
+    
+    func createGradientNavBar() {
+        
+        //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
+        let headGradientColor = UIColor(red: 0.8, green: 0.36, blue: 0.67, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.565, green: 0.44, blue: 0.77, alpha: 1).cgColor
+        //
+        
+        //Begin, create gradient layer with 2 colors shade and start gradient from left to right
+        let gradientLayer = CAGradientLayer()
+        var navIncludeStatFrame = navigationController!.navigationBar.bounds
+        navIncludeStatFrame.size.height += 20
+        gradientLayer.frame = navIncludeStatFrame
+        gradientLayer.colors = [headGradientColor, tailGradientColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        //End
+        
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
     }
     
 }

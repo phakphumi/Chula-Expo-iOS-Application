@@ -26,11 +26,16 @@ class FacityTableViewController: UITableViewController
         ,facity(name: "Health City",    logoName: "smartLogo")
         ,facity(name: "Human City",     logoName: "smartLogo")
         ],
-        [facity(name: "Faculty of Engineering",         logoName: "smartLogo")
-        ,facity(name: "Faculty of Arts",                logoName: "smartLogo")
-        ,facity(name: "Faculty of Science",             logoName: "smartLogo")
-        ,facity(name: "Faculty of Political Science",   logoName: "smartLogo")
-        ,facity(name: "Faculty of Architecture",        logoName: "smartLogo")
+        
+        [facity(name: "International forum", logoName: "smartLogo")
+        ,facity(name: "Art Gallery",         logoName: "smartLogo")
+        ],
+        
+        [facity(name: "Faculty of Engineering",       logoName: "smartLogo")
+        ,facity(name: "Faculty of Arts",              logoName: "smartLogo")
+        ,facity(name: "Faculty of Science",           logoName: "smartLogo")
+        ,facity(name: "Faculty of Political Science", logoName: "smartLogo")
+        ,facity(name: "Faculty of Architecture",      logoName: "smartLogo")
         ,facity(name: "Faculty of Commerce and Accountancy", logoName: "smartLogo")
         ,facity(name: "Faculty of Education",           logoName: "smartLogo")
         ,facity(name: "Faculty of Communication Arts",  logoName: "smartLogo")
@@ -114,7 +119,7 @@ class FacityTableViewController: UITableViewController
     override func numberOfSections(in tableView: UITableView) -> Int
     {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -148,26 +153,18 @@ class FacityTableViewController: UITableViewController
         return cell
     }
     
-   
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("AAAA")
-        if indexPath.section == 0 && indexPath.row == 0{
-            if let bookCell = cell as? BookTableViewCell{
-                print("cellwillDisplay \(bookCell.bookmarkButton.bounds.width)")
-//                bookCell.layoutButton()
-            }
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         if (section == 0){
             return nil
         }
-        if (section == 1){
+        else if (section == 1){
             return "CITY"
         }
-        if (section == 2){
+        else if (section == 2){
+            return "SPECIAL"
+        }
+        else if (section == 3){
             return "FACULTY"
         }
         return nil

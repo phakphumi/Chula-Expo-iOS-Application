@@ -40,7 +40,7 @@ class BookTableViewCell: UITableViewCell {
             bottom: -(totalHeight - titleBounds.height),
             right: 0
         )
-        bookmarkButton.backgroundColor = UIColor.blue
+//        bookmarkButton.backgroundColor = UIColor.blue
     }
     
     func layoutBookingButton()
@@ -61,7 +61,7 @@ class BookTableViewCell: UITableViewCell {
             bottom: -(totalHeight-titleBounds.height),
             right:0
         )
-        Bookingbutton.backgroundColor = UIColor.brown
+//        Bookingbutton.backgroundColor = UIColor.brown
     }
     
     override func layoutSubviews()

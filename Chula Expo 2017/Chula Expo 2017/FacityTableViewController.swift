@@ -139,9 +139,7 @@ class FacityTableViewController: UITableViewController
         if indexPath.row == 0 && indexPath.section == 0{
             cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
             cell.selectionStyle = .none
-            print("Bound size == \(cell.bounds.width)")
-        }
-        else{
+        }else{
             cell = tableView.dequeueReusableCell(withIdentifier: "facityCell", for: indexPath)
             
             if let facityCell = cell as? FacityTableViewCell

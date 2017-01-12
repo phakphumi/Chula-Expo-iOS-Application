@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-class FirstViewController: UITableViewController {
+class FirstViewController: MainCoreDataTableViewController {
 
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+    
     @IBOutlet var homeTableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,6 +33,35 @@ class FirstViewController: UITableViewController {
 //        tableView.rowHeight = UITableViewAutomaticDimension
         
     }
+    
+// Core Data
+    private func updateDatabase()
+    {
+        managedObjectContext?.perform {
+                _ = StageEvent.addData(name: "The event of stage 1", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
+                _ = StageEvent.addData(name: "The event of stage 2", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
+                _ = StageEvent.addData(name: "The event of stage 3", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
+        }
+        do {
+            try self.managedObjectContext?.save()
+            print("stage event saved")
+        }
+        catch let error {
+            print("stage event saveError with \(error)")
+        }
+        printDatabaseStatistics()
+    }
+    
+    private func printDatabaseStatistics()
+    {
+        managedObjectContext?.perform {
+            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "StageEvent")){
+                print("Total datas in coredata \(result.count)")
+            }
+        }
+    }
+    
+//
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
         
         tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
@@ -42,25 +75,56 @@ class FirstViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath) as! SlideshowCell
-        cell.selectionStyle = .none
-        
-        let slideshowView = cell.viewWithTag(cell.slideshowTag)
-        
-        slideshowView?.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
-        slideshowView?.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+        var cell: UITableViewCell
+        if indexPath.section == 0 && indexPath.row == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath)
+            if let slideshowCell = cell as? SlideshowCell{
+                let slideshowView = slideshowCell.viewWithTag(slideshowCell.slideshowTag)
+                slideshowView?.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
+                slideshowView?.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            }
+            cell.selectionStyle = .none
+        }
+        else if indexPath.section == 1{
+            cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
+            if let stageCell = cell as? StageCell{
+//                if let fetchData = fetchedResultsController?.object(at: indexPath) as? EventData
+//                {
+//                    var name: String?
+//                    var startTime: NSDate?
+//                    var endTime: NSDate?
+//                    var locationDesc: String?
+//                    
+//                    fetchData.managedObjectContext?.performAndWait
+//                        {
+//                            // it's easy to forget to do this on the proper queue
+//                            
+//                            name = fetchData.name
+//                            startTime = fetchData.startTime
+//                            endTime = fetchData.endTime
+//                            locationDesc = fetchData.locationDesc
+//                            
+//                            // we're not assuming the context is a main queue context
+//                            // so we'll grab the screenName and return to the main queue
+//                            // to do the cell.textLabel?.text setting
+//                    }
+//                    if let eventCell = cell as? EventTableViewCell
+//                    {
+//                        eventCell.name = name
+//                        eventCell.startTime = startTime
+//                        eventCell.endTime = endTime
+//                        eventCell.locationDesc = locationDesc
+//                    }
+//                }
+            }
+        }
+        else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
+                if let eventFeedCell = cell as? EventFeedCell{
+                    
+                }
+        }
         
         return cell
         
@@ -68,10 +132,8 @@ class FirstViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
-        if indexPath.row == 0 {
-
+        if indexPath.row == 0 && indexPath.section == 0 {
             return self.view.bounds.width * 220 / 375
-            
         } else {
             
             return 100
@@ -79,51 +141,6 @@ class FirstViewController: UITableViewController {
         }
         
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func createGradientNavBar() {
         

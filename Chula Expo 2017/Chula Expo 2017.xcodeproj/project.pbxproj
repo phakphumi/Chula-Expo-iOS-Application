@@ -113,9 +113,7 @@
 		5F23F38C1E22282A00ACA6A7 /* First_home */ = {
 			isa = PBXGroup;
 			children = (
-				80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */,
-				80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */,
-				80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */,
+				80BFD4D71E27F39D00491730 /* CoreData */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
 				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
@@ -208,19 +206,37 @@
 		80073CDC1E1E315400C1F64E /* Third_events */ = {
 			isa = PBXGroup;
 			children = (
+				80BFD4D81E27F3AA00491730 /* CoreData */,
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
-				5F2682411E27C6290062E182 /* EventDetailsViewController.swift */,
-				802F13B21E23FC240098A687 /* BookTableViewCell.swift */,
-				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
-				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
-				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
 				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
 				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
-				80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */,
+				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
+				5F2682411E27C6290062E182 /* EventDetailsViewController.swift */,
+				802F13B21E23FC240098A687 /* BookTableViewCell.swift */,
 				80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */,
 				80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */,
 			);
 			name = Third_events;
+			sourceTree = "<group>";
+		};
+		80BFD4D71E27F39D00491730 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */,
+				80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */,
+				80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		80BFD4D81E27F3AA00491730 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */,
+				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
+				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

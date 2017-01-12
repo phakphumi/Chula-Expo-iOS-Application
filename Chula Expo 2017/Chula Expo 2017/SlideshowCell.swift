@@ -93,6 +93,9 @@ class SlideshowCell: UITableViewCell{
         topicLabel.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         topicLabel.textColor = UIColor.white
         topicLabel.text = text
+        topicLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+        topicLabel.layer.shadowOpacity = 0.15
+        topicLabel.layer.shadowRadius = 2
 
         return topicLabel
         

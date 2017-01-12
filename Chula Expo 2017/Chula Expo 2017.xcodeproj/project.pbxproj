@@ -13,6 +13,8 @@
 		5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2301E10E006008A3B11 /* SecondViewController.swift */; };
 		5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2321E10E018008A3B11 /* ThirdViewController.swift */; };
 		5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2341E10E027008A3B11 /* FourthViewController.swift */; };
+		5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F307C8B1E26893300DEF3B0 /* QRViewController.swift */; };
+		5F307C8F1E26AF0000DEF3B0 /* Modal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */; };
 		5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D911E10300900713580 /* AppDelegate.swift */; };
 		5F4A9D971E10300900713580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D951E10300900713580 /* Main.storyboard */; };
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
@@ -48,6 +50,8 @@
 		5F25B2301E10E006008A3B11 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5F25B2321E10E018008A3B11 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5F25B2341E10E027008A3B11 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		5F307C8B1E26893300DEF3B0 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		5F307C8E1E26AF0000DEF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Modal.storyboard; sourceTree = "<group>"; };
 		5F4A9D8E1E10300900713580 /* Chula Expo 2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo 2017.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A9D911E10300900713580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4A9D961E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,6 +127,15 @@
 			name = Fourth_more;
 			sourceTree = "<group>";
 		};
+		5F307C901E26AF3900DEF3B0 /* Modal_popup */ = {
+			isa = PBXGroup;
+			children = (
+				5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */,
+				5F307C8B1E26893300DEF3B0 /* QRViewController.swift */,
+			);
+			name = Modal_popup;
+			sourceTree = "<group>";
+		};
 		5F4A9D851E10300900713580 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +164,7 @@
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				5F307C901E26AF3900DEF3B0 /* Modal_popup */,
 				5F23F38C1E22282A00ACA6A7 /* First_home */,
 				5F23F38E1E22285300ACA6A7 /* Second_map */,
 				80073CDC1E1E315400C1F64E /* Third_events */,
@@ -260,6 +274,7 @@
 				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
+				5F307C8F1E26AF0000DEF3B0 /* Modal.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
 				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
 				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
@@ -286,6 +301,7 @@
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
+				5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */,
 				5F23F3931E2278B500ACA6A7 /* SlideshowCell.swift in Sources */,
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,
 				5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */,
@@ -300,6 +316,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F307C8E1E26AF0000DEF3B0 /* Base */,
+			);
+			name = Modal.storyboard;
+			sourceTree = "<group>";
+		};
 		5F4A9D951E10300900713580 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

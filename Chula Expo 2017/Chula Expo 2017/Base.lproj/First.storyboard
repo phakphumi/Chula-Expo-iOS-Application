@@ -34,6 +34,9 @@
                     <navigationItem key="navigationItem" title="CHULA EXPO 2017" id="kVi-9w-cEO">
                         <barButtonItem key="leftBarButtonItem" image="qr_code" id="ND6-Px-TVV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="qrcode:" destination="pre-TW-rfj" id="Jy8-rw-9a4"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="0Lv-2Q-AHT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

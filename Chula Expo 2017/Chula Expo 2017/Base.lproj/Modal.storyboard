@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fGA-5k-K08">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="VME-Xt-Jao">
+            <objects>
+                <viewController providesPresentationContextTransitionStyle="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="fGA-5k-K08" customClass="QRViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WjZ-A1-JbE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ijw-bQ-TW6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t24-2A-MQC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceu-4Y-evc">
+                                <rect key="frame" x="23" y="51" width="328" height="565"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9e-im-2z5">
+                                        <rect key="frame" x="295" y="20" width="15" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="cross"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="fGA-5k-K08" eventType="touchUpInside" id="yPm-2a-l12"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="height" multiplier="328:565" id="ONP-Sa-1aD"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="19"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ceu-4Y-evc" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" id="Q1J-E3-xzN"/>
+                            <constraint firstItem="ceu-4Y-evc" firstAttribute="leading" secondItem="t24-2A-MQC" secondAttribute="leadingMargin" constant="7" id="ifc-sB-9ra"/>
+                            <constraint firstItem="ceu-4Y-evc" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="xLu-EV-ruk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ceu-4Y-evc" secondAttribute="trailing" constant="8" id="xPv-ye-By4"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                    <connections>
+                        <outlet property="qrView" destination="ceu-4Y-evc" id="xNX-5o-myI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V14-tC-m7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1143" y="896"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cross" width="12" height="12"/>
+    </resources>
+</document>

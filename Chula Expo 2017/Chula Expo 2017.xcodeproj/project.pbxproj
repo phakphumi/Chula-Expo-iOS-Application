@@ -33,6 +33,8 @@
 		800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */; };
 		80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */; };
 		800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */; };
+		802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */; };
+		802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */; };
 		802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F13B21E23FC240098A687 /* BookTableViewCell.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */; };
@@ -69,6 +71,8 @@
 		800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewCell.swift; sourceTree = "<group>"; };
 		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewController.swift; sourceTree = "<group>"; };
+		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */,
+				802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */,
+				802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */,
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
 				5F4A9D951E10300900713580 /* Main.storyboard */,
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
@@ -267,11 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
 				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
+				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 class FacityTableViewController: UITableViewController
 {
     struct facity
@@ -133,6 +134,7 @@ class FacityTableViewController: UITableViewController
         if indexPath.row == 0 && indexPath.section == 0{
             cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
             cell.selectionStyle = .none
+            print("Bound size == \(cell.bounds.width)")
         }
         else{
             cell = tableView.dequeueReusableCell(withIdentifier: "facityCell", for: indexPath)
@@ -144,6 +146,17 @@ class FacityTableViewController: UITableViewController
             }
         }
         return cell
+    }
+    
+   
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("AAAA")
+        if indexPath.section == 0 && indexPath.row == 0{
+            if let bookCell = cell as? BookTableViewCell{
+                print("cellwillDisplay \(bookCell.bookmarkButton.bounds.width)")
+//                bookCell.layoutButton()
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?

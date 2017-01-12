@@ -7,13 +7,27 @@
 //
 
 import UIKit
+import MapKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet var map: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let lat: CLLocationDegrees = 13.7383829
+        let lon: CLLocationDegrees = 100.5298641
+        let latDelta: CLLocationDegrees = 0.02
+        let lonDelta: CLLocationDegrees = 0.02
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
+        map.setRegion(region, animated: true)
+
     }
 
     override func didReceiveMemoryWarning() {

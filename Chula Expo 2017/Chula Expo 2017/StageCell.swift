@@ -14,15 +14,53 @@ class StageCell: UITableViewCell {
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var stageEventNameLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var name: String?{
+        didSet{
+            updateUI()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var startTime: NSDate?{
+        didSet{
+            updateUI()
+        }
     }
-
+    var endTime: NSDate?{
+        didSet{
+            updateUI()
+        }
+    }
+    var stage: Int?{
+        didSet{
+            updateUI()
+        }
+    }
+    private func updateUI(){
+        // reset
+        timeLabel.text=nil
+        stageNameLabel.text = nil
+        stageEventNameLabel.text = nil
+        if let stageEventName = name{
+            stageEventNameLabel.text = stageEventName
+        }
+        if let stageStartTime = startTime{
+            if let stageEndTime = endTime{
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "H:mm"
+                let sTime = dateFormatter.string(from: stageStartTime as Date)
+                let eTime = dateFormatter.string(from: stageEndTime as Date)
+                timeLabel.text = "\(sTime) - \(eTime)"
+            }
+        }
+        if let stageNo = stage{
+            if stageNo == 1{
+                stageNameLabel.text = "stage 1 name"
+            }
+            if stageNo == 2{
+                stageNameLabel.text = "stage 2 name"
+            }
+            if stageNo == 3{
+                stageNameLabel.text = "stage 3 name"
+            }
+        }
+    }
 }

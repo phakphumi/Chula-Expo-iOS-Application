@@ -23,17 +23,18 @@ public class StageEvent: NSManagedObject {
         inManageobjectcontext context: NSManagedObjectContext
         ) -> StageEvent?
     {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
-        request.predicate = NSPredicate(format: "stage = %@ AND name = %@", stage, name)
-        
-        if let result = (try? context.fetch(request))?.first as? StageEvent
-        {
-            // found this event in the database, return it ...
-            print("Found stage event \(result.name)")
-            return result
-            
-        }
-        else if let newData = NSEntityDescription.insertNewObject(forEntityName: "StageEvent", into: context) as? StageEvent
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
+//        request.predicate = NSPredicate(format: "stage = %@ AND name = %@", stage, name)
+//        
+//        if let result = (try? context.fetch(request))?.first as? StageEvent
+//        {
+//            // found this event in the database, return it ...
+//            print("Found stage event \(result.name)")
+//            return result
+//            
+//        }
+//        else 
+        if let newData = NSEntityDescription.insertNewObject(forEntityName: "StageEvent", into: context) as? StageEvent
         {
             // created a new event in the database
             newData.name = name

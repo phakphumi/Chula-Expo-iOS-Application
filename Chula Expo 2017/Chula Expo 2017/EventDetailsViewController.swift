@@ -10,6 +10,7 @@ import UIKit
 
 class EventDetailsViewController: UIViewController {
 
+    @IBOutlet var scrollView: UIScrollView!
 
     @IBAction func cancel(_ sender: UIButton) {
         
@@ -27,6 +28,7 @@ class EventDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
         
     }
 

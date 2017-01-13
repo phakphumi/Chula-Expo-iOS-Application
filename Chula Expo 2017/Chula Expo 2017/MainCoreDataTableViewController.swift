@@ -32,15 +32,20 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
+            
             return 1
         }
+//        else if section == 1{
+//            return 12
+//        }
         else if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            return sections[section].numberOfObjects
+            print("section 2,3")
+            return sections[0].numberOfObjects
         } else {
+            print("else \(fetchedResultsController)")
             return 0
         }
     }
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
             return nil

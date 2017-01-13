@@ -48,9 +48,7 @@ class EventTableViewCell: UITableViewCell
     
     private func updateUI()
     {
-        
         //Reset
-        
         nameLabel.text = nil
         timeLabel.text = nil
         locationLabel.text = nil

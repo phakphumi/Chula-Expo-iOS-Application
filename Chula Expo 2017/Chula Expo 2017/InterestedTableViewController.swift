@@ -9,10 +9,27 @@
 import UIKit
 
 class InterestedTableViewController: UITableViewController {
-
+    var tapped = [UIImageView]()
+    
+    struct tag {
+        var imgName: String = ""
+        var tagName: String = ""
+    }
+    
+    var tagList : [tag] = [
+        tag(imgName: "technology",     tagName: "Technology1"),
+        tag(imgName: "technology",     tagName: "Technology2"),
+        tag(imgName: "technology",     tagName: "Technology3"),
+        tag(imgName: "technology",     tagName: "Technology4"),
+        tag(imgName: "technology",     tagName: "Technology5"),
+        tag(imgName: "technology",     tagName: "Technology6"),
+        tag(imgName: "technology",     tagName: "Technology7")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,23 +37,13 @@ class InterestedTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    struct tag {
-        var imgName: String = ""
-        var tagName: String = ""
-    }
-    
-    var tagList : [tag] = [
-        tag(imgName: "technology",     tagName: "Technology"),
-        tag(imgName: "technology",     tagName: "Technology"),
-        tag(imgName: "technology",     tagName: "Technology"),
-        tag(imgName: "technology",     tagName: "Technology"),
-        tag(imgName: "technology",     tagName: "Technology"),
-        tag(imgName: "technology",     tagName: "Technology"),
-        tag(imgName: "technology",     tagName: "Technology")
-    ]
+
+
     
         
-   
+    func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
+        
+    }
 
     // MARK: - Table view data source
 
@@ -74,7 +81,7 @@ class InterestedTableViewController: UITableViewController {
                 interestCell.tagName[2] = tagList[indexPath.row*3+2].tagName
             }
         }
-    
+        cell.selectionStyle = .none
         return cell
         // Configure the cell...
     }

@@ -32,7 +32,7 @@ class InterestTableViewCell: UITableViewCell {
     @IBOutlet weak var interestName1: UILabel!
     @IBOutlet weak var interestName2: UILabel!
     @IBOutlet weak var interestName3: UILabel!
-    
+    var isTappedObjects: [Bool] = [false,false,false]
     var imgName: [String?] = ["","",""]
         {
         didSet{
@@ -45,6 +45,85 @@ class InterestTableViewCell: UITableViewCell {
         didSet{
             updateUI()
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        interestImg1.isUserInteractionEnabled = true
+        interestImg2.isUserInteractionEnabled = true
+        interestImg3.isUserInteractionEnabled = true
+        
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
+        tapGestureRecognizer1.numberOfTapsRequired = 1
+        
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
+        tapGestureRecognizer2.numberOfTapsRequired = 1
+        
+        let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
+        tapGestureRecognizer3.numberOfTapsRequired = 1
+        
+        interestImg1.addGestureRecognizer(tapGestureRecognizer1)
+        interestImg2.addGestureRecognizer(tapGestureRecognizer2)
+        interestImg3.addGestureRecognizer(tapGestureRecognizer3)
+        
+    }
+    
+    
+    func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
+        
+        print("tap")
+        let imageView = gestureRecognizer.view as? UIImageView
+        if imageView?.image != nil {
+            if imageView?.tag == 0{
+                if isTappedObjects[0] == true{
+                    isTappedObjects[0] = false;
+                    if let Iname1: String = imgName[0]
+                    {
+                        interestImg1.image = UIImage(named: Iname1)
+                    }
+                    
+                }
+                else {
+                    imageView?.image = UIImage(named: "chula_expo_logo")
+                    isTappedObjects[0] = true;
+                }
+            }
+            if imageView?.tag == 1{
+                if isTappedObjects[1] == true {
+                    isTappedObjects[1] = false;
+                    if let Iname2: String = imgName[1]
+                    {
+                        interestImg2.image = UIImage(named: Iname2)
+                    }
+                }
+                else {
+                    imageView?.image = UIImage(named: "chula_expo_logo")
+                    isTappedObjects[1] = true;
+                }
+            }
+            if imageView?.tag == 2{
+                if isTappedObjects[2] == true{
+                    isTappedObjects[2] = false;
+                    if let Iname3: String = imgName[2]
+                    {
+                        interestImg3.image = UIImage(named: Iname3)
+                    }
+                    
+                }
+                else {
+                    imageView?.image = UIImage(named: "chula_expo_logo")
+                    isTappedObjects[2] = true;
+                }
+            }
+            
+
+        }
+        
+
+        
+       
+
     }
     
     override func awakeFromNib() {

@@ -49,7 +49,9 @@ class InterestTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        roundedCornerLogo1()
+        roundedCornerLogo2()
+        roundedCornerLogo3()
         interestImg1.isUserInteractionEnabled = true
         interestImg2.isUserInteractionEnabled = true
         interestImg3.isUserInteractionEnabled = true

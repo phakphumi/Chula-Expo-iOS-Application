@@ -84,32 +84,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
     }
     
-    func checkIsUser(){
-        print("checkIsUser called")
-        if FBSDKAccessToken.current() != nil {
-            print("FBSDKAccessToken.current() != nil")
-            
-            var userData: UserData?
-            
-            managedObjectContext?.performAndWait {
-                
-                userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: self.managedObjectContext!)
-                
-            }
-            
-            if userData != nil {
-                
-                self.performSegue(withIdentifier: "toTabBarController", sender: self)
-                
-            } else {
-                
-                self.profileUpdate()
-                
-            }
-        }
         
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toRegister" {
@@ -193,7 +168,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 if (result?.grantedPermissions.contains("email"))! {
                     
                     self.profileUpdate()
-                    self.checkIsUser()
                     
                 }
                 

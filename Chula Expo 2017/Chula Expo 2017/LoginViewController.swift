@@ -17,22 +17,24 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     var email = ""
     var fbImageProfileUrl = ""
     var imageProfile: UIImage!
+    
+    let managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        printDatabaseStatistics()
+        printDatabaseDatas()
         UIApplication.shared.statusBarStyle = .lightContent
         
         if FBSDKAccessToken.current() != nil {
-            
-            let managedObjectContext: NSManagedObjectContext? =
-                (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
-            
-            var userData: UserData!
-            
-            managedObjectContext?.perform {
+            print("FBSDKAccessToken.current() != nil")
 
-                userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: managedObjectContext!)
+            var userData: UserData?
+
+            managedObjectContext?.performAndWait {
+                
+            userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: self.managedObjectContext!)
                 
             }
             
@@ -41,7 +43,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 self.performSegue(withIdentifier: "toTabBarController", sender: self)
                     
             } else {
-                    
+                
                 self.profileUpdate()
                 
             }
@@ -56,6 +58,54 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
             createGuestLoginButton()
         
+        }
+        
+    }
+    
+    private func printDatabaseStatistics() {
+        
+        managedObjectContext?.perform {
+            
+            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "UserData")){
+                print("Total user datas in coredata \(result.count)")
+            }
+        }
+    }
+    
+    private func printDatabaseDatas() {
+        
+        managedObjectContext?.perform {
+            
+            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "UserData")){
+                for data in result as! [UserData]{
+                        print("found user with token == \(data.token)")
+                }
+            }
+        }
+    }
+    
+    func checkIsUser(){
+        print("checkIsUser called")
+        if FBSDKAccessToken.current() != nil {
+            print("FBSDKAccessToken.current() != nil")
+            
+            var userData: UserData?
+            
+            managedObjectContext?.performAndWait {
+                
+                userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: self.managedObjectContext!)
+                
+            }
+            
+            if userData != nil {
+                
+                self.performSegue(withIdentifier: "toTabBarController", sender: self)
+                
+            } else {
+                
+                self.profileUpdate()
+                
+            }
         }
         
     }
@@ -143,6 +193,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 if (result?.grantedPermissions.contains("email"))! {
                     
                     self.profileUpdate()
+                    self.checkIsUser()
                     
                 }
                 

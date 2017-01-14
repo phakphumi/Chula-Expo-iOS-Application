@@ -97,11 +97,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             do {
                 
                 try managedObjectContext?.save()
-                print("saved")
+                print("saved user")
                 
             } catch let error {
               
-                print("saveError with \(error)")
+                print("saveUserError with \(error)")
                 
             }
             

@@ -17,14 +17,16 @@ extension UserData {
         return NSFetchRequest<UserData>(entityName: "UserData");
     }
 
-    @NSManaged public var fbToken: String?
+    @NSManaged public var token: String?
     @NSManaged public var name: String?
-    @NSManaged public var userType: Bool
+    @NSManaged public var userType: String?
     @NSManaged public var email: String?
     @NSManaged public var gender: String?
     @NSManaged public var age: Int16
     @NSManaged public var pictureUrl: String?
     @NSManaged public var school: String?
+    @NSManaged public var company: String?
+    @NSManaged public var position: String?
     @NSManaged public var year: Int16
 
 }

@@ -36,6 +36,7 @@
                     </view>
                     <connections>
                         <segue destination="5AM-Et-Oxl" kind="show" identifier="toRegister" id="uEO-0U-4NF"/>
+                        <segue destination="QME-Np-NQV" kind="show" identifier="toTabBarController" id="gH4-31-fBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bm-8y-yhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,6 +420,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pck-3G-Wo5"/>
+        <segue reference="gH4-31-fBe"/>
     </inferredMetricsTieBreakers>
 </document>

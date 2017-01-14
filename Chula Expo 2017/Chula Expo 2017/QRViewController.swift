@@ -10,42 +10,37 @@ import UIKit
 
 class QRViewController: UIViewController {
     
-    var name: String!
-    var schoolOrCompany: String!
-
     @IBOutlet var qrView: UIView!
+    @IBOutlet var gradientView: UIView!
+    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var name: UILabel!
+    @IBOutlet var schoolOrCompany: UILabel!
     
-    @IBAction func cancel(_ sender: UIButton) {
-    
-        dismiss(animated: true, completion: nil)
-    
+    @IBAction func cancle(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
+    
+    var baseQRViewCenter = CGPoint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.tabBarController?.tabBar.layer.zPosition = -1
+        //load auto layout
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
         
-        name = "Mark Zuckerburg"
-        schoolOrCompany = "Havard University"
+        baseQRViewCenter = qrView.center
         
         createGradientLayer()
         
-        createProfileImageView()
+        stylingProfileImage()
         
-        createNameLabelView()
+        addDragGestureToCancel()
         
-        createSchoolOrCompanyLabelView()
-        
-        createQRCodeImageView()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
@@ -59,74 +54,57 @@ class QRViewController: UIViewController {
     }
     */
     
-    func createQRCodeImageView() {
+    func drag(gestureRecognizer: UIPanGestureRecognizer) {
         
-        let qrCodeImageViewWidthAndHeight = self.view.bounds.height * 0.40
-        let qrCodeImageViewTopMargin = self.view.bounds.height * 0.405
+        let xDistanceToDismiss = self.view.bounds.width * 0.1
+        let yDistanceToDismiss = self.view.bounds.height * 0.1
         
-        let qrCodeImageView = UIImageView(frame: CGRect(x: qrView.bounds.width / 2 - qrCodeImageViewWidthAndHeight / 2, y: qrCodeImageViewTopMargin, width: qrCodeImageViewWidthAndHeight, height: qrCodeImageViewWidthAndHeight))
-        qrCodeImageView.image = #imageLiteral(resourceName: "temp_qrcode")
+        let translation = gestureRecognizer.translation(in: view)
         
-        qrView.addSubview(qrCodeImageView)
+        let touchedMovingView = gestureRecognizer.view! // get moving object
         
-    }
-    
-    func createProfileImageView() {
+        touchedMovingView.center = CGPoint(x: baseQRViewCenter.x + translation.x, y: baseQRViewCenter.y + translation.y)
         
-        let imageViewWidthAndHeight = self.view.bounds.height * 0.18
-        let imageViewTopMargin = self.view.bounds.height * 0.0653
-        
-        let imageProfileView = UIImageView(frame: CGRect(x: qrView.bounds.width / 2 - imageViewWidthAndHeight / 2, y: imageViewTopMargin, width: imageViewWidthAndHeight, height: imageViewWidthAndHeight))
-        imageProfileView.image = #imageLiteral(resourceName: "mark_zuckerberg")
-        imageProfileView.layer.cornerRadius = imageProfileView.bounds.height / 2
-        imageProfileView.layer.borderColor = UIColor.white.cgColor
-        imageProfileView.layer.borderWidth = 3
-        imageProfileView.layer.masksToBounds = true
-        
-        qrView.addSubview(imageProfileView)
-        
-    }
-    
-    func createNameLabelView() {
-        
-        let nameLabelViewWidth = qrView.bounds.width
-        let nameLabelViewHegiht = CGFloat(26)
-        let nameLabelViewTopMargin = self.view.bounds.height * 0.255
-        
-        let nameLabelView = UILabel(frame: CGRect(x: qrView.bounds.width / 2 - nameLabelViewWidth / 2, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht))
-        nameLabelView.text = self.name
-        nameLabelView.font = nameLabelView.font.withSize(22)
-        nameLabelView.textAlignment = NSTextAlignment.center
-        nameLabelView.textColor = UIColor.white
-        nameLabelView.text = name
-        
-        qrView.addSubview(nameLabelView)
+        if gestureRecognizer.state == UIGestureRecognizerState.ended {
+            
+            let xFromCenter = abs(touchedMovingView.center.x - self.view.bounds.width / 2) // check how far from center
+            let yFromCenter = abs(touchedMovingView.center.y - self.view.bounds.height / 2)
+            
+            if xFromCenter > xDistanceToDismiss || yFromCenter > yDistanceToDismiss {
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            } else {
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    touchedMovingView.center = self.baseQRViewCenter
+                    
+                })
+                
+            }
+            
+        }
         
     }
     
-    func createSchoolOrCompanyLabelView() {
+    func addDragGestureToCancel() {
         
-        let schoolOrCompanyLabelViewWidth = qrView.bounds.width
-        let schoolOrCompanyLabelViewHegiht = CGFloat(18)
-        let schoolOrCompanyLabelViewTopMargin = self.view.bounds.height * 0.30
+        let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(QRViewController.drag(gestureRecognizer:)))
+        qrView.addGestureRecognizer(dragGestureRecognizer)
         
-        let schoolOrCompanyLabelView = UILabel(frame: CGRect(x: qrView.bounds.width / 2 - schoolOrCompanyLabelViewWidth / 2, y: schoolOrCompanyLabelViewTopMargin, width: schoolOrCompanyLabelViewWidth, height: schoolOrCompanyLabelViewHegiht))
-        schoolOrCompanyLabelView.text = self.schoolOrCompany
-        schoolOrCompanyLabelView.font = schoolOrCompanyLabelView.font.withSize(14)
-        schoolOrCompanyLabelView.textAlignment = NSTextAlignment.center
-        schoolOrCompanyLabelView.textColor = UIColor(red: 0.84, green: 0.84, blue: 0.84, alpha: 1)
-        schoolOrCompanyLabelView.text = name
+    }
+    
+    func stylingProfileImage() {
         
-        qrView.addSubview(schoolOrCompanyLabelView)
+        profileImage.layer.cornerRadius = profileImage.bounds.height / 2
+        profileImage.layer.borderColor = UIColor.white.cgColor
+        profileImage.layer.borderWidth = 3
+        profileImage.layer.masksToBounds = true
         
     }
     
     func createGradientLayer() {
-        
-        //Begin, define gradient layer scale
-        let gradientWidth: CGFloat = self.view.bounds.width * 0.88
-        let gradientHeight: CGFloat = self.view.bounds.height * 0.36
-        //End, define
         
         //Begin, define gradient color shade from RGB(210,116,184) to RGB(144,112,196)
         let headGradientColor = UIColor(red: 0.82, green: 0.455, blue: 0.72, alpha: 1).cgColor
@@ -135,13 +113,13 @@ class QRViewController: UIViewController {
         
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: gradientWidth, height: gradientHeight)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: gradientView.bounds.width, height: gradientView.bounds.height)
         gradientLayer.colors = [headGradientColor, tailGradientColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         //End
         
-        qrView.layer.insertSublayer(gradientLayer, at: 0)
+        gradientView.layer.insertSublayer(gradientLayer, at: 0)
         
     }
 

@@ -27,10 +27,6 @@
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
 		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
 		5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */; };
-		5F9FB0891E150EDE00E984AB /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
-		5F9FB08A1E150EDE00E984AB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
-		5F9FB08B1E150EDE00E984AB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
-		5F9FB08C1E150EDE00E984AB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
 		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
 		800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 800641D61E215A7F00760834 /* Model.xcdatamodeld */; };
@@ -41,6 +37,10 @@
 		802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */; };
 		802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */; };
 		802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F13B21E23FC240098A687 /* BookTableViewCell.swift */; };
+		805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
+		805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
+		805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
+		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
 		80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */; };
@@ -104,10 +104,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F9FB08C1E150EDE00E984AB /* FBSDKShareKit.framework in Frameworks */,
-				5F9FB0891E150EDE00E984AB /* Bolts.framework in Frameworks */,
-				5F9FB08A1E150EDE00E984AB /* FBSDKCoreKit.framework in Frameworks */,
-				5F9FB08B1E150EDE00E984AB /* FBSDKLoginKit.framework in Frameworks */,
+				805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */,
+				805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */,
+				805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */,
+				805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

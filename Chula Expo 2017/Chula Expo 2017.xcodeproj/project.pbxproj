@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */; };
+		58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
 		5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */; };
 		5F23F3931E2278B500ACA6A7 /* SlideshowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewController.swift; sourceTree = "<group>"; };
+		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestTableViewCell.swift; sourceTree = "<group>"; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowCell.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */,
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
 				5F4A9D951E10300900713580 /* Main.storyboard */,
+				58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */,
+				58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */,
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
@@ -323,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
+				58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */,
 				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
@@ -331,6 +338,7 @@
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
 				80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */,
+				58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,

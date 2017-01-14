@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -17,6 +18,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     var careerType = 0 // 0 = Student , 1 = Worker
     var isFrameMove = false // false when frame did not move, true when frame did move
     var name: String!
+    var email: String!
     var imageProfile: UIImage!
     var activeField: UITextField!
     
@@ -27,6 +29,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var schoolOrCompanyField: UITextField!
     @IBOutlet var gradeOrPositionField: UITextField!
     
+    var token: String!
+    var fbImageProfileUrl: String!
     var imageProfileView: UIImageView!
     var nameLabelView: UILabel!
     var student: UIButton!
@@ -68,6 +72,42 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
         } else {
             
+            let managedObjectContext: NSManagedObjectContext? =
+                (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+            
+            managedObjectContext?.perform {
+                
+                _ = UserData.addUser(
+                                        token: self.token,
+                                        userType: "student",
+                                        name: self.nameField.text!,
+                                        email: self.emailField.text!,
+                                        age: Int(self.ageField.text!)!,
+                                        gender: self.genderField.text!,
+                                        school: self.schoolOrCompany.text!,
+                                        company: "",
+                                        year: Int(self.gradeOrPositionField.text!)!,
+                                        position: "",
+                                        pictureUrl: self.fbImageProfileUrl,
+                                        inManageobjectcontext: managedObjectContext!
+                                    )
+                
+            }
+            
+            do {
+                
+                try managedObjectContext?.save()
+                print("saved")
+                
+            } catch let error {
+              
+                print("saveError with \(error)")
+                
+            }
+            
+            printDatabaseStatistics()
+
+            
             performSegue(withIdentifier: "toInterestedView", sender: self)
             
         }
@@ -82,6 +122,25 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
         }
         
+    }
+    
+    private func printDatabaseStatistics() {
+        
+        let managedObjectContext: NSManagedObjectContext? =
+            (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+
+        managedObjectContext?.perform {
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+            
+            request.returnsObjectsAsFaults = false
+            
+            if let result = try? managedObjectContext!.fetch(request).first as? UserData{
+                
+                print("Total datas in coredata \(result)")
+                
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -100,7 +159,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         ageField.tag = 2
         genderField.tag = 3
         schoolOrCompanyField.tag = 4
-        gradeOrPositionField.tag = 5        
+        gradeOrPositionField.tag = 5
+        
+        emailField.text = self.email
         
         stylingTextField(textField: emailField)
         stylingTextField(textField: ageField)
@@ -132,6 +193,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+        printDatabaseStatistics()
     }
     
     override func viewWillAppear(_ animated: Bool) {

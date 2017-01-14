@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import FBSDKLoginKit
 
 class QRViewController: UIViewController {
     
@@ -23,6 +25,8 @@ class QRViewController: UIViewController {
     }
     
     var baseQRViewCenter = CGPoint()
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,8 @@ class QRViewController: UIViewController {
         view.layoutIfNeeded()
         
         baseQRViewCenter = qrView.center
+        
+        fetchUserData()
         
         createGradientLayer()
         
@@ -54,10 +60,45 @@ class QRViewController: UIViewController {
     }
     */
     
+    private func fetchUserData() {
+        
+        managedObjectContext?.perform {
+            
+            let userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: self.managedObjectContext!)
+            
+            self.setImageProfile(pictureUrl: (userData?.pictureUrl)!)
+            self.name.text = userData?.name
+            
+            if userData?.userType == "student" {
+                
+                self.schoolOrCompany.text = userData?.school   
+                
+            } else {
+                
+                self.schoolOrCompany.text = userData?.company
+                
+            }
+            
+        }
+        
+    }
+    
+    func setImageProfile(pictureUrl: String) {
+        
+        let facebookProfileUrl = URL(string: pictureUrl)
+        
+        if let data = NSData(contentsOf: facebookProfileUrl!) {
+            
+            self.profileImage.image = UIImage(data: data as Data)
+            
+        }
+        
+    }
+    
     func drag(gestureRecognizer: UIPanGestureRecognizer) {
         
-        let xDistanceToDismiss = self.view.bounds.width * 0.1
-        let yDistanceToDismiss = self.view.bounds.height * 0.1
+        let xDistanceToDismiss = self.view.bounds.width * 0.3
+        let yDistanceToDismiss = self.view.bounds.height * 0.3
         
         let translation = gestureRecognizer.translation(in: view)
         

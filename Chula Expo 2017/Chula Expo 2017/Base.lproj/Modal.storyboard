@@ -53,7 +53,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17F-Rr-mtn">
-                                                <rect key="frame" x="296" y="16.5" width="11.5" height="12"/>
+                                                <rect key="frame" x="293.5" y="14" width="16.5" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="17F-Rr-mtn" secondAttribute="height" multiplier="1:1" id="4KS-om-zNf"/>
                                                 </constraints>
@@ -70,7 +70,7 @@
                                             <constraint firstItem="liV-hZ-JeP" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.36" id="7nT-jR-NXk"/>
                                             <constraint firstItem="liV-hZ-JeP" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="8Xa-yT-a35"/>
                                             <constraint firstItem="17F-Rr-mtn" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="0.19" id="9XM-8D-RRS"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.035" id="DII-hm-Qnj"/>
+                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.05" id="DII-hm-Qnj"/>
                                             <constraint firstItem="82c-A8-06g" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="ISR-rC-mHu"/>
                                             <constraint firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="height" multiplier="11:8" id="L8N-4l-uWj"/>
                                             <constraint firstItem="17F-Rr-mtn" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" multiplier="1.84" id="QJj-Mp-510"/>

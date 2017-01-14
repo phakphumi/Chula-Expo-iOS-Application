@@ -9,7 +9,7 @@
 import UIKit
 
 class QRViewController: UIViewController {
-
+    
     @IBOutlet var qrView: UIView!
     @IBOutlet var gradientView: UIView!
     @IBOutlet var profileImage: UIImageView!
@@ -22,6 +22,8 @@ class QRViewController: UIViewController {
         
     }
     
+    var baseQRViewCenter = CGPoint()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,11 +33,13 @@ class QRViewController: UIViewController {
         view.setNeedsLayout()
         view.layoutIfNeeded()
         
+        baseQRViewCenter = qrView.center
+        
         createGradientLayer()
         
         stylingProfileImage()
         
-        addSwipeToCancelGesture()
+        addDragGestureToCancel()
         
     }
     
@@ -50,35 +54,44 @@ class QRViewController: UIViewController {
     }
     */
     
-    func addSwipeToCancelGesture() {
+    func drag(gestureRecognizer: UIPanGestureRecognizer) {
         
-        let swipeLeft = UISwipeGestureRecognizer()
-        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        let xDistanceToDismiss = self.view.bounds.width * 0.1
+        let yDistanceToDismiss = self.view.bounds.height * 0.1
         
-        let swipeRight = UISwipeGestureRecognizer()
-        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        let translation = gestureRecognizer.translation(in: view)
         
-        let swipeUp = UISwipeGestureRecognizer()
-        swipeUp.direction = UISwipeGestureRecognizerDirection.up
+        let touchedMovingView = gestureRecognizer.view! // get moving object
         
-        let swipeDown = UISwipeGestureRecognizer()
-        swipeDown.direction = UISwipeGestureRecognizerDirection.down
+        touchedMovingView.center = CGPoint(x: baseQRViewCenter.x + translation.x, y: baseQRViewCenter.y + translation.y)
         
-        swipeLeft.addTarget(self, action: #selector(QRViewController.respondToSwipe))
-        swipeRight.addTarget(self, action: #selector(QRViewController.respondToSwipe))
-        swipeUp.addTarget(self, action: #selector(QRViewController.respondToSwipe))
-        swipeDown.addTarget(self, action: #selector(QRViewController.respondToSwipe))
-        
-        qrView.addGestureRecognizer(swipeLeft)
-        qrView.addGestureRecognizer(swipeRight)
-        qrView.addGestureRecognizer(swipeUp)
-        qrView.addGestureRecognizer(swipeDown)
+        if gestureRecognizer.state == UIGestureRecognizerState.ended {
+            
+            let xFromCenter = abs(touchedMovingView.center.x - self.view.bounds.width / 2) // check how far from center
+            let yFromCenter = abs(touchedMovingView.center.y - self.view.bounds.height / 2)
+            
+            if xFromCenter > xDistanceToDismiss || yFromCenter > yDistanceToDismiss {
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            } else {
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    touchedMovingView.center = self.baseQRViewCenter
+                    
+                })
+                
+            }
+            
+        }
         
     }
     
-    func respondToSwipe() {
+    func addDragGestureToCancel() {
         
-        self.dismiss(animated: true, completion: nil)
+        let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(QRViewController.drag(gestureRecognizer:)))
+        qrView.addGestureRecognizer(dragGestureRecognizer)
         
     }
     

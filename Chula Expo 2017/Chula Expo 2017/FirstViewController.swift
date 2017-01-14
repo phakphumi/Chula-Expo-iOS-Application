@@ -20,7 +20,9 @@ class FirstViewController: MainCoreDataTableViewController {
         super.viewDidLoad()
         //updateDatabase()
         printDatabaseStatistics()
-
+        requestForStageEvent()
+        requestForFeedEvent()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,12 +39,43 @@ class FirstViewController: MainCoreDataTableViewController {
     }
     
 // Core Data
+    func requestForStageEvent(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
+        request.sortDescriptors = [NSSortDescriptor(
+        key: "stage",
+        ascending: true
+        )]
+        if let context = managedObjectContext {
+            fetchedResultsController = NSFetchedResultsController(
+                fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+        }
+    }
+    func requestForFeedEvent(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
+        request.sortDescriptors = [NSSortDescriptor(
+            key: "name",
+            ascending: true
+            )]
+        if let context = managedObjectContext {
+            fetchedResultsController2 = NSFetchedResultsController(
+                fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+        }
+    }
+    
     private func updateDatabase()
     {
-        managedObjectContext?.perform {
-                _ = StageEvent.addData(name: "The event of stage 1", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
-                _ = StageEvent.addData(name: "The event of stage 2", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
-                _ = StageEvent.addData(name: "The event of stage 3", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
+        managedObjectContext?.performAndWait{
+            _ = StageEvent.addData(name: "The event of stage 1", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
+            _ = StageEvent.addData(name: "The event of stage 2", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
+            _ = StageEvent.addData(name: "The event of stage 3", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
         }
         do {
             try self.managedObjectContext?.save()
@@ -63,11 +96,8 @@ class FirstViewController: MainCoreDataTableViewController {
         }
     }
     
-//
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
-        
         tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,33 +123,13 @@ class FirstViewController: MainCoreDataTableViewController {
         }
             
         else if indexPath.section == 1{
-            print("section 1")
-                        cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
-            
-                if let context = managedObjectContext {
-                     print("pass 1")
-                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
-                    request.sortDescriptors = [NSSortDescriptor(
-                        key: "stage",
-                        ascending: true
-                        )]
-                    fetchedResultsController = NSFetchedResultsController(
-                        fetchRequest: request,
-                        managedObjectContext: context,
-                        sectionNameKeyPath: nil,
-                        cacheName: nil
-                    )
-                }
-            
-                let newIndexPath = IndexPath(row: indexPath.row, section: 0)
-                if let fetchData = fetchedResultsController?.object(at: newIndexPath) as? StageEvent
+            cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
+                if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row, section: 0)) as? StageEvent
                 {
-                    print("pass 2")
                     var name: String?
                     var startTime: NSDate?
                     var endTime: NSDate?
                     var stage: Int?
-                    print("pass 3")
                 fetchData.managedObjectContext?.performAndWait                {
                     // it's easy to forget to do this on the proper queue
                     name = fetchData.name
@@ -129,28 +139,46 @@ class FirstViewController: MainCoreDataTableViewController {
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue
                     // to do the cell.textLabel?.text setting
-                }
-                    print("pass 4")
+                   }
                 if let stageCell = cell as? StageCell{
                     stageCell.name = name
                     stageCell.startTime = startTime
                     stageCell.endTime = endTime
                     stageCell.stage = stage
-                    print("pass 5")
-                    print("\(name)")
-                    print("\(stage)")
                 }
-                    print("pass 6")
             }
         }
         else{
             print("section else")
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-//                if let eventFeedCell = cell as? EventFeedCell{
-//                    
-//                }
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row, section: 0)) as? EventData{
+                var name: String?
+                var startTime: NSDate?
+                var endTime: NSDate?
+                var tumbnail: String?
+                var facity: String?
+                fetchData.managedObjectContext?.performAndWait{
+                    // it's easy to forget to do this on the proper queue
+                    name = fetchData.name
+                    startTime = fetchData.startTime
+                    endTime = fetchData.endTime
+                    tumbnail = fetchData.tumbnail
+                    facity = fetchData.facity
+                    // we're not assuming the context is a main queue context
+                    // so we'll grab the screenName and return to the main queue
+                    // to do the cell.textLabel?.text setting
+                }
+                print("feedCell name == \(name)")
+                if let eventFeedCell = cell as? EventFeedCell{
+                    print("feedCell name == \(name)")
+                    eventFeedCell.name = name
+                    eventFeedCell.startTime = startTime
+                    eventFeedCell.endTime = endTime
+                    eventFeedCell.tumbnail = tumbnail
+                    eventFeedCell.facity = facity
+                }
+            }
         }
-        
         return cell
         
     }

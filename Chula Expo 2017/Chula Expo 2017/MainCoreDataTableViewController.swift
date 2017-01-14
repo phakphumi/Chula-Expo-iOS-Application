@@ -23,6 +23,20 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
             }
         }
     }
+    var fetchedResultsController2: NSFetchedResultsController<NSFetchRequestResult>? {
+        didSet {
+            do {
+                if let frc = fetchedResultsController2 {
+                    frc.delegate = self
+                    try frc.performFetch()
+                }
+                tableView.reloadData()
+            } catch let error {
+                print("NSFetchedResultsController2.performFetch() failed: \(error)")
+            }
+        }
+    }
+
     
     // MARK: UITableViewDataSource
     
@@ -32,16 +46,23 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0{
-            
             return 1
         }
-//        else if section == 1{
-//            return 12
-//        }
-        else if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            print("section 2,3")
-            return sections[0].numberOfObjects
-        } else {
+        else if section == 1{
+            if let i = fetchedResultsController?.sections?[0]{
+                return i.numberOfObjects
+            }
+            return 0
+        }
+        else if section == 2{
+            if let i = fetchedResultsController2?.sections?[0]{
+                print("section 2 == \(i.numberOfObjects)")
+                return i.numberOfObjects
+            }
+            print("section 2 else")
+            return 0
+        }
+        else {
             print("else \(fetchedResultsController)")
             return 0
         }

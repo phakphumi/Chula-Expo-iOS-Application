@@ -44,7 +44,6 @@ class EventsTableViewController: CoreDataTableViewController
                 sectionNameKeyPath: "dateSection",
                 cacheName: nil
             )
-            
         }
         else
         {

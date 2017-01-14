@@ -8,10 +8,14 @@
 
 import UIKit
 import FBSDKLoginKit
+import CoreData
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
+    var token = ""
     var name = ""
+    var email = ""
+    var fbImageProfileUrl = ""
     var imageProfile: UIImage!
 
     override func viewDidLoad() {
@@ -21,7 +25,26 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         if FBSDKAccessToken.current() != nil {
             
-            profileUpdate()
+            let managedObjectContext: NSManagedObjectContext? =
+                (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+            
+            var userData: UserData!
+            
+            managedObjectContext?.perform {
+
+                userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: managedObjectContext!)
+                
+            }
+            
+            if userData != nil {
+                    
+                self.performSegue(withIdentifier: "toTabBarController", sender: self)
+                    
+            } else {
+                    
+                self.profileUpdate()
+                
+            }
             
         } else {
         
@@ -45,7 +68,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let registerViewController = navigationController.viewControllers.first as! RegisterViewController
             
+            registerViewController.token = self.token
             registerViewController.name = self.name
+            registerViewController.email = self.email
+            registerViewController.fbImageProfileUrl = self.fbImageProfileUrl
             registerViewController.imageProfile = self.imageProfile
             
         }
@@ -68,7 +94,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                         let userID = userDetails["id"]!
                         
+                        self.token = FBSDKAccessToken.current().tokenString
+                        
                         self.name = userDetails["name"]!
+                        
+                        self.email = userDetails["email"]!
+                        
+                        self.fbImageProfileUrl = "http://graph.facebook.com/\(userID)/picture?type=large"
                         
                         self.setImageProfile(userID: userID)
                         

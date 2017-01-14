@@ -14,6 +14,56 @@ class EventFeedCell: UITableViewCell {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     
+    var name: String?{
+        didSet{
+            print("\(name)")
+            updateUI()
+        }
+    }
+    var tumbnail: String?{
+        didSet{
+            updateUI()
+        }
+    }
+    var startTime: NSDate?{
+        didSet{
+            updateUI()
+        }
+    }
+    var endTime: NSDate?{
+        didSet{
+            updateUI()
+        }
+    }
+    var facity: String?{
+        didSet{
+            updateUI()
+        }
+    }
+
+    func updateUI(){
+        // reset
+        eventTumbnailImage.image = nil
+        eventNameLabel.text = nil
+        eventTimeLabel.text = nil
+        
+        if let eventStartTime = startTime{
+            if let eventEndTime = endTime{
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "H:mm"
+                let sTime = dateFormatter.string(from: eventStartTime as Date)
+                let eTime = dateFormatter.string(from: eventEndTime as Date)
+                eventTimeLabel.text = "\(sTime) - \(eTime)"
+            }
+        }
+        if let eventName = name{
+            eventNameLabel.text = eventName
+        }
+        if let eventTumbnail = tumbnail{
+            eventTumbnailImage.image = UIImage(named: eventTumbnail)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

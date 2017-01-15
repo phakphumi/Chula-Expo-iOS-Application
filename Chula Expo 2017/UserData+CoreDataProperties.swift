@@ -17,6 +17,7 @@ extension UserData {
         return NSFetchRequest<UserData>(entityName: "UserData");
     }
 
+    @NSManaged public var id: String?
     @NSManaged public var token: String?
     @NSManaged public var name: String?
     @NSManaged public var userType: String?

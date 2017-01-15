@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -79,22 +80,40 @@
                                 <rect key="frame" x="0.0" y="188" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
-                                            <rect key="frame" x="18" y="5" width="42" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
+                                            <rect key="frame" x="15" y="13" width="30" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="AEk-Ic-ub0" secondAttribute="height" multiplier="21:20" id="QEx-4s-d7o"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-of-2ey">
-                                            <rect key="frame" x="81" y="15" width="286" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-of-2ey">
+                                            <rect key="frame" x="65" y="7.5" width="168" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="fX7-of-2ey" secondAttribute="height" multiplier="286:35" id="Sd5-Nn-q5g"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fX7-of-2ey" secondAttribute="bottom" id="2Vn-8T-Lee"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fX7-of-2ey" secondAttribute="trailing" constant="16" id="9Oj-eH-QMW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="AEk-Ic-ub0" secondAttribute="trailing" constant="310" id="E6R-Sh-8xQ"/>
+                                        <constraint firstItem="AEk-Ic-ub0" firstAttribute="leading" secondItem="vIQ-3V-YfI" secondAttribute="leadingMargin" constant="7" id="GXN-7y-n9K"/>
+                                        <constraint firstItem="fX7-of-2ey" firstAttribute="top" secondItem="vIQ-3V-YfI" secondAttribute="topMargin" constant="-1" id="JJT-Jo-KZM"/>
+                                        <constraint firstItem="fX7-of-2ey" firstAttribute="centerY" secondItem="vIQ-3V-YfI" secondAttribute="centerY" id="Mwk-Ky-w05"/>
+                                        <constraint firstItem="AEk-Ic-ub0" firstAttribute="width" secondItem="vIQ-3V-YfI" secondAttribute="height" multiplier="21:25" id="NGv-M4-MBb"/>
+                                        <constraint firstItem="fX7-of-2ey" firstAttribute="width" secondItem="vIQ-3V-YfI" secondAttribute="height" multiplier="143:25" id="SHW-Ka-rgi"/>
+                                        <constraint firstItem="fX7-of-2ey" firstAttribute="leading" secondItem="vIQ-3V-YfI" secondAttribute="leadingMargin" constant="57" id="Yyd-8e-GWA"/>
+                                        <constraint firstItem="AEk-Ic-ub0" firstAttribute="top" secondItem="vIQ-3V-YfI" secondAttribute="topMargin" constant="5" id="ZC0-Vi-TeE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="AEk-Ic-ub0" secondAttribute="bottom" constant="5" id="gsV-6B-aQ8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="menuImg" destination="AEk-Ic-ub0" id="ub3-kf-oUq"/>
                                     <outlet property="menuName" destination="fX7-of-2ey" id="5Xa-AB-B66"/>

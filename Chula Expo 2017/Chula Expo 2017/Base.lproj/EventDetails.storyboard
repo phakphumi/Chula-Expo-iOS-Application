@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0Lq-Fq-l5p">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Event Details View Controller-->
+        <scene sceneID="jSW-Ra-hGU">
+            <objects>
+                <viewController id="Fbb-h2-56c" customClass="EventDetailsViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Xn-BL-Pgu"/>
+                        <viewControllerLayoutGuide type="bottom" id="QkF-Ol-CCi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BOT-sd-MBy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th6-w6-ALJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="77U-HS-gLI">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_detail_temp" translatesAutoresizingMaskIntoConstraints="NO" id="g8X-1h-CVQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="g8X-1h-CVQ" secondAttribute="height" multiplier="125:89" id="zQa-C3-dxf"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGp-E5-5Ag">
+                                                <rect key="frame" x="343" y="34" width="14" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="NXH-Th-Vrq"/>
+                                                    <constraint firstAttribute="width" constant="14" id="xdg-dG-nRO"/>
+                                                </constraints>
+                                                <state key="normal" image="share"/>
+                                                <connections>
+                                                    <action selector="share:" destination="Fbb-h2-56c" eventType="touchUpInside" id="J4b-6v-DxV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-eA-6xQ">
+                                                <rect key="frame" x="14" y="32" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="Xe9-IC-3Ki"/>
+                                                    <constraint firstAttribute="height" constant="25" id="hk5-D8-sZo"/>
+                                                </constraints>
+                                                <state key="normal" image="cross_black"/>
+                                                <connections>
+                                                    <action selector="cancel:" destination="Fbb-h2-56c" eventType="touchUpInside" id="SCc-XB-0pR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="BGp-E5-5Ag" secondAttribute="trailing" constant="18" id="95l-VJ-hx4"/>
+                                            <constraint firstItem="Tdj-eA-6xQ" firstAttribute="top" secondItem="77U-HS-gLI" secondAttribute="top" constant="32" id="HgR-mW-f74"/>
+                                            <constraint firstItem="BGp-E5-5Ag" firstAttribute="top" secondItem="77U-HS-gLI" secondAttribute="top" constant="34" id="PHd-o8-5rU"/>
+                                            <constraint firstAttribute="height" constant="1000" id="X5u-Qr-RiV"/>
+                                            <constraint firstItem="g8X-1h-CVQ" firstAttribute="centerX" secondItem="77U-HS-gLI" secondAttribute="centerX" id="Z0D-v1-pqN"/>
+                                            <constraint firstAttribute="trailing" secondItem="g8X-1h-CVQ" secondAttribute="trailing" id="aBh-iu-kGD"/>
+                                            <constraint firstItem="Tdj-eA-6xQ" firstAttribute="leading" secondItem="77U-HS-gLI" secondAttribute="leading" constant="14" id="eg8-tU-5f0"/>
+                                            <constraint firstItem="g8X-1h-CVQ" firstAttribute="leading" secondItem="77U-HS-gLI" secondAttribute="leading" id="j3Y-u9-oYi"/>
+                                            <constraint firstItem="g8X-1h-CVQ" firstAttribute="top" secondItem="77U-HS-gLI" secondAttribute="top" id="mSc-a1-99G"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="77U-HS-gLI" firstAttribute="top" secondItem="th6-w6-ALJ" secondAttribute="top" id="3sP-78-7e9"/>
+                                    <constraint firstAttribute="trailing" secondItem="77U-HS-gLI" secondAttribute="trailing" id="7cf-7t-UAj"/>
+                                    <constraint firstItem="77U-HS-gLI" firstAttribute="leading" secondItem="th6-w6-ALJ" secondAttribute="leading" id="SfE-he-hap"/>
+                                    <constraint firstAttribute="bottom" secondItem="77U-HS-gLI" secondAttribute="bottom" id="iJa-Gh-j3d"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="th6-w6-ALJ" secondAttribute="trailing" id="6TU-7U-rhA"/>
+                            <constraint firstItem="th6-w6-ALJ" firstAttribute="top" secondItem="BOT-sd-MBy" secondAttribute="top" id="8AV-5p-u8J"/>
+                            <constraint firstItem="QkF-Ol-CCi" firstAttribute="top" secondItem="th6-w6-ALJ" secondAttribute="bottom" id="E3i-yL-8w8"/>
+                            <constraint firstItem="77U-HS-gLI" firstAttribute="width" secondItem="BOT-sd-MBy" secondAttribute="width" id="cdc-Kl-Kd9"/>
+                            <constraint firstItem="th6-w6-ALJ" firstAttribute="leading" secondItem="BOT-sd-MBy" secondAttribute="leading" id="nGN-Jq-8Ta"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="scrollView" destination="th6-w6-ALJ" id="MRl-gT-mC8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBi-pl-kRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3487" y="1155"/>
+        </scene>
+        <!--Event Details Table View Controller-->
+        <scene sceneID="B5G-9r-ePI">
+            <objects>
+                <tableViewController id="0Lq-Fq-l5p" customClass="EventDetailsTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="268" sectionHeaderHeight="28" sectionFooterHeight="28" id="cEU-GG-bGa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="267" id="CDU-yS-cHJ" customClass="ImageTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="267"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CDU-yS-cHJ" id="kdZ-Oy-9BB">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_detail_temp" translatesAutoresizingMaskIntoConstraints="NO" id="ak4-Gx-PcA">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="ak4-Gx-PcA" secondAttribute="height" multiplier="125:89" id="ctt-KH-qdh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGW-zA-539">
+                                            <rect key="frame" x="14" y="31.5" width="26" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="rGW-zA-539" secondAttribute="height" multiplier="1:1" id="cgc-oc-cdD"/>
+                                            </constraints>
+                                            <state key="normal" image="cross_black"/>
+                                            <connections>
+                                                <action selector="cancel:" destination="CDU-yS-cHJ" eventType="touchUpInside" id="0sD-wM-eP0"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDR-r9-Gb4">
+                                            <rect key="frame" x="344" y="34" width="14" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="cDR-r9-Gb4" secondAttribute="height" multiplier="7:10" id="kBF-Il-3LF"/>
+                                            </constraints>
+                                            <state key="normal" image="share"/>
+                                            <connections>
+                                                <action selector="share:" destination="CDU-yS-cHJ" eventType="touchUpInside" id="PeW-l4-7Qb"/>
+                                                <action selector="share:" destination="0Lq-Fq-l5p" eventType="touchUpInside" id="dCn-FX-8bG"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="rGW-zA-539" firstAttribute="width" secondItem="kdZ-Oy-9BB" secondAttribute="width" multiplier="0.07" id="5RK-7G-oI9"/>
+                                        <constraint firstItem="rGW-zA-539" firstAttribute="centerX" secondItem="kdZ-Oy-9BB" secondAttribute="centerX" multiplier="0.14" id="AmR-3g-X7a"/>
+                                        <constraint firstItem="ak4-Gx-PcA" firstAttribute="width" secondItem="kdZ-Oy-9BB" secondAttribute="width" id="BHo-1S-geq"/>
+                                        <constraint firstItem="cDR-r9-Gb4" firstAttribute="width" secondItem="kdZ-Oy-9BB" secondAttribute="width" multiplier="0.038" id="GEy-Vg-Fvu"/>
+                                        <constraint firstItem="ak4-Gx-PcA" firstAttribute="centerY" secondItem="kdZ-Oy-9BB" secondAttribute="centerY" id="Nod-8Q-DAA"/>
+                                        <constraint firstItem="ak4-Gx-PcA" firstAttribute="centerX" secondItem="kdZ-Oy-9BB" secondAttribute="centerX" id="duV-Se-FDI"/>
+                                        <constraint firstItem="cDR-r9-Gb4" firstAttribute="centerY" secondItem="kdZ-Oy-9BB" secondAttribute="centerY" multiplier="0.33" id="iIE-kj-mL1"/>
+                                        <constraint firstItem="cDR-r9-Gb4" firstAttribute="centerX" secondItem="kdZ-Oy-9BB" secondAttribute="centerX" multiplier="1.87" id="swA-AK-ObE"/>
+                                        <constraint firstItem="rGW-zA-539" firstAttribute="centerY" secondItem="kdZ-Oy-9BB" secondAttribute="centerY" multiplier="0.33" id="ycP-W0-jIX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopicCell" rowHeight="30" id="gzJ-LG-jqS" customClass="ImageTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="295" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gzJ-LG-jqS" id="jF6-DX-6Hr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Lq-Fq-l5p" id="60V-Hb-Gvo"/>
+                            <outlet property="delegate" destination="0Lq-Fq-l5p" id="4am-OA-5we"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFo-Gq-w82" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4474" y="1004"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cross_black" width="16" height="16"/>
+        <image name="event_detail_temp" width="137" height="89"/>
+        <image name="share" width="15" height="21"/>
+    </resources>
+</document>

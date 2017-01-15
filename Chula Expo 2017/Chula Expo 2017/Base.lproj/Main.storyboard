@@ -475,7 +475,6 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="FYS-Oc-05s" secondAttribute="bottom" constant="15" id="2CI-mt-QED"/>
                                                         <constraint firstItem="FYS-Oc-05s" firstAttribute="leading" secondItem="Hd0-DP-5MJ" secondAttribute="leading" constant="17.5" id="A5r-Nw-BaO"/>
                                                         <constraint firstItem="FYS-Oc-05s" firstAttribute="centerX" secondItem="Hd0-DP-5MJ" secondAttribute="centerX" id="Wy6-ID-dxJ"/>
                                                         <constraint firstItem="FYS-Oc-05s" firstAttribute="top" secondItem="Hd0-DP-5MJ" secondAttribute="top" id="xah-wJ-E0l"/>
@@ -503,7 +502,6 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="qiy-Bb-TBI" secondAttribute="trailing" constant="17.5" id="HIk-3e-F9O"/>
-                                                        <constraint firstAttribute="bottom" secondItem="qiy-Bb-TBI" secondAttribute="bottom" constant="15" id="ZZe-Or-82i"/>
                                                         <constraint firstItem="qiy-Bb-TBI" firstAttribute="top" secondItem="lcA-vS-Mfb" secondAttribute="top" id="j1q-9w-WHM"/>
                                                         <constraint firstItem="qiy-Bb-TBI" firstAttribute="centerX" secondItem="lcA-vS-Mfb" secondAttribute="centerX" id="sdV-fY-bnJ"/>
                                                         <constraint firstItem="qiy-Bb-TBI" firstAttribute="leading" secondItem="lcA-vS-Mfb" secondAttribute="leading" constant="17.5" id="xwU-AR-nxQ"/>
@@ -533,7 +531,6 @@
                                                         <constraint firstItem="yb2-Y5-FgV" firstAttribute="leading" secondItem="C3n-45-ckw" secondAttribute="leading" constant="17.5" id="RMd-Ka-xfh"/>
                                                         <constraint firstAttribute="trailing" secondItem="yb2-Y5-FgV" secondAttribute="trailing" constant="17.5" id="RS4-TJ-lKu"/>
                                                         <constraint firstItem="yb2-Y5-FgV" firstAttribute="top" secondItem="C3n-45-ckw" secondAttribute="top" id="oTl-Ga-cIP"/>
-                                                        <constraint firstAttribute="bottom" secondItem="yb2-Y5-FgV" secondAttribute="bottom" constant="15" id="ygl-s7-v1Z"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>

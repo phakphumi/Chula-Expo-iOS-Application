@@ -196,6 +196,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="qr_code" width="20" height="20"/>
+        <image name="qr_code" width="16" height="16"/>
     </resources>
 </document>

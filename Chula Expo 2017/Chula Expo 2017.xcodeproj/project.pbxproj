@@ -13,6 +13,9 @@
 		58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */; };
 		58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */; };
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
+		5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */; };
+		5F07EDCB1E2B6E180017ECD5 /* EventDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCA1E2B6E180017ECD5 /* EventDetailsTableViewController.swift */; };
+		5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
 		5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */; };
 		5F23F3931E2278B500ACA6A7 /* SlideshowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */; };
@@ -63,6 +66,9 @@
 		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewController.swift; sourceTree = "<group>"; };
 		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
+		5F07EDCA1E2B6E180017ECD5 /* EventDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsTableViewController.swift; sourceTree = "<group>"; };
+		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowCell.swift; sourceTree = "<group>"; };
@@ -124,6 +130,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */,
+				5F07EDCA1E2B6E180017ECD5 /* EventDetailsTableViewController.swift */,
+				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
+			);
+			name = Modal_EventDetails;
+			sourceTree = "<group>";
+		};
 		5F23F38C1E22282A00ACA6A7 /* First_home */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,13 +175,13 @@
 			name = Fourth_more;
 			sourceTree = "<group>";
 		};
-		5F307C901E26AF3900DEF3B0 /* Modal_popup */ = {
+		5F307C901E26AF3900DEF3B0 /* Modal_QR */ = {
 			isa = PBXGroup;
 			children = (
 				5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */,
 				5F307C8B1E26893300DEF3B0 /* QRViewController.swift */,
 			);
-			name = Modal_popup;
+			name = Modal_QR;
 			sourceTree = "<group>";
 		};
 		5F4A9D851E10300900713580 = {
@@ -199,7 +215,8 @@
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
-				5F307C901E26AF3900DEF3B0 /* Modal_popup */,
+				5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */,
+				5F307C901E26AF3900DEF3B0 /* Modal_QR */,
 				5F23F38C1E22282A00ACA6A7 /* First_home */,
 				5F23F38E1E22285300ACA6A7 /* Second_map */,
 				80073CDC1E1E315400C1F64E /* Third_events */,
@@ -328,6 +345,7 @@
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
 				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
+				5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
 				5F307C8F1E26AF0000DEF3B0 /* Modal.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
@@ -350,6 +368,7 @@
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
+				5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
@@ -358,6 +377,7 @@
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
 				5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */,
+				5F07EDCB1E2B6E180017ECD5 /* EventDetailsTableViewController.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
@@ -384,6 +404,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F07EDC31E2B64D50017ECD5 /* Base */,
+			);
+			name = EventDetails.storyboard;
+			sourceTree = "<group>";
+		};
 		5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -23,81 +23,100 @@ class FirstViewController: MainCoreDataTableViewController {
         requestForStageEvent()
         requestForFeedEvent()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+//         Uncomment the following line to preserve selection between presentations
+//         self.clearsSelectionOnViewWillAppear = false
+//
+//         Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         createGradientNavBar()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
-//        homeTableView.separatorStyle = .none
-        
-//        tableView.estimatedRowHeight = tableView.rowHeight
-//        tableView.rowHeight = UITableViewAutomaticDimension
         
     }
     
 // Core Data
     func requestForStageEvent(){
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
         request.sortDescriptors = [NSSortDescriptor(
         key: "stage",
         ascending: true
         )]
+        
         if let context = managedObjectContext {
+            
             fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
+            
         }
+        
     }
     func requestForFeedEvent(){
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
         request.sortDescriptors = [NSSortDescriptor(
             key: "name",
             ascending: true
             )]
+        
         if let context = managedObjectContext {
+            
             fetchedResultsController2 = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
+            
         }
+        
     }
     
-    private func updateDatabase()
-    {
+    private func updateDatabase(){
+        
         managedObjectContext?.performAndWait{
             _ = StageEvent.addData(name: "The event of stage 1", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
             _ = StageEvent.addData(name: "The event of stage 2", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
             _ = StageEvent.addData(name: "The event of stage 3", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
+            
         }
-        do {
+        
+        do{
+            
             try self.managedObjectContext?.save()
             print("stage event saved")
+            
         }
+            
         catch let error {
+            
             print("stage event saveError with \(error)")
+            
         }
+        
         printDatabaseStatistics()
+        
     }
     
     private func printDatabaseStatistics()
     {
+        
         managedObjectContext?.perform {
             if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "StageEvent")){
                 print("Total stageEvents datas in coredata \(result.count)")
             }
         }
+        
     }
     
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
+        
         tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+        
     }
 
     override func didReceiveMemoryWarning() {

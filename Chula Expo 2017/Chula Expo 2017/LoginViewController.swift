@@ -12,10 +12,10 @@ import CoreData
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    var token = ""
-    var name = ""
-    var email = ""
-    var fbImageProfileUrl = ""
+    var token: String?
+    var name: String?
+    var email: String?
+    var fbImageProfileUrl: String?
     var imageProfile: UIImage!
     
     let managedObjectContext: NSManagedObjectContext? =
@@ -28,25 +28,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         if FBSDKAccessToken.current() != nil {
-            print("FBSDKAccessToken.current() != nil")
-
-            var userData: UserData?
-
-            managedObjectContext?.performAndWait {
-                
-            userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: self.managedObjectContext!)
-                
-            }
             
-            if userData != nil {
-                    
-                self.performSegue(withIdentifier: "toTabBarController", sender: self)
-                    
-            } else {
-                
-                self.profileUpdate()
-                
-            }
+            self.profileUpdate()
             
         } else {
         
@@ -78,7 +61,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "UserData")){
                 for data in result as! [UserData]{
-                        print("found user with token == \(data.token)")
+                        print("found user with token == \(data.token!)")
                 }
             }
         }
@@ -117,19 +100,35 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     if let userDetails = result as? [String: String] {
                         
-                        let userID = userDetails["id"]!
+                        UserController.userId = userDetails["id"]!
                         
-                        self.token = FBSDKAccessToken.current().tokenString
+                        var userData: UserData?
                         
-                        self.name = userDetails["name"]!
+                        self.managedObjectContext?.performAndWait({
+                            
+                            userData = UserData.fetchUser(id: UserController.userId! , inManageobjectcontext: self.managedObjectContext!)
+                            
+                        })
                         
-                        self.email = userDetails["email"]!
-                        
-                        self.fbImageProfileUrl = "http://graph.facebook.com/\(userID)/picture?type=large"
-                        
-                        self.setImageProfile(userID: userID)
-                        
-                        self.performSegue(withIdentifier: "toRegister", sender: self)
+                        if userData != nil {
+                                
+                            self.performSegue(withIdentifier: "toTabBarController", sender: self)
+                            
+                        } else {
+                            
+                            self.token = FBSDKAccessToken.current().tokenString
+                            
+                            self.name = userDetails["name"]
+                            
+                            self.email = userDetails["email"]
+                            
+                            self.fbImageProfileUrl = "http://graph.facebook.com/\(UserController.userId!)/picture?type=large"
+                            
+                            self.setImageProfile(userID: UserController.userId!)
+                            
+                            self.performSegue(withIdentifier: "toRegister", sender: self)
+                            
+                        }
                         
                     }
                     
@@ -166,7 +165,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             } else {
                 
                 if (result?.grantedPermissions.contains("email"))! {
-                    
+                        
                     self.profileUpdate()
                     
                 }

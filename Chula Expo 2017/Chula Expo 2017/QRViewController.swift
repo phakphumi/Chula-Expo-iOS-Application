@@ -64,9 +64,9 @@ class QRViewController: UIViewController {
         
         managedObjectContext?.perform {
             
-            let userData = UserData.fetchUser(token: FBSDKAccessToken.current().tokenString, inManageobjectcontext: self.managedObjectContext!)
+            let userData = UserData.fetchUser(id: UserController.userId!, inManageobjectcontext: self.managedObjectContext!)
             
-            self.setImageProfile(pictureUrl: (userData?.pictureUrl)!)
+            self.setImageProfile(pictureUrl: (userData?.pictureUrl!)!)
             self.name.text = userData?.name
             
             if userData?.userType == "student" {

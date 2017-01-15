@@ -43,6 +43,7 @@
 		805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
 		805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
 		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
+		805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
 		80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */; };
@@ -93,6 +94,7 @@
 		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageEventDetailTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				80BFD4D71E27F39D00491730 /* CoreData */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
+				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
 				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
 				5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */,
@@ -363,6 +366,7 @@
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
 				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
 				80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */,
+				805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
 				5FB054591E23CEEF00428428 /* TagController.swift in Sources */,
 				80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */,

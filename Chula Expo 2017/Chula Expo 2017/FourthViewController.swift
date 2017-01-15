@@ -12,7 +12,9 @@ class FourthViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createGradientNavBar()
         self.title = "My profile"
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
 //        tableView.estimatedRowHeight = tableView.rowHeight
 //        tableView.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view.
@@ -30,14 +32,14 @@ class FourthViewController: UITableViewController {
     
     var menuList: [Array<menu>] = [
         [
-            menu(name: "Bookmarks", icon: "technology"),
-            menu(name: "Reservations", icon: "technology")
+            menu(name: "Favourites", icon: "favoriteIcon"),
+            menu(name: "Reservations", icon: "reservationIcon")
         ],
         
         [
-            menu(name: "Setting", icon: "technology"),
+            menu(name: "Setting", icon: "settingsIcon"),
             menu(name: "About", icon: "technology"),
-            menu(name: "Help", icon: "technology")
+            menu(name: "Help", icon: "helpIcon")
         ]
     ]
     
@@ -98,7 +100,7 @@ class FourthViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
-        if (section == 0){
+        if (section == 0 || section == 1){
             return nil
         }
         else{
@@ -106,6 +108,32 @@ class FourthViewController: UITableViewController {
         }
     }
 
-
+    func createGradientNavBar() {
+        
+        //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
+        let headGradientColor = UIColor(red: 0.8, green: 0.36, blue: 0.67, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.565, green: 0.44, blue: 0.77, alpha: 1).cgColor
+        //
+        
+        //Begin, create gradient layer with 2 colors shade and start gradient from left to right
+        let gradientLayer = CAGradientLayer()
+        var navIncludeStatFrame = navigationController!.navigationBar.bounds
+        navIncludeStatFrame.size.height += 20
+        gradientLayer.frame = navIncludeStatFrame
+        gradientLayer.colors = [headGradientColor, tailGradientColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        //End
+        
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
 
 }

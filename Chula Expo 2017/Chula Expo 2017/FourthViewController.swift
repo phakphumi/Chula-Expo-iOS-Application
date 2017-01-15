@@ -12,7 +12,9 @@ class FourthViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "My profile"
+//        tableView.estimatedRowHeight = tableView.rowHeight
+//        tableView.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view.
     }
 
@@ -31,52 +33,79 @@ class FourthViewController: UITableViewController {
             menu(name: "Bookmarks", icon: "technology"),
             menu(name: "Reservations", icon: "technology")
         ],
+        
         [
             menu(name: "Setting", icon: "technology"),
-            menu(name: "About", icon: "technology")
+            menu(name: "About", icon: "technology"),
+            menu(name: "Help", icon: "technology")
         ]
-        
     ]
+    
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
     
-   /* override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        var NumberOfRow = tagList.count/3
-        if tagList.count%3 != 0
-        {
-            NumberOfRow += 1
+        if section == 0 {
+            return 1
         }
-        return NumberOfRow
+        else if section == 1{
+            return 2
+        }
+        else {
+            return 3
+        }
     }
     
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
-        
-        if let interestCell = cell as? InterestTableViewCell
-        {
-            if tagList.count > indexPath.row*3 {
-                interestCell.imgName[0] = tagList[indexPath.row*3+0].imgName
-                interestCell.tagName[0] = tagList[indexPath.row*3+0].tagName
+   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell: UITableViewCell
+    
+        if indexPath.row == 0 && indexPath.section == 0{
+            cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath)
+            if let headCell = cell as? FourthHeadTableViewCell
+            {
+                headCell.name = "Fmm Fmm"
+                headCell.icon = "technology"
             }
-            if tagList.count > indexPath.row*3+1 {
-                interestCell.imgName[1] = tagList[indexPath.row*3+1].imgName
-                interestCell.tagName[1] = tagList[indexPath.row*3+1].tagName
-            }
-            if tagList.count > indexPath.row*3+2 {
-                interestCell.imgName[2] = tagList[indexPath.row*3+2].imgName
-                interestCell.tagName[2] = tagList[indexPath.row*3+2].tagName
+            
+            cell.selectionStyle = .none
+        }else{
+            cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
+            if let menuCell = cell as? FourthMenuTableViewCell
+            {
+                menuCell.name = menuList[indexPath.section-1][indexPath.row].name
+                menuCell.icon = menuList[indexPath.section-1][indexPath.row].icon
             }
         }
-        cell.selectionStyle = .none
+     //   cell.selectionStyle = .none
         return cell
         // Configure the cell...
     }
-    */
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.row == 0 && indexPath.section == 0 {
+            return 150
+        }
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        if (section == 0){
+            return nil
+        }
+        else{
+            return "  "
+        }
+    }
+
 
 
 }

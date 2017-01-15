@@ -22,7 +22,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vm9-n6-CPl" kind="show" id="cVs-dX-cRZ"/>
+                        <segue destination="vm9-n6-CPl" kind="relationship" relationship="rootViewController" id="egE-nt-mfJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyx-qa-l2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,39 +38,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headCell" rowHeight="143" id="9GB-Wj-nlD" customClass="FourthHeadTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="143"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headCell" rowHeight="160" id="9GB-Wj-nlD" customClass="FourthHeadTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GB-Wj-nlD" id="DUf-zw-WKh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJl-ev-EIS">
-                                            <rect key="frame" x="142" y="6" width="90" height="90"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1b-48-q2A">
-                                            <rect key="frame" x="166" y="104" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
+                                            <rect key="frame" x="142" y="6" width="90" height="144"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJl-ev-EIS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="ogy-eP-U5C"/>
+                                                        <constraint firstAttribute="width" constant="90" id="rNd-xY-MnY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1b-48-q2A">
+                                                    <rect key="frame" x="24" y="101" width="42" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="RJl-ev-EIS" secondAttribute="trailing" constant="135" id="3t6-A4-m2a"/>
-                                        <constraint firstItem="F1b-48-q2A" firstAttribute="leading" secondItem="DUf-zw-WKh" secondAttribute="leadingMargin" constant="158" id="BAE-8e-kqK"/>
-                                        <constraint firstItem="RJl-ev-EIS" firstAttribute="leading" secondItem="DUf-zw-WKh" secondAttribute="leadingMargin" constant="134" id="Egf-6d-gvb"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="RJl-ev-EIS" secondAttribute="bottom" constant="38" id="O35-KC-amp"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="F1b-48-q2A" secondAttribute="bottom" constant="9" id="PFv-Af-w1L"/>
-                                        <constraint firstItem="F1b-48-q2A" firstAttribute="top" secondItem="DUf-zw-WKh" secondAttribute="topMargin" constant="96" id="bIc-wY-u5J"/>
-                                        <constraint firstItem="F1b-48-q2A" firstAttribute="centerX" secondItem="DUf-zw-WKh" secondAttribute="centerX" id="fmA-Dt-ekL"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="F1b-48-q2A" secondAttribute="trailing" constant="159" id="hdC-e0-hfY"/>
-                                        <constraint firstItem="RJl-ev-EIS" firstAttribute="top" secondItem="DUf-zw-WKh" secondAttribute="topMargin" constant="-2" id="jiS-eq-Ggu"/>
-                                        <constraint firstItem="RJl-ev-EIS" firstAttribute="centerX" secondItem="DUf-zw-WKh" secondAttribute="centerX" id="x10-Pa-eGO"/>
+                                        <constraint firstItem="kBJ-Os-qLE" firstAttribute="centerX" secondItem="DUf-zw-WKh" secondAttribute="centerX" id="Oq1-eg-y6e"/>
+                                        <constraint firstItem="kBJ-Os-qLE" firstAttribute="top" secondItem="DUf-zw-WKh" secondAttribute="topMargin" id="kdh-5E-upX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kBJ-Os-qLE" secondAttribute="bottom" id="xXA-hy-Is5"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="headImg" destination="RJl-ev-EIS" id="uaK-Mg-d3C"/>
+                                    <outlet property="headName" destination="F1b-48-q2A" id="Ohe-S5-47j"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="51" id="eYW-ZK-5gL">
-                                <rect key="frame" x="0.0" y="171" width="375" height="51"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="51" id="eYW-ZK-5gL" customClass="FourthMenuTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="188" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
@@ -81,7 +87,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-of-2ey">
-                                            <rect key="frame" x="81" y="15" width="42" height="21"/>
+                                            <rect key="frame" x="81" y="15" width="286" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -89,6 +95,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="menuImg" destination="AEk-Ic-ub0" id="ub3-kf-oUq"/>
+                                    <outlet property="menuName" destination="fX7-of-2ey" id="5Xa-AB-B66"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -96,6 +106,7 @@
                             <outlet property="delegate" destination="vm9-n6-CPl" id="kso-ch-Z90"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Dp1-Yw-3sr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bio-H3-dVA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

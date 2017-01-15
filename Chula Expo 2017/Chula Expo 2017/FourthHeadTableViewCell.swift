@@ -10,16 +10,68 @@ import UIKit
 
 class FourthHeadTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var headImg: UIImageView!
+    {
+        didSet{
+            roundedCornerLogo()
+        }
+    }
+    var name: String?
+    {
+        didSet{
+            print("FMFMFM\(name)")
+            updateUI()
+        }
+    }
+    var icon: String?
+    {
+        
+        didSet{
+            
+            print("FMFMFMII\(icon)")
+            updateUI()
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var headName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-   
+    
+    func updateUI(){
+        //Reset old data
+        headImg.image = nil
+        headName.text = nil
+        
+        //Set new data
+        if let Iname1: String = icon
+        {
+            print("hijijii11111")
+            headImg.image = UIImage(named: Iname1)
+        }
+        if let Tname1: String = name
+        {
+            print("hijijii11111")
+            headName.text = Tname1
+        }
+        
+    }
 
+   
+    func roundedCornerLogo()
+    {
+        headImg.layer.cornerRadius = headImg.bounds.height / 2
+        headImg.layer.masksToBounds = true
+    }
+
+    
 }

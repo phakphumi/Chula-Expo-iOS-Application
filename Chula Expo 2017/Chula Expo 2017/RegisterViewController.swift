@@ -75,20 +75,21 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             let managedObjectContext: NSManagedObjectContext? =
                 (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
             
-            managedObjectContext?.perform {
+            managedObjectContext?.performAndWait {
                 
                 _ = UserData.addUser(
+                                        id: UserController.userId!,
                                         token: self.token,
                                         userType: "student",
-                                        name: self.nameField.text!,
+                                        name: self.nameLabelView.text!,
                                         email: self.emailField.text!,
                                         age: Int(self.ageField.text!)!,
                                         gender: self.genderField.text!,
-                                        school: self.schoolOrCompany.text!,
+                                        school: self.schoolOrCompanyField.text!,
                                         company: "",
                                         year: Int(self.gradeOrPositionField.text!)!,
                                         position: "",
-                                        pictureUrl: self.fbImageProfileUrl,
+                                        pictureUrl: self.fbImageProfileUrl!,
                                         inManageobjectcontext: managedObjectContext!
                                     )
                 

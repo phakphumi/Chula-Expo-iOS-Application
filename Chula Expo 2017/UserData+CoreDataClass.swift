@@ -14,6 +14,7 @@ import CoreData
 public class UserData: NSManagedObject {
     
     class func addUser(
+                            id: String,
                             token: String,
                             userType: String,
                             name: String,
@@ -42,6 +43,7 @@ public class UserData: NSManagedObject {
         } else if let newData = NSEntityDescription.insertNewObject(forEntityName: "UserData", into: context) as? UserData {
             
             // created a new event in the database
+            newData.id = id
             newData.token = token
             newData.userType = userType
             newData.name = name
@@ -63,14 +65,14 @@ public class UserData: NSManagedObject {
     }
     
     class func fetchUser(
-                            token: String,
+                            id: String,
                             inManageobjectcontext context: NSManagedObjectContext
         
                         ) -> UserData?
     {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        request.predicate = NSPredicate(format: "token = %@", token)
+        request.predicate = NSPredicate(format: "id = %@", id)
         
         do {
             

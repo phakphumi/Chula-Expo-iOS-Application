@@ -83,13 +83,14 @@ class FacityTableViewController: UITableViewController
            
             _ = EventData.addData(
                 name: "Test",
-                facity: "Smart City",
+                facity: "Faculty of Engineering",
                 locationDesc: "308 ENG3 Building",
                 startTime: NSDate(timeIntervalSinceNow: 1000),
                 endTime: NSDate(timeIntervalSinceNow: 3000),
                 shortDesc: "", longDesc: "",
                 canReserve: true,
                 numOfSeat: 99,
+                tumbnail: "technology",
                 inManageobjectcontext: self.managedObjectContext!
             )
         }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
+		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
 		58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */; };
 		58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */; };
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
@@ -47,6 +48,7 @@
 		805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
 		805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
 		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
+		805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
 		80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */; };
@@ -60,6 +62,7 @@
 /* Begin PBXFileReference section */
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewController.swift; sourceTree = "<group>"; };
 		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageEventDetailTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			children = (
 				80BFD4D71E27F39D00491730 /* CoreData */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
+				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
 				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
 				5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */,
@@ -220,6 +225,7 @@
 				5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */,
 				5F4A9DA01E10300900713580 /* Info.plist */,
 				800641D61E215A7F00760834 /* Model.xcdatamodeld */,
+				58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */,
 			);
 			path = "Chula Expo 2017";
 			sourceTree = "<group>";
@@ -374,6 +380,7 @@
 				5F07EDCB1E2B6E180017ECD5 /* EventDetailsTableViewController.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
+				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
 				80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
@@ -387,6 +394,7 @@
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
 				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
 				80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */,
+				805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
 				5FB054591E23CEEF00428428 /* TagController.swift in Sources */,
 				80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */,

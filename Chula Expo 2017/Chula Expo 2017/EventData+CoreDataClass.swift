@@ -23,6 +23,7 @@ public class EventData: NSManagedObject
         longDesc: String,
         canReserve: Bool,
         numOfSeat: Int16,
+        tumbnail: String,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> EventData?
    
@@ -49,6 +50,7 @@ public class EventData: NSManagedObject
             newData.longDesc = longDesc
             newData.canReserve = canReserve
             newData.numOfSeat = numOfSeat
+            newData.tumbnail = tumbnail
             return newData
         }
         return nil

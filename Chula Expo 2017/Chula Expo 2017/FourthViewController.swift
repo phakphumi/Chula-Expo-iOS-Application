@@ -44,6 +44,7 @@ class FourthViewController: UITableViewController {
     ]
     
     
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -95,7 +96,9 @@ class FourthViewController: UITableViewController {
         if indexPath.row == 0 && indexPath.section == 0 {
             return 150
         }
-        return UITableViewAutomaticDimension
+        else {
+            return 60
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?

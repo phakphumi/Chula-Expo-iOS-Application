@@ -53,13 +53,16 @@ class StageCell: UITableViewCell {
         }
         if let stageNo = stage{
             if stageNo == 1{
-                stageNameLabel.text = "stage 1 name"
+                timeLabel.text = "Stage 1 • " + timeLabel.text!
+                stageNameLabel.text = "Grand Auditorium"
             }
             if stageNo == 2{
-                stageNameLabel.text = "stage 2 name"
+                timeLabel.text = "Stage 2 • " + timeLabel.text!
+                stageNameLabel.text = "Sala Phrakiew Common"
             }
             if stageNo == 3{
-                stageNameLabel.text = "stage 3 name"
+                timeLabel.text = "Stage 3 • " + timeLabel.text!
+                stageNameLabel.text = "City Main Stage"
             }
         }
     }

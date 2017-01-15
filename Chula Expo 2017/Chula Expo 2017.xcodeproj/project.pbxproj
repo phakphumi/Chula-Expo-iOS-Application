@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
+		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */; };
 		58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */; };
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
+		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewController.swift; sourceTree = "<group>"; };
 		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */,
 				5F25B2341E10E027008A3B11 /* FourthViewController.swift */,
+				58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */,
+				58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */,
 			);
 			name = Fourth_more;
 			sourceTree = "<group>";
@@ -339,6 +345,7 @@
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
+				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
 				80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */,
 				58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */,
@@ -351,6 +358,7 @@
 				80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
+				58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */,
 				5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */,
 				5F23F3931E2278B500ACA6A7 /* SlideshowCell.swift in Sources */,
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,

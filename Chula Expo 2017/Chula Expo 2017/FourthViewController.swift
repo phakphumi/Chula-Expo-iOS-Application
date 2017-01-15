@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FourthViewController: UIViewController {
+class FourthViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +21,62 @@ class FourthViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    struct menu{
+        var name: String
+        var icon: String
+    }
+    
+    var menuList: [Array<menu>] = [
+        [
+            menu(name: "Bookmarks", icon: "technology"),
+            menu(name: "Reservations", icon: "technology")
+        ],
+        [
+            menu(name: "Setting", icon: "technology"),
+            menu(name: "About", icon: "technology")
+        ]
+        
+    ]
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 2
+    }
+    
+   /* override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        var NumberOfRow = tagList.count/3
+        if tagList.count%3 != 0
+        {
+            NumberOfRow += 1
+        }
+        return NumberOfRow
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
+        
+        if let interestCell = cell as? InterestTableViewCell
+        {
+            if tagList.count > indexPath.row*3 {
+                interestCell.imgName[0] = tagList[indexPath.row*3+0].imgName
+                interestCell.tagName[0] = tagList[indexPath.row*3+0].tagName
+            }
+            if tagList.count > indexPath.row*3+1 {
+                interestCell.imgName[1] = tagList[indexPath.row*3+1].imgName
+                interestCell.tagName[1] = tagList[indexPath.row*3+1].tagName
+            }
+            if tagList.count > indexPath.row*3+2 {
+                interestCell.imgName[2] = tagList[indexPath.row*3+2].imgName
+                interestCell.tagName[2] = tagList[indexPath.row*3+2].tagName
+            }
+        }
+        cell.selectionStyle = .none
+        return cell
+        // Configure the cell...
     }
     */
+
 
 }

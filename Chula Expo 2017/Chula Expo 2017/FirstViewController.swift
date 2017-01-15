@@ -18,7 +18,7 @@ class FirstViewController: MainCoreDataTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //updateDatabase()
+//        updateDatabase()
         printDatabaseStatistics()
         requestForStageEvent()
         requestForFeedEvent()
@@ -30,8 +30,8 @@ class FirstViewController: MainCoreDataTableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         createGradientNavBar()
-        
-        homeTableView.separatorStyle = .none
+        homeTableView.tableFooterView = UIView(frame: CGRect.zero)
+//        homeTableView.separatorStyle = .none
         
 //        tableView.estimatedRowHeight = tableView.rowHeight
 //        tableView.rowHeight = UITableViewAutomaticDimension
@@ -151,7 +151,7 @@ class FirstViewController: MainCoreDataTableViewController {
         else{
             print("section else")
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row, section: 0)) as? EventData{
+            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row, section: 0)) as? EventData{
                 var name: String?
                 var startTime: NSDate?
                 var endTime: NSDate?
@@ -187,12 +187,8 @@ class FirstViewController: MainCoreDataTableViewController {
     
         if indexPath.row == 0 && indexPath.section == 0 {
             return self.view.bounds.width * 220 / 375
-        } else {
-            
-            return 100
-            
         }
-        
+        return UITableViewAutomaticDimension
     }
     
     func createGradientNavBar() {

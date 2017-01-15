@@ -38,7 +38,7 @@ class FourthViewController: UITableViewController {
         
         [
             menu(name: "Setting", icon: "settingsIcon"),
-            menu(name: "About", icon: "technology"),
+            menu(name: "About", icon: "aboutIcon"),
             menu(name: "Help", icon: "helpIcon")
         ]
     ]

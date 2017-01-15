@@ -28,8 +28,8 @@ class InterestedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        createGradientNavBar()
+        self.title = "Select your interest"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,7 +40,14 @@ class InterestedTableViewController: UITableViewController {
         self.view.layoutIfNeeded()
     }
 
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 20
+        }
+        else {
+            return self.view.bounds.width * 120 / 375
+        }
+    }
 
     
         
@@ -62,26 +69,32 @@ class InterestedTableViewController: UITableViewController {
         {
             NumberOfRow += 1
         }
-        return NumberOfRow
+        return NumberOfRow+1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
+        var cell: UITableViewCell
         
-        if let interestCell = cell as? InterestTableViewCell
-        {
-            if tagList.count > indexPath.row*3 {
-                interestCell.imgName[0] = tagList[indexPath.row*3+0].imgName
-                interestCell.tagName[0] = tagList[indexPath.row*3+0].tagName
-            }
-            if tagList.count > indexPath.row*3+1 {
-                interestCell.imgName[1] = tagList[indexPath.row*3+1].imgName
-                interestCell.tagName[1] = tagList[indexPath.row*3+1].tagName
-            }
-            if tagList.count > indexPath.row*3+2 {
-                interestCell.imgName[2] = tagList[indexPath.row*3+2].imgName
-                interestCell.tagName[2] = tagList[indexPath.row*3+2].tagName
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
+        }
+        else {
+             cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
+            if let interestCell = cell as? InterestTableViewCell {
+        
+                if tagList.count > (indexPath.row-1)*3 {
+                    interestCell.imgName[0] = tagList[(indexPath.row-1)*3+0].imgName
+                    interestCell.tagName[0] = tagList[(indexPath.row-1)*3+0].tagName
+                }
+                if tagList.count > (indexPath.row-1)*3+1 {
+                    interestCell.imgName[1] = tagList[(indexPath.row-1)*3+1].imgName
+                    interestCell.tagName[1] = tagList[(indexPath.row-1)*3+1].tagName
+                }
+                if tagList.count > (indexPath.row-1)*3+2 {
+                    interestCell.imgName[2] = tagList[(indexPath.row-1)*3+2].imgName
+                    interestCell.tagName[2] = tagList[(indexPath.row-1)*3+2].tagName
+                }
             }
         }
         cell.selectionStyle = .none
@@ -135,4 +148,31 @@ class InterestedTableViewController: UITableViewController {
     }
     */
 
+    func createGradientNavBar() {
+        
+        //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
+        let headGradientColor = UIColor(red: 0.8, green: 0.36, blue: 0.67, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.565, green: 0.44, blue: 0.77, alpha: 1).cgColor
+        //
+        
+        //Begin, create gradient layer with 2 colors shade and start gradient from left to right
+        let gradientLayer = CAGradientLayer()
+        var navIncludeStatFrame = navigationController!.navigationBar.bounds
+        navIncludeStatFrame.size.height += 20
+        gradientLayer.frame = navIncludeStatFrame
+        gradientLayer.colors = [headGradientColor, tailGradientColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        //End
+        
+        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
+		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
 		58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */; };
 		58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */; };
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewController.swift; sourceTree = "<group>"; };
 		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */,
 				5F4A9DA01E10300900713580 /* Info.plist */,
 				800641D61E215A7F00760834 /* Model.xcdatamodeld */,
+				58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */,
 			);
 			path = "Chula Expo 2017";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
+				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
 				80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,

@@ -32,7 +32,8 @@ class FourthViewController: UITableViewController {
             menu(name: "Reservations", icon: "technology")
         ],
         [
-            menu(name: "Setting", icon: <#T##String#>)
+            menu(name: "Setting", icon: "technology"),
+            menu(name: "About", icon: "technology")
         ]
         
     ]
@@ -42,7 +43,7 @@ class FourthViewController: UITableViewController {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   /* override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         var NumberOfRow = tagList.count/3
         if tagList.count%3 != 0
@@ -75,7 +76,7 @@ class FourthViewController: UITableViewController {
         return cell
         // Configure the cell...
     }
-    
+    */
 
 
 }

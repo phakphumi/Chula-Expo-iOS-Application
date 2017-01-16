@@ -46,10 +46,7 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
         }
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return fetchedResultsController?.sectionIndexTitles
-    }
-    
+
     override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
     }

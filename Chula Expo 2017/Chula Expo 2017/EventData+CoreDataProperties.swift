@@ -27,6 +27,8 @@ extension EventData
     @NSManaged public var facity: String?
     @NSManaged public var locationDesc: String?
     @NSManaged public var canReserve: Bool
+    @NSManaged public var isReserve: Bool
+    @NSManaged public var isFavorite: Bool
     @NSManaged public var numOfSeat: Int16
     
     var dateSection: String

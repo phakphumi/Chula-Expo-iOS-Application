@@ -114,10 +114,8 @@ class FourthViewController: UITableViewController {
     func createGradientNavBar() {
         
         //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
-        let headGradientColor = UIColor(red: 0.8, green: 0.36, blue: 0.67, alpha: 1).cgColor
-        let tailGradientColor = UIColor(red: 0.565, green: 0.44, blue: 0.77, alpha: 1).cgColor
-        //
-        
+        let headGradientColor = UIColor(red: 0.73, green: 0.15, blue: 0.56, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.46, green: 0.13, blue: 0.61, alpha: 1).cgColor
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right
         let gradientLayer = CAGradientLayer()
         var navIncludeStatFrame = navigationController!.navigationBar.bounds

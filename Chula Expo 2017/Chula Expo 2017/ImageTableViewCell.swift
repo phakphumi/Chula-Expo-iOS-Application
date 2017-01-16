@@ -18,6 +18,7 @@ class ImageTableViewCell: UITableViewCell {
         tableViewController.dismiss(animated: true, completion: nil)
         
     }
+    
     @IBAction func share(_ sender: UIButton) {
         
         let tableView = self.superview?.superview as! UITableView

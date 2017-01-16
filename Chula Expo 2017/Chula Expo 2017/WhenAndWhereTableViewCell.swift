@@ -18,6 +18,7 @@ class WhenAndWhereTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
         dateLabel.text = "Today • 9:41-10.41"
         placeLabel.text = "Room 301 Building 3"
     }
@@ -27,5 +28,13 @@ class WhenAndWhereTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func boundsTag() {
+        
+        tagLabel.layer.cornerRadius = tagLabel.bounds.height / 2
+        tagLabel.layer.masksToBounds = true
+        
+    }
+    
 
 }

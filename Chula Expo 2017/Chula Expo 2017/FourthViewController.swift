@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FourthViewController: UITableViewController {
 
@@ -19,6 +20,10 @@ class FourthViewController: UITableViewController {
 //        tableView.rowHeight = UITableViewAutomaticDimension
         // Do any additional setup after loading the view.
     }
+
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -111,6 +116,16 @@ class FourthViewController: UITableViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectMenu"{
+            if let dest = segue.destination as? EventsTableViewController{
+                dest.facity = (sender as? FourthMenuTableViewCell)?.name
+                dest.managedObjectContext = managedObjectContext
+            }
+            segue.destination.title = (sender as? FourthMenuTableViewCell)?.name
+        }
+    }  
+    
     func createGradientNavBar() {
         
         //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)

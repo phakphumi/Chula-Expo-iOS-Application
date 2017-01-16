@@ -118,6 +118,7 @@
                                 <connections>
                                     <outlet property="menuImg" destination="AEk-Ic-ub0" id="ub3-kf-oUq"/>
                                     <outlet property="menuName" destination="fX7-of-2ey" id="5Xa-AB-B66"/>
+                                    <segue destination="7ls-N0-g3I" kind="show" identifier="selectMenu" id="oHF-gM-2Rf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -256,7 +256,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         let guestLoginButton = UIButton(frame: CGRect(x: self.view.bounds.width / 2 - guestLoginButtonWidth / 2, y: guestLoginButtonTopMargin, width: guestLoginButtonWidth, height: guestLoginButtonHeight))
 
         guestLoginButton.setTitle("Guest Mode", for: .normal)
-        guestLoginButton.setTitleColor(UIColor(red: 0.31, green: 0.184, blue: 0.5725, alpha: 1), for: .normal)
+        guestLoginButton.setTitleColor(UIColor(red: 0.03, green: 0.00, blue: 0.33, alpha: 1), for: .normal)
         guestLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
         
         if self.view.bounds.height >= 667 {
@@ -297,8 +297,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         //End, define
         
         //Begin, define gradient color shade from RGB(108,85,185) to RGB(202,92,171)
-        let headGradientColor = UIColor(red: 0.4235, green: 0.33, blue: 0.725, alpha: 1).cgColor
-        let tailGradientColor = UIColor(red: 0.79, green: 0.36, blue: 0.67, alpha: 1).cgColor
+        let headGradientColor = UIColor(red: 0.24, green: 0.12, blue: 0.65, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.73, green: 0.15, blue: 0.57, alpha: 1).cgColor
         //
         
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right

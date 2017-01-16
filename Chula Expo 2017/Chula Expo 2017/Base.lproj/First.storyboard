@@ -98,34 +98,52 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tM9-yE-TvQ">
-                                            <rect key="frame" x="8" y="7" width="60" height="60"/>
+                                            <rect key="frame" x="18" y="7" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="dsg-BL-MJt"/>
                                                 <constraint firstAttribute="width" constant="60" id="kDg-8r-pQb"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-Bi-sOG">
-                                            <rect key="frame" x="73" y="9" width="294" height="21"/>
+                                            <rect key="frame" x="86" y="12" width="281" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eet-jr-erJ">
-                                            <rect key="frame" x="73" y="30" width="294" height="16"/>
+                                            <rect key="frame" x="86" y="35" width="281" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENG" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekf-G1-Ivd">
+                                            <rect key="frame" x="86" y="51" width="24" height="14"/>
+                                            <color key="backgroundColor" red="0.56862745098039214" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESERVE 99/99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5N-sJ-Dn5">
+                                            <rect key="frame" x="120" y="51" width="85" height="14"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="Eet-jr-erJ" secondAttribute="trailing" id="Aza-uH-OYD"/>
-                                        <constraint firstItem="VxX-Bi-sOG" firstAttribute="top" secondItem="OHQ-fm-vDq" secondAttribute="topMargin" constant="1" id="BNh-Db-Sze"/>
-                                        <constraint firstItem="Eet-jr-erJ" firstAttribute="top" secondItem="VxX-Bi-sOG" secondAttribute="bottom" id="Ctr-n5-Gcm"/>
-                                        <constraint firstItem="VxX-Bi-sOG" firstAttribute="leading" secondItem="tM9-yE-TvQ" secondAttribute="trailing" constant="5" id="Dfc-PM-Mlf"/>
+                                        <constraint firstItem="VxX-Bi-sOG" firstAttribute="top" secondItem="OHQ-fm-vDq" secondAttribute="topMargin" constant="4" id="BNh-Db-Sze"/>
+                                        <constraint firstItem="w5N-sJ-Dn5" firstAttribute="leading" secondItem="Ekf-G1-Ivd" secondAttribute="trailing" constant="10" id="CE2-Uy-hj6"/>
+                                        <constraint firstItem="Eet-jr-erJ" firstAttribute="top" secondItem="VxX-Bi-sOG" secondAttribute="bottom" constant="2" id="Ctr-n5-Gcm"/>
+                                        <constraint firstItem="VxX-Bi-sOG" firstAttribute="leading" secondItem="tM9-yE-TvQ" secondAttribute="trailing" constant="8" id="Dfc-PM-Mlf"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="VxX-Bi-sOG" secondAttribute="trailing" id="G4o-Ip-4iM"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="tM9-yE-TvQ" secondAttribute="leading" id="PT8-J3-ZBr"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="tM9-yE-TvQ" secondAttribute="leading" constant="-10" id="PT8-J3-ZBr"/>
                                         <constraint firstItem="Eet-jr-erJ" firstAttribute="leading" secondItem="VxX-Bi-sOG" secondAttribute="leading" id="YW3-AE-5gm"/>
                                         <constraint firstItem="tM9-yE-TvQ" firstAttribute="centerY" secondItem="OHQ-fm-vDq" secondAttribute="centerY" id="gVJ-TO-6iN"/>
+                                        <constraint firstItem="Ekf-G1-Ivd" firstAttribute="bottom" secondItem="tM9-yE-TvQ" secondAttribute="bottom" constant="-2" id="jg2-lV-DFi"/>
+                                        <constraint firstItem="w5N-sJ-Dn5" firstAttribute="bottom" secondItem="Ekf-G1-Ivd" secondAttribute="bottom" id="r6D-0e-86Q"/>
+                                        <constraint firstItem="Ekf-G1-Ivd" firstAttribute="leading" secondItem="VxX-Bi-sOG" secondAttribute="leading" id="vBo-0i-82s"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -133,6 +151,8 @@
                                     <outlet property="eventNameLabel" destination="VxX-Bi-sOG" id="6On-lC-uCu"/>
                                     <outlet property="eventTimeLabel" destination="Eet-jr-erJ" id="d7P-rh-Iov"/>
                                     <outlet property="eventTumbnailImage" destination="tM9-yE-TvQ" id="CRO-AZ-yBT"/>
+                                    <outlet property="facityCapsule" destination="Ekf-G1-Ivd" id="fVW-Np-bkv"/>
+                                    <outlet property="reserveCapsule" destination="w5N-sJ-Dn5" id="fh7-xN-vNa"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

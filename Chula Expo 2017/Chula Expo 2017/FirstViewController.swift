@@ -17,6 +17,8 @@ class FirstViewController: MainCoreDataTableViewController {
     @IBOutlet var homeTableView: UITableView!
     @IBOutlet weak var headerSectionView: UIView!
     @IBOutlet var headerSectionView2: UIView!
+    @IBOutlet weak var facityCapsule: UILabel!
+    @IBOutlet weak var reserveCapsule: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,6 @@ class FirstViewController: MainCoreDataTableViewController {
         
         createGradientNavBar()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
-        
     }
     
 // Core Data

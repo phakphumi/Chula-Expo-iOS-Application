@@ -10,9 +10,15 @@ import UIKit
 
 class EventFeedCell: UITableViewCell {
 
-    @IBOutlet weak var eventTumbnailImage: UIImageView!
+    @IBOutlet weak var eventTumbnailImage: UIImageView!{
+        didSet{
+            roundedCornerLogo()
+        }
+    }
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var facityCapsule: UILabel!
+    @IBOutlet weak var reserveCapsule: UILabel!
     
     var name: String?{
         didSet{
@@ -62,6 +68,18 @@ class EventFeedCell: UITableViewCell {
         if let eventTumbnail = tumbnail{
             eventTumbnailImage.image = UIImage(named: eventTumbnail)
         }
+        makeFacityCapsule()
+        makeReserveCapsule()
+    }
+    
+    func makeFacityCapsule(){
+        facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/2
+        facityCapsule.layer.masksToBounds = true
+    }
+    
+    func makeReserveCapsule(){
+        reserveCapsule.layer.cornerRadius = reserveCapsule.bounds.height/2
+        reserveCapsule.layer.masksToBounds = true
     }
     
     override func awakeFromNib() {
@@ -74,5 +92,12 @@ class EventFeedCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func roundedCornerLogo()
+    {
+        eventTumbnailImage.layer.cornerRadius = 5
+        eventTumbnailImage.layer.masksToBounds = true
+    }
+
 
 }

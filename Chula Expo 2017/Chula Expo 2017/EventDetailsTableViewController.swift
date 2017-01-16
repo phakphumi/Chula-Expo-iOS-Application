@@ -258,6 +258,11 @@ class EventDetailsTableViewController: UITableViewController {
             
         }
         
+        if (scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height) {
+            
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentSize.height - scrollView.frame.size.height), animated: false)
+            
+        }
         
     }
     

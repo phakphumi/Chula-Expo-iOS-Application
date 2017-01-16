@@ -37,7 +37,8 @@ class FourthMenuTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateUI(){
+    
+      func updateUI(){
         //Reset old data
         menuName.text = nil
         menuImg.image = nil

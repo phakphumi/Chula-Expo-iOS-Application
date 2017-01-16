@@ -15,10 +15,14 @@ class FirstViewController: MainCoreDataTableViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     @IBOutlet var homeTableView: UITableView!
+    @IBOutlet weak var headerSectionView: UIView!
+    @IBOutlet var headerSectionView2: UIView!
+    @IBOutlet weak var facityCapsule: UILabel!
+    @IBOutlet weak var reserveCapsule: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        updateDatabase()
+        updateDatabase()
         printDatabaseStatistics()
         requestForStageEvent()
         requestForFeedEvent()
@@ -31,7 +35,6 @@ class FirstViewController: MainCoreDataTableViewController {
         
         createGradientNavBar()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
-        
     }
     
 // Core Data
@@ -79,9 +82,9 @@ class FirstViewController: MainCoreDataTableViewController {
     private func updateDatabase(){
         
         managedObjectContext?.performAndWait{
-            _ = StageEvent.addData(name: "The event of stage 1", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
-            _ = StageEvent.addData(name: "The event of stage 2", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
-            _ = StageEvent.addData(name: "The event of stage 3", startTime: NSDate(), endTime: NSDate(), desc: "hello event", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
+            _ = StageEvent.addData(name: "Innovation Show", startTime: NSDate(), endTime: NSDate(), desc: "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner.", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
+            _ = StageEvent.addData(name: "Education UK Grand Exhibition", startTime: NSDate(), endTime: NSDate(), desc: "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner.", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
+            _ = StageEvent.addData(name: "Bangkok Cultural Show", startTime: NSDate(), endTime: NSDate(), desc: "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner.", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
             
         }
         
@@ -202,10 +205,34 @@ class FirstViewController: MainCoreDataTableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            return headerSectionView
+        }
+        else if section == 2 {
+            return headerSectionView2
+        }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section > 0 {
+            return 35
+        }
+        return 0
+        
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
         if indexPath.row == 0 && indexPath.section == 0 {
             return self.view.bounds.width * 220 / 375
+        }
+        else if indexPath.section == 1{
+            return 55
+        }
+        else if indexPath.section == 2{
+            return 80
         }
         return UITableViewAutomaticDimension
     }
@@ -213,10 +240,8 @@ class FirstViewController: MainCoreDataTableViewController {
     func createGradientNavBar() {
         
         //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
-        let headGradientColor = UIColor(red: 0.8, green: 0.36, blue: 0.67, alpha: 1).cgColor
-        let tailGradientColor = UIColor(red: 0.565, green: 0.44, blue: 0.77, alpha: 1).cgColor
-        //
-        
+        let headGradientColor = UIColor(red: 0.73, green: 0.15, blue: 0.56, alpha: 1).cgColor
+        let tailGradientColor = UIColor(red: 0.46, green: 0.13, blue: 0.61, alpha: 1).cgColor        
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right
         let gradientLayer = CAGradientLayer()
         var navIncludeStatFrame = navigationController!.navigationBar.bounds
@@ -237,4 +262,5 @@ class FirstViewController: MainCoreDataTableViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         
     }
+    
 }

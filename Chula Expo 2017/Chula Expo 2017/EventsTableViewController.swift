@@ -31,7 +31,17 @@ class EventsTableViewController: CoreDataTableViewController
         if let context = managedObjectContext, (facity?.characters.count)! > 0
         {
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
-            request.predicate = NSPredicate(format: "facity = %@", facity!)
+            
+            if facity == "Favourites" {
+                request.predicate = NSPredicate(format: "isFavorite == %@", NSNumber(booleanLiteral: true))
+            }
+            else if facity == "Reservations" {
+                request.predicate = NSPredicate(format: "isReserve == %@", NSNumber(booleanLiteral: true))
+            }
+            else {
+                request.predicate = NSPredicate(format: "facity = %@", facity!)
+            }
+            
             request.sortDescriptors = [NSSortDescriptor(
                 key: "startTime",
                 ascending: true,

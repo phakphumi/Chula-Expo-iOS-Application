@@ -67,17 +67,17 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
             return 0
         }
     }
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return nil
-        }
-        else if section == 1{
-            return "NOW ON STAGE"
-        }
-        else{
-            return "EVENT FOR YOU"
-        }
-    }
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0{
+//            return nil
+//        }
+//        else if section == 1{
+//            return "NOW ON STAGE"
+//        }
+//        else{
+//            return "EVENT FOR YOU"
+//        }
+//    }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return fetchedResultsController?.sectionIndexTitles

@@ -44,7 +44,6 @@ class EventTableViewCell: UITableViewCell
         }
     }
     
-   
     
     private func updateUI()
     {

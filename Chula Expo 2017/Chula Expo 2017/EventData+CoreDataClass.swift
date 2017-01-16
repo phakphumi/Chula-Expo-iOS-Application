@@ -21,6 +21,8 @@ public class EventData: NSManagedObject
         endTime: NSDate,
         shortDesc: String,
         longDesc: String,
+        isFavorite: Bool,
+        isReserve: Bool,
         canReserve: Bool,
         numOfSeat: Int16,
         tumbnail: String,
@@ -50,6 +52,8 @@ public class EventData: NSManagedObject
             newData.longDesc = longDesc
             newData.canReserve = canReserve
             newData.numOfSeat = numOfSeat
+            newData.isReserve = isReserve
+            newData.isFavorite = isFavorite
             newData.tumbnail = tumbnail
             return newData
         }

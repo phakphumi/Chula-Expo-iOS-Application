@@ -15,7 +15,6 @@
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
 		5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */; };
 		5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */; };
-		5F07EDCF1E2B91A30017ECD5 /* TopicImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCE1E2B91A30017ECD5 /* TopicImageController.swift */; };
 		5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */; };
 		5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
@@ -69,7 +68,6 @@
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
 		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
-		5F07EDCE1E2B91A30017ECD5 /* TopicImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicImageController.swift; sourceTree = "<group>"; };
 		5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsTableViewController.swift; sourceTree = "<group>"; };
 		5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhenAndWhereTableViewCell.swift; sourceTree = "<group>"; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 				5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */,
 				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
-				5F07EDCE1E2B91A30017ECD5 /* TopicImageController.swift */,
 				5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */,
 			);
 			name = Modal_EventDetails;
@@ -373,7 +370,6 @@
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
 				5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
-				5F07EDCF1E2B91A30017ECD5 /* TopicImageController.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */,
 				80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */,

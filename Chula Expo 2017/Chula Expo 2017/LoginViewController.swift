@@ -230,7 +230,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         let facebookLoginButtonOffset = facebookLoginView.bounds.width * 0.125
-        facebookLoginButton.setTitle("Log In With Facebook", for: .normal)
+        facebookLoginButton.setTitle("Login with Facebook", for: .normal)
         facebookLoginButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: facebookLoginButtonOffset, bottom: 0, right: 0)
         facebookLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
         

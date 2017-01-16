@@ -128,7 +128,7 @@ class SlideshowCell: UITableViewCell{
         highlightLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
         highlightLabel.text = "HIGHLIGHT"
         highlightLabel.textColor = UIColor.white
-        highlightLabel.backgroundColor = UIColor(red: 0.796, green: 0.341, blue: 0.678, alpha: 1)
+        highlightLabel.backgroundColor = UIColor(red: 0.97, green: 0.34, blue: 0.72, alpha: 1)
         highlightLabel.textAlignment = NSTextAlignment.center
         highlightLabel.layer.cornerRadius = highlightLabel.bounds.height / 2
         highlightLabel.layer.masksToBounds = true

@@ -13,7 +13,7 @@
         <scene sceneID="MpV-vr-efI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="voe-43-7YQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="N7q-IC-83a"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="eventTabIcon2" id="N7q-IC-83a"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dCS-MC-FVq">
@@ -214,6 +214,7 @@
     <resources>
         <image name="bookingIcon" width="27" height="20"/>
         <image name="bookmarkIcon" width="17" height="24"/>
+        <image name="eventTabIcon2" width="27" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HMJ-Nd-rRL"/>

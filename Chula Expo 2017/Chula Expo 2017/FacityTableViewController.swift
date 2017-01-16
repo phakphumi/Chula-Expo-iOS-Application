@@ -78,7 +78,7 @@ class FacityTableViewController: UITableViewController
     
     private func updateDatabase()
     {
-        managedObjectContext?.perform
+        managedObjectContext?.performAndWait
         {
            
             _ = EventData.addData(

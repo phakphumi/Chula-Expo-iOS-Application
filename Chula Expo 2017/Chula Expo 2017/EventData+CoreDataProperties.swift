@@ -55,4 +55,29 @@ extension EventData
             }
         }
     }
+    
+    var dateText: String
+        {
+        get
+        {
+            if self.startTime!.isToday()
+            {
+                return "Today"
+            }
+            else if self.startTime!.isTomorrow()
+            {
+                return "Tomorrow"
+            }
+            else if self.startTime!.isYesterday()
+            {
+                return "Yesterday"
+            }
+            else
+            {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMMM dd, EEE H m"
+                return dateFormatter.string(from: startTime! as Date)
+            }
+        }
+    }
 }

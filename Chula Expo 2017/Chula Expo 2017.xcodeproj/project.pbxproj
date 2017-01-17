@@ -50,6 +50,7 @@
 		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
 		805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
+		808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
 		80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */; };
 		80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D11E27ED6F00491730 /* StageCell.swift */; };
@@ -106,6 +107,7 @@
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageEventDetailTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleUILabel.swift; sourceTree = "<group>"; };
 		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				80BFD4D71E27F39D00491730 /* CoreData */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
+				808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */,
 				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
 				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
@@ -377,6 +380,7 @@
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
 				5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */,
+				808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,

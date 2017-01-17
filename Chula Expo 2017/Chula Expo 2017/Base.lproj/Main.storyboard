@@ -422,10 +422,10 @@
             </objects>
             <point key="canvasLocation" x="1055" y="407"/>
         </scene>
-        <!--Modal-->
+        <!--QRCode-->
         <scene sceneID="bkr-Vi-20n">
             <objects>
-                <viewControllerPlaceholder storyboardName="Modal" id="8m3-81-4nk" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="QRCode" id="8m3-81-4nk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIx-q0-kBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1058" y="560"/>

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Second View Controller-->
+        <!--Maps-->
         <scene sceneID="Bap-VH-9zT">
             <objects>
                 <viewController id="rBa-NL-8Ua" customClass="SecondViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="dcX-s3-PvN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BFL-xF-YJL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DBx-34-xfv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DBx-34-xfv" secondAttribute="height" multiplier="375:554" id="JYp-JR-eHD"/>
                                 </constraints>
@@ -36,7 +36,9 @@
                             <constraint firstItem="DBx-34-xfv" firstAttribute="leading" secondItem="BFL-xF-YJL" secondAttribute="leading" id="rIX-CD-myN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BDD-fk-3V4"/>
+                    <navigationItem key="navigationItem" title="Maps" id="BDD-fk-3V4">
+                        <barButtonItem key="backBarButtonItem" title=" " id="9lS-FU-0kq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="map" destination="DBx-34-xfv" id="sUj-HP-bLp"/>
                     </connections>
@@ -55,7 +57,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2IQ-wG-YmE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2IQ-wG-YmE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

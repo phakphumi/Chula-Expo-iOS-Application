@@ -134,7 +134,7 @@ class EventDetailsTableViewController: UITableViewController {
             
         } else if indexPath.row == 5 {
             
-            return 110
+            return GalleryTableViewCell.galleryHeight
             
         } else if indexPath.row == 7 {
             
@@ -160,13 +160,15 @@ class EventDetailsTableViewController: UITableViewController {
             topicLabel.text = "Robot vacuum show"
             topicLabel.sizeToFit()
             topicLabel.textColor = UIColor.black
-            
-            cancelButton = UIButton(frame: CGRect(x: 17, y: self.view.bounds.height * 0.044, width: 25, height: 25))
+
+            cancelButton = UIButton(frame: CGRect(x: 17, y: 64 / 2 - 12.5, width: 25, height: 25))
+//            cancelButton = UIButton(frame: CGRect(x: 17, y: self.view.bounds.height * 0.044, width: 25, height: 25))
             cancelButton.setImage(#imageLiteral(resourceName: "cross_black"), for: .normal)
             cancelButton.alpha = 0
             cancelButton.addTarget(self, action: #selector(EventDetailsTableViewController.cancel), for: .touchUpInside)
-            
-            shareButton = UIButton(frame: CGRect(x: self.view.bounds.width * 0.91, y: self.view.bounds.height * 0.044, width: 14, height: 20))
+
+            shareButton = UIButton(frame: CGRect(x: self.view.bounds.width * 0.91, y: 64 / 2 - 12.5, width: 14, height: 20))
+//            shareButton = UIButton(frame: CGRect(x: self.view.bounds.width * 0.91, y: self.view.bounds.height * 0.044, width: 14, height: 20))
             shareButton.setImage(#imageLiteral(resourceName: "share"), for: .normal)
             shareButton.alpha = 0
             shareButton.addTarget(self, action: #selector(EventDetailsTableViewController.share), for: .touchUpInside)
@@ -184,11 +186,29 @@ class EventDetailsTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 5 {
+            
+            self.performSegue(withIdentifier: "presentGallery", sender: self)
+            
+        }
+        
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        
+        return true
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.isStatusBarHidden = true
+        
+//        UIApplication.shared.statusBarStyle = .default
         
     }
     
@@ -196,23 +216,15 @@ class EventDetailsTableViewController: UITableViewController {
         
         super.viewWillDisappear(animated)
         
-        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.isStatusBarHidden = false
+        
+//        UIApplication.shared.statusBarStyle = .lightContent
         
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if scrollView.contentOffset.y < -self.view.bounds.height * 0.25 {
-            
-            tableView.bounces = false
-            
-            self.dismiss(animated: true, completion: nil)
-            
-        } else if scrollView.contentOffset.y < 0 {
-            
-            self.view.backgroundColor = self.view.backgroundColor?.withAlphaComponent(0.1)
-            
-        } else if scrollView.contentOffset.y > self.view.bounds.height * 0.4 {
+        if scrollView.contentOffset.y > self.view.bounds.height * 0.4 {
 
             tableView.beginUpdates()
 
@@ -227,8 +239,9 @@ class EventDetailsTableViewController: UITableViewController {
                 self.topicLabel.font = self.topicLabel.font.withSize(20)
                 
                 self.topicLabel.sizeToFit()
-                
-                self.topicLabel.center = CGPoint(x: self.headerView.frame.width / 2, y: self.view.bounds.height * 0.044 + self.topicLabel.frame.height / 2)
+
+                self.topicLabel.center = CGPoint(x: self.headerView.frame.width / 2, y: 64 / 2)
+//                self.topicLabel.center = CGPoint(x: self.headerView.frame.width / 2, y: self.view.bounds.height * 0.044 + self.topicLabel.frame.height / 2)
                 
             })
             
@@ -255,12 +268,6 @@ class EventDetailsTableViewController: UITableViewController {
             })
             
             tableView.endUpdates()
-            
-        }
-        
-        if (scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height) {
-            
-            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentSize.height - scrollView.frame.size.height), animated: false)
             
         }
         

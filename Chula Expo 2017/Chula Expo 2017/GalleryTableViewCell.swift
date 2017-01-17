@@ -24,9 +24,61 @@ class GalleryTableViewCell: UITableViewCell {
     @IBOutlet var image11: UIImageView!
     @IBOutlet var image12: UIImageView!
     
+    private static var _galleryHeight: CGFloat = 0
+    
+    static var galleryHeight: CGFloat {
+        
+        get {
+            
+            return self._galleryHeight
+            
+        }
+        set(value) {
+            
+            self._galleryHeight = value
+            
+        }
+        
+    }
+    
+    private func setImageTag() {
+        
+        image1.tag = 0
+        image2.tag = 1
+        image3.tag = 2
+        image4.tag = 3
+        image5.tag = 4
+        image6.tag = 5
+        image7.tag = 6
+        image8.tag = 7
+        image9.tag = 8
+        image10.tag = 9
+        image11.tag = 10
+        image12.tag = 11
+        
+    }
+    
+    func wasTapped(gestureRecognizer: UIPanGestureRecognizer) {
+        
+        
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        self.layoutIfNeeded()
+        self.setNeedsLayout()
+        
+        setImageTag()
+        
+    }
+    
+    override func layoutSubviews() {
+        
+        GalleryTableViewCell.galleryHeight = 240
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

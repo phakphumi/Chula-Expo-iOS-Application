@@ -45,14 +45,14 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="rt3-jW-bBj" id="kSJ-xl-3WP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="W8S-gw-a9e">
                                             <rect key="frame" x="8" y="8" width="359" height="80"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bke-JI-d6z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="179.5" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="80"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                     <state key="normal" title="Favorite" image="bookmarkIcon">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +62,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-v7-n2y">
-                                                    <rect key="frame" x="179.5" y="0.0" width="179.5" height="80"/>
+                                                    <rect key="frame" x="180" y="0.0" width="179" height="80"/>
                                                     <state key="normal" title="Reservation" image="bookingIcon">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -226,7 +226,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8q-i0-43g" id="pgh-kq-aVc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-Un-AD7">
@@ -257,7 +257,7 @@
                                     <outlet property="locationLabel" destination="VlR-wU-jcw" id="byB-FA-ul8"/>
                                     <outlet property="nameLabel" destination="7hW-Un-AD7" id="3kX-US-dHL"/>
                                     <outlet property="timeLabel" destination="I2a-VZ-KsF" id="NSN-TJ-B3p"/>
-                                    <segue destination="z1E-kk-uSw" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="PJc-EO-M98"/>
+                                    <segue destination="z1E-kk-uSw" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="PJc-EO-M98"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

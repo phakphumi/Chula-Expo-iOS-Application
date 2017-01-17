@@ -14,7 +14,7 @@
         <!--Event Details Table View Controller-->
         <scene sceneID="B5G-9r-ePI">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="0Lq-Fq-l5p" customClass="EventDetailsTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="0Lq-Fq-l5p" customClass="EventDetailsTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="268" sectionHeaderHeight="30" sectionFooterHeight="28" id="cEU-GG-bGa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,7 +417,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <segue destination="NnA-DQ-MK0" kind="presentation" identifier="presentGallery" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="anI-pP-S9f"/>
+                        <segue destination="NnA-DQ-MK0" kind="presentation" identifier="presentGallery" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="anI-pP-S9f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFo-Gq-w82" userLabel="First Responder" sceneMemberID="firstResponder"/>

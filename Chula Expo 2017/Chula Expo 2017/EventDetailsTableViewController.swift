@@ -24,7 +24,6 @@ class EventDetailsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        print("viewdidload")
     }
 
     // MARK: - Table view data source
@@ -43,7 +42,7 @@ class EventDetailsTableViewController: UITableViewController {
             
         }
             
-        return 20
+        return 8
             
         
     }
@@ -58,11 +57,41 @@ class EventDetailsTableViewController: UITableViewController {
             
         } else if indexPath.row == 0 {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "WhenAndWhereCell", for: indexPath) as! WhenAndWhereTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "WhenAndWhereCell", for: indexPath)
+            
+            if let wawCell = cell as? WhenAndWhereTableViewCell {
+                
+                wawCell.boundsTag()
+                
+            }
+            
+        } else if indexPath.row == 1 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            
+        } else if indexPath.row == 2 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "DescTitleCell", for: indexPath)
+
+        } else if indexPath.row == 3 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "DescCell", for: indexPath) as! DescTableViewCell
+            
+        } else if indexPath.row == 4 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "GalleryTitleCell", for: indexPath)
+            
+        } else if indexPath.row == 5 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "GalleryCell", for: indexPath) as! GalleryTableViewCell
+            
+        } else if indexPath.row == 6 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "RelatedTitleCell", for: indexPath)
             
         } else {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "RelatedCell", for: indexPath) as! RelatedTableViewCell
             
         }
         
@@ -93,20 +122,34 @@ class EventDetailsTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
             
-            return 267
+            return self.view.bounds.height * 0.4
             
         } else if indexPath.row == 0 {
             
             return 55
             
+        } else if indexPath.row == 3 {
+            
+            return DescTableViewCell.descTextHeight
+            
+        } else if indexPath.row == 5 {
+            
+            return 110
+            
+        } else if indexPath.row == 7 {
+            
+            return RelatedTableViewCell.relatedTextHeight
+            
+        } else {
+            
+            return 30
+            
         }
-        
-        return 40
         
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        print(section)
+        
         if section == 1 {
             
             headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
@@ -118,12 +161,12 @@ class EventDetailsTableViewController: UITableViewController {
             topicLabel.sizeToFit()
             topicLabel.textColor = UIColor.black
             
-            cancelButton = UIButton(frame: CGRect(x: 17, y: (64 - 20) / 2 - 12.5 + 20, width: 25, height: 25))
+            cancelButton = UIButton(frame: CGRect(x: 17, y: self.view.bounds.height * 0.044, width: 25, height: 25))
             cancelButton.setImage(#imageLiteral(resourceName: "cross_black"), for: .normal)
             cancelButton.alpha = 0
             cancelButton.addTarget(self, action: #selector(EventDetailsTableViewController.cancel), for: .touchUpInside)
             
-            shareButton = UIButton(frame: CGRect(x: 344, y: (64 - 20) / 2 - 12.5 + 20, width: 14, height: 20))
+            shareButton = UIButton(frame: CGRect(x: self.view.bounds.width * 0.91, y: self.view.bounds.height * 0.044, width: 14, height: 20))
             shareButton.setImage(#imageLiteral(resourceName: "share"), for: .normal)
             shareButton.alpha = 0
             shareButton.addTarget(self, action: #selector(EventDetailsTableViewController.share), for: .touchUpInside)
@@ -159,15 +202,17 @@ class EventDetailsTableViewController: UITableViewController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if scrollView.contentOffset.y < -self.view.bounds.height * 0.2 {
+        if scrollView.contentOffset.y < -self.view.bounds.height * 0.25 {
+            
+            tableView.bounces = false
             
             self.dismiss(animated: true, completion: nil)
             
         } else if scrollView.contentOffset.y < 0 {
             
-            self.view.backgroundColor = self.view.backgroundColor?.withAlphaComponent((self.view.bounds.height * 0.2 + scrollView.contentOffset.y ) / (self.view.bounds.height * 0.2))
+            self.view.backgroundColor = self.view.backgroundColor?.withAlphaComponent(0.1)
             
-        } else if scrollView.contentOffset.y > 267 {
+        } else if scrollView.contentOffset.y > self.view.bounds.height * 0.4 {
 
             tableView.beginUpdates()
 
@@ -183,17 +228,13 @@ class EventDetailsTableViewController: UITableViewController {
                 
                 self.topicLabel.sizeToFit()
                 
-                self.topicLabel.center = CGPoint(x: self.headerView.frame.width / 2, y: (self.headerView.frame.height - UIApplication.shared.statusBarFrame.height) / 2 + UIApplication.shared.statusBarFrame.height)
-                
-//                self.topicLabel.transform = CGAffineTransform(translationX: self.headerView.frame.width / 2 - self.topicLabel.frame.width / 2 - 20, y: 9)
-                
-                print(self.topicLabel.frame)
+                self.topicLabel.center = CGPoint(x: self.headerView.frame.width / 2, y: self.view.bounds.height * 0.044 + self.topicLabel.frame.height / 2)
                 
             })
             
             tableView.endUpdates()
             
-        } else if scrollView.contentOffset.y <= 267 {
+        } else if scrollView.contentOffset.y <= self.view.bounds.height * 0.4 {
             
             tableView.beginUpdates()
             
@@ -209,11 +250,7 @@ class EventDetailsTableViewController: UITableViewController {
                 
                 self.topicLabel.sizeToFit()
                 
-                self.topicLabel.center = CGPoint(x: 20 + self.topicLabel.frame.width / 2, y: (self.headerView.frame.height - UIApplication.shared.statusBarFrame.height) / 2 + UIApplication.shared.statusBarFrame.height)
-                
-//                self.topicLabel.transform = CGAffineTransform(translationX: 0, y: 0)
-                
-                print(self.topicLabel.frame)
+                self.topicLabel.center = CGPoint(x: 20 + self.topicLabel.frame.width / 2, y: 17 + self.topicLabel.frame.height / 2)
                 
             })
             
@@ -221,6 +258,11 @@ class EventDetailsTableViewController: UITableViewController {
             
         }
         
+        if (scrollView.contentOffset.y >= scrollView.contentSize.height - scrollView.frame.size.height) {
+            
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentSize.height - scrollView.frame.size.height), animated: false)
+            
+        }
         
     }
     

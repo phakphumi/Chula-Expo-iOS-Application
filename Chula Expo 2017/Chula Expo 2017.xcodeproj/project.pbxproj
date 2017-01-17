@@ -157,9 +157,9 @@
 			children = (
 				80BFD4D71E27F39D00491730 /* CoreData */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
+				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
 				808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */,
 				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
-				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
 				5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */,
 				80BFD4D11E27ED6F00491730 /* StageCell.swift */,

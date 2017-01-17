@@ -45,12 +45,13 @@
             </objects>
             <point key="canvasLocation" x="1373.5999999999999" y="685.90704647676171"/>
         </scene>
-        <!--Maps-->
+        <!--Navigation Controller-->
         <scene sceneID="YMa-fC-YEw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bBm-ic-pP8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maps" image="mapTabIcon2" id="fib-pk-ifI" customClass="S">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    <tabBarItem key="tabBarItem" title="" image="mapTabIcon2" id="fib-pk-ifI" customClass="S">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="20"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

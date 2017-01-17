@@ -10,12 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="Q7b-mg-eAM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sMu-od-yNV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Profile" image="myprofileTabIcon2" id="dM9-cQ-ybq">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    <tabBarItem key="tabBarItem" title="" image="myprofileTabIcon2" id="dM9-cQ-ybq">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="20"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

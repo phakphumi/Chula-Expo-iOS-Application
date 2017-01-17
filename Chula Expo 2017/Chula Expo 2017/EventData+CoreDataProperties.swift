@@ -75,7 +75,7 @@ extension EventData
             else
             {
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MMMM dd, EEE H m"
+                dateFormatter.dateFormat = "MMMM dd, EEE"
                 return dateFormatter.string(from: startTime! as Date)
             }
         }

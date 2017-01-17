@@ -13,9 +13,9 @@ class SlideshowCell: UITableViewCell{
     var numberOfSlideshow: Int!
     var slideshowView: UIView!
     var pageControl: UIPageControl!
-    var slideshowImage = [UIImage(named: "chula_expo_logo.png"), UIImage(named: "medical.png")]
-    var slideshowTopic = ["Chula Expo Special Event", "Medicine Special Event"]
-    var slideshowDesc = ["9:41-10:41 • Main auditorium Building 3", "13:00-14:00 • Chula Hospital"]
+    var slideshowImage = [UIImage(named: "slideShow1"), UIImage(named: "slideShow2")]
+    var slideshowTopic = ["Welcome to Chula Expo 2017", "Chula Expo Special Event"]
+    var slideshowDesc = ["9:41-10:41 • Main auditorium Building 3", "13:00-14:00 • Main auditorium"]
     var timer = Timer()
     var slideTagCounter = 0
     
@@ -348,7 +348,7 @@ class SlideshowCell: UITableViewCell{
         
         //Begin, define gradient color shade from RGB(108,85,185) to RGB(202,92,171)
         let headGradientColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor
-        let tailGradientColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        let tailGradientColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.4).cgColor
         //
         
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right

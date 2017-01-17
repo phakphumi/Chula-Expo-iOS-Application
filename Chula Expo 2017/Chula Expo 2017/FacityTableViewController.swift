@@ -11,7 +11,13 @@ import CoreData
 
 class FacityTableViewController: UITableViewController
 {
+    @IBOutlet var citySectionHeader: UIView!
+    @IBOutlet var facultySectionHeader: UIView!
+    @IBOutlet var specialSectionHeader: UIView!
+    
+    
     struct facity
+    
     {
         var name: String = ""
         var logoName: String = ""
@@ -82,7 +88,7 @@ class FacityTableViewController: UITableViewController
         {
            
             _ = EventData.addData(
-                name: "Test2",
+                name: "Electric vehicle technology",
                 facity: "Faculty of Engineering",
                 locationDesc: "308 ENG3 Building",
                 startTime: NSDate(timeIntervalSinceNow: 86400),
@@ -92,9 +98,53 @@ class FacityTableViewController: UITableViewController
                 isReserve: false,
                 canReserve: true,
                 numOfSeat: 99,
+                tumbnail: "eventTumb1",
+                inManageobjectcontext: self.managedObjectContext!
+            )
+            _ = EventData.addData(
+                name: "Top Visual Trends for 2017",
+                facity: "Faculty of Arts",
+                locationDesc: "Building 1",
+                startTime: NSDate(timeIntervalSinceNow: 0),
+                endTime: NSDate(timeIntervalSinceNow: 3000),
+                shortDesc: "", longDesc: "",
+                isFavorite: true,
+                isReserve: false,
+                canReserve: true,
+                numOfSeat: 99,
+                tumbnail: "eventTumb2",
+                inManageobjectcontext: self.managedObjectContext!
+            )
+            _ = EventData.addData(
+                name: "Technology Trends of 2017",
+                facity: "Faculty of Engineering",
+                locationDesc: "101 Building 1",
+                startTime: NSDate(timeIntervalSinceNow: 100000),
+                endTime: NSDate(timeIntervalSinceNow: 3000),
+                shortDesc: "", longDesc: "",
+                isFavorite: true,
+                isReserve: false,
+                canReserve: true,
+                numOfSeat: 99,
                 tumbnail: "technology",
                 inManageobjectcontext: self.managedObjectContext!
             )
+            _ = EventData.addData(
+                name: "Exploring enginnering world",
+                facity: "Faculty of Engineering",
+                locationDesc: "M Floor Building 4",
+                startTime: NSDate(timeIntervalSinceNow: 200000),
+                endTime: NSDate(timeIntervalSinceNow: 3000),
+                shortDesc: "", longDesc: "",
+                isFavorite: true,
+                isReserve: false,
+                canReserve: true,
+                numOfSeat: 99,
+                tumbnail: "engineering",
+                inManageobjectcontext: self.managedObjectContext!
+            )
+
+
         }
         do
         {
@@ -141,7 +191,7 @@ class FacityTableViewController: UITableViewController
         
         if indexPath.row == 0 && indexPath.section == 0{
             cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath)
-            cell.selectionStyle = .none
+//            cell.selectionStyle = .none
         }else{
             cell = tableView.dequeueReusableCell(withIdentifier: "facityCell", for: indexPath)
             
@@ -154,22 +204,44 @@ class FacityTableViewController: UITableViewController
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-    {
-        if (section == 0){
-            return nil
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+//    {
+//        if (section == 0){
+//            return nil
+//        }
+//        else if (section == 1){
+//            return "CITY"
+//        }
+//        else if (section == 2){
+//            return "SPECIAL"
+//        }
+//        else if (section == 3){
+//            return "FACULTY"
+//        }
+//        return nil
+//    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            return citySectionHeader
         }
-        else if (section == 1){
-            return "CITY"
+        else if section == 2 {
+            return specialSectionHeader
         }
-        else if (section == 2){
-            return "SPECIAL"
-        }
-        else if (section == 3){
-            return "FACULTY"
+        else if section == 3 {
+            return facultySectionHeader
         }
         return nil
     }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section > 0 {
+            return 35
+        }
+        return 0
+        
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectFacity"{

@@ -177,6 +177,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="CHULA EXPO 2017" id="kVi-9w-cEO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hzM-zz-1qO"/>
                         <barButtonItem key="leftBarButtonItem" image="qr_code" id="ND6-Px-TVV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -247,7 +248,9 @@
         <scene sceneID="xfw-kA-U27">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mpy-Lk-Kxt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="homeTabIcon2" id="S3U-CN-lgU"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homeTabIcon2" id="S3U-CN-lgU">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eXJ-vU-Vpc">
@@ -266,7 +269,7 @@
     </scenes>
     <resources>
         <image name="arrowDownIcon" width="11" height="7"/>
-        <image name="homeTabIcon2" width="29" height="27"/>
+        <image name="homeTabIcon2" width="25" height="25"/>
         <image name="qr_code" width="16" height="16"/>
     </resources>
 </document>

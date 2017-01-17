@@ -49,7 +49,9 @@
         <scene sceneID="YMa-fC-YEw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bBm-ic-pP8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Maps" image="mapTabIcon2" id="fib-pk-ifI" customClass="S"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="mapTabIcon2" id="fib-pk-ifI" customClass="S">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2IQ-wG-YmE">
@@ -67,6 +69,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mapTabIcon2" width="22" height="28"/>
+        <image name="mapTabIcon2" width="25" height="25"/>
     </resources>
 </document>

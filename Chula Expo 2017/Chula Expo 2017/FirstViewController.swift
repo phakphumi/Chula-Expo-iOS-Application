@@ -15,7 +15,7 @@ class FirstViewController: MainCoreDataTableViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     @IBOutlet var homeTableView: UITableView!
-    @IBOutlet weak var headerSectionView: UIView!
+    @IBOutlet var headerSectionView: UIView!
     @IBOutlet var headerSectionView2: UIView!
     @IBOutlet weak var facityCapsule: UILabel!
     @IBOutlet weak var reserveCapsule: UILabel!
@@ -179,6 +179,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 var endTime: NSDate?
                 var tumbnail: String?
                 var facity: String?
+                var date: String?
                 fetchData.managedObjectContext?.performAndWait{
                     // it's easy to forget to do this on the proper queue
                     name = fetchData.name
@@ -186,6 +187,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     endTime = fetchData.endTime
                     tumbnail = fetchData.tumbnail
                     facity = fetchData.facity
+                    date = fetchData.dateText
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue
                     // to do the cell.textLabel?.text setting
@@ -198,6 +200,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     eventFeedCell.endTime = endTime
                     eventFeedCell.tumbnail = tumbnail
                     eventFeedCell.facity = facity
+                    eventFeedCell.date = date
                 }
             }
         }

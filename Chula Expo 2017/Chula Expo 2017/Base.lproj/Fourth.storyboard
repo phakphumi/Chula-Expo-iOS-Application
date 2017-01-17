@@ -15,7 +15,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sMu-od-yNV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Profile" image="myprofileTabIcon2" id="dM9-cQ-ybq">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-4"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -147,6 +147,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="myprofileTabIcon2" width="22" height="27"/>
+        <image name="myprofileTabIcon2" width="25" height="25"/>
     </resources>
 </document>

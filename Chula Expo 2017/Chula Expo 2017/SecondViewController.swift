@@ -18,8 +18,6 @@ class SecondViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        createGradientNavBar()
-        
         let lat: CLLocationDegrees = 13.7383829
         let lon: CLLocationDegrees = 100.5298641
         let latDelta: CLLocationDegrees = 0.02
@@ -29,6 +27,8 @@ class SecondViewController: UIViewController {
         
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
         map.setRegion(region, animated: true)
+        
+        createGradientNavBar()
 
     }
 
@@ -47,7 +47,7 @@ class SecondViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
     func createGradientNavBar() {
         
         //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)

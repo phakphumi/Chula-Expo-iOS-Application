@@ -54,7 +54,7 @@ class StageCell: UITableViewCell {
         if let stageNo = stage{
             if stageNo == 1{
                 timeLabel.text = "STAGE 1"
-                stageNameLabel.text = "Grand Auditorium"
+                stageNameLabel.text = "Grand AUD"
             }
             if stageNo == 2{
                 timeLabel.text = "STAGE 2"

@@ -15,7 +15,7 @@ class FirstViewController: MainCoreDataTableViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     @IBOutlet var homeTableView: UITableView!
-    @IBOutlet weak var headerSectionView: UIView!
+    @IBOutlet var headerSectionView: UIView!
     @IBOutlet var headerSectionView2: UIView!
     @IBOutlet weak var facityCapsule: UILabel!
     @IBOutlet weak var reserveCapsule: UILabel!

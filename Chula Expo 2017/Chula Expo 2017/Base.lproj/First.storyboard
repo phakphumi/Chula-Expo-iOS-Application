@@ -235,7 +235,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="homeTabIcon2" id="S3U-CN-lgU"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="eXJ-vU-Vpc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eXJ-vU-Vpc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

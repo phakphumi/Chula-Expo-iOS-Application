@@ -25,7 +25,7 @@
 		5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2321E10E018008A3B11 /* ThirdViewController.swift */; };
 		5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2341E10E027008A3B11 /* FourthViewController.swift */; };
 		5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F307C8B1E26893300DEF3B0 /* QRViewController.swift */; };
-		5F307C8F1E26AF0000DEF3B0 /* Modal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */; };
+		5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F307C8D1E26AF0000DEF3B0 /* QRCode.storyboard */; };
 		5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D911E10300900713580 /* AppDelegate.swift */; };
 		5F4A9D971E10300900713580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D951E10300900713580 /* Main.storyboard */; };
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
@@ -35,6 +35,8 @@
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
 		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
 		5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */; };
+		5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */; };
+		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
 		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
 		5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */; };
@@ -53,6 +55,7 @@
 		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
 		805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
+		808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
 		80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */; };
 		80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D11E27ED6F00491730 /* StageCell.swift */; };
@@ -81,7 +84,7 @@
 		5F25B2321E10E018008A3B11 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5F25B2341E10E027008A3B11 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5F307C8B1E26893300DEF3B0 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
-		5F307C8E1E26AF0000DEF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Modal.storyboard; sourceTree = "<group>"; };
+		5F307C8E1E26AF0000DEF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QRCode.storyboard; sourceTree = "<group>"; };
 		5F4A9D8E1E10300900713580 /* Chula Expo 2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo 2017.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A9D911E10300900713580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4A9D961E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
 		5F5C7D4D1E10DDCC00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Third.storyboard; sourceTree = "<group>"; };
 		5F5C7D501E10DE1500C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fourth.storyboard; sourceTree = "<group>"; };
+		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFrameViewController.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
 		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageEventDetailTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleUILabel.swift; sourceTree = "<group>"; };
 		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 				5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */,
 				5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */,
 				5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */,
+				5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */,
+				5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */,
 			);
 			name = Modal_EventDetails;
 			sourceTree = "<group>";
@@ -155,8 +163,9 @@
 			children = (
 				80BFD4D71E27F39D00491730 /* CoreData */,
 				5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */,
-				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
 				5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */,
+				808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */,
+				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
 				5F23F3921E2278B500ACA6A7 /* SlideshowCell.swift */,
 				80BFD4D11E27ED6F00491730 /* StageCell.swift */,
@@ -188,7 +197,7 @@
 		5F307C901E26AF3900DEF3B0 /* Modal_QR */ = {
 			isa = PBXGroup;
 			children = (
-				5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */,
+				5F307C8D1E26AF0000DEF3B0 /* QRCode.storyboard */,
 				5F307C8B1E26893300DEF3B0 /* QRViewController.swift */,
 			);
 			name = Modal_QR;
@@ -356,7 +365,7 @@
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
 				5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
-				5F307C8F1E26AF0000DEF3B0 /* Modal.storyboard in Resources */,
+				5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
 				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
 				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
@@ -378,6 +387,7 @@
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
 				5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */,
+				5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */,
 				5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
@@ -386,8 +396,10 @@
 				58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */,
+				5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
 				5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */,
+				808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
@@ -424,12 +436,12 @@
 			name = EventDetails.storyboard;
 			sourceTree = "<group>";
 		};
-		5F307C8D1E26AF0000DEF3B0 /* Modal.storyboard */ = {
+		5F307C8D1E26AF0000DEF3B0 /* QRCode.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5F307C8E1E26AF0000DEF3B0 /* Base */,
 			);
-			name = Modal.storyboard;
+			name = QRCode.storyboard;
 			sourceTree = "<group>";
 		};
 		5F4A9D951E10300900713580 /* Main.storyboard */ = {

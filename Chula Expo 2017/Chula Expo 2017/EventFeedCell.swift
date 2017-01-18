@@ -20,6 +20,11 @@ class EventFeedCell: UITableViewCell {
     @IBOutlet weak var facityCapsule: UILabel!
     @IBOutlet weak var reserveCapsule: UILabel!
     
+    struct FacityCap{
+        var facText: String
+        var facColor: UIColor
+    }
+    
     var name: String?{
         didSet{
             print("\(name)")
@@ -46,7 +51,12 @@ class EventFeedCell: UITableViewCell {
             updateUI()
         }
     }
-
+    var date: String?{
+        didSet{
+            updateUI()
+        }
+    }
+    
     func updateUI(){
         // reset
         eventTumbnailImage.image = nil
@@ -55,11 +65,13 @@ class EventFeedCell: UITableViewCell {
         
         if let eventStartTime = startTime{
             if let eventEndTime = endTime{
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "H:mm"
-                let sTime = dateFormatter.string(from: eventStartTime as Date)
-                let eTime = dateFormatter.string(from: eventEndTime as Date)
-                eventTimeLabel.text = "\(sTime) - \(eTime)"
+                if let eventDate = date{
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "H:mm"
+                    let sTime = dateFormatter.string(from: eventStartTime as Date)
+                    let eTime = dateFormatter.string(from: eventEndTime as Date)
+                    eventTimeLabel.text = "\(eventDate) • \(sTime)-\(eTime)"
+                }
             }
         }
         if let eventName = name{
@@ -68,14 +80,16 @@ class EventFeedCell: UITableViewCell {
         if let eventTumbnail = tumbnail{
             eventTumbnailImage.image = UIImage(named: eventTumbnail)
         }
-        makeFacityCapsule()
+        if let eventFacity = facity{
+            let cap = getCapsule(forFacity: eventFacity)
+            facityCapsule.text = cap.facText
+            facityCapsule.backgroundColor = cap.facColor
+            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/2
+            facityCapsule.layer.masksToBounds = true
+        }
         makeReserveCapsule()
     }
     
-    func makeFacityCapsule(){
-        facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/2
-        facityCapsule.layer.masksToBounds = true
-    }
     
     func makeReserveCapsule(){
         reserveCapsule.layer.cornerRadius = reserveCapsule.bounds.height/2
@@ -95,8 +109,17 @@ class EventFeedCell: UITableViewCell {
     
     func roundedCornerLogo()
     {
-        eventTumbnailImage.layer.cornerRadius = 5
+        eventTumbnailImage.layer.cornerRadius = 8
         eventTumbnailImage.layer.masksToBounds = true
+    }
+    
+    func getCapsule(forFacity facity: String) -> FacityCap{
+        switch facity {
+        case "Faculty of Engineering":
+            return FacityCap(facText: "ENG", facColor: UIColor(red: 0.61, green: 0.00, blue: 0.01, alpha: 1))
+        default:
+            return FacityCap(facText: "Def", facColor: UIColor.black)
+        }
     }
 
 

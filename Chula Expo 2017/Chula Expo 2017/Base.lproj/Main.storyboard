@@ -368,7 +368,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="selectedImageTintColor" red="0.96078431372549022" green="0.27450980392156865" blue="0.68627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="QjI-LB-wAa" kind="relationship" relationship="viewControllers" id="Fax-Yt-NWU"/>
@@ -422,10 +422,10 @@
             </objects>
             <point key="canvasLocation" x="1055" y="407"/>
         </scene>
-        <!--Modal-->
+        <!--QRCode-->
         <scene sceneID="bkr-Vi-20n">
             <objects>
-                <viewControllerPlaceholder storyboardName="Modal" id="8m3-81-4nk" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="QRCode" id="8m3-81-4nk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIx-q0-kBD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1058" y="560"/>

@@ -24,6 +24,7 @@ class FacityTableViewCell: UITableViewCell {
         }
     }
 
+    @IBOutlet weak var facCapsule: CapsuleUILabel!
     @IBOutlet weak var facityLogo: UIImageView!
     {
         didSet{
@@ -59,6 +60,7 @@ class FacityTableViewCell: UITableViewCell {
         {
             facityName.text = fName
         }
+        makeCapsule()
     }
 
     func roundedCornerLogo()
@@ -66,6 +68,9 @@ class FacityTableViewCell: UITableViewCell {
         facityLogo.layer.cornerRadius = facityLogo.bounds.height / 2
         facityLogo.layer.masksToBounds = true
     }
-    
+    func makeCapsule(){
+        facCapsule.layer.cornerRadius = facCapsule.bounds.height/2
+        facCapsule.layer.masksToBounds = true
+    }
     
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class InterestedTableViewController: UITableViewController {
     var tapped = [UIImageView]()
     
@@ -30,6 +31,7 @@ class InterestedTableViewController: UITableViewController {
         super.viewDidLoad()
         createGradientNavBar()
         self.title = "Select your interest"
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,6 +42,30 @@ class InterestedTableViewController: UITableViewController {
         self.view.layoutIfNeeded()
     }
 
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        var footerView : UIView?
+        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
+        footerView?.backgroundColor = UIColor.blackColor()
+        
+        let dunamicButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+        dunamicButton.backgroundColor = UIColor.greenColor()
+        dunamicButton.setTitle("Button", forState: UIControlState.Normal)
+        dunamicButton.frame = CGRectMake(0, 0, 100, 50)
+        dunamicButton.addTarget(self, action: "buttonTouched:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        footerView?.addSubview(dunamicButton)
+        
+        return footerView
+    }
+    
+    func buttonTouched(sender:UIButton!){
+        println("diklik")
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 20

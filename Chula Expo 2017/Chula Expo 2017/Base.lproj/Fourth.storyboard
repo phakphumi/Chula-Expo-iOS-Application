@@ -79,11 +79,11 @@
                                     <outlet property="headName" destination="F1b-48-q2A" id="Ohe-S5-47j"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="51" id="eYW-ZK-5gL" customClass="FourthMenuTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="51" id="eYW-ZK-5gL" customClass="FourthMenuTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="188" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">

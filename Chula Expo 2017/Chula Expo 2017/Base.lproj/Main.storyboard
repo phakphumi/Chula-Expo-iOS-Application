@@ -21,26 +21,11 @@
                     <view key="view" contentMode="scaleToFill" id="8D7-2W-idW" customClass="login">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA0-M4-RLw">
-                                <rect key="frame" x="16" y="617" width="343" height="30"/>
-                                <state key="normal" title="By pass to tab bar controller">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="QME-Np-NQV" kind="show" id="pck-3G-Wo5"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="UA0-M4-RLw" firstAttribute="centerX" secondItem="8D7-2W-idW" secondAttribute="centerX" id="9L4-pJ-gxL"/>
-                            <constraint firstItem="WSP-YP-NMW" firstAttribute="top" secondItem="UA0-M4-RLw" secondAttribute="bottom" constant="8" symbolic="YES" id="DTO-Ni-QvM"/>
-                        </constraints>
                     </view>
                     <connections>
                         <segue destination="5AM-Et-Oxl" kind="show" identifier="toRegister" id="uEO-0U-4NF"/>
-                        <segue destination="QME-Np-NQV" kind="show" identifier="toTabBarController" id="gH4-31-fBe"/>
+                        <segue destination="QME-Np-NQV" kind="show" identifier="toHomeScreen" id="gH4-31-fBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bm-8y-yhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -586,6 +571,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pck-3G-Wo5"/>
+        <segue reference="gH4-31-fBe"/>
     </inferredMetricsTieBreakers>
 </document>

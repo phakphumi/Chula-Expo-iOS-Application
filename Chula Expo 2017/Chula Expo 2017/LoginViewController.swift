@@ -126,6 +126,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             self.setImageProfile(userID: UserController.userId!)
                             
+                            UserController.loginStatus = true
+                            
                             self.performSegue(withIdentifier: "toRegister", sender: self)
                             
                         }
@@ -145,7 +147,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.name = "Yourname Lastname"
         self.imageProfile = UIImage(named: "chula_expo_logo.jpg")
         
-        performSegue(withIdentifier: "toRegister", sender: self)
+        performSegue(withIdentifier: "toHomeScreen", sender: self)
         
     }
     

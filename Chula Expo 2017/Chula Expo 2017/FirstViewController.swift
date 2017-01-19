@@ -118,7 +118,19 @@ class FirstViewController: MainCoreDataTableViewController {
     
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
         
-        tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+        if UserController.loginStatus! {
+            
+            tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+            
+        } else {
+            
+            let confirm = UIAlertController(title: "Permission denied!", message: "This feature only support for login user.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(confirm, animated: true, completion: nil)
+            
+        }
         
     }
 

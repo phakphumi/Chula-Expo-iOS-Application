@@ -19,6 +19,7 @@
 		5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */; };
 		5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
+		5F202CDF1E321F5500AEAF1C /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */; };
 		5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */; };
 		5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2301E10E006008A3B11 /* SecondViewController.swift */; };
 		5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2321E10E018008A3B11 /* ThirdViewController.swift */; };
@@ -88,6 +89,7 @@
 		5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhenAndWhereTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SukhumvitSet.ttc; sourceTree = "<group>"; };
 		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5F25B2301E10E006008A3B11 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5F25B2321E10E018008A3B11 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			name = Modal_EventDetails;
 			sourceTree = "<group>";
 		};
+		5F202CDD1E321F4200AEAF1C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		5F23F38C1E22282A00ACA6A7 /* First_home */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 		5F4A9D851E10300900713580 = {
 			isa = PBXGroup;
 			children = (
+				5F202CDD1E321F4200AEAF1C /* Font */,
 				5F9FB0841E150EDE00E984AB /* Frameworks */,
 				5F4A9D901E10300900713580 /* Chula Expo 2017 */,
 				5F4A9D8F1E10300900713580 /* Products */,
@@ -407,6 +418,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F202CDF1E321F5500AEAF1C /* SukhumvitSet.ttc in Resources */,
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
 				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,

@@ -33,7 +33,7 @@ class FirstViewController: MainCoreDataTableViewController {
 //         Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        createGradientNavBar()
+//        createGradientNavBar()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     

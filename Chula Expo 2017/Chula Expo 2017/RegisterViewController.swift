@@ -22,6 +22,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     var imageProfile: UIImage!
     var activeField: UITextField!
     
+    
+    @IBOutlet var imageProfileView: UIImageView!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var ageField: UITextField!
@@ -31,7 +33,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     var token: String!
     var fbImageProfileUrl: String!
-    var imageProfileView: UIImageView!
+//    var imageProfileView: UIImageView!
     var nameLabelView: UILabel!
     var student: UIButton!
     var worker: UIButton!
@@ -150,9 +152,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         // Do any additional setup after loading the view.
         createGradientLayer()
         
-        createProfileImageView()
+//        createProfileImageView()
         
-        createNameLabelView()
+//        createNameLabelView()
         
         createCareerRadio()
         
@@ -195,6 +197,16 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         printDatabaseStatistics()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+//        imageProfileView.image = self.imageProfile
+        imageProfileView.layer.cornerRadius = imageProfileView.bounds.height / 2
+        imageProfileView.layer.borderColor = UIColor.white.cgColor
+        imageProfileView.layer.borderWidth = 3
+        imageProfileView.layer.masksToBounds = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -56,10 +56,6 @@ class InterestedTableViewController: UITableViewController {
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 908bed56e4e7ea4e66994c45b78568cd47b450f2
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         
     }

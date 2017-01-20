@@ -124,7 +124,7 @@ class FirstViewController: MainCoreDataTableViewController {
             
         } else {
             
-            let confirm = UIAlertController(title: "Permission denied!", message: "This feature only support for login user.", preferredStyle: UIAlertControllerStyle.alert)
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชั่นนี้สนับสนุนเฉพาะผู้เข้าระบบผ่าน Facebook เท่านั้น", preferredStyle: UIAlertControllerStyle.alert)
             
             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             

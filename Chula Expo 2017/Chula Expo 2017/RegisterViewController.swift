@@ -12,28 +12,38 @@ import CoreData
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     let genderPicker = UIPickerView()
-    let gender = ["Male", "Female"]
+    let gender = ["ชาย", "หญิง", "อื่น ๆ"]
     
-    var nameView = 0 // 0 = Label, 1 = Text Field
-    var careerType = 0 // 0 = Student , 1 = Worker
+    var userType = "student"
     var isFrameMove = false // false when frame did not move, true when frame did move
     var name: String!
     var email: String!
     var imageProfile: UIImage!
     var activeField: UITextField!
     
-    
+    @IBOutlet var topView: UIView!
     @IBOutlet var imageProfileView: UIImageView!
     @IBOutlet var nameField: UITextField!
+    @IBOutlet var careerView: UIView!
+    @IBOutlet var studentRadio: UIButton!
+    @IBOutlet var adultRadio: UIButton!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var ageField: UITextField!
     @IBOutlet var genderField: UITextField!
-    @IBOutlet var schoolOrCompanyField: UITextField!
-    @IBOutlet var gradeOrPositionField: UITextField!
+    @IBOutlet var schoolField: UITextField!
+    @IBOutlet var companyField: UITextField!
+    @IBOutlet var yearField: UITextField!
+    @IBOutlet var positionField: UITextField!
+    
+    @IBOutlet var schoolLabel: UILabel!
+    @IBOutlet var companyLabel: UILabel!
+    @IBOutlet var yearLabel: UILabel!
+    @IBOutlet var positionLabel: UILabel!
+    
+    @IBOutlet var doneButton: UIButton!
     
     var token: String!
     var fbImageProfileUrl: String!
-//    var imageProfileView: UIImageView!
     var nameLabelView: UILabel!
     var student: UIButton!
     var worker: UIButton!
@@ -41,9 +51,59 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     var studentCheckmark: UIImageView!
     var workerCheckmark: UIImageView!
     
+    @IBAction func selectStudent(_ sender: UIButton) {
+        
+        userType = "student"
+        
+        adultRadio.backgroundColor = nil
+        adultRadio.setTitleColor(UIColor.white, for: .normal)
+        
+        studentRadio.backgroundColor = UIColor.white
+        studentRadio.setTitleColor(UIColor.black, for: .normal)
+        
+        UIView.animate(withDuration: 0.25) {
+            
+            self.companyLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.companyField.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.positionLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.positionField.transform = CGAffineTransform(translationX: 0, y: 0)
+            
+            
+            self.schoolLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.schoolField.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.yearLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+            self.yearField.transform = CGAffineTransform(translationX: 0, y: 0)
+            
+        }
+        
+    }
     
-    @IBOutlet var schoolOrCompany: UILabel!
-    @IBOutlet var gradeOrPosition: UILabel!
+    @IBAction func selectAdult(_ sender: UIButton) {
+        
+        userType = "adult"
+        
+        studentRadio.backgroundColor = nil
+        studentRadio.setTitleColor(UIColor.white, for: .normal)
+        
+        adultRadio.backgroundColor = UIColor.white
+        adultRadio.setTitleColor(UIColor.black, for: .normal)
+        
+        UIView.animate(withDuration: 0.25) {
+            
+            self.companyLabel.transform = CGAffineTransform(translationX: -1000, y: 0)
+            self.companyField.transform = CGAffineTransform(translationX: -1000, y: 0)
+            self.positionLabel.transform = CGAffineTransform(translationX: -1000, y: 0)
+            self.positionField.transform = CGAffineTransform(translationX: -1000, y: 0)
+            
+            
+            self.schoolLabel.transform = CGAffineTransform(translationX: -1000, y: 0)
+            self.schoolField.transform = CGAffineTransform(translationX: -1000, y: 0)
+            self.yearLabel.transform = CGAffineTransform(translationX: -1000, y: 0)
+            self.yearField.transform = CGAffineTransform(translationX: -1000, y: 0)
+            
+        }
+        
+    }
     
 
     @IBAction func nextButton(_ sender: UIButton) {
@@ -53,47 +113,107 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         validateStylingTextField(textField: emailField)
         validateStylingTextField(textField: ageField)
         validateStylingTextField(textField: genderField)
-        validateStylingTextField(textField: schoolOrCompanyField)
-        validateStylingTextField(textField: gradeOrPositionField)
+        validateStylingTextField(textField: schoolField)
+        validateStylingTextField(textField: yearField)
+        validateStylingTextField(textField: companyField)
+        validateStylingTextField(textField: positionField)
         
-        if emailField.text == "" || ageField.text == "" || genderField.text == "" || schoolOrCompanyField.text == "" || gradeOrPositionField.text == "" {
+        if userType == "student" {
+        
+            if emailField.text == "" || ageField.text == "" || genderField.text == "" || schoolField.text == "" || yearField.text == "" {
             
-            message = "Please fill all field."
+                message = "กรุณากรอกข้อมูลให้ครบทุกช่อง"
             
-        } else if Int(ageField.text!)! > 120 {
+            } else if Int(yearField.text!)! > 12 {
+                
+                message = "ชั้นปีต้องอยู่ระหว่าง 1 - 12"
+                
+                warningStylingTextField(textField: yearField)
+                
+            }
             
-            message = "Please correct your age."
+        } else {
             
-            warningStylingTextField(textField: ageField)
+            if emailField.text == "" || ageField.text == "" || genderField.text == "" || companyField.text == "" || positionField.text == "" {
+                
+                message = "กรุณากรอกข้อมูลให้ครบทุกช่อง"
+                
+            }
             
-        } else if Int(gradeOrPositionField.text!)! > 12 {
+        }
+        
+        
+        
+        if let age = Int(ageField.text!) {
+         
+            if age > 120 {
+                
+                message = "อายุต้องไม่เกิน 120 ปี"
+                
+                warningStylingTextField(textField: ageField)
+                
+            }
             
-            message = "Please correct your grade."
+        }
+        
+        
+        
+        if message != "" {
             
-            warningStylingTextField(textField: gradeOrPositionField)
+            let error = UIAlertController(title: "ข้อมูลไม่ถูกต้อง", message: message, preferredStyle: UIAlertControllerStyle.alert)
+            
+            error.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(error, animated: true, completion: nil)
             
         } else {
             
             let managedObjectContext: NSManagedObjectContext? =
                 (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
             
-            managedObjectContext?.performAndWait {
+            if userType == "student" {
+            
+                managedObjectContext?.performAndWait {
                 
-                _ = UserData.addUser(
-                                        id: UserController.userId!,
-                                        token: self.token,
-                                        userType: "student",
-                                        name: self.nameLabelView.text!,
-                                        email: self.emailField.text!,
-                                        age: Int(self.ageField.text!)!,
-                                        gender: self.genderField.text!,
-                                        school: self.schoolOrCompanyField.text!,
-                                        company: "",
-                                        year: Int(self.gradeOrPositionField.text!)!,
-                                        position: "",
-                                        pictureUrl: self.fbImageProfileUrl!,
-                                        inManageobjectcontext: managedObjectContext!
-                                    )
+                    _ = UserData.addUser(
+                        id: UserController.userId!,
+                        token: self.token,
+                        userType: "student",
+                        name: self.nameField.text!,
+                        email: self.emailField.text!,
+                        age: Int(self.ageField.text!)!,
+                        gender: self.genderField.text!,
+                        school: self.schoolField.text!,
+                        company: "",
+                        year: Int(self.yearField.text!)!,
+                        position: "",
+                        pictureUrl: self.fbImageProfileUrl!,
+                        inManageobjectcontext: managedObjectContext!
+                    )
+                
+                }
+                
+            } else {
+                
+                managedObjectContext?.performAndWait {
+                    
+                    _ = UserData.addUser(
+                        id: UserController.userId!,
+                        token: self.token,
+                        userType: "student",
+                        name: self.nameField.text!,
+                        email: self.emailField.text!,
+                        age: Int(self.ageField.text!)!,
+                        gender: self.genderField.text!,
+                        school: "",
+                        company: self.companyField.text!,
+                        year: 0,
+                        position: self.positionField.text!,
+                        pictureUrl: self.fbImageProfileUrl!,
+                        inManageobjectcontext: managedObjectContext!
+                    )
+                    
+                }
                 
             }
             
@@ -107,21 +227,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 print("saveUserError with \(error)")
                 
             }
-            
-            printDatabaseStatistics()
 
             
             performSegue(withIdentifier: "toInterestedView", sender: self)
-            
-        }
-        
-        if message != "" {
-        
-            let error = UIAlertController(title: "Error!", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-            error.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-        
-            self.present(error, animated: true, completion: nil)
             
         }
         
@@ -150,27 +258,30 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
+        
+        setInitialValue()
+        
+        addChangeProfileImageGesture()
+        
         createGradientLayer()
-        
-//        createProfileImageView()
-        
-//        createNameLabelView()
-        
-        createCareerRadio()
         
         emailField.tag = 1
         ageField.tag = 2
         genderField.tag = 3
-        schoolOrCompanyField.tag = 4
-        gradeOrPositionField.tag = 5
-        
-        emailField.text = self.email
+        schoolField.tag = 4
+        yearField.tag = 5
+        companyField.tag = 7
+        positionField.tag = 8
         
         stylingTextField(textField: emailField)
         stylingTextField(textField: ageField)
         stylingTextField(textField: genderField)
-        stylingTextField(textField: schoolOrCompanyField)
-        stylingTextField(textField: gradeOrPositionField)
+        stylingTextField(textField: schoolField)
+        stylingTextField(textField: yearField)
+        stylingTextField(textField: companyField)
+        stylingTextField(textField: positionField)
         
         genderPicker.delegate = self
         genderPicker.dataSource = self
@@ -180,9 +291,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         toolbar.isTranslucent = true
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RegisterViewController.doneButtonGenderPicker))
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RegisterViewController.pickerDoneButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RegisterViewController.cancelButtonGenderPicker))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RegisterViewController.pickerCancelButton))
         
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: true)
         toolbar.isUserInteractionEnabled = true
@@ -191,7 +302,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         genderField.inputView = genderPicker
         
         ageField.inputAccessoryView = toolbar
-        gradeOrPositionField.inputAccessoryView = toolbar
+        yearField.inputAccessoryView = toolbar
         
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -201,11 +312,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     override func viewDidLayoutSubviews() {
         
-//        imageProfileView.image = self.imageProfile
-        imageProfileView.layer.cornerRadius = imageProfileView.bounds.height / 2
-        imageProfileView.layer.borderColor = UIColor.white.cgColor
-        imageProfileView.layer.borderWidth = 3
-        imageProfileView.layer.masksToBounds = true
+        stylingProfileImage()
+        
+        stylingRadio()
+        
+        stylingDoneButton()
         
     }
     
@@ -231,12 +342,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         } else {
         
             // Try to find next responder
+                
             if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            
+                    
                 nextField.becomeFirstResponder()
-            
+                    
             } else {
-            
+                    
                 // Not found, so remove keyboard.
                 textField.resignFirstResponder()
                 
@@ -270,13 +382,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func cancelButtonGenderPicker() {
+    func pickerCancelButton() {
         
-        genderField.resignFirstResponder()
+        activeField.resignFirstResponder()
         
     }
     
-    func doneButtonGenderPicker() {
+    func pickerDoneButton() {
         
         if activeField == genderField {
          
@@ -285,7 +397,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         }
         
         // Try to find next responder
-        if let nextField = self.view.viewWithTag(activeField.tag + 1) as? UITextField {
+        if userType == "adult" && activeField == genderField {
+            
+                companyField.becomeFirstResponder()
+            
+        } else if let nextField = self.view.viewWithTag(activeField.tag + 1) as? UITextField {
             
             nextField.becomeFirstResponder()
             
@@ -330,17 +446,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         let heightToDecrease = self.view.bounds.height * 0.15
         
-        //Check If Will move the frame and nameField is active
-        if nameView == 1 {
-            
-            if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                
-                self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease)
-                
-            }
-            
-        }
-        
         if !isFrameMove && activeField != genderField{
             
             isFrameMove = true
@@ -349,7 +454,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                 
                 self.hideImageView()
                  
-                self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease)
+                self.moveNameFieldToTopCenterView(movingFrame: keyboardSize.height - heightToDecrease)
                 
                 UIView.animate(withDuration: 0.5, animations: {
                         
@@ -359,13 +464,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
             }
             
-        } else if activeField == genderField{
+        } else if !isFrameMove && activeField == genderField {
+            
+            isFrameMove = true
             
             if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 
                 self.hideImageView()
                 
-                self.moveLabelToCenterOfGradient(movingFrame: keyboardSize.height - heightToDecrease - (genderPicker.inputAccessoryView?.frame.height)!)
+                self.moveNameFieldToTopCenterView(movingFrame: keyboardSize.height - heightToDecrease - (genderPicker.inputAccessoryView?.frame.height)!)
                 
                 UIView.animate(withDuration: 0.5, animations: {
                         
@@ -381,18 +488,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     func keyboardWillHide(notification: NSNotification) {
         
-        if activeField == nameField {
-            
-            hideNameField()
-            
-        }
-        
         if isFrameMove {
-            
+        
             isFrameMove = false
                 
             self.showImageView()
-            self.moveLabelToBeginning()
+            self.moveNameFieldToBeginning()
 
             UIView.animate(withDuration: 0.5, animations: {
                     
@@ -404,44 +505,30 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func moveLabelToCenterOfGradient(movingFrame: CGFloat) {
+    func moveNameFieldToTopCenterView(movingFrame: CGFloat) {
         
-        let nameLabelViewTopMargin = self.view.bounds.height * 0.285
-        let gradientHeight = self.view.bounds.height * 0.352
+        let nameFieldTopMargin = nameField.frame.origin.y
         
-        let remainingNameLabelViewTopMargin = nameLabelViewTopMargin - movingFrame
-        let remainingGradientHeight = gradientHeight - movingFrame - UIApplication.shared.statusBarFrame.height
+        let remainingNameFieldTopMargin = nameFieldTopMargin - movingFrame
+        let remainingGradientHeight = topView.bounds.height - movingFrame - UIApplication.shared.statusBarFrame.height
         
-        let movingLabel = remainingGradientHeight / 2 - remainingNameLabelViewTopMargin
+        let movingNameField = remainingGradientHeight / 2 - remainingNameFieldTopMargin
         
         UIView.animate(withDuration: 0.5) {
             
-            if self.activeField == self.nameField {
-                
-                self.nameField.transform = CGAffineTransform(translationX: -500, y: movingLabel)
-                
-                self.nameLabelView.transform = CGAffineTransform(translationX: -500, y: movingLabel)
-                
-            } else {
-            
-                self.nameField.transform = CGAffineTransform(translationX: 0, y: movingLabel)
-                
-                self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: movingLabel)
-            
-            }
+            self.nameField.transform = CGAffineTransform(translationX: 0, y: movingNameField)
             
         }
         
         
     }
     
-    func moveLabelToBeginning() {
+    func moveNameFieldToBeginning() {
         
         UIView.animate(withDuration: 0.5) {
             
             self.nameField.transform = CGAffineTransform(translationX: 0, y: 0)
             
-            self.nameLabelView.transform = CGAffineTransform(translationX: 0, y: 0)
             
         }
         
@@ -502,163 +589,31 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func createCareerRadio() {
+    func setInitialValue() {
         
-        let careerViewWidth = self.view.bounds.width * 0.82
-        let careerViewHeight = CGFloat(28)
-        var careerViewTopMargin = self.view.bounds.height * 0.39
-        
-        if self.view.bounds.height < 667 {
-            
-            careerViewTopMargin = self.view.bounds.height * 0.38
-            
-        }
-        
-        let careerView = UIView(frame: CGRect(x: self.view.bounds.width / 2 - careerViewWidth / 2, y: careerViewTopMargin, width: careerViewWidth, height: careerViewHeight))
-        careerView.layer.backgroundColor = UIColor(red: 0.8863, green: 0.53725, blue: 0.7961, alpha: 1).cgColor
-        careerView.layer.cornerRadius = careerViewHeight / 2
-        
-        let buttonWidth = careerView.bounds.width / 2 - 2
-        let buttonHeight = careerViewHeight - 2
-        
-        student = UIButton(frame: CGRect(x: 1, y: 1, width: buttonWidth, height: buttonHeight))
-        student.layer.cornerRadius = buttonHeight / 2
-        student.layer.backgroundColor = UIColor.white.cgColor
-        student.setTitle("Student", for: .normal)
-        student.setTitleColor(UIColor.black, for: .normal)
-        
-        
-        worker = UIButton(frame: CGRect(x: careerView.bounds.width / 2 + 1, y: 1, width: buttonWidth, height: buttonHeight))
-        worker.layer.cornerRadius = buttonHeight / 2
-        worker.layer.backgroundColor = nil
-        worker.setTitle("Worker", for: .normal)
-        worker.setTitleColor(UIColor.white, for: .normal)
-        
-        studentCheckmark = UIImageView(frame: CGRect(x: 8, y: careerView.bounds.height / 2 - 9, width: 18, height: 18))
-        studentCheckmark.image = UIImage(named: "register_checkmark.png")
-        
-        workerCheckmark = UIImageView(frame: CGRect(x: careerView.bounds.width / 2 + 8, y: careerView.bounds.height / 2 - 9, width: 18, height: 18))
-        workerCheckmark.image = nil
-        
-        careerView.addSubview(student)
-        careerView.addSubview(worker)
-        careerView.addSubview(studentCheckmark)
-        careerView.addSubview(workerCheckmark)
-        
-        self.view.addSubview(careerView)
-        
-        student.addTarget(self, action: #selector(RegisterViewController.tapOnCareerRadio), for: .touchUpInside)
-        worker.addTarget(self, action: #selector(RegisterViewController.tapOnCareerRadio), for: .touchUpInside)
-        
-    }
-    
-    func tapOnCareerRadio() {
-        
-        if careerType == 1 {
-            
-            careerType = 0 // set to student
-            
-            worker.setTitleColor(UIColor.white, for: .normal)
-            worker.layer.backgroundColor = nil
-            workerCheckmark.image = nil
-            
-            student.setTitleColor(UIColor.black, for: .normal)
-            student.layer.backgroundColor = UIColor.white.cgColor
-            studentCheckmark.image = UIImage(named: "register_checkmark.png")
-            
-            
-            schoolOrCompany.text = "SCHOOL/UNIVERSITY"
-            schoolOrCompanyField.placeholder = "Chulalongkorn University"
-            
-            gradeOrPosition.text = "GRADE/YEAR"
-            gradeOrPositionField.placeholder = "3"
-            
-        } else {
-            
-            careerType = 1 // set to worker
-            
-            student.setTitleColor(UIColor.white, for: .normal)
-            student.layer.backgroundColor = nil
-            studentCheckmark.image = nil
-            
-            worker.setTitleColor(UIColor.black, for: .normal)
-            worker.layer.backgroundColor = UIColor.white.cgColor
-            workerCheckmark.image = UIImage(named: "register_checkmark.png")
-            
-            schoolOrCompany.text = "COMPANY/ORGANIZATION"
-            schoolOrCompanyField.placeholder = "Example Company"
-            
-            gradeOrPosition.text = "POSITION"
-            gradeOrPositionField.placeholder = "Software Engineering"
-            
-        }
-        
-    }
-    
-    func createNameLabelView() {
-        
-        let nameLabelViewWidth = self.view.bounds.width * 0.85
-        let nameLabelViewHegiht = CGFloat(30)
-        let nameLabelViewTopMargin = self.view.bounds.height * 0.285
-        
-        nameField.frame = CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2 + 500, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht)
-        
-        nameLabelView = UILabel(frame: CGRect(x: self.view.bounds.width / 2 - nameLabelViewWidth / 2, y: nameLabelViewTopMargin, width: nameLabelViewWidth, height: nameLabelViewHegiht))
-        nameLabelView.font = nameLabelView.font.withSize(25)
-        nameLabelView.textAlignment = NSTextAlignment.center
-        nameLabelView.textColor = UIColor.white
-        nameLabelView.text = name
-        
-        //Begin, create tap gestureRecognizer to select item
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.showNameField))
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        nameLabelView.isUserInteractionEnabled = true
-        nameLabelView.addGestureRecognizer(tapGestureRecognizer)
-        //End
-        
-        self.view.addSubview(nameLabelView)
-        
-    }
-    
-    func showNameField() {
-        
-        nameView = 1
-        
-        nameField.text = nameLabelView.text
-        
-        nameField.becomeFirstResponder()
-        
-    }
-    
-    func hideNameField() {
-        
-        nameView = 0
-        
-        nameLabelView.text = nameField.text
-        
-    }
-    
-    
-    func createProfileImageView() {
-        
-        let imageViewWidthAndHeight = self.view.bounds.height * 0.21
-        let imageViewTopMargin = self.view.bounds.height * 0.064
-        
-        imageProfileView = UIImageView(frame: CGRect(x: self.view.bounds.width / 2 - imageViewWidthAndHeight / 2, y: imageViewTopMargin, width: imageViewWidthAndHeight, height: imageViewWidthAndHeight))
         imageProfileView.image = self.imageProfile
-        imageProfileView.layer.cornerRadius = imageProfileView.bounds.height / 2
+        
+        nameField.text = name
+        
+        emailField.text = self.email
+        
+    }
+    
+    func stylingProfileImage() {
+        
+        imageProfileView.layer.cornerRadius = 3
         imageProfileView.layer.borderColor = UIColor.white.cgColor
         imageProfileView.layer.borderWidth = 3
         imageProfileView.layer.masksToBounds = true
         
-        //Begin, create tap gestureRecognizer to select item
+    }
+    
+    func addChangeProfileImageGesture() {
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.changeProfilePicture))
         tapGestureRecognizer.numberOfTapsRequired = 1
         imageProfileView.isUserInteractionEnabled = true
         imageProfileView.addGestureRecognizer(tapGestureRecognizer)
-        //End
-        
-        self.view.addSubview(imageProfileView)
         
     }
     
@@ -676,12 +631,27 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
     }
     
-    func createGradientLayer() {
+    func stylingRadio() {
         
-        //Begin, define gradient layer scale
-        let gradientWidth = self.view.bounds.width
-        let gradientHeight = self.view.bounds.height * 0.352
-        //End, define
+        careerView.layer.cornerRadius = careerView.frame.height / 2
+        careerView.layer.masksToBounds = true
+        
+        studentRadio.layer.cornerRadius = studentRadio.frame.height / 2
+        studentRadio.layer.masksToBounds = true
+        
+        adultRadio.layer.cornerRadius = adultRadio.frame.height / 2
+        adultRadio.layer.masksToBounds = true
+        
+    }
+    
+    func stylingDoneButton() {
+        
+        doneButton.layer.cornerRadius = doneButton.frame.height / 2
+        doneButton.layer.masksToBounds = true
+        
+    }
+    
+    func createGradientLayer() {
         
         //Begin, define gradient color shade from RGB(210,116,184) to RGB(144,112,196)
         let headGradientColor = UIColor(red: 0.82, green: 0.455, blue: 0.72, alpha: 1).cgColor
@@ -690,13 +660,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         //Begin, create gradient layer with 2 colors shade and start gradient from left to right
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: gradientWidth, height: gradientHeight)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: topView.bounds.width, height: topView.bounds.height)
         gradientLayer.colors = [headGradientColor, tailGradientColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         //End
         
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
+        topView.layer.insertSublayer(gradientLayer, at: 0)
         
     }
     

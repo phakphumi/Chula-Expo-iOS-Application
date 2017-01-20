@@ -330,7 +330,7 @@
 				TargetAttributes = {
 					5F4A9D8D1E10300900713580 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = SPG965W4E9;
+						DevelopmentTeam = DPQ3565CLE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -595,7 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
-				DEVELOPMENT_TEAM = SPG965W4E9;
+				DEVELOPMENT_TEAM = DPQ3565CLE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -608,7 +608,7 @@
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CPCU41.Chula-Expo-2017";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cpcu.Chula-Expo-2017";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -619,7 +619,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
-				DEVELOPMENT_TEAM = SPG965W4E9;
+				DEVELOPMENT_TEAM = DPQ3565CLE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -632,7 +632,7 @@
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.CPCU41.Chula-Expo-2017";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cpcu.Chula-Expo-2017";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

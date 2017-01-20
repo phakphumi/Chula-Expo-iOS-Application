@@ -244,7 +244,7 @@ class FirstViewController: MainCoreDataTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
         if indexPath.row == 0 && indexPath.section == 0 {
-            return self.view.bounds.width * 219 / 375
+            return self.view.bounds.width * 218 / 375
         }
         else if indexPath.section == 1{
             return 55

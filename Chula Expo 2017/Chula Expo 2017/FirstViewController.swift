@@ -118,7 +118,19 @@ class FirstViewController: MainCoreDataTableViewController {
     
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
         
-        tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+        if UserController.loginStatus! {
+            
+            tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+            
+        } else {
+            
+            let confirm = UIAlertController(title: "Permission denied!", message: "This feature only support for login user.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(confirm, animated: true, completion: nil)
+            
+        }
         
     }
 
@@ -134,14 +146,17 @@ class FirstViewController: MainCoreDataTableViewController {
         var cell: UITableViewCell
         
         if indexPath.section == 0 && indexPath.row == 0 {
-            print("section 0")
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath)
-            if let slideshowCell = cell as? SlideshowCell{
-                let slideshowView = slideshowCell.viewWithTag(slideshowCell.slideshowTag)
-                slideshowView?.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
-                slideshowView?.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
-            }
             cell.selectionStyle = .none
+            
+            let slideshowPageViewController = SlideshowPageViewController()
+            slideshowPageViewController.view.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
+            slideshowPageViewController.view.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            self.addChildViewController(slideshowPageViewController)
+            
+            cell.contentView.addSubview(slideshowPageViewController.view)
+    
         }
             
         else if indexPath.section == 1{
@@ -229,7 +244,7 @@ class FirstViewController: MainCoreDataTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
         if indexPath.row == 0 && indexPath.section == 0 {
-            return self.view.bounds.width * 220 / 375
+            return self.view.bounds.width * 218 / 375
         }
         else if indexPath.section == 1{
             return 55
@@ -265,5 +280,5 @@ class FirstViewController: MainCoreDataTableViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         
     }
-    
+        
 }

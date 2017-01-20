@@ -23,19 +23,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceu-4Y-evc">
-                                <rect key="frame" x="24.5" y="51" width="327.5" height="565"/>
+                                <rect key="frame" x="24" y="52" width="327" height="563"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-nV-CFV">
-                                        <rect key="frame" x="0.0" y="-0.5" width="327.5" height="238.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="238"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark_zuckerberg" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
-                                                <rect key="frame" x="105" y="43" width="118" height="118.5"/>
+                                                <rect key="frame" x="105" y="42" width="118" height="118"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="liV-hZ-JeP" secondAttribute="height" multiplier="1:1" id="V5X-4U-51F"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerburg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-XC-CqN">
-                                                <rect key="frame" x="0.5" y="170" width="327.5" height="27"/>
+                                                <rect key="frame" x="0.0" y="170" width="327" height="27"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="E3M-XC-CqN" secondAttribute="height" multiplier="12:1" id="YBo-sF-tyl"/>
                                                 </constraints>
@@ -44,7 +44,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harvard University" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82c-A8-06g">
-                                                <rect key="frame" x="0.5" y="197.5" width="327.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="198" width="327" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="82c-A8-06g" secondAttribute="height" multiplier="151:9" id="43b-Ar-5JF"/>
                                                 </constraints>
@@ -53,9 +53,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17F-Rr-mtn">
-                                                <rect key="frame" x="293.5" y="14" width="16.5" height="17"/>
+                                                <rect key="frame" x="289.5" y="19" width="26" height="26"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="17F-Rr-mtn" secondAttribute="height" multiplier="1:1" id="4KS-om-zNf"/>
+                                                    <constraint firstAttribute="width" secondItem="17F-Rr-mtn" secondAttribute="height" multiplier="1:1" id="eHp-JN-Gda"/>
                                                 </constraints>
                                                 <state key="normal" image="cross_white"/>
                                                 <connections>
@@ -68,34 +68,43 @@
                                             <constraint firstItem="82c-A8-06g" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" id="2x1-gv-A7V"/>
                                             <constraint firstItem="E3M-XC-CqN" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" id="5NL-hZ-RQq"/>
                                             <constraint firstItem="liV-hZ-JeP" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.36" id="7nT-jR-NXk"/>
+                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" multiplier="1.85" id="89h-gJ-nvS"/>
                                             <constraint firstItem="liV-hZ-JeP" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="8Xa-yT-a35"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="0.19" id="9XM-8D-RRS"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.05" id="DII-hm-Qnj"/>
                                             <constraint firstItem="82c-A8-06g" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="ISR-rC-mHu"/>
                                             <constraint firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="height" multiplier="11:8" id="L8N-4l-uWj"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" multiplier="1.84" id="QJj-Mp-510"/>
+                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="0.275" id="dBh-oQ-Ebk"/>
                                             <constraint firstItem="liV-hZ-JeP" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="0.85" id="dh1-mB-Jyi"/>
                                             <constraint firstItem="82c-A8-06g" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="1.74" id="eal-YM-oRx"/>
                                             <constraint firstItem="E3M-XC-CqN" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="fHu-19-cLS"/>
                                             <constraint firstItem="E3M-XC-CqN" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="1.54" id="kjH-ZF-Mg7"/>
+                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.08" id="n7I-Jj-1N7"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-tX-Vt8">
-                                        <rect key="frame" x="30.5" y="271" width="267" height="267"/>
+                                        <rect key="frame" x="30" y="270" width="267" height="267"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="I3K-tX-Vt8" secondAttribute="height" multiplier="1:1" id="tAD-aK-Ka3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo" translatesAutoresizingMaskIntoConstraints="NO" id="q0r-37-Hpm">
+                                        <rect key="frame" x="131" y="371" width="65" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="q0r-37-Hpm" secondAttribute="height" multiplier="1:1" id="RuT-9u-nOM"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="PAf-nV-CFV" firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="width" id="AKH-CJ-j0y"/>
+                                    <constraint firstItem="q0r-37-Hpm" firstAttribute="centerY" secondItem="ceu-4Y-evc" secondAttribute="centerY" multiplier="1.43" id="CEB-6V-qYC"/>
                                     <constraint firstItem="I3K-tX-Vt8" firstAttribute="centerX" secondItem="ceu-4Y-evc" secondAttribute="centerX" id="ED7-eU-hgj"/>
                                     <constraint firstItem="PAf-nV-CFV" firstAttribute="centerY" secondItem="ceu-4Y-evc" secondAttribute="centerY" multiplier="0.42" id="UpZ-ip-ACn"/>
                                     <constraint firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="height" multiplier="328:565" id="UwZ-hQ-9Az"/>
                                     <constraint firstItem="PAf-nV-CFV" firstAttribute="centerX" secondItem="ceu-4Y-evc" secondAttribute="centerX" id="YTA-QE-7Gm"/>
                                     <constraint firstItem="I3K-tX-Vt8" firstAttribute="centerY" secondItem="ceu-4Y-evc" secondAttribute="centerY" multiplier="1.43" id="ba6-9F-FJ7"/>
+                                    <constraint firstItem="q0r-37-Hpm" firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="width" multiplier="0.2" id="fXf-iQ-oWx"/>
                                     <constraint firstItem="I3K-tX-Vt8" firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="width" multiplier="0.815" id="ktD-0b-cTP"/>
+                                    <constraint firstItem="q0r-37-Hpm" firstAttribute="centerX" secondItem="ceu-4Y-evc" secondAttribute="centerX" id="m3j-oR-WG1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="19"/>
@@ -114,6 +123,7 @@
                         <outlet property="gradientView" destination="PAf-nV-CFV" id="F56-Mm-LPa"/>
                         <outlet property="name" destination="E3M-XC-CqN" id="nyc-1l-5IN"/>
                         <outlet property="profileImage" destination="liV-hZ-JeP" id="QW0-D9-YBC"/>
+                        <outlet property="qrCodeImage" destination="I3K-tX-Vt8" id="Oft-HI-dYW"/>
                         <outlet property="qrView" destination="ceu-4Y-evc" id="xNX-5o-myI"/>
                         <outlet property="schoolOrCompany" destination="82c-A8-06g" id="C6e-dW-qQP"/>
                     </connections>
@@ -124,6 +134,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chula_expo_logo" width="1638" height="1638"/>
         <image name="cross_white" width="12" height="12"/>
         <image name="mark_zuckerberg" width="547" height="547"/>
         <image name="temp_qrcode" width="267" height="267"/>

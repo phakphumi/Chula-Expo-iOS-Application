@@ -10,11 +10,28 @@ import Foundation
 
 class UserController {
     
+    private static var _loginStatus: Bool = false
+    
     private static var _userId: String = ""
+    
+    static var loginStatus: Bool? {
+        
+        get {
+            
+            return self._loginStatus
+            
+        }
+        set(value) {
+            
+            self._loginStatus = value!
+            
+        }
+        
+    }
     
     static var userId: String? {
         
-        get{
+        get {
             
             return self._userId
             

@@ -42,26 +42,7 @@ class InterestedTableViewController: UITableViewController {
         self.view.layoutIfNeeded()
     }
 
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footerView : UIView?
-        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
-        footerView?.backgroundColor = UIColor.blackColor()
-        
-        let dunamicButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-        dunamicButton.backgroundColor = UIColor.greenColor()
-        dunamicButton.setTitle("Button", forState: UIControlState.Normal)
-        dunamicButton.frame = CGRectMake(0, 0, 100, 50)
-        dunamicButton.addTarget(self, action: "buttonTouched:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        footerView?.addSubview(dunamicButton)
-        
-        return footerView
-    }
-    
-    func buttonTouched(sender:UIButton!){
-        println("diklik")
-    }
-    
+
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50.0
     }
@@ -75,7 +56,16 @@ class InterestedTableViewController: UITableViewController {
         }
     }
 
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Make footerview so it fill up size of the screen
+        // The button is aligned to bottom of the footerview
+        // using autolayout constraints
+        self.tableView.tableFooterView = nil
+        self.footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.tableView.frame.size.height - self.tableView.contentSize.height - self.footerView.frame.size.height)
+        self.tableView.tableFooterView = self.footerView
+    }
         
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         

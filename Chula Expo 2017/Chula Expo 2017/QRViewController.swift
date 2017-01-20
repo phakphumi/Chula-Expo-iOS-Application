@@ -15,6 +15,7 @@ class QRViewController: UIViewController {
     @IBOutlet var qrView: UIView!
     @IBOutlet var gradientView: UIView!
     @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var qrCodeImage: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var schoolOrCompany: UILabel!
     
@@ -64,24 +65,44 @@ class QRViewController: UIViewController {
         
         managedObjectContext?.perform {
             
-            let userData = UserData.fetchUser(id: UserController.userId!, inManageobjectcontext: self.managedObjectContext!)
+            let userData = UserData.fetchUser(id: UserController.userId!, inManageobjectcontext: self.managedObjectContext!)!
             
-            self.setImageProfile(pictureUrl: (userData?.pictureUrl!)!)
-            self.name.text = userData?.name
+            self.setImageProfile(pictureUrl: userData.pictureUrl!)
+            self.name.text = userData.name
             
-            if userData?.userType == "student" {
+            if userData.userType == "student" {
                 
-                self.schoolOrCompany.text = userData?.school   
+                self.schoolOrCompany.text = userData.school
                 
             } else {
                 
-                self.schoolOrCompany.text = userData?.company
+                self.schoolOrCompany.text = userData.company
                 
             }
+            
+            let qrImage = self.generateQRCode(from: "\(userData.name!)")
+            
+            self.qrCodeImage.image = qrImage
             
         }
         
     }
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            
+            if let output = filter.outputImage?.applying(transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        
+        return nil
+    }
+    
     
     func setImageProfile(pictureUrl: String) {
         

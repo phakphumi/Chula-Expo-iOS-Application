@@ -235,10 +235,14 @@ class FirstViewController: MainCoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section > 0 {
-            return 35
+            return 50
         }
         return 0
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -250,7 +254,7 @@ class FirstViewController: MainCoreDataTableViewController {
             return 55
         }
         else if indexPath.section == 2{
-            return 80
+            return 88
         }
         return UITableViewAutomaticDimension
     }

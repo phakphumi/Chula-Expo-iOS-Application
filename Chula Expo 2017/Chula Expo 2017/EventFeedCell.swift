@@ -109,7 +109,7 @@ class EventFeedCell: UITableViewCell {
     
     func roundedCornerLogo()
     {
-        eventTumbnailImage.layer.cornerRadius = 8
+        eventTumbnailImage.layer.cornerRadius = 0
         eventTumbnailImage.layer.masksToBounds = true
     }
     

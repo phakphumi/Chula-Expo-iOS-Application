@@ -111,8 +111,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         })
                         
                         if userData != nil {
+                            
+                            UserController.loginStatus = true
                                 
-                            self.performSegue(withIdentifier: "toTabBarController", sender: self)
+                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                             
                         } else {
                             

@@ -156,8 +156,8 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
         setSlideshowPropoties(frameViewController: frameViewController, atIndex: frameIndex)
         
         let viewController = [frameViewController]
-        
-        setViewControllers(viewController, direction: .forward, animated: true, completion: nil)
+            
+        self.setViewControllers(viewController, direction: .forward, animated: true, completion: nil)
         
         self.pageControl.currentPage = frameIndex
         

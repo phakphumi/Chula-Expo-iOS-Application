@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class InterestedTableViewController: UITableViewController {
     var tapped = [UIImageView]()
     
@@ -30,6 +31,7 @@ class InterestedTableViewController: UITableViewController {
         super.viewDidLoad()
         createGradientNavBar()
         self.title = "Select your interest"
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,6 +42,11 @@ class InterestedTableViewController: UITableViewController {
         self.view.layoutIfNeeded()
     }
 
+
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 20
@@ -49,7 +56,16 @@ class InterestedTableViewController: UITableViewController {
         }
     }
 
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Make footerview so it fill up size of the screen
+        // The button is aligned to bottom of the footerview
+        // using autolayout constraints
+        self.tableView.tableFooterView = nil
+        self.footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.tableView.frame.size.height - self.tableView.contentSize.height - self.footerView.frame.size.height)
+        self.tableView.tableFooterView = self.footerView
+    }
         
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         

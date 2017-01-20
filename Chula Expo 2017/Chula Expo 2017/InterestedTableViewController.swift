@@ -56,17 +56,7 @@ class InterestedTableViewController: UITableViewController {
         }
     }
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Make footerview so it fill up size of the screen
-        // The button is aligned to bottom of the footerview
-        // using autolayout constraints
-        self.tableView.tableFooterView = nil
-        self.footerView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.tableView.frame.size.height - self.tableView.contentSize.height - self.footerView.frame.size.height)
-        self.tableView.tableFooterView = self.footerView
-    }
-        
+
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         
     }

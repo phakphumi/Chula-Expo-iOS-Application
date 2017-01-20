@@ -14,19 +14,16 @@ class InterestTableViewCell: UITableViewCell {
     @IBOutlet weak var interestImg1: UIImageView!
     {
         didSet{
-            roundedCornerLogo1()
         }
     }
     @IBOutlet weak var interestImg2: UIImageView!
     {
         didSet{
-            roundedCornerLogo2()
         }
     }
     @IBOutlet weak var interestImg3: UIImageView!
     {
         didSet{
-            roundedCornerLogo3()
         }
     }
     @IBOutlet weak var interestName1: UILabel!
@@ -49,9 +46,6 @@ class InterestTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        roundedCornerLogo1()
-        roundedCornerLogo2()
-        roundedCornerLogo3()
         interestImg1.isUserInteractionEnabled = true
         interestImg2.isUserInteractionEnabled = true
         interestImg3.isUserInteractionEnabled = true
@@ -180,22 +174,6 @@ class InterestTableViewCell: UITableViewCell {
         {
             interestName3.text = Tname3
         }
-    }
-    
-    func roundedCornerLogo1()
-    {
-        interestImg1.layer.cornerRadius = interestImg1.bounds.height / 2
-        interestImg1.layer.masksToBounds = true
-    }
-    func roundedCornerLogo2()
-    {
-        interestImg2.layer.cornerRadius = interestImg2.bounds.height / 2
-        interestImg2.layer.masksToBounds = true
-    }
-    func roundedCornerLogo3()
-    {
-        interestImg3.layer.cornerRadius = interestImg3.bounds.height / 2
-        interestImg3.layer.masksToBounds = true
     }
     
 

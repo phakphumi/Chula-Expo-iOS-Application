@@ -53,6 +53,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     @IBAction func selectStudent(_ sender: UIButton) {
         
+        self.view.endEditing(true)
+        
         userType = "student"
         
         adultRadio.backgroundColor = nil
@@ -79,6 +81,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
     
     @IBAction func selectAdult(_ sender: UIButton) {
+        
+        self.view.endEditing(true)
         
         userType = "adult"
         
@@ -120,7 +124,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         if userType == "student" {
         
-            if emailField.text == "" || ageField.text == "" || genderField.text == "" || schoolField.text == "" || yearField.text == "" {
+            if nameField.text == "" || emailField.text == "" || ageField.text == "" || genderField.text == "" || schoolField.text == "" || yearField.text == "" {
             
                 message = "กรุณากรอกข้อมูลให้ครบทุกช่อง"
             
@@ -134,7 +138,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
         } else {
             
-            if emailField.text == "" || ageField.text == "" || genderField.text == "" || companyField.text == "" || positionField.text == "" {
+            if nameField.text == "" || emailField.text == "" || ageField.text == "" || genderField.text == "" || companyField.text == "" || positionField.text == "" {
                 
                 message = "กรุณากรอกข้อมูลให้ครบทุกช่อง"
                 
@@ -329,7 +333,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.view.endEditing(true)
+        if activeField == nameField && activeField.text == "" {
+            let error = UIAlertController(title: "ข้อมูลไม่ถูกต้อง", message: "กรุณากรอกชื่อ-นามสกุล", preferredStyle: UIAlertControllerStyle.alert)
+        
+            error.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        
+            self.present(error, animated: true, completion: nil)
+            
+        } else {
+        
+            self.view.endEditing(true)
+            
+        }
         
     }
     
@@ -337,7 +352,19 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         if textField == nameField {
             
-            textField.resignFirstResponder()
+            if textField.text == "" {
+                
+                let error = UIAlertController(title: "ข้อมูลไม่ถูกต้อง", message: "กรุณากรอกชื่อ-นามสกุล", preferredStyle: UIAlertControllerStyle.alert)
+                
+                error.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(error, animated: true, completion: nil)
+                
+            } else {
+                
+                textField.resignFirstResponder()
+                
+            }
             
         } else {
         

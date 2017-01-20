@@ -246,7 +246,7 @@
                                             <constraint firstAttribute="width" secondItem="FS7-z4-Gno" secondAttribute="height" multiplier="1:1" id="TTo-Xc-9mj"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="แตะเพื่อกรอกชื่อ-นามสกุล" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-4l-9Us">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="แตะเพื่อกรอกชื่อ-นามสกุล" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-4l-9Us">
                                         <rect key="frame" x="8" y="190.5" width="360" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dCg-4l-9Us" secondAttribute="height" multiplier="359:30" id="qcu-OT-YX4"/>

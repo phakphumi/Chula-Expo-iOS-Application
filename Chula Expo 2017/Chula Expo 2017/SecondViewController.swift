@@ -9,14 +9,22 @@
 import UIKit
 import MapKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet var map: MKMapView!
+    
+    var locationManager = CLLocationManager()
+    var annotation = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         let lat: CLLocationDegrees = 13.7383829
         let lon: CLLocationDegrees = 100.5298641
@@ -71,6 +79,24 @@ class SecondViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.tintColor = UIColor.white
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locations[0]
+        
+        map.removeAnnotation(annotation)
+        
+        annotation.coordinate = userLocation.coordinate
+        
+        map.addAnnotation(annotation)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        print(error)
         
     }
 

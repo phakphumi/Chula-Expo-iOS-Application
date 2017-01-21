@@ -19,7 +19,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dCS-MC-FVq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="dCS-MC-FVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,7 +52,7 @@
                                             <rect key="frame" x="8" y="8" width="359" height="80"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bke-JI-d6z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="179.5" height="80"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                                     <state key="normal" title="Favorite" image="bookmarkIcon">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +62,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOo-v7-n2y">
-                                                    <rect key="frame" x="180" y="0.0" width="179" height="80"/>
+                                                    <rect key="frame" x="179.5" y="0.0" width="179.5" height="80"/>
                                                     <state key="normal" title="Reservation" image="bookingIcon">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -257,7 +257,6 @@
                                     <outlet property="locationLabel" destination="VlR-wU-jcw" id="byB-FA-ul8"/>
                                     <outlet property="nameLabel" destination="7hW-Un-AD7" id="3kX-US-dHL"/>
                                     <outlet property="timeLabel" destination="I2a-VZ-KsF" id="NSN-TJ-B3p"/>
-                                    <segue destination="z1E-kk-uSw" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="PJc-EO-M98"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -266,6 +265,9 @@
                             <outlet property="delegate" destination="lHK-QI-0zL" id="VxB-J1-0xH"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="z1E-kk-uSw" kind="presentation" identifier="toEventDetails" id="H6Q-RV-B1H"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQd-de-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

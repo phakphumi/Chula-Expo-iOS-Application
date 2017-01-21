@@ -11,6 +11,8 @@ import CoreData
 
 class EventsTableViewController: CoreDataTableViewController
 {
+    
+    var selectedActivityId: String?
     var facity: String?
     {
         didSet
@@ -67,6 +69,7 @@ class EventsTableViewController: CoreDataTableViewController
         
         if let fetchData = fetchedResultsController?.object(at: indexPath) as? EventData
         {
+            var activityId: String?
             var name: String?
             var startTime: NSDate?
             var endTime: NSDate?
@@ -76,6 +79,7 @@ class EventsTableViewController: CoreDataTableViewController
             {
                 // it's easy to forget to do this on the proper queue
                 
+                activityId = fetchData.activityId
                 name = fetchData.name
                 startTime = fetchData.startTime
                 endTime = fetchData.endTime
@@ -87,6 +91,7 @@ class EventsTableViewController: CoreDataTableViewController
             }
             if let eventCell = cell as? EventTableViewCell
             {
+                eventCell.activitiyId = activityId
                 eventCell.name = name
                 eventCell.startTime = startTime
                 eventCell.endTime = endTime
@@ -99,5 +104,25 @@ class EventsTableViewController: CoreDataTableViewController
         return cell
     }
 
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let currentCell = tableView.cellForRow(at: indexPath) as? EventTableViewCell
+        
+        selectedActivityId = currentCell?.activitiyId
+        
+        self.performSegue(withIdentifier: "toEventDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toEventDetails" {
+            
+            let destination = segue.destination as! EventDetailsTableViewController
+            
+            destination.activityId = selectedActivityId
+            
+        }
+        
+    }
+    
 }

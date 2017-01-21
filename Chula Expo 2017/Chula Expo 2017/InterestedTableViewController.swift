@@ -52,7 +52,6 @@ class InterestedTableViewController: UITableViewController {
             return self.view.bounds.width * 120 / 375
     }
 
-
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         
     }

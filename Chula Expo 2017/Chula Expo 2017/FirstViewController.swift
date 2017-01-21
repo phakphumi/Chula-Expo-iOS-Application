@@ -33,7 +33,7 @@ class FirstViewController: MainCoreDataTableViewController {
 //         Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        createGradientNavBar()
+//        createGradientNavBar()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
@@ -124,7 +124,7 @@ class FirstViewController: MainCoreDataTableViewController {
             
         } else {
             
-            let confirm = UIAlertController(title: "Permission denied!", message: "This feature only support for login user.", preferredStyle: UIAlertControllerStyle.alert)
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชั่นนี้สนับสนุนเฉพาะผู้เข้าระบบผ่าน Facebook เท่านั้น", preferredStyle: UIAlertControllerStyle.alert)
             
             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             
@@ -192,7 +192,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 var name: String?
                 var startTime: NSDate?
                 var endTime: NSDate?
-                var tumbnail: String?
+                var thumbnail: String?
                 var facity: String?
                 var date: String?
                 fetchData.managedObjectContext?.performAndWait{
@@ -200,7 +200,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     name = fetchData.name
                     startTime = fetchData.startTime
                     endTime = fetchData.endTime
-                    tumbnail = fetchData.tumbnail
+                    thumbnail = fetchData.thumbnail
                     facity = fetchData.facity
                     date = fetchData.dateText
                     // we're not assuming the context is a main queue context
@@ -213,7 +213,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     eventFeedCell.name = name
                     eventFeedCell.startTime = startTime
                     eventFeedCell.endTime = endTime
-                    eventFeedCell.tumbnail = tumbnail
+                    eventFeedCell.thumbnail = thumbnail
                     eventFeedCell.facity = facity
                     eventFeedCell.date = date
                 }
@@ -235,10 +235,14 @@ class FirstViewController: MainCoreDataTableViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section > 0 {
-            return 35
+            return 50
         }
         return 0
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 8
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -250,7 +254,7 @@ class FirstViewController: MainCoreDataTableViewController {
             return 55
         }
         else if indexPath.section == 2{
-            return 80
+            return 88
         }
         return UITableViewAutomaticDimension
     }

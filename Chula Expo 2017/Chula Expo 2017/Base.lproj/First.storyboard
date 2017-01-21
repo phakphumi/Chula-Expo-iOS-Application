@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="mrX-01-Ixw">
-                            <rect key="frame" x="0.0" y="391" width="375" height="50"/>
+                            <rect key="frame" x="0.0" y="373" width="375" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hA-hn-GDa">
@@ -162,36 +162,36 @@
                                     <segue destination="eg0-Rd-Abk" kind="show" id="uwV-eh-T9P"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventFeed" rowHeight="88" id="YKr-5x-Mnb" customClass="EventFeedCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="303" width="375" height="88"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventFeed" rowHeight="70" id="YKr-5x-Mnb" customClass="EventFeedCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="303" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YKr-5x-Mnb" id="OHQ-fm-vDq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHp-rt-PKf">
-                                            <rect key="frame" x="8" y="8" width="359" height="80"/>
+                                            <rect key="frame" x="8" y="0.0" width="359" height="69.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tM9-yE-TvQ">
-                                                    <rect key="frame" x="8" y="8" width="85.5" height="64"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="92.5" height="69.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="tM9-yE-TvQ" secondAttribute="height" multiplier="4:3" id="vyy-AQ-Qfy"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-Bi-sOG">
-                                                    <rect key="frame" x="103.5" y="8" width="245.5" height="21"/>
+                                                    <rect key="frame" x="102.5" y="2" width="246.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eet-jr-erJ">
-                                                    <rect key="frame" x="103.5" y="34" width="241.5" height="16"/>
+                                                    <rect key="frame" x="102.5" y="28" width="242.5" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENG" textAlignment="right" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekf-G1-Ivd" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                                    <rect key="frame" x="103.5" y="55" width="24" height="16"/>
+                                                    <rect key="frame" x="102.5" y="49" width="24" height="16"/>
                                                     <color key="backgroundColor" red="0.56862745098039214" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="f9o-oV-G1B"/>
@@ -202,7 +202,7 @@
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESERVE 99/99 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w5N-sJ-Dn5" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                                    <rect key="frame" x="137.5" y="55" width="88" height="16"/>
+                                                    <rect key="frame" x="136.5" y="49" width="88" height="16"/>
                                                     <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="Vym-pN-2PX"/>
@@ -222,12 +222,12 @@
                                             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                             <constraints>
                                                 <constraint firstItem="VxX-Bi-sOG" firstAttribute="leading" secondItem="tM9-yE-TvQ" secondAttribute="trailing" constant="10" id="FWr-90-Faj"/>
-                                                <constraint firstAttribute="bottom" secondItem="tM9-yE-TvQ" secondAttribute="bottom" constant="8" id="FqY-VG-koV"/>
+                                                <constraint firstAttribute="bottom" secondItem="tM9-yE-TvQ" secondAttribute="bottom" id="FqY-VG-koV"/>
                                                 <constraint firstItem="w5N-sJ-Dn5" firstAttribute="leading" secondItem="Ekf-G1-Ivd" secondAttribute="trailing" constant="10" id="HP0-uj-7hn"/>
-                                                <constraint firstItem="VxX-Bi-sOG" firstAttribute="top" secondItem="wHp-rt-PKf" secondAttribute="top" constant="8" id="I3N-aH-awU"/>
+                                                <constraint firstItem="VxX-Bi-sOG" firstAttribute="top" secondItem="wHp-rt-PKf" secondAttribute="top" constant="2" id="I3N-aH-awU"/>
                                                 <constraint firstItem="w1X-0v-Ws3" firstAttribute="top" secondItem="wHp-rt-PKf" secondAttribute="top" constant="12" id="Ny4-T3-c43"/>
-                                                <constraint firstItem="tM9-yE-TvQ" firstAttribute="leading" secondItem="wHp-rt-PKf" secondAttribute="leading" constant="8" id="PEf-Sw-Xwb"/>
-                                                <constraint firstItem="tM9-yE-TvQ" firstAttribute="top" secondItem="wHp-rt-PKf" secondAttribute="top" constant="8" id="Zj6-QC-rRp"/>
+                                                <constraint firstItem="tM9-yE-TvQ" firstAttribute="leading" secondItem="wHp-rt-PKf" secondAttribute="leading" id="PEf-Sw-Xwb"/>
+                                                <constraint firstItem="tM9-yE-TvQ" firstAttribute="top" secondItem="wHp-rt-PKf" secondAttribute="top" id="Zj6-QC-rRp"/>
                                                 <constraint firstItem="Eet-jr-erJ" firstAttribute="leading" secondItem="VxX-Bi-sOG" secondAttribute="leading" id="buM-YC-HMT"/>
                                                 <constraint firstItem="w5N-sJ-Dn5" firstAttribute="bottom" secondItem="Ekf-G1-Ivd" secondAttribute="bottom" id="eM4-RJ-VAp"/>
                                                 <constraint firstAttribute="trailing" secondItem="Eet-jr-erJ" secondAttribute="trailing" constant="14" id="fTw-qz-zsS"/>
@@ -240,7 +240,7 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="wHp-rt-PKf" firstAttribute="top" secondItem="OHQ-fm-vDq" secondAttribute="topMargin" id="SHS-JA-Zkn"/>
+                                        <constraint firstItem="wHp-rt-PKf" firstAttribute="top" secondItem="OHQ-fm-vDq" secondAttribute="topMargin" constant="-8" id="SHS-JA-Zkn"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="wHp-rt-PKf" secondAttribute="trailing" id="TCh-MZ-t87"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="wHp-rt-PKf" secondAttribute="bottom" constant="-8" id="cQi-gb-fBc"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="wHp-rt-PKf" secondAttribute="leading" id="sC4-8C-Lvi"/>
@@ -265,13 +265,13 @@
                     <navigationItem key="navigationItem" title="CHULA EXPO 2017" id="kVi-9w-cEO">
                         <barButtonItem key="backBarButtonItem" title=" " id="hzM-zz-1qO"/>
                         <barButtonItem key="leftBarButtonItem" image="qr_code" id="ND6-Px-TVV">
-                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="tintColor" red="0.93084526062011719" green="0.47663280367851257" blue="0.60005772113800049" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="qrcode:" destination="pre-TW-rfj" id="Jy8-rw-9a4"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="search" id="0Lv-2Q-AHT">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.93084526062011719" green="0.47663280367851257" blue="0.60005772113800049" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -304,7 +304,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.99607843137254903" green="0.3411764705882353" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.93084526062011719" green="0.47663280367851257" blue="0.60005772113800049" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstItem="3mb-uf-UdS" firstAttribute="leading" secondItem="tMK-NU-gmW" secondAttribute="leading" constant="12" id="4sE-LN-dQJ"/>
                                 <constraint firstAttribute="trailing" secondItem="gMf-8e-2jb" secondAttribute="trailing" constant="15" id="VNx-zC-Qc6"/>
@@ -369,9 +369,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eXJ-vU-Vpc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.99607843139999996" green="0.3411764706" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.93084526062011719" green="0.47663280367851257" blue="0.60005772113800049" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

@@ -27,6 +27,7 @@ class FirstViewController: MainCoreDataTableViewController {
         requestForStageEvent()
         requestForFeedEvent()
         
+        
 //         Uncomment the following line to preserve selection between presentations
 //         self.clearsSelectionOnViewWillAppear = false
 //
@@ -54,9 +55,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
-            
         }
-        
     }
     func requestForFeedEvent(){
         
@@ -183,6 +182,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     stageCell.endTime = endTime
                     stageCell.stage = stage
                 }
+                let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))
+                seperator.backgroundColor = UIColor.clear
+                cell.contentView.addSubview(seperator)
             }
         }
         else{
@@ -240,11 +242,12 @@ class FirstViewController: MainCoreDataTableViewController {
         return 0
         
     }
-    
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 8
+        if section == 0 || section == 1{
+            return 8
+        }
+        return 0
     }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
         if indexPath.row == 0 && indexPath.section == 0 {
@@ -254,7 +257,7 @@ class FirstViewController: MainCoreDataTableViewController {
             return 55
         }
         else if indexPath.section == 2{
-            return 88
+            return 70
         }
         return UITableViewAutomaticDimension
     }

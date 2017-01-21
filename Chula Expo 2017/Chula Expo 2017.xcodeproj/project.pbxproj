@@ -39,6 +39,7 @@
 		5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */; };
 		5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */; };
 		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
+		5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */; };
 		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
 		5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */; };
@@ -111,6 +112,7 @@
 		5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowPageViewController.swift; sourceTree = "<group>"; };
 		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFrameViewController.swift; sourceTree = "<group>"; };
+		5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedAndFavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
 		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
 				5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */,
+				5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */,
 				5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */,
 				5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */,
 				5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */,
@@ -487,6 +490,7 @@
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,
 				5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */,
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
+				5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */,
 				5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */,
 				800052C81E326F78006C4E95 /* ImageData+CoreDataProperties.swift in Sources */,
 				5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */,

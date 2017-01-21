@@ -266,7 +266,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="z1E-kk-uSw" kind="presentation" identifier="toEventDetails" id="H6Q-RV-B1H"/>
+                        <segue destination="z1E-kk-uSw" kind="presentation" identifier="toEventDetails" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="H6Q-RV-B1H"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQd-de-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>

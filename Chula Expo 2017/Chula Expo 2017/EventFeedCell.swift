@@ -31,7 +31,7 @@ class EventFeedCell: UITableViewCell {
             updateUI()
         }
     }
-    var tumbnail: String?{
+    var thumbnail: String?{
         didSet{
             updateUI()
         }
@@ -77,7 +77,7 @@ class EventFeedCell: UITableViewCell {
         if let eventName = name{
             eventNameLabel.text = eventName
         }
-        if let eventTumbnail = tumbnail{
+        if let eventTumbnail = thumbnail{
             eventTumbnailImage.image = UIImage(named: eventTumbnail)
         }
         if let eventFacity = facity{

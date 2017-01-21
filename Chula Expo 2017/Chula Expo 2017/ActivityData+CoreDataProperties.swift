@@ -20,7 +20,7 @@ extension ActivityData {
     @NSManaged public var desc: String?
     @NSManaged public var endTime: NSDate?
     @NSManaged public var faculty: String?
-    @NSManaged public var id: Int16
+    @NSManaged public var activityId: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var isHighlight: Bool
     @NSManaged public var isReserve: Bool

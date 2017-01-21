@@ -17,7 +17,7 @@ public class ActivityData: NSManagedObject {
         desc: String,
         endTime: NSDate,
         faculty: String,
-        id: Int16,
+        activityId: String,
         isFavorite: Bool,
         isHighlight: Bool,
         isReserve: Bool,
@@ -34,7 +34,7 @@ public class ActivityData: NSManagedObject {
         ) -> ActivityData? {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "name = %@ AND id = %i", name, id)
+        request.predicate = NSPredicate(format: "name = %@ AND id = %i", name, activityId)
         
         if let result = (try? context.fetch(request))?.first as? ActivityData
         {
@@ -50,7 +50,7 @@ public class ActivityData: NSManagedObject {
                 newData.desc = desc
                 newData.endTime = endTime
                 newData.faculty = faculty
-                newData.id = id
+                newData.activityId = activityId
                 newData.isFavorite = isFavorite
                 newData.isReserve = isReserve
                 newData.isHighlight = isHighlight

@@ -192,7 +192,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 var name: String?
                 var startTime: NSDate?
                 var endTime: NSDate?
-                var tumbnail: String?
+                var thumbnail: String?
                 var facity: String?
                 var date: String?
                 fetchData.managedObjectContext?.performAndWait{
@@ -200,7 +200,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     name = fetchData.name
                     startTime = fetchData.startTime
                     endTime = fetchData.endTime
-                    tumbnail = fetchData.tumbnail
+                    thumbnail = fetchData.thumbnail
                     facity = fetchData.facity
                     date = fetchData.dateText
                     // we're not assuming the context is a main queue context
@@ -213,7 +213,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     eventFeedCell.name = name
                     eventFeedCell.startTime = startTime
                     eventFeedCell.endTime = endTime
-                    eventFeedCell.tumbnail = tumbnail
+                    eventFeedCell.thumbnail = thumbnail
                     eventFeedCell.facity = facity
                     eventFeedCell.date = date
                 }

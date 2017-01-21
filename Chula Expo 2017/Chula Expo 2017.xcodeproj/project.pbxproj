@@ -167,6 +167,7 @@
 		5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */ = {
 			isa = PBXGroup;
 			children = (
+				5F5CBD671E3350E60074F2CB /* CoreData */,
 				5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */,
 				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
@@ -280,6 +281,13 @@
 				58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */,
 			);
 			path = "Chula Expo 2017";
+			sourceTree = "<group>";
+		};
+		5F5CBD671E3350E60074F2CB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {

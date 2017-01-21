@@ -18,8 +18,9 @@ extension EventData
         return NSFetchRequest<EventData>(entityName: "EventData");
     }
 
+    @NSManaged public var activityId: String?
     @NSManaged public var name: String?
-    @NSManaged public var tumbnail: String?
+    @NSManaged public var thumbnail: String?
     @NSManaged public var startTime: NSDate?
     @NSManaged public var endTime: NSDate?
     @NSManaged public var longDesc: String?

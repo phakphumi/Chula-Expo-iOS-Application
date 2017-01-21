@@ -14,6 +14,7 @@ public class EventData: NSManagedObject
 {
     
     class func addData(
+        activityId: String,
         name: String,
         facity: String,
         locationDesc: String,
@@ -25,7 +26,7 @@ public class EventData: NSManagedObject
         isReserve: Bool,
         canReserve: Bool,
         numOfSeat: Int16,
-        tumbnail: String,
+        thumbnail: String,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> EventData?
    
@@ -43,6 +44,7 @@ public class EventData: NSManagedObject
         else if let newData = NSEntityDescription.insertNewObject(forEntityName: "EventData", into: context) as? EventData
         {
             // created a new event in the database
+            newData.activityId = activityId
             newData.name = name
             newData.facity = facity
             newData.locationDesc = locationDesc
@@ -54,9 +56,31 @@ public class EventData: NSManagedObject
             newData.numOfSeat = numOfSeat
             newData.isReserve = isReserve
             newData.isFavorite = isFavorite
-            newData.tumbnail = tumbnail
+            newData.thumbnail = thumbnail
             return newData
         }
         return nil
     }
+    
+    class func fetchEventDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> EventData? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
+        request.predicate = NSPredicate(format: "activityId = %@", activityId)
+        
+        do {
+            
+            let result = try context.fetch(request).first as? EventData
+            
+            return result
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+        return nil
+        
+    }
+    
 }

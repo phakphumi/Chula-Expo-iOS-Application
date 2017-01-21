@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class EventDetailsTableViewController: UITableViewController {
     
+    var activityId: String!
     var headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var topicLabel: UILabel!
     var cancelButton: UIButton!
@@ -23,6 +25,25 @@ class EventDetailsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        fetchEventDetails()
+        
+        
+        
+    }
+    
+    func fetchEventDetails() {
+        
+        let managedObjectContext: NSManagedObjectContext? =
+            (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+        
+        managedObjectContext?.perform {
+            
+            let userData = EventData.fetchEventDetails(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)
+            
+            print(userData)
+            
+        }
         
     }
 

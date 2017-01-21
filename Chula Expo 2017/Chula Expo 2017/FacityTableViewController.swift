@@ -88,6 +88,7 @@ class FacityTableViewController: UITableViewController
         {
            
             _ = EventData.addData(
+                activityId: "1",
                 name: "Electric vehicle technology",
                 facity: "Faculty of Engineering",
                 locationDesc: "308 ENG3 Building",
@@ -98,10 +99,11 @@ class FacityTableViewController: UITableViewController
                 isReserve: false,
                 canReserve: true,
                 numOfSeat: 99,
-                tumbnail: "eventTumb1",
+                thumbnail: "eventTumb1",
                 inManageobjectcontext: self.managedObjectContext!
             )
             _ = EventData.addData(
+                activityId: "2",
                 name: "Top Visual Trends for 2017",
                 facity: "Faculty of Arts",
                 locationDesc: "Building 1",
@@ -112,10 +114,11 @@ class FacityTableViewController: UITableViewController
                 isReserve: false,
                 canReserve: true,
                 numOfSeat: 99,
-                tumbnail: "eventTumb2",
+                thumbnail: "eventTumb2",
                 inManageobjectcontext: self.managedObjectContext!
             )
             _ = EventData.addData(
+                activityId: "3",
                 name: "Technology Trends of 2017",
                 facity: "Faculty of Engineering",
                 locationDesc: "101 Building 1",
@@ -126,10 +129,11 @@ class FacityTableViewController: UITableViewController
                 isReserve: false,
                 canReserve: true,
                 numOfSeat: 99,
-                tumbnail: "technology",
+                thumbnail: "technology",
                 inManageobjectcontext: self.managedObjectContext!
             )
             _ = EventData.addData(
+                activityId: "4",
                 name: "Exploring enginnering world",
                 facity: "Faculty of Engineering",
                 locationDesc: "M Floor Building 4",
@@ -140,7 +144,7 @@ class FacityTableViewController: UITableViewController
                 isReserve: false,
                 canReserve: true,
                 numOfSeat: 99,
-                tumbnail: "engineering",
+                thumbnail: "engineering",
                 inManageobjectcontext: self.managedObjectContext!
             )
 

@@ -66,7 +66,7 @@ class FacityTableViewController: UITableViewController
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         updateDatabase()
-        createGradientNavBar()
+//        createGradientNavBar()
         setNeedsStatusBarAppearanceUpdate()
 
         // Uncomment the following line to preserve selection between presentations

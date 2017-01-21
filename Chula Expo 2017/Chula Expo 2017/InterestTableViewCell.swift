@@ -14,21 +14,39 @@ class InterestTableViewCell: UITableViewCell {
     @IBOutlet weak var interestImg1: UIImageView!
     {
         didSet{
+            roundedCornerLogo1()
         }
     }
     @IBOutlet weak var interestImg2: UIImageView!
     {
         didSet{
+            roundedCornerLogo2()
         }
     }
     @IBOutlet weak var interestImg3: UIImageView!
     {
         didSet{
+            roundedCornerLogo3()
         }
     }
     @IBOutlet weak var interestName1: UILabel!
+    {
+        didSet{
+            roundedCornerLabel1()
+        }
+    }
     @IBOutlet weak var interestName2: UILabel!
+    {
+        didSet{
+            roundedCornerLabel2()
+        }
+    }
     @IBOutlet weak var interestName3: UILabel!
+    {
+        didSet{
+            roundedCornerLabel3()
+        }
+    }
     var isTappedObjects: [Bool] = [false,false,false]
     var imgName: [String?] = ["","",""]
         {
@@ -44,12 +62,26 @@ class InterestTableViewCell: UITableViewCell {
         }
     }
     
+
+    @IBOutlet weak var interestView: UIView!
+
     override func layoutSubviews() {
         super.layoutSubviews()
         interestImg1.isUserInteractionEnabled = true
         interestImg2.isUserInteractionEnabled = true
         interestImg3.isUserInteractionEnabled = true
         
+        roundedCornerLogo1()
+        roundedCornerLogo2()
+        roundedCornerLogo3()
+        
+        self.interestView.setNeedsLayout()
+        self.interestView.layoutIfNeeded()
+        
+        interestName1.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        interestName2.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        interestName3.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+
         let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
         tapGestureRecognizer1.numberOfTapsRequired = 1
         
@@ -176,5 +208,39 @@ class InterestTableViewCell: UITableViewCell {
         }
     }
     
+    func roundedCornerLogo1()
+    {
+        interestImg1.layer.cornerRadius = 2.5
+        interestImg1.layer.masksToBounds = true
+        
+    }
+    func roundedCornerLogo2()
+    {
+        interestImg2.layer.cornerRadius = 2.5
+        interestImg2.layer.masksToBounds = true
+    }
+    func roundedCornerLogo3()
+    {
+        interestImg3.layer.cornerRadius = 2.5
+        interestImg3.layer.masksToBounds = true
+    }
+    @IBOutlet weak var interestStack: UIStackView!
+    func roundedCornerLabel1()
+    {
+        interestName1.layer.cornerRadius = 2.5
+        interestName1.layer.masksToBounds = true
+        
+    }
+    func roundedCornerLabel2()
+    {
+        interestName2.layer.cornerRadius = 2.5
+        interestName2.layer.masksToBounds = true
+    }
+    func roundedCornerLabel3()
+    {
+        interestName3.layer.cornerRadius = 2.5
+        interestName3.layer.masksToBounds = true
+    }
+
 
 }

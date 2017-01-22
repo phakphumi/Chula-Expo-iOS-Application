@@ -10,7 +10,8 @@ import UIKit
 
 class InterestTableViewCell: UITableViewCell {
 
-    
+    @IBOutlet weak var backImg1: UIImageView!
+
     @IBOutlet weak var interestImg1: UIImageView!
     {
         didSet{
@@ -64,16 +65,23 @@ class InterestTableViewCell: UITableViewCell {
     
 
     @IBOutlet weak var interestView: UIView!
+    {
+        didSet{
+            roundedCornerBack1()
+        }
+    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        interestImg1.isUserInteractionEnabled = true
-        interestImg2.isUserInteractionEnabled = true
-        interestImg3.isUserInteractionEnabled = true
+        interestName1.isUserInteractionEnabled = true
+        interestName2.isUserInteractionEnabled = true
+        interestName3.isUserInteractionEnabled = true
         
         roundedCornerLogo1()
         roundedCornerLogo2()
         roundedCornerLogo3()
+        
+        roundedCornerBack1()
         
         self.interestView.setNeedsLayout()
         self.interestView.layoutIfNeeded()
@@ -91,56 +99,72 @@ class InterestTableViewCell: UITableViewCell {
         let tapGestureRecognizer3 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
         tapGestureRecognizer3.numberOfTapsRequired = 1
         
-        interestImg1.addGestureRecognizer(tapGestureRecognizer1)
-        interestImg2.addGestureRecognizer(tapGestureRecognizer2)
-        interestImg3.addGestureRecognizer(tapGestureRecognizer3)
+        interestName1.addGestureRecognizer(tapGestureRecognizer1)
+        interestName2.addGestureRecognizer(tapGestureRecognizer2)
+        interestName3.addGestureRecognizer(tapGestureRecognizer3)
         
+        UIGraphicsBeginImageContext(interestView.frame.size)
+        UIImage(named: "technology")?.drawAsPattern(in: interestView.bounds)
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        interestView.backgroundColor = UIColor(patternImage: image)
     }
     
     
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         
         print("tap")
-        let imageView = gestureRecognizer.view as? UIImageView
-        if imageView?.image != nil {
+        let imageView = gestureRecognizer.view as? UILabel
+        if imageView?.text != nil {
             if imageView?.tag == 0{
                 if isTappedObjects[0] == true{
                     isTappedObjects[0] = false;
-                    if let Iname1: String = imgName[0]
-                    {
-                        interestImg1.image = UIImage(named: Iname1)
-                    }
+                    
+                        interestName1.layer.borderColor = UIColor.white.cgColor
+                        interestName1.layer.borderWidth = 0
+                        interestName1.textColor = UIColor.white
+                    
                     
                 }
                 else {
-                    imageView?.image = UIImage(named: "chula_expo_logo")
+                    
+                    interestName1.layer.borderColor = UIColor.green.cgColor
+                    interestName1.layer.borderWidth = 3
+                    interestName1.textColor = UIColor.green
+                    
                     isTappedObjects[0] = true;
                 }
             }
             if imageView?.tag == 1{
                 if isTappedObjects[1] == true {
                     isTappedObjects[1] = false;
-                    if let Iname2: String = imgName[1]
-                    {
-                        interestImg2.image = UIImage(named: Iname2)
-                    }
+                        interestName2.layer.borderColor = UIColor.white.cgColor
+                        interestName2.layer.borderWidth = 0
+                        interestName2.textColor = UIColor.white
                 }
                 else {
-                    imageView?.image = UIImage(named: "chula_expo_logo")
+                    
+                    interestName2.layer.borderColor = UIColor.green.cgColor
+                    interestName2.layer.borderWidth = 3
+                    interestName2.textColor = UIColor.green
+                    
                     isTappedObjects[1] = true;
                 }
             }
             if imageView?.tag == 2{
                 if isTappedObjects[2] == true{
                     isTappedObjects[2] = false;
-                    if let Iname3: String = imgName[2]
-                    {
-                        interestImg3.image = UIImage(named: Iname3)
-                    }
+                        interestName3.layer.borderColor = UIColor.white.cgColor
+                        interestName3.layer.borderWidth = 0
+                        interestName3.textColor = UIColor.white
+                    
                     
                 }
                 else {
-                    imageView?.image = UIImage(named: "chula_expo_logo")
+                    interestName3.layer.borderColor = UIColor.green.cgColor
+                    interestName3.layer.borderWidth = 3
+                    interestName3.textColor = UIColor.green
+                    
                     isTappedObjects[2] = true;
                 }
             }
@@ -179,6 +203,8 @@ class InterestTableViewCell: UITableViewCell {
         interestImg3.image = nil
         interestName3.text = nil
         
+        
+        
         //Set new data
         if let Iname1: String = imgName[0]
         {
@@ -188,7 +214,7 @@ class InterestTableViewCell: UITableViewCell {
         {
             interestName1.text = Tname1
         }
-        
+        else {interestName1.backgroundColor = UIColor.clear}
         if let Iname2: String = imgName[1]
         {
             interestImg2.image = UIImage(named: Iname2)
@@ -197,7 +223,7 @@ class InterestTableViewCell: UITableViewCell {
         {
             interestName2.text = Tname2
         }
-        
+        else {interestName2.backgroundColor = UIColor.clear}
         if let Iname3: String = imgName[2]
         {
             interestImg3.image = UIImage(named: Iname3)
@@ -206,8 +232,15 @@ class InterestTableViewCell: UITableViewCell {
         {
             interestName3.text = Tname3
         }
+        else {interestName3.backgroundColor = UIColor.clear}
     }
     
+    func roundedCornerBack1()
+    {
+        interestView.layer.cornerRadius = 4
+        interestView.layer.masksToBounds = true
+        
+    }
     func roundedCornerLogo1()
     {
         interestImg1.layer.cornerRadius = 2.5

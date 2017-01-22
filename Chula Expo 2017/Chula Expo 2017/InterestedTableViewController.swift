@@ -18,18 +18,18 @@ class InterestedTableViewController: UITableViewController {
     }
     
     var tagList : [tag] = [
-        tag(imgName: "technology",     tagName: "Technology1"),
-        tag(imgName: "technology",     tagName: "Technology2"),
-        tag(imgName: "technology",     tagName: "Technology3"),
-        tag(imgName: "technology",     tagName: "Technology4"),
-        tag(imgName: "technology",     tagName: "Technology5"),
-        tag(imgName: "technology",     tagName: "Technology6"),
-        tag(imgName: "technology",     tagName: "Technology7")
+        tag(imgName: "heartIcon",     tagName: "Technology1"),
+        tag(imgName: "heartIcon",     tagName: "Technology2"),
+        tag(imgName: "heartIcon",     tagName: "Technology3"),
+        tag(imgName: "heartIcon",     tagName: "Technology4"),
+        tag(imgName: "heartIcon",     tagName: "Technology5"),
+        tag(imgName: "heartIcon",     tagName: "Technology6"),
+        tag(imgName: "heartIcon",     tagName: "Technology7")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createGradientNavBar()
+      //  createGradientNavBar()
         self.title = "Select your interest"
 
         // Uncomment the following line to preserve selection between presentations
@@ -48,8 +48,8 @@ class InterestedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
-            return self.view.bounds.width * 120 / 375
+        
+            return (self.view.bounds.width-60)/3
     }
 
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -70,30 +70,34 @@ class InterestedTableViewController: UITableViewController {
         {
             NumberOfRow += 1
         }
-        return NumberOfRow
+        return NumberOfRow+1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-
+        if indexPath.row == 0{
+            cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
+        }
+        else{
              cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
             if let interestCell = cell as? InterestTableViewCell {
         
-                if tagList.count > (indexPath.row)*3 {
-                    interestCell.imgName[0] = tagList[(indexPath.row)*3+0].imgName
-                    interestCell.tagName[0] = tagList[(indexPath.row)*3+0].tagName
+                if tagList.count > (indexPath.row-1)*3 {
+                    interestCell.imgName[0] = tagList[(indexPath.row-1)*3+0].imgName
+                    interestCell.tagName[0] = tagList[(indexPath.row-1)*3+0].tagName
                 }
-                if tagList.count > (indexPath.row)*3+1 {
-                    interestCell.imgName[1] = tagList[(indexPath.row)*3+1].imgName
-                    interestCell.tagName[1] = tagList[(indexPath.row)*3+1].tagName
+                if tagList.count > (indexPath.row-1)*3+1 {
+                    interestCell.imgName[1] = tagList[(indexPath.row-1)*3+1].imgName
+                    interestCell.tagName[1] = tagList[(indexPath.row-1)*3+1].tagName
                 }
-                if tagList.count > (indexPath.row)*3+2 {
-                    interestCell.imgName[2] = tagList[(indexPath.row)*3+2].imgName
-                    interestCell.tagName[2] = tagList[(indexPath.row)*3+2].tagName
+                if tagList.count > (indexPath.row-1)*3+2 {
+                    interestCell.imgName[2] = tagList[(indexPath.row-1)*3+2].imgName
+                    interestCell.tagName[2] = tagList[(indexPath.row-1)*3+2].tagName
                 }
             }
+        }
         cell.selectionStyle = .none
         return cell
         // Configure the cell...

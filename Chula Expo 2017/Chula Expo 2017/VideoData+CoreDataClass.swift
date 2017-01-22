@@ -15,7 +15,6 @@ public class VideoData: NSManagedObject {
     class func addData(
         title: String,
         url: String,
-        toActivity: ActivityData,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> VideoData?
     {
@@ -34,7 +33,6 @@ public class VideoData: NSManagedObject {
                 // created a new event in the database
                 newData.title = title
                 newData.url = url
-                newData.toActivity = toActivity
                 return newData
             }
         }

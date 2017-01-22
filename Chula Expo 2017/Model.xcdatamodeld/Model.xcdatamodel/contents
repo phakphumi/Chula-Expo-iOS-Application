@@ -5,7 +5,6 @@
         <attribute name="bannerUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="faculty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isHighlight" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isReserve" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -15,6 +14,7 @@
         <attribute name="reservable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="thumbnailsUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toFaculty" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FacultyData" inverseName="toActivity" inverseEntity="FacultyData" syncable="YES"/>
         <relationship name="toImages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageData" inverseName="toActivity" inverseEntity="ImageData" syncable="YES"/>
         <relationship name="toTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagData" inverseName="toActivity" inverseEntity="TagData" syncable="YES"/>
         <relationship name="toVideos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VideoData" inverseName="toActivity" inverseEntity="VideoData" syncable="YES"/>
@@ -33,6 +33,11 @@
         <attribute name="shortDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="FacultyData" representedClassName="FacultyData" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toFaculty" inverseEntity="ActivityData" syncable="YES"/>
     </entity>
     <entity name="ImageData" representedClassName="ImageData" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -74,6 +79,7 @@
     <elements>
         <element name="ActivityData" positionX="-216" positionY="482" width="128" height="300"/>
         <element name="EventData" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="FacultyData" positionX="268" positionY="666" width="128" height="88"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="88"/>
         <element name="StageEvent" positionX="225" positionY="-72" width="128" height="150"/>
         <element name="TagData" positionX="322" positionY="503" width="128" height="73"/>

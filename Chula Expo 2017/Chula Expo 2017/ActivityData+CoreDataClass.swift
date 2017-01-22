@@ -16,7 +16,6 @@ public class ActivityData: NSManagedObject {
         bannerUrl: String,
         desc: String,
         endTime: NSDate,
-        faculty: String,
         activityId: String,
         isFavorite: Bool,
         isHighlight: Bool,
@@ -30,11 +29,12 @@ public class ActivityData: NSManagedObject {
         toImages: NSSet,
         toVideos: NSSet,
         toTags: NSSet,
+        toFaculty: NSSet,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ActivityData? {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "name = %@ AND id = %i", name, activityId)
+        request.predicate = NSPredicate(format: "name = %@ AND activityId = %@", name, activityId)
         
         if let result = (try? context.fetch(request))?.first as? ActivityData
         {
@@ -49,7 +49,6 @@ public class ActivityData: NSManagedObject {
                 newData.bannerUrl = bannerUrl
                 newData.desc = desc
                 newData.endTime = endTime
-                newData.faculty = faculty
                 newData.activityId = activityId
                 newData.isFavorite = isFavorite
                 newData.isReserve = isReserve
@@ -63,6 +62,7 @@ public class ActivityData: NSManagedObject {
                 newData.toImages = toImages
                 newData.toVideos = toVideos
                 newData.toTags = toTags
+                newData.toFaculty = toFaculty
                 return newData
             }
         }

@@ -369,7 +369,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eXJ-vU-Vpc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.93084526062011719" green="0.47663280367851257" blue="0.60005772113800049" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>

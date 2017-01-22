@@ -13,8 +13,8 @@ class FourthViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        createGradientNavBar()
-        self.title = "My profile"
+//        createGradientNavBar()
+        self.title = "Me"
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 //        tableView.estimatedRowHeight = tableView.rowHeight
 //        tableView.rowHeight = UITableViewAutomaticDimension

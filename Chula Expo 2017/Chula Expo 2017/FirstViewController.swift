@@ -26,6 +26,7 @@ class FirstViewController: MainCoreDataTableViewController {
         printDatabaseStatistics()
         requestForStageEvent()
         requestForFeedEvent()
+        addDemoData()
         
         
 //         Uncomment the following line to preserve selection between presentations
@@ -286,6 +287,26 @@ class FirstViewController: MainCoreDataTableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.tintColor = UIColor.white
         
+    }
+    
+    private func addDemoData(){
+        if let context = managedObjectContext{
+            
+            context.performAndWait {
+                
+                _ = ActivityData.addData(bannerUrl: "technology", desc: "desc", endTime: NSDate(), activityId: "01", isFavorite: true, isHighlight: true, isReserve: true, locationDesc: "Eng 3", name: "Test1", reservable: true, startTime: NSDate(), thumbnailsUrl: "technology", isStageEvent: true, toImages: NSSet(object: ImageData.addData(title: "pic1", url: "technology", inManageobjectcontext: context)!), toVideos: NSSet(object: VideoData.addData(title: "video1", url: "youtubelink", inManageobjectcontext: context)!), toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!), toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!), inManageobjectcontext: context)
+            }
+            
+            do{
+                try self.managedObjectContext?.save()
+                print("Demo ActivityData Saved")
+            }
+                
+            catch let error {
+                print("Demo ActivityData save error with \(error)")
+            }
+            
+        }
     }
         
 }

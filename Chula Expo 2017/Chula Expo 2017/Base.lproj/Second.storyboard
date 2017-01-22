@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="dcX-s3-PvN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BFL-xF-YJL">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DBx-34-xfv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DBx-34-xfv" secondAttribute="height" multiplier="375:554" id="JYp-JR-eHD"/>
                                 </constraints>
@@ -57,9 +57,12 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="2IQ-wG-YmE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2IQ-wG-YmE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.99607843139999996" green="0.3411764706" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

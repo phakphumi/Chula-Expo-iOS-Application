@@ -35,9 +35,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
         map.setRegion(region, animated: true)
-        
-        createGradientNavBar()
-
+    
     }
 
     override func didReceiveMemoryWarning() {

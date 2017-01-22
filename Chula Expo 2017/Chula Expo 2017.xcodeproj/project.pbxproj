@@ -269,12 +269,7 @@
 				5F07EDC01E2B48420017ECD5 /* UserController.swift */,
 				802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */,
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
-				5F4A9D951E10300900713580 /* Main.storyboard */,
-				58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */,
-				58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */,
-				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
-				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
-				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				5F8DAB4C1E34B88900B2641F /* Main_LoginAndRegistration */,
 				5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */,
 				5F307C901E26AF3900DEF3B0 /* Modal_QR */,
 				5F23F38C1E22282A00ACA6A7 /* First_home */,
@@ -295,6 +290,19 @@
 			children = (
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		5F8DAB4C1E34B88900B2641F /* Main_LoginAndRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				5F4A9D951E10300900713580 /* Main.storyboard */,
+				58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */,
+				58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */,
+				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
+				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
+				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+			);
+			name = Main_LoginAndRegistration;
 			sourceTree = "<group>";
 		};
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {

@@ -36,6 +36,8 @@ class DescTableViewCell: UITableViewCell {
         self.layoutIfNeeded()
         self.setNeedsLayout()
         
+        descText.text = ""
+        
     }
 
     
@@ -44,8 +46,9 @@ class DescTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         descText.frame = CGRect(x: descText.frame.origin.x, y: descText.frame.origin.y, width: self.frame.width - descText.frame.origin.x * 2, height: 0)
-        descText.text = "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner."
+//        descText.text = "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner."
         descText.sizeToFit()
+
         DescTableViewCell.descTextHeight = descText.frame.height + 5
         
     }

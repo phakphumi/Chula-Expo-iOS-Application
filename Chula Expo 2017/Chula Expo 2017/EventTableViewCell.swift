@@ -15,7 +15,19 @@ class EventTableViewCell: UITableViewCell
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    var activitiyId: String?
+    var activityId: String?
+    var desc: String?
+    var bannerUrl: String?
+    var isHighlight: Bool?
+    var isFavorite: Bool?
+    var reservable: Bool?
+    var isReserve: Bool?
+    var toTags: NSSet?
+    var toFaculty: NSSet?
+    var toImages: NSSet?
+    var toVideos: NSSet?
+    var dateText: String?
+    
     var name: String?
     {
         didSet

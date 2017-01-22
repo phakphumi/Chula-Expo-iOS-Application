@@ -17,13 +17,10 @@ class GalleryTableViewCell: UITableViewCell {
     @IBOutlet var image4: UIImageView!
     @IBOutlet var image5: UIImageView!
     @IBOutlet var image6: UIImageView!
-    @IBOutlet var image7: UIImageView!
-    @IBOutlet var image8: UIImageView!
-    @IBOutlet var image9: UIImageView!
-    @IBOutlet var image10: UIImageView!
-    @IBOutlet var image11: UIImageView!
-    @IBOutlet var image12: UIImageView!
+
     
+    var imageAlbum = [UIImageView]()
+    var numberOfInputImage = 0
     private static var _galleryHeight: CGFloat = 0
     
     static var galleryHeight: CGFloat {
@@ -49,12 +46,16 @@ class GalleryTableViewCell: UITableViewCell {
         image4.tag = 3
         image5.tag = 4
         image6.tag = 5
-        image7.tag = 6
-        image8.tag = 7
-        image9.tag = 8
-        image10.tag = 9
-        image11.tag = 10
-        image12.tag = 11
+        
+    }
+    
+    private func clearImage() {
+        
+        for image in imageAlbum {
+            
+            image.image = nil
+            
+        }
         
     }
     
@@ -71,13 +72,17 @@ class GalleryTableViewCell: UITableViewCell {
         self.layoutIfNeeded()
         self.setNeedsLayout()
         
+        imageAlbum = [image1, image2, image3, image4,
+                      image5, image6]
+        
         setImageTag()
+        clearImage()
         
     }
     
     override func layoutSubviews() {
-        
-        GalleryTableViewCell.galleryHeight = 240
+            
+            GalleryTableViewCell.galleryHeight = 80
         
     }
 

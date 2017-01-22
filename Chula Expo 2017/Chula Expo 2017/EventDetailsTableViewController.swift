@@ -11,7 +11,25 @@ import CoreData
 
 class EventDetailsTableViewController: UITableViewController {
     
+    var reloadCount = 0
+    
     var activityId: String!
+    var name: String!
+    var startTime: NSDate!
+    var endTime: NSDate!
+    var locationDesc: String!
+    var desc: String!
+    var bannerUrl: String!
+    var isHighlight: Bool!
+    var isFavorite: Bool!
+    var reservable: Bool!
+    var isReserve: Bool!
+    var toTags: NSSet!
+    var toFaculty: NSSet!
+    var toImages: NSSet!
+    var toVideos: NSSet!
+    var dateText: String!
+    
     var headerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     var topicLabel: UILabel!
     var cancelButton: UIButton!
@@ -55,23 +73,6 @@ class EventDetailsTableViewController: UITableViewController {
         }
         
     }
-    
-
-    
-    func fetchEventDetails() {
-        
-        let managedObjectContext: NSManagedObjectContext? =
-            (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
-        
-        managedObjectContext?.perform {
-            
-            let activityData = ActivityData.fetchActivityDetails(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)
-            
-            print(activityData)
-            
-        }
-        
-    }
 
     // MARK: - Table view data source
 
@@ -100,7 +101,15 @@ class EventDetailsTableViewController: UITableViewController {
         
         if indexPath.section == 0 {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath)
+            
+            if let itvCell = cell as? ImageTableViewCell {
+                
+                itvCell.bannerImage.image = UIImage(named: bannerUrl)
+                
+            }
+            
+            
             
         } else if indexPath.row == 0 {
             
@@ -110,19 +119,83 @@ class EventDetailsTableViewController: UITableViewController {
                 
                 wawCell.boundsTag()
                 
+                wawCell.placeLabel.text = locationDesc
+                
+                if let faculty = toFaculty.allObjects.first as? FacultyData {
+                    
+                    wawCell.tagLabel.text = faculty.shortName
+                    
+                }
+                
+                if let eventDateText = dateText {
+                
+                    if let eventStartTime = startTime {
+                    
+                        if let eventEndTime = endTime {
+                        
+                            let dateFormatter = DateFormatter()
+                        
+                            dateFormatter.dateFormat = "H:mm"
+                        
+                            let sTime = dateFormatter.string(from: eventStartTime as Date)
+                        
+                            let eTime = dateFormatter.string(from: eventEndTime as Date)
+                        
+                            wawCell.dateLabel.text = "\(eventDateText) • \(sTime) - \(eTime)"
+                      
+                        }
+                    
+                    }
+                    
+                }
+                
             }
             
         } else if indexPath.row == 1 {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "reserveAndFavorite", for: indexPath)
+            
+            if let ravtCell = cell as? ReservedAndFavoriteTableViewCell {
+                
+                ravtCell.canReserve = reservable
+                ravtCell.isReserve = isReserve
+                ravtCell.isFavorite = isFavorite
+                
+                ravtCell.initializeReservedAndFavoriteButton()
+                
+            }
             
         } else if indexPath.row == 2 {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "DescCell", for: indexPath) as! DescTableViewCell
+            cell = tableView.dequeueReusableCell(withIdentifier: "DescCell", for: indexPath)
+            
+            if let descCell = cell as? DescTableViewCell {
+
+                descCell.descText.text = desc
+                
+            }
             
         } else if indexPath.row == 3 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "GalleryCell", for: indexPath) as! GalleryTableViewCell
+
+            if let gtvc = cell as? GalleryTableViewCell {
+
+                var count = 0
+                
+                let images = toImages.allObjects as! [ImageData]
+                
+                gtvc.numberOfInputImage = images.count
+                
+                for image in images {
+                        
+                    gtvc.imageAlbum[count].image = UIImage(named: image.url!)
+                    
+                    count += 1
+                    
+                }
+                
+            }
             
         } else if indexPath.row == 4 {
             
@@ -131,6 +204,32 @@ class EventDetailsTableViewController: UITableViewController {
         } else {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "RelatedCell", for: indexPath) as! RelatedTableViewCell
+            
+            if let rtvc = cell as? RelatedTableViewCell {
+                
+                if let tags = toTags.allObjects as? [TagData] {
+                    
+                    var text = ""
+                    
+                    for tag in tags {
+                        
+                        if tag == tags.last {
+                         
+                            text += "\(tag.name!)"
+                        
+                        } else {
+                            
+                            text += "\(tag.name!) • "
+                        }
+                        
+                    }
+                    
+                    rtvc.relatedText.text = text
+                    
+                }
+                
+            }
+            
             
         }
         
@@ -196,7 +295,7 @@ class EventDetailsTableViewController: UITableViewController {
             
             topicLabel = UILabel(frame: CGRect(x: 20, y: 17, width: 0, height: 0))
             topicLabel.font = UIFont.systemFont(ofSize: 23)
-            topicLabel.text = "Robot vacuum show"
+            topicLabel.text = name
             topicLabel.sizeToFit()
             topicLabel.textColor = UIColor.black
 
@@ -218,11 +317,48 @@ class EventDetailsTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        let lastIndexPath = tableView.numberOfRows(inSection: 1)
+        
+        if indexPath.row == lastIndexPath - 1 {
+            
+            if reloadCount < 10 {
+                
+                tableView.reloadData()
+             
+                reloadCount += 1
+                
+            }
+            
+        }
+        
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 3 {
             
             self.performSegue(withIdentifier: "presentGallery", sender: self)
+            
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "presentGallery" {
+            
+            let destination = segue.destination as? GalleryViewController
+            
+            let images = toImages.allObjects as! [ImageData]
+            
+            for image in images {
+                
+                destination?.imageName.append(image.url!)
+                
+            }
+
             
         }
         

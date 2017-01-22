@@ -34,9 +34,9 @@ extension UIView {
 
 class ReservedAndFavoriteTableViewCell: UITableViewCell {
 
-    private var canReserve = false
-    private var isReserve = false
-    private var isFavorite = false
+    var canReserve = false
+    var isReserve = false
+    var isFavorite = false
     
     @IBOutlet var tapView: UIView!
     @IBOutlet var reservedIcon: UIImageView!

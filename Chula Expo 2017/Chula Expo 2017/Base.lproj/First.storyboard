@@ -18,7 +18,11 @@
         <!--Slideshow Page View Controller-->
         <scene sceneID="an7-kL-qea">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Nm7-U7-6gs" customClass="SlideshowPageViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Nm7-U7-6gs" customClass="SlideshowPageViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="xRi-Uk-dfr" kind="show" identifier="toSlideshowFrame" id="4r0-7K-eNn"/>
+                    </connections>
+                </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Feo-lX-5uF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2073" y="-945"/>
@@ -66,7 +70,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QQ-kC-f0l">
-                                            <rect key="frame" x="12" y="25" width="176" height="19"/>
+                                            <rect key="frame" x="12" y="25" width="183" height="14"/>
                                             <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -279,6 +283,7 @@
                         <outlet property="headerSectionView2" destination="Fov-WF-shc" id="4zE-HL-SiC"/>
                         <outlet property="homeTableView" destination="qp8-P5-QHg" id="Alr-oP-lAp"/>
                         <outlet property="tableView" destination="qp8-P5-QHg" id="hYd-eJ-Jab"/>
+                        <segue destination="Nm7-U7-6gs" kind="show" identifier="toSlideshow" id="hIt-lE-aFU"/>
                     </connections>
                 </tableViewController>
                 <view contentMode="scaleToFill" id="Fov-WF-shc" userLabel="Header Section View 2">
@@ -366,7 +371,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eXJ-vU-Vpc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eXJ-vU-Vpc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

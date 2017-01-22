@@ -68,5 +68,26 @@ public class ActivityData: NSManagedObject {
         }
         return nil
     }
+    
+    class func fetchActivityDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ActivityData? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Activity")
+        request.predicate = NSPredicate(format: "activityId = %@", activityId)
+        
+        do {
+            
+            let result = try context.fetch(request).first as? ActivityData
+            
+            return result
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+        return nil
+        
+    }
 
 }

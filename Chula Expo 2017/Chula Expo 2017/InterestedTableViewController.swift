@@ -15,16 +15,17 @@ class InterestedTableViewController: UITableViewController {
     struct tag {
         var imgName: String = ""
         var tagName: String = ""
+        var tagBack: String = ""
     }
     
     var tagList : [tag] = [
-        tag(imgName: "heartIcon",     tagName: "Technology1"),
-        tag(imgName: "heartIcon",     tagName: "Technology2"),
-        tag(imgName: "heartIcon",     tagName: "Technology3"),
-        tag(imgName: "heartIcon",     tagName: "Technology4"),
-        tag(imgName: "heartIcon",     tagName: "Technology5"),
-        tag(imgName: "heartIcon",     tagName: "Technology6"),
-        tag(imgName: "heartIcon",     tagName: "Technology7")
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology1",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology2",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology3",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology4",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology5",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology6",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology7",  tagBack: "technology")
     ]
     
     override func viewDidLoad() {
@@ -87,14 +88,23 @@ class InterestedTableViewController: UITableViewController {
                 if tagList.count > (indexPath.row-1)*3 {
                     interestCell.imgName[0] = tagList[(indexPath.row-1)*3+0].imgName
                     interestCell.tagName[0] = tagList[(indexPath.row-1)*3+0].tagName
+                    interestCell.tagBack[0] = tagList[(indexPath.row-1)*3+0].tagBack
+                }else{
+                    interestCell.tagName[0] = ""
                 }
                 if tagList.count > (indexPath.row-1)*3+1 {
                     interestCell.imgName[1] = tagList[(indexPath.row-1)*3+1].imgName
                     interestCell.tagName[1] = tagList[(indexPath.row-1)*3+1].tagName
+                    interestCell.tagBack[1] = tagList[(indexPath.row-1)*3+1].tagBack
+                }else{
+                    interestCell.tagName[1] = ""
                 }
                 if tagList.count > (indexPath.row-1)*3+2 {
                     interestCell.imgName[2] = tagList[(indexPath.row-1)*3+2].imgName
                     interestCell.tagName[2] = tagList[(indexPath.row-1)*3+2].tagName
+                    interestCell.tagBack[2] = tagList[(indexPath.row-1)*3+2].tagBack
+                }else{
+                    interestCell.tagName[2] = ""
                 }
             }
         }

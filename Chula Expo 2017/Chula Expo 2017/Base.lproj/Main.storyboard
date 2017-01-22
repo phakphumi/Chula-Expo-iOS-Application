@@ -28,9 +28,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="836-hJ-Ldy">
-                                <rect key="frame" x="164" y="629" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="836-hJ-Ldy">
+                                <rect key="frame" x="164" y="507" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="hXP-9N-SOn" kind="show" id="xnz-kV-tDe"/>
@@ -38,6 +37,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WSP-YP-NMW" firstAttribute="top" secondItem="836-hJ-Ldy" secondAttribute="bottom" constant="10" id="ppY-j6-yCy"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="5AM-Et-Oxl" kind="show" identifier="toRegister" id="uEO-0U-4NF"/>
@@ -575,16 +577,16 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="technology" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-W6-Ihd">
                                                             <rect key="frame" x="0.0" y="0.0" width="99" height="131"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7G-GK-K26">
-                                                            <rect key="frame" x="0.0" y="38" width="51.5" height="52"/>
-                                                        </imageView>
-                                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r1-vh-tpS">
+                                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4r1-vh-tpS">
                                                             <rect key="frame" x="0.0" y="70" width="52" height="20"/>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7G-GK-K26">
+                                                            <rect key="frame" x="0.0" y="38" width="51.5" height="52"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -606,16 +608,20 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auo-M9-o0I">
                                                     <rect key="frame" x="108" y="5" width="99" height="131"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-jn-mSG">
-                                                            <rect key="frame" x="4" y="23" width="60" height="60"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="technology" translatesAutoresizingMaskIntoConstraints="NO" id="zEt-Wm-HnG">
+                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="131"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBw-2Y-MuP">
+                                                        <label userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBw-2Y-MuP">
                                                             <rect key="frame" x="10" y="54" width="71.5" height="20"/>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8g-jn-mSG">
+                                                            <rect key="frame" x="4" y="23" width="60" height="60"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -633,16 +639,20 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIo-FR-BKW">
                                                     <rect key="frame" x="216" y="5" width="99" height="131"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-Mk-bLb">
-                                                            <rect key="frame" x="0.0" y="12" width="90" height="90"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="technology" translatesAutoresizingMaskIntoConstraints="NO" id="KUB-v9-dxk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="99" height="131"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelgggg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PH-im-JjN">
+                                                        <label userInteractionEnabled="NO" tag="2" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelgggg" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PH-im-JjN">
                                                             <rect key="frame" x="0.0" y="0.0" width="99" height="131"/>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-Mk-bLb">
+                                                            <rect key="frame" x="0.0" y="12" width="90" height="90"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -678,7 +688,10 @@
                                     <constraint firstAttribute="bottom" secondItem="vju-vA-yCb" secondAttribute="bottom" id="jlj-Ay-bk4"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="BackImg2" destination="zEt-Wm-HnG" id="IkO-oD-Oft"/>
                                     <outlet property="backImg1" destination="ywc-W6-Ihd" id="c5W-32-SaS"/>
+                                    <outlet property="backImg2" destination="zEt-Wm-HnG" id="fg9-wf-0Mj"/>
+                                    <outlet property="backImg3" destination="KUB-v9-dxk" id="WRa-oM-KKS"/>
                                     <outlet property="interestImg1" destination="H7G-GK-K26" id="tPe-ip-YuQ"/>
                                     <outlet property="interestImg2" destination="t8g-jn-mSG" id="4eh-ah-D9K"/>
                                     <outlet property="interestImg3" destination="4AU-Mk-bLb" id="ZrC-hF-yNb"/>
@@ -687,6 +700,8 @@
                                     <outlet property="interestName3" destination="8PH-im-JjN" id="eyL-zd-29H"/>
                                     <outlet property="interestStack" destination="vju-vA-yCb" id="epB-wd-fp2"/>
                                     <outlet property="interestView" destination="rks-zr-2ve" id="u78-zC-duo"/>
+                                    <outlet property="interestView2" destination="auo-M9-o0I" id="ytp-fE-d2p"/>
+                                    <outlet property="interestView3" destination="aIo-FR-BKW" id="ygO-B2-eQA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -725,6 +740,6 @@
         <image name="technology" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kac-mr-hQG"/>
+        <segue reference="gH4-31-fBe"/>
     </inferredMetricsTieBreakers>
 </document>

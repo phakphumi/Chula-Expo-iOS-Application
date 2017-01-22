@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chula Expo 2017/InterestedTableViewController.swift"
-            timestampString = "506596571.117777"
+            timestampString = "506780261.135174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "wasTapped(gestureRecognizer:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -15,21 +15,22 @@ class InterestedTableViewController: UITableViewController {
     struct tag {
         var imgName: String = ""
         var tagName: String = ""
+        var tagBack: String = ""
     }
     
     var tagList : [tag] = [
-        tag(imgName: "technology",     tagName: "Technology1"),
-        tag(imgName: "technology",     tagName: "Technology2"),
-        tag(imgName: "technology",     tagName: "Technology3"),
-        tag(imgName: "technology",     tagName: "Technology4"),
-        tag(imgName: "technology",     tagName: "Technology5"),
-        tag(imgName: "technology",     tagName: "Technology6"),
-        tag(imgName: "technology",     tagName: "Technology7")
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology1",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology2",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology3",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology4",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology5",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology6",  tagBack: "technology"),
+        tag(imgName: "heartIcon",  tagName: "\n\n\nTechnology7",  tagBack: "technology")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createGradientNavBar()
+      //  createGradientNavBar()
         self.title = "Select your interest"
 
         // Uncomment the following line to preserve selection between presentations
@@ -48,12 +49,8 @@ class InterestedTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 20
-        }
-        else {
-            return self.view.bounds.width * 120 / 375
-        }
+        
+            return (self.view.bounds.width-60)/3
     }
 
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -81,24 +78,33 @@ class InterestedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-        if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
+        if indexPath.row == 0{
+            cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
         }
-        else {
+        else{
              cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
             if let interestCell = cell as? InterestTableViewCell {
         
                 if tagList.count > (indexPath.row-1)*3 {
                     interestCell.imgName[0] = tagList[(indexPath.row-1)*3+0].imgName
                     interestCell.tagName[0] = tagList[(indexPath.row-1)*3+0].tagName
+                    interestCell.tagBack[0] = tagList[(indexPath.row-1)*3+0].tagBack
+                }else{
+                    interestCell.tagName[0] = ""
                 }
                 if tagList.count > (indexPath.row-1)*3+1 {
                     interestCell.imgName[1] = tagList[(indexPath.row-1)*3+1].imgName
                     interestCell.tagName[1] = tagList[(indexPath.row-1)*3+1].tagName
+                    interestCell.tagBack[1] = tagList[(indexPath.row-1)*3+1].tagBack
+                }else{
+                    interestCell.tagName[1] = ""
                 }
                 if tagList.count > (indexPath.row-1)*3+2 {
                     interestCell.imgName[2] = tagList[(indexPath.row-1)*3+2].imgName
                     interestCell.tagName[2] = tagList[(indexPath.row-1)*3+2].tagName
+                    interestCell.tagBack[2] = tagList[(indexPath.row-1)*3+2].tagBack
+                }else{
+                    interestCell.tagName[2] = ""
                 }
             }
         }

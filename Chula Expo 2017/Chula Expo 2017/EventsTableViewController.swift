@@ -32,7 +32,7 @@ class EventsTableViewController: CoreDataTableViewController
     {
         if let context = managedObjectContext, (facity?.characters.count)! > 0
         {
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             
             if facity == "Favourites" {
                 request.predicate = NSPredicate(format: "isFavorite == %@", NSNumber(booleanLiteral: true))
@@ -41,7 +41,7 @@ class EventsTableViewController: CoreDataTableViewController
                 request.predicate = NSPredicate(format: "isReserve == %@", NSNumber(booleanLiteral: true))
             }
             else {
-                request.predicate = NSPredicate(format: "facity = %@", facity!)
+                request.predicate = NSPredicate(format: "any toFaculty.name contains[c] %@", facity!)
             }
             
             request.sortDescriptors = [NSSortDescriptor(
@@ -67,7 +67,7 @@ class EventsTableViewController: CoreDataTableViewController
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventDetail", for: indexPath)
         
-        if let fetchData = fetchedResultsController?.object(at: indexPath) as? EventData
+        if let fetchData = fetchedResultsController?.object(at: indexPath) as? ActivityData
         {
             var activityId: String?
             var name: String?

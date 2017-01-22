@@ -39,6 +39,7 @@
 		5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */; };
 		5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */; };
 		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
+		5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */; };
 		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
 		5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */; };
@@ -67,6 +68,8 @@
 		805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */; };
+		80BF29471E33DD5C001CAE4C /* FacultyData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BF29431E33DD5C001CAE4C /* FacultyData+CoreDataClass.swift */; };
+		80BF29481E33DD5C001CAE4C /* FacultyData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BF29441E33DD5C001CAE4C /* FacultyData+CoreDataProperties.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
 		80BFD4D01E27ED5200491730 /* StageEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */; };
 		80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D11E27ED6F00491730 /* StageCell.swift */; };
@@ -111,6 +114,7 @@
 		5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowPageViewController.swift; sourceTree = "<group>"; };
 		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFrameViewController.swift; sourceTree = "<group>"; };
+		5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedAndFavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
 		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 		805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageEventDetailTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleUILabel.swift; sourceTree = "<group>"; };
+		80BF29431E33DD5C001CAE4C /* FacultyData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FacultyData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		80BF29441E33DD5C001CAE4C /* FacultyData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FacultyData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
 				5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */,
+				5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */,
 				5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */,
 				5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */,
 				5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */,
@@ -262,12 +269,7 @@
 				5F07EDC01E2B48420017ECD5 /* UserController.swift */,
 				802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */,
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
-				5F4A9D951E10300900713580 /* Main.storyboard */,
-				58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */,
-				58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */,
-				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
-				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
-				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				5F8DAB4C1E34B88900B2641F /* Main_LoginAndRegistration */,
 				5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */,
 				5F307C901E26AF3900DEF3B0 /* Modal_QR */,
 				5F23F38C1E22282A00ACA6A7 /* First_home */,
@@ -290,6 +292,19 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
+		5F8DAB4C1E34B88900B2641F /* Main_LoginAndRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				5F4A9D951E10300900713580 /* Main.storyboard */,
+				58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */,
+				58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */,
+				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
+				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
+				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+			);
+			name = Main_LoginAndRegistration;
+			sourceTree = "<group>";
+		};
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +321,8 @@
 			children = (
 				800052C11E326F78006C4E95 /* ActivityData+CoreDataClass.swift */,
 				800052C21E326F78006C4E95 /* ActivityData+CoreDataProperties.swift */,
+				80BF29431E33DD5C001CAE4C /* FacultyData+CoreDataClass.swift */,
+				80BF29441E33DD5C001CAE4C /* FacultyData+CoreDataProperties.swift */,
 				800052BB1E326F78006C4E95 /* TagData+CoreDataClass.swift */,
 				800052BC1E326F78006C4E95 /* TagData+CoreDataProperties.swift */,
 				800052BD1E326F78006C4E95 /* VideoData+CoreDataClass.swift */,
@@ -469,6 +486,7 @@
 				800052C51E326F78006C4E95 /* VideoData+CoreDataClass.swift in Sources */,
 				5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */,
 				5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */,
+				80BF29481E33DD5C001CAE4C /* FacultyData+CoreDataProperties.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
 				5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */,
 				808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */,
@@ -487,6 +505,7 @@
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,
 				5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */,
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
+				5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */,
 				5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */,
 				800052C81E326F78006C4E95 /* ImageData+CoreDataProperties.swift in Sources */,
 				5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */,
@@ -495,6 +514,7 @@
 				5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */,
 				805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */,
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
+				80BF29471E33DD5C001CAE4C /* FacultyData+CoreDataClass.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
 				5FB054591E23CEEF00428428 /* TagController.swift in Sources */,
 				80073CDE1E1E32AF00C1F64E /* FacityTableViewCell.swift in Sources */,

@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print("...")
+        print(urls[urls.count-1] as URL)
+        
         return true
     }
     
@@ -119,6 +123,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

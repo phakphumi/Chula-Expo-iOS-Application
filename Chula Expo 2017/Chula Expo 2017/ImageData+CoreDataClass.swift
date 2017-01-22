@@ -15,7 +15,6 @@ public class ImageData: NSManagedObject {
     class func addData(
         title: String,
         url: String,
-        toActivity: ActivityData,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ImageData?
     {
@@ -34,7 +33,6 @@ public class ImageData: NSManagedObject {
                 // created a new event in the database
                 newData.title = title
                 newData.url = url
-                newData.toActivity = toActivity
                 return newData
             }
         }

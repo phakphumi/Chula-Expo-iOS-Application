@@ -62,25 +62,4 @@ public class EventData: NSManagedObject
         return nil
     }
     
-    class func fetchEventDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> EventData? {
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
-        request.predicate = NSPredicate(format: "activityId = %@", activityId)
-        
-        do {
-            
-            let result = try context.fetch(request).first as? EventData
-            
-            return result
-            
-        } catch {
-            
-            print("Couldn't fetch results")
-            
-        }
-        
-        return nil
-        
-    }
-    
 }

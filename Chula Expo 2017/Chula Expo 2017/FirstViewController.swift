@@ -22,8 +22,7 @@ class FirstViewController: MainCoreDataTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateDatabase()
-        printDatabaseStatistics()
+        
         requestForStageEvent()
         requestForFeedEvent()
         addDemoData()
@@ -42,9 +41,11 @@ class FirstViewController: MainCoreDataTableViewController {
 // Core Data
     func requestForStageEvent(){
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: true))
+
         request.sortDescriptors = [NSSortDescriptor(
-        key: "stage",
+        key: "stageNo",
         ascending: true
         )]
         
@@ -60,9 +61,10 @@ class FirstViewController: MainCoreDataTableViewController {
     }
     func requestForFeedEvent(){
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EventData")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: false))
         request.sortDescriptors = [NSSortDescriptor(
-            key: "name",
+            key: "activityId",
             ascending: true
             )]
         
@@ -79,42 +81,6 @@ class FirstViewController: MainCoreDataTableViewController {
         
     }
     
-    private func updateDatabase(){
-        
-        managedObjectContext?.performAndWait{
-            _ = StageEvent.addData(name: "Innovation Show", startTime: NSDate(), endTime: NSDate(), desc: "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner.", canReserve: false, numOfSeat: 99, stage: 1, inManageobjectcontext: self.managedObjectContext!)
-            _ = StageEvent.addData(name: "Education UK Grand Exhibition", startTime: NSDate(), endTime: NSDate(), desc: "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner.", canReserve: false, numOfSeat: 99, stage: 2, inManageobjectcontext: self.managedObjectContext!)
-            _ = StageEvent.addData(name: "Bangkok Cultural Show", startTime: NSDate(), endTime: NSDate(), desc: "A robotic vacuum cleaner, often called a robovac, is an autonomous robotic vacuum cleaner that has intelligent programming and a limited vacuum cleaning system. Some designs use spinning brushes to reach tight corners. Others combine a number of cleaning features (mopping, UV sterilization, etc.) simultaneous to vacuuming, thus rendering the machine into more than just a robot “vacuum” cleaner.", canReserve: false, numOfSeat: 99, stage: 3, inManageobjectcontext: self.managedObjectContext!)
-            
-        }
-        
-        do{
-            
-            try self.managedObjectContext?.save()
-            print("stage event saved")
-            
-        }
-            
-        catch let error {
-            
-            print("stage event saveError with \(error)")
-            
-        }
-        
-        printDatabaseStatistics()
-        
-    }
-    
-    private func printDatabaseStatistics()
-    {
-        
-        managedObjectContext?.perform {
-            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "StageEvent")){
-                print("Total stageEvents datas in coredata \(result.count)")
-            }
-        }
-        
-    }
     
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
         
@@ -161,7 +127,7 @@ class FirstViewController: MainCoreDataTableViewController {
             
         else if indexPath.section == 1{
             cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
-                if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row, section: 0)) as? StageEvent
+                if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row, section: 0)) as? ActivityData
                 {
                     var name: String?
                     var startTime: NSDate?
@@ -172,7 +138,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     name = fetchData.name
                     startTime = fetchData.startTime
                     endTime = fetchData.endTime
-                    stage = Int(fetchData.stage)
+                    stage = Int(fetchData.stageNo)
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue
                     // to do the cell.textLabel?.text setting
@@ -191,7 +157,7 @@ class FirstViewController: MainCoreDataTableViewController {
         else{
             print("section else")
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row, section: 0)) as? EventData{
+            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row, section: 0)) as? ActivityData{
                 var name: String?
                 var startTime: NSDate?
                 var endTime: NSDate?
@@ -203,8 +169,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     name = fetchData.name
                     startTime = fetchData.startTime
                     endTime = fetchData.endTime
-                    thumbnail = fetchData.thumbnail
-                    facity = fetchData.facity
+                    thumbnail = fetchData.thumbnailsUrl
+                    let fac = fetchData.toFaculty?.allObjects.first as! FacultyData
+                    facity = fac.shortName
                     date = fetchData.dateText
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue
@@ -291,10 +258,59 @@ class FirstViewController: MainCoreDataTableViewController {
     
     private func addDemoData(){
         if let context = managedObjectContext{
-            
+            // add demo data
             context.performAndWait {
-                
-                _ = ActivityData.addData(bannerUrl: "technology", desc: "desc", endTime: NSDate(), activityId: "01", isFavorite: true, isHighlight: true, isReserve: true, locationDesc: "Eng 3", name: "Test1", reservable: true, startTime: NSDate(), thumbnailsUrl: "technology", isStageEvent: true, toImages: NSSet(object: ImageData.addData(title: "pic1", url: "technology", inManageobjectcontext: context)!), toVideos: NSSet(object: VideoData.addData(title: "video1", url: "youtubelink", inManageobjectcontext: context)!), toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!), toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!), inManageobjectcontext: context)
+                _ = ActivityData.addStageEventData(
+                    activityId: "001",
+                    stageNo: 1,
+                    name: "Stage 1 event",
+                    desc: "stage 1 desc",
+                    startTime: NSDate(),
+                    endTime: NSDate(),
+                    isFavorite: false,
+                    reservable: true,
+                    isReserve: false,
+                    inManageobjectcontext: context)
+                _ = ActivityData.addStageEventData(
+                    activityId: "002",
+                    stageNo: 2,
+                    name: "Stage 2 event",
+                    desc: "stage 2 desc",
+                    startTime: NSDate(),
+                    endTime: NSDate(),
+                    isFavorite: false,
+                    reservable: true,
+                    isReserve: false,
+                    inManageobjectcontext: context)
+                _ = ActivityData.addStageEventData(
+                    activityId: "003",
+                    stageNo: 3,
+                    name: "Stage 3 event",
+                    desc: "stage 3 desc",
+                    startTime: NSDate(),
+                    endTime: NSDate(),
+                    isFavorite: false,
+                    reservable: true,
+                    isReserve: false,
+                    inManageobjectcontext: context)
+                _ = ActivityData.addEventData(
+                    activityId: "004",
+                    name: "event 1 test test",
+                    desc: "Hello activity 1 description",
+                    locationDesc: "101 Floor 1 ENG 3",
+                    bannerUrl: "technology",
+                    thumbnailsUrl: "technology",
+                    startTime: NSDate(),
+                    endTime: NSDate(),
+                    isFavorite: false,
+                    isHighlight: true,
+                    reservable: true,
+                    isReserve: false,
+                    toImages: NSSet(object: ImageData.addData(title: "img1", url: "technology", inManageobjectcontext: context)!),
+                    toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
+                    toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!),
+                    toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!),
+                    inManageobjectcontext: context)
             }
             
             do{
@@ -306,7 +322,16 @@ class FirstViewController: MainCoreDataTableViewController {
                 print("Demo ActivityData save error with \(error)")
             }
             
+            printDatabaseStatistics()
         }
     }
-        
+    
+    private func printDatabaseStatistics(){
+        managedObjectContext?.perform {
+            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "ActivityData")){
+                print("Total ActivityDatas in coredata \(result.count)")
+            }
+        }
+    }
+
 }

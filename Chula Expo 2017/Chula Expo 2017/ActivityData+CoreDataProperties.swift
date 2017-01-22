@@ -24,6 +24,7 @@ extension ActivityData {
     @NSManaged public var isHighlight: Bool
     @NSManaged public var isReserve: Bool
     @NSManaged public var isStageEvent: Bool
+    @NSManaged public var stageNo: Int16
     @NSManaged public var locationDesc: String?
     @NSManaged public var name: String?
     @NSManaged public var reservable: Bool
@@ -102,4 +103,172 @@ extension ActivityData {
     @objc(removeToFaculty:)
     @NSManaged public func removeFromToFaculty(_ values: NSSet)
     
+    var dateSection: String
+        {
+        get
+        {
+            if self.startTime!.isToday()
+            {
+                return "TODAY"
+            }
+            else if self.startTime!.isTomorrow()
+            {
+                return "TOMORROW"
+            }
+            else if self.startTime!.isYesterday()
+            {
+                return "YESTERDAY"
+            }
+            else
+            {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMMM dd, EEE H m"
+                return dateFormatter.string(from: startTime! as Date)
+            }
+        }
+    }
+    
+    var dateText: String
+        {
+        get
+        {
+            if self.startTime!.isToday()
+            {
+                return "Today"
+            }
+            else if self.startTime!.isTomorrow()
+            {
+                return "Tomorrow"
+            }
+            else if self.startTime!.isYesterday()
+            {
+                return "Yesterday"
+            }
+            else
+            {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMMM dd, EEE"
+                return dateFormatter.string(from: startTime! as Date)
+            }
+        }
+    }
+
+    
 }
+
+extension NSDate
+{
+    func isGreaterThanDate(dateToCompare: Date) -> Bool {
+        //Declare Variables
+        var isGreater = false
+        
+        //Compare Values
+        if self.compare(dateToCompare) == ComparisonResult.orderedDescending {
+            isGreater = true
+        }
+        
+        //Return Result
+        return isGreater
+    }
+    
+    func isLessThanDate(dateToCompare: Date) -> Bool {
+        //Declare Variables
+        var isLess = false
+        
+        //Compare Values
+        if self.compare(dateToCompare) == ComparisonResult.orderedAscending {
+            isLess = true
+        }
+        
+        //Return Result
+        return isLess
+    }
+    
+    func equalToDate(dateToCompare: Date) -> Bool {
+        //Declare Variables
+        var isEqualTo = false
+        
+        //Compare Values
+        if self.compare(dateToCompare) == ComparisonResult.orderedSame {
+            isEqualTo = true
+        }
+        
+        //Return Result
+        return isEqualTo
+    }
+    
+    func addDays(daysToAdd: Int) -> NSDate {
+        let secondsInDays: TimeInterval = Double(daysToAdd) * 60 * 60 * 24
+        let dateWithDaysAdded: NSDate = self.addingTimeInterval(secondsInDays)
+        
+        //Return Result
+        return dateWithDaysAdded
+    }
+    
+    func addHours(hoursToAdd: Int) -> NSDate {
+        let secondsInHours: TimeInterval = Double(hoursToAdd) * 60 * 60
+        let dateWithHoursAdded: NSDate = self.addingTimeInterval(secondsInHours)
+        
+        //Return Result
+        return dateWithHoursAdded
+    }
+    
+    func isToday() -> Bool{
+        var isToday = false
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 0, to: Date())!)
+        let tomorrow = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, EEE H m"
+        print("TODAY == \(dateFormatter.string(from: today))")
+        print("TOMORROW == \(dateFormatter.string(from: tomorrow))")
+        
+        
+        if(self.isLessThanDate(dateToCompare: tomorrow)){
+            print("PASS1")
+            if(self.isGreaterThanDate(dateToCompare: today) || self.equalToDate(dateToCompare: today)){
+                isToday = true
+                print("PASS2")
+            }
+            print("MISS2")
+        }
+        print("MISS1")
+        return isToday
+    }
+    
+    func isTomorrow() -> Bool{
+        var isTomorrow = false
+        
+        let calendar = Calendar.current
+        
+        let twoDayAfter = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 2, to: Date())!)
+        let tomorrow = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
+        
+        if(self.isLessThanDate(dateToCompare: twoDayAfter)){
+            if(self.isGreaterThanDate(dateToCompare: tomorrow) || self.equalToDate(dateToCompare: tomorrow)){
+                isTomorrow = true
+            }
+        }
+        return isTomorrow
+    }
+    
+    func isYesterday() -> Bool{
+        var isYesterday = false
+        
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 0, to: Date())!)
+        let yesterday = calendar.startOfDay(for: calendar.date(byAdding: .day, value: -1, to: Date())!)
+        
+        if(self.isLessThanDate(dateToCompare: today)){
+            print("PASS1")
+            if(self.isGreaterThanDate(dateToCompare: yesterday) || self.equalToDate(dateToCompare: yesterday)){
+                isYesterday = true
+                print("PASS2")
+            }
+        }
+        return isYesterday
+    }
+}
+

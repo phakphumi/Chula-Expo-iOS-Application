@@ -12,6 +12,7 @@
         <attribute name="locationDesc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reservable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="stageNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="thumbnailsUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toFaculty" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FacultyData" inverseName="toActivity" inverseEntity="FacultyData" syncable="YES"/>
@@ -77,7 +78,7 @@
         <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toVideos" inverseEntity="ActivityData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="300"/>
+        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="315"/>
         <element name="EventData" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="FacultyData" positionX="268" positionY="666" width="128" height="88"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="88"/>

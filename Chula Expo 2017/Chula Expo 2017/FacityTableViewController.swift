@@ -65,8 +65,6 @@ class FacityTableViewController: UITableViewController
         title = "Events"
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        updateDatabase()
-//        createGradientNavBar()
         setNeedsStatusBarAppearanceUpdate()
 
         // Uncomment the following line to preserve selection between presentations
@@ -82,95 +80,7 @@ class FacityTableViewController: UITableViewController
         // Dispose of any resources that can be recreated.
     }
     
-    private func updateDatabase()
-    {
-        managedObjectContext?.performAndWait
-        {
-           
-            _ = EventData.addData(
-                activityId: "1",
-                name: "Electric vehicle technology",
-                facity: "Faculty of Engineering",
-                locationDesc: "308 ENG3 Building",
-                startTime: NSDate(timeIntervalSinceNow: 86400),
-                endTime: NSDate(timeIntervalSinceNow: 3000),
-                shortDesc: "", longDesc: "",
-                isFavorite: true,
-                isReserve: false,
-                canReserve: true,
-                numOfSeat: 99,
-                thumbnail: "eventTumb1",
-                inManageobjectcontext: self.managedObjectContext!
-            )
-            _ = EventData.addData(
-                activityId: "2",
-                name: "Top Visual Trends for 2017",
-                facity: "Faculty of Arts",
-                locationDesc: "Building 1",
-                startTime: NSDate(timeIntervalSinceNow: 0),
-                endTime: NSDate(timeIntervalSinceNow: 3000),
-                shortDesc: "", longDesc: "",
-                isFavorite: true,
-                isReserve: false,
-                canReserve: true,
-                numOfSeat: 99,
-                thumbnail: "eventTumb2",
-                inManageobjectcontext: self.managedObjectContext!
-            )
-            _ = EventData.addData(
-                activityId: "3",
-                name: "Technology Trends of 2017",
-                facity: "Faculty of Engineering",
-                locationDesc: "101 Building 1",
-                startTime: NSDate(timeIntervalSinceNow: 100000),
-                endTime: NSDate(timeIntervalSinceNow: 3000),
-                shortDesc: "", longDesc: "",
-                isFavorite: true,
-                isReserve: false,
-                canReserve: true,
-                numOfSeat: 99,
-                thumbnail: "technology",
-                inManageobjectcontext: self.managedObjectContext!
-            )
-            _ = EventData.addData(
-                activityId: "4",
-                name: "Exploring enginnering world",
-                facity: "Faculty of Engineering",
-                locationDesc: "M Floor Building 4",
-                startTime: NSDate(timeIntervalSinceNow: 200000),
-                endTime: NSDate(timeIntervalSinceNow: 3000),
-                shortDesc: "", longDesc: "",
-                isFavorite: true,
-                isReserve: false,
-                canReserve: true,
-                numOfSeat: 99,
-                thumbnail: "engineering",
-                inManageobjectcontext: self.managedObjectContext!
-            )
-
-
-        }
-        do
-        {
-            try self.managedObjectContext?.save()
-            print("saved")
-        }
-        catch let error {
-            print("saveError with \(error)")
-        }
-        printDatabaseStatistics()
-    }
-    
-    private func printDatabaseStatistics()
-    {
-        managedObjectContext?.perform {
-            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "EventData")){
-                print("Total datas in coredata \(result.count)")
-            }
-        }
-    }
-
-
+   
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int

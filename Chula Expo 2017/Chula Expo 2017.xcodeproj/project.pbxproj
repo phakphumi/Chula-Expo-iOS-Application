@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		581940C11E3639A0000C566C /* InterestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940C01E3639A0000C566C /* InterestCollectionViewController.swift */; };
+		581940C31E363B0D000C566C /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940C21E363B0D000C566C /* InterestCollectionViewCell.swift */; };
 		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		581940C01E3639A0000C566C /* InterestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewController.swift; sourceTree = "<group>"; };
+		581940C21E363B0D000C566C /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				581940C01E3639A0000C566C /* InterestCollectionViewController.swift */,
+				581940C21E363B0D000C566C /* InterestCollectionViewCell.swift */,
 			);
 			name = Main_LoginAndRegistration;
 			sourceTree = "<group>";
@@ -476,6 +482,7 @@
 				5F6F34B91E2F7EFE0090F378 /* SlideshowFrameViewController.swift in Sources */,
 				800052C91E326F78006C4E95 /* ActivityData+CoreDataClass.swift in Sources */,
 				5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */,
+				581940C31E363B0D000C566C /* InterestCollectionViewCell.swift in Sources */,
 				5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
@@ -514,6 +521,7 @@
 				5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */,
 				805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */,
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
+				581940C11E3639A0000C566C /* InterestCollectionViewController.swift in Sources */,
 				80BF29471E33DD5C001CAE4C /* FacultyData+CoreDataClass.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
 				5FB054591E23CEEF00428428 /* TagController.swift in Sources */,

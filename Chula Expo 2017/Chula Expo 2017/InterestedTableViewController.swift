@@ -50,7 +50,7 @@ class InterestedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-            return (self.view.bounds.width-60)/3
+            return (self.view.bounds.width-78)/3+10
     }
 
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -71,43 +71,40 @@ class InterestedTableViewController: UITableViewController {
         {
             NumberOfRow += 1
         }
-        return NumberOfRow+1
+        return NumberOfRow
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         
-        if indexPath.row == 0{
-            cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath)
-        }
-        else{
+
              cell = tableView.dequeueReusableCell(withIdentifier: "interestCell", for: indexPath)
             if let interestCell = cell as? InterestTableViewCell {
         
-                if tagList.count > (indexPath.row-1)*3 {
-                    interestCell.imgName[0] = tagList[(indexPath.row-1)*3+0].imgName
-                    interestCell.tagName[0] = tagList[(indexPath.row-1)*3+0].tagName
-                    interestCell.tagBack[0] = tagList[(indexPath.row-1)*3+0].tagBack
+                if tagList.count > (indexPath.row)*3 {
+                    interestCell.imgName[0] = tagList[(indexPath.row)*3+0].imgName
+                    interestCell.tagName[0] = tagList[(indexPath.row)*3+0].tagName
+                    interestCell.tagBack[0] = tagList[(indexPath.row)*3+0].tagBack
                 }else{
                     interestCell.tagName[0] = ""
                 }
-                if tagList.count > (indexPath.row-1)*3+1 {
-                    interestCell.imgName[1] = tagList[(indexPath.row-1)*3+1].imgName
-                    interestCell.tagName[1] = tagList[(indexPath.row-1)*3+1].tagName
-                    interestCell.tagBack[1] = tagList[(indexPath.row-1)*3+1].tagBack
+                if tagList.count > (indexPath.row)*3+1 {
+                    interestCell.imgName[1] = tagList[(indexPath.row)*3+1].imgName
+                    interestCell.tagName[1] = tagList[(indexPath.row)*3+1].tagName
+                    interestCell.tagBack[1] = tagList[(indexPath.row)*3+1].tagBack
                 }else{
                     interestCell.tagName[1] = ""
                 }
-                if tagList.count > (indexPath.row-1)*3+2 {
-                    interestCell.imgName[2] = tagList[(indexPath.row-1)*3+2].imgName
-                    interestCell.tagName[2] = tagList[(indexPath.row-1)*3+2].tagName
-                    interestCell.tagBack[2] = tagList[(indexPath.row-1)*3+2].tagBack
+                if tagList.count > (indexPath.row)*3+2 {
+                    interestCell.imgName[2] = tagList[(indexPath.row)*3+2].imgName
+                    interestCell.tagName[2] = tagList[(indexPath.row)*3+2].tagName
+                    interestCell.tagBack[2] = tagList[(indexPath.row)*3+2].tagBack
                 }else{
                     interestCell.tagName[2] = ""
                 }
             }
-        }
+        
         cell.selectionStyle = .none
         return cell
         // Configure the cell...

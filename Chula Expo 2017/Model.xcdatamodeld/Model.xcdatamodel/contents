@@ -41,7 +41,6 @@
         <relationship name="toActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toFaculty" inverseEntity="ActivityData" syncable="YES"/>
     </entity>
     <entity name="ImageData" representedClassName="ImageData" syncable="YES">
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toImages" inverseEntity="ActivityData" syncable="YES"/>
     </entity>
@@ -81,7 +80,7 @@
         <element name="ActivityData" positionX="-216" positionY="482" width="128" height="315"/>
         <element name="EventData" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="FacultyData" positionX="268" positionY="666" width="128" height="88"/>
-        <element name="ImageData" positionX="151" positionY="252" width="128" height="88"/>
+        <element name="ImageData" positionX="151" positionY="252" width="128" height="75"/>
         <element name="StageEvent" positionX="225" positionY="-72" width="128" height="150"/>
         <element name="TagData" positionX="322" positionY="503" width="128" height="73"/>
         <element name="UserData" positionX="376" positionY="-72" width="128" height="225"/>

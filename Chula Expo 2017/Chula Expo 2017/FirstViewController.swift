@@ -38,6 +38,14 @@ class FirstViewController: MainCoreDataTableViewController {
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
+    
 // Core Data
     func requestForStageEvent(){
         
@@ -103,6 +111,7 @@ class FirstViewController: MainCoreDataTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
 
     // MARK: - Table view data source
@@ -306,10 +315,36 @@ class FirstViewController: MainCoreDataTableViewController {
                     isHighlight: true,
                     reservable: true,
                     isReserve: false,
-                    toImages: NSSet(object: ImageData.addData(title: "img1", url: "technology", inManageobjectcontext: context)!),
+                    toImages: NSSet(object: ImageData.addData(url: "technology", inManageobjectcontext: context)!),
                     toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
                     toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!),
                     toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!),
+                    inManageobjectcontext: context)
+                
+                _ = ActivityData.addEventData(
+                    activityId: "005",
+                    name: "Cryonics a new life",
+                    desc: "Death occurs when the chemistry of life becomes so disorganized that normal operation cannot be restored. (Death is not when life turns off. People can and have survived being \"turned off\".) How much chemical disorder can be survived depends on medical technology. A hundred years ago, cardiac arrest was irreversible. People were called dead when their heart stopped beating. Today death is believed to occur 4 to 6 minutes after the heart stops beating because after several minutes it is difficult to resuscitate the brain. However, with new experimental treatments, more than 10 minutes of warm cardiac arrest can now be survived without brain injury. Future technologies for molecular repair may extend the frontiers of resuscitation beyond 60 minutes or more, making today's beliefs about when death occurs obsolete. Ultimately, real death occurs when cell structure and chemistry become so disorganized that no technology could restore the original state. This is called the information-theoretic criterion for death. Any other definition of death is arbitrary and subject to continual revision as technology changes. That is certainly the case for death pronounced on the basis of absent \"vital signs\" today, which is not real death at all. The object of cryonics is to prevent death by preserving sufficient cell structure and chemistry so that recovery (including recovery of memory and personality) remains possible by foreseeable technology. If indeed cryonics patients are recoverable in the future, then clearly they were never really dead in the first place. Today's physicians will simply have been wrong about when death occurs, as they have been so many times in the past. The argument that cryonics cannot work because cryonics patients are dead is a circular argument.",
+                    locationDesc: "Medicine Building 1000",
+                    bannerUrl: "cryonics",
+                    thumbnailsUrl: "cryonics",
+                    startTime: NSDate(),
+                    endTime: NSDate(),
+                    isFavorite: false,
+                    isHighlight: true,
+                    reservable: true,
+                    isReserve: false,
+                    toImages: NSSet(objects:
+                                             ImageData.addData(url: "cryonics1", inManageobjectcontext: context)!,
+                                             ImageData.addData(url: "cryonics2", inManageobjectcontext: context)!,
+                                             ImageData.addData(url: "cryonics3", inManageobjectcontext: context)!,
+                                             ImageData.addData(url: "cryonics4", inManageobjectcontext: context)!,
+                                             ImageData.addData(url: "cryonics5", inManageobjectcontext: context)!),
+                    toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
+                    toTags: NSSet(objects: TagData.addData(name: "Technology", inManageobjectcontext: context)!,
+                                           TagData.addData(name: "Medicine", inManageobjectcontext: context)!,
+                                           TagData.addData(name: "Science", inManageobjectcontext: context)!),
+                    toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Medicine", shortName: "MED", inManageobjectcontext: context)!),
                     inManageobjectcontext: context)
             }
             

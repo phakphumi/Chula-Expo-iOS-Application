@@ -10,23 +10,8 @@ import UIKit
 
 class ImageTableViewCell: UITableViewCell {
 
-    @IBAction func cancel(_ sender: UIButton) {
-        
-        let tableView = self.superview?.superview as! UITableView
-        let tableViewController = tableView.dataSource as! UITableViewController
-        
-        tableViewController.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    @IBAction func share(_ sender: UIButton) {
-        
-        let tableView = self.superview?.superview as! UITableView
-        let tableViewController = tableView.dataSource as! UITableViewController
-        
-        
-        
-    }
+    @IBOutlet var bannerImage: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

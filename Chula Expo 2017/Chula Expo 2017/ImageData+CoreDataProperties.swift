@@ -16,7 +16,6 @@ extension ImageData {
         return NSFetchRequest<ImageData>(entityName: "ImageData");
     }
 
-    @NSManaged public var title: String?
     @NSManaged public var url: String?
     @NSManaged public var toActivity: ActivityData?
 

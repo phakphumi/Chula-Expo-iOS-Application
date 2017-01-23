@@ -10,9 +10,7 @@ import UIKit
 
 class GalleryViewController: UIPageViewController, UIPageViewControllerDataSource {
 
-    let imageName = ["robot1.jpg", "robot2.jpg", "robot3.jpg", "robot4.jpg",
-                     "robot5.jpg", "robot6.jpg", "robot7.jpg", "robot8.jpg",
-                     "robot9.jpg", "robot10.jpg", "robot11.jpg", "robot12.jpg"]
+    var imageName = [String]()
     
     let appearance = UIPageControl.appearance()
     

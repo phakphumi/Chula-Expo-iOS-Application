@@ -44,7 +44,8 @@ class FourthViewController: UITableViewController {
         [
             menu(name: "Setting", icon: "settingsIcon"),
             menu(name: "About", icon: "aboutIcon"),
-            menu(name: "Help", icon: "helpIcon")
+            menu(name: "Help", icon: "helpIcon"),
+            menu(name: "Log out", icon: "helpIcon")
         ]
     ]
     
@@ -65,7 +66,7 @@ class FourthViewController: UITableViewController {
             return 2
         }
         else {
-            return 3
+            return 4
         }
     }
     

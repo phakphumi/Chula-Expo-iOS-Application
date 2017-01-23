@@ -43,7 +43,7 @@ class RelatedTableViewCell: UITableViewCell {
         super.layoutSubviews()
 
         relatedText.frame = CGRect(x: relatedText.frame.origin.x, y: relatedText.frame.origin.y, width: self.frame.width - relatedText.frame.origin.x * 2, height: 0)
-        relatedText.text = "Technology • Smart home • Robot • IOT • Algorithm • Computer • Cleaner • Future"
+//        relatedText.text = "Technology • Smart home • Robot • IOT • Algorithm • Computer • Cleaner • Future"
         relatedText.sizeToFit()
         RelatedTableViewCell.relatedTextHeight = relatedText.frame.height + 5
         

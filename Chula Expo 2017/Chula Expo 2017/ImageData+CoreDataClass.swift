@@ -13,29 +13,16 @@ import CoreData
 public class ImageData: NSManagedObject {
 
     class func addData(
-        title: String,
         url: String,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ImageData?
     {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
-        request.predicate = NSPredicate(format: "title = %@", title)
-        
-        if let result = (try? context.fetch(request))?.first as? ImageData
-        {
-            // found this event in the database, return it ...
-            print("Found \(result.title)")
-            return result
-        }
-        else {
-            if let newData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData
+        if let newData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData
             {
                 // created a new event in the database
-                newData.title = title
                 newData.url = url
                 return newData
             }
-        }
         return nil
     }
 

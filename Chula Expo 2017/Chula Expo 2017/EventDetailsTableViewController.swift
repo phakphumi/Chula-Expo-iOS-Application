@@ -188,6 +188,8 @@ class EventDetailsTableViewController: UITableViewController {
                 gtvc.numberOfInputImage = images.count
                 
                 for image in images {
+                    
+                    print(image.url!)
                         
                     gtvc.imageAlbum[count].image = UIImage(named: image.url!)
                     

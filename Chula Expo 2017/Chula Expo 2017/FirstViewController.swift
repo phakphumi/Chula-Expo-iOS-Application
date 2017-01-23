@@ -162,7 +162,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 var startTime: NSDate?
                 var endTime: NSDate?
                 var thumbnail: String?
-                var facity: String?
+                var facity: NSSet?
                 var date: String?
                 fetchData.managedObjectContext?.performAndWait{
                     // it's easy to forget to do this on the proper queue
@@ -170,8 +170,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     startTime = fetchData.startTime
                     endTime = fetchData.endTime
                     thumbnail = fetchData.thumbnailsUrl
-                    let fac = fetchData.toFaculty?.allObjects.first as! FacultyData
-                    facity = fac.shortName
+                    facity = fetchData.toFaculty
                     date = fetchData.dateText
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue

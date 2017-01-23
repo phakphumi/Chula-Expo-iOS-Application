@@ -118,22 +118,6 @@ class FacityTableViewController: UITableViewController
         return cell
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
-//    {
-//        if (section == 0){
-//            return nil
-//        }
-//        else if (section == 1){
-//            return "CITY"
-//        }
-//        else if (section == 2){
-//            return "SPECIAL"
-//        }
-//        else if (section == 3){
-//            return "FACULTY"
-//        }
-//        return nil
-//    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
@@ -155,7 +139,6 @@ class FacityTableViewController: UITableViewController
         return 0
         
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectFacity"{

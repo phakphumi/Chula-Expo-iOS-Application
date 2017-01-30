@@ -7,7 +7,32 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 import CoreData
+
+//extension UIView {
+//    
+//    var parentViewController: UIViewController? {
+//        
+//        var parentResponder: UIResponder? = self
+//        
+//        while parentResponder != nil {
+//            
+//            parentResponder = parentResponder!.next
+//            
+//            if let viewController = parentResponder as? UIViewController {
+//                
+//                return viewController
+//                
+//            }
+//            
+//        }
+//        
+//        return nil
+//        
+//    }
+//    
+//}
 
 class FourthViewController: UITableViewController {
 
@@ -115,6 +140,72 @@ class FourthViewController: UITableViewController {
         else{
             return "  "
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        
+        //logout
+        if indexPath.section == 2 && indexPath.row == 3 {
+            
+            let confirm = UIAlertController(title: "ออกจากระบบ", message: "คุณต้องการออกจากระบบใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "ไม่ใช่", style: UIAlertActionStyle.default, handler: nil))
+            
+            confirm.addAction(UIAlertAction(title: "ใช่", style: UIAlertActionStyle.destructive, handler: { (action) in
+                
+                let managedObjectContext: NSManagedObjectContext? =
+                    (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+                
+                let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+                let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
+                
+                let fetchFacultyData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacultyData")
+                let requestDeleteFacultyData = NSBatchDeleteRequest(fetchRequest: fetchFacultyData)
+                
+                let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+                let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+                
+                let fetchStageEvent = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
+                let requestDeleteStageEvent = NSBatchDeleteRequest(fetchRequest: fetchStageEvent)
+                
+                let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+                let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+                
+                let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+                let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
+                
+                let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+                let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+                
+                do {
+                    
+                    try managedObjectContext?.execute(requestDeleteActivityData)
+                    try managedObjectContext?.execute(requestDeleteFacultyData)
+                    try managedObjectContext?.execute(requestDeleteImageData)
+                    try managedObjectContext?.execute(requestDeleteStageEvent)
+                    try managedObjectContext?.execute(requestDeleteTagData)
+                    try managedObjectContext?.execute(requestDeleteUserData)
+                    try managedObjectContext?.execute(requestDeleteVideoData)
+                    
+                    let loginManager = FBSDKLoginManager()
+                    loginManager.logOut()
+                    
+                    self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
+                    
+                } catch let error {
+                    
+                    print(error)
+                    
+                }
+                
+            }))
+            
+            self.present(confirm, animated: true, completion: nil)
+            
+        }
+        
+        return indexPath
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -1,14 +1,14 @@
 //
-//  InterestCollectionViewCell.swift
+//  interestCollectionViewCell1.swift
 //  Chula Expo 2017
 //
-//  Created by Ekkalak Leelasornchai on 1/23/2560 BE.
+//  Created by Ekkalak Leelasornchai on 1/29/2560 BE.
 //  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
 //
 
 import UIKit
 
-class InterestCollectionViewCell: UICollectionViewCell {
+class interestCollectionViewCell1: UICollectionViewCell {
     var imgName: [String?] = ["","",""]
         {
         didSet{
@@ -29,19 +29,18 @@ class InterestCollectionViewCell: UICollectionViewCell {
             updateUI()
         }
     }
-    @IBOutlet weak var interestView1: UIView! {
+    @IBOutlet weak var interestView1: UIView!{
         didSet{
             roundedCornerBack1()
         }
     }
+
+    @IBOutlet weak var interestName1: UILabel!
     @IBOutlet weak var backImg1: UIImageView!
     @IBOutlet weak var interestImg1: UIImageView!
-    @IBOutlet weak var interestName1: UILabel!
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         roundedCornerBack1()
-        
         backImg1.isUserInteractionEnabled = true
         interestImg1.isUserInteractionEnabled = true
         
@@ -54,7 +53,6 @@ class InterestCollectionViewCell: UICollectionViewCell {
         tapGestureRecognizer2.numberOfTapsRequired = 1
         
         interestImg1.addGestureRecognizer(tapGestureRecognizer2)
-        
 
         //interestName1.backgroundColor = UIColor.black.withAlphaComponent(0.4)
     }
@@ -63,23 +61,23 @@ class InterestCollectionViewCell: UICollectionViewCell {
         
         print("tap")
         if interestName1.text != nil {
-            if isTappedObjects[0] == true{
-                isTappedObjects[0] = false;
-                
-                interestView1.layer.borderColor = UIColor.white.cgColor
-                interestView1.layer.borderWidth = 0
-                interestName1.textColor = UIColor.white
-                
-                
-            }
-            else {
-                
-                interestView1.layer.borderColor = UIColor.green.cgColor
-                interestView1.layer.borderWidth = 3
-                interestName1.textColor = UIColor.green
-                
-                isTappedObjects[0] = true;
-            }
+                if isTappedObjects[0] == true{
+                    isTappedObjects[0] = false;
+                    
+                    interestView1.layer.borderColor = UIColor.white.cgColor
+                    interestView1.layer.borderWidth = 0
+                    interestName1.textColor = UIColor.white
+                    
+                    
+                }
+                else {
+                    
+                    interestView1.layer.borderColor = UIColor.green.cgColor
+                    interestView1.layer.borderWidth = 3
+                    interestName1.textColor = UIColor.green
+                    
+                    isTappedObjects[0] = true;
+                }
             
         }
         
@@ -90,7 +88,7 @@ class InterestCollectionViewCell: UICollectionViewCell {
         //Reset old data
         interestImg1.image = nil
         interestName1.text = nil
-       // backImg1.image = nil
+        // backImg1.image = nil
         interestName1.isHidden = true
         
         

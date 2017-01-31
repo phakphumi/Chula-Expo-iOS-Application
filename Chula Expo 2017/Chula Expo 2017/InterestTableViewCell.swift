@@ -137,16 +137,16 @@ class InterestTableViewCell: UITableViewCell {
                 if isTappedObjects[0] == true{
                     isTappedObjects[0] = false;
                     
-                        interestName1.layer.borderColor = UIColor.white.cgColor
-                        interestName1.layer.borderWidth = 0
+                        interestView.layer.borderColor = UIColor.white.cgColor
+                        interestView.layer.borderWidth = 0
                         interestName1.textColor = UIColor.white
                     
                     
                 }
                 else {
                     
-                    interestName1.layer.borderColor = UIColor.green.cgColor
-                    interestName1.layer.borderWidth = 3
+                    interestView.layer.borderColor = UIColor.green.cgColor
+                    interestView.layer.borderWidth = 3
                     interestName1.textColor = UIColor.green
                     
                     isTappedObjects[0] = true;
@@ -155,14 +155,14 @@ class InterestTableViewCell: UITableViewCell {
             if imageView?.tag == 1{
                 if isTappedObjects[1] == true {
                     isTappedObjects[1] = false;
-                        interestName2.layer.borderColor = UIColor.white.cgColor
-                        interestName2.layer.borderWidth = 0
+                        interestView2.layer.borderColor = UIColor.white.cgColor
+                        interestView2.layer.borderWidth = 0
                         interestName2.textColor = UIColor.white
                 }
                 else {
                     
-                    interestName2.layer.borderColor = UIColor.green.cgColor
-                    interestName2.layer.borderWidth = 3
+                    interestView2.layer.borderColor = UIColor.green.cgColor
+                    interestView2.layer.borderWidth = 3
                     interestName2.textColor = UIColor.green
                     
                     isTappedObjects[1] = true;
@@ -171,15 +171,15 @@ class InterestTableViewCell: UITableViewCell {
             if imageView?.tag == 2{
                 if isTappedObjects[2] == true{
                     isTappedObjects[2] = false;
-                        interestName3.layer.borderColor = UIColor.white.cgColor
-                        interestName3.layer.borderWidth = 0
+                        interestView3.layer.borderColor = UIColor.white.cgColor
+                        interestView3.layer.borderWidth = 0
                         interestName3.textColor = UIColor.white
                     
                     
                 }
                 else {
-                    interestName3.layer.borderColor = UIColor.green.cgColor
-                    interestName3.layer.borderWidth = 3
+                    interestView3.layer.borderColor = UIColor.green.cgColor
+                    interestView3.layer.borderWidth = 3
                     interestName3.textColor = UIColor.green
                     
                     isTappedObjects[2] = true;

@@ -13,6 +13,7 @@ class StageCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var stageEventNameLabel: UILabel!
+    @IBOutlet weak var background: UIView!
     
     var name: String?{
         didSet{
@@ -63,5 +64,10 @@ class StageCell: UITableViewCell {
                 stageNameLabel.text = "City Main Stage"
             }
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        cardStyle(background: background)
     }
 }

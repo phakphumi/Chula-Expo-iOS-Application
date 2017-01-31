@@ -19,6 +19,7 @@ class EventFeedCell: UITableViewCell {
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var facityCapsule: UILabel!
     @IBOutlet weak var reserveCapsule: UILabel!
+    @IBOutlet weak var background: UIView!
     
     struct FacityCap{
         var facText: String
@@ -119,5 +120,9 @@ class EventFeedCell: UITableViewCell {
         }
     }
 
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        cardStyle(background: background)
+        background.layer.cornerRadius = 5
+        background.clipsToBounds = true    }
 }

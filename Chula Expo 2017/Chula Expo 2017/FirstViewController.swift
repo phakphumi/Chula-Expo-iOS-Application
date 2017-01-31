@@ -123,6 +123,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 headerCell.title2 = "กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้"
                 headerCell.iconImage = "playIcon"
             }
+            cell.selectionStyle = .none
         }
             
         else if indexPath.section == 1{
@@ -162,6 +163,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 headerCell.title2 = "แนะนำกิจกรรมที่คุณอาจสนใจ"
                 headerCell.iconImage = "heartIcon"
             }
+            cell.selectionStyle = .none
         }
 
         else {
@@ -207,7 +209,7 @@ class FirstViewController: MainCoreDataTableViewController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 0{
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            view.backgroundColor = UIColor.groupTableViewBackground
+            view.backgroundColor = UIColor.clear
             return view
         }
         return nil

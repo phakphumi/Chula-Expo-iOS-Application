@@ -13,18 +13,14 @@ class StageCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var stageEventNameLabel: UILabel!
+    @IBOutlet weak var background: UIView!
     
     var name: String?{
         didSet{
             updateUI()
         }
     }
-    var startTime: NSDate?{
-        didSet{
-            updateUI()
-        }
-    }
-    var endTime: NSDate?{
+    var toRound: NSSet?{
         didSet{
             updateUI()
         }
@@ -42,8 +38,10 @@ class StageCell: UITableViewCell {
         if let stageEventName = name{
             stageEventNameLabel.text = stageEventName
         }
-        if let stageStartTime = startTime{
-            if let stageEndTime = endTime{
+        if let rounds = toRound{
+            if let round = rounds.allObjects.first as! RoundData?{
+                let stageStartTime = round.startTime!
+                let stageEndTime = round.endTime!
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "H:mm"
                 let sTime = dateFormatter.string(from: stageStartTime as Date)
@@ -51,6 +49,7 @@ class StageCell: UITableViewCell {
                 timeLabel.text = "\(sTime) - \(eTime)"
             }
         }
+        
         if let stageNo = stage{
             if stageNo == 1{
                 timeLabel.text = "STAGE 1"
@@ -65,5 +64,10 @@ class StageCell: UITableViewCell {
                 stageNameLabel.text = "City Main Stage"
             }
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        cardStyle(background: background)
     }
 }

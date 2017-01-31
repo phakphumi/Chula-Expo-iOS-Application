@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="voe-43-7YQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="voe-43-7YQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,7 +19,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dCS-MC-FVq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dCS-MC-FVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -260,6 +260,7 @@
                                     <outlet property="locationLabel" destination="VlR-wU-jcw" id="byB-FA-ul8"/>
                                     <outlet property="nameLabel" destination="7hW-Un-AD7" id="3kX-US-dHL"/>
                                     <outlet property="timeLabel" destination="I2a-VZ-KsF" id="NSN-TJ-B3p"/>
+                                    <segue destination="z1E-kk-uSw" kind="show" identifier="toEventDetails" id="sjQ-VD-LsH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -268,9 +269,6 @@
                             <outlet property="delegate" destination="lHK-QI-0zL" id="VxB-J1-0xH"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="z1E-kk-uSw" kind="presentation" identifier="toEventDetails" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="H6Q-RV-B1H"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQd-de-FJk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

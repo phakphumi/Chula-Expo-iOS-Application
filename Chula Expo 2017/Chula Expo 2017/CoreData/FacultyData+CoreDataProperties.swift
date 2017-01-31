@@ -2,7 +2,7 @@
 //  FacultyData+CoreDataProperties.swift
 //  Chula Expo 2017
 //
-//  Created by NOT on 1/22/2560 BE.
+//  Created by NOT on 1/23/2560 BE.
 //  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
 //
 

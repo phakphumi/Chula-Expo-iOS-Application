@@ -36,12 +36,7 @@ class EventFeedCell: UITableViewCell {
             updateUI()
         }
     }
-    var startTime: NSDate?{
-        didSet{
-            updateUI()
-        }
-    }
-    var endTime: NSDate?{
+    var toRound: NSSet?{
         didSet{
             updateUI()
         }
@@ -63,15 +58,16 @@ class EventFeedCell: UITableViewCell {
         eventNameLabel.text = nil
         eventTimeLabel.text = nil
         
-        if let eventStartTime = startTime{
-            if let eventEndTime = endTime{
-                if let eventDate = date{
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "H:mm"
-                    let sTime = dateFormatter.string(from: eventStartTime as Date)
-                    let eTime = dateFormatter.string(from: eventEndTime as Date)
-                    eventTimeLabel.text = "\(eventDate) • \(sTime)-\(eTime)"
-                }
+        if let rounds = toRound{
+            if let round = rounds.allObjects.first as! RoundData?{
+                let eventDate = round.dateText
+                let eventStartTime = round.startTime!
+                let eventEndTime = round.endTime!
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "H:mm"
+                let sTime = dateFormatter.string(from: eventStartTime as Date)
+                let eTime = dateFormatter.string(from: eventEndTime as Date)
+                eventTimeLabel.text = "\(eventDate) • \(sTime)-\(eTime)"
             }
         }
         if let eventName = name{

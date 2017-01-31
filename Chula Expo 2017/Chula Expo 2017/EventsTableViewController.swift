@@ -61,15 +61,15 @@ class EventsTableViewController: CoreDataTableViewController
             }
             
             request.sortDescriptors = [NSSortDescriptor(
-                key: "startTime",
-                ascending: true,
-                selector: #selector(NSDate.compare(_:))
+                key: "activityId",
+                ascending: true
+//                selector: #selector(NSDate.compare(_:))
                 )]
             
             fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
-                sectionNameKeyPath: "dateSection",
+                sectionNameKeyPath: "toRound.dateSection",
                 cacheName: nil
             )
         }
@@ -89,19 +89,19 @@ class EventsTableViewController: CoreDataTableViewController
             var activityId: String?
             var desc: String?
             var bannerUrl: String?
-            var isHighlight: Bool?
-            var isFavorite: Bool?
-            var reservable: Bool?
-            var isReserve: Bool?
+//            var isHighlight: Bool?
+//            var isFavorite: Bool?
+//            var reservable: Bool?
+//            var isReserve: Bool?
             var toTags: NSSet?
             var toFaculty: NSSet?
             var toImages: NSSet?
             var toVideos: NSSet?
-            var dateText: String?
+//            var dateText: String?
             
             var name: String?
-            var startTime: NSDate?
-            var endTime: NSDate?
+//            var startTime: NSDate?
+//            var endTime: NSDate?
             var locationDesc: String?
 
             fetchData.managedObjectContext?.performAndWait
@@ -109,22 +109,22 @@ class EventsTableViewController: CoreDataTableViewController
                 // it's easy to forget to do this on the proper queue
                 
                 name = fetchData.name
-                startTime = fetchData.startTime
-                endTime = fetchData.endTime
+//                startTime = fetchData.startTime
+//                endTime = fetchData.endTime
                 locationDesc = fetchData.locationDesc
                 
                 activityId = fetchData.activityId
                 desc = fetchData.desc
                 bannerUrl = fetchData.bannerUrl
-                isHighlight = fetchData.isHighlight
-                isFavorite = fetchData.isFavorite
-                reservable = fetchData.reservable
-                isReserve = fetchData.isReserve
+//                isHighlight = fetchData.isHighlight
+//                isFavorite = fetchData.isFavorite
+//                reservable = fetchData.reservable
+//                isReserve = fetchData.isReserve
                 toTags = fetchData.toTags
                 toFaculty = fetchData.toFaculty
                 toImages = fetchData.toImages
                 toVideos = fetchData.toVideos
-                dateText = fetchData.dateText
+//                dateText = fetchData.dateText
                 // we're not assuming the context is a main queue context
                 // so we'll grab the screenName and return to the main queue
                 // to do the cell.textLabel?.text setting
@@ -133,22 +133,22 @@ class EventsTableViewController: CoreDataTableViewController
             {
                 
                 eventCell.name = name
-                eventCell.startTime = startTime
-                eventCell.endTime = endTime
+//                eventCell.startTime = startTime
+//                eventCell.endTime = endTime
                 eventCell.locationDesc = locationDesc
                 
                 eventCell.activityId = activityId
                 eventCell.desc = desc
                 eventCell.bannerUrl = bannerUrl
-                eventCell.isHighlight = isHighlight
-                eventCell.isFavorite = isFavorite
-                eventCell.reservable = reservable
-                eventCell.isReserve = isReserve
+//                eventCell.isHighlight = isHighlight
+//                eventCell.isFavorite = isFavorite
+//                eventCell.reservable = reservable
+//                eventCell.isReserve = isReserve
                 eventCell.toTags = toTags
                 eventCell.toFaculty = toFaculty
                 eventCell.toImages = toImages
                 eventCell.toVideos = toVideos
-                eventCell.dateText = dateText
+//                eventCell.dateText = dateText
                 
             }
         }
@@ -158,55 +158,65 @@ class EventsTableViewController: CoreDataTableViewController
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let currentCell = tableView.cellForRow(at: indexPath) as? EventTableViewCell
-        
-        selectedActivityId = currentCell?.activityId
-        selectedName = currentCell?.name
-        selectedStartTime = currentCell?.startTime
-        selectedEndTime = currentCell?.endTime
-        selectedLocationDesc = currentCell?.locationDesc
-        selectedDesc = currentCell?.desc
-        selectedBannerUrl = currentCell?.bannerUrl
-        selectedIsHighlight = currentCell?.isHighlight
-        selectedIsFavorite = currentCell?.isFavorite
-        selectedReservable = currentCell?.reservable
-        selectedIsReserve = currentCell?.isReserve
-        selectedToTags = currentCell?.toTags
-        selectedToFaculty = currentCell?.toFaculty
-        selectedToImages = currentCell?.toImages
-        selectedToVideos = currentCell?.toVideos
-        selectedDateText = currentCell?.dateText
-            
-        self.performSegue(withIdentifier: "toEventDetails", sender: self)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        let currentCell = tableView.cellForRow(at: indexPath) as? EventTableViewCell
+//        
+//        selectedActivityId = currentCell?.activityId
+//        selectedName = currentCell?.name
+//        selectedStartTime = currentCell?.startTime
+//        selectedEndTime = currentCell?.endTime
+//        selectedLocationDesc = currentCell?.locationDesc
+//        selectedDesc = currentCell?.desc
+//        selectedBannerUrl = currentCell?.bannerUrl
+//        selectedIsHighlight = currentCell?.isHighlight
+//        selectedIsFavorite = currentCell?.isFavorite
+//        selectedReservable = currentCell?.reservable
+//        selectedIsReserve = currentCell?.isReserve
+//        selectedToTags = currentCell?.toTags
+//        selectedToFaculty = currentCell?.toFaculty
+//        selectedToImages = currentCell?.toImages
+//        selectedToVideos = currentCell?.toVideos
+//        selectedDateText = currentCell?.dateText
+//            
+//        self.performSegue(withIdentifier: "toEventDetails", sender: self)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        print ("segue0")
         if segue.identifier == "toEventDetails" {
             
-            let destination = segue.destination as! EventDetailsTableViewController
+            print ("segue1")
             
-            destination.activityId = selectedActivityId
-            destination.name = selectedName
-            destination.startTime = selectedStartTime
-            destination.endTime = selectedEndTime
-            destination.locationDesc = selectedLocationDesc
-            destination.desc = selectedDesc
-            destination.bannerUrl = selectedBannerUrl
-            destination.isHighlight = selectedIsHighlight
-            destination.isFavorite = selectedIsFavorite
-            destination.reservable = selectedReservable
-            destination.isReserve = selectedIsReserve
-            destination.toTags = selectedToTags
-            destination.toFaculty = selectedToFaculty
-            destination.toImages = selectedToImages
-            destination.toVideos = selectedToVideos
-            destination.dateText = selectedDateText
-            
+            if let destination = segue.destination as? EventDetailsTableViewController{
+                
+                if let eventcell = sender as? EventTableViewCell?{
+                    
+                    if let id = eventcell?.activityId{
+                        
+                        if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
+                            destination.activityId = fetch.activityId
+                            destination.name = fetch.name
+                            destination.startTime = NSDate()
+                            destination.endTime = NSDate()
+                            destination.locationDesc = fetch.locationDesc
+                            destination.desc = fetch.desc
+                            destination.bannerUrl = fetch.bannerUrl
+                            destination.isHighlight = false
+                            destination.isFavorite = false
+                            destination.reservable = true
+                            destination.isReserve = false
+                            destination.toTags = fetch.toTags
+                            destination.toFaculty = fetch.toFaculty
+                            destination.toImages = fetch.toImages
+                            destination.toVideos = fetch.toVideos
+                            destination.dateText = "Today"
+                        }
+                    }
+                }
+            }
         }
-        
     }
     
 }

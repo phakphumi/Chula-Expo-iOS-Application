@@ -50,14 +50,14 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
         }
         else if section == 1{
             if let i = fetchedResultsController?.sections?[0]{
-                return i.numberOfObjects
+                return i.numberOfObjects+1
             }
             return 0
         }
         else if section == 2{
             if let i = fetchedResultsController2?.sections?[0]{
                 print("section 2 == \(i.numberOfObjects)")
-                return i.numberOfObjects
+                return i.numberOfObjects+1
             }
             print("section 2 else")
             return 0

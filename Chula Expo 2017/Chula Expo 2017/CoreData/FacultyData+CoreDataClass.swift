@@ -1,36 +1,38 @@
 //
-//  TagData+CoreDataClass.swift
+//  FacultyData+CoreDataClass.swift
 //  Chula Expo 2017
 //
-//  Created by NOT on 1/20/2560 BE.
+//  Created by NOT on 1/23/2560 BE.
 //  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-@objc(TagData)
-public class TagData: NSManagedObject {
+@objc(FacultyData)
+public class FacultyData: NSManagedObject {
     
     class func addData(
         name: String,
+        shortName: String,
         inManageobjectcontext context: NSManagedObjectContext
-        ) -> TagData?
+        ) -> FacultyData?
     {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FacultyData")
         request.predicate = NSPredicate(format: "name = %@", name)
         
-        if let result = (try? context.fetch(request))?.first as? TagData
+        if let result = (try? context.fetch(request))?.first as? FacultyData
         {
             // found this event in the database, return it ...
             print("Found \(result.name)")
             return result
         }
         else {
-            if let newData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData
+            if let newData = NSEntityDescription.insertNewObject(forEntityName: "FacultyData", into: context) as? FacultyData
             {
                 // created a new event in the database
                 newData.name = name
+                newData.shortName = shortName
                 return newData
             }
         }

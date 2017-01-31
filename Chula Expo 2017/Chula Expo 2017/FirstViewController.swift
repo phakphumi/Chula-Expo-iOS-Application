@@ -15,35 +15,24 @@ class FirstViewController: MainCoreDataTableViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     @IBOutlet var homeTableView: UITableView!
-    @IBOutlet var headerSectionView: UIView!
-    @IBOutlet var headerSectionView2: UIView!
+    @IBOutlet var tableHeader: TableHeaderView!
+    @IBOutlet var tableHeader2: TableHeaderView!
     @IBOutlet weak var facityCapsule: UILabel!
     @IBOutlet weak var reserveCapsule: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         requestForStageEvent()
         requestForFeedEvent()
         addDemoData()
-        
-        
-//         Uncomment the following line to preserve selection between presentations
-//         self.clearsSelectionOnViewWillAppear = false
-//
-//         Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-//        createGradientNavBar()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
         UIApplication.shared.statusBarStyle = .default
-        
     }
     
 // Core Data
@@ -51,7 +40,6 @@ class FirstViewController: MainCoreDataTableViewController {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
         request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: true))
-
         request.sortDescriptors = [NSSortDescriptor(
         key: "stageNo",
         ascending: true
@@ -84,11 +72,8 @@ class FirstViewController: MainCoreDataTableViewController {
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
-            
         }
-        
     }
-    
     
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
         
@@ -99,7 +84,7 @@ class FirstViewController: MainCoreDataTableViewController {
         } else {
             
             let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชั่นนี้สนับสนุนเฉพาะผู้เข้าระบบผ่าน Facebook เท่านั้น", preferredStyle: UIAlertControllerStyle.alert)
-            
+        
             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             
             self.present(confirm, animated: true, completion: nil)
@@ -111,7 +96,6 @@ class FirstViewController: MainCoreDataTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
     }
 
     // MARK: - Table view data source
@@ -124,38 +108,44 @@ class FirstViewController: MainCoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath)
             cell.selectionStyle = .none
-            
             let slideshowPageViewController = SlideshowPageViewController()
             slideshowPageViewController.view.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
             slideshowPageViewController.view.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
             self.addChildViewController(slideshowPageViewController)
-            
             cell.contentView.addSubview(slideshowPageViewController.view)
-    
+        }
+            
+        else if indexPath.section == 1 && indexPath.row == 0{
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath)
+            if let headerCell = cell as? HeaderTableViewCell{
+                headerCell.title1 = "NOW ON STAGE"
+                headerCell.title2 = "กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้"
+                headerCell.iconImage = "playIcon"
+            }
         }
             
         else if indexPath.section == 1{
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
-                if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row, section: 0)) as? ActivityData
-                {
-                    var name: String?
-                    var startTime: NSDate?
-                    var endTime: NSDate?
-                    var stage: Int?
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData
+            {
+                
+                var name: String?
+                var round: NSSet?
+                var stage: Int?
                 fetchData.managedObjectContext?.performAndWait                {
                     // it's easy to forget to do this on the proper queue
                     name = fetchData.name
-                    startTime = fetchData.startTime
-                    endTime = fetchData.endTime
+                    round = fetchData.toRound
                     stage = Int(fetchData.stageNo)
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue
                     // to do the cell.textLabel?.text setting
-                   }
+                }
                 if let stageCell = cell as? StageCell{
                     stageCell.name = name
-                    stageCell.startTime = startTime
-                    stageCell.endTime = endTime
+                    stageCell.toRound = round
                     stageCell.stage = stage
                 }
                 let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))
@@ -163,24 +153,31 @@ class FirstViewController: MainCoreDataTableViewController {
                 cell.contentView.addSubview(seperator)
             }
         }
-        else{
-            print("section else")
+            
+        else if indexPath.section == 2 && indexPath.row == 0{
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath)
+            if let headerCell = cell as? HeaderTableViewCell{
+                headerCell.title1 = "EVENTS FOR YOU"
+                headerCell.title2 = "แนะนำกิจกรรมที่คุณอาจสนใจ"
+                headerCell.iconImage = "heartIcon"
+            }
+        }
+
+        else {
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row, section: 0)) as? ActivityData{
+            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
                 var name: String?
-                var startTime: NSDate?
-                var endTime: NSDate?
+                var toRound: NSSet?
                 var thumbnail: String?
                 var facity: NSSet?
-                var date: String?
                 fetchData.managedObjectContext?.performAndWait{
                     // it's easy to forget to do this on the proper queue
                     name = fetchData.name
-                    startTime = fetchData.startTime
-                    endTime = fetchData.endTime
                     thumbnail = fetchData.thumbnailsUrl
                     facity = fetchData.toFaculty
-                    date = fetchData.dateText
+                    toRound = fetchData.toRound
                     // we're not assuming the context is a main queue context
                     // so we'll grab the screenName and return to the main queue
                     // to do the cell.textLabel?.text setting
@@ -189,78 +186,58 @@ class FirstViewController: MainCoreDataTableViewController {
                 if let eventFeedCell = cell as? EventFeedCell{
                     print("feedCell name == \(name)")
                     eventFeedCell.name = name
-                    eventFeedCell.startTime = startTime
-                    eventFeedCell.endTime = endTime
+                    eventFeedCell.toRound = toRound
                     eventFeedCell.thumbnail = thumbnail
                     eventFeedCell.facity = facity
-                    eventFeedCell.date = date
                 }
             }
         }
-        return cell
         
+        return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
-            return headerSectionView
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        if section == 0 {
+            return 4
         }
-        else if section == 2 {
-            return headerSectionView2
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 0{
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+            view.backgroundColor = UIColor.groupTableViewBackground
+            return view
         }
         return nil
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section > 0 {
-            return 50
-        }
-        return 0
-        
-    }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 0 || section == 1{
-            return 8
-        }
-        return 0
-    }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
         if indexPath.row == 0 && indexPath.section == 0 {
             return self.view.bounds.width * 218 / 375
         }
         else if indexPath.section == 1{
-            return 55
+            
+            if indexPath.row == 0{
+                
+                return 58
+            }
+            
+            return 63
         }
         else if indexPath.section == 2{
-            return 70
+            
+            if indexPath.row == 0{
+                
+                return 58
+            }
+            
+            return 78
         }
+        
         return UITableViewAutomaticDimension
-    }
-    
-    func createGradientNavBar() {
-        
-        //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
-        let headGradientColor = UIColor(red: 0.73, green: 0.15, blue: 0.56, alpha: 1).cgColor
-        let tailGradientColor = UIColor(red: 0.46, green: 0.13, blue: 0.61, alpha: 1).cgColor        
-        //Begin, create gradient layer with 2 colors shade and start gradient from left to right
-        let gradientLayer = CAGradientLayer()
-        var navIncludeStatFrame = navigationController!.navigationBar.bounds
-        navIncludeStatFrame.size.height += 20
-        gradientLayer.frame = navIncludeStatFrame
-        gradientLayer.colors = [headGradientColor, tailGradientColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        //End
-        
-        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
-        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        navigationController?.navigationBar.tintColor = UIColor.white
         
     }
     
@@ -277,6 +254,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     endTime: NSDate(),
                     isFavorite: false,
                     reservable: true,
+                    fullCapacity: 100,
+                    reserved: 15,
+                    seatAvaliable: 17,
                     isReserve: false,
                     inManageobjectcontext: context)
                 _ = ActivityData.addStageEventData(
@@ -288,6 +268,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     endTime: NSDate(),
                     isFavorite: false,
                     reservable: true,
+                    fullCapacity: 90,
+                    reserved: 1,
+                    seatAvaliable: 0,
                     isReserve: false,
                     inManageobjectcontext: context)
                 _ = ActivityData.addStageEventData(
@@ -299,6 +282,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     endTime: NSDate(),
                     isFavorite: false,
                     reservable: true,
+                    fullCapacity: 2,
+                    reserved: 1,
+                    seatAvaliable: 1,
                     isReserve: false,
                     inManageobjectcontext: context)
                 _ = ActivityData.addEventData(
@@ -313,6 +299,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     isFavorite: false,
                     isHighlight: true,
                     reservable: true,
+                    fullCapacity: 20,
+                    reserved: 0,
+                    seatAvaliable: 20,
                     isReserve: false,
                     toImages: NSSet(object: ImageData.addData(url: "technology", inManageobjectcontext: context)!),
                     toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
@@ -332,6 +321,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     isFavorite: false,
                     isHighlight: true,
                     reservable: true,
+                    fullCapacity: 55,
+                    reserved: 12,
+                    seatAvaliable: 13,
                     isReserve: false,
                     toImages: NSSet(objects:
                                              ImageData.addData(url: "cryonics1", inManageobjectcontext: context)!,

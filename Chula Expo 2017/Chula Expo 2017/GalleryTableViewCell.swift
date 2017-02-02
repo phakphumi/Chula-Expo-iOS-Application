@@ -8,37 +8,24 @@
 
 import UIKit
 
-class GalleryTableViewCell: UITableViewCell {
+class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
+    @IBOutlet var galleryCollectionView: UICollectionView!
     @IBOutlet var galleryView: UIView!
+    
+    var images = [#imageLiteral(resourceName: "robot6"), #imageLiteral(resourceName: "robot9"), #imageLiteral(resourceName: "robot5"), #imageLiteral(resourceName: "robot12"), #imageLiteral(resourceName: "robot10"), #imageLiteral(resourceName: "robot11")]
+    /*
     @IBOutlet var image1: UIImageView!
     @IBOutlet var image2: UIImageView!
     @IBOutlet var image3: UIImageView!
     @IBOutlet var image4: UIImageView!
     @IBOutlet var image5: UIImageView!
     @IBOutlet var image6: UIImageView!
-
+     */
     
     var imageAlbum = [UIImageView]()
-    var numberOfInputImage = 0
-    private static var _galleryHeight: CGFloat = 0
     
-    static var galleryHeight: CGFloat {
-        
-        get {
-            
-            return self._galleryHeight
-            
-        }
-        set(value) {
-            
-            self._galleryHeight = value
-            
-        }
-        
-    }
-    
-    private func setImageTag() {
+    /*private func setImageTag() {
         
         image1.tag = 0
         image2.tag = 1
@@ -57,7 +44,7 @@ class GalleryTableViewCell: UITableViewCell {
             
         }
         
-    }
+    }*/
     
     func wasTapped(gestureRecognizer: UIPanGestureRecognizer) {
         
@@ -69,22 +56,43 @@ class GalleryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.layoutIfNeeded()
-        self.setNeedsLayout()
+        galleryCollectionView.delegate = self
+        galleryCollectionView.dataSource = self
         
+        /*
         imageAlbum = [image1, image2, image3, image4,
                       image5, image6]
         
+        
         setImageTag()
-        clearImage()
+        clearImage() */
         
     }
     
-    override func layoutSubviews() {
-            
-            GalleryTableViewCell.galleryHeight = 80
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return images.count
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as UICollectionViewCell
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        
+        imageView.image = images[indexPath.row]
+        
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: 50, height: 50)
+        
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

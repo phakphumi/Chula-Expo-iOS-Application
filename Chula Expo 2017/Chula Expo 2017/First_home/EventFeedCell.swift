@@ -82,7 +82,7 @@ class EventFeedCell: UITableViewCell {
             let cap = getCapsule(forFacity: fac.name!)
             facityCapsule.text = cap.facText
             facityCapsule.backgroundColor = cap.facColor
-            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/2
+            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/4.5
             facityCapsule.layer.masksToBounds = true
         }
         makeReserveCapsule()

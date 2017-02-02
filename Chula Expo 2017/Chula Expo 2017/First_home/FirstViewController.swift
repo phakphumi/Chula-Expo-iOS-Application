@@ -30,9 +30,9 @@ class FirstViewController: MainCoreDataTableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+        self.tableView.reloadData()
     }
     
 // Core Data
@@ -241,6 +241,15 @@ class FirstViewController: MainCoreDataTableViewController {
         
         return UITableViewAutomaticDimension
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "stageSelect"{
+            if let dest = segue.destination as? StageExpandTableViewController{
+                dest.managedObjectContext = managedObjectContext
+                dest.stageNo = 1
+            }
+        }
     }
     
     private func addDemoData(){

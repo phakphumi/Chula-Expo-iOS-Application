@@ -12,8 +12,8 @@ class CapsuleUILabel: UILabel {
 
     let topInset = CGFloat(0)
     let bottomInset = CGFloat(0)
-    let leftInset = CGFloat(5)
-    let rightInset = CGFloat(5)
+    let leftInset = CGFloat(2.5)
+    let rightInset = CGFloat(2.5)
     
     override func drawText(in rect: CGRect)
     {

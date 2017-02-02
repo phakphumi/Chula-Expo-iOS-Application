@@ -57,13 +57,15 @@
 		802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */; };
 		802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */; };
 		802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F13B21E23FC240098A687 /* BookTableViewCell.swift */; };
-		803BCC791E31218900F4BA78 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803BCC781E31218900F4BA78 /* View.xib */; };
+		803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803688AA1E42595300C1FB58 /* StageDetailCell.swift */; };
 		803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */; };
 		805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
 		805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
 		805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
 		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
-		805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */; };
+		8059FF201E41AEE800B013B3 /* StageExpandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */; };
+		8059FF221E41B1F800B013B3 /* StageExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */; };
+		8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */; };
 		80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */; };
@@ -145,9 +147,11 @@
 		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
-		803BCC781E31218900F4BA78 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageDetailCell.swift; sourceTree = "<group>"; };
 		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
-		805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageEventDetailTableViewController.swift; sourceTree = "<group>"; };
+		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = ../StageExpandTableViewController.swift; sourceTree = "<group>"; };
+		8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageExpandableCell.swift; sourceTree = "<group>"; };
+		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleUILabel.swift; sourceTree = "<group>"; };
 		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -376,8 +380,10 @@
 		803BCC771E31117900F4BA78 /* StageEvent */ = {
 			isa = PBXGroup;
 			children = (
-				805029C81E2B61F6009ABF2C /* StageEventDetailTableViewController.swift */,
-				803BCC781E31218900F4BA78 /* View.xib */,
+				8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */,
+				8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */,
+				803688AA1E42595300C1FB58 /* StageDetailCell.swift */,
+				8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */,
 			);
 			name = StageEvent;
 			sourceTree = "<group>";
@@ -474,7 +480,6 @@
 				5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
 				5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */,
-				803BCC791E31218900F4BA78 /* View.xib in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
 				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
 				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
@@ -494,6 +499,7 @@
 				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				80DC94261E366B5200A1D01A /* RoundData+CoreDataProperties.swift in Sources */,
+				8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
@@ -516,17 +522,20 @@
 				5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */,
 				5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
+				8059FF221E41B1F800B013B3 /* StageExpandableCell.swift in Sources */,
 				800D58431E40A4ED00E854E8 /* interestCollectionViewCell1.swift in Sources */,
 				5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */,
 				80DC94281E366B5200A1D01A /* ActivityData+CoreDataProperties.swift in Sources */,
 				808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
+				803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
 				800D58441E40A4ED00E854E8 /* InterestCollectionViewController.swift in Sources */,
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
 				80DC94241E366B5200A1D01A /* FacultyData+CoreDataProperties.swift in Sources */,
 				80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */,
+				8059FF201E41AEE800B013B3 /* StageExpandTableViewController.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
 				80DC94251E366B5200A1D01A /* RoundData+CoreDataClass.swift in Sources */,
@@ -544,7 +553,6 @@
 				80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */,
 				5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */,
 				80DC94231E366B5200A1D01A /* FacultyData+CoreDataClass.swift in Sources */,
-				805029C91E2B61F6009ABF2C /* StageEventDetailTableViewController.swift in Sources */,
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
 				80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */,
 				803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */,

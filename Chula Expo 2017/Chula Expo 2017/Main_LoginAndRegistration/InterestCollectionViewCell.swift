@@ -29,6 +29,13 @@ class InterestCollectionViewCell: UICollectionViewCell {
             updateUI()
         }
     }
+    
+    var tagEngName: [String?] = ["","",""]
+        {
+        didSet{
+            updateUI()
+        }
+    }
     @IBOutlet weak var interestView1: UIView! {
         didSet{
             roundedCornerBack1()
@@ -37,6 +44,7 @@ class InterestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backImg1: UIImageView!
     @IBOutlet weak var interestImg1: UIImageView!
     @IBOutlet weak var interestName1: UILabel!
+    @IBOutlet weak var engName1: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -93,7 +101,8 @@ class InterestCollectionViewCell: UICollectionViewCell {
        // backImg1.image = nil
         interestName1.isHidden = true
         
-        
+        engName1.text = nil
+        engName1.isHidden = true
         //Set new data
         if let Iname1: String = imgName[0]
         {
@@ -107,6 +116,11 @@ class InterestCollectionViewCell: UICollectionViewCell {
         {
             if(Tname1 != ""){interestName1.isHidden = false}
             interestName1.text = Tname1
+        }
+        if let Ename1: String = tagEngName[0]
+        {
+            if(Ename1 != ""){engName1.isHidden = false}
+            engName1.text = Ename1
         }
     }
     

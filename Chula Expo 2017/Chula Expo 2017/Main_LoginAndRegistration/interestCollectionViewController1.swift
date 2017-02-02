@@ -18,16 +18,34 @@ class interestCollectionViewController1: UICollectionViewController {
         var imgName: String = ""
         var tagName: String = ""
         var tagBack: String = ""
+        var tagEngName: String = ""
     }
     
     var tagList : [tag] = [
-        tag(imgName: "heartIcon",  tagName: "Technology1",  tagBack: "technology"),
-        tag(imgName: "heartIcon",  tagName: "Technology2",  tagBack: "technology"),
-        tag(imgName: "heartIcon",  tagName: "Technology3",  tagBack: "technology"),
-        tag(imgName: "heartIcon",  tagName: "Technology4",  tagBack: "technology"),
-        tag(imgName: "heartIcon",  tagName: "Technology5",  tagBack: "technology"),
-        tag(imgName: "heartIcon",  tagName: "Technology6",  tagBack: "technology"),
-        tag(imgName: "heartIcon",  tagName: "Technology7",  tagBack: "technology")
+        tag(imgName: "heartIcon",  tagName: "พระราชกรณียกิจ",  tagBack: "technology",  tagEngName: "Royal Duties"),
+        tag(imgName: "heartIcon",  tagName: "ไทยแลนด์ 4.0",  tagBack: "technology",  tagEngName: "Thailand 4.0"),
+        tag(imgName: "heartIcon",  tagName: "พลังงาน",  tagBack: "technology",  tagEngName: "Energy"),
+        tag(imgName: "heartIcon",  tagName: "สิ่งประดิษฐ์",  tagBack: "technology",  tagEngName: "Invention"),
+        tag(imgName: "heartIcon",  tagName: "การออกแบบ",  tagBack: "technology",  tagEngName: "Design"),
+        tag(imgName: "heartIcon",  tagName: "ไอที",  tagBack: "technology",  tagEngName: "IT"),
+        tag(imgName: "heartIcon",  tagName: "การแพทย์",  tagBack: "technology",  tagEngName: "Medication"),
+        tag(imgName: "heartIcon",  tagName: "ร่างกาย",  tagBack: "technology",  tagEngName: "Body"),
+        tag(imgName: "heartIcon",  tagName: "จิตใจ",  tagBack: "technology",  tagEngName: "Mind"),
+        tag(imgName: "heartIcon",  tagName: "สิ่งแวดล้อม",  tagBack: "technology",  tagEngName: "Environment"),
+        tag(imgName: "heartIcon",  tagName: "สัตว์และพันธุ์พืช",  tagBack: "technology",  tagEngName: "Life"),
+        tag(imgName: "heartIcon",  tagName: "อาหารและน้ำ",  tagBack: "technology",  tagEngName: "Food & Water"),
+        tag(imgName: "heartIcon",  tagName: "ความงาม",  tagBack: "technology",  tagEngName: "Beauty"),
+        tag(imgName: "heartIcon",  tagName: "คุณภาพชีวิต",  tagBack: "technology",  tagEngName: "Quality of Life"),
+        tag(imgName: "heartIcon",  tagName: "สังคมผู้สูงอายุ",  tagBack: "technology",  tagEngName: "Aging Society"),
+        tag(imgName: "heartIcon",  tagName: "เศรษฐกิจ",  tagBack: "technology",  tagEngName: "Economy"),
+        tag(imgName: "heartIcon",  tagName: "ชุมชน",  tagBack: "technology",  tagEngName: "Community"),
+        tag(imgName: "heartIcon",  tagName: "ปัญหาสังคม",  tagBack: "technology",  tagEngName: "Social Issues"),
+        tag(imgName: "heartIcon",  tagName: "การศึกษา",  tagBack: "technology",  tagEngName: "Education"),
+        tag(imgName: "heartIcon",  tagName: "การสื่อสาร",  tagBack: "technology",  tagEngName: "Communication"),
+        tag(imgName: "heartIcon",  tagName: "การขนส่ง",  tagBack: "technology",  tagEngName: "Transportation"),
+        tag(imgName: "heartIcon",  tagName: "ภูมิปัญญาไทย",  tagBack: "technology",  tagEngName: "Thai"),
+        tag(imgName: "heartIcon",  tagName: "ศิลปวัฒนธรรม",  tagBack: "technology",  tagEngName: "Art & Culture"),
+        tag(imgName: "heartIcon",  tagName: "กฎหมาย",  tagBack: "technology",  tagEngName: "Law")
     ]
     
     
@@ -89,6 +107,7 @@ class interestCollectionViewController1: UICollectionViewController {
                 interestCell.imgName[0] = tagList[(indexPath.row)].imgName
                 interestCell.tagName[0] = tagList[(indexPath.row)].tagName
                 interestCell.tagBack[0] = tagList[(indexPath.row)].tagBack
+                interestCell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
             }else{
                 interestCell.tagName[0] = ""
             }

@@ -10,7 +10,9 @@ import UIKit
 
 class GalleryViewController: UIPageViewController, UIPageViewControllerDataSource {
 
-    var imageName = [String]()
+//    var imageName = [String]()
+
+    var images = [UIImage]()
     
     let appearance = UIPageControl.appearance()
     
@@ -22,7 +24,8 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
         self.view.backgroundColor = UIColor.black
         
         let frameViewController = ImageFrameViewController()
-        frameViewController.imageName = imageName.first
+//        frameViewController.imageName = imageName.first
+        frameViewController.image = images.first
         let viewController = [frameViewController]
         
         setViewControllers(viewController, direction: .forward, animated: true, completion: nil)
@@ -116,8 +119,10 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
         
         setupPageControl()
         
-        return imageName.count
-        
+//        return imageName.count
+
+        return images.count
+
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
@@ -128,17 +133,29 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        let currentImageFrameName = (viewController as! ImageFrameViewController).imageName
-        let currentImageIndex = imageName.index(of: currentImageFrameName!)
-        
-        if currentImageIndex! < imageName.count - 1 {
+//        let currentImageFrameName = (viewController as! ImageFrameViewController).imageName
+//        let currentImageIndex = imageName.index(of: currentImageFrameName!)
+
+        let currentImageFrameName = (viewController as! ImageFrameViewController).image
+        let currentImageIndex = images.index(of: currentImageFrameName!)
+
+        if currentImageIndex! < images.count - 1 {
             
             let frameViewController = ImageFrameViewController()
-            frameViewController.imageName = imageName[currentImageIndex! + 1]
+            frameViewController.image = images[currentImageIndex! + 1]
             
             return frameViewController
             
         }
+        
+//        if currentImageIndex! < imageName.count - 1 {
+//            
+//            let frameViewController = ImageFrameViewController()
+//            frameViewController.imageName = imageName[currentImageIndex! + 1]
+//            
+//            return frameViewController
+//            
+//        }
         
         return nil
         
@@ -146,17 +163,29 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        let currentImageFrameName = (viewController as! ImageFrameViewController).imageName
-        let currentImageIndex = imageName.index(of: currentImageFrameName!)
-        
+//        let currentImageFrameName = (viewController as! ImageFrameViewController).imageName
+//        let currentImageIndex = imageName.index(of: currentImageFrameName!)
+
+        let currentImageFrameName = (viewController as! ImageFrameViewController).image
+        let currentImageIndex = images.index(of: currentImageFrameName!)
+
         if currentImageIndex! > 0 {
             
             let frameViewController = ImageFrameViewController()
-            frameViewController.imageName = imageName[currentImageIndex! - 1]
+            frameViewController.image = images[currentImageIndex! - 1]
             
             return frameViewController
             
         }
+        
+//        if currentImageIndex! > 0 {
+//            
+//            let frameViewController = ImageFrameViewController()
+//            frameViewController.imageName = imageName[currentImageIndex! - 1]
+//            
+//            return frameViewController
+//            
+//        }
         
         return nil
         

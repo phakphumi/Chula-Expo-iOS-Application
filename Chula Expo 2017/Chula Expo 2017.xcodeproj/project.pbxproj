@@ -12,6 +12,7 @@
 		581940D31E4473E0000C566C /* HeaderSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D21E4473E0000C566C /* HeaderSearchTableViewCell.swift */; };
 		581940D51E44783B000C566C /* MapSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D41E44783A000C566C /* MapSearchTableViewCell.swift */; };
 		581940D71E44A072000C566C /* EventfeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D61E44A072000C566C /* EventfeedTableViewCell.swift */; };
+		581940D91E4516BF000C566C /* interestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D81E4516BF000C566C /* interestViewController.swift */; };
 		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
@@ -105,6 +106,7 @@
 		581940D21E4473E0000C566C /* HeaderSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderSearchTableViewCell.swift; sourceTree = "<group>"; };
 		581940D41E44783A000C566C /* MapSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchTableViewCell.swift; sourceTree = "<group>"; };
 		581940D61E44A072000C566C /* EventfeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventfeedTableViewCell.swift; sourceTree = "<group>"; };
+		581940D81E4516BF000C566C /* interestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interestViewController.swift; sourceTree = "<group>"; };
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthHeadTableViewCell.swift; path = Fourth_more/FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthMenuTableViewCell.swift; path = Fourth_more/FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				581940D81E4516BF000C566C /* interestViewController.swift */,
 			);
 			name = Main_LoginAndRegistration;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
 				58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */,
 				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
+				581940D91E4516BF000C566C /* interestViewController.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				80DC94261E366B5200A1D01A /* RoundData+CoreDataProperties.swift in Sources */,
 				8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */,

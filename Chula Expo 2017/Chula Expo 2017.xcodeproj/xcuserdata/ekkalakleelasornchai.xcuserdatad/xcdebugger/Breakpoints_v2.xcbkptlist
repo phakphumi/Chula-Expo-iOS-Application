@@ -301,16 +301,109 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chula Expo 2017/SearchViewController.swift"
+            timestampString = "507813435.922247"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "SearchViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chula_Expo_2017.SearchViewController.homeTableView.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
+                  moduleName = "Chula Expo 2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekkalakleelasornchai/Chula-Expo-iOS-Application/Chula%20Expo%202017/Chula%20Expo%202017/SearchViewController.swift"
+                  timestampString = "507813436.064463"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chula_Expo_2017.SearchViewController.homeTableView.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITableView&gt;"
+                  moduleName = "Chula Expo 2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekkalakleelasornchai/Chula-Expo-iOS-Application/Chula%20Expo%202017/Chula%20Expo%202017/SearchViewController.swift"
+                  timestampString = "507813436.073666"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chula_Expo_2017.SearchViewController.init (style : __C.UITableViewStyle) -&gt; Chula_Expo_2017.SearchViewController"
+                  moduleName = "Chula Expo 2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekkalakleelasornchai/Chula-Expo-iOS-Application/Chula%20Expo%202017/Chula%20Expo%202017/SearchViewController.swift"
+                  timestampString = "507813436.077984"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chula_Expo_2017.SearchViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Chula_Expo_2017.SearchViewController"
+                  moduleName = "Chula Expo 2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekkalakleelasornchai/Chula-Expo-iOS-Application/Chula%20Expo%202017/Chula%20Expo%202017/SearchViewController.swift"
+                  timestampString = "507813436.083459"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "549">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chula_Expo_2017.SearchViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Chula_Expo_2017.SearchViewController&gt;"
+                  moduleName = "Chula Expo 2017"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ekkalakleelasornchai/Chula-Expo-iOS-Application/Chula%20Expo%202017/Chula%20Expo%202017/SearchViewController.swift"
+                  timestampString = "507813436.087112"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chula Expo 2017/SearchViewController.swift"
-            timestampString = "507807521.162364"
+            timestampString = "507815038.845664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "printDatabaseStatistics()"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

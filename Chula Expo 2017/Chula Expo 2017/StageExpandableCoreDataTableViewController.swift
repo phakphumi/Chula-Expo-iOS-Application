@@ -10,8 +10,10 @@
 import UIKit
 import CoreData
 
-class StageExpandableCoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate
+class StageExpandableCoreDataTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate
 {
+    @IBOutlet weak var tableView: UITableView!
+    
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
             do {
@@ -19,7 +21,7 @@ class StageExpandableCoreDataTableViewController: UITableViewController, NSFetch
                     frc.delegate = self
                     try frc.performFetch()
                 }
-                tableView.reloadData()
+//                tableView.reloadData()
             } catch let error {
                 print("NSFetchedResultsController.performFetch() failed: \(error)")
             }
@@ -28,21 +30,25 @@ class StageExpandableCoreDataTableViewController: UITableViewController, NSFetch
     
     // MARK: UITableViewDataSource
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        print("numofsection == \(fetchedResultsController?.sections?.count)")
         return fetchedResultsController?.sections?.count ?? 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
     }
     
     
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
     
     // MARK: NSFetchedResultsControllerDelegate

@@ -56,7 +56,7 @@
         <scene sceneID="GHL-cU-sBM">
             <objects>
                 <navigationController id="5AM-Et-Oxl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xpl-Pi-vJ6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xpl-Pi-vJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -546,21 +546,11 @@
             </objects>
             <point key="canvasLocation" x="1058" y="560"/>
         </scene>
-        <!--Search-->
-        <scene sceneID="azQ-EP-kJ2">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="1412fm" storyboardName="Search" id="RyS-yf-zDG" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Zz1-zv-Ele"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ftc-KY-OZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1102" y="936"/>
-        </scene>
         <!--Interest Collection View Controller1-->
         <scene sceneID="gNO-Bh-YfC">
             <objects>
                 <collectionViewController id="u3o-TW-teR" customClass="interestCollectionViewController1" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" id="Fwc-Bj-iqM">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" id="Fwc-Bj-iqM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -585,7 +575,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="193" height="90"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t92-b8-hcH">
-                                                    <rect key="frame" x="80.5" y="21" width="32" height="32"/>
+                                                    <rect key="frame" x="81" y="21" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="t92-b8-hcH" secondAttribute="height" multiplier="1:1" id="DpW-lD-Hsa"/>
                                                     </constraints>
@@ -642,13 +632,7 @@
                         </connections>
                     </collectionView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Qfr-WR-3M6">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="BkM-hg-FVc">
-                            <connections>
-                                <segue destination="RyS-yf-zDG" kind="show" id="KJ2-U7-U4O"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Qfr-WR-3M6"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jca-Jm-LqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -837,7 +821,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hXP-9N-SOn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YyA-26-YjB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YyA-26-YjB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -854,7 +838,7 @@
         <scene sceneID="nVf-vm-ggR">
             <objects>
                 <collectionViewController id="AUp-fk-b68" customClass="InterestCollectionViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="mqu-9h-Jsd">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="mqu-9h-Jsd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -885,7 +869,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNp-tI-UMn">
-                                                    <rect key="frame" x="79" y="73.5" width="33.5" height="22.5"/>
+                                                    <rect key="frame" x="79" y="73" width="34" height="23"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>

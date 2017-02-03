@@ -11,7 +11,7 @@ import CoreData
 
 class StageExpandTableViewController: StageExpandableCoreDataTableViewController {
     
-    @IBOutlet var tblExpandable: UITableView!
+    
     
     var stageNo: Int?
         {

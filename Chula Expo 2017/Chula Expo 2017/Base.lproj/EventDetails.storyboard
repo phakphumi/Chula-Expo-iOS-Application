@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81E-PR-9MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3657" y="470"/>
+            <point key="canvasLocation" x="3657" y="363"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="B5G-9r-ePI">
@@ -446,9 +446,6 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
-                    <connections>
-                        <segue destination="NnA-DQ-MK0" kind="presentation" identifier="presentGallery" modalPresentationStyle="overFullScreen" modalTransitionStyle="coverVertical" id="anI-pP-S9f"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFo-Gq-w82" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -863,6 +860,9 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1200"/>
+                    <connections>
+                        <segue destination="NnA-DQ-MK0" kind="presentation" identifier="presentGallery" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Yor-31-QjQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKa-Jz-ai1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

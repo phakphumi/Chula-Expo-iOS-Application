@@ -191,7 +191,7 @@ class EventDetailsTableViewController: UITableViewController {
                     
                     print(image.url!)
                         
-                    gtvc.imageAlbum[count].image = UIImage(named: image.url!)
+//                    gtvc.imageAlbum[count].image = UIImage(named: image.url!)
                     
                     count += 1
                     
@@ -357,7 +357,7 @@ class EventDetailsTableViewController: UITableViewController {
             
             for image in images {
                 
-                destination?.imageName.append(image.url!)
+//                destination?.imageName.append(image.url!)
                 
             }
 

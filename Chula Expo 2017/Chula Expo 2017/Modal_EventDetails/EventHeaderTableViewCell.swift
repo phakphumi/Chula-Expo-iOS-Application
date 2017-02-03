@@ -23,6 +23,8 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
                 ["08.00-09.00", "10.00-11.00"]
                 ]
     
+    var isFavorite = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -35,12 +37,9 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         reserveView.layer.cornerRadius = 4
         reserveView.layer.masksToBounds = true
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventHeaderTableViewCell.tapOnButton))
+        reserveView.addGestureRecognizer(tapGestureRecognizer)
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -97,6 +96,49 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
     }
     
-    
+    func tapOnButton() {
+        
+        if isFavorite {
+            
+            let confirm = UIAlertController(title: "ยกเลิกการรายการโปรด", message: "คุณต้องการยกเลิกรายการโปรดใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.default, handler: nil))
+            
+            confirm.addAction(UIAlertAction(title: "ยืนยัน", style: UIAlertActionStyle.destructive, handler: { (action) in
+                
+                self.isFavorite = false
+                
+                
+            }))
+            
+            if let parentViewController = parentViewController as? UITableViewController {
+                
+                parentViewController.present(confirm, animated: true, completion: nil)
+                
+            }
+            
+        } else {
+            
+            let confirm = UIAlertController(title: "ยืนยันรายการโปรด", message: "คุณต้องการเพิ่มเข้ารายการโปรดใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.default, handler: nil))
+            
+            confirm.addAction(UIAlertAction(title: "ยืนยัน", style: UIAlertActionStyle.destructive, handler: { (action) in
+                
+                self.isFavorite = true
+                
+                
+            }))
+            
+            if let parentViewController = parentViewController as? UITableViewController {
+                
+                parentViewController.present(confirm, animated: true, completion: nil)
+                
+            }
+            
+        }
+
+        
+    }
 
 }

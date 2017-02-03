@@ -78,11 +78,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(section == 1){
-                return 3
+            if let i = fetchedResultsController?.sections?[0]{
+                return i.numberOfObjects+1
+            }
         }
-        else{
-                return 1
-        }
+            return 1
         
     }
     

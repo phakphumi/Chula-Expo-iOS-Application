@@ -64,8 +64,6 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         // Uncomment the following line to preserve selection between presentations
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -96,8 +94,8 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                 }
 
                 if let stageExpandableCell = cell as? StageExpandableCell{
-//                    stageExpandableCell.name = name
-//                    stageExpandableCell.time = "9:41"
+                    stageExpandableCell.name = name
+                    stageExpandableCell.time = "9:41"
                 }
             }
         }

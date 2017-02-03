@@ -10,16 +10,26 @@ import UIKit
 
 class ImageFrameViewController: UIViewController {
     
-    var imageName: String? {
+//    var imageName: String? {
+//        
+//        didSet {
+//            
+//            imageView.image = UIImage(named: imageName!)
+//            
+//        }
+//        
+//    }
+
+    var image: UIImage? {
         
         didSet {
             
-            imageView.image = UIImage(named: imageName!)
+            imageView.image = image
             
         }
         
     }
-
+    
     let imageView: UIImageView = {
         
         let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))

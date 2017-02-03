@@ -75,6 +75,12 @@ class FirstViewController: MainCoreDataTableViewController {
         }
     }
     
+    @IBAction func search(_ sender: UIBarButtonItem) {
+        
+        tabBarController?.performSegue(withIdentifier: "toSearch", sender: tabBarController)
+        
+    }
+    
     @IBAction func qrcode(_ sender: UIBarButtonItem) {
         
         if UserController.loginStatus! {

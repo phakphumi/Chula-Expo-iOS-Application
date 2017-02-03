@@ -13,7 +13,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     @IBOutlet var galleryCollectionView: UICollectionView!
     @IBOutlet var galleryView: UIView!
     
-    var images = [#imageLiteral(resourceName: "robot6"), #imageLiteral(resourceName: "robot9"), #imageLiteral(resourceName: "robot5"), #imageLiteral(resourceName: "robot12"), #imageLiteral(resourceName: "robot10"), #imageLiteral(resourceName: "robot11")]
+    var images = [UIImage]()
     /*
     @IBOutlet var image1: UIImageView!
     @IBOutlet var image2: UIImageView!
@@ -22,8 +22,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     @IBOutlet var image5: UIImageView!
     @IBOutlet var image6: UIImageView!
      */
-    
-    var imageAlbum = [UIImageView]()
+
     
     /*private func setImageTag() {
         
@@ -46,9 +45,11 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         
     }*/
     
-    func wasTapped(gestureRecognizer: UIPanGestureRecognizer) {
+    func wasTap(gestureRecognizer: UIPanGestureRecognizer) {
+
+        let parentVC = self.parentViewController!
         
-        
+        parentVC.performSegue(withIdentifier: "presentGallery", sender: parentVC)
         
     }
     
@@ -58,6 +59,11 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryTableViewCell.wasTap))
+        galleryCollectionView.addGestureRecognizer(tapGestureRecognizer)
+
+        galleryCollectionView.isUserInteractionEnabled = true
         
         /*
         imageAlbum = [image1, image2, image3, image4,

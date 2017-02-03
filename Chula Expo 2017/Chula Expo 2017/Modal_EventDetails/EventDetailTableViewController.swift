@@ -11,6 +11,8 @@ import UIKit
 class EventDetailTableViewController: UITableViewController {
     
     var reloadCount = 0
+    
+    var images = [#imageLiteral(resourceName: "robot6"), #imageLiteral(resourceName: "robot9"), #imageLiteral(resourceName: "robot5"), #imageLiteral(resourceName: "robot12"), #imageLiteral(resourceName: "robot10"), #imageLiteral(resourceName: "robot11")]
 
     @IBAction func cancel(_ sender: UIButton) {
     
@@ -131,6 +133,12 @@ class EventDetailTableViewController: UITableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "GalleryCell", for: indexPath)
             
+            if let gtvc = cell as? GalleryTableViewCell {
+            
+                gtvc.images = images
+                
+            }
+            
         } else if indexPath.row == 4 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath)
@@ -173,6 +181,27 @@ class EventDetailTableViewController: UITableViewController {
         } else {
             
             return 45
+            
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "presentGallery" {
+            
+            let destination = segue.destination as! GalleryViewController
+            
+//            let images = toImages.allObjects as! [ImageData]
+            
+            destination.images = images
+            
+//            for image in images {
+//                
+//                destination?.imageName.append(image.url!)
+//                
+//            }
+            
             
         }
         

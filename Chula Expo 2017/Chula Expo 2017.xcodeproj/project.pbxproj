@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		581940CF1E446395000C566C /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581940CE1E446395000C566C /* Search.storyboard */; };
+		581940D11E4463AB000C566C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D01E4463AB000C566C /* SearchViewController.swift */; };
 		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
@@ -95,6 +97,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		581940CE1E446395000C566C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		581940D01E4463AB000C566C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthHeadTableViewCell.swift; path = Fourth_more/FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthMenuTableViewCell.swift; path = Fourth_more/FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
@@ -200,6 +204,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		581940CD1E44637B000C566C /* Modal_Search */ = {
+			isa = PBXGroup;
+			children = (
+				581940CE1E446395000C566C /* Search.storyboard */,
+				581940D01E4463AB000C566C /* SearchViewController.swift */,
+			);
+			name = Modal_Search;
+			sourceTree = "<group>";
+		};
 		5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +312,7 @@
 		5F4A9D901E10300900713580 /* Chula Expo 2017 */ = {
 			isa = PBXGroup;
 			children = (
+				581940CD1E44637B000C566C /* Modal_Search */,
 				800052CB1E326F7D006C4E95 /* CoreData */,
 				5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */,
 				802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */,
@@ -487,6 +501,7 @@
 				5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
 				5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */,
+				581940CF1E446395000C566C /* Search.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
 				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
 				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
@@ -566,6 +581,7 @@
 				5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */,
 				80DC94231E366B5200A1D01A /* FacultyData+CoreDataClass.swift in Sources */,
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
+				581940D11E4463AB000C566C /* SearchViewController.swift in Sources */,
 				80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */,
 				803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,

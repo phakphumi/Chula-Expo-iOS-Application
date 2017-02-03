@@ -185,7 +185,7 @@ class EventDetailsTableViewController: UITableViewController {
                 
                 let images = toImages.allObjects as! [ImageData]
                 
-                gtvc.numberOfInputImage = images.count
+//                gtvc.numberOfInputImage = images.count
                 
                 for image in images {
                     
@@ -274,7 +274,7 @@ class EventDetailsTableViewController: UITableViewController {
             
         } else if indexPath.row == 3 {
             
-            return GalleryTableViewCell.galleryHeight
+            return 0
             
         } else if indexPath.row == 5 {
             

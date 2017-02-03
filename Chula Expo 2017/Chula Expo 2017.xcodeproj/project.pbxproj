@@ -31,6 +31,7 @@
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
 		5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */; };
 		5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */; };
+		5F4ED17D1E43082F008F3A19 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4ED17C1E43082F008F3A19 /* TagTableViewCell.swift */; };
 		5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */; };
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
 		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
@@ -39,9 +40,13 @@
 		5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */; };
 		5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */; };
 		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
+		5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E8E831E424A6400241904 /* MapTableViewCell.swift */; };
 		5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */; };
+		5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */; };
 		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
 		5FCE0A781E10E4B400E5DB16 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */; };
+		5FF51A5A1E40A802000DF788 /* EventHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */; };
+		5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */; };
 		5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */; };
 		5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */; };
 		8000A5401E3785A000AED5EF /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A53F1E3785A000AED5EF /* TableHeaderView.swift */; };
@@ -90,24 +95,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
-		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
+		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthHeadTableViewCell.swift; path = Fourth_more/FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
+		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthMenuTableViewCell.swift; path = Fourth_more/FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
-		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedTableViewController.swift; sourceTree = "<group>"; };
-		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestTableViewCell.swift; sourceTree = "<group>"; };
+		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestedTableViewController.swift; path = Main_LoginAndRegistration/InterestedTableViewController.swift; sourceTree = "<group>"; };
+		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestTableViewCell.swift; path = Main_LoginAndRegistration/InterestTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
-		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
-		5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsTableViewController.swift; sourceTree = "<group>"; };
-		5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhenAndWhereTableViewCell.swift; sourceTree = "<group>"; };
-		5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescTableViewCell.swift; sourceTree = "<group>"; };
-		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Modal_EventDetails/ImageTableViewCell.swift; sourceTree = "<group>"; };
+		5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailsTableViewController.swift; path = Modal_EventDetails/EventDetailsTableViewController.swift; sourceTree = "<group>"; };
+		5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhenAndWhereTableViewCell.swift; path = Modal_EventDetails/WhenAndWhereTableViewCell.swift; sourceTree = "<group>"; };
+		5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescTableViewCell.swift; path = Modal_EventDetails/DescTableViewCell.swift; sourceTree = "<group>"; };
+		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Main_LoginAndRegistration/LoginViewController.swift; sourceTree = "<group>"; };
 		5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SukhumvitSet.ttc; sourceTree = "<group>"; };
-		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		5F25B2301E10E006008A3B11 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		5F25B2321E10E018008A3B11 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		5F25B2341E10E027008A3B11 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
-		5F307C8B1E26893300DEF3B0 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
+		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = First_home/FirstViewController.swift; sourceTree = "<group>"; };
+		5F25B2301E10E006008A3B11 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = Second_map/SecondViewController.swift; sourceTree = "<group>"; };
+		5F25B2321E10E018008A3B11 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = Third_events/ThirdViewController.swift; sourceTree = "<group>"; };
+		5F25B2341E10E027008A3B11 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthViewController.swift; path = Fourth_more/FourthViewController.swift; sourceTree = "<group>"; };
+		5F307C8B1E26893300DEF3B0 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRViewController.swift; path = Modal_QR/QRViewController.swift; sourceTree = "<group>"; };
 		5F307C8E1E26AF0000DEF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QRCode.storyboard; sourceTree = "<group>"; };
 		5F4A9D8E1E10300900713580 /* Chula Expo 2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo 2017.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A9D911E10300900713580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,52 +120,57 @@
 		5F4A9D9B1E10300900713580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4A9D9E1E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F4A9DA01E10300900713580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestedViewController.swift; sourceTree = "<group>"; };
+		5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestedViewController.swift; path = Main_LoginAndRegistration/InterestedViewController.swift; sourceTree = "<group>"; };
+		5F4ED17C1E43082F008F3A19 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagTableViewCell.swift; path = Modal_EventDetails/TagTableViewCell.swift; sourceTree = "<group>"; };
 		5F5C7D421E10DC6A00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/First.storyboard; sourceTree = "<group>"; };
 		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
 		5F5C7D4D1E10DDCC00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Third.storyboard; sourceTree = "<group>"; };
 		5F5C7D501E10DE1500C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fourth.storyboard; sourceTree = "<group>"; };
-		5F6F34B81E2F7EFE0090F378 /* SlideshowFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowFrameViewController.swift; sourceTree = "<group>"; };
-		5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideshowPageViewController.swift; sourceTree = "<group>"; };
-		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
-		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFrameViewController.swift; sourceTree = "<group>"; };
-		5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservedAndFavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		5F6F34B81E2F7EFE0090F378 /* SlideshowFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowFrameViewController.swift; path = First_home/SlideshowFrameViewController.swift; sourceTree = "<group>"; };
+		5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowPageViewController.swift; path = First_home/SlideshowPageViewController.swift; sourceTree = "<group>"; };
+		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryViewController.swift; path = Modal_EventDetails/GalleryViewController.swift; sourceTree = "<group>"; };
+		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFrameViewController.swift; path = Modal_EventDetails/ImageFrameViewController.swift; sourceTree = "<group>"; };
+		5F7E8E831E424A6400241904 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTableViewCell.swift; path = Modal_EventDetails/MapTableViewCell.swift; sourceTree = "<group>"; };
+		5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservedAndFavoriteTableViewCell.swift; path = Modal_EventDetails/ReservedAndFavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
 		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		5FB054581E23CEEF00428428 /* TagController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagController.swift; sourceTree = "<group>"; };
-		5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatedTableViewCell.swift; sourceTree = "<group>"; };
-		5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryTableViewCell.swift; sourceTree = "<group>"; };
-		8000A53F1E3785A000AED5EF /* TableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
+		5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentTableViewCell.swift; path = Modal_EventDetails/DocumentTableViewCell.swift; sourceTree = "<group>"; };
+		5FB054581E23CEEF00428428 /* TagController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagController.swift; path = First_home/TagController.swift; sourceTree = "<group>"; };
+		5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = Main_LoginAndRegistration/RegisterViewController.swift; sourceTree = "<group>"; };
+		5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeaderTableViewCell.swift; path = Modal_EventDetails/EventHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailTableViewController.swift; path = Modal_EventDetails/EventDetailTableViewController.swift; sourceTree = "<group>"; };
+		5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedTableViewCell.swift; path = Modal_EventDetails/RelatedTableViewCell.swift; sourceTree = "<group>"; };
+		5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryTableViewCell.swift; path = Modal_EventDetails/GalleryTableViewCell.swift; sourceTree = "<group>"; };
+		8000A53F1E3785A000AED5EF /* TableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableHeaderView.swift; path = First_home/TableHeaderView.swift; sourceTree = "<group>"; };
 		800641D71E215A7F00760834 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewCell.swift; sourceTree = "<group>"; };
-		800D583E1E40A4C900E854E8 /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
-		800D58401E40A4ED00E854E8 /* interestCollectionViewCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interestCollectionViewCell1.swift; sourceTree = "<group>"; };
-		800D58411E40A4ED00E854E8 /* InterestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewController.swift; sourceTree = "<group>"; };
-		800D58421E40A4ED00E854E8 /* interestCollectionViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interestCollectionViewController1.swift; sourceTree = "<group>"; };
-		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacityTableViewController.swift; sourceTree = "<group>"; };
+		800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EventData+CoreDataClass.swift"; path = "Third_events/CoreData/EventData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EventData+CoreDataProperties.swift"; path = "Third_events/CoreData/EventData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacityTableViewCell.swift; path = Third_events/FacityTableViewCell.swift; sourceTree = "<group>"; };
+		800D583E1E40A4C900E854E8 /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestCollectionViewCell.swift; path = Main_LoginAndRegistration/InterestCollectionViewCell.swift; sourceTree = "<group>"; };
+		800D58401E40A4ED00E854E8 /* interestCollectionViewCell1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = interestCollectionViewCell1.swift; path = Main_LoginAndRegistration/interestCollectionViewCell1.swift; sourceTree = "<group>"; };
+		800D58411E40A4ED00E854E8 /* InterestCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestCollectionViewController.swift; path = Main_LoginAndRegistration/InterestCollectionViewController.swift; sourceTree = "<group>"; };
+		800D58421E40A4ED00E854E8 /* interestCollectionViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = interestCollectionViewController1.swift; path = Main_LoginAndRegistration/interestCollectionViewController1.swift; sourceTree = "<group>"; };
+		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacityTableViewController.swift; path = Third_events/FacityTableViewController.swift; sourceTree = "<group>"; };
 		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
-		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageDetailCell.swift; sourceTree = "<group>"; };
-		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
-		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = ../StageExpandTableViewController.swift; sourceTree = "<group>"; };
-		8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageExpandableCell.swift; sourceTree = "<group>"; };
-		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
-		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
-		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleUILabel.swift; sourceTree = "<group>"; };
-		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
-		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
-		80BFD4D31E27ED8300491730 /* EventFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFeedCell.swift; sourceTree = "<group>"; };
-		80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoreDataTableViewController.swift; sourceTree = "<group>"; };
-		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookTableViewCell.swift; path = Third_events/BookTableViewCell.swift; sourceTree = "<group>"; };
+		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageDetailCell.swift; path = First_home/StageEvent/StageDetailCell.swift; sourceTree = "<group>"; };
+		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = First_home/HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = First_home/StageEvent/StageExpandTableViewController.swift; sourceTree = "<group>"; };
+		8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCell.swift; path = First_home/StageEvent/StageExpandableCell.swift; sourceTree = "<group>"; };
+		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCoreDataTableViewController.swift; path = First_home/StageEvent/StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Third_events/EventsTableViewController.swift; sourceTree = "<group>"; };
+		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CapsuleUILabel.swift; path = First_home/CapsuleUILabel.swift; sourceTree = "<group>"; };
+		80BFD4CD1E27ED4900491730 /* StageEvent+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StageEvent+CoreDataClass.swift"; path = "First_home/CoreData/StageEvent+CoreDataClass.swift"; sourceTree = "<group>"; };
+		80BFD4CF1E27ED5200491730 /* StageEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StageEvent+CoreDataProperties.swift"; path = "First_home/CoreData/StageEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageCell.swift; path = First_home/StageCell.swift; sourceTree = "<group>"; };
+		80BFD4D31E27ED8300491730 /* EventFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventFeedCell.swift; path = First_home/EventFeedCell.swift; sourceTree = "<group>"; };
+		80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoreDataTableViewController.swift; path = First_home/CoreData/MainCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = Third_events/EventTableViewCell.swift; sourceTree = "<group>"; };
+		80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTableViewController.swift; path = Third_events/CoreData/CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		80DC94171E366B5200A1D01A /* FacultyData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FacultyData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/FacultyData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80DC94181E366B5200A1D01A /* FacultyData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FacultyData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/FacultyData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80DC94191E366B5200A1D01A /* RoundData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RoundData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/RoundData+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -193,14 +203,18 @@
 		5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */ = {
 			isa = PBXGroup;
 			children = (
-				5F5CBD671E3350E60074F2CB /* CoreData */,
 				5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */,
 				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
+				5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
+				5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */,
+				5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */,
+				5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */,
+				5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */,
+				5F7E8E831E424A6400241904 /* MapTableViewCell.swift */,
+				5F4ED17C1E43082F008F3A19 /* TagTableViewCell.swift */,
 				5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */,
 				5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */,
-				5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */,
-				5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */,
 				5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */,
 				5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */,
 				5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */,
@@ -305,13 +319,6 @@
 				58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */,
 			);
 			path = "Chula Expo 2017";
-			sourceTree = "<group>";
-		};
-		5F5CBD671E3350E60074F2CB /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CoreData;
 			sourceTree = "<group>";
 		};
 		5F8DAB4C1E34B88900B2641F /* Main_LoginAndRegistration */ = {
@@ -519,6 +526,7 @@
 				80DC942A1E366B5300A1D01A /* ImageData+CoreDataProperties.swift in Sources */,
 				58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
+				5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */,
 				5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */,
 				5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
@@ -535,10 +543,14 @@
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
 				80DC94241E366B5200A1D01A /* FacultyData+CoreDataProperties.swift in Sources */,
 				80BFD4CE1E27ED4900491730 /* StageEvent+CoreDataClass.swift in Sources */,
+				5F4ED17D1E43082F008F3A19 /* TagTableViewCell.swift in Sources */,
+				5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */,
+				5FF51A5A1E40A802000DF788 /* EventHeaderTableViewCell.swift in Sources */,
 				8059FF201E41AEE800B013B3 /* StageExpandTableViewController.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
 				80DC94251E366B5200A1D01A /* RoundData+CoreDataClass.swift in Sources */,
+				5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */,
 				58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */,
 				5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */,
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,

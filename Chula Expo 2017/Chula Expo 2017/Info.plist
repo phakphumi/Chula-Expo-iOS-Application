@@ -28,11 +28,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>FacebookAppID</key>
 	<string>1382748031758385</string>
 	<key>FacebookDisplayName</key>
 	<string>chula expo</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -58,7 +60,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Access your current&apos;s location to improve your experince in our event</string>
+	<string>Access your current's location to improve your experince in our event</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) To access your photo library to improve your experience</string>
 	<key>UIAppFonts</key>

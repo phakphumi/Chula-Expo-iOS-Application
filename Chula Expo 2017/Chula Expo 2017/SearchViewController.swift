@@ -17,12 +17,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
     
     //@IBOutlet var tableHeader: TableHeaderView!
     override func viewDidLoad() {
         
         super.viewDidLoad()
-          requestForFeedEvent()
+        requestForFeedEvent()
+        // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
+//        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         navigationItem.titleView = searchBar
        // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
@@ -34,26 +37,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     frc.delegate = self
                     try frc.performFetch()
                 }
-                tableVIew.reloadData()
+                tableView.reloadData()
             } catch let error {
                 print("NSFetchedResultsController.performFetch() failed: \(error)")
             }
         }
     }
-    var fetchedResultsController2: NSFetchedResultsController<NSFetchRequestResult>? {
-        didSet {
-            do {
-                if let frc = fetchedResultsController2 {
-                    frc.delegate = self
-                    try frc.performFetch()
-                }
-                tableVIew.reloadData()
-            } catch let error {
-                print("NSFetchedResultsController2.performFetch() failed: \(error)")
-            }
-        }
-    }
-    
 
     func requestForFeedEvent(){
         
@@ -65,7 +54,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             )]
         if let context = managedObjectContext {
             
-            fetchedResultsController2 = NSFetchedResultsController(
+            fetchedResultsController = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
@@ -77,17 +66,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
-        tableVIew.reloadData()
+        tableView.reloadData()
     }
     
 
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 2
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if(section == 1){
                 return 3
         }
@@ -119,7 +108,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
               }
                else {
                     cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
-                    if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row-1, section: 1)) as? ActivityData{
+                    if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
                         var name: String?
                         var toRound: NSSet?
                         var thumbnail: String?

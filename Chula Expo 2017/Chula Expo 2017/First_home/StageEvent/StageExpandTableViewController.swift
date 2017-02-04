@@ -11,8 +11,8 @@ import CoreData
 
 class StageExpandTableViewController: StageExpandableCoreDataTableViewController {
     
-    
-    
+    @IBOutlet weak var topTab: UIView!
+    var selectionIndicatorView : UIView = UIView()
     var stageNo: Int?
         {
         didSet
@@ -33,6 +33,15 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
         }
+    }
+    
+    func setupTopTab(){
+        var selectionIndicatorFrame : CGRect = CGRect()
+        selectionIndicatorFrame = CGRect(x: 0 , y: topTab.bounds.height-2, width: 100, height: 2)
+        selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
+        selectionIndicatorView.backgroundColor = UIColor.brown
+        topTab.addSubview(selectionIndicatorView)
+        
     }
 
     fileprivate func updateUI(){
@@ -64,18 +73,16 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
+        setupTopTab()
+//        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         // Uncomment the following line to preserve selection between presentations
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 //        self.tableView.backgroundColor = UIColor.blue
     }
-//
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
 
-    // MARK: - Table view data source
+    @IBAction func selectDate(_ sender: Any) {
+    }
+        // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell

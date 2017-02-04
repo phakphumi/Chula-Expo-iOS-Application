@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="34" id="ZvK-3n-6me" userLabel="blankCell" customClass="MapSearchTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="blank" rowHeight="34" id="ZvK-3n-6me" userLabel="blankCell" customClass="MapSearchTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZvK-3n-6me" id="sm4-uh-TXs">
@@ -165,7 +165,7 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B7606893-71F1-477E-A0DC-200E71DCF1FB" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D126A60D-155E-4384-9B7D-365559F5F28D" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
                                                             <rect key="frame" x="327" y="15" width="17" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="ofU-ZL-icK"/>
@@ -255,7 +255,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B7606893-71F1-477E-A0DC-200E71DCF1FB" width="17" height="18">
+        <image name="D126A60D-155E-4384-9B7D-365559F5F28D" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

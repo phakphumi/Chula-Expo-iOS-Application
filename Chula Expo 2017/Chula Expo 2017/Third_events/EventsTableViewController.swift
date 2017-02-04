@@ -185,33 +185,43 @@ class EventsTableViewController: CoreDataTableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print ("segue0")
-        if segue.identifier == "toEventDetails" {
+        if segue.identifier == "toEventDetail" {
             
             print ("segue1")
             
-            if let destination = segue.destination as? EventDetailsTableViewController{
+            if let destination = segue.destination as? EventDetailTableViewController{
                 
                 if let eventcell = sender as? EventTableViewCell?{
                     
                     if let id = eventcell?.activityId{
                         
                         if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
-                            destination.activityId = fetch.activityId
-                            destination.name = fetch.name
-                            destination.startTime = NSDate()
-                            destination.endTime = NSDate()
-                            destination.locationDesc = fetch.locationDesc
-                            destination.desc = fetch.desc
+                            
                             destination.bannerUrl = fetch.bannerUrl
-                            destination.isHighlight = false
-                            destination.isFavorite = false
-                            destination.reservable = true
-                            destination.isReserve = false
-                            destination.toTags = fetch.toTags
-                            destination.toFaculty = fetch.toFaculty
+                            destination.topic = fetch.name
+                            destination.locationDesc = fetch.locationDesc
+                            destination.toRounds = fetch.toRound
+                            destination.reservable = fetch.reservable
+                            destination.desc = fetch.desc
                             destination.toImages = fetch.toImages
-                            destination.toVideos = fetch.toVideos
-                            destination.dateText = "Today"
+                            destination.toTags = fetch.toTags
+                            
+//                            destination.activityId = fetch.activityId
+//                            destination.name = fetch.name
+//                            destination.startTime = NSDate()
+//                            destination.endTime = NSDate()
+//                            destination.locationDesc = fetch.locationDesc
+//                            destination.desc = fetch.desc
+//                            destination.bannerUrl = fetch.bannerUrl
+//                            destination.isHighlight = false
+//                            destination.isFavorite = false
+//                            destination.reservable = true
+//                            destination.isReserve = false
+//                            destination.toTags = fetch.toTags
+//                            destination.toFaculty = fetch.toFaculty
+//                            destination.toImages = fetch.toImages
+//                            destination.toVideos = fetch.toVideos
+//                            destination.dateText = "Today"
                         }
                     }
                 }

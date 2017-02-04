@@ -10,13 +10,18 @@ import UIKit
 
 class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    var topic: String!
+    var reservable = false
     
     var dateTimeList = [String]()
     var dates = [String]()
-    var times = [[String]]()
+    var times = [String: [String]]()
 
     let dateTimePicker = UIPickerView()
 
+    @IBOutlet var titleIcon: UIImageView!
+    @IBOutlet var titleText: UILabel!
+    @IBOutlet var topicLabel: UILabel!
     @IBOutlet var dateTimeField: UITextField!
     @IBOutlet var dateTimeFieldView: UIView!
     @IBOutlet var saveButton: UIButton!
@@ -44,12 +49,6 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         blurEffectView.frame = self.view.frame
         
         self.view.insertSubview(blurEffectView, at: 0)
-    
-//        let blurEffect2 = UIBlurEffect(style: UIBlurEffectStyle.dark)
-//        let blurEffectView2 = UIVisualEffectView(effect: blurEffect2)
-//        blurEffectView2.frame = pickerView.bounds
-//        
-//        pickerView.insertSubview(blurEffectView2, at: 0)
         
         generateTimeList()
         
@@ -72,6 +71,8 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         saveButton.layer.cornerRadius = saveButton.frame.height / 2
         saveButton.layer.masksToBounds = true
         
+        initialTitle()
+        topicLabel.text = self.topic
         
     }
 
@@ -109,7 +110,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         for (dateIndex, date) in dates.enumerated() {
             
-            for (timeIndex, time) in times[dateIndex].enumerated() {
+            for (timeIndex, time) in (times[dates[dateIndex]]?.enumerated())! {
                 
                 dateTimeList.append("\(date) \(time)")
                 
@@ -140,6 +141,17 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func pickerDoneButton() {
         
         dateTimeField.resignFirstResponder()
+        
+    }
+    
+    private func initialTitle() {
+        
+        if reservable {
+        
+            titleIcon.image = #imageLiteral(resourceName: "ticketBlue")
+            titleText.text = "จอง EVENT นี้"
+        
+        }
         
     }
     

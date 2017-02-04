@@ -10,17 +10,29 @@ import UIKit
 
 class EventDetailTableViewController: UITableViewController {
     
-    var reloadCount = 0
+    var didReload = false
     
-    var images = [#imageLiteral(resourceName: "robot6"), #imageLiteral(resourceName: "robot9"), #imageLiteral(resourceName: "robot5"), #imageLiteral(resourceName: "robot12"), #imageLiteral(resourceName: "robot10"), #imageLiteral(resourceName: "robot11")]
-    var dates = ["15 มีนาคม", "16 มีนาคม", "17 มีนาคม", "18 มีนาคม", "19 มีนาคม"]
-    var times = [
-                ["08.00-09.00", "10.00-11.00", "13.00-14.00"],
-                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
-                ["08.00-09.00", "10.00-11.00", "13.00-14.00", "15.00-16.00"],
-                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
-                ["08.00-09.00", "10.00-11.00"]
-               ]
+    var images = [UIImage]()
+    var tags = [String]()
+    var dates = [String]()
+    var times = [String: [String]]()
+//    var dates = ["15 มีนาคม", "16 มีนาคม", "17 มีนาคม", "18 มีนาคม", "19 มีนาคม"]
+//    var times = [
+//                ["08.00-09.00", "10.00-11.00", "13.00-14.00"],
+//                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
+//                ["08.00-09.00", "10.00-11.00", "13.00-14.00", "15.00-16.00"],
+//                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
+//                ["08.00-09.00", "10.00-11.00"]
+//               ]
+    
+    var bannerUrl: String!
+    var topic: String!
+    var locationDesc: String!
+    var toRounds: NSSet!
+    var reservable: Bool!
+    var desc: String!
+    var toImages: NSSet!
+    var toTags: NSSet!
 
     @IBAction func cancel(_ sender: UIButton) {
     
@@ -113,7 +125,7 @@ class EventDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell!
+        var cell = UITableViewCell()
         
         if indexPath.section == 0 {
             
@@ -121,7 +133,7 @@ class EventDetailTableViewController: UITableViewController {
             
             if let itvCell = cell as? ImageTableViewCell {
                 
-                itvCell.bannerImage.image = #imageLiteral(resourceName: "cryonics")
+                itvCell.bannerImage.image = UIImage(named: bannerUrl)
                 
             }
             
@@ -129,16 +141,57 @@ class EventDetailTableViewController: UITableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
             
-            if let ehvc = cell as? EventHeaderTableViewCell {
+            if !didReload {
+            
+                if let ehvc = cell as? EventHeaderTableViewCell {
                 
-                ehvc.dates = self.dates
-                ehvc.times = self.times
+                    let roundsObj = toRounds.allObjects as! [RoundData]
+                
+                    for round in roundsObj {
+                    
+                        let dateFormatter = DateFormatter()
+                        let timeFormatter = DateFormatter()
+                    
+                        dateFormatter.dateFormat = "dd มีนาคม"
+                        timeFormatter.dateFormat = "H.mm"
+                    
+                        let date = dateFormatter.string(from: round.startTime as! Date)
+                        let sTime = timeFormatter.string(from: round.startTime as! Date)
+                        let eTime = timeFormatter.string(from: round.endTime as! Date)
+                    
+                        if !dates.contains(date) {
+                        
+                            dates.append(date)
+                            times[date] = [String]()
+                        
+                        }
+                    
+                        times[date]?.append("\(sTime)-\(eTime)")
+                    
+                    }
+                
+                    print(dates)
+                    print(times)
+                
+                    ehvc.topic = self.topic
+                    ehvc.locationDesc = self.locationDesc
+                    ehvc.dates = self.dates
+                    ehvc.times = self.times
+                    ehvc.reservable = self.reservable
+                
+                }
                 
             }
             
         } else if indexPath.row == 1 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "DescCell", for: indexPath)
+            
+            if let descCell = cell as? DescTableViewCell {
+                
+                descCell.descText.text = desc
+                
+            }
             
         } else if indexPath.row == 2 {
             
@@ -149,8 +202,16 @@ class EventDetailTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "GalleryCell", for: indexPath)
             
             if let gtvc = cell as? GalleryTableViewCell {
-            
-                gtvc.images = self.images
+                
+                let imagesObj = self.toImages.allObjects as! [ImageData]
+                
+                for image in imagesObj {
+                    
+                    images.append(UIImage(named: image.url!)!)
+                    
+                }
+                
+                gtvc.images = images
                 
             }
             
@@ -158,9 +219,23 @@ class EventDetailTableViewController: UITableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath)
             
-        } else {
+        } else if indexPath.row == 5 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
+            
+            if let tvc = cell as? TagTableViewCell {
+            
+                let tagsObject = toTags.allObjects as! [TagData]
+                
+                for tag in tagsObject {
+                    
+                    tags.append(tag.name!)
+            
+                }
+                
+                tvc.tags = self.tags
+                
+            }
             
         }
 
@@ -221,31 +296,31 @@ class EventDetailTableViewController: UITableViewController {
             
             let destination = segue.destination as! FavoriteViewController
             
+            destination.topic = self.topic
             destination.dates = self.dates
             destination.times = self.times
+            destination.reservable = self.reservable
             
         }
         
     }
     
-    /*override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let lastIndexPath = tableView.numberOfRows(inSection: 1)
-        
-        if indexPath.row == lastIndexPath - 1 {
+        if indexPath.section == 1 && indexPath.row == 1 {
             
-            if reloadCount < 10 {
+            if !didReload {
                 
                 tableView.reloadData()
                 
-                reloadCount += 1
+                didReload = true
                 
             }
             
         }
         
-    }*/
-    
+    }
+ 
 
     /*
     // Override to support conditional editing of the table view.

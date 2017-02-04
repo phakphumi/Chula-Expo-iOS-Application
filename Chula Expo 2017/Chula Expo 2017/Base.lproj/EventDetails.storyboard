@@ -642,6 +642,9 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="placeLabel" destination="mRi-V5-gqe" id="X5H-8a-opB"/>
+                                    <outlet property="reserveDesc" destination="IVs-f6-NZA" id="QHK-FR-hb5"/>
+                                    <outlet property="reserveIcon" destination="PLY-aC-fAW" id="KwR-4v-x1N"/>
+                                    <outlet property="reserveTitle" destination="ZN5-7p-1Pd" id="pQP-xw-zLx"/>
                                     <outlet property="reserveView" destination="vI0-5w-NOb" id="2kv-dF-SHy"/>
                                     <outlet property="timeTableCollectionView" destination="pLw-Wg-8pN" id="9Ao-kp-Y0n"/>
                                     <outlet property="topicLabel" destination="KqX-kb-IV6" id="TbN-Sv-qbh"/>
@@ -827,9 +830,8 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
                                                                         <rect key="frame" x="3" y="0.0" width="54" height="25"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -837,6 +839,12 @@
                                                                     </label>
                                                                 </subviews>
                                                             </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="nhO-cX-whI" secondAttribute="bottom" id="5Zp-AO-mMe"/>
+                                                                <constraint firstItem="nhO-cX-whI" firstAttribute="leading" secondItem="Fkr-WL-J28" secondAttribute="leading" constant="3" id="Ki0-ce-a2Z"/>
+                                                                <constraint firstItem="nhO-cX-whI" firstAttribute="top" secondItem="Fkr-WL-J28" secondAttribute="top" id="oji-Hc-Pwz"/>
+                                                                <constraint firstAttribute="trailing" secondItem="nhO-cX-whI" secondAttribute="trailing" constant="3" id="tb6-kX-vkp"/>
+                                                            </constraints>
                                                             <size key="customSize" width="60" height="25"/>
                                                         </collectionViewCell>
                                                     </cells>
@@ -936,9 +944,10 @@
                                 <rect key="frame" x="42" y="300" width="290" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="16 มีนาคม : 10.00-11.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-xw-iJ7">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="16 มีนาคม : 10.00-11.00" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-xw-iJ7">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -967,6 +976,9 @@
                         <outlet property="dateTimeField" destination="GRj-xw-iJ7" id="tei-Pk-pwd"/>
                         <outlet property="dateTimeFieldView" destination="Px6-zb-DUJ" id="8P3-HK-ACM"/>
                         <outlet property="saveButton" destination="oWN-aK-ZEn" id="U00-Qy-SyU"/>
+                        <outlet property="titleIcon" destination="Lzy-Ty-Sk6" id="F3h-Q1-vVO"/>
+                        <outlet property="titleText" destination="NF4-7w-3ng" id="1C5-UB-uWR"/>
+                        <outlet property="topicLabel" destination="oOR-m2-Uen" id="Kix-xb-qDu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lOW-iJ-yVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

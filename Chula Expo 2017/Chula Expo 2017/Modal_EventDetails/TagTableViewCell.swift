@@ -9,8 +9,9 @@
 import UIKit
 
 class TagTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    var tags = ["SMART", "ENG"]
-    var tagsColor = [UIColor.orange, UIColor(red: 0.62, green: 0.043, blue: 0.06, alpha: 1)]
+    
+    var tags = [String]()
+    var tagsColor = [UIColor.orange, UIColor(red: 0.62, green: 0.043, blue: 0.06, alpha: 1), UIColor.brown, UIColor.darkGray, UIColor.green, UIColor.cyan]
     
     @IBOutlet var bgView: UIView!
     @IBOutlet var tagCollectionView: UICollectionView!
@@ -31,29 +32,34 @@ class TagTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 2
+        return tags.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(1)
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as UICollectionViewCell
         
         let tagLabel = cell.viewWithTag(1) as! UILabel
-        
         tagLabel.text = tags[indexPath.row]
         tagLabel.backgroundColor = tagsColor[indexPath.row]
         tagLabel.layer.cornerRadius = 6
         tagLabel.layer.masksToBounds = true
+        
         
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        print(2)
         
-        return CGSize(width: 60, height: 25)
+        let tagToFit = UILabel()
+        tagToFit.text = tags[indexPath.row]
+        tagToFit.sizeToFit()
+        print(tagToFit.frame)
+        print(tags[indexPath.row])
+        
+        return CGSize(width: tagToFit.frame.width + 10, height: 25)
         
     }
 

@@ -15,13 +15,8 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     @IBOutlet var timeTableCollectionView: UICollectionView!
     @IBOutlet var reserveView: UIView!
 
-    var date = ["15 มีนาคม", "16 มีนาคม", "17 มีนาคม", "18 มีนาคม", "19 มีนาคม"]
-    var time = [["08.00-09.00", "10.00-11.00", "13.00-14.00"],
-                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
-                ["08.00-09.00", "10.00-11.00", "13.00-14.00", "15.00-16.00"],
-                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
-                ["08.00-09.00", "10.00-11.00"]
-                ]
+    var dates = [String]()
+    var times = [[String]]()
     
     var isFavorite = false
     
@@ -37,14 +32,16 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         reserveView.layer.cornerRadius = 4
         reserveView.layer.masksToBounds = true
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventHeaderTableViewCell.tapOnButton))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EventHeaderTableViewCell.wasTap))
         reserveView.addGestureRecognizer(tapGestureRecognizer)
+        
+        reserveView.isUserInteractionEnabled = true
         
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
-        return date.count
+        return dates.count
         
     }
     
@@ -65,7 +62,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return time[section].count + 1 + (time[section].count / 4)
+        return times[section].count + 1 + (times[section].count / 4)
         
     }
     
@@ -79,7 +76,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
         if indexPath.row == 0 {
             
-            dateTimeLabel.text = date[indexPath.section]
+            dateTimeLabel.text = dates[indexPath.section]
             
         } else if indexPath.row % 4 == 0 {
             
@@ -87,7 +84,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
         } else {
             
-            dateTimeLabel.text = time[indexPath.section][indexPath.row - 1 - (indexPath.row / 4)]
+            dateTimeLabel.text = times[indexPath.section][indexPath.row - 1 - (indexPath.row / 4)]
             dateTimeLabel.textColor = UIColor.gray
             
         }
@@ -96,48 +93,11 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
     }
     
-    func tapOnButton() {
+    func wasTap() {
         
-        if isFavorite {
-            
-            let confirm = UIAlertController(title: "ยกเลิกการรายการโปรด", message: "คุณต้องการยกเลิกรายการโปรดใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
-            
-            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.default, handler: nil))
-            
-            confirm.addAction(UIAlertAction(title: "ยืนยัน", style: UIAlertActionStyle.destructive, handler: { (action) in
-                
-                self.isFavorite = false
-                
-                
-            }))
-            
-            if let parentViewController = parentViewController as? UITableViewController {
-                
-                parentViewController.present(confirm, animated: true, completion: nil)
-                
-            }
-            
-        } else {
-            
-            let confirm = UIAlertController(title: "ยืนยันรายการโปรด", message: "คุณต้องการเพิ่มเข้ารายการโปรดใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
-            
-            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.default, handler: nil))
-            
-            confirm.addAction(UIAlertAction(title: "ยืนยัน", style: UIAlertActionStyle.destructive, handler: { (action) in
-                
-                self.isFavorite = true
-                
-                
-            }))
-            
-            if let parentViewController = parentViewController as? UITableViewController {
-                
-                parentViewController.present(confirm, animated: true, completion: nil)
-                
-            }
-            
-        }
-
+        let parentVC = self.parentViewController!
+        
+        parentVC.performSegue(withIdentifier: "presentFavorite", sender: parentVC)
         
     }
 

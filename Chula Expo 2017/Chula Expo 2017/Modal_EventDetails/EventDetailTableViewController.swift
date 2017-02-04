@@ -13,6 +13,14 @@ class EventDetailTableViewController: UITableViewController {
     var reloadCount = 0
     
     var images = [#imageLiteral(resourceName: "robot6"), #imageLiteral(resourceName: "robot9"), #imageLiteral(resourceName: "robot5"), #imageLiteral(resourceName: "robot12"), #imageLiteral(resourceName: "robot10"), #imageLiteral(resourceName: "robot11")]
+    var dates = ["15 มีนาคม", "16 มีนาคม", "17 มีนาคม", "18 มีนาคม", "19 มีนาคม"]
+    var times = [
+                ["08.00-09.00", "10.00-11.00", "13.00-14.00"],
+                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
+                ["08.00-09.00", "10.00-11.00", "13.00-14.00", "15.00-16.00"],
+                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
+                ["08.00-09.00", "10.00-11.00"]
+               ]
 
     @IBAction func cancel(_ sender: UIButton) {
     
@@ -121,6 +129,13 @@ class EventDetailTableViewController: UITableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath)
             
+            if let ehvc = cell as? EventHeaderTableViewCell {
+                
+                ehvc.dates = self.dates
+                ehvc.times = self.times
+                
+            }
+            
         } else if indexPath.row == 1 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "DescCell", for: indexPath)
@@ -135,7 +150,7 @@ class EventDetailTableViewController: UITableViewController {
             
             if let gtvc = cell as? GalleryTableViewCell {
             
-                gtvc.images = images
+                gtvc.images = self.images
                 
             }
             
@@ -202,6 +217,12 @@ class EventDetailTableViewController: UITableViewController {
 //                
 //            }
             
+        } else if segue.identifier == "presentFavorite" {
+            
+            let destination = segue.destination as! FavoriteViewController
+            
+            destination.dates = self.dates
+            destination.times = self.times
             
         }
         

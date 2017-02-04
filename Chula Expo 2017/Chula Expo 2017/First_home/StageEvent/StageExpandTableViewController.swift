@@ -11,7 +11,7 @@ import CoreData
 
 class StageExpandTableViewController: StageExpandableCoreDataTableViewController {
     
-    @IBOutlet var tblExpandable: UITableView!
+    
     
     var stageNo: Int?
         {
@@ -63,10 +63,11 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.reloadData()
+        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+//        self.tableView.backgroundColor = UIColor.blue
     }
 //
 //    override func didReceiveMemoryWarning() {
@@ -114,9 +115,9 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if selectSection == indexPath.section{
+        if selectSection == indexPath.section && indexPath.row == 0{
             selectSection = nil
         }
         else{
@@ -124,12 +125,12 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         }
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.row == 0 {
-            return 70
-        }else  if indexPath.row == 1 && indexPath.section == selectSection{
             return 50
+        }else  if indexPath.row == 1 && indexPath.section == selectSection{
+            return 90
         }
         return 0;
     }

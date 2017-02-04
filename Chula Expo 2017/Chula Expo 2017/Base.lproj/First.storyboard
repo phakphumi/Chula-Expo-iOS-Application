@@ -239,7 +239,12 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+<<<<<<< HEAD
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01F82777-1C8B-4DA3-A821-C5AE9F453EE7" translatesAutoresizingMaskIntoConstraints="NO" id="iwa-Lq-NXP" userLabel="icon">
+=======
+
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4EEBE6F9-3321-4E2B-B21A-08C84C008C2B" translatesAutoresizingMaskIntoConstraints="NO" id="iwa-Lq-NXP" userLabel="icon">
+>>>>>>> e3bc75c5bd62cf0854790a7d18c2e643869d6119
                                                     <rect key="frame" x="327" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="70Y-cu-t01"/>

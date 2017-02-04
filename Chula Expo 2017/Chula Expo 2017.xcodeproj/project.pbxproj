@@ -12,6 +12,7 @@
 		581940D31E4473E0000C566C /* HeaderSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D21E4473E0000C566C /* HeaderSearchTableViewCell.swift */; };
 		581940D51E44783B000C566C /* MapSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D41E44783A000C566C /* MapSearchTableViewCell.swift */; };
 		581940D71E44A072000C566C /* EventfeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D61E44A072000C566C /* EventfeedTableViewCell.swift */; };
+		581940D91E4516BF000C566C /* interestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581940D81E4516BF000C566C /* interestViewController.swift */; };
 		58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */; };
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
@@ -45,6 +46,7 @@
 		5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */; };
 		5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */; };
 		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
+		5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */; };
 		5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E8E831E424A6400241904 /* MapTableViewCell.swift */; };
 		5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */; };
 		5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */; };
@@ -105,6 +107,7 @@
 		581940D21E4473E0000C566C /* HeaderSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderSearchTableViewCell.swift; sourceTree = "<group>"; };
 		581940D41E44783A000C566C /* MapSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchTableViewCell.swift; sourceTree = "<group>"; };
 		581940D61E44A072000C566C /* EventfeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventfeedTableViewCell.swift; sourceTree = "<group>"; };
+		581940D81E4516BF000C566C /* interestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = interestViewController.swift; sourceTree = "<group>"; };
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthHeadTableViewCell.swift; path = Fourth_more/FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthMenuTableViewCell.swift; path = Fourth_more/FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowPageViewController.swift; path = First_home/SlideshowPageViewController.swift; sourceTree = "<group>"; };
 		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryViewController.swift; path = Modal_EventDetails/GalleryViewController.swift; sourceTree = "<group>"; };
 		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFrameViewController.swift; path = Modal_EventDetails/ImageFrameViewController.swift; sourceTree = "<group>"; };
+		5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteViewController.swift; path = Modal_EventDetails/FavoriteViewController.swift; sourceTree = "<group>"; };
 		5F7E8E831E424A6400241904 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTableViewCell.swift; path = Modal_EventDetails/MapTableViewCell.swift; sourceTree = "<group>"; };
 		5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReservedAndFavoriteTableViewCell.swift; path = Modal_EventDetails/ReservedAndFavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */,
 				5F7E8E831E424A6400241904 /* MapTableViewCell.swift */,
 				5F4ED17C1E43082F008F3A19 /* TagTableViewCell.swift */,
+				5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */,
 				5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */,
 				5F8DAB4A1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift */,
 				5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */,
@@ -357,6 +362,7 @@
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController.swift */,
 				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
+				581940D81E4516BF000C566C /* interestViewController.swift */,
 			);
 			name = Main_LoginAndRegistration;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
 				58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */,
 				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
+				581940D91E4516BF000C566C /* interestViewController.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				80DC94261E366B5200A1D01A /* RoundData+CoreDataProperties.swift in Sources */,
 				8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */,
@@ -589,6 +596,7 @@
 				80DC94291E366B5300A1D01A /* ImageData+CoreDataClass.swift in Sources */,
 				5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */,
 				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
+				5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */,
 				80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */,
 				5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */,
 				80DC94231E366B5200A1D01A /* FacultyData+CoreDataClass.swift in Sources */,

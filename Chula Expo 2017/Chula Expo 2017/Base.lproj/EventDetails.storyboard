@@ -13,6 +13,7 @@
     <customFonts key="customFonts">
         <array key="SukhumvitSet.ttc">
             <string>SukhumvitSet-Bold</string>
+            <string>SukhumvitSet-Medium</string>
             <string>SukhumvitSet-SemiBold</string>
             <string>SukhumvitSet-Text</string>
         </array>
@@ -46,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81E-PR-9MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3657" y="363"/>
+            <point key="canvasLocation" x="4274" y="363"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="B5G-9r-ePI">
@@ -449,7 +450,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFo-Gq-w82" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4472.8000000000002" y="1002.9985007496252"/>
+            <point key="canvasLocation" x="2953" y="1003"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="dSa-BL-ESo">
@@ -641,6 +642,9 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="placeLabel" destination="mRi-V5-gqe" id="X5H-8a-opB"/>
+                                    <outlet property="reserveDesc" destination="IVs-f6-NZA" id="QHK-FR-hb5"/>
+                                    <outlet property="reserveIcon" destination="PLY-aC-fAW" id="KwR-4v-x1N"/>
+                                    <outlet property="reserveTitle" destination="ZN5-7p-1Pd" id="pQP-xw-zLx"/>
                                     <outlet property="reserveView" destination="vI0-5w-NOb" id="2kv-dF-SHy"/>
                                     <outlet property="timeTableCollectionView" destination="pLw-Wg-8pN" id="9Ao-kp-Y0n"/>
                                     <outlet property="topicLabel" destination="KqX-kb-IV6" id="TbN-Sv-qbh"/>
@@ -826,9 +830,8 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
                                                                         <rect key="frame" x="3" y="0.0" width="54" height="25"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -836,6 +839,12 @@
                                                                     </label>
                                                                 </subviews>
                                                             </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="nhO-cX-whI" secondAttribute="bottom" id="5Zp-AO-mMe"/>
+                                                                <constraint firstItem="nhO-cX-whI" firstAttribute="leading" secondItem="Fkr-WL-J28" secondAttribute="leading" constant="3" id="Ki0-ce-a2Z"/>
+                                                                <constraint firstItem="nhO-cX-whI" firstAttribute="top" secondItem="Fkr-WL-J28" secondAttribute="top" id="oji-Hc-Pwz"/>
+                                                                <constraint firstAttribute="trailing" secondItem="nhO-cX-whI" secondAttribute="trailing" constant="3" id="tb6-kX-vkp"/>
+                                                            </constraints>
                                                             <size key="customSize" width="60" height="25"/>
                                                         </collectionViewCell>
                                                     </cells>
@@ -862,16 +871,126 @@
                     <size key="freeformSize" width="375" height="1200"/>
                     <connections>
                         <segue destination="NnA-DQ-MK0" kind="presentation" identifier="presentGallery" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="Yor-31-QjQ"/>
+                        <segue destination="vfu-aM-YRW" kind="presentation" identifier="presentFavorite" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="6fv-0U-RjK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKa-Jz-ai1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3656.8000000000002" y="1002.9985007496252"/>
+            <point key="canvasLocation" x="4274" y="1002"/>
+        </scene>
+        <!--Favorite View Controller-->
+        <scene sceneID="Ctq-yA-5qt">
+            <objects>
+                <viewController id="vfu-aM-YRW" customClass="FavoriteViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L2G-82-2Kc"/>
+                        <viewControllerLayoutGuide type="bottom" id="eEi-1f-lff"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DRb-OA-jMf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OjM-j6-hhw">
+                                <rect key="frame" x="113" y="140" width="149" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="starYellow" translatesAutoresizingMaskIntoConstraints="NO" id="Lzy-Ty-Sk6">
+                                        <rect key="frame" x="8" y="12" width="17" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สนใจ Event นี้" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF4-7w-3ng">
+                                        <rect key="frame" x="25" y="0.0" width="124" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
+                                <rect key="frame" x="16" y="215" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="แอพพลิเคชันจะแจ้งเตือนก่อน Event เริ่มล่วงหน้า 15 นาที" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcm-d7-PQW">
+                                <rect key="frame" x="16" y="470" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คุณสามารถตรวจสอบความสนใจทั้งหมดได้ที่เมนูโปรไฟล์ของฉัน" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CT-KQ-Adv">
+                                <rect key="frame" x="16" y="501" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWN-aK-ZEn">
+                                <rect key="frame" x="42" y="370" width="290" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                <state key="normal" title="บันทึก">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="vfu-aM-YRW" eventType="touchUpInside" id="p7V-cs-eMf"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Px6-zb-DUJ">
+                                <rect key="frame" x="42" y="300" width="290" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="16 มีนาคม : 10.00-11.00" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-xw-iJ7">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vfu-aM-YRW" id="0yh-oL-JLO"/>
+                                        </connections>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="down-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="I50-zU-yQA">
+                                        <rect key="frame" x="255" y="15" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z07-dn-DVR">
+                                <rect key="frame" x="309" y="20" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="cross_white"/>
+                                <connections>
+                                    <action selector="cancel:" destination="vfu-aM-YRW" eventType="touchUpInside" id="D7F-cH-uq5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateTimeField" destination="GRj-xw-iJ7" id="tei-Pk-pwd"/>
+                        <outlet property="dateTimeFieldView" destination="Px6-zb-DUJ" id="8P3-HK-ACM"/>
+                        <outlet property="saveButton" destination="oWN-aK-ZEn" id="U00-Qy-SyU"/>
+                        <outlet property="titleIcon" destination="Lzy-Ty-Sk6" id="F3h-Q1-vVO"/>
+                        <outlet property="titleText" destination="NF4-7w-3ng" id="1C5-UB-uWR"/>
+                        <outlet property="topicLabel" destination="oOR-m2-Uen" id="Kix-xb-qDu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lOW-iJ-yVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4272.8000000000002" y="1958.7706146926539"/>
         </scene>
     </scenes>
     <resources>
         <image name="calendarIcon" width="128" height="128"/>
         <image name="cross_black" width="16" height="16"/>
+        <image name="cross_white" width="12" height="12"/>
+        <image name="down-arrow" width="64" height="64"/>
         <image name="event_detail_temp" width="137" height="89"/>
         <image name="mapIcon" width="128" height="128"/>
         <image name="pdfRed" width="128" height="128"/>
@@ -884,6 +1003,7 @@
         <image name="robot9" width="298" height="285"/>
         <image name="star" width="128" height="128"/>
         <image name="starPink" width="128" height="128"/>
+        <image name="starYellow" width="64" height="64"/>
         <image name="tag" width="128" height="128"/>
     </resources>
 </document>

@@ -101,6 +101,7 @@ public class ActivityData: NSManagedObject {
                 newData.activityId = activityId
                 newData.locationDesc = locationDesc
                 newData.name = name
+                newData.reservable = reservable
                 newData.thumbnailsUrl = thumbnailsUrl
                 newData.isStageEvent = false
                 newData.stageNo = 0

@@ -82,6 +82,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return i.numberOfObjects+1
             }
         }
+
             return 1
         
     }

@@ -126,6 +126,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     private func addDemoData(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         let context = managedObjectContext
             // add demo data
             context.performAndWait {
@@ -188,6 +190,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     seatAvaliable: 20,
                     isReserve: false,
                     toImages: NSSet(object: ImageData.addData(url: "technology", inManageobjectcontext: context)!),
+                    toRounds: NSSet(object: RoundData.addData(id: "1", activityId: "004", roundNo: 1, startTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!, endTime: dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!, reservable: false, seatAvaliable: 0, reserved: 0, fullCapacity: 0, isReserve: false, isFavorite: false, isHighlight: false, inManageobjectcontext: context)),
                     toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
                     toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!),
                     toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!),
@@ -215,6 +218,92 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     ImageData.addData(url: "cryonics3", inManageobjectcontext: context)!,
                                     ImageData.addData(url: "cryonics4", inManageobjectcontext: context)!,
                                     ImageData.addData(url: "cryonics5", inManageobjectcontext: context)!),
+                    toRounds: NSSet(objects: RoundData.addData(
+                        id: "2",
+                        activityId: "005",
+                        roundNo: 1,
+                        startTime: dateFormatter.date(from: "2017-03-15T08:00:00.000Z")!,
+                        endTime: dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
+                        reservable: false,
+                        seatAvaliable: 0,
+                        reserved: 0,
+                        fullCapacity: 0,
+                        isReserve: false,
+                        isFavorite: false,
+                        isHighlight: false,
+                        inManageobjectcontext: context),
+                                    RoundData.addData(
+                                        id: "3",
+                                        activityId: "005",
+                                        roundNo: 2,
+                                        startTime: dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
+                                        endTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
+                                        reservable: false,
+                                        seatAvaliable: 0,
+                                        reserved: 0,
+                                        fullCapacity: 0,
+                                        isReserve: false,
+                                        isFavorite: false,
+                                        isHighlight: false,
+                                        inManageobjectcontext: context),
+                                    RoundData.addData(
+                                        id: "4",
+                                        activityId: "005",
+                                        roundNo: 3,
+                                        startTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
+                                        endTime: dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!,
+                                        reservable: false,
+                                        seatAvaliable: 0,
+                                        reserved: 0,
+                                        fullCapacity: 0,
+                                        isReserve: false,
+                                        isFavorite: false,
+                                        isHighlight: false,
+                                        inManageobjectcontext: context),
+                                    RoundData.addData(
+                                        id: "6",
+                                        activityId: "005",
+                                        roundNo: 5,
+                                        startTime: dateFormatter.date(from: "2017-03-16T08:00:00.000Z")!,
+                                        endTime: dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
+                                        reservable: false,
+                                        seatAvaliable: 0,
+                                        reserved: 0,
+                                        fullCapacity: 0,
+                                        isReserve: false,
+                                        isFavorite: false,
+                                        isHighlight: false,
+                                        inManageobjectcontext: context),
+                                    RoundData.addData(
+                                        id: "7",
+                                        activityId: "005",
+                                        roundNo: 6,
+                                        startTime: dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
+                                        endTime: dateFormatter.date(from: "2017-03-16T10:00:00.000Z")!,
+                                        reservable: false,
+                                        seatAvaliable: 0,
+                                        reserved: 0,
+                                        fullCapacity: 0,
+                                        isReserve: false,
+                                        isFavorite: false,
+                                        isHighlight: false,
+                                        inManageobjectcontext: context),
+                                    RoundData.addData(
+                                        id: "8",
+                                        activityId: "005",
+                                        roundNo: 7,
+                                        startTime: dateFormatter.date(from: "2017-03-16T12:00:00.000Z")!,
+                                        endTime: dateFormatter.date(from: "2017-03-16T13:00:00.000Z")!,
+                                        reservable: false,
+                                        seatAvaliable: 0,
+                                        reserved: 0,
+                                        fullCapacity: 0,
+                                        isReserve: false,
+                                        isFavorite: false,
+                                        isHighlight: false,
+                                        inManageobjectcontext: context)
+                        
+                    ),
                     toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
                     toTags: NSSet(objects: TagData.addData(name: "Technology", inManageobjectcontext: context)!,
                                   TagData.addData(name: "Medicine", inManageobjectcontext: context)!,
@@ -222,7 +311,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Medicine", shortName: "MED", inManageobjectcontext: context)!),
                     inManageobjectcontext: context)
             }
-            
+        
             do{
                 try managedObjectContext.save()
                 print("Demo ActivityData Saved")
@@ -231,7 +320,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             catch let error {
                 print("Demo ActivityData save error with \(error)")
             }
-            
+        
 //            printDatabaseStatistics()
         }
 

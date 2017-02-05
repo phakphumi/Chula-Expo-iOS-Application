@@ -11,7 +11,7 @@ import CoreData
 
 class FirstViewController: MainCoreDataTableViewController {
 
-    let dateFormatter = DateFormatter()
+//    let dateFormatter = DateFormatter()
     
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
@@ -25,7 +25,7 @@ class FirstViewController: MainCoreDataTableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 //        dateFormatter.timeZone = TimeZone.current
         
         requestForStageEvent()

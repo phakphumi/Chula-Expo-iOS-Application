@@ -41,17 +41,29 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         let sectionWidth = topTab.frame.width / 5
         selectionIndicatorFrame = CGRect(x: (sectionWidth * (CGFloat)(selectedDate - 1) ) + 2 , y: topTab.bounds.height-2, width: sectionWidth - 4, height: 2)
         selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
-        selectionIndicatorView.backgroundColor = UIColor.brown
+        selectionIndicatorView.backgroundColor = UIColor(red:1.00, green:0.43, blue:0.60, alpha:1.0)
         topTab.addSubview(selectionIndicatorView)
+        let shadowPath = UIBezierPath(rect: topTab.bounds)
+        topTab.layer.shadowColor = UIColor.darkGray.cgColor
+        topTab.layer.shadowOffset = CGSize(width: 0, height: 0)
+        topTab.layer.shadowRadius = 1
+        topTab.layer.shadowOpacity = 0.5
+        topTab.layer.shadowPath = shadowPath.cgPath
         
     }
     
     @IBAction func selectDate(_ sender: Any) {
         if let button = sender as? UIButton{
             selectedDate = button.tag
+            changeButtonAttributeColor(UIColor(red:1.00, green:0.43, blue:0.60, alpha:1.0), for: button)
         }
         moveToptabIndicator()
-        
+    }
+    
+    func changeButtonAttributeColor(_ color: UIColor,for button: UIButton){
+        let attribute = NSMutableAttributedString(attributedString: button.currentAttributedTitle!)
+        attribute.addAttribute(NSForegroundColorAttributeName , value: color, range: NSRange(location: 0,length: 6))
+        button.setAttributedTitle(attribute, for: .normal)
     }
 
     func moveToptabIndicator(){

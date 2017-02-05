@@ -22,6 +22,7 @@ extension ActivityData {
     @NSManaged public var isStageEvent: Bool
     @NSManaged public var locationDesc: String?
     @NSManaged public var name: String?
+    @NSManaged public var reservable: Bool
     @NSManaged public var stageNo: Int16
     @NSManaged public var thumbnailsUrl: String?
     @NSManaged public var toFaculty: NSSet?

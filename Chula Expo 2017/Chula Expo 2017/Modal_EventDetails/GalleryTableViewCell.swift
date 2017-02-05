@@ -45,7 +45,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         
     }*/
     
-    func wasTap(gestureRecognizer: UIPanGestureRecognizer) {
+    func wasTap() {
 
         let parentVC = self.parentViewController!
         

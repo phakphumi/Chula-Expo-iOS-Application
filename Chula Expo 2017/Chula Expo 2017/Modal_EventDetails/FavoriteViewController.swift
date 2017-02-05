@@ -13,9 +13,9 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var topic: String!
     var reservable = false
     
-    var dateTimeList = [String]()
     var dates = [String]()
     var times = [String: [String]]()
+    var dateTimeList = [String]()
 
     let dateTimePicker = UIPickerView()
 
@@ -49,8 +49,6 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         blurEffectView.frame = self.view.frame
         
         self.view.insertSubview(blurEffectView, at: 0)
-        
-        generateTimeList()
         
         dateTimeField.text = dateTimeList[0]
         
@@ -103,20 +101,6 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         dateTimeField.resignFirstResponder()
-        
-    }
-    
-    private func generateTimeList() {
-        
-        for (dateIndex, date) in dates.enumerated() {
-            
-            for (timeIndex, time) in (times[dates[dateIndex]]?.enumerated())! {
-                
-                dateTimeList.append("\(date) \(time)")
-                
-            }
-            
-        }
         
     }
     

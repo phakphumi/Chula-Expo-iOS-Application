@@ -21,8 +21,8 @@ extension EventData
     @NSManaged public var activityId: String?
     @NSManaged public var name: String?
     @NSManaged public var thumbnail: String?
-    @NSManaged public var startTime: NSDate?
-    @NSManaged public var endTime: NSDate?
+    @NSManaged public var startTime: Date?
+    @NSManaged public var endTime: Date?
     @NSManaged public var longDesc: String?
     @NSManaged public var shortDesc: String?
     @NSManaged public var facity: String?

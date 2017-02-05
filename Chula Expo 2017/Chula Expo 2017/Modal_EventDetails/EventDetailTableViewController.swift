@@ -16,6 +16,7 @@ class EventDetailTableViewController: UITableViewController {
     var tags = [String]()
     var dates = [String]()
     var times = [String: [String]]()
+    var dateTimeList = [String]()
 //    var dates = ["15 มีนาคม", "16 มีนาคม", "17 มีนาคม", "18 มีนาคม", "19 มีนาคม"]
 //    var times = [
 //                ["08.00-09.00", "10.00-11.00", "13.00-14.00"],
@@ -145,19 +146,25 @@ class EventDetailTableViewController: UITableViewController {
             
                 if let ehvc = cell as? EventHeaderTableViewCell {
                 
-                    let roundsObj = toRounds.allObjects as! [RoundData]
+                    let roundsObj = toRounds.allObjects.sorted(by: { (firstObj, secondObj) -> Bool in
+                        let first = firstObj as! RoundData
+                        let second = secondObj as! RoundData
+                        
+                        return first.startTime! < second.startTime!
+                        
+                    }) as! [RoundData]
                 
                     for round in roundsObj {
                     
-                        let dateFormatter = DateFormatter()
                         let timeFormatter = DateFormatter()
-                    
+                        let dateFormatter = DateFormatter()
+                        
                         dateFormatter.dateFormat = "dd มีนาคม"
-                        timeFormatter.dateFormat = "H.mm"
+                        timeFormatter.dateFormat = "HH.mm"
                     
-                        let date = dateFormatter.string(from: round.startTime as! Date)
-                        let sTime = timeFormatter.string(from: round.startTime as! Date)
-                        let eTime = timeFormatter.string(from: round.endTime as! Date)
+                        let date = dateFormatter.string(from: round.startTime!)
+                        let sTime = timeFormatter.string(from: round.startTime!)
+                        let eTime = timeFormatter.string(from: round.endTime!)
                     
                         if !dates.contains(date) {
                         
@@ -167,16 +174,16 @@ class EventDetailTableViewController: UITableViewController {
                         }
                     
                         times[date]?.append("\(sTime)-\(eTime)")
+                        
+                        dateTimeList.append("\(date) \(sTime)-\(eTime)")
                     
                     }
-                
-                    print(dates)
-                    print(times)
                 
                     ehvc.topic = self.topic
                     ehvc.locationDesc = self.locationDesc
                     ehvc.dates = self.dates
                     ehvc.times = self.times
+                    ehvc.dateTimeList = self.dateTimeList
                     ehvc.reservable = self.reservable
                 
                 }
@@ -299,6 +306,7 @@ class EventDetailTableViewController: UITableViewController {
             destination.topic = self.topic
             destination.dates = self.dates
             destination.times = self.times
+            destination.dateTimeList = self.dateTimeList
             destination.reservable = self.reservable
             
         }

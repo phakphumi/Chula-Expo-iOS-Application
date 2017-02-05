@@ -50,10 +50,11 @@ public class ActivityData: NSManagedObject {
                 newData.isStageEvent = true
                 newData.stageNo = stageNo
                 newData.toImages = NSSet()
+                newData.toRound = NSSet()
                 newData.toVideos = NSSet()
                 newData.toTags = NSSet()
                 newData.toFaculty = NSSet()
-                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: false, inManageobjectcontext: context)
+//                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: false, inManageobjectcontext: context)
                 return newData
             }
         }
@@ -77,6 +78,7 @@ public class ActivityData: NSManagedObject {
         seatAvaliable: Int16,
         isReserve: Bool,
         toImages: NSSet,
+        toRounds: NSSet,
         toVideos: NSSet,
         toTags: NSSet,
         toFaculty: NSSet,
@@ -106,10 +108,11 @@ public class ActivityData: NSManagedObject {
                 newData.isStageEvent = false
                 newData.stageNo = 0
                 newData.toImages = toImages
+                newData.toRound = toRounds
                 newData.toVideos = toVideos
                 newData.toTags = toTags
                 newData.toFaculty = toFaculty
-                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: isHighlight, inManageobjectcontext: context)
+//                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: isHighlight, inManageobjectcontext: context)
                 return newData
             }
         }
@@ -130,20 +133,20 @@ public class ActivityData: NSManagedObject {
         return nil
     }
     
-    func addRound(
-        roundNo: Int16,
-        starTime: NSDate,
-        endTime: NSDate,
-        reservable: Bool,
-        seatAvaliable: Int16,
-        reserved: Int16,
-        fullCapacity: Int16,
-        isReserve: Bool,
-        isFavorite: Bool,
-        isHighlight: Bool,
-        inManageobjectcontext context: NSManagedObjectContext
-        ){
-        
-        toRound = toRound?.adding(RoundData.addData(activityId: activityId!, roundNo: roundNo, startTime: starTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: isHighlight, inManageobjectcontext: context)!) as NSSet?
-    }
+//    func addRound(
+//        roundNo: Int16,
+//        starTime: NSDate,
+//        endTime: NSDate,
+//        reservable: Bool,
+//        seatAvaliable: Int16,
+//        reserved: Int16,
+//        fullCapacity: Int16,
+//        isReserve: Bool,
+//        isFavorite: Bool,
+//        isHighlight: Bool,
+//        inManageobjectcontext context: NSManagedObjectContext
+//        ){
+//        
+//        toRound = toRound?.adding(RoundData.addData(id: id!, activityId: activityId!, roundNo: roundNo, startTime: starTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: isHighlight, inManageobjectcontext: context)!) as NSSet?
+//    }
 }

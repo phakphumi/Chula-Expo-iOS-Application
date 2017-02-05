@@ -16,6 +16,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     var reservable = false
     var dates = [String]()
     var times = [String: [String]]()
+    var dateTimeList = [String]()
 
     @IBOutlet var reserveIcon: UIImageView!
     @IBOutlet var reserveTitle: UILabel!

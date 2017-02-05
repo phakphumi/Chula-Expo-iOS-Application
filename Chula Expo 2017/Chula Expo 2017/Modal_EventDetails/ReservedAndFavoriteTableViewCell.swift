@@ -190,9 +190,9 @@ class ReservedAndFavoriteTableViewCell: UITableViewCell, UITextFieldDelegate, UI
                         toolbar.isTranslucent = true
                         toolbar.sizeToFit()
                         
-                        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RegisterViewController.pickerDoneButton))
+                        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(RegisterViewController2.pickerDoneButton))
                         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
-                        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RegisterViewController.pickerCancelButton))
+                        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RegisterViewController2.pickerCancelButton))
                         
                         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: true)
                         toolbar.isUserInteractionEnabled = true

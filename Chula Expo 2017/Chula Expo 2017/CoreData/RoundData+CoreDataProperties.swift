@@ -17,8 +17,9 @@ extension RoundData {
     }
 
     @NSManaged public var activityId: String?
-    @NSManaged public var endTime: NSDate?
+    @NSManaged public var endTime: Date?
     @NSManaged public var fullCapacity: Int16
+    @NSManaged public var id: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var isHighlight: Bool
     @NSManaged public var isReserve: Bool
@@ -26,7 +27,7 @@ extension RoundData {
     @NSManaged public var reserved: Int16
     @NSManaged public var roundNo: Int16
     @NSManaged public var seatAvaliable: Int16
-    @NSManaged public var startTime: NSDate?
+    @NSManaged public var startTime: Date?
     @NSManaged public var toActivity: ActivityData?
     
     var dateSection: String
@@ -81,7 +82,7 @@ extension RoundData {
 
 }
 
-extension NSDate
+extension Date
 {
     func isGreaterThanDate(dateToCompare: Date) -> Bool {
         //Declare Variables
@@ -122,17 +123,17 @@ extension NSDate
         return isEqualTo
     }
     
-    func addDays(daysToAdd: Int) -> NSDate {
+    func addDays(daysToAdd: Int) -> Date {
         let secondsInDays: TimeInterval = Double(daysToAdd) * 60 * 60 * 24
-        let dateWithDaysAdded: NSDate = self.addingTimeInterval(secondsInDays)
+        let dateWithDaysAdded: Date = self.addingTimeInterval(secondsInDays)
         
         //Return Result
         return dateWithDaysAdded
     }
     
-    func addHours(hoursToAdd: Int) -> NSDate {
+    func addHours(hoursToAdd: Int) -> Date {
         let secondsInHours: TimeInterval = Double(hoursToAdd) * 60 * 60
-        let dateWithHoursAdded: NSDate = self.addingTimeInterval(secondsInHours)
+        let dateWithHoursAdded: Date = self.addingTimeInterval(secondsInHours)
         
         //Return Result
         return dateWithHoursAdded

@@ -44,6 +44,7 @@
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fullCapacity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isHighlight" optional="YES" attributeType="Boolean" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isReserve" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -91,7 +92,7 @@
         <element name="EventData" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="FacultyData" positionX="277" positionY="558" width="128" height="88"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="75"/>
-        <element name="RoundData" positionX="117" positionY="659" width="128" height="225"/>
+        <element name="RoundData" positionX="117" positionY="659" width="128" height="240"/>
         <element name="StageEvent" positionX="225" positionY="-72" width="128" height="150"/>
         <element name="TagData" positionX="259" positionY="477" width="128" height="73"/>
         <element name="UserData" positionX="376" positionY="-72" width="128" height="225"/>

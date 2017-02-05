@@ -14,9 +14,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var token: String?
     var name: String?
+    var firstName: String?
+    var lastName: String?
     var email: String?
     var fbImageProfileUrl: String?
-    var imageProfile: UIImage!
+    var fbImage: UIImage!
     
     let managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
@@ -70,17 +72,19 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toRegister" {
+        if segue.identifier == "toUserType" {
             
             let navigationController = segue.destination as! UINavigationController
             
-            let registerViewController = navigationController.viewControllers.first as! RegisterViewController
+            let destination = navigationController.viewControllers.first as! UserTypeViewController
             
-            registerViewController.token = self.token
-            registerViewController.name = self.name
-            registerViewController.email = self.email
-            registerViewController.fbImageProfileUrl = self.fbImageProfileUrl
-            registerViewController.imageProfile = self.imageProfile
+            destination.token = self.token
+            destination.name = self.name
+            destination.firstName = self.firstName
+            destination.lastName = self.lastName
+            destination.email = self.email
+//            registerViewController.fbImageProfileUrl = self.fbImageProfileUrl
+            destination.fbImage = self.fbImage
             
         }
         
@@ -88,7 +92,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func profileUpdate() {
         
-        if let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"]) {
+        if let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email, name, first_name, last_name"]) {
             
             graphRequest.start(completionHandler: { (connection, result, error) in
                 
@@ -122,6 +126,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             self.name = userDetails["name"]
                             
+                            self.firstName = userDetails["first_name"]
+                            
+                            self.lastName = userDetails["last_name"]
+                            
                             self.email = userDetails["email"]
                             
                             self.fbImageProfileUrl = "http://graph.facebook.com/\(UserController.userId!)/picture?type=large"
@@ -130,7 +138,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             UserController.loginStatus = true
                             
-                            self.performSegue(withIdentifier: "toRegister", sender: self)
+                            self.performSegue(withIdentifier: "toUserType", sender: self)
                             
                         }
                         
@@ -147,7 +155,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func guestLogin() {
         
         self.name = "Yourname Lastname"
-        self.imageProfile = UIImage(named: "chula_expo_logo.jpg")
+        self.fbImage = UIImage(named: "chula_expo_logo.jpg")
         
         performSegue(withIdentifier: "toHomeScreen", sender: self)
         
@@ -186,7 +194,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         if let data = NSData(contentsOf: facebookProfileUrl!) {
             
-            self.imageProfile = UIImage(data: data as Data)
+            self.fbImage = UIImage(data: data as Data)
             
         }
         

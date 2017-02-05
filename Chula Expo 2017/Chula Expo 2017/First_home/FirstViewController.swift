@@ -11,6 +11,8 @@ import CoreData
 
 class FirstViewController: MainCoreDataTableViewController {
 
+    let dateFormatter = DateFormatter()
+    
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
@@ -23,10 +25,14 @@ class FirstViewController: MainCoreDataTableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//        dateFormatter.timeZone = TimeZone.current
+        
         requestForStageEvent()
         requestForFeedEvent()
         addDemoData()
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -321,12 +327,13 @@ class FirstViewController: MainCoreDataTableViewController {
                     endTime: NSDate(),
                     isFavorite: false,
                     isHighlight: true,
-                    reservable: true,
+                    reservable: false,
                     fullCapacity: 20,
                     reserved: 0,
                     seatAvaliable: 20,
                     isReserve: false,
                     toImages: NSSet(object: ImageData.addData(url: "technology", inManageobjectcontext: context)!),
+                    toRounds: NSSet(object: RoundData.addData(id: "1", activityId: "004", roundNo: 1, startTime: self.dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!, endTime: self.dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!, reservable: false, seatAvaliable: 0, reserved: 0, fullCapacity: 0, isReserve: false, isFavorite: false, isHighlight: false, inManageobjectcontext: context)),
                     toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
                     toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!),
                     toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!),
@@ -354,6 +361,92 @@ class FirstViewController: MainCoreDataTableViewController {
                                              ImageData.addData(url: "cryonics3", inManageobjectcontext: context)!,
                                              ImageData.addData(url: "cryonics4", inManageobjectcontext: context)!,
                                              ImageData.addData(url: "cryonics5", inManageobjectcontext: context)!),
+                    toRounds: NSSet(objects: RoundData.addData(
+                                                                id: "2",
+                                                                activityId: "005",
+                                                                roundNo: 1,
+                                                                startTime: self.dateFormatter.date(from: "2017-03-15T08:00:00.000Z")!,
+                                                                endTime: self.dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
+                                                                reservable: false,
+                                                                seatAvaliable: 0,
+                                                                reserved: 0,
+                                                                fullCapacity: 0,
+                                                                isReserve: false,
+                                                                isFavorite: false,
+                                                                isHighlight: false,
+                                                                inManageobjectcontext: context),
+                                        RoundData.addData(
+                                                                id: "3",
+                                                                activityId: "005",
+                                                                roundNo: 2,
+                                                                startTime: self.dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
+                                                                endTime: self.dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
+                                                                reservable: false,
+                                                                seatAvaliable: 0,
+                                                                reserved: 0,
+                                                                fullCapacity: 0,
+                                                                isReserve: false,
+                                                                isFavorite: false,
+                                                                isHighlight: false,
+                                                                inManageobjectcontext: context),
+                                        RoundData.addData(
+                                                                id: "4",
+                                                                activityId: "005",
+                                                                roundNo: 3,
+                                                                startTime: self.dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
+                                                                endTime: self.dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!,
+                                                                reservable: false,
+                                                                seatAvaliable: 0,
+                                                                reserved: 0,
+                                                                fullCapacity: 0,
+                                                                isReserve: false,
+                                                                isFavorite: false,
+                                                                isHighlight: false,
+                                                                inManageobjectcontext: context),
+                                        RoundData.addData(
+                                                                id: "6",
+                                                                activityId: "005",
+                                                                roundNo: 5,
+                                                                startTime: self.dateFormatter.date(from: "2017-03-16T08:00:00.000Z")!,
+                                                                endTime: self.dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
+                                                                reservable: false,
+                                                                seatAvaliable: 0,
+                                                                reserved: 0,
+                                                                fullCapacity: 0,
+                                                                isReserve: false,
+                                                                isFavorite: false,
+                                                                isHighlight: false,
+                                                                inManageobjectcontext: context),
+                                        RoundData.addData(
+                                                                id: "7",
+                                                                activityId: "005",
+                                                                roundNo: 6,
+                                                                startTime: self.dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
+                                                                endTime: self.dateFormatter.date(from: "2017-03-16T10:00:00.000Z")!,
+                                                                reservable: false,
+                                                                seatAvaliable: 0,
+                                                                reserved: 0,
+                                                                fullCapacity: 0,
+                                                                isReserve: false,
+                                                                isFavorite: false,
+                                                                isHighlight: false,
+                                                                inManageobjectcontext: context),
+                                        RoundData.addData(
+                                                                id: "8",
+                                                                activityId: "005",
+                                                                roundNo: 7,
+                                                                startTime: self.dateFormatter.date(from: "2017-03-16T12:00:00.000Z")!,
+                                                                endTime: self.dateFormatter.date(from: "2017-03-16T13:00:00.000Z")!,
+                                                                reservable: false,
+                                                                seatAvaliable: 0,
+                                                                reserved: 0,
+                                                                fullCapacity: 0,
+                                                                isReserve: false,
+                                                                isFavorite: false,
+                                                                isHighlight: false,
+                                                                inManageobjectcontext: context)
+                    
+                    ),
                     toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
                     toTags: NSSet(objects: TagData.addData(name: "Technology", inManageobjectcontext: context)!,
                                            TagData.addData(name: "Medicine", inManageobjectcontext: context)!,

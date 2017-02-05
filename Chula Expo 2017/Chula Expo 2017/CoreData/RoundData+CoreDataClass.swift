@@ -13,10 +13,11 @@ import CoreData
 public class RoundData: NSManagedObject {
     
     class func addData(
+        id: String,
         activityId: String,
         roundNo: Int16,
-        startTime: NSDate,
-        endTime: NSDate,
+        startTime: Date,
+        endTime: Date,
         reservable: Bool,
         seatAvaliable: Int16,
         reserved: Int16,
@@ -40,6 +41,7 @@ public class RoundData: NSManagedObject {
             if let newData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData
             {
                 // created a new event in the database
+                newData.id = id
                 newData.activityId = activityId
                 newData.roundNo = roundNo
                 newData.startTime = startTime

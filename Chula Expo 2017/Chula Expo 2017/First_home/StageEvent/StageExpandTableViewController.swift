@@ -12,7 +12,8 @@ import CoreData
 class StageExpandTableViewController: StageExpandableCoreDataTableViewController {
     
     @IBOutlet weak var topTab: UIView!
-    var selectionIndicatorView : UIView = UIView()
+    var selectionIndicatorView: UIView = UIView()
+    var selectedDate: Int = 1
     var stageNo: Int?
         {
         didSet
@@ -37,13 +38,30 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     
     func setupTopTab(){
         var selectionIndicatorFrame : CGRect = CGRect()
-        selectionIndicatorFrame = CGRect(x: 0 , y: topTab.bounds.height-2, width: 100, height: 2)
+        let sectionWidth = topTab.frame.width / 5
+        selectionIndicatorFrame = CGRect(x: (sectionWidth * (CGFloat)(selectedDate - 1) ) + 2 , y: topTab.bounds.height-2, width: sectionWidth - 4, height: 2)
         selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
         selectionIndicatorView.backgroundColor = UIColor.brown
         topTab.addSubview(selectionIndicatorView)
         
     }
+    
+    @IBAction func selectDate(_ sender: Any) {
+        if let button = sender as? UIButton{
+            selectedDate = button.tag
+        }
+        moveToptabIndicator()
+        
+    }
 
+    func moveToptabIndicator(){
+        UIView.animate(withDuration: 0.15, animations: { () -> Void in
+            let sectionWidth = self.topTab.frame.width / 5
+            let sectionX = (sectionWidth * (CGFloat)(self.selectedDate - 1) ) + 2
+            self.selectionIndicatorView.frame = CGRect(x: sectionX, y: self.topTab.bounds.height-2, width: sectionWidth-4, height: 2)
+        })
+    }
+    
     fileprivate func updateUI(){
         if let context = managedObjectContext{
             if let stageNo = stageNo{
@@ -72,16 +90,22 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
         setupTopTab()
+        tableView.reloadData()
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         // Uncomment the following line to preserve selection between presentations
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 //        self.tableView.backgroundColor = UIColor.blue
+        print("loadedStage")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("layoutStage")
+//        setupTopTab()
     }
 
-    @IBAction func selectDate(_ sender: Any) {
-    }
+    
         // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

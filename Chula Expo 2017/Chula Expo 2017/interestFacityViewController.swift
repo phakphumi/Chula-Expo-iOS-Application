@@ -1,16 +1,14 @@
 //
-//  interestViewController.swift
+//  interestFacityViewController.swift
 //  Chula Expo 2017
 //
-//  Created by Ekkalak Leelasornchai on 2/4/2560 BE.
+//  Created by Ekkalak Leelasornchai on 2/5/2560 BE.
 //  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
-class interestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class interestFacityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var tapped = [UIImageView]()
     
@@ -53,12 +51,12 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /* let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+       /*  let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+         layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
          layout.itemSize = CGSize(width: (self.view.frame.width-42.5)/2, height: 100)
          layout.minimumInteritemSpacing = 2.5
          layout.minimumLineSpacing = 2.5
-         collectionView!.collectionViewLayout = layout */
+         collectionView!.collectionViewLayout = layout*/
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 20, right: 30)
@@ -107,10 +105,10 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell: UICollectionViewCell
-        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell1", for: indexPath)
         
         // Configure the cell
-        if let interestCell = cell as? InterestCollectionViewCell {
+        if let interestCell = cell as? interestCollectionViewCell1 {
             
             if tagList.count > (indexPath.row) {
                 interestCell.imgName[0] = tagList[(indexPath.row)].imgName
@@ -125,16 +123,16 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cell
     }
     
-
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -1116,13 +1116,13 @@
                         <viewControllerLayoutGuide type="top" id="vBv-GV-lAP"/>
                         <viewControllerLayoutGuide type="bottom" id="Dmo-N9-gEW"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="q6c-49-8ib">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="q6c-49-8ib">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-xc-L1H">
-                                <rect key="frame" x="0.0" y="64" width="375" height="511"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="383" height="621"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mKy-XV-tCp">
                                     <size key="itemSize" width="149" height="100"/>
@@ -1201,8 +1201,8 @@
                                     <outlet property="delegate" destination="1cI-z6-raX" id="gYK-Z6-Kq5"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbs-Dv-fge">
-                                <rect key="frame" x="16" y="583" width="343" height="76"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbs-Dv-fge">
+                                <rect key="frame" x="16" y="629" width="343" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1212,14 +1212,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="Dbs-Dv-fge" secondAttribute="leading" id="0OX-G4-U2R"/>
-                            <constraint firstItem="Dmo-N9-gEW" firstAttribute="top" secondItem="kL5-xc-L1H" secondAttribute="bottom" constant="92" id="12W-tm-pbn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kL5-xc-L1H" secondAttribute="trailing" constant="-16" id="SxT-ZW-9gk"/>
+                            <constraint firstItem="Dbs-Dv-fge" firstAttribute="top" secondItem="kL5-xc-L1H" secondAttribute="bottom" constant="8" id="OAX-7T-Xlh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kL5-xc-L1H" secondAttribute="trailingMargin" constant="-16" id="SxT-ZW-9gk"/>
                             <constraint firstItem="Dmo-N9-gEW" firstAttribute="top" secondItem="Dbs-Dv-fge" secondAttribute="bottom" constant="8" id="YVe-F2-PBb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dbs-Dv-fge" secondAttribute="trailing" id="aSw-cl-b3L"/>
-                            <constraint firstItem="kL5-xc-L1H" firstAttribute="leading" secondItem="q6c-49-8ib" secondAttribute="leadingMargin" constant="-16" id="fwj-jw-ROk"/>
+                            <constraint firstItem="kL5-xc-L1H" firstAttribute="leading" secondItem="q6c-49-8ib" secondAttribute="leading" id="fwj-jw-ROk"/>
                             <constraint firstItem="kL5-xc-L1H" firstAttribute="top" secondItem="vBv-GV-lAP" secondAttribute="bottom" id="zzl-md-9ad"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="XNI-mw-Su9">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="2jr-KI-aUi">
                             <connections>
@@ -1440,11 +1441,11 @@
                         <viewControllerLayoutGuide type="bottom" id="s6t-ft-ihn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ew4-gP-Gyy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-WX-Fxo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="511"/>
+                                <rect key="frame" x="0.0" y="0.0" width="383" height="511"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YbA-Ge-GSk">
@@ -1534,15 +1535,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XG9-WX-Fxo" firstAttribute="leading" secondItem="ew4-gP-Gyy" secondAttribute="leadingMargin" constant="-16" id="1aj-h4-iwS"/>
+                            <constraint firstItem="XG9-WX-Fxo" firstAttribute="leading" secondItem="ew4-gP-Gyy" secondAttribute="leading" id="1aj-h4-iwS"/>
                             <constraint firstAttribute="leadingMargin" secondItem="i4X-9j-RYi" secondAttribute="leading" id="Fjt-N8-TVY"/>
                             <constraint firstItem="s6t-ft-ihn" firstAttribute="top" secondItem="XG9-WX-Fxo" secondAttribute="bottom" constant="92" id="Leg-LI-m4a"/>
                             <constraint firstItem="XG9-WX-Fxo" firstAttribute="top" secondItem="MOS-f6-6Bq" secondAttribute="bottom" id="jPs-gd-Ye9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="i4X-9j-RYi" secondAttribute="trailing" id="mTd-Im-enr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XG9-WX-Fxo" secondAttribute="trailing" constant="-16" id="ohC-tZ-rbb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XG9-WX-Fxo" secondAttribute="trailingMargin" constant="-16" id="ohC-tZ-rbb"/>
                             <constraint firstItem="s6t-ft-ihn" firstAttribute="top" secondItem="i4X-9j-RYi" secondAttribute="bottom" constant="8" id="rnq-SY-fTU"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="jPc-gd-3Yp"/>
                     <connections>
                         <outlet property="collectionView" destination="XG9-WX-Fxo" id="vye-eO-p3d"/>

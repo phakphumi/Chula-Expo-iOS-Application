@@ -51,20 +51,20 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       /*  let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
          layout.itemSize = CGSize(width: (self.view.frame.width-42.5)/2, height: 100)
          layout.minimumInteritemSpacing = 2.5
          layout.minimumLineSpacing = 2.5
-         collectionView!.collectionViewLayout = layout*/
-        
+         collectionView!.collectionViewLayout = layout
+        /*
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 20, right: 30)
         layout.itemSize = CGSize(width: (self.view.frame.width-65)/3, height: (self.view.frame.width-65)/3)
         layout.minimumInteritemSpacing = 2.5
         layout.minimumLineSpacing = 2.5
         collectionView!.collectionViewLayout = layout
-        
+        */
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

@@ -12,6 +12,8 @@ import CoreData
 class StageExpandTableViewController: StageExpandableCoreDataTableViewController {
     
     @IBOutlet weak var topTab: UIView!
+
+    
     var selectionIndicatorView: UIView = UIView()
     var selectedDate: Int = 1
     var stageNo: Int?
@@ -42,7 +44,6 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         selectionIndicatorFrame = CGRect(x: (sectionWidth * (CGFloat)(selectedDate - 1) ) + 2 , y: topTab.bounds.height-2, width: sectionWidth - 4, height: 2)
         selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
         selectionIndicatorView.backgroundColor = UIColor(red:1.00, green:0.43, blue:0.60, alpha:1.0)
-        topTab.addSubview(selectionIndicatorView)
         let shadowPath = UIBezierPath(rect: topTab.bounds)
         topTab.layer.shadowColor = UIColor.darkGray.cgColor
         topTab.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -103,6 +104,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTopTab()
+        topTab.addSubview(selectionIndicatorView)
         tableView.reloadData()
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         // Uncomment the following line to preserve selection between presentations

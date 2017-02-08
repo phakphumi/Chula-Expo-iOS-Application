@@ -4,17 +4,20 @@
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bannerUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="faculty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isStageEvent" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="locationDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reservable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stageNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="thumbnailsUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="toFaculty" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FacultyData" inverseName="toActivity" inverseEntity="FacultyData" syncable="YES"/>
+        <attribute name="video" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toImages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageData" inverseName="toActivity" inverseEntity="ImageData" syncable="YES"/>
         <relationship name="toRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundData" inverseName="toActivity" inverseEntity="RoundData" syncable="YES"/>
         <relationship name="toTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagData" inverseName="toActivity" inverseEntity="TagData" syncable="YES"/>
-        <relationship name="toVideos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VideoData" inverseName="toActivity" inverseEntity="VideoData" syncable="YES"/>
     </entity>
     <entity name="EventData" representedClassName="EventData" syncable="YES">
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,7 +37,7 @@
     <entity name="FacultyData" representedClassName="FacultyData" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="toActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toFaculty" inverseEntity="ActivityData" syncable="YES"/>
+        <relationship name="toActivity" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ActivityData" syncable="YES"/>
     </entity>
     <entity name="ImageData" representedClassName="ImageData" syncable="YES">
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
@@ -70,25 +73,25 @@
     </entity>
     <entity name="UserData" representedClassName="UserData" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="job" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pictureUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profile" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="school" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="VideoData" representedClassName="VideoData" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toVideos" inverseEntity="ActivityData" syncable="YES"/>
+        <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="255"/>
+        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="300"/>
         <element name="EventData" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="FacultyData" positionX="277" positionY="558" width="128" height="88"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="75"/>

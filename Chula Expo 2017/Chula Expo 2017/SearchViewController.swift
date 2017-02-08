@@ -113,12 +113,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         var name: String?
                         var toRound: NSSet?
                         var thumbnail: String?
-                        var facity: NSSet?
+                        var facity: String?
                         fetchData.managedObjectContext?.performAndWait{
                             // it's easy to forget to do this on the proper queue
                             name = fetchData.name
                             thumbnail = fetchData.thumbnailsUrl
-                            facity = fetchData.toFaculty
+                            facity = fetchData.faculty
                             toRound = fetchData.toRound
                             // we're not assuming the context is a main queue context
                             // so we'll grab the screenName and return to the main queue

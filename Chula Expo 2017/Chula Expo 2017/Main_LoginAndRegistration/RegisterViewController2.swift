@@ -177,47 +177,47 @@ class RegisterViewController2: UIViewController, UITextFieldDelegate, UIPickerVi
             
             if userType == "student" {
             
-                managedObjectContext?.performAndWait {
-                
-                    _ = UserData.addUser(
-                        id: UserController.userId!,
-                        token: self.token,
-                        userType: "student",
-                        name: self.nameField.text!,
-                        email: self.emailField.text!,
-                        age: Int(self.ageField.text!)!,
-                        gender: self.genderField.text!,
-                        school: self.schoolField.text!,
-                        company: "",
-                        year: Int(self.yearField.text!)!,
-                        position: "",
-                        pictureUrl: self.fbImageProfileUrl!,
-                        inManageobjectcontext: managedObjectContext!
-                    )
-                
-                }
+//                managedObjectContext?.performAndWait {
+//                
+////                    _ = UserData.addUser(
+//                        id: UserController.userId!,
+//                        token: self.token,
+//                        userType: "student",
+//                        name: self.nameField.text!,
+//                        email: self.emailField.text!,
+//                        age: Int(self.ageField.text!)!,
+//                        gender: self.genderField.text!,
+//                        school: self.schoolField.text!,
+//                        company: "",
+//                        year: Int(self.yearField.text!)!,
+//                        position: "",
+//                        pictureUrl: self.fbImageProfileUrl!,
+//                        inManageobjectcontext: managedObjectContext!
+//                    )
+//                
+//                }
                 
             } else {
                 
-                managedObjectContext?.performAndWait {
-                    
-                    _ = UserData.addUser(
-                        id: UserController.userId!,
-                        token: self.token,
-                        userType: "student",
-                        name: self.nameField.text!,
-                        email: self.emailField.text!,
-                        age: Int(self.ageField.text!)!,
-                        gender: self.genderField.text!,
-                        school: "",
-                        company: self.companyField.text!,
-                        year: 0,
-                        position: self.positionField.text!,
-                        pictureUrl: self.fbImageProfileUrl!,
-                        inManageobjectcontext: managedObjectContext!
-                    )
-                    
-                }
+//                managedObjectContext?.performAndWait {
+//                    
+//                    _ = UserData.addUser(
+//                        id: UserController.userId!,
+//                        token: self.token,
+//                        userType: "student",
+//                        name: self.nameField.text!,
+//                        email: self.emailField.text!,
+//                        age: Int(self.ageField.text!)!,
+//                        gender: self.genderField.text!,
+//                        school: "",
+//                        company: self.companyField.text!,
+//                        year: 0,
+//                        position: self.positionField.text!,
+//                        pictureUrl: self.fbImageProfileUrl!,
+//                        inManageobjectcontext: managedObjectContext!
+//                    )
+//                    
+//                }
                 
             }
             

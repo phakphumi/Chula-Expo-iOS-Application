@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FBSDKLoginKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        addDemoData()
+        print(1111111111111111)
+        updateActivities()
+//        addDemoData()
         
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print("...")
@@ -125,204 +128,276 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    private func addDemoData(){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        let context = managedObjectContext
-            // add demo data
+    
+    private func updateActivities() {
+        print(1)
+        Alamofire.request("http://staff.chulaexpo.com/api/activities").responseJSON { (response) in
+            print(2)
+            let context = self.managedObjectContext
+            print(3)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            
+            let JSON = response.result.value as! NSDictionary
+            let results = JSON["results"] as! NSArray
+            let result = results[1] as! NSDictionary
+
+            let location = result["location"] as! NSDictionary
+            
+            let startTime = result["start"] as! String
+            let endTime = result["end"] as! String
+            
+            let pictures = result["pictures"] as? NSArray
+            let pictureSet = NSSet(array: pictures as? [Any] ?? [""])
+            
+            let tags = result["tags"] as! NSArray
+            let tagSet = NSSet(array: tags as! [Any])
+            print(4)
             context.performAndWait {
-                _ = ActivityData.addStageEventData(
-                    activityId: "001",
-                    stageNo: 1,
-                    name: "Stage 1 event",
-                    desc: "stage 1 desc",
-                    startTime: NSDate(),
-                    endTime: NSDate(),
-                    isFavorite: false,
-                    reservable: true,
-                    fullCapacity: 100,
-                    reserved: 15,
-                    seatAvaliable: 17,
-                    isReserve: false,
-                    inManageobjectcontext: context)
-                _ = ActivityData.addStageEventData(
-                    activityId: "002",
-                    stageNo: 2,
-                    name: "Stage 2 event",
-                    desc: "stage 2 desc",
-                    startTime: NSDate(),
-                    endTime: NSDate(),
-                    isFavorite: false,
-                    reservable: true,
-                    fullCapacity: 90,
-                    reserved: 1,
-                    seatAvaliable: 0,
-                    isReserve: false,
-                    inManageobjectcontext: context)
-                _ = ActivityData.addStageEventData(
-                    activityId: "003",
-                    stageNo: 3,
-                    name: "Stage 3 event",
-                    desc: "stage 3 desc",
-                    startTime: NSDate(),
-                    endTime: NSDate(),
-                    isFavorite: false,
-                    reservable: true,
-                    fullCapacity: 2,
-                    reserved: 1,
-                    seatAvaliable: 1,
-                    isReserve: false,
-                    inManageobjectcontext: context)
-                _ = ActivityData.addEventData(
-                    activityId: "004",
-                    name: "event 1 test test",
-                    desc: "Hello activity 1 description",
-                    locationDesc: "101 Floor 1 ENG 3",
-                    bannerUrl: "technology",
-                    thumbnailsUrl: "technology",
-                    startTime: NSDate(),
-                    endTime: NSDate(),
-                    isFavorite: false,
-                    isHighlight: true,
-                    reservable: true,
-                    fullCapacity: 20,
-                    reserved: 0,
-                    seatAvaliable: 20,
-                    isReserve: false,
-                    toImages: NSSet(object: ImageData.addData(url: "technology", inManageobjectcontext: context)!),
-                    toRounds: NSSet(object: RoundData.addData(id: "1", activityId: "004", roundNo: 1, startTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!, endTime: dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!, reservable: false, seatAvaliable: 0, reserved: 0, fullCapacity: 0, isReserve: false, isFavorite: false, isHighlight: false, inManageobjectcontext: context)),
-                    toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
-                    toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!),
-                    toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!),
-                    inManageobjectcontext: context)
+                print(5)
+                _ = ActivityData.addEventData(activityId: result["_id"] as! String,
+                                              name: (result["name"] as! NSDictionary)["th"] as! String,
+                                              desc: (result["description"] as! NSDictionary)["th"] as! String,
+                                              room: location["room"] as? String ?? "",
+                                              place: location["place"] as! String,
+                                              latitude: location["latitude"] as! Double,
+                                              longitude: location["longitude"] as! Double,
+                                              bannerUrl: result["banner"] as? String ?? "",
+                                              thumbnailsUrl: result["thumbnail"] as? String ?? "",
+                                              startTime: dateFormatter.date(from: startTime)!,
+                                              endTime: dateFormatter.date(from: endTime)!,
+                                              isFavorite: false,
+                                              isHighlight: result["isHighlight"] as! Bool,
+                                              reservable: false,
+                                              fullCapacity: 110,
+                                              reserved: 10,
+                                              seatAvaliable: 100,
+                                              isReserve: false,
+                                              video: result["video"] as? String ?? "",
+                                              toImages: pictureSet,
+                                              toRounds: NSSet(),
+                                              toTags: tagSet,
+                                              faculty: result["zone"] as! String,
+                                              inManageobjectcontext: context)
+                print(6)
                 
-                _ = ActivityData.addEventData(
-                    activityId: "005",
-                    name: "Cryonics a new life",
-                    desc: "Death occurs when the chemistry of life becomes so disorganized that normal operation cannot be restored. (Death is not when life turns off. People can and have survived being \"turned off\".) How much chemical disorder can be survived depends on medical technology. A hundred years ago, cardiac arrest was irreversible. People were called dead when their heart stopped beating. Today death is believed to occur 4 to 6 minutes after the heart stops beating because after several minutes it is difficult to resuscitate the brain. However, with new experimental treatments, more than 10 minutes of warm cardiac arrest can now be survived without brain injury. Future technologies for molecular repair may extend the frontiers of resuscitation beyond 60 minutes or more, making today's beliefs about when death occurs obsolete. Ultimately, real death occurs when cell structure and chemistry become so disorganized that no technology could restore the original state. This is called the information-theoretic criterion for death. Any other definition of death is arbitrary and subject to continual revision as technology changes. That is certainly the case for death pronounced on the basis of absent \"vital signs\" today, which is not real death at all. The object of cryonics is to prevent death by preserving sufficient cell structure and chemistry so that recovery (including recovery of memory and personality) remains possible by foreseeable technology. If indeed cryonics patients are recoverable in the future, then clearly they were never really dead in the first place. Today's physicians will simply have been wrong about when death occurs, as they have been so many times in the past. The argument that cryonics cannot work because cryonics patients are dead is a circular argument.",
-                    locationDesc: "Medicine Building 1000",
-                    bannerUrl: "cryonics",
-                    thumbnailsUrl: "cryonics",
-                    startTime: NSDate(),
-                    endTime: NSDate(),
-                    isFavorite: false,
-                    isHighlight: true,
-                    reservable: true,
-                    fullCapacity: 55,
-                    reserved: 12,
-                    seatAvaliable: 13,
-                    isReserve: false,
-                    toImages: NSSet(objects:
-                        ImageData.addData(url: "cryonics1", inManageobjectcontext: context)!,
-                                    ImageData.addData(url: "cryonics2", inManageobjectcontext: context)!,
-                                    ImageData.addData(url: "cryonics3", inManageobjectcontext: context)!,
-                                    ImageData.addData(url: "cryonics4", inManageobjectcontext: context)!,
-                                    ImageData.addData(url: "cryonics5", inManageobjectcontext: context)!),
-                    toRounds: NSSet(objects: RoundData.addData(
-                        id: "2",
-                        activityId: "005",
-                        roundNo: 1,
-                        startTime: dateFormatter.date(from: "2017-03-15T08:00:00.000Z")!,
-                        endTime: dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
-                        reservable: false,
-                        seatAvaliable: 0,
-                        reserved: 0,
-                        fullCapacity: 0,
-                        isReserve: false,
-                        isFavorite: false,
-                        isHighlight: false,
-                        inManageobjectcontext: context),
-                                    RoundData.addData(
-                                        id: "3",
-                                        activityId: "005",
-                                        roundNo: 2,
-                                        startTime: dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
-                                        endTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
-                                        reservable: false,
-                                        seatAvaliable: 0,
-                                        reserved: 0,
-                                        fullCapacity: 0,
-                                        isReserve: false,
-                                        isFavorite: false,
-                                        isHighlight: false,
-                                        inManageobjectcontext: context),
-                                    RoundData.addData(
-                                        id: "4",
-                                        activityId: "005",
-                                        roundNo: 3,
-                                        startTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
-                                        endTime: dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!,
-                                        reservable: false,
-                                        seatAvaliable: 0,
-                                        reserved: 0,
-                                        fullCapacity: 0,
-                                        isReserve: false,
-                                        isFavorite: false,
-                                        isHighlight: false,
-                                        inManageobjectcontext: context),
-                                    RoundData.addData(
-                                        id: "6",
-                                        activityId: "005",
-                                        roundNo: 5,
-                                        startTime: dateFormatter.date(from: "2017-03-16T08:00:00.000Z")!,
-                                        endTime: dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
-                                        reservable: false,
-                                        seatAvaliable: 0,
-                                        reserved: 0,
-                                        fullCapacity: 0,
-                                        isReserve: false,
-                                        isFavorite: false,
-                                        isHighlight: false,
-                                        inManageobjectcontext: context),
-                                    RoundData.addData(
-                                        id: "7",
-                                        activityId: "005",
-                                        roundNo: 6,
-                                        startTime: dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
-                                        endTime: dateFormatter.date(from: "2017-03-16T10:00:00.000Z")!,
-                                        reservable: false,
-                                        seatAvaliable: 0,
-                                        reserved: 0,
-                                        fullCapacity: 0,
-                                        isReserve: false,
-                                        isFavorite: false,
-                                        isHighlight: false,
-                                        inManageobjectcontext: context),
-                                    RoundData.addData(
-                                        id: "8",
-                                        activityId: "005",
-                                        roundNo: 7,
-                                        startTime: dateFormatter.date(from: "2017-03-16T12:00:00.000Z")!,
-                                        endTime: dateFormatter.date(from: "2017-03-16T13:00:00.000Z")!,
-                                        reservable: false,
-                                        seatAvaliable: 0,
-                                        reserved: 0,
-                                        fullCapacity: 0,
-                                        isReserve: false,
-                                        isFavorite: false,
-                                        isHighlight: false,
-                                        inManageobjectcontext: context)
-                        
-                    ),
-                    toVideos: NSSet(object: VideoData.addData(title: "video 1", url: "youtube url", inManageobjectcontext: context)!),
-                    toTags: NSSet(objects: TagData.addData(name: "Technology", inManageobjectcontext: context)!,
-                                  TagData.addData(name: "Medicine", inManageobjectcontext: context)!,
-                                  TagData.addData(name: "Science", inManageobjectcontext: context)!),
-                    toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Medicine", shortName: "MED", inManageobjectcontext: context)!),
-                    inManageobjectcontext: context)
             }
-        
+            print(7)
             do{
-                try managedObjectContext.save()
-                print("Demo ActivityData Saved")
+                print(8)
+                try context.save()
+                print("ActivityData Saved")
             }
                 
             catch let error {
-                print("Demo ActivityData save error with \(error)")
+                print(9)
+                print("ActivityData save error with \(error)")
             }
-        
-//            printDatabaseStatistics()
+            print(10)
+            
+            
         }
+        
+    }
+    
+//    private func addDemoData(){
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//        let context = managedObjectContext
+//            // add demo data
+//            context.performAndWait {
+//                _ = ActivityData.addStageEventData(
+//                    activityId: "001",
+//                    stageNo: 1,
+//                    name: "Stage 1 event",
+//                    desc: "stage 1 desc",
+//                    startTime: NSDate(),
+//                    endTime: NSDate(),
+//                    isFavorite: false,
+//                    reservable: true,
+//                    fullCapacity: 100,
+//                    reserved: 15,
+//                    seatAvaliable: 17,
+//                    isReserve: false,
+//                    inManageobjectcontext: context)
+//                _ = ActivityData.addStageEventData(
+//                    activityId: "002",
+//                    stageNo: 2,
+//                    name: "Stage 2 event",
+//                    desc: "stage 2 desc",
+//                    startTime: NSDate(),
+//                    endTime: NSDate(),
+//                    isFavorite: false,
+//                    reservable: true,
+//                    fullCapacity: 90,
+//                    reserved: 1,
+//                    seatAvaliable: 0,
+//                    isReserve: false,
+//                    inManageobjectcontext: context)
+//                _ = ActivityData.addStageEventData(
+//                    activityId: "003",
+//                    stageNo: 3,
+//                    name: "Stage 3 event",
+//                    desc: "stage 3 desc",
+//                    startTime: NSDate(),
+//                    endTime: NSDate(),
+//                    isFavorite: false,
+//                    reservable: true,
+//                    fullCapacity: 2,
+//                    reserved: 1,
+//                    seatAvaliable: 1,
+//                    isReserve: false,
+//                    inManageobjectcontext: context)
+//                _ = ActivityData.addEventData(
+//                    activityId: "004",
+//                    name: "event 1 test test",
+//                    desc: "Hello activity 1 description",
+//                    locationDesc: "101 Floor 1 ENG 3",
+//                    bannerUrl: "technology",
+//                    thumbnailsUrl: "technology",
+//                    startTime: NSDate(),
+//                    endTime: NSDate(),
+//                    isFavorite: false,
+//                    isHighlight: true,
+//                    reservable: true,
+//                    fullCapacity: 20,
+//                    reserved: 0,
+//                    seatAvaliable: 20,
+//                    isReserve: false,
+//                    video, "",
+//                    toImages: NSSet(object: ImageData.addData(url: "technology", inManageobjectcontext: context)!),
+//                    toRounds: NSSet(object: RoundData.addData(id: "1", activityId: "004", roundNo: 1, startTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!, endTime: dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!, reservable: false, seatAvaliable: 0, reserved: 0, fullCapacity: 0, isReserve: false, isFavorite: false, isHighlight: false, inManageobjectcontext: context)),
+//                    toTags: NSSet(object: TagData.addData(name: "Tech", inManageobjectcontext: context)!),
+//                    toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Engineering", shortName: "ENG", inManageobjectcontext: context)!),
+//                    inManageobjectcontext: context)
+//                
+//                _ = ActivityData.addEventData(
+//                    activityId: "005",
+//                    name: "Cryonics a new life",
+//                    desc: "Death occurs when the chemistry of life becomes so disorganized that normal operation cannot be restored. (Death is not when life turns off. People can and have survived being \"turned off\".) How much chemical disorder can be survived depends on medical technology. A hundred years ago, cardiac arrest was irreversible. People were called dead when their heart stopped beating. Today death is believed to occur 4 to 6 minutes after the heart stops beating because after several minutes it is difficult to resuscitate the brain. However, with new experimental treatments, more than 10 minutes of warm cardiac arrest can now be survived without brain injury. Future technologies for molecular repair may extend the frontiers of resuscitation beyond 60 minutes or more, making today's beliefs about when death occurs obsolete. Ultimately, real death occurs when cell structure and chemistry become so disorganized that no technology could restore the original state. This is called the information-theoretic criterion for death. Any other definition of death is arbitrary and subject to continual revision as technology changes. That is certainly the case for death pronounced on the basis of absent \"vital signs\" today, which is not real death at all. The object of cryonics is to prevent death by preserving sufficient cell structure and chemistry so that recovery (including recovery of memory and personality) remains possible by foreseeable technology. If indeed cryonics patients are recoverable in the future, then clearly they were never really dead in the first place. Today's physicians will simply have been wrong about when death occurs, as they have been so many times in the past. The argument that cryonics cannot work because cryonics patients are dead is a circular argument.",
+//                    locationDesc: "Medicine Building 1000",
+//                    bannerUrl: "cryonics",
+//                    thumbnailsUrl: "cryonics",
+//                    startTime: NSDate(),
+//                    endTime: NSDate(),
+//                    isFavorite: false,
+//                    isHighlight: true,
+//                    reservable: true,
+//                    fullCapacity: 55,
+//                    reserved: 12,
+//                    seatAvaliable: 13,
+//                    isReserve: false,
+//                    video: "",
+//                    toImages: NSSet(objects:
+//                        ImageData.addData(url: "cryonics1", inManageobjectcontext: context)!,
+//                                    ImageData.addData(url: "cryonics2", inManageobjectcontext: context)!,
+//                                    ImageData.addData(url: "cryonics3", inManageobjectcontext: context)!,
+//                                    ImageData.addData(url: "cryonics4", inManageobjectcontext: context)!,
+//                                    ImageData.addData(url: "cryonics5", inManageobjectcontext: context)!),
+//                    toRounds: NSSet(objects: RoundData.addData(
+//                        id: "2",
+//                        activityId: "005",
+//                        roundNo: 1,
+//                        startTime: dateFormatter.date(from: "2017-03-15T08:00:00.000Z")!,
+//                        endTime: dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
+//                        reservable: false,
+//                        seatAvaliable: 0,
+//                        reserved: 0,
+//                        fullCapacity: 0,
+//                        isReserve: false,
+//                        isFavorite: false,
+//                        isHighlight: false,
+//                        inManageobjectcontext: context),
+//                                    RoundData.addData(
+//                                        id: "3",
+//                                        activityId: "005",
+//                                        roundNo: 2,
+//                                        startTime: dateFormatter.date(from: "2017-03-15T09:00:00.000Z")!,
+//                                        endTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
+//                                        reservable: false,
+//                                        seatAvaliable: 0,
+//                                        reserved: 0,
+//                                        fullCapacity: 0,
+//                                        isReserve: false,
+//                                        isFavorite: false,
+//                                        isHighlight: false,
+//                                        inManageobjectcontext: context),
+//                                    RoundData.addData(
+//                                        id: "4",
+//                                        activityId: "005",
+//                                        roundNo: 3,
+//                                        startTime: dateFormatter.date(from: "2017-03-15T10:00:00.000Z")!,
+//                                        endTime: dateFormatter.date(from: "2017-03-15T11:00:00.000Z")!,
+//                                        reservable: false,
+//                                        seatAvaliable: 0,
+//                                        reserved: 0,
+//                                        fullCapacity: 0,
+//                                        isReserve: false,
+//                                        isFavorite: false,
+//                                        isHighlight: false,
+//                                        inManageobjectcontext: context),
+//                                    RoundData.addData(
+//                                        id: "6",
+//                                        activityId: "005",
+//                                        roundNo: 5,
+//                                        startTime: dateFormatter.date(from: "2017-03-16T08:00:00.000Z")!,
+//                                        endTime: dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
+//                                        reservable: false,
+//                                        seatAvaliable: 0,
+//                                        reserved: 0,
+//                                        fullCapacity: 0,
+//                                        isReserve: false,
+//                                        isFavorite: false,
+//                                        isHighlight: false,
+//                                        inManageobjectcontext: context),
+//                                    RoundData.addData(
+//                                        id: "7",
+//                                        activityId: "005",
+//                                        roundNo: 6,
+//                                        startTime: dateFormatter.date(from: "2017-03-16T09:00:00.000Z")!,
+//                                        endTime: dateFormatter.date(from: "2017-03-16T10:00:00.000Z")!,
+//                                        reservable: false,
+//                                        seatAvaliable: 0,
+//                                        reserved: 0,
+//                                        fullCapacity: 0,
+//                                        isReserve: false,
+//                                        isFavorite: false,
+//                                        isHighlight: false,
+//                                        inManageobjectcontext: context),
+//                                    RoundData.addData(
+//                                        id: "8",
+//                                        activityId: "005",
+//                                        roundNo: 7,
+//                                        startTime: dateFormatter.date(from: "2017-03-16T12:00:00.000Z")!,
+//                                        endTime: dateFormatter.date(from: "2017-03-16T13:00:00.000Z")!,
+//                                        reservable: false,
+//                                        seatAvaliable: 0,
+//                                        reserved: 0,
+//                                        fullCapacity: 0,
+//                                        isReserve: false,
+//                                        isFavorite: false,
+//                                        isHighlight: false,
+//                                        inManageobjectcontext: context)
+//                        
+//                    ),
+//                    toTags: NSSet(objects: TagData.addData(name: "Technology", inManageobjectcontext: context)!,
+//                                  TagData.addData(name: "Medicine", inManageobjectcontext: context)!,
+//                                  TagData.addData(name: "Science", inManageobjectcontext: context)!),
+//                    toFaculty: NSSet(object: FacultyData.addData(name: "Faculty of Medicine", shortName: "MED", inManageobjectcontext: context)!),
+//                    inManageobjectcontext: context)
+//            }
+//        
+//            do{
+//                try managedObjectContext.save()
+//                print("Demo ActivityData Saved")
+//            }
+//                
+//            catch let error {
+//                print("Demo ActivityData save error with \(error)")
+//            }
+//        
+////            printDatabaseStatistics()
+//        }
 
 }
 

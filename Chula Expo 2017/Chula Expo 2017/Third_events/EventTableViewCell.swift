@@ -23,9 +23,9 @@ class EventTableViewCell: UITableViewCell
     var reservable: Bool?
     var isReserve: Bool?
     var toTags: NSSet?
-    var toFaculty: NSSet?
+    var toFaculty: String?
     var toImages: NSSet?
-    var toVideos: NSSet?
+    var toVideos: String?
     var dateText: String?
     
     var name: String?

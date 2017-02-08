@@ -42,7 +42,7 @@ class EventfeedTableViewCell: UITableViewCell {
             updateUI()
         }
     }
-    var facity: NSSet?{
+    var facity: String?{
         didSet{
             updateUI()
         }
@@ -78,7 +78,7 @@ class EventfeedTableViewCell: UITableViewCell {
             eventTumbnailImage.image = UIImage(named: eventTumbnail)
         }
         if let eventFacity = facity{
-            let fac = eventFacity.allObjects.first as! FacultyData
+            let fac = facity as! FacultyData
             let cap = getCapsule(forFacity: fac.name!)
             facityCapsule.text = cap.facText
             facityCapsule.backgroundColor = cap.facColor

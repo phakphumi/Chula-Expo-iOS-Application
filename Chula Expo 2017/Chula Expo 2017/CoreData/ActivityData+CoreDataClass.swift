@@ -17,8 +17,8 @@ public class ActivityData: NSManagedObject {
         stageNo: Int16,
         name: String,
         desc: String,
-        startTime: NSDate,
-        endTime: NSDate,
+        startTime: Date,
+        endTime: Date,
         isFavorite: Bool,
         reservable: Bool,
         fullCapacity: Int16,
@@ -44,16 +44,16 @@ public class ActivityData: NSManagedObject {
                 newData.bannerUrl = ""
                 newData.desc = desc
                 newData.activityId = activityId
-                newData.locationDesc = ""
+//                newData.locationDesc = ""
                 newData.name = name
                 newData.thumbnailsUrl = ""
                 newData.isStageEvent = true
                 newData.stageNo = stageNo
+                newData.video = ""
                 newData.toImages = NSSet()
                 newData.toRound = NSSet()
-                newData.toVideos = NSSet()
                 newData.toTags = NSSet()
-                newData.toFaculty = NSSet()
+                newData.faculty = ""
 //                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: false, inManageobjectcontext: context)
                 return newData
             }
@@ -65,11 +65,14 @@ public class ActivityData: NSManagedObject {
         activityId: String,
         name: String,
         desc: String,
-        locationDesc: String,
+        room: String,
+        place: String,
+        latitude: Double,
+        longitude: Double,
         bannerUrl: String,
         thumbnailsUrl: String,
-        startTime: NSDate,
-        endTime: NSDate,
+        startTime: Date,
+        endTime: Date,
         isFavorite: Bool,
         isHighlight: Bool,
         reservable: Bool,
@@ -77,11 +80,11 @@ public class ActivityData: NSManagedObject {
         reserved: Int16,
         seatAvaliable: Int16,
         isReserve: Bool,
+        video: String,
         toImages: NSSet,
         toRounds: NSSet,
-        toVideos: NSSet,
         toTags: NSSet,
-        toFaculty: NSSet,
+        faculty: String,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ActivityData? {
         
@@ -101,18 +104,21 @@ public class ActivityData: NSManagedObject {
                 newData.bannerUrl = bannerUrl
                 newData.desc = desc
                 newData.activityId = activityId
-                newData.locationDesc = locationDesc
+                newData.room = room
+                newData.place = place
+                newData.latitude = latitude
+                newData.longitude = longitude
                 newData.name = name
                 newData.reservable = reservable
                 newData.thumbnailsUrl = thumbnailsUrl
                 newData.isStageEvent = false
                 newData.stageNo = 0
+                newData.video = video
                 newData.toImages = toImages
                 newData.toRound = toRounds
-                newData.toVideos = toVideos
                 newData.toTags = toTags
-                newData.toFaculty = toFaculty
-//                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: isHighlight, inManageobjectcontext: context)
+                newData.faculty = faculty
+                
                 return newData
             }
         }

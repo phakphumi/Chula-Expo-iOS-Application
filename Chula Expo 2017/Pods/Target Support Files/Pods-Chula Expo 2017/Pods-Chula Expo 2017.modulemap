@@ -1,0 +1,6 @@
+framework module Pods_Chula_Expo_2017 {
+  umbrella header "Pods-Chula Expo 2017-umbrella.h"
+
+  export *
+  module * { export * }
+}

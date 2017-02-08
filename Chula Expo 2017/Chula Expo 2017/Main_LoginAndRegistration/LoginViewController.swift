@@ -9,6 +9,8 @@
 import UIKit
 import FBSDKLoginKit
 import CoreData
+import Alamofire
+
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -25,13 +27,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        printDatabaseStatistics()
-        printDatabaseDatas()
+        
         UIApplication.shared.statusBarStyle = .lightContent
         
         if FBSDKAccessToken.current() != nil {
             
-            self.profileUpdate()
+            
+            checkRegisterStatus(completion: { (success, results) in
+                print(success)
+            })
+//            self.profileUpdate()
             
         } else {
         
@@ -47,29 +52,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    private func printDatabaseStatistics() {
-        
-        managedObjectContext?.perform {
-            
-            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "UserData")){
-                print("Total user datas in coredata \(result.count)")
-            }
-        }
-    }
-    
-    private func printDatabaseDatas() {
-        
-        managedObjectContext?.perform {
-            
-            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "UserData")){
-                for data in result as! [UserData]{
-                        print("found user with token == \(data.token!)")
-                }
-            }
-        }
-    }
-    
-        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toUserType" {
@@ -90,7 +72,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    func profileUpdate() {
+    func prepareToRegister() {
         
         if let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email, name, first_name, last_name"]) {
             
@@ -104,43 +86,21 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     if let userDetails = result as? [String: String] {
                         
-                        UserController.userId = userDetails["id"]!
+                        self.token = FBSDKAccessToken.current().tokenString
+                            
+                        self.name = userDetails["name"]
+                            
+                        self.firstName = userDetails["first_name"]
+                            
+                        self.lastName = userDetails["last_name"]
+                            
+                        self.email = userDetails["email"]
+                            
+                        self.fbImageProfileUrl = "https://graph.facebook.com/\(userDetails["id"]!)/picture?type=large"
                         
-                        var userData: UserData?
+                        self.setImageProfile()
                         
-                        self.managedObjectContext?.performAndWait({
-                            
-                            userData = UserData.fetchUser(id: UserController.userId! , inManageobjectcontext: self.managedObjectContext!)
-                            
-                        })
-                        
-                        if userData != nil {
-                            
-                            UserController.loginStatus = true
-                                
-                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
-                            
-                        } else {
-                            
-                            self.token = FBSDKAccessToken.current().tokenString
-                            
-                            self.name = userDetails["name"]
-                            
-                            self.firstName = userDetails["first_name"]
-                            
-                            self.lastName = userDetails["last_name"]
-                            
-                            self.email = userDetails["email"]
-                            
-                            self.fbImageProfileUrl = "http://graph.facebook.com/\(UserController.userId!)/picture?type=large"
-                            
-                            self.setImageProfile(userID: UserController.userId!)
-                            
-                            UserController.loginStatus = true
-                            
-                            self.performSegue(withIdentifier: "toUserType", sender: self)
-                            
-                        }
+                        self.performSegue(withIdentifier: "toUserType", sender: self)
                         
                     }
                     
@@ -177,8 +137,74 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             } else {
                 
                 if (result?.grantedPermissions.contains("email"))! {
-                        
-                    self.profileUpdate()
+                    
+                    self.checkRegisterStatus(completion: { (success, token) in
+                    
+                        if success {
+                            
+                            let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
+                            /*Student*/
+//                            let header: HTTPHeaders = ["Authorization": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODk5NmNmZmMzOGE4YzY0OTZlZTI0NDEiLCJpYXQiOjE0ODY0NDk5NjEsImV4cCI6MTQ4NjQ3ODc2MX0.lTjrWZYa3wlGllsLwiD_FoGRRuX2tSZhYU08yL6hOcY"]
+                            /*Person*/
+//                            let header: HTTPHeaders = ["Authorization": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODk5OWQ2MWMzOGE4YzY0OTZlZTI0NDQiLCJpYXQiOjE0ODY0NjIzMDUsImV4cCI6MTQ4NjQ5MTEwNX0.TbDNvBAnmESmR_UCFdxId2J4kiXSDi3rghNkQXcuYjE"]
+                            
+                            Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                                
+                                let JSON = response.result.value as! NSDictionary
+                                
+                                if let results = JSON["results"] as? NSDictionary{
+                                    
+                                    let academic = results["academic"] as? [String: String]
+                                    
+                                    let worker = results["worker"] as? [String: String]
+                                
+                                    let managedObjectContext: NSManagedObjectContext? =
+                                        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+                                    
+                                    managedObjectContext?.performAndWait {
+                                    
+                                        _ = UserData.addUser(id: results["_id"] as! String,
+                                                             token: token,
+                                                             type: results["type"] as! String,
+                                                             name: results["name"] as! String,
+                                                             email: results["email"] as! String,
+                                                             age: results["age"] as! Int,
+                                                             gender: results["gender"] as! String,
+                                                             school: academic?["school"] ?? "",
+                                                             level: academic?["level"] ?? "",
+                                                             year: academic?["year"] ?? "",
+                                                             job: worker?["job"] ?? "",
+                                                             profile: results["profile"] as? String ?? "",
+                                                             inManageobjectcontext: managedObjectContext!
+                                        )
+                                        
+                                    }
+                                    
+                                    do {
+                                    
+                                        try managedObjectContext?.save()
+                                        print("saved user")
+                                        
+                                    } catch let error {
+                                    
+                                        print("saveUserError with \(error)")
+                                        
+                                    }
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+                            
+                        } else {
+                            
+                            self.prepareToRegister()
+                            
+                        }
+
+                    })
                     
                 }
                 
@@ -188,9 +214,36 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     
-    func setImageProfile(userID: String) {
+    private func checkRegisterStatus(completion:@escaping (Bool, String) -> Void) {
         
-        let facebookProfileUrl = URL(string: "http://graph.facebook.com/\(userID)/picture?type=large")
+        Alamofire.request("http://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
+            //        Alamofire.request("http://staff.chulaexpo.com/auth/facebook/token?access_token=EAATpmh0ZCMDEBAJvabmtrCgufnV0ZCYWANMsF0GM8ZCRLeYnCV9oR3BnjUGkq3RWEV4GQDWKU2D1FsSvexrdBHlDAVe8fgysN5wxvCsfNYZBShhYGRN7r9SARIXrh5HlkhtCcRvv5VOEwF49pLJvEod4qhWqJLsZD").responseJSON { response in
+            
+            let JSON = response.result.value as! NSDictionary
+            
+            let success = JSON["success"] as! Bool
+            
+            if success {
+                
+                if let token = (JSON["results"] as! NSDictionary)["token"] as? String{
+                    
+                    completion(success, token)
+                    
+                }
+                
+            } else {
+                
+                completion(success, "")
+                
+            }
+            
+        }
+        
+    }
+    
+    func setImageProfile() {
+        
+        let facebookProfileUrl = URL(string: fbImageProfileUrl!)
         
         if let data = NSData(contentsOf: facebookProfileUrl!) {
             

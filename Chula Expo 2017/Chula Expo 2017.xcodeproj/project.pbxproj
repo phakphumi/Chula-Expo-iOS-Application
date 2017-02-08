@@ -25,6 +25,7 @@
 		5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */; };
 		5F07EDD71E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */; };
 		5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */; };
+		5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E92E01E48D8A100D5513B /* Alamofire.framework */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
 		5F202CDF1E321F5500AEAF1C /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */; };
 		5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */; };
@@ -59,6 +60,7 @@
 		5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */; };
 		5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0DF1E2D064D002D6DBD /* RelatedTableViewCell.swift */; };
 		5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */; };
+		603DF2ACAFBA4C7F11D741B0 /* Pods_Chula_Expo_2017.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC6164695A978B130E3802A /* Pods_Chula_Expo_2017.framework */; };
 		8000A5401E3785A000AED5EF /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8000A53F1E3785A000AED5EF /* TableHeaderView.swift */; };
 		800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 800641D61E215A7F00760834 /* Model.xcdatamodeld */; };
 		800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */; };
@@ -105,6 +107,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16D581782F48D50A19FC5C8E /* Pods-Chula Expo 2017.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chula Expo 2017.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017.debug.xcconfig"; sourceTree = "<group>"; };
 		581940CE1E446395000C566C /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		581940D01E4463AB000C566C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		581940D21E4473E0000C566C /* HeaderSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderSearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -117,12 +120,14 @@
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestedTableViewController.swift; path = Main_LoginAndRegistration/InterestedTableViewController.swift; sourceTree = "<group>"; };
 		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestTableViewCell.swift; path = Main_LoginAndRegistration/InterestTableViewCell.swift; sourceTree = "<group>"; };
+		5ADF032F16A51057C2FA9709 /* Pods-Chula Expo 2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chula Expo 2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017.release.xcconfig"; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
 		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Modal_EventDetails/ImageTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailsTableViewController.swift; path = Modal_EventDetails/EventDetailsTableViewController.swift; sourceTree = "<group>"; };
 		5F07EDD61E2BD6CF0017ECD5 /* WhenAndWhereTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WhenAndWhereTableViewCell.swift; path = Modal_EventDetails/WhenAndWhereTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescTableViewCell.swift; path = Modal_EventDetails/DescTableViewCell.swift; sourceTree = "<group>"; };
+		5F0E92E01E48D8A100D5513B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "DerivedData/Chula Expo 2017/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = SOURCE_ROOT; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Main_LoginAndRegistration/LoginViewController.swift; sourceTree = "<group>"; };
 		5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SukhumvitSet.ttc; sourceTree = "<group>"; };
 		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = First_home/FirstViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +208,7 @@
 		80DC94201E366B5200A1D01A /* TagData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TagData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/TagData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80DC94211E366B5200A1D01A /* VideoData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VideoData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/VideoData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80DC94221E366B5200A1D01A /* VideoData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VideoData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/VideoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CBC6164695A978B130E3802A /* Pods_Chula_Expo_2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chula_Expo_2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,10 +216,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */,
 				805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */,
 				805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */,
 				805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */,
 				805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */,
+				603DF2ACAFBA4C7F11D741B0 /* Pods_Chula_Expo_2017.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +238,15 @@
 				581940D61E44A072000C566C /* EventfeedTableViewCell.swift */,
 			);
 			name = Modal_Search;
+			sourceTree = "<group>";
+		};
+		5CDEEB30165B258A699A6DEE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16D581782F48D50A19FC5C8E /* Pods-Chula Expo 2017.debug.xcconfig */,
+				5ADF032F16A51057C2FA9709 /* Pods-Chula Expo 2017.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */ = {
@@ -318,6 +335,7 @@
 				5F9FB0841E150EDE00E984AB /* Frameworks */,
 				5F4A9D901E10300900713580 /* Chula Expo 2017 */,
 				5F4A9D8F1E10300900713580 /* Products */,
+				5CDEEB30165B258A699A6DEE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -379,10 +397,12 @@
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F0E92E01E48D8A100D5513B /* Alamofire.framework */,
 				5F9FB0851E150EDE00E984AB /* Bolts.framework */,
 				5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */,
 				5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */,
 				5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */,
+				CBC6164695A978B130E3802A /* Pods_Chula_Expo_2017.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -460,9 +480,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F4A9DA31E10300900713580 /* Build configuration list for PBXNativeTarget "Chula Expo 2017" */;
 			buildPhases = (
+				61BE41AC074E10D1FDE39DAF /* [CP] Check Pods Manifest.lock */,
 				5F4A9D8A1E10300900713580 /* Sources */,
 				5F4A9D8B1E10300900713580 /* Frameworks */,
 				5F4A9D8C1E10300900713580 /* Resources */,
+				B91A9A7D7B5466C53C3B3EE6 /* [CP] Embed Pods Frameworks */,
+				2CC7230D535FCF9266C27714 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -533,6 +556,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CC7230D535FCF9266C27714 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61BE41AC074E10D1FDE39DAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B91A9A7D7B5466C53C3B3EE6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5F4A9D8A1E10300900713580 /* Sources */ = {
@@ -785,6 +856,7 @@
 		};
 		5F4A9DA41E10300900713580 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16D581782F48D50A19FC5C8E /* Pods-Chula Expo 2017.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
@@ -797,6 +869,7 @@
 					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
 					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/DerivedData/Chula\\ Expo\\ 2017/Build/Products/Debug-iphonesimulator/Alamofire",
 				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -809,6 +882,7 @@
 		};
 		5F4A9DA51E10300900713580 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ADF032F16A51057C2FA9709 /* Pods-Chula Expo 2017.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
@@ -821,6 +895,7 @@
 					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
 					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/DerivedData/Chula\\ Expo\\ 2017/Build/Products/Debug-iphonesimulator/Alamofire",
 				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

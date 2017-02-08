@@ -12,20 +12,20 @@ import CoreData
 
 @objc(UserData)
 public class UserData: NSManagedObject {
-    
+
     class func addUser(
                             id: String,
                             token: String,
-                            userType: String,
+                            type: String,
                             name: String,
                             email: String,
                             age: Int,
                             gender: String,
-                            school: String,
-                            company: String,
-                            year: Int,
-                            position: String,
-                            pictureUrl: String,
+                            school: String?,
+                            level: String?,
+                            year: String?,
+                            job: String?,
+                            profile: String?,
                             inManageobjectcontext context: NSManagedObjectContext
                         ) -> UserData?
     {
@@ -45,16 +45,16 @@ public class UserData: NSManagedObject {
             // created a new event in the database
             newData.id = id
             newData.token = token
-            newData.userType = userType
+            newData.type = type
             newData.name = name
             newData.email = email
             newData.age = Int16(age)
             newData.gender = gender
             newData.school = school
-            newData.company = company
-            newData.year = Int16(year)
-            newData.position = position
-            newData.pictureUrl = pictureUrl
+            newData.job = job
+            newData.year = year
+            newData.level = level
+            newData.profile = profile
             
             return newData
             

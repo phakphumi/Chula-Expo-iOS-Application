@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import CoreData
 
 class MeViewController: UIViewController {
     @IBOutlet weak var profileImg: UIImageView!
@@ -20,13 +22,19 @@ class MeViewController: UIViewController {
     @IBOutlet weak var eventView: UIView!
     @IBOutlet weak var proView: UIView!
     @IBOutlet weak var editproButton: UIButton!
+    
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
         profileImg.layer.borderWidth = 3
         profileImg.layer.cornerRadius = profileImg.frame.height / 2
         profileImg.layer.masksToBounds = true
-        
+        proView.layer.cornerRadius = 7.5
+        proView.layer.masksToBounds = true
         editproButton.layer.cornerRadius = 3
         editproButton.layer.masksToBounds = true
         aboutView.layer.cornerRadius = 3
@@ -67,4 +75,62 @@ class MeViewController: UIViewController {
     }
     */
 
+    @IBAction func logoutAction(_ sender: Any) {
+        let confirm = UIAlertController(title: "ออกจากระบบ", message: "คุณต้องการออกจากระบบใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirm.addAction(UIAlertAction(title: "ไม่ใช่", style: UIAlertActionStyle.default, handler: nil))
+        
+        confirm.addAction(UIAlertAction(title: "ใช่", style: UIAlertActionStyle.destructive, handler: { (action) in
+            
+            let managedObjectContext: NSManagedObjectContext? =
+                (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+            
+            let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
+            
+            let fetchFacultyData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacultyData")
+            let requestDeleteFacultyData = NSBatchDeleteRequest(fetchRequest: fetchFacultyData)
+            
+            let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+            let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+            
+            let fetchStageEvent = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
+            let requestDeleteStageEvent = NSBatchDeleteRequest(fetchRequest: fetchStageEvent)
+            
+            let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+            let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+            
+            let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+            let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
+            
+            let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+            let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+            
+            do {
+                
+                try managedObjectContext?.execute(requestDeleteActivityData)
+                try managedObjectContext?.execute(requestDeleteFacultyData)
+                try managedObjectContext?.execute(requestDeleteImageData)
+                try managedObjectContext?.execute(requestDeleteStageEvent)
+                try managedObjectContext?.execute(requestDeleteTagData)
+                try managedObjectContext?.execute(requestDeleteUserData)
+                try managedObjectContext?.execute(requestDeleteVideoData)
+                
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut()
+                
+                self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
+                
+            } catch let error {
+                
+                print(error)
+                
+            }
+            
+        }))
+        
+        self.present(confirm, animated: true, completion: nil)
+        
+
+    }
 }

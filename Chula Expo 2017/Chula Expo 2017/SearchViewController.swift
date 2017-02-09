@@ -82,16 +82,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return i.numberOfObjects+1
             }
         }
-
-            return 1
+        return 2
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
                 var cell: UITableViewCell
-        
                 if indexPath.section == 0 && indexPath.row == 0 {
+                    cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
+                    if let headerCell = cell as? HeaderSearchTableViewCell{
+                        headerCell.title1 = "WHERE AM I ?"
+                        headerCell.title2 = "แนะนำ Events จากสถานที่ปัจจุบันของคุณ"
+                        headerCell.iconImage = "heartIcon"
+                    }
+                    cell.selectionStyle = .none
+                }
+                else if indexPath.section == 0 && indexPath.row == 1 {
         
                     cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
                     cell.selectionStyle = .none
@@ -101,8 +108,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 else if indexPath.section == 1 && indexPath.row == 0{
                     cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
                     if let headerCell = cell as? HeaderSearchTableViewCell{
-                        headerCell.title1 = "EVENTS FOR YOU"
-                        headerCell.title2 = "แนะนำกิจกรรมที่คุณอาจสนใจ"
+                        headerCell.title1 = "POPULAR EVENTS"
+                        headerCell.title2 = "Event ที่กำลังได้รับความนิยมในขณะนี้"
                         headerCell.iconImage = "heartIcon"
                     }
                     cell.selectionStyle = .none
@@ -162,16 +169,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 && indexPath.section == 0 {
+        if indexPath.row == 1 && indexPath.section == 0 {
             return self.view.bounds.width * 218 / 375
         }
-        else if indexPath.section == 1{
-            
-            if indexPath.row == 0{
+        else if indexPath.row == 0{
                 
                 return 58
-            }
-            
+        }
+        else if indexPath.section == 1 {
             return 78
         }
         

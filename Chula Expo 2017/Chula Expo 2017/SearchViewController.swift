@@ -27,6 +27,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         navigationItem.titleView = searchBar
+        navigationController?.navigationBar.barTintColor = UIColor.white
        // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
@@ -82,7 +83,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return i.numberOfObjects+1
             }
         }
-        return 2
+
+            return 2
         
     }
     
@@ -109,7 +111,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
                     if let headerCell = cell as? HeaderSearchTableViewCell{
                         headerCell.title1 = "POPULAR EVENTS"
-                        headerCell.title2 = "Event ที่กำลังได้รับความนิยมในขณะนี้"
+                        headerCell.title2 = "Events ที่กำลังได้รับความนิยมในขณะนี้"
                         headerCell.iconImage = "heartIcon"
                     }
                     cell.selectionStyle = .none
@@ -175,7 +177,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else if indexPath.row == 0{
                 
                 return 58
-        }
+            }
         else if indexPath.section == 1 {
             return 78
         }

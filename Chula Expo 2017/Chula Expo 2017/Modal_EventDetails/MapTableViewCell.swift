@@ -11,9 +11,6 @@ import MapKit
 
 class MapTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapViewDelegate {
 
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var mapView: UIView!
     @IBOutlet var map: MKMapView!
     override func awakeFromNib() {

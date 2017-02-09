@@ -10,6 +10,12 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet.ttc">
+            <string>SukhumvitSet-Bold</string>
+            <string>SukhumvitSet-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Q7b-mg-eAM">
@@ -21,7 +27,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CIQ-R5-XgI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CIQ-R5-XgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -54,7 +60,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
-                                            <rect key="frame" x="142" y="6" width="90" height="143"/>
+                                            <rect key="frame" x="142" y="6" width="90" height="144"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJl-ev-EIS">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -64,7 +70,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1b-48-q2A">
-                                                    <rect key="frame" x="24" y="101" width="42" height="42"/>
+                                                    <rect key="frame" x="24" y="101" width="42" height="42.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -150,10 +156,10 @@
             </objects>
             <point key="canvasLocation" x="3126" y="663"/>
         </scene>
-        <!--View Controller-->
+        <!--My Profile-->
         <scene sceneID="B26-g1-mJj">
             <objects>
-                <viewController id="AOk-xI-MMv" sceneMemberID="viewController">
+                <viewController id="AOk-xI-MMv" customClass="MeViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IfF-ra-evp"/>
                         <viewControllerLayoutGuide type="bottom" id="txf-ga-UMH"/>
@@ -163,36 +169,263 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSU-JG-2WL">
-                                <rect key="frame" x="21" y="74" width="333" height="167"/>
-                                <color key="backgroundColor" red="0.17254901960784313" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="21" y="74" width="333" height="146.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เอฟเอ็มไงล่ะ นะจ้ะเทพมาก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esj-gh-HV1">
+                                        <rect key="frame" x="133.5" y="14.5" width="199.5" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fmm Fmm@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
+                                        <rect key="frame" x="133.5" y="36.5" width="199.5" height="15"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อายุ 20 เพศ ชาย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-uh-xdR">
+                                        <rect key="frame" x="133.5" y="55" width="199.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="krist" translatesAutoresizingMaskIntoConstraints="NO" id="ef8-4q-M0P">
+                                        <rect key="frame" x="20" y="16" width="93" height="93"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ef8-4q-M0P" secondAttribute="height" multiplier="1:1" id="QCF-50-qg6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ปริญญาตรี ปี2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG8-Mb-aU4">
+                                        <rect key="frame" x="133.5" y="80.5" width="199.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="มหาวิทยาลัยเทพ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
+                                        <rect key="frame" x="133" y="95.5" width="200" height="29"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-4b-vrs">
+                                        <rect key="frame" x="20" y="113" width="93" height="26"/>
+                                        <color key="backgroundColor" red="0.17254901960784313" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="11"/>
+                                        <state key="normal" title="แก้ไขข้อมูลส่วนตัว">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eG8-Mb-aU4" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="14:10" id="0AY-Px-Yw0"/>
+                                    <constraint firstItem="iV6-4b-vrs" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="2.8:10" id="0af-4A-36S"/>
+                                    <constraint firstItem="eG8-Mb-aU4" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="13:10" id="2jG-dx-iSc"/>
+                                    <constraint firstItem="Dc7-gF-hzv" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="14:10" id="4b4-mz-MTJ"/>
+                                    <constraint firstItem="eG8-Mb-aU4" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="2:10" id="6yO-G5-cXP"/>
+                                    <constraint firstItem="Ptc-uh-xdR" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="9:10" id="BOs-0w-8hV"/>
+                                    <constraint firstItem="eGM-MA-fGn" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="6:10" id="CKt-Bh-4M4"/>
+                                    <constraint firstItem="eG8-Mb-aU4" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="6:10" id="CtO-BY-Oar"/>
+                                    <constraint firstItem="Esj-gh-HV1" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="4:10" id="EnS-qA-fZz"/>
+                                    <constraint firstItem="Esj-gh-HV1" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="2:10" id="F2P-6J-uGq"/>
+                                    <constraint firstItem="Dc7-gF-hzv" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="15:10" id="Gw5-FW-BTy"/>
+                                    <constraint firstItem="Esj-gh-HV1" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="6:10" id="HmH-uM-qrT"/>
+                                    <constraint firstItem="ef8-4q-M0P" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="4:10" id="HsU-A2-uV0"/>
+                                    <constraint firstItem="eGM-MA-fGn" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="14:10" id="K4g-hG-lH2"/>
+                                    <constraint firstItem="eGM-MA-fGn" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="6:10" id="Kui-WU-IWV"/>
+                                    <constraint firstItem="Esj-gh-HV1" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="14:10" id="Ntw-Nc-D7T"/>
+                                    <constraint firstItem="Dc7-gF-hzv" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="2:10" id="QV8-VZ-4he"/>
+                                    <constraint firstItem="Ptc-uh-xdR" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="14:10" id="WB3-G7-TTO"/>
+                                    <constraint firstItem="iV6-4b-vrs" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="1.8:10" id="cBK-fT-cJb"/>
+                                    <constraint firstItem="iV6-4b-vrs" firstAttribute="centerX" secondItem="mSU-JG-2WL" secondAttribute="centerX" multiplier="4:10" id="gks-zp-fbD"/>
+                                    <constraint firstItem="Ptc-uh-xdR" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="6:10" id="mW5-KB-aIT"/>
+                                    <constraint firstItem="iV6-4b-vrs" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="17.2:10" id="mYV-7k-cDc"/>
+                                    <constraint firstItem="Dc7-gF-hzv" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="6:10" id="r5Z-QS-iP2"/>
+                                    <constraint firstItem="Ptc-uh-xdR" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="1.5:10" id="t9F-jl-gc0"/>
+                                    <constraint firstItem="eGM-MA-fGn" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="1:10" id="vCF-Ms-6zf"/>
+                                    <constraint firstItem="ef8-4q-M0P" firstAttribute="centerY" secondItem="mSU-JG-2WL" secondAttribute="centerY" multiplier="8.5:10" id="xWJ-dm-kBY"/>
+                                    <constraint firstItem="ef8-4q-M0P" firstAttribute="width" secondItem="mSU-JG-2WL" secondAttribute="width" multiplier="2.8:10" id="zhk-2W-6d3"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czm-V6-wiz">
-                                <rect key="frame" x="21" y="251" width="159.5" height="83"/>
-                                <color key="backgroundColor" red="0.17254901960784313" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="21" y="230.5" width="159.5" height="83.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
+                                        <rect key="frame" x="59" y="10.5" width="42" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="bem-fb-AaB" secondAttribute="height" id="wM5-bR-JSw"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event ที่สนใจทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYR-8u-1AU">
+                                        <rect key="frame" x="8" y="54" width="143.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="bem-fb-AaB" firstAttribute="height" secondItem="czm-V6-wiz" secondAttribute="height" multiplier="5:10" id="6Ss-ra-q95"/>
+                                    <constraint firstItem="bem-fb-AaB" firstAttribute="centerX" secondItem="czm-V6-wiz" secondAttribute="centerX" id="ACE-hK-ybg"/>
+                                    <constraint firstItem="nYR-8u-1AU" firstAttribute="width" secondItem="czm-V6-wiz" secondAttribute="width" multiplier="9:10" id="Aqg-W9-SPd"/>
+                                    <constraint firstItem="bem-fb-AaB" firstAttribute="centerY" secondItem="czm-V6-wiz" secondAttribute="centerY" multiplier="7.5:10" id="LRv-Ex-XV3"/>
+                                    <constraint firstItem="nYR-8u-1AU" firstAttribute="centerX" secondItem="czm-V6-wiz" secondAttribute="centerX" id="TKt-VN-a2Q"/>
+                                    <constraint firstItem="nYR-8u-1AU" firstAttribute="height" secondItem="czm-V6-wiz" secondAttribute="height" multiplier="3:10" id="coH-Su-WBm"/>
+                                    <constraint firstItem="nYR-8u-1AU" firstAttribute="centerY" secondItem="czm-V6-wiz" secondAttribute="centerY" multiplier="16:10" id="xlc-6g-PG4"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zog-kW-qpi">
-                                <rect key="frame" x="194.5" y="251" width="159.5" height="83"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="194.5" y="230.5" width="159.5" height="83.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
+                                        <rect key="frame" x="59.5" y="10.5" width="41.5" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" id="H0K-Q0-feK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event ที่จองไว้ทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1a-8t-Iub">
+                                        <rect key="frame" x="7.5" y="54" width="143.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="W1a-8t-Iub" firstAttribute="height" secondItem="Zog-kW-qpi" secondAttribute="height" multiplier="3:10" id="0yS-sM-KDZ"/>
+                                    <constraint firstItem="0s7-gn-jvs" firstAttribute="centerY" secondItem="Zog-kW-qpi" secondAttribute="centerY" multiplier="7.5:10" id="8Ly-YS-oXU"/>
+                                    <constraint firstItem="0s7-gn-jvs" firstAttribute="centerX" secondItem="Zog-kW-qpi" secondAttribute="centerX" id="BZY-W3-FaZ"/>
+                                    <constraint firstItem="W1a-8t-Iub" firstAttribute="width" secondItem="Zog-kW-qpi" secondAttribute="width" multiplier="9:10" id="c0P-Rv-n1Z"/>
+                                    <constraint firstItem="W1a-8t-Iub" firstAttribute="centerY" secondItem="Zog-kW-qpi" secondAttribute="centerY" multiplier="16:10" id="eVV-fC-wJx"/>
+                                    <constraint firstItem="W1a-8t-Iub" firstAttribute="centerX" secondItem="Zog-kW-qpi" secondAttribute="centerX" id="gcU-nT-Tps"/>
+                                    <constraint firstItem="0s7-gn-jvs" firstAttribute="height" secondItem="Zog-kW-qpi" secondAttribute="height" multiplier="5:10" id="i5X-K9-1D3"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFe-MQ-ftc">
-                                <rect key="frame" x="21" y="344" width="159.5" height="83.5"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="21" y="324" width="159.5" height="83.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
+                                        <rect key="frame" x="58.5" y="10.5" width="42" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ccO-y6-VRy" secondAttribute="height" id="BzS-Mh-fhG"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขเนื้อหาที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-4I-gUD">
+                                        <rect key="frame" x="8" y="54.5" width="143.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RYU-4I-gUD" firstAttribute="centerY" secondItem="zFe-MQ-ftc" secondAttribute="centerY" multiplier="16:10" id="1Dd-7N-Xio"/>
+                                    <constraint firstItem="ccO-y6-VRy" firstAttribute="height" secondItem="zFe-MQ-ftc" secondAttribute="height" multiplier="5:10" id="3wj-Yz-ASc"/>
+                                    <constraint firstItem="ccO-y6-VRy" firstAttribute="centerY" secondItem="zFe-MQ-ftc" secondAttribute="centerY" multiplier="7.5:10" id="Jq2-cJ-bOe"/>
+                                    <constraint firstItem="RYU-4I-gUD" firstAttribute="centerX" secondItem="zFe-MQ-ftc" secondAttribute="centerX" id="i98-x4-ZAM"/>
+                                    <constraint firstItem="RYU-4I-gUD" firstAttribute="width" secondItem="zFe-MQ-ftc" secondAttribute="width" multiplier="9:10" id="lbM-XJ-39H"/>
+                                    <constraint firstItem="RYU-4I-gUD" firstAttribute="height" secondItem="zFe-MQ-ftc" secondAttribute="height" multiplier="3:10" id="mgA-tx-se8"/>
+                                    <constraint firstItem="ccO-y6-VRy" firstAttribute="centerX" secondItem="zFe-MQ-ftc" secondAttribute="centerX" id="u0D-DS-ns7"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25R-3A-hs5">
-                                <rect key="frame" x="194.5" y="344" width="159.5" height="83.5"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="194.5" y="324" width="159.5" height="83.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
+                                        <rect key="frame" x="58" y="10.5" width="42" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="scs-2p-fYf" secondAttribute="height" id="FKa-Xz-ll4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขคณะที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-QC-pVk">
+                                        <rect key="frame" x="7.5" y="54.5" width="143.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="scs-2p-fYf" firstAttribute="height" secondItem="25R-3A-hs5" secondAttribute="height" multiplier="5:10" id="6DP-lX-tdv"/>
+                                    <constraint firstItem="scs-2p-fYf" firstAttribute="centerY" secondItem="25R-3A-hs5" secondAttribute="centerY" multiplier="7.5:10" id="A9b-hP-bTM"/>
+                                    <constraint firstItem="IKn-QC-pVk" firstAttribute="centerY" secondItem="25R-3A-hs5" secondAttribute="centerY" multiplier="16:10" id="L69-Wn-TmV"/>
+                                    <constraint firstItem="IKn-QC-pVk" firstAttribute="width" secondItem="25R-3A-hs5" secondAttribute="width" multiplier="9:10" id="Msj-zY-sRE"/>
+                                    <constraint firstItem="scs-2p-fYf" firstAttribute="centerX" secondItem="25R-3A-hs5" secondAttribute="centerX" id="Uhi-Kl-lUG"/>
+                                    <constraint firstItem="IKn-QC-pVk" firstAttribute="centerX" secondItem="25R-3A-hs5" secondAttribute="centerX" id="hVv-Rt-uf7"/>
+                                    <constraint firstItem="IKn-QC-pVk" firstAttribute="height" secondItem="25R-3A-hs5" secondAttribute="height" multiplier="3:10" id="pWA-Vl-b4m"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QA-cE-lMX">
-                                <rect key="frame" x="21" y="437.5" width="159.5" height="83.5"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="21" y="417.5" width="159.5" height="83.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
+                                        <rect key="frame" x="58.5" y="10.5" width="42" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="TCN-63-zka" secondAttribute="height" id="o2d-3g-JWl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5As-Nf-ABA">
+                                        <rect key="frame" x="8" y="54.5" width="143.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5As-Nf-ABA" firstAttribute="centerY" secondItem="6QA-cE-lMX" secondAttribute="centerY" multiplier="16:10" id="2cW-cz-Bqe"/>
+                                    <constraint firstItem="5As-Nf-ABA" firstAttribute="width" secondItem="6QA-cE-lMX" secondAttribute="width" multiplier="9:10" id="3Uh-yL-31k"/>
+                                    <constraint firstItem="5As-Nf-ABA" firstAttribute="centerX" secondItem="6QA-cE-lMX" secondAttribute="centerX" id="OFo-h4-Tn5"/>
+                                    <constraint firstItem="5As-Nf-ABA" firstAttribute="height" secondItem="6QA-cE-lMX" secondAttribute="height" multiplier="3:10" id="UfJ-Ix-qrN"/>
+                                    <constraint firstItem="TCN-63-zka" firstAttribute="centerX" secondItem="6QA-cE-lMX" secondAttribute="centerX" id="b3Q-VV-shZ"/>
+                                    <constraint firstItem="TCN-63-zka" firstAttribute="centerY" secondItem="6QA-cE-lMX" secondAttribute="centerY" multiplier="7.5:10" id="u62-E8-aFx"/>
+                                    <constraint firstItem="TCN-63-zka" firstAttribute="height" secondItem="6QA-cE-lMX" secondAttribute="height" multiplier="5:10" id="zxo-qB-LTc"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-7i-5D0">
-                                <rect key="frame" x="194.5" y="437.5" width="159.5" height="83.5"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="194.5" y="417.5" width="159.5" height="83.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
+                                        <rect key="frame" x="58" y="10.5" width="42" height="41.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mId-2y-0eS" secondAttribute="height" id="n1Y-Z2-MLg"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ จุฬา Expo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Yp-oYy">
+                                        <rect key="frame" x="7.5" y="54.5" width="143.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="4Wl-Yp-oYy" firstAttribute="centerX" secondItem="1Db-7i-5D0" secondAttribute="centerX" id="DFD-zl-1wn"/>
+                                    <constraint firstItem="mId-2y-0eS" firstAttribute="height" secondItem="1Db-7i-5D0" secondAttribute="height" multiplier="5:10" id="P7T-y0-RG3"/>
+                                    <constraint firstItem="4Wl-Yp-oYy" firstAttribute="centerY" secondItem="1Db-7i-5D0" secondAttribute="centerY" multiplier="16:10" id="S3L-Td-CZ7"/>
+                                    <constraint firstItem="4Wl-Yp-oYy" firstAttribute="height" secondItem="1Db-7i-5D0" secondAttribute="height" multiplier="3:10" id="Te7-sf-brD"/>
+                                    <constraint firstItem="mId-2y-0eS" firstAttribute="centerY" secondItem="1Db-7i-5D0" secondAttribute="centerY" multiplier="7.5:10" id="UEl-dE-sEe"/>
+                                    <constraint firstItem="mId-2y-0eS" firstAttribute="centerX" secondItem="1Db-7i-5D0" secondAttribute="centerX" id="fVl-KU-Azt"/>
+                                    <constraint firstItem="4Wl-Yp-oYy" firstAttribute="width" secondItem="1Db-7i-5D0" secondAttribute="width" multiplier="9:10" id="wDy-0m-4do"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apy-IZ-zkK">
-                                <rect key="frame" x="21" y="531" width="333" height="66.5"/>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="21" y="511" width="333" height="66.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ออกจากระบบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmv-9N-bZZ">
+                                        <rect key="frame" x="82.5" y="21" width="166.5" height="23"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hmv-9N-bZZ" firstAttribute="height" secondItem="apy-IZ-zkK" secondAttribute="height" multiplier="3.5:10" id="9rZ-ip-qt8"/>
+                                    <constraint firstItem="hmv-9N-bZZ" firstAttribute="centerX" secondItem="apy-IZ-zkK" secondAttribute="centerX" id="EXu-ZV-iqP"/>
+                                    <constraint firstItem="hmv-9N-bZZ" firstAttribute="width" secondItem="apy-IZ-zkK" secondAttribute="width" multiplier="5:10" id="KBd-XR-baK"/>
+                                    <constraint firstItem="hmv-9N-bZZ" firstAttribute="centerY" secondItem="apy-IZ-zkK" secondAttribute="centerY" id="whG-7n-Ub9"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,7 +438,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="1Db-7i-5D0" secondAttribute="trailing" constant="5" id="9wf-Y0-rAv"/>
                             <constraint firstItem="czm-V6-wiz" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="Bid-B7-V76"/>
                             <constraint firstItem="Zog-kW-qpi" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="CRc-EM-n7d"/>
-                            <constraint firstItem="mSU-JG-2WL" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="2.5:10" id="Cdn-nU-7os"/>
+                            <constraint firstItem="mSU-JG-2WL" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="2.2:10" id="Cdn-nU-7os"/>
                             <constraint firstItem="6QA-cE-lMX" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="IXV-tG-bc7"/>
                             <constraint firstItem="czm-V6-wiz" firstAttribute="top" secondItem="mSU-JG-2WL" secondAttribute="bottom" constant="10" id="JuO-vP-e10"/>
                             <constraint firstAttribute="trailingMargin" secondItem="25R-3A-hs5" secondAttribute="trailing" constant="5" id="KTp-DA-vKw"/>
@@ -232,7 +465,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="TSL-Mz-E58">
+                    <navigationItem key="navigationItem" title="My Profile" id="TSL-Mz-E58">
                         <barButtonItem key="leftBarButtonItem" image="qr_code" id="gSL-ND-6ms">
                             <color key="tintColor" red="0.99803578849999997" green="0.42427039150000001" blue="0.60398375989999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
@@ -241,6 +474,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="aboutView" destination="1Db-7i-5D0" id="sPf-uW-TjQ"/>
+                        <outlet property="editfacView" destination="25R-3A-hs5" id="dRe-CZ-q2O"/>
+                        <outlet property="editproButton" destination="iV6-4b-vrs" id="WeL-8q-KZ7"/>
+                        <outlet property="edittagView" destination="zFe-MQ-ftc" id="7dr-fa-M9v"/>
+                        <outlet property="eventView" destination="czm-V6-wiz" id="Lt3-Zm-IaW"/>
+                        <outlet property="faqView" destination="6QA-cE-lMX" id="sB5-Q7-0eH"/>
+                        <outlet property="logoutView" destination="apy-IZ-zkK" id="OxE-gh-mQe"/>
+                        <outlet property="proView" destination="mSU-JG-2WL" id="JM4-UF-1KT"/>
+                        <outlet property="profileImg" destination="ef8-4q-M0P" id="ZMi-G9-ku7"/>
+                        <outlet property="reserveView" destination="Zog-kW-qpi" id="W5n-3c-3Gh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5b3-xX-jhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -248,8 +493,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="krist" width="640" height="640"/>
         <image name="myprofileTabIcon2" width="25" height="25"/>
         <image name="qr_code" width="16" height="16"/>
         <image name="search" width="14" height="15"/>
+        <image name="studentWhite" width="128" height="128"/>
     </resources>
 </document>

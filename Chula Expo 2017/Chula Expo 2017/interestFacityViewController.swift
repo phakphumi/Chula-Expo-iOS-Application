@@ -63,7 +63,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
          let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
-         layout.itemSize = CGSize(width: (self.view.frame.width-40)/2, height: 100)
+         layout.itemSize = CGSize(width: (self.view.frame.width-30)/2, height: 100)
          layout.minimumInteritemSpacing = 2.5
          layout.minimumLineSpacing = 2.5
          collectionView!.collectionViewLayout = layout

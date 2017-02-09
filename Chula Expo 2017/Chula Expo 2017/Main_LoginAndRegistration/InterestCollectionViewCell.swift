@@ -41,6 +41,7 @@ class InterestCollectionViewCell: UICollectionViewCell {
             roundedCornerBack1()
         }
     }
+    
     @IBOutlet weak var backImg1: UIImageView!
     @IBOutlet weak var interestImg1: UIImageView!
     @IBOutlet weak var interestName1: UILabel!
@@ -73,7 +74,14 @@ class InterestCollectionViewCell: UICollectionViewCell {
         if interestName1.text != nil {
             if isTappedObjects[0] == true{
                 isTappedObjects[0] = false;
+                //interestName1.font = UIFont(name: interestName1.font.fontName, size: 14)
+                backImg1.frame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x-1, y: backImg1.frame.origin.y-1), size: CGSize(width: backImg1.bounds.size.width+1,height: backImg1.bounds.size.height+1))
+                interestImg1.frame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x-1, y: interestImg1.frame.origin.y-1), size: CGSize(width: interestImg1.bounds.size.width+1,height: interestImg1.bounds.size.height+1))
+                interestName1.frame = CGRect(origin: CGPoint(x:interestName1.frame.origin.x-1, y: interestName1.frame.origin.y-1), size: CGSize(width: interestName1.bounds.size.width+1,height: interestName1.bounds.size.height+1))
+                engName1.frame = CGRect(origin: CGPoint(x:engName1.frame.origin.x-1, y: engName1.frame.origin.y-1), size: CGSize(width: engName1.bounds.size.width+1,height: engName1.bounds.size.height+1))
                 
+                //interestName1.font = UIFont.systemFont(ofSize: 14)
+               
                 interestView1.layer.borderColor = UIColor.white.cgColor
                 interestView1.layer.borderWidth = 0
                 interestName1.textColor = UIColor.white
@@ -81,7 +89,12 @@ class InterestCollectionViewCell: UICollectionViewCell {
                 
             }
             else {
-                
+                //interestName1.font = UIFont.systemFont(ofSize: 13)
+                //interestName1.font = UIFont(name: interestName1.font.fontName, size: 13)
+                backImg1.frame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x+1, y: backImg1.frame.origin.y+1), size: CGSize(width: backImg1.bounds.size.width-1,height: backImg1.bounds.size.height-1))
+                engName1.frame = CGRect(origin: CGPoint(x:engName1.frame.origin.x+1, y: engName1.frame.origin.y+1), size: CGSize(width: engName1.bounds.size.width-1,height: engName1.bounds.size.height-1))
+                interestImg1.frame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x+1, y: interestImg1.frame.origin.y+1), size: CGSize(width: interestImg1.bounds.size.width-1,height: interestImg1.bounds.size.height-1))
+                interestName1.frame = CGRect(origin: CGPoint(x:interestName1.frame.origin.x+1, y: interestName1.frame.origin.y+1), size: CGSize(width: interestName1.bounds.size.width-1,height: interestName1.bounds.size.height-1))
                 interestView1.layer.borderColor = UIColor.green.cgColor
                 interestView1.layer.borderWidth = 3
                 interestName1.textColor = UIColor.green

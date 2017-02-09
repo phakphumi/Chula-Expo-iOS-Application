@@ -14,6 +14,17 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     var tapped = [UIImageView]()
     
+    @IBOutlet weak var finButton: UIButton! {
+        didSet{
+            roundedCornerBack1()
+        }
+    }
+    func roundedCornerBack1()
+    {
+        finButton.layer.cornerRadius = 3
+        finButton.layer.masksToBounds = true
+        
+    }
     struct tag {
         var imgName: String = ""
         var tagName: String = ""

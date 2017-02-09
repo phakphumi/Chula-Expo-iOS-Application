@@ -1,0 +1,136 @@
+//
+//  MeViewController.swift
+//  Chula Expo 2017
+//
+//  Created by Ekkalak Leelasornchai on 2/9/2560 BE.
+//  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
+//
+
+import UIKit
+import FBSDKLoginKit
+import CoreData
+
+class MeViewController: UIViewController {
+    @IBOutlet weak var profileImg: UIImageView!
+
+    @IBOutlet weak var logoutView: UIView!
+    @IBOutlet weak var aboutView: UIView!
+    @IBOutlet weak var faqView: UIView!
+    @IBOutlet weak var editfacView: UIView!
+    @IBOutlet weak var edittagView: UIView!
+    @IBOutlet weak var reserveView: UIView!
+    @IBOutlet weak var eventView: UIView!
+    @IBOutlet weak var proView: UIView!
+    @IBOutlet weak var editproButton: UIButton!
+    
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
+        profileImg.layer.borderWidth = 3
+        profileImg.layer.cornerRadius = profileImg.frame.height / 2
+        profileImg.layer.masksToBounds = true
+        proView.layer.cornerRadius = 7.5
+        proView.layer.masksToBounds = true
+        editproButton.layer.cornerRadius = 3
+        editproButton.layer.masksToBounds = true
+        aboutView.layer.cornerRadius = 3
+        aboutView.layer.masksToBounds = true
+        faqView.layer.cornerRadius = 3
+        faqView.layer.masksToBounds = true
+        editfacView.layer.cornerRadius = 3
+        editfacView.layer.masksToBounds = true
+        edittagView.layer.cornerRadius = 3
+        edittagView.layer.masksToBounds = true
+        eventView.layer.cornerRadius = 3
+        eventView.layer.masksToBounds = true
+        reserveView.layer.cornerRadius = 3
+        reserveView.layer.masksToBounds = true
+        reserveView.layer.cornerRadius = 3
+        reserveView.layer.masksToBounds = true
+
+        logoutView.layer.cornerRadius = 5
+        logoutView.layer.masksToBounds = true
+
+        
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+    @IBAction func logoutAction(_ sender: Any) {
+        let confirm = UIAlertController(title: "ออกจากระบบ", message: "คุณต้องการออกจากระบบใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirm.addAction(UIAlertAction(title: "ไม่ใช่", style: UIAlertActionStyle.default, handler: nil))
+        
+        confirm.addAction(UIAlertAction(title: "ใช่", style: UIAlertActionStyle.destructive, handler: { (action) in
+            
+            let managedObjectContext: NSManagedObjectContext? =
+                (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+            
+            let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
+            
+            let fetchFacultyData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacultyData")
+            let requestDeleteFacultyData = NSBatchDeleteRequest(fetchRequest: fetchFacultyData)
+            
+            let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+            let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+            
+            let fetchStageEvent = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
+            let requestDeleteStageEvent = NSBatchDeleteRequest(fetchRequest: fetchStageEvent)
+            
+            let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+            let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+            
+            let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+            let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
+            
+            let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+            let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+            
+            do {
+                
+                try managedObjectContext?.execute(requestDeleteActivityData)
+                try managedObjectContext?.execute(requestDeleteFacultyData)
+                try managedObjectContext?.execute(requestDeleteImageData)
+                try managedObjectContext?.execute(requestDeleteStageEvent)
+                try managedObjectContext?.execute(requestDeleteTagData)
+                try managedObjectContext?.execute(requestDeleteUserData)
+                try managedObjectContext?.execute(requestDeleteVideoData)
+                
+                let loginManager = FBSDKLoginManager()
+                loginManager.logOut()
+                
+                self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
+                
+            } catch let error {
+                
+                print(error)
+                
+            }
+            
+        }))
+        
+        self.present(confirm, animated: true, completion: nil)
+        
+
+    }
+}

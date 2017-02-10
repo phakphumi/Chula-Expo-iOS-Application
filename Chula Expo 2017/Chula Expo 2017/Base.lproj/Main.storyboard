@@ -1189,9 +1189,9 @@
                                         <edgeInsets key="layoutMargins" top="-5" left="-5" bottom="-5" right="-5"/>
                                         <connections>
                                             <outlet property="backImg1" destination="LLw-J1-FLr" id="yDu-XG-dTu"/>
-                                            <outlet property="engName1" destination="OQE-qg-wwN" id="Ve0-e5-nco"/>
+                                            <outlet property="engName1" destination="5cj-pq-7Bh" id="igv-Rn-ILN"/>
                                             <outlet property="interestImg1" destination="PNV-kw-Q6K" id="clz-2O-mrT"/>
-                                            <outlet property="interestName1" destination="5cj-pq-7Bh" id="hMK-BE-Aa0"/>
+                                            <outlet property="interestName1" destination="OQE-qg-wwN" id="6iz-xL-gD9"/>
                                             <outlet property="interestView1" destination="fLM-Ue-q2g" id="pQV-v7-UGg"/>
                                         </connections>
                                     </collectionViewCell>

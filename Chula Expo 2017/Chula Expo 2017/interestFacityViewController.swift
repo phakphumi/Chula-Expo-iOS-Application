@@ -31,25 +31,25 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     @IBOutlet weak var collectionView: UICollectionView!
     var tagList : [tag] = [
-        tag(imgName: "heartIcon",  tagName: "คณะครุศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Education"),
-        tag(imgName: "heartIcon",  tagName: "คณะจิตวิทยา",  tagBack: "technology",  tagEngName: "Faculty of Psychology"),
-        tag(imgName: "heartIcon",  tagName: "คณะทันตแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Dentistry"),
-        tag(imgName: "heartIcon",  tagName: "คณะนิติศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Law"),
-        tag(imgName: "heartIcon",  tagName: "คณะนิเทศศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Communication Arts"),
-        tag(imgName: "heartIcon",  tagName: "คณะพยาบาลศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Nursing"),
-        tag(imgName: "heartIcon",  tagName: "คณะพาณิชยศาสตร์และการบัญชี",  tagBack: "technology",  tagEngName: "Faculty of Commerce and Accountancy"),
-        tag(imgName: "heartIcon",  tagName: "คณะรัฐศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Political Science"),
-        tag(imgName: "heartIcon",  tagName: "คณะวิทยาศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Science"),
-        tag(imgName: "heartIcon",  tagName: "คณะวิทยาศาสตร์การกีฬา",  tagBack: "technology",  tagEngName: "Faculty of Sports Science"),
-        tag(imgName: "heartIcon",  tagName: "คณะวิศวกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Engineering"),
-        tag(imgName: "heartIcon",  tagName: "คณะศิลปกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Fine and Applied Arts"),
-        tag(imgName: "heartIcon",  tagName: "คณะสถาปัตยกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Architecture"),
-        tag(imgName: "heartIcon",  tagName: "คณะสหเวชศาสตร์",  tagBack: "technology",  tagEngName: "aculty of Allied Health Sciences"),
-        tag(imgName: "heartIcon",  tagName: "คณะสัตวแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Veterinary Science"),
-        tag(imgName: "heartIcon",  tagName: "คณะอักษรศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Arts"),
-        tag(imgName: "heartIcon",  tagName: "คณะเภสัชศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Pharmaceutical Sciences"),
-        tag(imgName: "heartIcon",  tagName: "คณะเศรษฐศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Economic"),
-        tag(imgName: "heartIcon",  tagName: "คณะแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Medicine"),
+        tag(imgName: "heartIcon",  tagName: "ครุศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Education"),
+        tag(imgName: "heartIcon",  tagName: "จิตวิทยา",  tagBack: "technology",  tagEngName: "Faculty of Psychology"),
+        tag(imgName: "heartIcon",  tagName: "ทันตแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Dentistry"),
+        tag(imgName: "heartIcon",  tagName: "นิติศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Law"),
+        tag(imgName: "heartIcon",  tagName: "นิเทศศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Communication Arts"),
+        tag(imgName: "heartIcon",  tagName: "พยาบาลศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Nursing"),
+        tag(imgName: "heartIcon",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "technology",  tagEngName: "Faculty of Commerce and Accountancy"),
+        tag(imgName: "heartIcon",  tagName: "รัฐศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Political Science"),
+        tag(imgName: "heartIcon",  tagName: "วิทยาศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Science"),
+        tag(imgName: "heartIcon",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "technology",  tagEngName: "Faculty of Sports Science"),
+        tag(imgName: "heartIcon",  tagName: "วิศวกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Engineering"),
+        tag(imgName: "heartIcon",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Fine and Applied Arts"),
+        tag(imgName: "heartIcon",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Architecture"),
+        tag(imgName: "heartIcon",  tagName: "สหเวชศาสตร์",  tagBack: "technology",  tagEngName: "aculty of Allied Health Sciences"),
+        tag(imgName: "heartIcon",  tagName: "สัตวแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Veterinary Science"),
+        tag(imgName: "heartIcon",  tagName: "อักษรศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Arts"),
+        tag(imgName: "heartIcon",  tagName: "เภสัชศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Pharmaceutical Sciences"),
+        tag(imgName: "heartIcon",  tagName: "เศรษฐศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Economic"),
+        tag(imgName: "heartIcon",  tagName: "แพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Medicine"),
         tag(imgName: "heartIcon",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "technology",  tagEngName: "School of Agricultural"),
         tag(imgName: "heartIcon",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "technology",  tagEngName: "Graduate School"),
     ]
@@ -59,8 +59,8 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
          let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-         layout.sectionInset = UIEdgeInsets(top: 10, left: 35, bottom: 20, right: 35)
-         layout.itemSize = CGSize(width: (self.view.frame.width-60)/2, height: 100)
+         layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 20, right: 30)
+         layout.itemSize = CGSize(width: (self.view.frame.width-50)/2, height: 100)
          layout.minimumInteritemSpacing = 2.5
          layout.minimumLineSpacing = 2.5
          collectionView!.collectionViewLayout = layout

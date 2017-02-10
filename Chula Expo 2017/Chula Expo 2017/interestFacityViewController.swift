@@ -11,7 +11,17 @@ import UIKit
 class interestFacityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var tapped = [UIImageView]()
-    
+    @IBOutlet weak var finButton2: UIButton! {
+        didSet{
+            roundedCornerBack1()
+        }
+    }
+    func roundedCornerBack1()
+    {
+        finButton2.layer.cornerRadius = 3
+        finButton2.layer.masksToBounds = true
+        
+    }
     struct tag {
         var imgName: String = ""
         var tagName: String = ""
@@ -52,8 +62,8 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
          let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-         layout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
-         layout.itemSize = CGSize(width: (self.view.frame.width-42.5)/2, height: 100)
+         layout.sectionInset = UIEdgeInsets(top: 10, left: 35, bottom: 20, right: 35)
+         layout.itemSize = CGSize(width: (self.view.frame.width-60)/2, height: 100)
          layout.minimumInteritemSpacing = 2.5
          layout.minimumLineSpacing = 2.5
          collectionView!.collectionViewLayout = layout

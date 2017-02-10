@@ -7,11 +7,42 @@
 //
 
 import UIKit
+import MapKit
 
-class MapSearchTableViewCell: UITableViewCell {
+class MapSearchTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapViewDelegate {
+    @IBOutlet weak var map: MKMapView!
 
+    @IBOutlet weak var button: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let locationManager = CLLocationManager()
+        let annotation = MKPointAnnotation()
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
+        let lat: CLLocationDegrees = 13.7383829
+        let lon: CLLocationDegrees = 100.5298641
+        let latDelta: CLLocationDegrees = 0.02
+        let lonDelta: CLLocationDegrees = 0.02
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
+        map.setRegion(region, animated: true)
+        
+        annotation.coordinate = location
+        
+        map.addAnnotation(annotation)
+        
+        button.layer.borderWidth = 3
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.cornerRadius = 3
+        button.layer.masksToBounds = true
+        
         // Initialization code
     }
 

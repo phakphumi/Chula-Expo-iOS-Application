@@ -72,6 +72,12 @@
 		802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */; };
 		802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */; };
 		802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F13B21E23FC240098A687 /* BookTableViewCell.swift */; };
+		802F979E1E4AD01900B83976 /* CityLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F979D1E4AD01900B83976 /* CityLayout.swift */; };
+		80314F3B1E4A1CDD003DB96A /* EventSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */; };
+		80314F3D1E4A1D61003DB96A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F3C1E4A1D61003DB96A /* CollectionViewController.swift */; };
+		80314F3F1E4A2F0D003DB96A /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */; };
+		80314F411E4A2F1E003DB96A /* FacultyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */; };
+		80314F471E4A3532003DB96A /* InterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */; };
 		803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803688AA1E42595300C1FB58 /* StageDetailCell.swift */; };
 		803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */; };
 		805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
@@ -177,6 +183,12 @@
 		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookTableViewCell.swift; path = Third_events/BookTableViewCell.swift; sourceTree = "<group>"; };
+		802F979D1E4AD01900B83976 /* CityLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityLayout.swift; sourceTree = "<group>"; };
+		80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSelectViewController.swift; sourceTree = "<group>"; };
+		80314F3C1E4A1D61003DB96A /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
+		80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyCollectionViewCell.swift; sourceTree = "<group>"; };
+		80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterCollectionViewCell.swift; path = ../InterCollectionViewCell.swift; sourceTree = "<group>"; };
 		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageDetailCell.swift; path = First_home/StageEvent/StageDetailCell.swift; sourceTree = "<group>"; };
 		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = First_home/HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = First_home/StageEvent/StageExpandTableViewController.swift; sourceTree = "<group>"; };
@@ -412,12 +424,18 @@
 			children = (
 				80BFD4D81E27F3AA00491730 /* CoreData */,
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
+				80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */,
+				80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */,
+				802F979D1E4AD01900B83976 /* CityLayout.swift */,
+				80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */,
+				80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */,
 				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
 				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
 				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
 				802F13B21E23FC240098A687 /* BookTableViewCell.swift */,
 				80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */,
 				80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */,
+				80314F3C1E4A1D61003DB96A /* CollectionViewController.swift */,
 			);
 			name = Third_events;
 			sourceTree = "<group>";
@@ -539,6 +557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80314F3B1E4A1CDD003DB96A /* EventSelectViewController.swift in Sources */,
 				800D583F1E40A4C900E854E8 /* InterestCollectionViewCell.swift in Sources */,
 				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
 				58EE4C311E2A161B0079CABB /* InterestTableViewCell.swift in Sources */,
@@ -571,6 +590,7 @@
 				58EE4C2F1E2A15230079CABB /* InterestedTableViewController.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */,
+				80314F411E4A2F1E003DB96A /* FacultyCollectionViewCell.swift in Sources */,
 				5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */,
 				5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */,
 				5F25B2351E10E027008A3B11 /* FourthViewController.swift in Sources */,
@@ -583,6 +603,7 @@
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
 				803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
+				80314F3F1E4A2F0D003DB96A /* CityCollectionViewCell.swift in Sources */,
 				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
 				800D58441E40A4ED00E854E8 /* InterestCollectionViewController.swift in Sources */,
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
@@ -594,6 +615,8 @@
 				5FF51A5A1E40A802000DF788 /* EventHeaderTableViewCell.swift in Sources */,
 				8059FF201E41AEE800B013B3 /* StageExpandTableViewController.swift in Sources */,
 				807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */,
+				802F979E1E4AD01900B83976 /* CityLayout.swift in Sources */,
+				80314F3D1E4A1D61003DB96A /* CollectionViewController.swift in Sources */,
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
 				80DC94251E366B5200A1D01A /* RoundData+CoreDataClass.swift in Sources */,
 				5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */,
@@ -604,6 +627,7 @@
 				80DC94271E366B5200A1D01A /* ActivityData+CoreDataClass.swift in Sources */,
 				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
 				5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */,
+				80314F471E4A3532003DB96A /* InterCollectionViewCell.swift in Sources */,
 				5FF7C0E01E2D064D002D6DBD /* RelatedTableViewCell.swift in Sources */,
 				80DC94291E366B5300A1D01A /* ImageData+CoreDataClass.swift in Sources */,
 				5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */,

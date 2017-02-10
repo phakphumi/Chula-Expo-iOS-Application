@@ -11,65 +11,19 @@ import CoreData
 
 @objc(ActivityData)
 public class ActivityData: NSManagedObject {
-    
-    class func addStageEventData(
-        activityId: String,
-        stageNo: Int16,
-        name: String,
-        desc: String,
-        startTime: NSDate,
-        endTime: NSDate,
-        isFavorite: Bool,
-        reservable: Bool,
-        fullCapacity: Int16,
-        reserved: Int16,
-        seatAvaliable: Int16,
-        isReserve: Bool,
-        inManageobjectcontext context: NSManagedObjectContext
-        ) -> ActivityData? {
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "activityId = %@",  activityId)
-        
-        if let result = (try? context.fetch(request))?.first as? ActivityData
-        {
-            // found this event in the database, return it ...
-            print("Found \(result.name) in ActivityData")
-            return result
-        }
-        else {
-            if let newData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
-            {
-                // created a new event in the database
-                newData.bannerUrl = ""
-                newData.desc = desc
-                newData.activityId = activityId
-                newData.locationDesc = ""
-                newData.name = name
-                newData.thumbnailsUrl = ""
-                newData.isStageEvent = true
-                newData.stageNo = stageNo
-                newData.toImages = NSSet()
-                newData.toRound = NSSet()
-                newData.toVideos = NSSet()
-                newData.toTags = NSSet()
-                newData.toFaculty = NSSet()
-//                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: false, inManageobjectcontext: context)
-                return newData
-            }
-        }
-        return nil
-    }
-    
+
     class func addEventData(
         activityId: String,
         name: String,
         desc: String,
-        locationDesc: String,
+        room: String,
+        place: String,
+        latitude: Double,
+        longitude: Double,
         bannerUrl: String,
         thumbnailsUrl: String,
-        startTime: NSDate,
-        endTime: NSDate,
+        startTime: Date,
+        endTime: Date,
         isFavorite: Bool,
         isHighlight: Bool,
         reservable: Bool,
@@ -77,11 +31,11 @@ public class ActivityData: NSManagedObject {
         reserved: Int16,
         seatAvaliable: Int16,
         isReserve: Bool,
-        toImages: NSSet,
-        toRounds: NSSet,
-        toVideos: NSSet,
-        toTags: NSSet,
-        toFaculty: NSSet,
+        video: String,
+        images: [String],
+        rounds: NSArray,
+        tags: [String],
+        faculty: String,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ActivityData? {
         
@@ -95,28 +49,89 @@ public class ActivityData: NSManagedObject {
             return result
         }
         else {
-            if let newData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
+            if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
             {
                 // created a new event in the database
-                newData.bannerUrl = bannerUrl
-                newData.desc = desc
-                newData.activityId = activityId
-                newData.locationDesc = locationDesc
-                newData.name = name
-                newData.reservable = reservable
-                newData.thumbnailsUrl = thumbnailsUrl
-                newData.isStageEvent = false
-                newData.stageNo = 0
-                newData.toImages = toImages
-                newData.toRound = toRounds
-                newData.toVideos = toVideos
-                newData.toTags = toTags
-                newData.toFaculty = toFaculty
-//                newData.addRound(roundNo: 1, starTime: startTime, endTime: endTime, reservable: reservable, seatAvaliable: seatAvaliable, reserved: reserved, fullCapacity: fullCapacity, isReserve: isReserve, isFavorite: isFavorite, isHighlight: isHighlight, inManageobjectcontext: context)
-                return newData
+                activityData.bannerUrl = bannerUrl
+                activityData.desc = desc
+                activityData.activityId = activityId
+                activityData.room = room
+                activityData.place = place
+                activityData.latitude = latitude
+                activityData.longitude = longitude
+                activityData.name = name
+                activityData.reservable = reservable
+                activityData.thumbnailsUrl = thumbnailsUrl
+                activityData.isHighlight = isHighlight
+                activityData.isStageEvent = false
+                activityData.stageNo = 0
+                activityData.video = video
+//                newData.toImages = toImages
+//                newData.toRound = toRounds
+//                newData.toTags = toTags
+                activityData.faculty = faculty
+                
+                for image in images {
+                    
+                    if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
+                        
+                        imageData.url = image
+                        imageData.toActivity = activityData
+                        
+                    }
+                    
+                }
+                
+                for tag in tags {
+                    
+                    if let tagData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData {
+                        
+                        tagData.name = tag
+                        tagData.mutableSetValue(forKey: "toActivity").add(activityData)
+                        
+                    }
+                    
+                }
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                
+                for round in rounds {
+                    
+                    if let round = round as? NSDictionary {
+                        
+                        if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
+                            
+                            let startTime = round["start"] as! String
+                            let endTime = round["end"] as! String
+                            
+                            let seats = round["seats"] as! NSDictionary
+                            
+                            roundData.id = round["_id"] as? String ?? ""
+                            roundData.activityId = round["activityId"] as? String ?? ""
+                            roundData.startTime = dateFormatter.date(from: startTime)
+                            roundData.endTime = dateFormatter.date(from: endTime)
+                            roundData.fullCapacity = seats["fullCapacity"] as! Int16
+                            roundData.reserved = seats["reserved"] as! Int16
+                            roundData.seatAvaliable = seats["avaliable"] as! Int16
+                            roundData.isFavorite = false
+                            roundData.isReserve = false
+                            roundData.reservable = (seats["avaliable"] as! Int16) > 0 ? true : false
+                            roundData.toActivity = activityData
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                return activityData
             }
+            
         }
+        
         return nil
+        
     }
     
     class func fetchActivityDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ActivityData? {

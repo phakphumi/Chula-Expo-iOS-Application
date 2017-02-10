@@ -67,16 +67,16 @@ class QRViewController: UIViewController {
             
             let userData = UserData.fetchUser(id: UserController.userId!, inManageobjectcontext: self.managedObjectContext!)!
             
-            self.setImageProfile(pictureUrl: userData.pictureUrl!)
+            self.setImageProfile(pictureUrl: userData.profile!)
             self.name.text = userData.name
             
-            if userData.userType == "student" {
+            if userData.type == "student" {
                 
                 self.schoolOrCompany.text = userData.school
                 
             } else {
                 
-                self.schoolOrCompany.text = userData.company
+                self.schoolOrCompany.text = userData.job
                 
             }
             

@@ -24,7 +24,7 @@ class EventsTableViewController: CoreDataTableViewController
     var selectedReservable: Bool?
     var selectedIsReserve: Bool?
     var selectedToTags: NSSet?
-    var selectedToFaculty: NSSet?
+    var selectedToFaculty: String?
     var selectedToImages: NSSet?
     var selectedToVideos: NSSet?
     var selectedDateText: String?
@@ -94,9 +94,9 @@ class EventsTableViewController: CoreDataTableViewController
 //            var reservable: Bool?
 //            var isReserve: Bool?
             var toTags: NSSet?
-            var toFaculty: NSSet?
+            var toFaculty: String?
             var toImages: NSSet?
-            var toVideos: NSSet?
+            var toVideos: String?
 //            var dateText: String?
             
             var name: String?
@@ -111,7 +111,7 @@ class EventsTableViewController: CoreDataTableViewController
                 name = fetchData.name
 //                startTime = fetchData.startTime
 //                endTime = fetchData.endTime
-                locationDesc = fetchData.locationDesc
+                locationDesc = ""
                 
                 activityId = fetchData.activityId
                 desc = fetchData.desc
@@ -121,9 +121,9 @@ class EventsTableViewController: CoreDataTableViewController
 //                reservable = fetchData.reservable
 //                isReserve = fetchData.isReserve
                 toTags = fetchData.toTags
-                toFaculty = fetchData.toFaculty
+                toFaculty = fetchData.faculty
                 toImages = fetchData.toImages
-                toVideos = fetchData.toVideos
+                toVideos = fetchData.video
 //                dateText = fetchData.dateText
                 // we're not assuming the context is a main queue context
                 // so we'll grab the screenName and return to the main queue
@@ -199,7 +199,7 @@ class EventsTableViewController: CoreDataTableViewController
                             
                             destination.bannerUrl = fetch.bannerUrl
                             destination.topic = fetch.name
-                            destination.locationDesc = fetch.locationDesc
+                            destination.locationDesc = ""
                             destination.toRounds = fetch.toRound
                             destination.reservable = fetch.reservable
                             destination.desc = fetch.desc

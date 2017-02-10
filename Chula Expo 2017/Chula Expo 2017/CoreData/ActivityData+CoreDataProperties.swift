@@ -19,6 +19,7 @@ extension ActivityData {
     @NSManaged public var activityId: String?
     @NSManaged public var bannerUrl: String?
     @NSManaged public var desc: String?
+    @NSManaged public var isHighlight: Bool
     @NSManaged public var isStageEvent: Bool
     @NSManaged public var place: String?
     @NSManaged public var room: String?
@@ -33,23 +34,6 @@ extension ActivityData {
     @NSManaged public var toImages: NSSet?
     @NSManaged public var toRound: NSSet?
     @NSManaged public var toTags: NSSet?
-
-}
-
-// MARK: Generated accessors for toFaculty
-extension ActivityData {
-
-    @objc(addToFacultyObject:)
-    @NSManaged public func addToToFaculty(_ value: FacultyData)
-
-    @objc(removeToFacultyObject:)
-    @NSManaged public func removeFromToFaculty(_ value: FacultyData)
-
-    @objc(addToFaculty:)
-    @NSManaged public func addToToFaculty(_ values: NSSet)
-
-    @objc(removeToFaculty:)
-    @NSManaged public func removeFromToFaculty(_ values: NSSet)
 
 }
 

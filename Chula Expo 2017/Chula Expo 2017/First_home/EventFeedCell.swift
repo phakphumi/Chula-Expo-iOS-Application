@@ -78,12 +78,12 @@ class EventFeedCell: UITableViewCell {
             eventTumbnailImage.image = UIImage(named: eventTumbnail)
         }
         if let eventFacity = facity{
-            let fac = facity as! FacultyData
-            let cap = getCapsule(forFacity: fac.name!)
-            facityCapsule.text = cap.facText
-            facityCapsule.backgroundColor = cap.facColor
-            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/4.5
-            facityCapsule.layer.masksToBounds = true
+//            let fac = facity as! FacultyData
+//            let cap = getCapsule(forFacity: fac.name!)
+//            facityCapsule.text = cap.facText
+//            facityCapsule.backgroundColor = cap.facColor
+//            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/4.5
+//            facityCapsule.layer.masksToBounds = true
         }
         makeReserveCapsule()
     }

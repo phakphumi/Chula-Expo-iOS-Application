@@ -121,11 +121,11 @@ class EventDetailsTableViewController: UITableViewController {
                 
                 wawCell.placeLabel.text = locationDesc
                 
-                if let faculty = toFaculty.allObjects.first as? FacultyData {
-                    
-                    wawCell.tagLabel.text = faculty.shortName
-                    
-                }
+//                if let faculty = toFaculty.allObjects.first as? FacultyData {
+//                    
+//                    wawCell.tagLabel.text = faculty.shortName
+//                    
+//                }
                 
                 if let eventDateText = dateText {
                 

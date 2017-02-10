@@ -14,14 +14,16 @@ public class ImageData: NSManagedObject {
 
     class func addData(
         url: String,
+        activityData: ActivityData,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ImageData?
     {
-        if let newData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData
+        if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData
         {
             // created a new event in the database
-            newData.url = url
-            return newData
+            imageData.url = url
+            imageData.toActivity = activityData
+            return imageData
         }
         return nil
     }

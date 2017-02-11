@@ -11,7 +11,6 @@ import FBSDKLoginKit
 import CoreData
 import Alamofire
 
-
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     var token: String?

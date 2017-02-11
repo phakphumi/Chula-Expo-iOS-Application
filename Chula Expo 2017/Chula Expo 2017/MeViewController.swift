@@ -104,14 +104,11 @@ class MeViewController: UIViewController {
             let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
             
-            let fetchFacultyData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacultyData")
-            let requestDeleteFacultyData = NSBatchDeleteRequest(fetchRequest: fetchFacultyData)
+            let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+            let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
             
             let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
             let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
-            
-            let fetchStageEvent = NSFetchRequest<NSFetchRequestResult>(entityName: "StageEvent")
-            let requestDeleteStageEvent = NSBatchDeleteRequest(fetchRequest: fetchStageEvent)
             
             let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
             let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
@@ -122,15 +119,27 @@ class MeViewController: UIViewController {
             let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
             let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
             
+            let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+            let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
+            
+            let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
+            let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
+            
+            let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
+            let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
+            
             do {
                 
                 try managedObjectContext?.execute(requestDeleteActivityData)
-                try managedObjectContext?.execute(requestDeleteFacultyData)
+                try managedObjectContext?.execute(requestDeleteZoneData)
                 try managedObjectContext?.execute(requestDeleteImageData)
-                try managedObjectContext?.execute(requestDeleteStageEvent)
                 try managedObjectContext?.execute(requestDeleteTagData)
                 try managedObjectContext?.execute(requestDeleteUserData)
                 try managedObjectContext?.execute(requestDeleteVideoData)
+                try managedObjectContext?.execute(requestDeletePlaceData)
+                try managedObjectContext?.execute(requestDeleteRoomData)
+                try managedObjectContext?.execute(requestDeleteRoundData)
+
                 
                 let loginManager = FBSDKLoginManager()
                 loginManager.logOut()

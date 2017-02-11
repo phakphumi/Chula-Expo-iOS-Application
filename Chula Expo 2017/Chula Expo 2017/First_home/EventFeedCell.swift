@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EventFeedCell: UITableViewCell {
 
@@ -48,11 +49,16 @@ class EventFeedCell: UITableViewCell {
             updateUI()
         }
     }
-    fileprivate var loadedImage: UIImage? {
-        
-        didSet {
-            eventTumbnailImage.image = loadedImage
+    var manageObjectContext: NSManagedObjectContext?{
+        didSet{
+            updateUI()
         }
+    }
+    
+    override func layoutSubviews() {
+        
+        super.layoutSubviews()
+        cardStyle(background: background)
     }
     
     func updateUI(){
@@ -78,6 +84,8 @@ class EventFeedCell: UITableViewCell {
         }
         
         if let eventFacity = facity{
+            
+            getFacultyFrom(id: eventFacity)
 //            let fac = facity as! FacultyData
 //            let cap = getCapsule(forFacity: fac.name!)
 //            facityCapsule.text = cap.facText
@@ -87,21 +95,15 @@ class EventFeedCell: UITableViewCell {
         }
     }
     
-    func getCapsule(forFacity facity: String) -> FacityCap{
+    func getFacultyFrom(id: String){
         
-        
-        switch facity {
-        case "Faculty of Engineering":
-            return FacityCap(facText: "ENG", facColor: UIColor(red: 0.61, green: 0.00, blue: 0.01, alpha: 1))
-        default:
-            return FacityCap(facText: "Def", facColor: UIColor.black)
+        if let context = manageObjectContext{
+            context.performAndWait {
+                if let zoneDetail = ZoneData.fetchZoneDetail(zoneId: id, inManageobjectcontext: context){
+                    self.facityCapsule.setText(name: (zoneDetail.shortName)!)
+                }
+            }
         }
-    }
-    
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        cardStyle(background: background)
     }
     
 }

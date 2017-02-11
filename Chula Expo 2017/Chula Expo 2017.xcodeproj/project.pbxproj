@@ -313,9 +313,9 @@
 				8000A53F1E3785A000AED5EF /* TableHeaderView.swift */,
 				5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */,
 				5F6F34B81E2F7EFE0090F378 /* SlideshowFrameViewController.swift */,
-				808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */,
 				5FB054581E23CEEF00428428 /* TagController.swift */,
 				80BFD4D11E27ED6F00491730 /* StageCell.swift */,
+				808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */,
 				80BFD4D31E27ED8300491730 /* EventFeedCell.swift */,
 			);
 			name = First_home;

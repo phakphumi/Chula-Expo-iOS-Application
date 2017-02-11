@@ -272,6 +272,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 print("feedCell name == \(name)")
                 if let eventFeedCell = cell as? EventFeedCell{
                     print("feedCell name == \(name)")
+                    eventFeedCell.manageObjectContext = managedObjectContext
                     eventFeedCell.name = name
                     eventFeedCell.toRound = toRound
                     eventFeedCell.thumbnail = thumbnail

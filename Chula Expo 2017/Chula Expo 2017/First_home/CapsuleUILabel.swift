@@ -33,5 +33,25 @@ class CapsuleUILabel: UILabel {
         self.clipsToBounds = true
         self.layer.masksToBounds = false
     }
+    func setText(name: String){
+        
+        text = name
+        switch name {
+        case "วิศวะ":
+            backgroundColor = UIColor(red: 0.61, green: 0.00, blue: 0.01, alpha: 1)
+        case "อักษร":
+            backgroundColor = UIColor(red:0.52, green:0.51, blue:0.52, alpha:1.0)
+        case "นิเทศ":
+            backgroundColor = UIColor(red: 0.61, green: 0.00, blue: 0.01, alpha: 1)
+        
+        
+        default:
+            
+            backgroundColor = UIColor.gray
+        }
+        
+        self.layer.cornerRadius = CGFloat(3)
+        self.layer.masksToBounds = true
 
+    }
 }

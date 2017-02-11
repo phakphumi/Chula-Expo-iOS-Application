@@ -25,10 +25,11 @@ class CityLayout: UICollectionViewLayout {
     }
     override func prepare() {
         if cache.isEmpty {
-            let columnWidth = contentWidth / CGFloat(numberOfColumns)
+            let columnWidth = (contentWidth - (cellPadding * CGFloat(numberOfColumns + 1))) / CGFloat(numberOfColumns)
             var xOffset = [CGFloat]()
             for column in 0 ..< numberOfColumns {
-                xOffset.append((CGFloat(column) * (columnWidth + cellPadding)) + cellPadding)
+                
+                    xOffset.append((CGFloat(column) * (columnWidth + cellPadding)) + cellPadding)
             }
             var column = 0
             var yOffset = [CGFloat](repeating: cellPadding, count: numberOfColumns)
@@ -36,9 +37,19 @@ class CityLayout: UICollectionViewLayout {
             for item in 0 ..< collectionView!.numberOfItems(inSection: 0) {
                 
                 let indexPath = IndexPath(item: item, section: 0)
-                let width = columnWidth - cellPadding*2
+                let width = columnWidth
                 let numOfItem = CGFloat(collectionView!.numberOfItems(inSection: 0))
-                let height = (screenHeight - ((numOfItem + 1) * cellPadding)) / (numOfItem / CGFloat(numberOfColumns))
+                var height = CGFloat(0)
+                switch numberOfColumns {
+                case 1:
+                    height = max((screenHeight - ((numOfItem + 1) * cellPadding)) / (numOfItem / CGFloat(numberOfColumns)), CGFloat(85))
+                case 2:
+                    height = CGFloat(100)
+                case 3:
+                    height = width
+                default:
+                    height = CGFloat(0)
+                }
                 let frame = CGRect(x: xOffset[column], y: yOffset[column], width: width, height: height)
             //  let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
                 
@@ -69,6 +80,9 @@ class CityLayout: UICollectionViewLayout {
             }
         }
         return layoutAttributes
+    }
+    func clearCache(){
+        cache = []
     }
     
 }

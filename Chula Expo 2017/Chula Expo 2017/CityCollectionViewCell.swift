@@ -45,6 +45,7 @@ class CityCollectionViewCell: UICollectionViewCell {
             updateUI()
         }
     }
+    
     private func updateUI(){
         bgImage.image = nil
         iconImage.image = nil

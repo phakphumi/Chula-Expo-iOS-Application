@@ -59,7 +59,7 @@ class TagTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout, UIC
         print(tagToFit.frame)
         print(tags[indexPath.row])
         
-        return CGSize(width: tagToFit.frame.width + 10, height: 25)
+        return CGSize(width: tagToFit.frame.width + 5, height: UIScreen.main.bounds.height * 0.037481259)
         
     }
 

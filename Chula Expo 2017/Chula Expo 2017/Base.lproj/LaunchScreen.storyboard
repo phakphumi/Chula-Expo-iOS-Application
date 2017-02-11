@@ -20,21 +20,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading screen" translatesAutoresizingMaskIntoConstraints="NO" id="09U-9v-lPe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-R0-1Rx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DMN-dF-i9n">
-                                <rect key="frame" x="169" y="569" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="DMN-dF-i9n" secondAttribute="bottom" constant="50" id="Bbq-fC-an1"/>
-                            <constraint firstItem="DMN-dF-i9n" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IaJ-nq-V59"/>
-                            <constraint firstItem="09U-9v-lPe" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="J9G-lT-6uQ"/>
-                            <constraint firstItem="09U-9v-lPe" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Sbl-Hg-R6q"/>
-                            <constraint firstAttribute="trailing" secondItem="09U-9v-lPe" secondAttribute="trailing" id="a3x-u5-uGY"/>
-                            <constraint firstItem="09U-9v-lPe" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wkj-vR-fwy"/>
+                            <constraint firstItem="Z3e-R0-1Rx" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="3Il-9M-4rl"/>
+                            <constraint firstItem="Z3e-R0-1Rx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="V30-ij-eii"/>
+                            <constraint firstAttribute="trailing" secondItem="Z3e-R0-1Rx" secondAttribute="trailing" id="s8q-yh-kxh"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Z3e-R0-1Rx" secondAttribute="bottom" id="ymc-B9-69e"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Loading screen" width="375" height="667"/>
+        <image name="launchScreen" width="375" height="667"/>
     </resources>
 </document>

@@ -67,6 +67,8 @@ class UserTypeViewController: UIViewController {
         
         UIApplication.shared.statusBarStyle = .default
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
     
     func wasTap(gestureRecognizer: UITapGestureRecognizer) {

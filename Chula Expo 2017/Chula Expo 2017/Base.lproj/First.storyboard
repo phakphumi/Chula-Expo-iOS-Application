@@ -296,7 +296,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="search" id="0Lv-2Q-AHT">
-                            <color key="tintColor" red="0.99803578853607178" green="0.4242703914642334" blue="0.60398375988006592" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="1" green="0.37312167882919312" blue="0.6061827540397644" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="search:" destination="pre-TW-rfj" id="0gg-s4-HJY"/>
                                 <segue destination="nOY-M6-xvl" kind="show" id="NHz-ej-2kM"/>

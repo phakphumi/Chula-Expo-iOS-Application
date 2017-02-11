@@ -186,7 +186,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fmm Fmm@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
-                                        <rect key="frame" x="132.5" y="40" width="199.5" height="15.5"/>
+                                        <rect key="frame" x="132.5" y="40" width="199.5" height="16"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -204,19 +204,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ปริญญาตรี ปี2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG8-Mb-aU4">
-                                        <rect key="frame" x="132.5" y="88.5" width="199.5" height="32"/>
+                                        <rect key="frame" x="132.5" y="88.5" width="199.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="มหาวิทยาลัยเทพ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
-                                        <rect key="frame" x="132.5" y="104.5" width="199.5" height="32"/>
+                                        <rect key="frame" x="132.5" y="104.5" width="199.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-4b-vrs">
-                                        <rect key="frame" x="20" y="123.5" width="93" height="29"/>
+                                        <rect key="frame" x="20" y="123" width="93" height="29"/>
                                         <color key="backgroundColor" red="0.17254901960784313" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="11"/>
                                         <state key="normal" title="แก้ไขข้อมูลส่วนตัว">
@@ -262,13 +262,13 @@
                                         <rect key="frame" x="0.5" y="0.0" width="159.5" height="93.5"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
-                                        <rect key="frame" x="57.5" y="12" width="45.5" height="46.5"/>
+                                        <rect key="frame" x="57" y="11.5" width="46" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bem-fb-AaB" secondAttribute="height" id="wM5-bR-JSw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event ที่สนใจทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYR-8u-1AU">
-                                        <rect key="frame" x="7" y="61" width="144" height="27"/>
+                                        <rect key="frame" x="7.5" y="60" width="144.5" height="28"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -296,13 +296,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="159.5" height="93.5"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
-                                        <rect key="frame" x="57.5" y="12" width="46" height="46.5"/>
+                                        <rect key="frame" x="57" y="11.5" width="45.5" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" id="H0K-Q0-feK"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event ที่จองไว้ทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1a-8t-Iub">
-                                        <rect key="frame" x="8" y="61" width="144" height="27"/>
+                                        <rect key="frame" x="8" y="60" width="144.5" height="28"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -330,13 +330,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="159.5" height="93"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
-                                        <rect key="frame" x="56.5" y="11.5" width="45.5" height="46.5"/>
+                                        <rect key="frame" x="56" y="11" width="46.5" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccO-y6-VRy" secondAttribute="height" id="BzS-Mh-fhG"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขเนื้อหาที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-4I-gUD">
-                                        <rect key="frame" x="7.5" y="61" width="144.5" height="28"/>
+                                        <rect key="frame" x="7.5" y="60.5" width="144" height="28.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -364,13 +364,13 @@
                                         <rect key="frame" x="0.5" y="0.0" width="159.5" height="93"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
-                                        <rect key="frame" x="57.5" y="11.5" width="45.5" height="46.5"/>
+                                        <rect key="frame" x="57" y="11" width="46.5" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="scs-2p-fYf" secondAttribute="height" id="FKa-Xz-ll4"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขคณะที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-QC-pVk">
-                                        <rect key="frame" x="8.5" y="61" width="144" height="28"/>
+                                        <rect key="frame" x="7.5" y="60.5" width="144.5" height="28.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -401,13 +401,13 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
-                                        <rect key="frame" x="56.5" y="11" width="46.5" height="47"/>
+                                        <rect key="frame" x="56" y="11" width="47" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TCN-63-zka" secondAttribute="height" id="o2d-3g-JWl"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5As-Nf-ABA">
-                                        <rect key="frame" x="7.5" y="61" width="144.5" height="28"/>
+                                        <rect key="frame" x="7.5" y="61.5" width="144" height="28"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -438,13 +438,13 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
-                                        <rect key="frame" x="57.5" y="11" width="46" height="47"/>
+                                        <rect key="frame" x="56" y="11" width="47.5" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mId-2y-0eS" secondAttribute="height" id="n1Y-Z2-MLg"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ จุฬา Expo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Yp-oYy">
-                                        <rect key="frame" x="8.5" y="61" width="144" height="28"/>
+                                        <rect key="frame" x="7.5" y="61.5" width="144.5" height="28"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

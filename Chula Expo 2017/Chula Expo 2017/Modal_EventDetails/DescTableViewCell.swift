@@ -34,7 +34,7 @@ class DescTableViewCell: UITableViewCell {
         
         get {
             
-            return self._descTextHeight + 13
+            return self._descTextHeight + 10
             
         }
         

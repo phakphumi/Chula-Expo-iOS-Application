@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EventDetailTableViewController: UITableViewController {
     
@@ -32,8 +33,13 @@ class EventDetailTableViewController: UITableViewController {
     var toRounds: NSSet!
     var reservable: Bool!
     var desc: String!
+    var room: String!
+    var place: String!
+    var latitude: Double!
+    var longitude: Double!
     var toImages: NSSet!
     var toTags: NSSet!
+    var managedObjectContext: NSManagedObjectContext?
 
     @IBAction func cancel(_ sender: UIButton) {
     
@@ -134,7 +140,15 @@ class EventDetailTableViewController: UITableViewController {
             
             if let itvCell = cell as? ImageTableViewCell {
                 
-                itvCell.bannerImage.image = UIImage(named: bannerUrl)
+                bannerUrl = "http://staff.chulaexpo.com\(bannerUrl!)"
+                
+                let bannerData = URL(string: bannerUrl!)
+                
+                if let data = NSData(contentsOf: bannerData!) {
+                    
+                    itvCell.bannerImage.image = UIImage(data: data as Data)
+                    
+                }
                 
             }
             
@@ -178,6 +192,8 @@ class EventDetailTableViewController: UITableViewController {
                         dateTimeList.append("\(date) \(sTime)-\(eTime)")
                     
                     }
+                    
+                    locationDesc = RoomData.getLocation(fromRoomId: self.room!, inManageobjectcontext: self.managedObjectContext!)
                 
                     ehvc.topic = self.topic
                     ehvc.locationDesc = self.locationDesc
@@ -210,11 +226,21 @@ class EventDetailTableViewController: UITableViewController {
             
             if let gtvc = cell as? GalleryTableViewCell {
                 
+                images.removeAll()
+                
                 let imagesObj = self.toImages.allObjects as! [ImageData]
                 
                 for image in imagesObj {
                     
-                    images.append(UIImage(named: image.url!)!)
+                    image.url = "http://staff.chulaexpo.com\(image.url!)"
+                    
+                    let imageData = URL(string: image.url!)
+                    
+                    if let data = NSData(contentsOf: imageData!) {
+                        
+                        images.append(UIImage(data: data as Data)!)
+                        
+                    }
                     
                 }
                 
@@ -224,7 +250,14 @@ class EventDetailTableViewController: UITableViewController {
             
         } else if indexPath.row == 4 {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "MapsCell", for: indexPath)
+            
+            if let mvc = cell as? MapTableViewCell {
+                
+                mvc.latitude = self.latitude
+                mvc.longitude = self.longitude
+                
+            }
             
         } else if indexPath.row == 5 {
             

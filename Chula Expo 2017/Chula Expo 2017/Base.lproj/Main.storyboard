@@ -756,7 +756,7 @@
                                 <rect key="frame" x="33" y="259.5" width="309" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q0-9G-KIg">
-                                        <rect key="frame" x="1" y="0.5" width="154" height="26"/>
+                                        <rect key="frame" x="1.5" y="0.5" width="153" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Q0-9G-KIg" secondAttribute="height" multiplier="153:26" id="VEQ-W9-0AZ"/>
@@ -770,7 +770,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIE-Rf-pvG">
-                                        <rect key="frame" x="153.5" y="1" width="154" height="26"/>
+                                        <rect key="frame" x="154" y="1" width="153" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dIE-Rf-pvG" secondAttribute="height" multiplier="153:26" id="rm3-vo-Z2U"/>
                                         </constraints>
@@ -1045,19 +1045,49 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลงทะเบียนเสร็จสมบูรณ์!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-jy-nPa">
+                                <rect key="frame" x="-0.5" y="308.5" width="375" height="50"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="23"/>
+                                <color key="textColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="หากมีข้อสงสัยในการใช้งาน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GJ-5G-xXF">
+                                <rect key="frame" x="0.0" y="341.5" width="375" height="67"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สามารถดูวิธีการใช้งานได้ที่เมนู FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-h4-hhr">
+                                <rect key="frame" x="-0.5" y="366.5" width="375" height="67"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.86659330129623413" green="0.86671525239944458" blue="0.86655479669570923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="4GJ-5G-xXF" firstAttribute="centerY" secondItem="yIH-5a-vPF" secondAttribute="centerY" multiplier="11.25:10" id="0QS-vM-Acu"/>
+                            <constraint firstItem="4GJ-5G-xXF" firstAttribute="centerX" secondItem="yIH-5a-vPF" secondAttribute="centerX" id="2pG-dK-S2D"/>
+                            <constraint firstItem="Gxe-jy-nPa" firstAttribute="height" secondItem="yIH-5a-vPF" secondAttribute="height" multiplier="0.75:10" id="43T-DO-wg5"/>
                             <constraint firstItem="oXt-Vk-ryI" firstAttribute="width" secondItem="yIH-5a-vPF" secondAttribute="width" multiplier="8.25:10" id="G9o-77-21g"/>
+                            <constraint firstItem="wyy-h4-hhr" firstAttribute="centerX" secondItem="yIH-5a-vPF" secondAttribute="centerX" id="JKQ-xt-mtw"/>
+                            <constraint firstItem="wyy-h4-hhr" firstAttribute="centerY" secondItem="yIH-5a-vPF" secondAttribute="centerY" multiplier="12:10" id="L2k-Hc-IC3"/>
+                            <constraint firstItem="wyy-h4-hhr" firstAttribute="height" secondItem="yIH-5a-vPF" secondAttribute="height" multiplier="1:10" id="NLY-Bh-wFE"/>
+                            <constraint firstItem="Gxe-jy-nPa" firstAttribute="centerX" secondItem="yIH-5a-vPF" secondAttribute="centerX" id="PER-Tv-Kbw"/>
+                            <constraint firstItem="4GJ-5G-xXF" firstAttribute="width" secondItem="yIH-5a-vPF" secondAttribute="width" id="QKc-rd-BiZ"/>
                             <constraint firstItem="oXt-Vk-ryI" firstAttribute="centerX" secondItem="yIH-5a-vPF" secondAttribute="centerX" id="Vvg-yJ-CtW"/>
+                            <constraint firstItem="Gxe-jy-nPa" firstAttribute="centerY" secondItem="yIH-5a-vPF" secondAttribute="centerY" multiplier="10:10" id="Yzm-Jg-HZs"/>
                             <constraint firstItem="oXt-Vk-ryI" firstAttribute="height" secondItem="yIH-5a-vPF" secondAttribute="height" multiplier="0.85:10" id="hxg-zB-pPv"/>
+                            <constraint firstItem="4GJ-5G-xXF" firstAttribute="height" secondItem="yIH-5a-vPF" secondAttribute="height" multiplier="1:10" id="llp-Wm-5Gs"/>
+                            <constraint firstItem="wyy-h4-hhr" firstAttribute="width" secondItem="yIH-5a-vPF" secondAttribute="width" id="oNW-TN-cHS"/>
                             <constraint firstItem="oXt-Vk-ryI" firstAttribute="centerY" secondItem="yIH-5a-vPF" secondAttribute="centerY" multiplier="18.25:10" id="uMk-np-W1Y"/>
+                            <constraint firstItem="Gxe-jy-nPa" firstAttribute="width" secondItem="yIH-5a-vPF" secondAttribute="width" id="veS-m3-d5a"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fep-a8-ekD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1985" y="-562"/>
+            <point key="canvasLocation" x="1984.8" y="-562.66866566716647"/>
         </scene>
         <!--QRCode-->
         <scene sceneID="bkr-Vi-20n">

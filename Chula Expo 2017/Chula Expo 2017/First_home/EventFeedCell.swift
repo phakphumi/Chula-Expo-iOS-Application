@@ -10,16 +10,11 @@ import UIKit
 
 class EventFeedCell: UITableViewCell {
 
-    @IBOutlet weak var eventTumbnailImage: UIImageView!{
-        didSet{
-            roundedCornerLogo()
-        }
-    }
+    @IBOutlet weak var eventTumbnailImage: UIImageView!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
-    @IBOutlet weak var facityCapsule: UILabel!
-    @IBOutlet weak var reserveCapsule: UILabel!
     @IBOutlet weak var background: UIView!
+    @IBOutlet var facityCapsule: CapsuleUILabel!
     
     struct FacityCap{
         var facText: String
@@ -34,7 +29,8 @@ class EventFeedCell: UITableViewCell {
     }
     var thumbnail: String?{
         didSet{
-            updateUI()
+            thumbnail = "http://staff.chulaexpo.com" + thumbnail!
+            eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
         }
     }
     var toRound: NSSet?{
@@ -52,12 +48,18 @@ class EventFeedCell: UITableViewCell {
             updateUI()
         }
     }
+    fileprivate var loadedImage: UIImage? {
+        
+        didSet {
+            eventTumbnailImage.image = loadedImage
+        }
+    }
     
     func updateUI(){
         // reset
-        eventTumbnailImage.image = nil
         eventNameLabel.text = nil
         eventTimeLabel.text = nil
+        
         
         if let rounds = toRound{
             if let round = rounds.allObjects.first as! RoundData?{
@@ -74,9 +76,7 @@ class EventFeedCell: UITableViewCell {
         if let eventName = name{
             eventNameLabel.text = eventName
         }
-        if let eventTumbnail = thumbnail{
-            eventTumbnailImage.image = UIImage(named: eventTumbnail)
-        }
+        
         if let eventFacity = facity{
 //            let fac = facity as! FacultyData
 //            let cap = getCapsule(forFacity: fac.name!)
@@ -85,33 +85,11 @@ class EventFeedCell: UITableViewCell {
 //            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/4.5
 //            facityCapsule.layer.masksToBounds = true
         }
-        makeReserveCapsule()
-    }
-    
-    
-    func makeReserveCapsule(){
-        reserveCapsule.layer.cornerRadius = reserveCapsule.bounds.height/2
-        reserveCapsule.layer.masksToBounds = true
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func roundedCornerLogo()
-    {
-        eventTumbnailImage.layer.cornerRadius = 0
-        eventTumbnailImage.layer.masksToBounds = true
     }
     
     func getCapsule(forFacity facity: String) -> FacityCap{
+        
+        
         switch facity {
         case "Faculty of Engineering":
             return FacityCap(facText: "ENG", facColor: UIColor(red: 0.61, green: 0.00, blue: 0.01, alpha: 1))
@@ -119,10 +97,30 @@ class EventFeedCell: UITableViewCell {
             return FacityCap(facText: "Def", facColor: UIColor.black)
         }
     }
-
+    
     override func layoutSubviews() {
+        
         super.layoutSubviews()
         cardStyle(background: background)
-        background.layer.cornerRadius = 5
-        background.clipsToBounds = true    }
+    }
+    
+}
+
+extension UIImageView {
+    
+    public func imageFromServerURL(urlString: String) {
+        
+        URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            DispatchQueue.main.async(execute: { () -> Void in
+                let image = UIImage(data: data!)
+                self.image = image
+            })
+            
+        }).resume()
+    }
 }

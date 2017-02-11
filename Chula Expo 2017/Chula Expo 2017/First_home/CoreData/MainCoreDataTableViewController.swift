@@ -10,29 +10,58 @@ import CoreData
 
 class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate
 {
-    var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
+    var fetchedResultsControllerStage1: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
             do {
-                if let frc = fetchedResultsController {
+                if let frc = fetchedResultsControllerStage1 {
                     frc.delegate = self
                     try frc.performFetch()
                 }
                 tableView.reloadData()
             } catch let error {
-                print("NSFetchedResultsController.performFetch() failed: \(error)")
+                print("NSFetchedResultsControllerStage1.performFetch() failed: \(error)")
             }
         }
     }
-    var fetchedResultsController2: NSFetchedResultsController<NSFetchRequestResult>? {
+    
+    var fetchedResultsControllerStage2: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
             do {
-                if let frc = fetchedResultsController2 {
+                if let frc = fetchedResultsControllerStage2 {
                     frc.delegate = self
                     try frc.performFetch()
                 }
                 tableView.reloadData()
             } catch let error {
-                print("NSFetchedResultsController2.performFetch() failed: \(error)")
+                print("NSFetchedResultsControllerStage2.performFetch() failed: \(error)")
+            }
+        }
+    }
+    
+    var fetchedResultsControllerStage3: NSFetchedResultsController<NSFetchRequestResult>? {
+        didSet {
+            do {
+                if let frc = fetchedResultsControllerStage3 {
+                    frc.delegate = self
+                    try frc.performFetch()
+                }
+                tableView.reloadData()
+            } catch let error {
+                print("NSFetchedResultsControllerStage3.performFetch() failed: \(error)")
+            }
+        }
+    }
+    
+    var fetchedResultsControllerFeed: NSFetchedResultsController<NSFetchRequestResult>? {
+        didSet {
+            do {
+                if let frc = fetchedResultsControllerFeed {
+                    frc.delegate = self
+                    try frc.performFetch()
+                }
+                tableView.reloadData()
+            } catch let error {
+                print("NSFetchedResultsControllerFeed.performFetch() failed: \(error)")
             }
         }
     }
@@ -49,32 +78,32 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
             return 1
         }
         else if section == 1{
-            if let i = fetchedResultsController?.sections?[0]{
-                return i.numberOfObjects+1
-            }
-            return 0
+//            if let i = fetchedResultsController?.sections?[0]{
+//                return i.numberOfObjects+1
+//            }
+            return 4
         }
         else if section == 2{
-            if let i = fetchedResultsController2?.sections?[0]{
-                print("section 2 == \(i.numberOfObjects)")
+            if let i = fetchedResultsControllerFeed?.sections?[0]{
+                print("Number of feed cell = \(i.numberOfObjects)")
                 return i.numberOfObjects+1
             }
             print("section 2 else")
             return 0
         }
         else {
-            print("else \(fetchedResultsController)")
+//            print("else \(fetchedResultsController)")
             return 0
         }
     }
     
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return fetchedResultsController?.sectionIndexTitles
-    }
-    
-    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
-        return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
-    }
+//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//        return fetchedResultsController?.sectionIndexTitles
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+//        return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
+//    }
     
     // MARK: NSFetchedResultsControllerDelegate
     

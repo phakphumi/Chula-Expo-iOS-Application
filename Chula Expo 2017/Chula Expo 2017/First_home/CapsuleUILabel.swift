@@ -28,4 +28,10 @@ class CapsuleUILabel: UILabel {
         intrinsicSuperViewContentSize.width += leftInset + rightInset
         return intrinsicSuperViewContentSize
     }
+    func makeRound() {
+        self.layer.cornerRadius = 2
+        self.clipsToBounds = true
+        self.layer.masksToBounds = false
+    }
+
 }

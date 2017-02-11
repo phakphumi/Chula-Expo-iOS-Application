@@ -9,23 +9,30 @@
 import UIKit
 import MapKit
 
-class MapTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapTableViewCell: UITableViewCell {
 
     @IBOutlet var map: MKMapView!
+    
+    let annotation = MKPointAnnotation()
+    
+    var latitude = 13.7383829
+    var longitude = 100.5298641
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        let locationManager = CLLocationManager()
-        let annotation = MKPointAnnotation()
+        self.layoutIfNeeded()
+        self.setNeedsLayout()
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+    }
+    
+    override func layoutSubviews() {
         
-        let lat: CLLocationDegrees = 13.7383829
-        let lon: CLLocationDegrees = 100.5298641
+        map.removeAnnotation(annotation)
+        
+        let lat: CLLocationDegrees = latitude
+        let lon: CLLocationDegrees = longitude
         let latDelta: CLLocationDegrees = 0.02
         let lonDelta: CLLocationDegrees = 0.02
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
@@ -38,12 +45,6 @@ class MapTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapViewDel
         
         map.addAnnotation(annotation)
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

@@ -82,7 +82,7 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
                 return i.numberOfObjects+1
             }
         }
-        return 0
+        return 1
         
     }
     

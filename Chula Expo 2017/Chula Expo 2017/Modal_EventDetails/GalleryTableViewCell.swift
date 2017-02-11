@@ -95,7 +95,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 50, height: 50)
+        return CGSize(width: UIScreen.main.bounds.width * 0.133333333, height: UIScreen.main.bounds.width * 0.133333333)
         
     }
     

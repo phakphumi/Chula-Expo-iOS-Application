@@ -57,7 +57,7 @@ class HeaderTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardStyle(background: background)
+//        cardStyle(background: background)
     }
 }
 extension UIView{

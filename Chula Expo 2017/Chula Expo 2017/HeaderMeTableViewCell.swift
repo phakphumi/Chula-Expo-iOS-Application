@@ -57,6 +57,6 @@ class HeaderMeTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardStyle1(background: background)
+        cardStyle(background: background)
     }
 }

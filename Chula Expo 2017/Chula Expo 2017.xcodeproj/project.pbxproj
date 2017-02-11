@@ -83,6 +83,7 @@
 		80314F3F1E4A2F0D003DB96A /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */; };
 		80314F411E4A2F1E003DB96A /* FacultyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */; };
 		80314F471E4A3532003DB96A /* InterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */; };
+		80320A851E4F10A200278CCC /* EventAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80320A841E4F10A200278CCC /* EventAsset.xcassets */; };
 		803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803688AA1E42595300C1FB58 /* StageDetailCell.swift */; };
 		803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */; };
 		805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
@@ -123,10 +124,8 @@
 		58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthHeadTableViewCell.swift; path = Fourth_more/FourthHeadTableViewCell.swift; sourceTree = "<group>"; };
 		58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FourthMenuTableViewCell.swift; path = Fourth_more/FourthMenuTableViewCell.swift; sourceTree = "<group>"; };
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
-		58EE4C2E1E2A15230079CABB /* InterestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestedTableViewController.swift; path = Main_LoginAndRegistration/InterestedTableViewController.swift; sourceTree = "<group>"; };
-		58EE4C301E2A161B0079CABB /* InterestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestTableViewCell.swift; path = Main_LoginAndRegistration/InterestTableViewCell.swift; sourceTree = "<group>"; };
-		5ADF032F16A51057C2FA9709 /* Pods-Chula Expo 2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chula Expo 2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017.release.xcconfig"; sourceTree = "<group>"; };
 		58BD39441E4C4DFA00218B52 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		5ADF032F16A51057C2FA9709 /* Pods-Chula Expo 2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chula Expo 2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017.release.xcconfig"; sourceTree = "<group>"; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
 		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Modal_EventDetails/ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +197,7 @@
 		80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
 		80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyCollectionViewCell.swift; sourceTree = "<group>"; };
 		80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterCollectionViewCell.swift; path = ../InterCollectionViewCell.swift; sourceTree = "<group>"; };
+		80320A841E4F10A200278CCC /* EventAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = EventAsset.xcassets; path = Third_events/EventAsset.xcassets; sourceTree = "<group>"; };
 		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageDetailCell.swift; path = First_home/StageEvent/StageDetailCell.swift; sourceTree = "<group>"; };
 		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = First_home/HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = First_home/StageEvent/StageExpandTableViewController.swift; sourceTree = "<group>"; };
@@ -443,6 +443,7 @@
 		80073CDC1E1E315400C1F64E /* Third_events */ = {
 			isa = PBXGroup;
 			children = (
+				80320A841E4F10A200278CCC /* EventAsset.xcassets */,
 				80BFD4D81E27F3AA00491730 /* CoreData */,
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
 				80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */,
@@ -567,6 +568,7 @@
 				5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */,
 				581940CF1E446395000C566C /* Search.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
+				80320A851E4F10A200278CCC /* EventAsset.xcassets in Resources */,
 				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
 				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
 			);

@@ -10,6 +10,7 @@ import UIKit
 
 class EventSelectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var topTab: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     private var selectedSection = 1
     
@@ -17,6 +18,8 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         var name: String = ""
         var bgImage: String = ""
         var iconImage: String = ""
+        var tagName: String?
+        var tagColor: UIColor = UIColor.clear
         
     }
     struct facultyData {
@@ -37,14 +40,31 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Events"
+        let shadowPath = UIBezierPath(rect: topTab.bounds)
+        topTab.layer.shadowColor = UIColor.darkGray.cgColor
+        topTab.layer.shadowOffset = CGSize(width: 0, height: 0)
+        topTab.layer.shadowRadius = 1
+        topTab.layer.shadowOpacity = 0.5
+        topTab.layer.shadowPath = shadowPath.cgPath
+
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cityCell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "facultyCell")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "interestCell")
-        collectionView.contentInset = UIEdgeInsets(top: 23, left: 5, bottom: 10, right: 5)
+//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cityCell")
+//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "facultyCell")
+//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "interestCell")
+//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         setupCityData()
-        // Do any additional setup after loading the view.
+        let layout = CityLayout()
+        collectionView.collectionViewLayout = layout
+
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 10, left: 35, bottom: 20, right: 35)
+//        layout.itemSize = CGSize(width: (self.view.frame.width-60)/2, height: 100)
+//        layout.minimumInteritemSpacing = 2.5
+//        layout.minimumLineSpacing = 2.5
+//        collectionView.collectionViewLayout = layout
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +74,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        print("numofsection   \(cityDatas.count)")
         return 1
     }
     
@@ -82,19 +103,20 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 cityCell.name = cityDatas[indexPath.row].name
                 cityCell.bg = cityDatas[indexPath.row].bgImage
                 cityCell.icon = cityDatas[indexPath.row].iconImage
-                cityCell.sub = "200 events"
-                cityCell.tagname = "SMART"
+                cityCell.sub = "200 Events"
+                cityCell.tagname = cityDatas[indexPath.row].tagName
+                cityCell.tagColor = cityDatas[indexPath.row].tagColor
             }
         }
         else if selectedSection == 2 {
-            
+            print ("section 2")
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facultyCell", for: indexPath)
             if let facultyCell = cell as? FacultyCollectionViewCell{
                 
             }
         }
         else {
-            
+            print ("section else")
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "interestCell", for: indexPath)
             if let interestCell = cell as? InterCollectionViewCell{
                 
@@ -118,11 +140,11 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     */
     func setupCityData(){
         cityDatas = [
-            cityData(name: "Smart City", bgImage: "", iconImage: ""),
-            cityData(name: "Health City", bgImage: "", iconImage: ""),
-            cityData(name: "Human City", bgImage: "", iconImage: ""),
-            cityData(name: "Sala Phrakeaw", bgImage: "", iconImage: ""),
-            cityData(name: "Art Gallery", bgImage: "", iconImage: "")
+            cityData(name: "Smart City", bgImage: "smartBG", iconImage: "smartICON", tagName: "SMART", tagColor: UIColor(red:1.00, green:0.45, blue:0.00, alpha:1.0)),
+            cityData(name: "Health City", bgImage: "healthBG", iconImage: "healthICON", tagName: "HEALTH", tagColor: UIColor(red:0.24, green:0.68, blue:0.20, alpha:1.0)),
+            cityData(name: "Human City", bgImage: "humanBG", iconImage: "humanICON", tagName: "HUMAN", tagColor: UIColor(red:0.40, green:0.18, blue:0.57, alpha:1.0)),
+            cityData(name: "Sala Phrakeaw", bgImage: "salaBG", iconImage: "salaICON", tagName: nil, tagColor: UIColor.clear),
+            cityData(name: "Art Gallery", bgImage: "artBG", iconImage: "artICON", tagName: nil, tagColor: UIColor.clear)
         ]
     }
 }

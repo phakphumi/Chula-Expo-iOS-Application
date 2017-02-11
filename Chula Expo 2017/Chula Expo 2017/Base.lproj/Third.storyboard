@@ -684,6 +684,7 @@ Cg
                                             <outlet property="nameLabel" destination="NAE-t5-KII" id="8Kc-lC-Arl"/>
                                             <outlet property="subLabel" destination="SVa-1X-l3E" id="tWy-4c-tbc"/>
                                             <outlet property="tagLabel" destination="SfH-qK-LUH" id="y37-t6-RXP"/>
+                                            <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="DQR-bU-bAD"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="facultyCell" id="5jm-T1-kzz" customClass="FacultyCollectionViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
@@ -906,6 +907,6 @@ Cg
         <image name="stageLeftBar" width="95" height="627"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HMJ-Nd-rRL"/>
+        <segue reference="DQR-bU-bAD"/>
     </inferredMetricsTieBreakers>
 </document>

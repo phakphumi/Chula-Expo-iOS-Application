@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class EventSelectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var topTab: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     private var selectedSection = 1
+    var managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     struct cityData {
         var name: String = ""
@@ -129,15 +132,19 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         return cell
     }
     
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "selectFacity"{
+            if let dest = segue.destination as? EventsTableViewController{
+//                dest.facity = (sender as? FacityTableViewCell)?.name
+                dest.facity = "5899a98a5eeecd3698f6cfc6"
+                dest.managedObjectContext = managedObjectContext
+            }
+            segue.destination.title = (sender as? CityCollectionViewCell)?.name
+        }
     }
-    */
     func setupCityData(){
         cityDatas = [
             cityData(name: "Smart City", bgImage: "smartBG", iconImage: "smartICON", tagName: "SMART", tagColor: UIColor(red:1.00, green:0.45, blue:0.00, alpha:1.0)),

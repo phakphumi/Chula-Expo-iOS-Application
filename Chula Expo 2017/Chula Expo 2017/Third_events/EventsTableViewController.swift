@@ -57,7 +57,7 @@ class EventsTableViewController: CoreDataTableViewController
                 request.predicate = NSPredicate(format: "isReserve == %@", NSNumber(booleanLiteral: true))
             }
             else {
-                request.predicate = NSPredicate(format: "any toFaculty.name contains[c] %@", facity!)
+                request.predicate = NSPredicate(format: "any faculty contains[c] %@", facity!)
             }
             
             request.sortDescriptors = [NSSortDescriptor(

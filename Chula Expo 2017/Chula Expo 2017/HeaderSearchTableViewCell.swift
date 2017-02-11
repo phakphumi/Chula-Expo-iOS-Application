@@ -57,20 +57,6 @@ class HeaderSearchTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        cardStyle1(background: background)
-    }
-}
-extension UIView{
-    
-    func cardStyle1(background: UIView){
-        background.layer.cornerRadius = 2
-        background.clipsToBounds = true
-        let shadowPath = UIBezierPath(rect: background.bounds)
-        background.layer.masksToBounds = false
-        background.layer.shadowColor = UIColor.darkGray.cgColor
-        background.layer.shadowOffset = CGSize(width: 0, height: 0)
-        background.layer.shadowRadius = 1
-        background.layer.shadowOpacity = 0.2
-        background.layer.shadowPath = shadowPath.cgPath
+        cardStyle(background: background)
     }
 }

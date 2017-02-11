@@ -27,7 +27,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CIQ-R5-XgI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CIQ-R5-XgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -296,7 +296,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="159.5" height="93.5"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
-                                        <rect key="frame" x="57" y="11.5" width="45.5" height="46.5"/>
+                                        <rect key="frame" x="56.5" y="11.5" width="46.5" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" id="H0K-Q0-feK"/>
                                         </constraints>

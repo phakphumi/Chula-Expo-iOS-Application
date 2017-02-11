@@ -756,7 +756,7 @@
                                 <rect key="frame" x="33" y="259.5" width="309" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q0-9G-KIg">
-                                        <rect key="frame" x="1" y="0.5" width="154" height="26"/>
+                                        <rect key="frame" x="1.5" y="0.5" width="153" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Q0-9G-KIg" secondAttribute="height" multiplier="153:26" id="VEQ-W9-0AZ"/>
@@ -770,7 +770,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIE-Rf-pvG">
-                                        <rect key="frame" x="153.5" y="1" width="154" height="26"/>
+                                        <rect key="frame" x="154" y="1" width="153" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dIE-Rf-pvG" secondAttribute="height" multiplier="153:26" id="rm3-vo-Z2U"/>
                                         </constraints>
@@ -1045,6 +1045,27 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="หากมีข้อสงสัยในการใช้งาน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GJ-5G-xXF">
+                                <rect key="frame" x="27" y="350" width="338" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="สามารถดูวิธีการใช้งานได้ที่เมนู FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-h4-hhr">
+                                <rect key="frame" x="21" y="382" width="338" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
+                                <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ลงทะเบียนเสร็จสมบูรณ์!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-jy-nPa">
+                                <rect key="frame" x="18" y="247" width="338" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="17"/>
+                                <color key="textColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.86659330129623413" green="0.86671525239944458" blue="0.86655479669570923" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1057,7 +1078,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fep-a8-ekD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1985" y="-562"/>
+            <point key="canvasLocation" x="1984.8" y="-562.66866566716647"/>
         </scene>
         <!--QRCode-->
         <scene sceneID="bkr-Vi-20n">

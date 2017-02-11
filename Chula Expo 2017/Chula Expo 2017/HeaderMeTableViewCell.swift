@@ -2,14 +2,14 @@
 //  HeaderTableViewCell.swift
 //  Chula Expo 2017
 //
-//  Created by NOT on 1/24/2560 BE.
+//  Created by Ekkalak Leelasornchai on 2/3/2560 BE.
 //  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
 //
 
 import UIKit
 
-class HeaderTableViewCell: UITableViewCell {
-
+class HeaderMeTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var engLabel: UILabel!
     @IBOutlet weak var thaLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
@@ -42,36 +42,21 @@ class HeaderTableViewCell: UITableViewCell {
             icon.image = UIImage(named: iconI)
         }
     }
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        cardStyle(background: background)
+        cardStyle(background: background)
     }
-}
-extension UIView{
-
-    func cardStyle(background: UIView){
-        background.layer.cornerRadius = 2
-        background.clipsToBounds = true
-        let shadowPath = UIBezierPath(rect: background.bounds)
-        background.layer.masksToBounds = false
-        background.layer.shadowColor = UIColor.darkGray.cgColor
-        background.layer.shadowOffset = CGSize(width: 0, height: 0)
-        background.layer.shadowRadius = 1
-        background.layer.shadowOpacity = 0.2
-        background.layer.shadowPath = shadowPath.cgPath
-    }
-    
 }

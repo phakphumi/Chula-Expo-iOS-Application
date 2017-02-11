@@ -110,6 +110,9 @@
 		80DC942C1E366B5300A1D01A /* TagData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC94201E366B5200A1D01A /* TagData+CoreDataProperties.swift */; };
 		80DC942D1E366B5300A1D01A /* VideoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC94211E366B5200A1D01A /* VideoData+CoreDataClass.swift */; };
 		80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC94221E366B5200A1D01A /* VideoData+CoreDataProperties.swift */; };
+		931613E21E4F6FC900298127 /* HeaderMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E11E4F6FC900298127 /* HeaderMeTableViewCell.swift */; };
+		931613E41E4F706B00298127 /* FeedMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E31E4F706B00298127 /* FeedMeTableViewCell.swift */; };
+		931613E81E4F713400298127 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E71E4F713400298127 /* FavViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,6 +223,9 @@
 		80DC94201E366B5200A1D01A /* TagData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TagData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/TagData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80DC94211E366B5200A1D01A /* VideoData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VideoData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/VideoData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80DC94221E366B5200A1D01A /* VideoData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VideoData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/VideoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		931613E11E4F6FC900298127 /* HeaderMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderMeTableViewCell.swift; sourceTree = "<group>"; };
+		931613E31E4F706B00298127 /* FeedMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedMeTableViewCell.swift; sourceTree = "<group>"; };
+		931613E71E4F713400298127 /* FavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		CBC6164695A978B130E3802A /* Pods_Chula_Expo_2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chula_Expo_2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -328,6 +334,9 @@
 				58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */,
 				58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */,
 				58BD39441E4C4DFA00218B52 /* MeViewController.swift */,
+				931613E11E4F6FC900298127 /* HeaderMeTableViewCell.swift */,
+				931613E31E4F706B00298127 /* FeedMeTableViewCell.swift */,
+				931613E71E4F713400298127 /* FavViewController.swift */,
 			);
 			name = Fourth_more;
 			sourceTree = "<group>";
@@ -635,6 +644,7 @@
 				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
 				80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */,
 				581940D91E4516BF000C566C /* interestViewController.swift in Sources */,
+				931613E21E4F6FC900298127 /* HeaderMeTableViewCell.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
 				80DC94261E366B5200A1D01A /* RoundData+CoreDataProperties.swift in Sources */,
 				8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */,
@@ -658,6 +668,7 @@
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
 				5FCE0A781E10E4B400E5DB16 /* RegisterViewController2.swift in Sources */,
+				931613E41E4F706B00298127 /* FeedMeTableViewCell.swift in Sources */,
 				80DC942A1E366B5300A1D01A /* ImageData+CoreDataProperties.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */,
@@ -689,6 +700,7 @@
 				5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */,
 				80DC94251E366B5200A1D01A /* RoundData+CoreDataClass.swift in Sources */,
 				5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */,
+				931613E81E4F713400298127 /* FavViewController.swift in Sources */,
 				58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */,
 				5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */,
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,

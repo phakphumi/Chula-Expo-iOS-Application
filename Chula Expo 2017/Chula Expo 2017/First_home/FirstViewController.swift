@@ -180,7 +180,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 headerCell.title2 = "แนะนำกิจกรรมที่คุณอาจสนใจ"
                 headerCell.iconImage = "heartIcon"
             }
-            cell.selectionStyle = .none
+            
         }
 
         else {
@@ -211,7 +211,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 }
             }
         }
-        
+        cell.selectionStyle = .none
         return cell
     }
     

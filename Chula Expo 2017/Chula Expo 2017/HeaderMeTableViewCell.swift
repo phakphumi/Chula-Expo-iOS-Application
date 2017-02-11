@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HeaderSearchTableViewCell: UITableViewCell {
-
+class HeaderMeTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var engLabel: UILabel!
     @IBOutlet weak var thaLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!

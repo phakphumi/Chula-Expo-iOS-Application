@@ -40,6 +40,11 @@ class CityCollectionViewCell: UICollectionViewCell {
             updateUI()
         }
     }
+    var tagColor: UIColor?{
+        didSet{
+            updateUI()
+        }
+    }
     private func updateUI(){
         bgImage.image = nil
         iconImage.image = nil
@@ -61,6 +66,7 @@ class CityCollectionViewCell: UICollectionViewCell {
         }
         if let tagname = tagname{
             tagLabel.text = tagname
+            tagLabel.backgroundColor = tagColor
         }
     }
 }

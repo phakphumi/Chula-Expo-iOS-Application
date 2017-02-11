@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bOe-17-pMs">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bOe-17-pMs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
         <!--Search View Controller-->
         <scene sceneID="V25-je-yHY">
             <objects>
-                <viewController id="bOe-17-pMs" customClass="SearchViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bOe-17-pMs" customClass="SearchViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c73-NV-OUV"/>
                         <viewControllerLayoutGuide type="bottom" id="4kM-Ev-ges"/>
@@ -155,7 +155,7 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D2985D06-16C7-4ED9-B7DF-1C54B53263BC" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1E63992D-C5CC-4089-9105-88606A23489B" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
                                                             <rect key="frame" x="327" y="15" width="17" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="ofU-ZL-icK"/>
@@ -303,7 +303,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D2985D06-16C7-4ED9-B7DF-1C54B53263BC" width="17" height="18">
+        <image name="1E63992D-C5CC-4089-9105-88606A23489B" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

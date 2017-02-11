@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sMu-od-yNV">
-    <device id="retina5_5" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sMu-od-yNV">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,7 +27,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CIQ-R5-XgI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CIQ-R5-XgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -48,19 +48,19 @@
             <objects>
                 <tableViewController id="vm9-n6-CPl" customClass="FourthViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9AM-xW-aaQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headCell" rowHeight="160" id="9GB-Wj-nlD" customClass="FourthHeadTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="160"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GB-Wj-nlD" id="DUf-zw-WKh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
-                                            <rect key="frame" x="142" y="6" width="90" height="144"/>
+                                            <rect key="frame" x="142" y="6" width="90" height="143"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RJl-ev-EIS">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
@@ -70,7 +70,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1b-48-q2A">
-                                                    <rect key="frame" x="24.333333333333343" y="101" width="41.666666666666657" height="42.666666666666657"/>
+                                                    <rect key="frame" x="24" y="101" width="42" height="42"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -91,20 +91,20 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="51" id="eYW-ZK-5gL" customClass="FourthMenuTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="188" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="188" width="375" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
-                                            <rect key="frame" x="8" y="15.666666666666668" width="4.3333333333333286" height="5"/>
+                                            <rect key="frame" x="8" y="15.5" width="4.5" height="5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="AEk-Ic-ub0" secondAttribute="height" multiplier="21:20" id="QEx-4s-d7o"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-of-2ey">
-                                            <rect key="frame" x="65" y="7.6666666666666679" width="166" height="20.333333333333336"/>
+                                            <rect key="frame" x="65" y="7.5" width="168" height="20.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="fX7-of-2ey" secondAttribute="height" multiplier="286:35" id="Sd5-Nn-q5g"/>
                                             </constraints>
@@ -156,6 +156,14 @@
             </objects>
             <point key="canvasLocation" x="3126" y="663"/>
         </scene>
+        <!--searchView-->
+        <scene sceneID="bav-QT-Kft">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Search" referencedIdentifier="searchView" id="ghz-mG-oq6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4WZ-Mg-hfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3053" y="764"/>
+        </scene>
         <!--My Profile-->
         <scene sceneID="B26-g1-mJj">
             <objects>
@@ -165,50 +173,50 @@
                         <viewControllerLayoutGuide type="bottom" id="txf-ga-UMH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rBy-l2-u1N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSU-JG-2WL">
-                                <rect key="frame" x="25" y="74" width="364" height="162"/>
+                                <rect key="frame" x="21.5" y="71.5" width="332" height="160.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เอฟเอ็มไงล่ะ นะจ้ะเทพมาก" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esj-gh-HV1">
-                                        <rect key="frame" x="146" y="16" width="218" height="32.333333333333329"/>
+                                        <rect key="frame" x="132.5" y="16.5" width="199.5" height="32"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fmm Fmm@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
-                                        <rect key="frame" x="146" y="40" width="218" height="16.666666666666657"/>
+                                        <rect key="frame" x="132.5" y="40" width="199.5" height="15.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อายุ 20 เพศ ชาย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-uh-xdR">
-                                        <rect key="frame" x="146" y="60.666666666666657" width="218" height="24.333333333333343"/>
+                                        <rect key="frame" x="132.5" y="60.5" width="199.5" height="23.5"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="krist" translatesAutoresizingMaskIntoConstraints="NO" id="ef8-4q-M0P">
-                                        <rect key="frame" x="21.666666666666657" y="18.333333333333321" width="102" height="101.66666666666669"/>
+                                        <rect key="frame" x="20" y="22" width="93" height="93"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ef8-4q-M0P" secondAttribute="height" multiplier="1:1" id="QCF-50-qg6"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ปริญญาตรี ปี2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG8-Mb-aU4">
-                                        <rect key="frame" x="146" y="89.666666666666657" width="218" height="32"/>
+                                        <rect key="frame" x="132.5" y="88.5" width="199.5" height="32"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="มหาวิทยาลัยเทพ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
-                                        <rect key="frame" x="145.33333333333337" y="105.66666666666666" width="218.66666666666663" height="31.666666666666686"/>
+                                        <rect key="frame" x="132.5" y="104.5" width="199.5" height="32"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-4b-vrs">
-                                        <rect key="frame" x="21.666666666666657" y="124.99999999999999" width="102" height="28.666666666666643"/>
+                                        <rect key="frame" x="20" y="123.5" width="93" height="29"/>
                                         <color key="backgroundColor" red="0.17254901960784313" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="11"/>
                                         <state key="normal" title="แก้ไขข้อมูลส่วนตัว">
@@ -248,20 +256,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czm-V6-wiz">
-                                <rect key="frame" x="25" y="246" width="176" height="92"/>
+                                <rect key="frame" x="21.5" y="243.5" width="159.5" height="93.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-9z-3Jt">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="92"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="159.5" height="93.5"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
-                                        <rect key="frame" x="65.333333333333343" y="11.333333333333314" width="46.000000000000014" height="46"/>
+                                        <rect key="frame" x="57.5" y="12" width="45.5" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bem-fb-AaB" secondAttribute="height" id="wM5-bR-JSw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event ที่สนใจทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYR-8u-1AU">
-                                        <rect key="frame" x="9" y="59.666666666666686" width="158" height="28"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <rect key="frame" x="7" y="61" width="144" height="27"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -282,20 +290,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zog-kW-qpi">
-                                <rect key="frame" x="213" y="246" width="176" height="92"/>
+                                <rect key="frame" x="194" y="243.5" width="159.5" height="93.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-th-1rY">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="159.5" height="93.5"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
-                                        <rect key="frame" x="66" y="11.333333333333314" width="45.666666666666686" height="45.666666666666686"/>
+                                        <rect key="frame" x="57.5" y="12" width="46" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" id="H0K-Q0-feK"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event ที่จองไว้ทั้งหมด" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1a-8t-Iub">
-                                        <rect key="frame" x="8.6666666666666572" y="59.666666666666686" width="158.00000000000003" height="28"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <rect key="frame" x="8" y="61" width="144" height="27"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -316,20 +324,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFe-MQ-ftc">
-                                <rect key="frame" x="25" y="348" width="176" height="92"/>
+                                <rect key="frame" x="21.5" y="347" width="159.5" height="93"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6A-6i-Fgj">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="159.5" height="93"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
-                                        <rect key="frame" x="65" y="11.333333333333314" width="46" height="45.666666666666686"/>
+                                        <rect key="frame" x="56.5" y="11.5" width="45.5" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccO-y6-VRy" secondAttribute="height" id="BzS-Mh-fhG"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขเนื้อหาที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-4I-gUD">
-                                        <rect key="frame" x="9" y="60.333333333333314" width="158" height="27"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <rect key="frame" x="7.5" y="61" width="144.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -350,20 +358,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25R-3A-hs5">
-                                <rect key="frame" x="213" y="348" width="176" height="92"/>
+                                <rect key="frame" x="194" y="347" width="159.5" height="93"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWb-CZ-da0">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="92"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="159.5" height="93"/>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
-                                        <rect key="frame" x="64.666666666666686" y="11.333333333333314" width="46" height="45.666666666666686"/>
+                                        <rect key="frame" x="57.5" y="11.5" width="45.5" height="46.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="scs-2p-fYf" secondAttribute="height" id="FKa-Xz-ll4"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขคณะที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-QC-pVk">
-                                        <rect key="frame" x="8.6666666666666572" y="60.333333333333314" width="158.00000000000003" height="27"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <rect key="frame" x="8.5" y="61" width="144" height="28"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -384,23 +392,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QA-cE-lMX">
-                                <rect key="frame" x="25" y="450" width="176" height="92"/>
+                                <rect key="frame" x="21.5" y="450" width="159.5" height="93.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CH-ye-Lys">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="159.5" height="93.5"/>
                                         <connections>
                                             <segue destination="P9t-UE-hci" kind="show" id="SZ0-6c-yWz"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
-                                        <rect key="frame" x="65" y="11.333333333333314" width="46" height="45.333333333333371"/>
+                                        <rect key="frame" x="56.5" y="11" width="46.5" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TCN-63-zka" secondAttribute="height" id="o2d-3g-JWl"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5As-Nf-ABA">
-                                        <rect key="frame" x="9" y="60" width="158" height="27.333333333333371"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <rect key="frame" x="7.5" y="61" width="144.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -421,23 +429,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-7i-5D0">
-                                <rect key="frame" x="213" y="450" width="176" height="92"/>
+                                <rect key="frame" x="194" y="450" width="159.5" height="93.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPt-Mv-oax">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="92"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="159.5" height="93.5"/>
                                         <connections>
                                             <segue destination="HCd-hD-eyz" kind="show" id="utr-Uu-kEX"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
-                                        <rect key="frame" x="64.666666666666686" y="11.333333333333314" width="46" height="45.333333333333371"/>
+                                        <rect key="frame" x="57.5" y="11" width="46" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mId-2y-0eS" secondAttribute="height" id="n1Y-Z2-MLg"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ จุฬา Expo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Yp-oYy">
-                                        <rect key="frame" x="8.6666666666666572" y="60" width="158.00000000000003" height="27.333333333333371"/>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                        <rect key="frame" x="8.5" y="61" width="144" height="28"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -458,10 +466,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apy-IZ-zkK">
-                                <rect key="frame" x="25" y="552" width="364" height="73.666666666666629"/>
+                                <rect key="frame" x="21.5" y="555.5" width="332" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NId-Dp-m4C">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="73.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="332" height="50"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="19"/>
                                         <state key="normal" title="ออกจากระบบ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -482,47 +490,53 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="apy-IZ-zkK" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1:10" id="1ja-1S-MnE"/>
-                            <constraint firstItem="Zog-kW-qpi" firstAttribute="top" secondItem="mSU-JG-2WL" secondAttribute="bottom" constant="10" id="4VT-KZ-Mrg"/>
-                            <constraint firstItem="czm-V6-wiz" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="61e-fr-76O"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Zog-kW-qpi" secondAttribute="trailing" constant="5" id="6Qt-gW-lUt"/>
-                            <constraint firstItem="apy-IZ-zkK" firstAttribute="top" secondItem="1Db-7i-5D0" secondAttribute="bottom" constant="10" id="9dt-fZ-1RP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Db-7i-5D0" secondAttribute="trailing" constant="5" id="9wf-Y0-rAv"/>
-                            <constraint firstItem="czm-V6-wiz" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="Bid-B7-V76"/>
-                            <constraint firstItem="Zog-kW-qpi" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="CRc-EM-n7d"/>
-                            <constraint firstItem="mSU-JG-2WL" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="2.2:10" id="Cdn-nU-7os"/>
-                            <constraint firstItem="6QA-cE-lMX" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="IXV-tG-bc7"/>
-                            <constraint firstItem="czm-V6-wiz" firstAttribute="top" secondItem="mSU-JG-2WL" secondAttribute="bottom" constant="10" id="JuO-vP-e10"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="25R-3A-hs5" secondAttribute="trailing" constant="5" id="KTp-DA-vKw"/>
-                            <constraint firstItem="zFe-MQ-ftc" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="L0J-Qc-fFS"/>
-                            <constraint firstItem="6QA-cE-lMX" firstAttribute="top" secondItem="zFe-MQ-ftc" secondAttribute="bottom" constant="10" id="MTl-wH-qJz"/>
-                            <constraint firstItem="zFe-MQ-ftc" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="Nyd-dB-Y3v"/>
-                            <constraint firstItem="6QA-cE-lMX" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="ONM-Fq-rfV"/>
+                            <constraint firstItem="1Db-7i-5D0" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="14.9:10" id="17N-Gn-UD4"/>
+                            <constraint firstItem="Zog-kW-qpi" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="8.7:10" id="1BX-kO-cxB"/>
+                            <constraint firstItem="czm-V6-wiz" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" multiplier="5.4:10" id="1Zc-nK-hO3"/>
+                            <constraint firstItem="apy-IZ-zkK" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="0.75:10" id="1ja-1S-MnE"/>
+                            <constraint firstItem="1Db-7i-5D0" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" multiplier="14.6:10" id="4bE-KN-1fN"/>
+                            <constraint firstItem="czm-V6-wiz" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.4:10" id="61e-fr-76O"/>
+                            <constraint firstItem="apy-IZ-zkK" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" id="9oT-Qw-pl1"/>
+                            <constraint firstItem="Zog-kW-qpi" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.4:10" id="CRc-EM-n7d"/>
+                            <constraint firstItem="mSU-JG-2WL" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="2.4:10" id="Cdn-nU-7os"/>
+                            <constraint firstItem="zFe-MQ-ftc" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" multiplier="5.4:10" id="Igo-6Y-buS"/>
+                            <constraint firstItem="apy-IZ-zkK" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="17.4:10" id="NvF-Pg-Hr1"/>
+                            <constraint firstItem="zFe-MQ-ftc" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.4:10" id="Nyd-dB-Y3v"/>
+                            <constraint firstItem="6QA-cE-lMX" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.4:10" id="ONM-Fq-rfV"/>
                             <constraint firstItem="Zog-kW-qpi" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="4.25:10" id="RQq-FF-HKO"/>
+                            <constraint firstItem="6QA-cE-lMX" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="14.9:10" id="Ri8-xr-zuy"/>
                             <constraint firstItem="zFe-MQ-ftc" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="4.25:10" id="S0j-zw-POc"/>
-                            <constraint firstItem="apy-IZ-zkK" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="VaG-3R-fHu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="apy-IZ-zkK" secondAttribute="trailing" constant="5" id="Zgh-rk-lYw"/>
+                            <constraint firstItem="Zog-kW-qpi" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" multiplier="14.6:10" id="VIU-pG-AJG"/>
+                            <constraint firstItem="zFe-MQ-ftc" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="11.8:10" id="XVa-Wg-urA"/>
+                            <constraint firstItem="25R-3A-hs5" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" multiplier="14.6:10" id="XtK-k5-jXU"/>
                             <constraint firstItem="6QA-cE-lMX" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="4.25:10" id="aaq-d2-60D"/>
                             <constraint firstItem="25R-3A-hs5" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="4.25:10" id="dNv-0v-sfS"/>
-                            <constraint firstItem="1Db-7i-5D0" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="eUE-CW-6ZC"/>
-                            <constraint firstItem="zFe-MQ-ftc" firstAttribute="top" secondItem="czm-V6-wiz" secondAttribute="bottom" constant="10" id="fDH-jY-RqR"/>
-                            <constraint firstItem="25R-3A-hs5" firstAttribute="top" secondItem="Zog-kW-qpi" secondAttribute="bottom" constant="10" id="g8U-yN-u4R"/>
-                            <constraint firstItem="mSU-JG-2WL" firstAttribute="top" secondItem="IfF-ra-evp" secondAttribute="bottom" constant="10" id="idK-Ge-V4E"/>
-                            <constraint firstItem="1Db-7i-5D0" firstAttribute="top" secondItem="25R-3A-hs5" secondAttribute="bottom" constant="10" id="iog-XD-aE4"/>
+                            <constraint firstItem="25R-3A-hs5" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="11.8:10" id="dYK-vz-eUk"/>
+                            <constraint firstItem="1Db-7i-5D0" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.4:10" id="eUE-CW-6ZC"/>
+                            <constraint firstItem="mSU-JG-2WL" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="8.85:10" id="eXY-X3-Ppu"/>
+                            <constraint firstItem="6QA-cE-lMX" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" multiplier="5.4:10" id="esw-8a-Hkj"/>
+                            <constraint firstItem="apy-IZ-zkK" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="8.85:10" id="fwy-hU-5mU"/>
+                            <constraint firstItem="czm-V6-wiz" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="8.7:10" id="jhh-Hh-gb7"/>
+                            <constraint firstItem="mSU-JG-2WL" firstAttribute="centerY" secondItem="rBy-l2-u1N" secondAttribute="centerY" multiplier="4.55:10" id="ngi-K7-nKb"/>
                             <constraint firstItem="czm-V6-wiz" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="4.25:10" id="nsf-A0-ie3"/>
+                            <constraint firstItem="mSU-JG-2WL" firstAttribute="centerX" secondItem="rBy-l2-u1N" secondAttribute="centerX" id="o8o-i4-7iO"/>
                             <constraint firstItem="1Db-7i-5D0" firstAttribute="width" secondItem="rBy-l2-u1N" secondAttribute="width" multiplier="4.25:10" id="oLX-yF-jOm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mSU-JG-2WL" secondAttribute="trailing" constant="5" id="reb-v2-CGW"/>
-                            <constraint firstItem="mSU-JG-2WL" firstAttribute="leading" secondItem="rBy-l2-u1N" secondAttribute="leadingMargin" constant="5" id="y28-qU-VuD"/>
-                            <constraint firstItem="25R-3A-hs5" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.25:10" id="y5C-de-WBC"/>
+                            <constraint firstItem="25R-3A-hs5" firstAttribute="height" secondItem="rBy-l2-u1N" secondAttribute="height" multiplier="1.4:10" id="y5C-de-WBC"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Profile" id="TSL-Mz-E58">
                         <barButtonItem key="leftBarButtonItem" image="qr_code" id="gSL-ND-6ms">
                             <color key="tintColor" red="0.99803578849999997" green="0.42427039150000001" blue="0.60398375989999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="qr:" destination="AOk-xI-MMv" id="jS3-0M-6cc"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="search" id="Zk4-bX-l4q">
                             <color key="tintColor" red="0.99803578849999997" green="0.42427039150000001" blue="0.60398375989999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="ghz-mG-oq6" kind="show" id="V3S-0H-U0m"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -552,7 +566,7 @@
                         <viewControllerLayoutGuide type="bottom" id="B2c-HJ-b4m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jac-Oa-YLG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -572,7 +586,7 @@
                         <viewControllerLayoutGuide type="bottom" id="17d-QU-l3J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UeX-cX-bCH">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

@@ -23,6 +23,22 @@ class MeViewController: UIViewController {
     @IBOutlet weak var proView: UIView!
     @IBOutlet weak var editproButton: UIButton!
     
+    @IBAction func qr(_ sender: Any) {
+        
+        if UserController.loginStatus! {
+            
+            tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+            
+        } else {
+            
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชั่นนี้สนับสนุนเฉพาะผู้เข้าระบบผ่าน Facebook เท่านั้น", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            
+            self.present(confirm, animated: true, completion: nil)
+        }
+        
+    }
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
 

@@ -292,7 +292,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             facultyData(imgName: "heartIcon",  tagName: "วิศวกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Engineering", shortName: "", tagColor: UIColor.red),
             facultyData(imgName: "heartIcon",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "", tagColor: UIColor.red),
             facultyData(imgName: "heartIcon",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Architecture", shortName: "", tagColor: UIColor.red),
-            facultyData(imgName: "heartIcon",  tagName: "สหเวชศาสตร์",  tagBack: "technology",  tagEngName: "aculty of Allied Health Sciences", shortName: "", tagColor: UIColor.red),
+            facultyData(imgName: "heartIcon",  tagName: "สหเวชศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Allied Health Sciences", shortName: "", tagColor: UIColor.red),
             facultyData(imgName: "heartIcon",  tagName: "สัตวแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Veterinary Science", shortName: "", tagColor: UIColor.red),
             facultyData(imgName: "heartIcon",  tagName: "อักษรศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Arts", shortName: "", tagColor: UIColor.red),
             facultyData(imgName: "heartIcon",  tagName: "เภสัชศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "", tagColor: UIColor.red),

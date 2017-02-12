@@ -87,6 +87,26 @@ public class UserData: NSManagedObject {
     
     }
     
-    
+    class func isThereUser(inManageobjectcontext context: NSManagedObjectContext) -> Bool {
+        
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        
+        var count = 0
+        
+        do {
+            
+            count = try context.fetch(request).count
+            
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+        return count > 0 ? true : false
+        
+    }
 
 }

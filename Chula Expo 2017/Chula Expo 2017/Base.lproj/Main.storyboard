@@ -1341,7 +1341,7 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fK9-5N-HnN"/>
         <segue reference="mwf-1Z-aVg"/>
+        <segue reference="gH4-31-fBe"/>
     </inferredMetricsTieBreakers>
 </document>

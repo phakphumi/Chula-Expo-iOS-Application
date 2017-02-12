@@ -214,6 +214,8 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
             let JSON = response.result.value as! NSDictionary
             let tokenResponse = JSON["results"] as! NSDictionary
+            print(parameters)
+            print(JSON)
             
             let header: HTTPHeaders = ["Authorization": "JWT \(tokenResponse["token"] as! String)"]
             

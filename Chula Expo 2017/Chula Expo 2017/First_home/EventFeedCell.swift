@@ -11,7 +11,11 @@ import CoreData
 
 class EventFeedCell: UITableViewCell {
 
-    @IBOutlet weak var eventTumbnailImage: UIImageView!
+    @IBOutlet weak var eventTumbnailImage: UIImageView!{
+        didSet{
+            cardStyle(background: background)
+        }
+    }
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var background: UIView!
@@ -31,7 +35,7 @@ class EventFeedCell: UITableViewCell {
     var thumbnail: String?{
         didSet{
             thumbnail = "http://staff.chulaexpo.com" + thumbnail!
-            eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
+//            eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
         }
     }
     var toRound: NSSet?{
@@ -119,8 +123,12 @@ extension UIImageView {
                 return
             }
             DispatchQueue.main.async(execute: { () -> Void in
-                let image = UIImage(data: data!)
-                self.image = image
+                if let image = UIImage(data: data!){
+                    self.image = image
+                }
+                else{
+                    self.image = UIImage(named: "defaultImage")
+                }
             })
             
         }).resume()

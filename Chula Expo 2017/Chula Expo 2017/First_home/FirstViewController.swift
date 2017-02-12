@@ -17,10 +17,6 @@ class FirstViewController: MainCoreDataTableViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
     @IBOutlet var homeTableView: UITableView!
-    @IBOutlet var tableHeader: TableHeaderView!
-    @IBOutlet var tableHeader2: TableHeaderView!
-    @IBOutlet weak var facityCapsule: UILabel!
-    @IBOutlet weak var reserveCapsule: UILabel!
     
     override func viewDidLoad() {
         
@@ -50,20 +46,37 @@ class FirstViewController: MainCoreDataTableViewController {
     func requestForStageEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: true))
+        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
         request.sortDescriptors = [NSSortDescriptor(
-        key: "stageNo",
+        key: "activityId",
         ascending: true
         )]
         
         if let context = managedObjectContext {
             
-            fetchedResultsController = NSFetchedResultsController(
+            fetchedResultsControllerStage1 = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
+            
+            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
+            fetchedResultsControllerStage2 = NSFetchedResultsController(
+                fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+
+            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
+            fetchedResultsControllerStage3 = NSFetchedResultsController(
+                fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+
         }
     }
     func requestForFeedEvent(){
@@ -77,7 +90,7 @@ class FirstViewController: MainCoreDataTableViewController {
         
         if let context = managedObjectContext {
             
-            fetchedResultsController2 = NSFetchedResultsController(
+            fetchedResultsControllerFeed = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
@@ -146,32 +159,87 @@ class FirstViewController: MainCoreDataTableViewController {
         else if indexPath.section == 1{
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData
-            {
+            
+            var name: String?
+            var round: NSSet?
+            
+            if indexPath.row == 1{
                 
-                var name: String?
-                var round: NSSet?
-                var stage: Int?
-                fetchData.managedObjectContext?.performAndWait                {
-                    // it's easy to forget to do this on the proper queue
-                    name = fetchData.name
-                    round = fetchData.toRound
-                    stage = Int(fetchData.stageNo)
-                    // we're not assuming the context is a main queue context
-                    // so we'll grab the screenName and return to the main queue
-                    // to do the cell.textLabel?.text setting
+                if let fetchResult = fetchedResultsControllerStage1?.sections?[0]{
+                    
+                    if(fetchResult.numberOfObjects > 0){
+                        
+                        if let fetchData = fetchedResultsControllerStage1?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+                        
+                            fetchData.managedObjectContext?.performAndWait {
+                                
+                                name = fetchData.name
+                                round = fetchData.toRound
+                            }
+                        }
+                    }
                 }
-                if let stageCell = cell as? StageCell{
+            }
+            else if indexPath.row == 2{
+                
+                if let fetchResult = fetchedResultsControllerStage2?.sections?[0]{
+                    
+                    if(fetchResult.numberOfObjects > 0){
+                        
+                        if let fetchData = fetchedResultsControllerStage2?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+                            
+                            fetchData.managedObjectContext?.performAndWait {
+                                
+                                name = fetchData.name
+                                round = fetchData.toRound
+                            }
+                        }
+                    }
+                }
+
+            }
+            else {
+                
+                if let fetchResult = fetchedResultsControllerStage3?.sections?[0]{
+                    
+                    if(fetchResult.numberOfObjects > 0){
+                        
+                        if let fetchData = fetchedResultsControllerStage3?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+                            
+                            fetchData.managedObjectContext?.performAndWait {
+                                
+                                name = fetchData.name
+                                round = fetchData.toRound
+                            }
+                        }
+                    }
+                }
+
+            }
+            
+            if let stageCell = cell as? StageCell{
+                
+                if name == nil{
+                    
+                    stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
+                    stageCell.stage = indexPath.row
+                    
+                } else {
+                    
                     stageCell.name = name
                     stageCell.toRound = round
-                    stageCell.stage = stage
+                    stageCell.stage = indexPath.row
                 }
-                let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))
-                seperator.backgroundColor = UIColor.clear
-                cell.contentView.addSubview(seperator)
+                
+                
             }
-        }
             
+            let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))
+            seperator.backgroundColor = UIColor.clear
+            cell.contentView.addSubview(seperator)
+            
+    }
+    
         else if indexPath.section == 2 && indexPath.row == 0{
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath)
@@ -186,7 +254,7 @@ class FirstViewController: MainCoreDataTableViewController {
         else {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
+            if let fetchData = fetchedResultsControllerFeed?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
                 var name: String?
                 var toRound: NSSet?
                 var thumbnail: String?
@@ -204,6 +272,7 @@ class FirstViewController: MainCoreDataTableViewController {
                 print("feedCell name == \(name)")
                 if let eventFeedCell = cell as? EventFeedCell{
                     print("feedCell name == \(name)")
+                    eventFeedCell.manageObjectContext = managedObjectContext
                     eventFeedCell.name = name
                     eventFeedCell.toRound = toRound
                     eventFeedCell.thumbnail = thumbnail
@@ -262,7 +331,7 @@ class FirstViewController: MainCoreDataTableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stageSelect"{
-            print("segueee")
+            print("segue")
             if let dest = segue.destination as? StageExpandTableViewController{
                 dest.managedObjectContext = managedObjectContext
                 dest.stageNo = 1

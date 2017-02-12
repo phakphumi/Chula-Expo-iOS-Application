@@ -10,6 +10,7 @@ import UIKit
 
 class StageCell: UITableViewCell {
 
+    @IBOutlet weak var stageNoLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stageNameLabel: UILabel!
     @IBOutlet weak var stageEventNameLabel: UILabel!
@@ -48,20 +49,22 @@ class StageCell: UITableViewCell {
                 let eTime = dateFormatter.string(from: stageEndTime as Date)
                 timeLabel.text = "\(sTime) - \(eTime)"
             }
+        } else {
+            timeLabel.text = "แตะเพื่อดูกิจกรรมในช่วงเวลาอื่น"
         }
         
         if let stageNo = stage{
             if stageNo == 1{
-                timeLabel.text = "STAGE 1"
-                stageNameLabel.text = "Grand AUD"
+                stageNoLabel.text = "STAGE 1"
+                stageNameLabel.text = "เวทีหลัก"
             }
             if stageNo == 2{
-                timeLabel.text = "STAGE 2"
-                stageNameLabel.text = "Sala Phrakiew"
+                stageNoLabel.text = "STAGE 2"
+                stageNameLabel.text = "หอประชุมใหญ่"
             }
             if stageNo == 3{
-                timeLabel.text = "STAGE 3"
-                stageNameLabel.text = "City Main Stage"
+                stageNoLabel.text = "STAGE 3"
+                stageNameLabel.text = "ศาลาพระเกี้ยว"
             }
         }
     }

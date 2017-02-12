@@ -50,5 +50,20 @@ public class ZoneData: NSManagedObject {
         }
         return nil
     }
+    
+    class func fetchZoneDetail( zoneId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ZoneData? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id = %@", zoneId)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result
+        } catch {
+            print("Couldn't fetch results")
+        }
+        return nil
+    }
+
 
 }

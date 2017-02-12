@@ -65,15 +65,12 @@ public class UserData: NSManagedObject {
     }
     
     class func fetchUser(
-                            id: String,
                             inManageobjectcontext context: NSManagedObjectContext
         
                         ) -> UserData?
     {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        request.predicate = NSPredicate(format: "id = %@", id)
-        
         do {
             
             let result = try context.fetch(request).first as? UserData
@@ -111,6 +108,5 @@ public class UserData: NSManagedObject {
         return count > 0 ? true : false
         
     }
-    
 
 }

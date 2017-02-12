@@ -147,10 +147,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         if success {
                             
                             let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
-                            /*Student*/
-//                            let header: HTTPHeaders = ["Authorization": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODk5NmNmZmMzOGE4YzY0OTZlZTI0NDEiLCJpYXQiOjE0ODY0NDk5NjEsImV4cCI6MTQ4NjQ3ODc2MX0.lTjrWZYa3wlGllsLwiD_FoGRRuX2tSZhYU08yL6hOcY"]
-                            /*Person*/
-//                            let header: HTTPHeaders = ["Authorization": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ODk5OWQ2MWMzOGE4YzY0OTZlZTI0NDQiLCJpYXQiOjE0ODY0NjIzMDUsImV4cCI6MTQ4NjQ5MTEwNX0.TbDNvBAnmESmR_UCFdxId2J4kiXSDi3rghNkQXcuYjE"]
                             
                             Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                                 

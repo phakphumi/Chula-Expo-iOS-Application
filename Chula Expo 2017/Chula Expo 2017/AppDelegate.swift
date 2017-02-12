@@ -147,77 +147,80 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func downloadActivities() {
         
         Alamofire.request("http://staff.chulaexpo.com/api/activities").responseJSON { (response) in
+            
+            if response.result.isSuccess {
+                
+                let context = self.managedObjectContext
         
-            let context = self.managedObjectContext
-        
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
             
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
+                let JSON = response.result.value as! NSDictionary
+                let results = JSON["results"] as! NSArray
             
-            for result in results {
+                for result in results {
                 
-                let result = result as! NSDictionary
+                    let result = result as! NSDictionary
                 
-                let location = result["location"] as! NSDictionary
+                    let location = result["location"] as! NSDictionary
                 
-                let startTime = result["start"] as! String
-                let endTime = result["end"] as! String
+                    let startTime = result["start"] as! String
+                    let endTime = result["end"] as! String
                 
-                let pictures = result["pictures"] as? [String] ?? [""]
+                    let pictures = result["pictures"] as? [String] ?? [""]
                 
-                let tags = result["tags"] as! [String]
+                    let tags = result["tags"] as! [String]
                 
-                self.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                    self.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
                     
-                    context.performAndWait {
+                        context.performAndWait {
                         
-                        _ = ActivityData.addEventData(activityId: result["_id"] as! String,
-                                                      name: (result["name"] as! NSDictionary)["th"] as! String,
-                                                      desc: (result["description"] as! NSDictionary)["th"] as! String,
-                                                      room: location["room"] as? String ?? "",
-                                                      place: location["place"] as! String,
-                                                      latitude: location["latitude"] as! Double,
-                                                      longitude: location["longitude"] as! Double,
-                                                      bannerUrl: result["banner"] as? String ?? "",
-                                                      thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                                      startTime: dateFormatter.date(from: startTime)!,
-                                                      endTime: dateFormatter.date(from: endTime)!,
-                                                      isFavorite: false,
-                                                      isHighlight: result["isHighlight"] as? Bool ?? false,
-                                                      reservable: false,
-                                                      fullCapacity: 110,
-                                                      reserved: 10,
-                                                      seatAvaliable: 100,
-                                                      isReserve: false,
-                                                      video: result["video"] as? String ?? "",
-                                                      images: pictures,
-                                                      rounds: rounds,
-                                                      tags: tags,
-                                                      faculty: result["zone"] as! String,
-                                                      inManageobjectcontext: context)
+                            _ = ActivityData.addEventData(activityId: result["_id"] as! String,
+                                                          name: (result["name"] as! NSDictionary)["th"] as! String,
+                                                          desc: (result["description"] as! NSDictionary)["th"] as! String,
+                                                          room: location["room"] as? String ?? "",
+                                                          place: location["place"] as! String,
+                                                          latitude: location["latitude"] as! Double,
+                                                          longitude: location["longitude"] as! Double,
+                                                          bannerUrl: result["banner"] as? String ?? "",
+                                                          thumbnailsUrl: result["thumbnail"] as? String ?? "",
+                                                          startTime: dateFormatter.date(from: startTime)!,
+                                                          endTime: dateFormatter.date(from: endTime)!,
+                                                          isFavorite: false,
+                                                          isHighlight: result["isHighlight"] as? Bool ?? false,
+                                                          reservable: false,
+                                                          fullCapacity: 110,
+                                                          reserved: 10,
+                                                          seatAvaliable: 100,
+                                                          isReserve: false,
+                                                          video: result["video"] as? String ?? "",
+                                                          images: pictures,
+                                                          rounds: rounds,
+                                                          tags: tags,
+                                                          faculty: result["zone"] as! String,
+                                                          inManageobjectcontext: context)
                         
-                    }
+                        }
                     
-                })
+                    })
                 
                 
-                
-            }
+                }
             
             
             
-            do{
+                do{
                 
-                try context.save()
-                print("ActivityData Saved")
+                    try context.save()
+                    print("ActivityData Saved")
+                    
+                }
                 
-            }
+                catch let error {
                 
-            catch let error {
-                
-                print("ActivityData save error with \(error)")
+                    print("ActivityData save error with \(error)")
+                    
+                }
                 
             }
             
@@ -229,56 +232,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/api/zones").responseJSON { (response) in
             
-            let context = self.managedObjectContext
-            
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
-            
-            for result in results {
-            
-                let result = result as! NSDictionary
+            if response.result.isSuccess {
                 
-                let name = result["name"] as! NSDictionary
-            
-                let shortName = result["shortName"] as! NSDictionary
-            
-                let desc = result["description"] as! NSDictionary
-            
-                let location = result["location"] as! NSDictionary
-            
-                let welcomeMsg = result["welcomeMessage"] as! NSDictionary
-            
-            
-                context.performAndWait {
+                let context = self.managedObjectContext
                 
-                    _ = ZoneData.addData(id: result["_id"] as! String,
-                                         type: result["type"] as! String,
-                                         shortName: shortName["th"] as? String ?? "",
-                                         desc: desc["th"] as? String ?? "",
-                                         longitude: location["longitude"] as! Double,
-                                         latitude: location["latitude"] as! Double,
-                                         name: name["th"] as! String,
-                                         welcomeMessage: welcomeMsg["th"] as? String ?? "",
-                                         inManageobjectcontext: context)
+                let JSON = response.result.value as! NSDictionary
+                let results = JSON["results"] as! NSArray
                 
+                for result in results {
+                    
+                    let result = result as! NSDictionary
+                    
+                    let name = result["name"] as! NSDictionary
+                    
+                    let shortName = result["shortName"] as! NSDictionary
+                    
+                    let desc = result["description"] as! NSDictionary
+                    
+                    let location = result["location"] as! NSDictionary
+                    
+                    let welcomeMsg = result["welcomeMessage"] as! NSDictionary
+                    
+                    
+                    context.performAndWait {
+                        
+                        _ = ZoneData.addData(id: result["_id"] as! String,
+                                             type: result["type"] as! String,
+                                             shortName: shortName["th"] as? String ?? "",
+                                             desc: desc["th"] as? String ?? "",
+                                             longitude: location["longitude"] as! Double,
+                                             latitude: location["latitude"] as! Double,
+                                             name: name["th"] as! String,
+                                             welcomeMessage: welcomeMsg["th"] as? String ?? "",
+                                             inManageobjectcontext: context)
+                        
+                    }
+                    
+                    do{
+                        
+                        try context.save()
+                        print("ZoneData Saved")
+                        
+                    }
+                        
+                    catch let error {
+                        
+                        print("ZoneData save error with \(error)")
+                        
+                    }
+                    
                 }
-            
-                do{
                 
-                    try context.save()
-                    print("ZoneData Saved")
+                self.downloadPlace()
                 
-                }
-                
-                catch let error {
-                
-                    print("ZoneData save error with \(error)")
-                
-                }
-            
             }
-            
-            self.downloadPlace()
             
         }
         

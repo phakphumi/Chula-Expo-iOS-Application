@@ -38,8 +38,11 @@ class FourthViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 //        createGradientNavBar()
         self.title = "Me"
+        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 //        tableView.estimatedRowHeight = tableView.rowHeight
 //        tableView.rowHeight = UITableViewAutomaticDimension
@@ -187,6 +190,21 @@ class FourthViewController: UITableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         navigationController?.navigationBar.tintColor = UIColor.white
         
+    }
+    
+    
+    class func fetchActivityDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ActivityData? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "activityId = %@", activityId)
+        
+        do {
+            let result = try context.fetch(request).first as? ActivityData
+            return result
+        } catch {
+            print("Couldn't fetch results")
+        }
+        return nil
     }
 
 }

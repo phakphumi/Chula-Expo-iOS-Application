@@ -1113,7 +1113,6 @@
                                 </state>
                                 <connections>
                                     <action selector="sendtag:" destination="1cI-z6-raX" eventType="touchUpInside" id="qcv-wo-rGg"/>
-                                    <segue destination="NNG-St-L30" kind="show" identifier="toFaculty" id="L4E-2S-XZo"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -43,14 +43,17 @@ class MeViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
 
     
+    @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*managedObjectContext?.performAndWait {
-            let user = UserData.fetchUser(id: , inManageobjectcontext: <#T##NSManagedObjectContext#>)
+        managedObjectContext?.performAndWait {
+            let fm = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!)
             
         }
-        */
+        
+        name.text =
+        
         profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
         profileImg.layer.borderWidth = 3
         profileImg.layer.cornerRadius = profileImg.frame.height / 2

@@ -302,7 +302,7 @@
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="42D0ACDD-38BF-42D0-8C4D-5E321774063F" translatesAutoresizingMaskIntoConstraints="NO" id="N03-mp-Pyc" userLabel="icon">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="24877E68-E3CE-41A6-9463-9885B9E3C0D2" translatesAutoresizingMaskIntoConstraints="NO" id="N03-mp-Pyc" userLabel="icon">
                                                             <rect key="frame" x="327" y="15" width="17" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="7aT-4p-AaR"/>
@@ -762,6 +762,7 @@
                         <outlet property="eventView" destination="czm-V6-wiz" id="Lt3-Zm-IaW"/>
                         <outlet property="faqView" destination="6QA-cE-lMX" id="sB5-Q7-0eH"/>
                         <outlet property="logoutView" destination="apy-IZ-zkK" id="OxE-gh-mQe"/>
+                        <outlet property="name" destination="Esj-gh-HV1" id="FU7-wk-p4M"/>
                         <outlet property="proView" destination="mSU-JG-2WL" id="JM4-UF-1KT"/>
                         <outlet property="profileImg" destination="ef8-4q-M0P" id="ZMi-G9-ku7"/>
                         <outlet property="reserveView" destination="Zog-kW-qpi" id="W5n-3c-3Gh"/>
@@ -916,7 +917,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="42D0ACDD-38BF-42D0-8C4D-5E321774063F" width="17" height="18">
+        <image name="24877E68-E3CE-41A6-9463-9885B9E3C0D2" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -63,9 +63,9 @@ class QRViewController: UIViewController {
     
     private func fetchUserData() {
         
-        managedObjectContext?.perform {
+        managedObjectContext?.performAndWait {
             
-            let userData = UserData.fetchUser(id: UserController.userId!, inManageobjectcontext: self.managedObjectContext!)!
+            let userData = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!)!
             
             self.setImageProfile(pictureUrl: userData.profile!)
             self.name.text = userData.name
@@ -77,7 +77,7 @@ class QRViewController: UIViewController {
             } else {
                 
                 self.schoolOrCompany.text = userData.job
-                
+
             }
             
             let qrImage = self.generateQRCode(from: "\(userData.name!)")

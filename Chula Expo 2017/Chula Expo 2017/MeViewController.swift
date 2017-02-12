@@ -47,12 +47,14 @@ class MeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        name.text = "ไม่พบข้อมูลผู้ใช้"
+        
         managedObjectContext?.performAndWait {
-            let fm = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!)
+            if let fetchUser = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!){
+                self.name.text = fetchUser.name
+            }
             
         }
-        
-        name.text =
         
         profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
         profileImg.layer.borderWidth = 3

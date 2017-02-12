@@ -85,6 +85,19 @@ class FavViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return 1
         
     }
+    class func fetchActivityDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ActivityData? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "activityId = %@", activityId)
+        
+        do {
+            let result = try context.fetch(request).first as? ActivityData
+            return result
+        } catch {
+            print("Couldn't fetch results")
+        }
+        return nil
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

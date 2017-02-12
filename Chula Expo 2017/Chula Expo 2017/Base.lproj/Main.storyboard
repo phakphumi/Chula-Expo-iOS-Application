@@ -65,7 +65,7 @@
         <scene sceneID="GHL-cU-sBM">
             <objects>
                 <navigationController id="5AM-Et-Oxl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xpl-Pi-vJ6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xpl-Pi-vJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -182,7 +182,7 @@
         <!--Register View Controller-->
         <scene sceneID="Cwk-Gq-qae">
             <objects>
-                <viewController id="rrg-uN-Qbj" customClass="RegisterViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pro" id="rrg-uN-Qbj" customClass="RegisterViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k5g-Ol-qGW"/>
                         <viewControllerLayoutGuide type="bottom" id="TMj-5q-u2c"/>
@@ -591,7 +591,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เพศ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQ2-Yb-B3e">
-                                <rect key="frame" x="207" y="362" width="126" height="26"/>
+                                <rect key="frame" x="207" y="362.5" width="126" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="RQ2-Yb-B3e" secondAttribute="height" multiplier="5:1" id="DY5-UW-cv8"/>
                                 </constraints>
@@ -753,10 +753,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3MO-Sd-6tN">
-                                <rect key="frame" x="33" y="259" width="309" height="29"/>
+                                <rect key="frame" x="33" y="259.5" width="309" height="28"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Q0-9G-KIg">
-                                        <rect key="frame" x="2" y="1" width="153" height="26"/>
+                                        <rect key="frame" x="2" y="0.5" width="153" height="26"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8Q0-9G-KIg" secondAttribute="height" multiplier="153:26" id="VEQ-W9-0AZ"/>
@@ -770,7 +770,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIE-Rf-pvG">
-                                        <rect key="frame" x="154" y="2" width="153" height="26"/>
+                                        <rect key="frame" x="154" y="1.5" width="153" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dIE-Rf-pvG" secondAttribute="height" multiplier="153:26" id="rm3-vo-Z2U"/>
                                         </constraints>
@@ -1044,9 +1044,12 @@
                                 <state key="normal" title="เริ่มใช้งาน Chula Expo Application">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="QME-Np-NQV" kind="show" id="fK9-5N-HnN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลงทะเบียนเสร็จสมบูรณ์!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-jy-nPa">
-                                <rect key="frame" x="-1" y="309" width="376" height="50"/>
+                                <rect key="frame" x="-0.5" y="309" width="375" height="50"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="23"/>
                                 <color key="textColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1058,7 +1061,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สามารถดูวิธีการใช้งานได้ที่เมนู FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-h4-hhr">
-                                <rect key="frame" x="-1" y="367" width="376" height="67"/>
+                                <rect key="frame" x="-0.5" y="367" width="375" height="67"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
                                 <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1243,7 +1246,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hXP-9N-SOn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YyA-26-YjB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YyA-26-YjB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1305,7 +1308,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0en-2E-NV1">
-                                                            <rect key="frame" x="-1" y="66" width="170" height="36"/>
+                                                            <rect key="frame" x="-0.5" y="66" width="169" height="36"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -1409,7 +1412,7 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gH4-31-fBe"/>
-        <segue reference="5g3-MD-pmE"/>
+        <segue reference="fK9-5N-HnN"/>
+        <segue reference="mwf-1Z-aVg"/>
     </inferredMetricsTieBreakers>
 </document>

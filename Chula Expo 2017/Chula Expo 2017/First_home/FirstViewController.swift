@@ -259,15 +259,13 @@ class FirstViewController: MainCoreDataTableViewController {
                 var toRound: NSSet?
                 var thumbnail: String?
                 var facity: String?
+                var activityId: String?
                 fetchData.managedObjectContext?.performAndWait{
-                    // it's easy to forget to do this on the proper queue
                     name = fetchData.name
                     thumbnail = fetchData.thumbnailsUrl
                     facity = fetchData.faculty
                     toRound = fetchData.toRound
-                    // we're not assuming the context is a main queue context
-                    // so we'll grab the screenName and return to the main queue
-                    // to do the cell.textLabel?.text setting
+                    activityId = fetchData.activityId
                 }
                 print("feedCell name == \(name)")
                 if let eventFeedCell = cell as? EventFeedCell{
@@ -277,6 +275,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     eventFeedCell.toRound = toRound
                     eventFeedCell.thumbnail = thumbnail
                     eventFeedCell.facity = facity
+                    eventFeedCell.activityId = activityId
                 }
             }
         }
@@ -330,6 +329,7 @@ class FirstViewController: MainCoreDataTableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "stageSelect"{
             print("segue")
             if let dest = segue.destination as? StageExpandTableViewController{
@@ -340,8 +340,37 @@ class FirstViewController: MainCoreDataTableViewController {
                 }
             }
         }
+
+        if segue.identifier == "toEventDetail" {
+            
+            if let destination = segue.destination as? EventDetailTableViewController{
+                
+                if let eventcell = sender as? EventFeedCell?{
+                    
+                    if let id = eventcell?.activityId{
+                        
+                        if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
+                            
+                            destination.bannerUrl = fetch.bannerUrl
+                            destination.topic = fetch.name
+                            destination.locationDesc = ""
+                            destination.toRounds = fetch.toRound
+                            destination.reservable = fetch.reservable
+                            destination.desc = fetch.desc
+                            destination.room = fetch.room
+                            destination.place = fetch.place
+                            destination.latitude = fetch.latitude
+                            destination.longitude = fetch.longitude
+                            destination.toImages = fetch.toImages
+                            destination.toTags = fetch.toTags
+                            destination.managedObjectContext = self.managedObjectContext
+                        }
+                    }
+                }
+            }
+        }
     }
-    
+
 //<<<<<<< HEAD
 //    private func addDemoData(){
 //        if let context = managedObjectContext{

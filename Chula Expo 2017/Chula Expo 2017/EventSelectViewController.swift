@@ -258,9 +258,31 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectFacity"{
+            var id: String?
+            var name: String = ""
+            managedObjectContext?.performAndWait {
+                if let cell = sender as? CityCollectionViewCell{
+                    name = cell.name!
+                    switch name{
+                    case "Smart City" :
+                        name = "สมาร์ทซิตี้"
+                    case "Health City" :
+                        name = "เมืองสุขภาพ"
+                    case "Human City" :
+                        name = "เมืองมนุษย์"
+                    case "Sala Phrakeaw" :
+                        name = "ศาลาพระเกี้ยว"
+                    case "Art Gallery" :
+                        name = "อาร์ทแกล"
+                    default :
+                        break
+                    }
+                    
+                    id = ZoneData.fetchIdFrom(thName: name, inManageobjectcontext: self.managedObjectContext!)
+                }
+            }
             if let dest = segue.destination as? EventsTableViewController{
-//                dest.facity = (sender as? FacityTableViewCell)?.name
-                dest.facity = "5899a98a5eeecd3698f6cfc6"
+                dest.facity = id
                 dest.managedObjectContext = managedObjectContext
             }
             segue.destination.title = (sender as? CityCollectionViewCell)?.name

@@ -7,11 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "Cell"
 
 class interestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
 
+    var userType: String!
+    var name: String!
+    var email: String!
+    var age: String!
+    var gender: String!
+    var education: String!
+    var educationYear: String!
+    var school: String!
+    var career: String!
+    var fbId: String!
+    var fbToken: String!
+    var fbImageProfileUrl: String?
+    var fbImage: UIImage!
+    var managedObjectContext: NSManagedObjectContext?
+    
     var tapped = [UIImageView]()
     
     @IBOutlet weak var finButton: UIButton! {
@@ -88,23 +104,43 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        if segue.identifier == "toFaculty" {
+            
+            let destination = segue.destination as! interestFacityViewController
+            
+            destination.userType = self.userType
+            destination.name = self.name
+            destination.email = self.email
+            destination.age = self.age
+            destination.gender = self.gender
+            destination.fbId = self.fbId
+            destination.fbToken = self.fbToken
+            destination.fbImageProfileUrl = self.fbImageProfileUrl!
+            destination.fbImage = self.fbImage!
+            destination.managedObjectContext = self.managedObjectContext
+            
+            
+            if self.userType == "Academic" {
+                
+                destination.education = self.education
+                destination.educationYear = self.educationYear
+                destination.school = self.school
+                destination.career = ""
+                
+            } else {
+                
+                destination.education = ""
+                destination.educationYear = ""
+                destination.school = ""
+                destination.career = self.career
+                
+            }
+            
+        }
         
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     // MARK: UICollectionViewDataSource
     

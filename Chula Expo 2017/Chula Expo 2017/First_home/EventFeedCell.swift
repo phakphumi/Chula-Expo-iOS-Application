@@ -21,7 +21,7 @@ class EventFeedCell: UITableViewCell {
         var facText: String
         var facColor: UIColor
     }
-    
+    var activityId: String?
     var name: String?{
         didSet{
             print("\(name)")

@@ -176,6 +176,9 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
 
+    @IBAction func sendtag(_ sender: Any) {
+        for(
+    }
 
     /*
     // MARK: - Navigation

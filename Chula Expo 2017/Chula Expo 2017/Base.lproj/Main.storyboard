@@ -65,7 +65,7 @@
         <scene sceneID="GHL-cU-sBM">
             <objects>
                 <navigationController navigationBarHidden="YES" id="5AM-Et-Oxl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xpl-Pi-vJ6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xpl-Pi-vJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1112,6 +1112,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="sendtag:" destination="1cI-z6-raX" eventType="touchUpInside" id="qcv-wo-rGg"/>
                                     <segue destination="NNG-St-L30" kind="show" identifier="toFaculty" id="L4E-2S-XZo"/>
                                 </connections>
                             </button>

@@ -54,12 +54,12 @@ class InterestCollectionViewCell: UICollectionViewCell {
         backImg1.isUserInteractionEnabled = true
         interestImg1.isUserInteractionEnabled = true
         
-        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(InterestCollectionViewCell.wasTapped(gestureRecognizer:)))
         tapGestureRecognizer1.numberOfTapsRequired = 1
         
         backImg1.addGestureRecognizer(tapGestureRecognizer1)
         
-        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(InterestedViewController.wasTapped(gestureRecognizer:)))
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(InterestCollectionViewCell.wasTapped(gestureRecognizer:)))
         tapGestureRecognizer2.numberOfTapsRequired = 1
         
         interestImg1.addGestureRecognizer(tapGestureRecognizer2)

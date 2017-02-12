@@ -43,7 +43,6 @@
 		5F4A9D971E10300900713580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D951E10300900713580 /* Main.storyboard */; };
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
 		5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */; };
-		5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */; };
 		5F4ED17D1E43082F008F3A19 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4ED17C1E43082F008F3A19 /* TagTableViewCell.swift */; };
 		5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D411E10DC6A00C9D0F2 /* First.storyboard */; };
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
@@ -158,7 +157,6 @@
 		5F4A9D9B1E10300900713580 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F4A9D9E1E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F4A9DA01E10300900713580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestedViewController.swift; path = Main_LoginAndRegistration/InterestedViewController.swift; sourceTree = "<group>"; };
 		5F4ED17C1E43082F008F3A19 /* TagTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagTableViewCell.swift; path = Modal_EventDetails/TagTableViewCell.swift; sourceTree = "<group>"; };
 		5F5C7D421E10DC6A00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/First.storyboard; sourceTree = "<group>"; };
 		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
@@ -411,7 +409,6 @@
 				5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */,
 				5FDC57B71E475AE300B452E7 /* RegisterViewController.swift */,
 				5FCE0A771E10E4B400E5DB16 /* RegisterViewController2.swift */,
-				5F4A9DA81E10D10B00713580 /* InterestedViewController.swift */,
 				581940D81E4516BF000C566C /* interestViewController.swift */,
 				581940DA1E467A99000C566C /* interestFacityViewController.swift */,
 			);
@@ -713,7 +710,6 @@
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,
 				5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */,
 				80DC94271E366B5200A1D01A /* ActivityData+CoreDataClass.swift in Sources */,
-				5F4A9DA91E10D10B00713580 /* InterestedViewController.swift in Sources */,
 				5F8DAB4B1E33C73500B2641F /* ReservedAndFavoriteTableViewCell.swift in Sources */,
 				80314F471E4A3532003DB96A /* InterCollectionViewCell.swift in Sources */,
 				931613EA1E4F8F8600298127 /* FAQViewController.swift in Sources */,

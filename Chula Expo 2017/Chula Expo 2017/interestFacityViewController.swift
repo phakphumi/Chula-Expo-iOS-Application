@@ -7,9 +7,26 @@
 //
 
 import UIKit
+import CoreData
+import Alamofire
 
 class interestFacityViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    var userType: String!
+    var name: String!
+    var email: String!
+    var age: String!
+    var gender: String!
+    var education: String!
+    var educationYear: String!
+    var school: String!
+    var career: String!
+    var fbId: String!
+    var fbToken: String!
+    var fbImageProfileUrl: String?
+    var fbImage: UIImage!
+    var managedObjectContext: NSManagedObjectContext?
+    
     var tapped = [UIImageView]()
     @IBOutlet weak var finButton2: UIButton! {
         didSet{
@@ -58,6 +75,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
          let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 20, right: 30)
          layout.itemSize = CGSize(width: (self.view.frame.width-50)/2, height: 100)
@@ -130,6 +148,125 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         return cell
     }
     
+    @IBAction func registerToServer(_ sender: UIButton) {
+        
+        if self.gender == "ชาย" {
+            
+            self.gender = "Male"
+            
+        } else if self.gender == "หญิง" {
+            
+            self.gender = "Female"
+            
+        } else {
+            
+            self.gender = "Other"
+            
+        }
+        
+        var parameters = [String: Any]()
+        
+        if self.userType == "Academic" {
+            
+            parameters = [
+                "name": self.name,
+                "email": self.email,
+                "age": Int(self.age) ?? 0,
+                "academicLevel": self.education,
+                "academicYear": self.educationYear,
+                "academicSchool": self.school,
+                "gender": self.gender,
+                "type": self.userType,
+                "facebook": self.fbId,
+                "profile": self.fbImageProfileUrl ?? "",
+                "tokens": [
+                    [
+                            "kind": "facebook",
+                            "accessToken": self.fbToken
+                    ]
+                    
+                ]
+            ]
+            
+        } else {
+            
+            parameters = [
+                "name": self.name,
+                "email": self.email,
+                "age": Int(self.age) ?? 0,
+                "workerJob": self.career,
+                "gender": self.gender,
+                "type": self.userType,
+                "facebook": self.fbId,
+                "profile": self.fbImageProfileUrl ?? "",
+                "tokens": [
+                    [
+                        "kind": "facebook",
+                        "accessToken": self.fbToken
+                    ]
+                    
+                ]
+            ]
+            
+        }
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/signup", method: .post, parameters: parameters).responseJSON { (response) in
+            
+            let JSON = response.result.value as! NSDictionary
+            let tokenResponse = JSON["results"] as! NSDictionary
+            
+            let header: HTTPHeaders = ["Authorization": "JWT \(tokenResponse["token"] as! String)"]
+            
+            Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                
+                let JSON = response.result.value as! NSDictionary
+                
+                if let results = JSON["results"] as? NSDictionary{
+                    
+                    let academic = results["academic"] as? [String: String]
+                    
+                    let worker = results["worker"] as? [String: String]
+                    
+                    let managedObjectContext: NSManagedObjectContext? =
+                        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+                    
+                    managedObjectContext?.performAndWait {
+                        
+                        _ = UserData.addUser(id: results["_id"] as! String,
+                                             token: tokenResponse["token"] as! String,
+                                             type: results["type"] as! String,
+                                             name: results["name"] as! String,
+                                             email: results["email"] as! String,
+                                             age: results["age"] as! Int,
+                                             gender: results["gender"] as! String,
+                                             school: academic?["school"] ?? "",
+                                             level: academic?["level"] ?? "",
+                                             year: academic?["year"] ?? "",
+                                             job: worker?["job"] ?? "",
+                                             profile: results["profile"] as? String ?? "",
+                                             inManageobjectcontext: managedObjectContext!
+                        )
+                        
+                    }
+                    
+                    do {
+                        
+                        try managedObjectContext?.save()
+                        print("saved user")
+                        
+                    } catch let error {
+                        
+                        print("saveUserError with \(error)")
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
     
     
     /*

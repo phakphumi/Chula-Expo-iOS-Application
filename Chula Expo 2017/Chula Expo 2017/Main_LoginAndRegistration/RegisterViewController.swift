@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var isFrameMove = false
     var activeField = UITextField()
     
-    var token: String!
-    var userType = "student"
+    var userType: String!
     var name: String!
     var firstName: String!
     var lastName: String!
     var email: String!
+    var fbId: String!
+    var fbToken: String!
+    var fbImageProfileUrl: String?
     var fbImage: UIImage!
+    var managedObjectContext: NSManagedObjectContext?
     
     let gender = ["ชาย", "หญิง", "อื่น ๆ"]
     let education = ["มัธยมต้น", "มัธยมปลาย", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่น ๆ"]
@@ -84,6 +88,44 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toInterested" {
+            
+            let destination = segue.destination as! interestViewController
+            
+            destination.userType = self.userType
+            destination.name = "\(firstNameField.text!) \(lastNameField.text!)"
+            destination.email = emailField.text
+            destination.age = ageField.text
+            destination.gender = genderField.text
+            destination.fbId = self.fbId
+            destination.fbToken = self.fbToken
+            destination.fbImageProfileUrl = self.fbImageProfileUrl!
+            destination.fbImage = self.fbImage!
+            destination.managedObjectContext = self.managedObjectContext
+            
+            
+            if self.userType == "Academic" {
+                
+                destination.education = educationField.text
+                destination.educationYear = educationYearField.text
+                destination.school = schoolField.text
+                destination.career = ""
+                
+            } else {
+                
+                destination.education = ""
+                destination.educationYear = ""
+                destination.school = ""
+                destination.career = careerField.text
+                
+            }
+            
+        }
+        
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         activeField = textField
@@ -93,7 +135,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         
-        if textField.tag == 5 && userType == "person" {
+        if textField.tag == 5 && userType == "Worker" {
             
             let nextField = self.view.viewWithTag(10) as! UITextField
             
@@ -301,7 +343,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     private func initialField() {
         
-        if userType == "person" {
+        if userType == "Worker" {
             
             educationView.alpha = 0
             educationYearView.alpha = 0
@@ -355,7 +397,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     func pickerNext() {
         
-        if activeField.tag == 5 && userType == "person" {
+        if activeField.tag == 5 && userType == "Worker" {
             
             let nextField = self.view.viewWithTag(10) as! UITextField
             

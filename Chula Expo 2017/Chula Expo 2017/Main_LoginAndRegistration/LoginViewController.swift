@@ -13,11 +13,12 @@ import Alamofire
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    var token: String?
+    var fbToken: String?
     var name: String?
     var firstName: String?
     var lastName: String?
     var email: String?
+    var fbId: String?
     var fbImageProfileUrl: String?
     var fbImage: UIImage!
     
@@ -59,13 +60,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let destination = navigationController.viewControllers.first as! UserTypeViewController
             
-            destination.token = self.token
             destination.name = self.name
             destination.firstName = self.firstName
             destination.lastName = self.lastName
             destination.email = self.email
-//            registerViewController.fbImageProfileUrl = self.fbImageProfileUrl
+            destination.fbId = self.fbId
+            destination.fbToken = self.fbToken
+            destination.fbImageProfileUrl = self.fbImageProfileUrl
             destination.fbImage = self.fbImage
+            destination.managedObjectContext = self.managedObjectContext
             
         }
         
@@ -85,8 +88,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     if let userDetails = result as? [String: String] {
                         
-                        self.token = FBSDKAccessToken.current().tokenString
-                            
+                        self.fbToken = FBSDKAccessToken.current().tokenString
+                        
                         self.name = userDetails["name"]
                             
                         self.firstName = userDetails["first_name"]
@@ -94,7 +97,9 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         self.lastName = userDetails["last_name"]
                             
                         self.email = userDetails["email"]
-                            
+                        
+                        self.fbId = userDetails["id"]
+                        
                         self.fbImageProfileUrl = "https://graph.facebook.com/\(userDetails["id"]!)/picture?type=large"
                         
                         self.setImageProfile()
@@ -124,7 +129,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         let login: FBSDKLoginManager = FBSDKLoginManager()
         login.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result , error) in
-            
+//            print(FBSDKAccessToken.current().tokenString)
             if error != nil {
                 
                 print(error!)

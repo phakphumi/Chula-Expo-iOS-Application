@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import CoreData
 
 class UserTypeViewController: UIViewController {
 
-    var token: String!
-    var userType = "student"
+    var userType = "Academic"
     var name: String?
     var firstName: String?
     var lastName: String?
     var email: String?
+    var fbId: String!
+    var fbToken: String!
+    var fbImageProfileUrl: String?
     var fbImage: UIImage?
+    var managedObjectContext: NSManagedObjectContext?
     
     
     @IBOutlet var studentView: UIView!
@@ -67,8 +71,6 @@ class UserTypeViewController: UIViewController {
         
         UIApplication.shared.statusBarStyle = .default
         
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        
     }
     
     func wasTap(gestureRecognizer: UITapGestureRecognizer) {
@@ -77,7 +79,7 @@ class UserTypeViewController: UIViewController {
         
         if tapView == studentView {
             
-            userType = "student"
+            userType = "Academic"
             
             studentView.layer.borderWidth = 2
             studentView.backgroundColor = nil
@@ -91,7 +93,7 @@ class UserTypeViewController: UIViewController {
             
         } else {
             
-            userType = "person"
+            userType = "Worker"
             
             studentView.layer.borderWidth = 0
             studentView.backgroundColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1)
@@ -113,13 +115,16 @@ class UserTypeViewController: UIViewController {
             
             let destination = segue.destination as! RegisterViewController
             
-            destination.token = self.token
             destination.userType = self.userType
             destination.name = self.name
             destination.firstName = self.firstName
             destination.lastName = self.lastName
             destination.email = self.email
+            destination.fbId = self.fbId
+            destination.fbToken = self.fbToken
+            destination.fbImageProfileUrl = self.fbImageProfileUrl
             destination.fbImage = self.fbImage
+            destination.managedObjectContext = self.managedObjectContext
             
         }
         

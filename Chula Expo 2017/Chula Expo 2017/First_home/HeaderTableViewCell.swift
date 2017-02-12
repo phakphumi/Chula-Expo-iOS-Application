@@ -64,8 +64,11 @@ extension UIView{
 
     func cardStyle(background: UIView){
         background.layer.cornerRadius = 2
-        self.clipsToBounds = true
+        background.clipsToBounds = true
         
+//        background.clipsToBounds = false
+
+//        self.layer.masksToBounds = false
         
         let shadowPath = UIBezierPath(rect: background.bounds)
         background.layer.shadowColor = UIColor.darkGray.cgColor
@@ -73,7 +76,6 @@ extension UIView{
         background.layer.shadowRadius = 1
         background.layer.shadowOpacity = 0.2
         background.layer.shadowPath = shadowPath.cgPath
-        self.layer.masksToBounds = false
     }
     
 }

@@ -18,12 +18,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    var data: ActivityData
+    
     var Events = [ActivityData]()
     let searchController = UISearchController(searchResultsController: nil)
-    var filterEvents = [String]()
-    var ShouldShowResult = false
     
+    var ShouldShowResult = false
+    var fetchActivity = [ActivityData]()
    
 
     /*func filterContentForSearchText(searchText: String, scope: String = "All"){
@@ -111,7 +111,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        filterEvents = 
+       // filterEvents =
+        managedObjectContext?.performAndWait {
+            self.fetchActivity = ActivityData.fetchActivityFromSearch(name: searchText, inManageobjectcontext: self.managedObjectContext!)
+        }
+        
         
         if searchText != "" {
             ShouldShowResult = true
@@ -141,7 +145,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(ShouldShowResult) {
-            return filterEvents.count
+            return fetchActivity.count
         }
         else{
                 if(section == 1){
@@ -160,8 +164,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 var cell: UITableViewCell
         
         if(ShouldShowResult){
-            cell = tableView.dequeueReusableCell(withIdentifier: "Basic", for: indexPath)
-            cell.textLabel!.text = filterEvents[indexPath.row]
+            cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
+            if let eventFeedCell = cell as? EventfeedTableViewCell{
+              //  print("feedCell name == \(name)")
+                eventFeedCell.name = fetchActivity[indexPath.row].name
+                eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
+                eventFeedCell.thumbnail = fetchActivity[indexPath.row].thumbnailsUrl
+                eventFeedCell.facity = fetchActivity[indexPath.row].faculty
+            }
         }
         else {
         
@@ -273,6 +283,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             else if indexPath.section == 1 {
                 return 78
             }
+        }
+        else {
+            return 78
         }
         
         return UITableViewAutomaticDimension

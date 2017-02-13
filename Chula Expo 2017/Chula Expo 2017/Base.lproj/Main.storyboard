@@ -65,7 +65,7 @@
         <scene sceneID="GHL-cU-sBM">
             <objects>
                 <navigationController navigationBarHidden="YES" id="5AM-Et-Oxl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xpl-Pi-vJ6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xpl-Pi-vJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -93,7 +93,7 @@
                                 <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tB8-7M-ZH4">
-                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902558326721" green="0.19105857610702515" blue="0.24915933609008789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tB8-7M-ZH4" secondAttribute="height" multiplier="1:1" id="kJn-CO-voE"/>
@@ -136,7 +136,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นักเรียน นิสิต นักศึกษา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-Us-BmX">
-                                        <rect key="frame" x="7.5" y="75" width="235" height="40"/>
+                                        <rect key="frame" x="8" y="75" width="234" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jEd-Us-BmX" secondAttribute="height" multiplier="117:20" id="rnr-4C-E53"/>
                                         </constraints>
@@ -165,7 +165,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บุคคลทั่วไป" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iX-Dp-2Qt">
-                                        <rect key="frame" x="7.5" y="75" width="235" height="40"/>
+                                        <rect key="frame" x="8" y="75" width="234" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0iX-Dp-2Qt" secondAttribute="height" multiplier="117:20" id="tpY-LA-gzw"/>
                                         </constraints>
@@ -247,7 +247,7 @@
                                 <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNk-aP-lsp">
-                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zNk-aP-lsp" secondAttribute="height" multiplier="1:1" id="IgF-FR-dS0"/>
@@ -978,7 +978,7 @@
                                 <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgJ-0H-dOd">
-                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qgJ-0H-dOd" secondAttribute="height" multiplier="1:1" id="LDZ-Yq-aXc"/>
@@ -991,7 +991,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทเนื้อหาที่สนใจ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-Bg-fgx">
-                                        <rect key="frame" x="54.5" y="0.0" width="262.5" height="39.5"/>
+                                        <rect key="frame" x="54.5" y="-0.5" width="262.5" height="40.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aCE-Bg-fgx" secondAttribute="height" multiplier="131:20" id="Wex-5M-dnE"/>
                                         </constraints>

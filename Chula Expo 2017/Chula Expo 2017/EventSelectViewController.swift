@@ -79,12 +79,6 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     func layoutTopTab(){
         
         moveToptabIndicator()
-        let shadowPath = UIBezierPath(rect: topTab.bounds)
-        topTab.layer.shadowColor = UIColor.darkGray.cgColor
-        topTab.layer.shadowOffset = CGSize(width: 0, height: 0)
-        topTab.layer.shadowRadius = 1
-        topTab.layer.shadowOpacity = 0.5
-        topTab.layer.shadowPath = shadowPath.cgPath
         updateButton(no: selectedSection, toBlack: false)
     }
     
@@ -95,7 +89,16 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         selectionIndicatorFrame = CGRect(x: (sectionWidth * (CGFloat)(selectedSection - 1) ) + 2 , y: topTab.bounds.height-2, width: sectionWidth - 4, height: 2)
         selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
         selectionIndicatorView.backgroundColor = UIColor(red:1.00, green:0.43, blue:0.60, alpha:1.0)
-    topTab.addSubview(selectionIndicatorView)
+        
+        let shadowPath = UIBezierPath(rect: topTab.bounds)
+        topTab.layer.shadowColor = UIColor.darkGray.cgColor
+        topTab.layer.shadowOffset = CGSize(width: 0, height: 0)
+        topTab.layer.shadowRadius = 1
+        topTab.layer.shadowOpacity = 0.5
+        topTab.layer.shadowPath = shadowPath.cgPath
+
+        
+        topTab.addSubview(selectionIndicatorView)
         
     }
 

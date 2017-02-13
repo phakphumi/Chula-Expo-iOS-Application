@@ -9,6 +9,32 @@
 import UIKit
 
 class StageDetailCell: UITableViewCell {
+    
+    @IBOutlet var descLabel: UILabel!
+    
+//    var textAttribute = NSAttributedString()
+    
+//    override func layoutSubviews() {
+//        
+//        textAttribute = descLabel.attributedText!
+//    }
+    
+    var desc: String?{
+        didSet{
+            updateUI()
+        }
+    }
+    
+    func updateUI () {
+        
+        if let desc = desc{
+//            descLabel. = textAttribute.heightWithConstrainedWidth(width: descLabel.bounds.width)
+            descLabel.text = desc
+            descLabel.sizeToFit()
+            
+        }
+        
+    }
 
         override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +47,20 @@ class StageDetailCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension NSAttributedString {
+    func heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return boundingBox.height
+    }
+    
+    func widthWithConstrainedHeight(height: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        
+        return boundingBox.width
+    }
 }

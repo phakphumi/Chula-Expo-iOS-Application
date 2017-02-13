@@ -21,7 +21,7 @@ class CityLayout: UICollectionViewLayout {
         return collectionView!.bounds.width - (insets.left + insets.right)
     }
     fileprivate var screenHeight: CGFloat{
-        return collectionView!.bounds.height
+        return collectionView!.bounds.height - 49
     }
     override func prepare() {
         if cache.isEmpty {

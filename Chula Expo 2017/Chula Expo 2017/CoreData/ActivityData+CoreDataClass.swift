@@ -148,6 +148,30 @@ public class ActivityData: NSManagedObject {
         return nil
     }
     
+    class func fetchActivityFromSearch(name: String, inManageobjectcontext context: NSManagedObjectContext) -> [ActivityData]{
+        
+        var fetchResult = [ActivityData]()
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "name CONTAINS[c] %@", name)
+        
+        do {
+            let result = try context.fetch(request)
+            
+            for item in result{
+                if let activityItem = item as? ActivityData{
+                    fetchResult.append(activityItem)
+                }
+            }
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+            return fetchResult
+    }
+
+    
 //    func addRound(
 //        roundNo: Int16,
 //        starTime: NSDate,

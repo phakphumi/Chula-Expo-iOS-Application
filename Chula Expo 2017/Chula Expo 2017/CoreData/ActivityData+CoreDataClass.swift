@@ -11,7 +11,7 @@ import CoreData
 
 @objc(ActivityData)
 public class ActivityData: NSManagedObject {
-
+    
     class func addEventData(
         activityId: String,
         name: String,

@@ -95,7 +95,8 @@ public class ZoneData: NSManagedObject {
                 
                 locations.append(["latitude": String(result.latitude),
                                   "longitude": String(result.longitude),
-                                  "id": result.id!])
+                                  "id": result.id!,
+                                  "shortName": result.shortName!])
                 
             }
             

@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    var activityId: String!
     var topic: String!
     var reservable = false
+    var managedObjectContext: NSManagedObjectContext?
+    
     
     var dates = [String]()
     var times = [String: [String]]()
@@ -34,6 +38,48 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func save(_ sender: UIButton) {
         
+        if reservable {
+            
+            
+        } else {
+            
+            var confirm = UIAlertController()
+            
+            
+            
+            if FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)! {
+                
+                confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                
+            } else {
+                
+                confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ท่านเคยบันทึกรายการนี้ไว้แล้ว", preferredStyle: UIAlertControllerStyle.alert)
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+                
+            }
+            
+            
+            do{
+                
+                try managedObjectContext?.save()
+                print("FavoritedActivity Saved")
+                
+            }
+                
+            catch let error {
+                
+                print("FavoritedActivity save error with \(error)")
+                
+                confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "บันทึกข้อมูลล้มเหลวกรุณาลองใหม่อีกครั้ง", preferredStyle: UIAlertControllerStyle.alert)
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+                
+            }
+            
+            self.present(confirm, animated: true, completion: nil)
+            
+        }
         
         
     }
@@ -50,12 +96,22 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         self.view.insertSubview(blurEffectView, at: 0)
         
-        dateTimeField.text = dateTimeList[0]
+        if reservable {
+            
+            dateTimeFieldView.alpha = 1
+            
+            dateTimeField.text = dateTimeList[0]
         
-        dateTimePicker.delegate = self
-        dateTimePicker.dataSource = self
+            dateTimePicker.delegate = self
+            dateTimePicker.dataSource = self
+            
+            addPickerToolbar()
         
-        addPickerToolbar()
+        } else {
+            
+            saveButton.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height * 0.05)
+            
+        }
         
     }
     

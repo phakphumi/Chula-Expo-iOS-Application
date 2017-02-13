@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.93554258346557617" green="0.47647073864936829" blue="0.60005998611450195" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="18"/>
                             <color key="textColor" red="0.99607843139999996" green="0.3411764706" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -554,7 +554,7 @@ Cg
             </objects>
             <point key="canvasLocation" x="2501.5999999999999" y="977.36131934032994"/>
         </scene>
-        <!--Events-->
+        <!--EVENTS-->
         <scene sceneID="GPL-Qs-bnp">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="QYs-k8-9kZ" customClass="EventSelectViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
@@ -841,7 +841,7 @@ Cg
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Events" id="lZ4-Kj-5Ud">
+                    <navigationItem key="navigationItem" title="EVENTS" id="lZ4-Kj-5Ud">
                         <barButtonItem key="backBarButtonItem" title=" " id="30L-qA-x5R"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -1002,7 +1002,7 @@ Cg
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="830E28AE-0032-4C33-9339-CB12C4212499" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="9ED5AFE3-9507-4F49-8251-3F68967B8183" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="DhE-io-uuX"/>
@@ -1247,7 +1247,7 @@ Cg
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2B5CA4C4-C833-4D5E-BB66-3220147B024E" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-BE-w5X" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F5D50731-61DE-4406-9A31-4BCF2EF020A5" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-BE-w5X" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="HcX-Og-Hpg"/>
@@ -1321,7 +1321,7 @@ Cg
         </scene>
     </scenes>
     <resources>
-        <image name="2B5CA4C4-C833-4D5E-BB66-3220147B024E" width="17" height="18">
+        <image name="9ED5AFE3-9507-4F49-8251-3F68967B8183" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1393,7 +1393,7 @@ DroOwg7PDtQO1g7YDt0O5Q7oDu0O9Q74DwoPDQ8SAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAA
 DxQ
 </mutableData>
         </image>
-        <image name="830E28AE-0032-4C33-9339-CB12C4212499" width="17" height="18">
+        <image name="F5D50731-61DE-4406-9A31-4BCF2EF020A5" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

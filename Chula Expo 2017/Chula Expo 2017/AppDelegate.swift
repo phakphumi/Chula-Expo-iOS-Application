@@ -258,11 +258,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         
                         _ = ZoneData.addData(id: result["_id"] as! String,
                                              type: result["type"] as! String,
-                                             shortName: shortName["th"] as? String ?? "",
-                                             desc: desc["th"] as? String ?? "",
+                                             shortName: shortName["en"] as? String ?? "",
+                                             desc: desc["en"] as? String ?? "",
                                              longitude: location["longitude"] as! Double,
                                              latitude: location["latitude"] as! Double,
-                                             name: name["th"] as! String,
+                                             name: name["en"] as! String,
                                              welcomeMessage: welcomeMsg["th"] as? String ?? "",
                                              inManageobjectcontext: context)
                         

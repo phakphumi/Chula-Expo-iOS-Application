@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="voe-43-7YQ">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="voe-43-7YQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -660,8 +661,8 @@ Cg
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfH-qK-LUH">
-                                                    <rect key="frame" x="321" y="8" width="31" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfH-qK-LUH" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                                    <rect key="frame" x="324" y="5" width="31" height="15"/>
                                                     <color key="backgroundColor" red="0.89642250540000001" green="0.40059655900000002" blue="0.58045971389999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -678,13 +679,13 @@ Cg
                                             <constraint firstAttribute="trailing" secondItem="ckg-iH-Pvr" secondAttribute="trailing" id="P3y-6m-gLv"/>
                                             <constraint firstItem="GvW-Pz-qET" firstAttribute="leading" secondItem="cIi-Tn-IR5" secondAttribute="leadingMargin" constant="30" id="Q5O-bT-DWA"/>
                                             <constraint firstItem="SVa-1X-l3E" firstAttribute="trailing" secondItem="NAE-t5-KII" secondAttribute="trailing" id="U56-Z5-2Yc"/>
-                                            <constraint firstItem="SfH-qK-LUH" firstAttribute="top" secondItem="cIi-Tn-IR5" secondAttribute="topMargin" constant="8" id="dwT-Jp-cRt"/>
+                                            <constraint firstItem="SfH-qK-LUH" firstAttribute="top" secondItem="cIi-Tn-IR5" secondAttribute="topMargin" constant="5" id="dwT-Jp-cRt"/>
                                             <constraint firstItem="NAE-t5-KII" firstAttribute="leading" secondItem="GvW-Pz-qET" secondAttribute="trailing" constant="24" id="ix0-T6-GUy"/>
                                             <constraint firstItem="ckg-iH-Pvr" firstAttribute="top" secondItem="cIi-Tn-IR5" secondAttribute="top" id="l3n-Ph-yO0"/>
                                             <constraint firstItem="ckg-iH-Pvr" firstAttribute="leading" secondItem="cIi-Tn-IR5" secondAttribute="leading" id="o0c-gu-dmG"/>
                                             <constraint firstItem="SVa-1X-l3E" firstAttribute="leading" secondItem="NAE-t5-KII" secondAttribute="leading" id="o4r-8P-8Sk"/>
                                             <constraint firstItem="SVa-1X-l3E" firstAttribute="top" secondItem="NAE-t5-KII" secondAttribute="bottom" id="wVM-Vp-gXe"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="SfH-qK-LUH" secondAttribute="trailing" constant="8" id="y32-mL-HJO"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="SfH-qK-LUH" secondAttribute="trailing" constant="5" id="y32-mL-HJO"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                         <size key="customSize" width="360" height="85"/>
@@ -694,7 +695,10 @@ Cg
                                             <outlet property="nameLabel" destination="NAE-t5-KII" id="8Kc-lC-Arl"/>
                                             <outlet property="subLabel" destination="SVa-1X-l3E" id="tWy-4c-tbc"/>
                                             <outlet property="tagLabel" destination="SfH-qK-LUH" id="y37-t6-RXP"/>
-                                            <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="DQR-bU-bAD"/>
+                                            <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="DQR-bU-bAD">
+                                                <segue key="commit" inheritsFrom="parent" id="buh-Xs-te0"/>
+                                                <segue key="preview" inheritsFrom="commit" id="cEP-i7-t4K"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="facultyCell" id="5jm-T1-kzz" customClass="FacultyCollectionViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
@@ -721,11 +725,11 @@ Cg
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89u-TO-zqY">
-                                                    <rect key="frame" x="127" y="8" width="31" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMMARTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89u-TO-zqY" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                                    <rect key="frame" x="104.5" y="2" width="59.5" height="12"/>
                                                     <color key="backgroundColor" red="0.89642250540000001" green="0.40059655900000002" blue="0.58045971389999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คณะวิศวกรรมศาสตร์" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YH8-FB-NjH">
@@ -742,7 +746,7 @@ Cg
                                             <constraint firstAttribute="trailing" secondItem="mxD-dc-sEh" secondAttribute="trailing" id="BSx-OO-5sv"/>
                                             <constraint firstItem="mxD-dc-sEh" firstAttribute="top" secondItem="5jm-T1-kzz" secondAttribute="top" id="KeG-FF-afr"/>
                                             <constraint firstItem="mxD-dc-sEh" firstAttribute="leading" secondItem="5jm-T1-kzz" secondAttribute="leading" id="Lrb-QY-jXn"/>
-                                            <constraint firstItem="89u-TO-zqY" firstAttribute="top" secondItem="5jm-T1-kzz" secondAttribute="topMargin" constant="8" id="Nem-gZ-uUT"/>
+                                            <constraint firstItem="89u-TO-zqY" firstAttribute="top" secondItem="5jm-T1-kzz" secondAttribute="topMargin" constant="2" id="Nem-gZ-uUT"/>
                                             <constraint firstItem="YH8-FB-NjH" firstAttribute="top" secondItem="fjl-GU-a3u" secondAttribute="bottom" constant="2" id="SOv-Mv-uXg"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="YH8-FB-NjH" secondAttribute="trailing" constant="5" id="TQQ-hN-IDO"/>
                                             <constraint firstItem="fjl-GU-a3u" firstAttribute="centerX" secondItem="mxD-dc-sEh" secondAttribute="centerX" id="VNG-JW-OiN"/>
@@ -750,7 +754,7 @@ Cg
                                             <constraint firstItem="POH-CP-QBJ" firstAttribute="leading" secondItem="5jm-T1-kzz" secondAttribute="leadingMargin" constant="8" id="Yoh-ef-K29"/>
                                             <constraint firstItem="YH8-FB-NjH" firstAttribute="leading" secondItem="5jm-T1-kzz" secondAttribute="leadingMargin" constant="5" id="aa8-CJ-9oF"/>
                                             <constraint firstAttribute="bottom" secondItem="mxD-dc-sEh" secondAttribute="bottom" id="kKK-zZ-ULu"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="89u-TO-zqY" secondAttribute="trailing" constant="8" id="uBv-bc-mrq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="89u-TO-zqY" secondAttribute="trailing" constant="2" id="uBv-bc-mrq"/>
                                             <constraint firstItem="fjl-GU-a3u" firstAttribute="centerY" secondItem="mxD-dc-sEh" secondAttribute="centerY" constant="-16" id="z7E-F7-VFZ"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -761,6 +765,10 @@ Cg
                                             <outlet property="nameLabel" destination="YH8-FB-NjH" id="q64-Ib-6dP"/>
                                             <outlet property="subLabel" destination="POH-CP-QBJ" id="jze-uP-ypn"/>
                                             <outlet property="tagLabel" destination="89u-TO-zqY" id="x45-zi-Cbu"/>
+                                            <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="n9K-H1-3Bg">
+                                                <segue key="commit" inheritsFrom="parent" id="2lp-zh-nhb"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Tn7-Vl-1e9"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="interestCell" id="tqI-QD-FNY" customClass="InterCollectionViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
@@ -814,6 +822,10 @@ Cg
                                             <outlet property="iconImage" destination="bVD-Wf-dxf" id="zZM-RT-lkQ"/>
                                             <outlet property="nameLabel" destination="Ien-db-Enw" id="TUz-zj-5zk"/>
                                             <outlet property="subLabel" destination="9Lx-im-OKm" id="iOy-m9-aaI"/>
+                                            <segue destination="lHK-QI-0zL" kind="show" identifier="selectFacity" id="LrK-Nw-ngc">
+                                                <segue key="commit" inheritsFrom="parent" id="HDz-qV-lel"/>
+                                                <segue key="preview" inheritsFrom="commit" id="iXe-MC-ly3"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -925,6 +937,6 @@ Cg
         <image name="stageLeftBar" width="95" height="627"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DQR-bU-bAD"/>
+        <segue reference="LrK-Nw-ngc"/>
     </inferredMetricsTieBreakers>
 </document>

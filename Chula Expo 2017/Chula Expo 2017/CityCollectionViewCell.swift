@@ -13,7 +13,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var subLabel: UILabel!
-    @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet weak var tagLabel: CapsuleUILabel!
     
     var bg: String?{
         didSet{
@@ -37,12 +37,17 @@ class CityCollectionViewCell: UICollectionViewCell {
     }
     var tagname: String?{
         didSet{
-            updateUI()
+            if tagname != nil{
+                tagLabel.setText(name: tagname!)
+            }
+            else{
+                tagLabel.text = nil
+            }
         }
     }
     var tagColor: UIColor?{
         didSet{
-            updateUI()
+            tagLabel.backgroundColor = tagColor ?? UIColor.clear
         }
     }
     
@@ -51,7 +56,6 @@ class CityCollectionViewCell: UICollectionViewCell {
         iconImage.image = nil
         nameLabel.text = nil
         subLabel.text = nil
-        tagLabel.text = nil
         
         if let bg = bg{
             bgImage.image = UIImage(named: bg)
@@ -64,10 +68,6 @@ class CityCollectionViewCell: UICollectionViewCell {
         }
         if let sub = sub{
             subLabel.text = sub
-        }
-        if let tagname = tagname{
-            tagLabel.text = tagname
-            tagLabel.backgroundColor = tagColor
         }
     }
 }

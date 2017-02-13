@@ -161,7 +161,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let zoneLocations = ZoneData.fetchZoneLocation(inManageobjectcontext: managedObjectContext!)
         
-        for zoneLocation in zoneLocations {
+        for zoneLocation in zoneLocations! {
             
             let zoneCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(zoneLocation["latitude"]!)!, longitude: Double(zoneLocation["longitude"]!)!)
             

@@ -65,10 +65,10 @@ public class ZoneData: NSManagedObject {
         return nil
     }
 
-    class func fetchIdFrom(thName: String, inManageobjectcontext context: NSManagedObjectContext) -> String?{
+    class func fetchIdFrom(name: String, inManageobjectcontext context: NSManagedObjectContext) -> String?{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
-        request.predicate = NSPredicate(format: "name = %@", thName)
+        request.predicate = NSPredicate(format: "name CONTAINS[c] %@", name)
         
         do {
             let result = try context.fetch(request).first as? ZoneData
@@ -80,7 +80,8 @@ public class ZoneData: NSManagedObject {
         return nil
     }
     
-    class func fetchZoneLocation(inManageobjectcontext context: NSManagedObjectContext) -> [[String: String]]{
+
+    class func fetchZoneLocation(inManageobjectcontext context: NSManagedObjectContext) -> [[String: String]]?{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
         
@@ -106,8 +107,25 @@ public class ZoneData: NSManagedObject {
             
         }
         
-        return [["latitude": "", "longitude": "", "id": ""]]
+        return nil
         
+    }
+    
+
+    class func fetchTagFrom(name: String, inManageobjectcontext context: NSManagedObjectContext) -> String?{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "name CONTAINS[c] %@", name)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.shortName
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return nil
+
     }
 
 }

@@ -202,10 +202,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        print(annotation.subtitle)
+        
         if annotation is MKUserLocation || annotation.subtitle! == nil {
-            
-            print("userlocation")
             
             return nil
             

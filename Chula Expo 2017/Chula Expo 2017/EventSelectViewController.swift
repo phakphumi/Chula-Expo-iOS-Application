@@ -227,13 +227,30 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         else if selectedSection == 2 {
             print ("section 2")
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facultyCell", for: indexPath)
+            
+            var tag: String = facultyDatas[indexPath.row].shortName
+            var name = facultyDatas[indexPath.row].tagEngName
+            
+            switch name{
+            case "Faculty of Sports Science" :
+                name = "Faculty of Sport Science"
+            default :
+                break
+            }
+            
+            if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
+                
+                tag = fetchTag
+            }
+            
             if let facultyCell = cell as? FacultyCollectionViewCell{
                 facultyCell.name = facultyDatas[indexPath.row].tagName
                 facultyCell.bg = facultyDatas[indexPath.row].tagBack
                 facultyCell.icon = facultyDatas[indexPath.row].imgName
                 facultyCell.sub = facultyDatas[indexPath.row].tagEngName
-                facultyCell.tagname = facultyDatas[indexPath.row].shortName
-                facultyCell.tagColor = facultyDatas[indexPath.row].tagColor
+                facultyCell.tagname = tag
+                facultyCell.tagColor = UIColor.darkGray
+//                facultyCell.tagColor = facultyDatas[indexPath.row].tagColor
             }
         }
         else {
@@ -260,32 +277,63 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         if segue.identifier == "selectFacity"{
             var id: String?
             var name: String = ""
+            var title: String = ""
             managedObjectContext?.performAndWait {
                 if let cell = sender as? CityCollectionViewCell{
-                    name = cell.name!
+                    
+                    name = cell.name ?? ""
+                    title = name
+                    
                     switch name{
-                    case "Smart City" :
-                        name = "สมาร์ทซิตี้"
-                    case "Health City" :
-                        name = "เมืองสุขภาพ"
-                    case "Human City" :
-                        name = "เมืองมนุษย์"
                     case "Sala Phrakeaw" :
-                        name = "ศาลาพระเกี้ยว"
-                    case "Art Gallery" :
-                        name = "อาร์ทแกล"
+                        name = "SalaPhakrew"
+                    default :
+                        break
+                    }
+        
+                    id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
+                }
+                if let cell = sender as? FacultyCollectionViewCell{
+                    
+                    name = cell.sub ?? ""
+                    if let facName = cell.name
+                    {
+                        title = "คณะ" + facName
+                    }
+                    
+                    switch name{
+                    case "Faculty of Sports Science" :
+                        name = "Faculty of Sport Science"
                     default :
                         break
                     }
                     
-                    id = ZoneData.fetchIdFrom(thName: name, inManageobjectcontext: self.managedObjectContext!)
+                    id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
+                }
+                if let cell = sender as? InterCollectionViewCell{
+                    
+                    name = cell.name ?? ""
+                    title = "Coming Soon"
+                    
+//                    switch name{
+//                    case "Sala Phrakeaw" :
+//                        name = "SalaPhakrew"
+//                    default :
+//                        break
+//                    }
+                    
+                    id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
             }
             if let dest = segue.destination as? EventsTableViewController{
+                
                 dest.facity = id
                 dest.managedObjectContext = managedObjectContext
+                print("segue success id = \(id)")
             }
-            segue.destination.title = (sender as? CityCollectionViewCell)?.name
+            
+            segue.destination.title = title
+            
         }
     }
     func setupCityData(){

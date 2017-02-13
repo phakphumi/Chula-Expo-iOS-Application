@@ -46,18 +46,24 @@ class EventsTableViewController: CoreDataTableViewController
     
     fileprivate func updateUI()
     {
-        if let context = managedObjectContext, (facity?.characters.count)! > 0
-        {
+        if let facity = facity{
+            
+        if let context = managedObjectContext, (facity.characters.count) > 0 {
+            
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             
             if facity == "Favourites" {
+                
                 request.predicate = NSPredicate(format: "isFavorite == %@", NSNumber(booleanLiteral: true))
             }
+                
             else if facity == "Reservations" {
+                
                 request.predicate = NSPredicate(format: "isReserve == %@", NSNumber(booleanLiteral: true))
             }
+                
             else {
-                request.predicate = NSPredicate(format: "any faculty contains[c] %@", facity!)
+                request.predicate = NSPredicate(format: "any faculty contains[c] %@", facity)
             }
             
             request.sortDescriptors = [NSSortDescriptor(
@@ -72,6 +78,7 @@ class EventsTableViewController: CoreDataTableViewController
                 sectionNameKeyPath: "toRound.dateSection",
                 cacheName: nil
             )
+            }
         }
         else
         {

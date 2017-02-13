@@ -150,7 +150,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Events"
+        title = "EVENTS"
         
         layout2.numberOfColumns = 2
         layout3.numberOfColumns = 3

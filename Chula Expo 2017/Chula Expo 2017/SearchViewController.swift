@@ -63,6 +63,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
              */
         
         requestForFeedEvent()
+        self.navigationController?.navigationBar.isTranslucent = false
         // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
 
@@ -70,6 +71,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
        // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
        // searchBar.showsCancelButton = true
         searchBar.placeholder = "Enter na"
+       // searchBar.barStyle = UIBarStyle.blackOpaque
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
         /*searchController.searchResultsUpdater = self
@@ -78,6 +80,23 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.tableHeaderView = searchController.searchBar*/
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+        ShouldShowResult = true
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        searchBar.showsCancelButton = false
+        ShouldShowResult = false
+        self.tableView.reloadData()
+        // Remove focus from the search bar.
+        searchBar.endEditing(true)
+        
+        // Perform any necessary work.  E.g., repopulating a table view
+        // if the search bar performs filtering.
+    }
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
             do {
@@ -116,15 +135,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.fetchActivity = ActivityData.fetchActivityFromSearch(name: searchText, inManageobjectcontext: self.managedObjectContext!)
         }
         
+        self.tableView.reloadData()
         
-        if searchText != "" {
-            ShouldShowResult = true
-            self.tableView.reloadData()
-        }
-        else {
-            ShouldShowResult = false
-            self.tableView.reloadData()
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -165,8 +178,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if(ShouldShowResult){
             cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
-            if let eventFeedCell = cell as? EventfeedTableViewCell{
+            if let eventFeedCell = cell as? EventFeedCell{
               //  print("feedCell name == \(name)")
+                eventFeedCell.manageObjectContext = managedObjectContext
                 eventFeedCell.name = fetchActivity[indexPath.row].name
                 eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
                 eventFeedCell.thumbnail = fetchActivity[indexPath.row].thumbnailsUrl
@@ -226,8 +240,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             // to do the cell.textLabel?.text setting
                         }
                         print("feedCell name == \(name)")
-                        if let eventFeedCell = cell as? EventfeedTableViewCell{
+                        if let eventFeedCell = cell as? EventFeedCell{
                             print("feedCell name == \(name)")
+
+                            eventFeedCell.manageObjectContext = managedObjectContext
                             eventFeedCell.name = name
                             eventFeedCell.toRound = toRound
                             eventFeedCell.thumbnail = thumbnail

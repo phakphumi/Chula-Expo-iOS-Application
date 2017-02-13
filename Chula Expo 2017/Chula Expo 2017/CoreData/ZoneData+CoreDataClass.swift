@@ -80,6 +80,38 @@ public class ZoneData: NSManagedObject {
         return nil
     }
     
+
+    class func fetchZoneLocation(inManageobjectcontext context: NSManagedObjectContext) -> [[String: String]]?{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        
+        do {
+            
+            let results = try context.fetch(request) as? [ZoneData]
+            
+            var locations = [[String: String]]()
+    
+            for result in results! {
+                
+                locations.append(["latitude": String(result.latitude),
+                                  "longitude": String(result.longitude),
+                                  "id": result.id!])
+                
+            }
+            
+            return locations
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+        return nil
+        
+    }
+    
+
     class func fetchTagFrom(name: String, inManageobjectcontext context: NSManagedObjectContext) -> String?{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
@@ -93,6 +125,7 @@ public class ZoneData: NSManagedObject {
         }
         
         return nil
+
     }
 
 }

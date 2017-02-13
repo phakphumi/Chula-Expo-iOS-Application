@@ -70,7 +70,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //navigationController?.navigationBar.barTintColor = UIColor.white
        // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
        // searchBar.showsCancelButton = true
-        searchBar.placeholder = "Enter na"
+        searchBar.placeholder = "ค้นหากิจกรรม"
        // searchBar.barStyle = UIBarStyle.blackOpaque
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar

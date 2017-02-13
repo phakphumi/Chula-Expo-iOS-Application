@@ -16,6 +16,17 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var homeTableView: UITableView!
     
     @IBOutlet weak var tableView: UITableView!
+    struct qa {
+        var q: String = ""
+        var a: String = ""
+    }
+    var qaList : [qa] = [
+        qa(q: "Q: UPCOMING EVENT ?",  a: "A: Events ที่กำลังจะเกิดขึ้น"),
+        qa(q: "Q: UPCOMING EVENT ?",  a: "A: Events ที่กำลังจะเกิดขึ้น"),
+        qa(q: "Q: UPCOMING EVENT ?",  a: "A: Events ที่กำลังจะเกิดขึ้น")
+    ]
+    @IBOutlet weak var qqq: UIView!
+
     
     //@IBOutlet var tableHeader: TableHeaderView!
     override func viewDidLoad() {
@@ -43,7 +54,7 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 1
+        return qaList.count
         
     }
     
@@ -53,8 +64,8 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
 
             cell = tableView.dequeueReusableCell(withIdentifier: "QA", for: indexPath)
         if let headerCell = cell as? FAQTableViewCell{
-            headerCell.Question = "Q: UPCOMING EVENT ?"
-            headerCell.Answer = "A: Events ที่กำลังจะเกิดขึ้น"
+            headerCell.Question = qaList[indexPath.row].q
+            headerCell.Answer = qaList[indexPath.row].a
         }
 
         cell.selectionStyle = .none
@@ -86,9 +97,9 @@ class FAQViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         
         
     
-        return 78
+        return 100
     
-        return UITableViewAutomaticDimension
+        //return UITableViewAutomaticDimension
         
     }
     

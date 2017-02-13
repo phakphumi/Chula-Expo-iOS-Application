@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import CoreData
 
-class MeViewController: UIViewController {
+class MeViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var profileImg: UIImageView!
 
     @IBOutlet weak var logoutView: UIView!
@@ -39,10 +39,29 @@ class MeViewController: UIViewController {
         }
         
     }
+    @IBAction func epro(_ sender: Any) {
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+    }
+    @IBAction func eTag(_ sender: Any) {
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+    }
+    
+    @IBAction func eac(_ sender: Any) {
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+    }
+    
+    
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
 
     
+    @IBOutlet weak var uni: UILabel!
+    @IBOutlet weak var year: UILabel!
+    @IBOutlet weak var agegen: UILabel!
+    @IBOutlet weak var email: UILabel!
     @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +71,10 @@ class MeViewController: UIViewController {
         managedObjectContext?.performAndWait {
             if let fetchUser = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!){
                 self.name.text = fetchUser.name
+                self.email.text = fetchUser.email
+                self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + fetchUser.gender!
+                self.year.text = fetchUser.level! + " ปี" + fetchUser.year!
+                self.uni.text = fetchUser.school
             }
             
         }

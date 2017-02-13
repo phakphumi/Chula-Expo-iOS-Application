@@ -145,6 +145,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         selectionIndicatorView.backgroundColor = UIColor(red:1.00, green:0.43, blue:0.60, alpha:1.0)
         setupTopTab()
         topTab.addSubview(selectionIndicatorView)
+        tableView.estimatedRowHeight = 140
         tableView.reloadData()
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
         // Uncomment the following line to preserve selection between presentations
@@ -171,14 +172,13 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
             if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? ActivityData{
                     
                 var name: String?
-//                var desc: String?
-                fetchData.managedObjectContext?.performAndWait
-                    {
-                        name = fetchData.name
-//                        desc = fetchData.desc
+                fetchData.managedObjectContext?.performAndWait {
+                    
+                    name = fetchData.name
                 }
 
                 if let stageExpandableCell = cell as? StageExpandableCell{
+                    
                     stageExpandableCell.name = name
                     stageExpandableCell.time = "9:41"
                 }
@@ -189,9 +189,19 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                 
             cell = tableView.dequeueReusableCell(withIdentifier: "stageDetail", for: indexPath)
             
-//                if let stageDetailCell = cell as? StageDetailCell{
-//                    
-//                }
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? ActivityData{
+                
+                var desc: String?
+                fetchData.managedObjectContext?.performAndWait {
+                    
+                    desc = fetchData.desc
+                }
+                
+                if let stageDetailCell = cell as? StageDetailCell{
+                    
+                    stageDetailCell.desc = desc
+                }
+            }
         }
         
 
@@ -215,7 +225,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         if indexPath.row == 0 {
             return 50
         }else  if indexPath.row == 1 && indexPath.section == selectSection{
-            return 90
+            return 170
         }
         return 0;
     }

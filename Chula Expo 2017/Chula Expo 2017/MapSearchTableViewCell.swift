@@ -13,7 +13,7 @@ class MapSearchTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapV
     @IBOutlet weak var map: MKMapView!
 
     @IBOutlet weak var button: UIButton!
-    override func awakeFromNib() {
+    /*override func awakeFromNib() {
         super.awakeFromNib()
         
         let locationManager = CLLocationManager()
@@ -44,7 +44,7 @@ class MapSearchTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapV
         button.layer.masksToBounds = true
         
         // Initialization code
-    }
+    }*/
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

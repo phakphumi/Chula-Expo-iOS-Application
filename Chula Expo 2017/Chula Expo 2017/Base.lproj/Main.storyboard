@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,6 +31,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="836-hJ-Ldy">
+                                <rect key="frame" x="164.5" y="573" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="1cI-z6-raX" kind="show" id="BRr-Ot-kS1"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginPage" translatesAutoresizingMaskIntoConstraints="NO" id="btd-fD-VK3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
@@ -81,10 +88,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-yV-bjO">
-                                <rect key="frame" x="29.5" y="60" width="317" height="40"/>
+                                <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tB8-7M-ZH4">
-                                        <rect key="frame" x="0.5" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902558326721" green="0.19105857610702515" blue="0.24915933609008789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tB8-7M-ZH4" secondAttribute="height" multiplier="1:1" id="kJn-CO-voE"/>
@@ -94,7 +101,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กรุณาเลือกประเภทผู้ใช้" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPR-nh-wC8">
-                                        <rect key="frame" x="55" y="1" width="262" height="38"/>
+                                        <rect key="frame" x="54.5" y="1" width="262.5" height="37.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dPR-nh-wC8" secondAttribute="height" multiplier="279:40" id="Qco-GQ-KW8"/>
                                         </constraints>
@@ -115,7 +122,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sl-O6-Dih">
-                                <rect key="frame" x="62" y="190" width="250" height="120"/>
+                                <rect key="frame" x="62.5" y="190" width="250" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentBlack" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-3q-XwG">
                                         <rect key="frame" x="103" y="15" width="45" height="55"/>
@@ -144,7 +151,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onn-Vg-4kL">
-                                <rect key="frame" x="63" y="335" width="250" height="120"/>
+                                <rect key="frame" x="62.5" y="335" width="250" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personWhite" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-RZ-e6J">
                                         <rect key="frame" x="103" y="15" width="45" height="55"/>
@@ -233,10 +240,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWO-Wb-zRA">
-                                <rect key="frame" x="29.5" y="60" width="317" height="40"/>
+                                <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNk-aP-lsp">
-                                        <rect key="frame" x="0.5" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zNk-aP-lsp" secondAttribute="height" multiplier="1:1" id="IgF-FR-dS0"/>
@@ -246,7 +253,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลงทะเบียน" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKL-h3-mrk">
-                                        <rect key="frame" x="55" y="-21.5" width="262" height="83"/>
+                                        <rect key="frame" x="54.5" y="-21.5" width="262.5" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="eKL-h3-mrk" secondAttribute="height" multiplier="63:20" id="Ran-og-Sj6"/>
                                         </constraints>
@@ -267,7 +274,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwE-Ed-f7b">
-                                <rect key="frame" x="117" y="115" width="140" height="165"/>
+                                <rect key="frame" x="117.5" y="115" width="140" height="165"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="krist" translatesAutoresizingMaskIntoConstraints="NO" id="Abj-U5-Wfa">
                                         <rect key="frame" x="5" y="0.0" width="130" height="130"/>
@@ -330,7 +337,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="คนดี" textAlignment="natural" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-41-sUg">
-                                        <rect key="frame" x="60" y="0.0" width="92" height="40"/>
+                                        <rect key="frame" x="59.5" y="0.0" width="92" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6yh-41-sUg" secondAttribute="height" multiplier="23:10" id="bXO-jL-JWt"/>
                                         </constraints>
@@ -396,7 +403,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHP-dz-2PA">
-                                <rect key="frame" x="28" y="345" width="320" height="40"/>
+                                <rect key="frame" x="27.5" y="345" width="320" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อีเมล์" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRA-vu-fue">
                                         <rect key="frame" x="10" y="0.0" width="45" height="40"/>
@@ -447,7 +454,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVy-B3-jQx">
-                                        <rect key="frame" x="60" y="0.0" width="87" height="40"/>
+                                        <rect key="frame" x="60" y="0.0" width="87.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QVy-B3-jQx" secondAttribute="height" multiplier="87:40" id="HHU-DJ-ntO"/>
                                         </constraints>
@@ -459,7 +466,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="j5y-uj-XU8">
-                                        <rect key="frame" x="137" y="15" width="10" height="10"/>
+                                        <rect key="frame" x="137.5" y="14.5" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j5y-uj-XU8" secondAttribute="height" multiplier="1:1" id="J4p-JE-wcg"/>
                                         </constraints>
@@ -486,7 +493,7 @@
                                 <rect key="frame" x="191" y="395" width="155" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เพศ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAk-se-fEo">
-                                        <rect key="frame" x="10" y="0.0" width="39" height="40"/>
+                                        <rect key="frame" x="10" y="0.0" width="39.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vAk-se-fEo" secondAttribute="height" multiplier="39:40" id="HjB-n3-wkB"/>
                                         </constraints>
@@ -507,7 +514,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="GzS-qF-oug">
-                                        <rect key="frame" x="137" y="15" width="10" height="10"/>
+                                        <rect key="frame" x="137.5" y="14.5" width="10" height="10"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GzS-qF-oug" secondAttribute="height" multiplier="1:1" id="fc3-nv-kat"/>
                                         </constraints>
@@ -555,7 +562,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="Eaa-ih-jMG">
-                                        <rect key="frame" x="186" y="15" width="10" height="10"/>
+                                        <rect key="frame" x="186" y="15" width="10" height="9.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Eaa-ih-jMG" secondAttribute="height" multiplier="1:1" id="3c1-dV-f8q"/>
                                         </constraints>
@@ -603,7 +610,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="GxR-2P-050">
-                                        <rect key="frame" x="86" y="15" width="10" height="10"/>
+                                        <rect key="frame" x="86" y="15" width="10" height="9.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GxR-2P-050" secondAttribute="height" multiplier="1:1" id="0fF-zm-Drg"/>
                                         </constraints>
@@ -627,7 +634,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-Ra-xLw">
-                                <rect key="frame" x="27" y="495" width="320" height="40"/>
+                                <rect key="frame" x="27.5" y="495" width="320" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สถาบัน" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZj-Ay-yfP">
                                         <rect key="frame" x="10" y="0.0" width="49" height="40"/>
@@ -666,7 +673,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heq-GW-oA1">
-                                <rect key="frame" x="27" y="445" width="320" height="40"/>
+                                <rect key="frame" x="27.5" y="445" width="320" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อาชีพ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiG-k8-ngG">
                                         <rect key="frame" x="10" y="0.0" width="49" height="40"/>
@@ -690,7 +697,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-Nb-g9R">
-                                        <rect key="frame" x="302" y="15" width="10" height="10"/>
+                                        <rect key="frame" x="302" y="15" width="10" height="9.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kOq-Nb-g9R" secondAttribute="height" multiplier="1:1" id="8sJ-Sr-Rcr"/>
                                         </constraints>
@@ -878,7 +885,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXt-Vk-ryI">
-                                <rect key="frame" x="33" y="581" width="309" height="56"/>
+                                <rect key="frame" x="33" y="580.5" width="309" height="56.5"/>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                 <state key="normal" title="เริ่มใช้งาน Chula Expo Application">
@@ -889,25 +896,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลงทะเบียนเสร็จสมบูรณ์!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-jy-nPa">
-                                <rect key="frame" x="-0.5" y="309" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="308.5" width="375" height="50"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="23"/>
                                 <color key="textColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="หากมีข้อสงสัยในการใช้งาน" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GJ-5G-xXF">
-                                <rect key="frame" x="0.0" y="342" width="375" height="67"/>
+                                <rect key="frame" x="0.0" y="342" width="375" height="66.5"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
                                 <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สามารถดูวิธีการใช้งานได้ที่เมนู FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-h4-hhr">
-                                <rect key="frame" x="-0.5" y="367" width="375" height="67"/>
+                                <rect key="frame" x="0.0" y="367" width="375" height="66.5"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
                                 <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmarkDark" translatesAutoresizingMaskIntoConstraints="NO" id="zr5-Fs-cOF">
-                                <rect key="frame" x="147" y="205" width="80" height="80"/>
+                                <rect key="frame" x="147.5" y="205" width="80" height="80.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zr5-Fs-cOF" secondAttribute="height" multiplier="1:1" id="GCa-pA-K02"/>
                                 </constraints>
@@ -965,7 +972,7 @@
                                 <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgJ-0H-dOd">
-                                        <rect key="frame" x="0.5" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qgJ-0H-dOd" secondAttribute="height" multiplier="1:1" id="LDZ-Yq-aXc"/>
@@ -975,7 +982,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทเนื้อหาที่สนใจ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-Bg-fgx">
-                                        <rect key="frame" x="55" y="0.0" width="262" height="40"/>
+                                        <rect key="frame" x="54.5" y="-0.5" width="262.5" height="40.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aCE-Bg-fgx" secondAttribute="height" multiplier="131:20" id="Wex-5M-dnE"/>
                                         </constraints>
@@ -1146,7 +1153,7 @@
                                 <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ix-oj-xDG">
-                                        <rect key="frame" x="0.5" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="40"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="9Ix-oj-xDG" secondAttribute="height" multiplier="1:1" id="RVY-vq-tIE"/>
@@ -1156,7 +1163,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คณะที่สนใจ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Y2-GfQ">
-                                        <rect key="frame" x="55" y="0.0" width="262" height="40"/>
+                                        <rect key="frame" x="54.5" y="0.0" width="262.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dBG-Y2-GfQ" secondAttribute="height" multiplier="131:20" id="1YL-Qe-wLV"/>
                                         </constraints>
@@ -1325,5 +1332,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gH4-31-fBe"/>
+<<<<<<< HEAD
+=======
+        <segue reference="mwf-1Z-aVg"/>
+>>>>>>> 50e7b9ada513577a4fd19abdaadebdafbcd1b3b5
     </inferredMetricsTieBreakers>
 </document>

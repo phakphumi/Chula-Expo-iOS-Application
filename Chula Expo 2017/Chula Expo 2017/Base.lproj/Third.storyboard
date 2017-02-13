@@ -559,69 +559,17 @@ Cg
         <!--Event Select View Controller-->
         <scene sceneID="GPL-Qs-bnp">
             <objects>
-                <viewController id="QYs-k8-9kZ" customClass="EventSelectViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="QYs-k8-9kZ" customClass="EventSelectViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lFz-8L-Nvi"/>
                         <viewControllerLayoutGuide type="bottom" id="TL3-8n-ZCh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hfc-aq-dtF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="right" translatesAutoresizingMaskIntoConstraints="NO" id="DMt-WF-RkS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="right" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sac-US-zUt">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-YQ-jIW" userLabel="city">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <state key="normal" title="CITY">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectTopTap:" destination="QYs-k8-9kZ" eventType="touchUpInside" id="aru-eR-goG"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-H8-JoM" userLabel="faculty">
-                                                <rect key="frame" x="125" y="0.0" width="125" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <state key="normal" title="FACULTY">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectTopTap:" destination="QYs-k8-9kZ" eventType="touchUpInside" id="gqs-6C-kfM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4qF-jv-iC3" userLabel="interest">
-                                                <rect key="frame" x="250" y="0.0" width="125" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                                <state key="normal" title="INTEREST">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectTopTap:" destination="QYs-k8-9kZ" eventType="touchUpInside" id="iQs-gf-lsK"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="lPo-Ym-ff5"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sac-US-zUt" secondAttribute="trailing" id="9Z2-pZ-CmU"/>
-                                    <constraint firstItem="sac-US-zUt" firstAttribute="leading" secondItem="DMt-WF-RkS" secondAttribute="leading" id="AfL-0p-N11"/>
-                                    <constraint firstItem="sac-US-zUt" firstAttribute="centerY" secondItem="DMt-WF-RkS" secondAttribute="centerY" id="Zqx-Tv-OCZ"/>
-                                    <constraint firstAttribute="height" constant="40" id="hxN-Yr-7Ar"/>
-                                </constraints>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                            </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OWh-tq-1km">
-                                <rect key="frame" x="0.0" y="104" width="375" height="514"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OWh-tq-1km">
+                                <rect key="frame" x="0.0" y="40" width="375" height="563"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Z5-JJ-WdE">
@@ -830,22 +778,75 @@ Cg
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="right" translatesAutoresizingMaskIntoConstraints="NO" id="DMt-WF-RkS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="right" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sac-US-zUt">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-YQ-jIW" userLabel="city">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal" title="CITY">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectTopTap:" destination="QYs-k8-9kZ" eventType="touchUpInside" id="aru-eR-goG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-H8-JoM" userLabel="faculty">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal" title="FACULTY">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectTopTap:" destination="QYs-k8-9kZ" eventType="touchUpInside" id="gqs-6C-kfM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4qF-jv-iC3" userLabel="interest">
+                                                <rect key="frame" x="250" y="0.0" width="125" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <state key="normal" title="INTEREST">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectTopTap:" destination="QYs-k8-9kZ" eventType="touchUpInside" id="iQs-gf-lsK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lPo-Ym-ff5"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sac-US-zUt" secondAttribute="trailing" id="9Z2-pZ-CmU"/>
+                                    <constraint firstItem="sac-US-zUt" firstAttribute="leading" secondItem="DMt-WF-RkS" secondAttribute="leading" id="AfL-0p-N11"/>
+                                    <constraint firstItem="sac-US-zUt" firstAttribute="centerY" secondItem="DMt-WF-RkS" secondAttribute="centerY" id="Zqx-Tv-OCZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="hxN-Yr-7Ar"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OWh-tq-1km" firstAttribute="top" secondItem="DMt-WF-RkS" secondAttribute="bottom" id="0Z7-h2-j1m"/>
                             <constraint firstItem="OWh-tq-1km" firstAttribute="leading" secondItem="Hfc-aq-dtF" secondAttribute="leading" id="1Xe-ei-xOZ"/>
                             <constraint firstAttribute="trailing" secondItem="DMt-WF-RkS" secondAttribute="trailing" id="9fZ-0m-88r"/>
+                            <constraint firstItem="TL3-8n-ZCh" firstAttribute="top" secondItem="OWh-tq-1km" secondAttribute="bottom" constant="-49" id="ALD-J3-ZHW"/>
                             <constraint firstItem="DMt-WF-RkS" firstAttribute="leading" secondItem="Hfc-aq-dtF" secondAttribute="leading" id="HZ8-Rk-YxC"/>
                             <constraint firstAttribute="trailing" secondItem="OWh-tq-1km" secondAttribute="trailing" id="hlM-Ue-ynv"/>
-                            <constraint firstItem="TL3-8n-ZCh" firstAttribute="top" secondItem="OWh-tq-1km" secondAttribute="bottom" id="pXD-8w-HAU"/>
                             <constraint firstItem="DMt-WF-RkS" firstAttribute="top" secondItem="lFz-8L-Nvi" secondAttribute="bottom" id="s3a-Eb-H7W"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="meW-1N-oG8"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="OWh-tq-1km" id="OYm-gf-8Y8"/>
                         <outlet property="topTab" destination="DMt-WF-RkS" id="Iko-gu-rBv"/>
@@ -863,7 +864,7 @@ Cg
             <objects>
                 <tableViewController storyboardIdentifier="Event" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lHK-QI-0zL" customClass="EventsTableViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="28" sectionFooterHeight="28" id="hRp-lX-jKb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

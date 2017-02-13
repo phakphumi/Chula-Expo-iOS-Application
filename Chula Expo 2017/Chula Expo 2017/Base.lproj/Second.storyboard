@@ -467,13 +467,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Maps" id="BDD-fk-3V4">
                         <barButtonItem key="backBarButtonItem" title=" " id="9lS-FU-0kq"/>
-                        <barButtonItem key="leftBarButtonItem" image="cursor" id="RMK-zu-yfl">
-                            <inset key="imageInsets" minX="0.0" minY="27" maxX="40" maxY="20"/>
-                            <color key="tintColor" red="1" green="0.37312167880000002" blue="0.60618275399999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Ffj-fe-xHT">
-                            <color key="tintColor" red="1" green="0.37312167880000002" blue="0.60618275399999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="canteenIcon" destination="fbc-bP-O7Y" id="c3Y-wm-3Ee"/>
@@ -526,7 +519,6 @@
         <image name="annotation" width="512" height="512"/>
         <image name="canteen" width="52" height="60"/>
         <image name="car" width="64" height="64"/>
-        <image name="cursor" width="64" height="64"/>
         <image name="ico-star" width="60" height="54"/>
         <image name="list" width="512" height="512"/>
         <image name="mapTabIcon2" width="25" height="25"/>

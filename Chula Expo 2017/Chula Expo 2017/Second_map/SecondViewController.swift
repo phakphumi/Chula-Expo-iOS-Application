@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -26,6 +27,9 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var prayerIcon: UIView!
     @IBOutlet var carParkIcon: UIView!
     
+    let managedObjectContext: NSManagedObjectContext? =
+        (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+    
     var locationManager = CLLocationManager()
     var annotation = MKPointAnnotation()
     
@@ -42,16 +46,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        let lat: CLLocationDegrees = 13.7383829
-        let lon: CLLocationDegrees = 100.5298641
-        let latDelta: CLLocationDegrees = 0.02
-        let lonDelta: CLLocationDegrees = 0.02
+        let lat: CLLocationDegrees = 13.7387312
+        let lon: CLLocationDegrees = 100.5306979
+        let latDelta: CLLocationDegrees = 0.01
+        let lonDelta: CLLocationDegrees = 0.01
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
         
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
         map.setRegion(region, animated: true)
     
+        addZoneAnnotation()
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -86,31 +92,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
 
-    func createGradientNavBar() {
-        
-        //Begin, define gradient color shade from RGB(202,92,171) to RGB(144,112,196)
-        let headGradientColor = UIColor(red: 0.73, green: 0.15, blue: 0.56, alpha: 1).cgColor
-        let tailGradientColor = UIColor(red: 0.46, green: 0.13, blue: 0.61, alpha: 1).cgColor
-        //Begin, create gradient layer with 2 colors shade and start gradient from left to right
-        let gradientLayer = CAGradientLayer()
-        var navIncludeStatFrame = navigationController!.navigationBar.bounds
-        navIncludeStatFrame.size.height += 20
-        gradientLayer.frame = navIncludeStatFrame
-        gradientLayer.colors = [headGradientColor, tailGradientColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        //End
-        
-        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
-        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
-        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        navigationController?.navigationBar.setBackgroundImage(gradientImage, for: UIBarMetrics.default)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        navigationController?.navigationBar.tintColor = UIColor.white
-        
-    }
     @IBAction func descClick(_ sender: UIButton) {
         
         if isDescShowing {
@@ -173,6 +154,25 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         print(error)
+        
+    }
+    
+    func addZoneAnnotation() {
+        
+        let zoneLocations = ZoneData.fetchZoneLocation(inManageobjectcontext: managedObjectContext!)
+        
+        for zoneLocation in zoneLocations {
+            
+            let zoneCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(zoneLocation["latitude"]!)!, longitude: Double(zoneLocation["longitude"]!)!)
+            
+            let zoneAnnotation = MKPointAnnotation()
+            zoneAnnotation.coordinate = zoneCoordinate
+            
+            map.addAnnotation(zoneAnnotation)
+            
+            print(zoneAnnotation)
+            
+        }
         
     }
 

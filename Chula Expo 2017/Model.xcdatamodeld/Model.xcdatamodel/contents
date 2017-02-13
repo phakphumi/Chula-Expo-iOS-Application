@@ -20,6 +20,9 @@
         <relationship name="toRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundData" inverseName="toActivity" inverseEntity="RoundData" syncable="YES"/>
         <relationship name="toTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagData" inverseName="toActivity" inverseEntity="TagData" syncable="YES"/>
     </entity>
+    <entity name="FavoritedActivity" representedClassName="FavoritedActivity" syncable="YES">
+        <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="ImageData" representedClassName="ImageData" syncable="YES">
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toImages" inverseEntity="ActivityData" syncable="YES"/>
@@ -98,5 +101,6 @@
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>
         <element name="ZoneData" positionX="-128" positionY="108" width="128" height="178"/>
+        <element name="FavoritedActivity" positionX="-9" positionY="243" width="128" height="60"/>
     </elements>
 </model>

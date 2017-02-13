@@ -666,7 +666,7 @@
                                     <action selector="save:" destination="vfu-aM-YRW" eventType="touchUpInside" id="p7V-cs-eMf"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Px6-zb-DUJ">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Px6-zb-DUJ">
                                 <rect key="frame" x="42" y="300" width="290" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="16 มีนาคม : 10.00-11.00" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="GRj-xw-iJ7">

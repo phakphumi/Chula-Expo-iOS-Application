@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Maps-->
+        <!--MAPS-->
         <scene sceneID="Bap-VH-9zT">
             <objects>
                 <viewController id="rBa-NL-8Ua" customClass="SecondViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
@@ -465,7 +465,7 @@
                             <constraint firstItem="Q41-1c-XXe" firstAttribute="top" secondItem="xea-ZP-mMX" secondAttribute="bottom" constant="11" id="yXM-Jr-s8c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Maps" id="BDD-fk-3V4">
+                    <navigationItem key="navigationItem" title="MAPS" id="BDD-fk-3V4">
                         <barButtonItem key="backBarButtonItem" title=" " id="9lS-FU-0kq"/>
                     </navigationItem>
                     <connections>

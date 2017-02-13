@@ -31,7 +31,7 @@ class MeViewController: UIViewController {
             
         } else {
             
-            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชั่นนี้สนับสนุนเฉพาะผู้เข้าระบบผ่าน Facebook เท่านั้น", preferredStyle: UIAlertControllerStyle.alert)
+            let confirm = UIAlertController(title: "Coming soon", message: "This function will release soon.", preferredStyle: UIAlertControllerStyle.alert)
             
             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             

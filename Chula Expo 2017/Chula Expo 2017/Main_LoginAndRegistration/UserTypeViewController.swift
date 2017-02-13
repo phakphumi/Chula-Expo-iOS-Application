@@ -22,6 +22,7 @@ class UserTypeViewController: UIViewController {
     var fbImage: UIImage?
     var managedObjectContext: NSManagedObjectContext?
     
+    @IBOutlet var numberLabel: UILabel!
     
     @IBOutlet var studentView: UIView!
     @IBOutlet var studentIcon: UIImageView!
@@ -35,6 +36,12 @@ class UserTypeViewController: UIViewController {
         super.viewDidLoad()
 
         initialView()
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
         
     }
     

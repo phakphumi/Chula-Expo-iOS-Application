@@ -32,6 +32,48 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     var locationManager = CLLocationManager()
     var annotation = MKPointAnnotation()
+    let annotationIcon = [
+                            "LAND": #imageLiteral(resourceName: "LAN-PIN"),
+                            "BUSSTOP": #imageLiteral(resourceName: "BUS-PIN1"),
+                            "FAVORITE": #imageLiteral(resourceName: "FAV-PIN"),
+                            "RESERVED": #imageLiteral(resourceName: "RES-PIN"),
+                            "CATEEN": #imageLiteral(resourceName: "FOD-PIN"),
+                            "TOILET": #imageLiteral(resourceName: "TOI-PIN"),
+                            "CARPARK": #imageLiteral(resourceName: "LAN-PIN"),
+                            "MUSLIMPRAYER": #imageLiteral(resourceName: "LAN-PIN"),
+                            "ENG": #imageLiteral(resourceName: "ENG-PIN"),
+                            "MED": #imageLiteral(resourceName: "LAN-PIN"),
+                            "SCI": #imageLiteral(resourceName: "LAN-PIN"),
+                            "ACC": #imageLiteral(resourceName: "LAN-PIN"),
+                            "POLSCI": #imageLiteral(resourceName: "POLSCI-PIN"),
+                            "EDU": #imageLiteral(resourceName: "LAN-PIN"),
+                            "PSY": #imageLiteral(resourceName: "LAN-PIN"),
+                            "DENT": #imageLiteral(resourceName: "LAN-PIN"),
+                            "LAW": #imageLiteral(resourceName: "LAN-PIN"),
+                            "COMMARTS": #imageLiteral(resourceName: "LAN-PIN"),
+                            "NUR": #imageLiteral(resourceName: "LAN-PIN"),
+                            "SPSC": #imageLiteral(resourceName: "LAN-PIN"),
+                            "FAA": #imageLiteral(resourceName: "FAA-PIN"),
+                            "ARCH": #imageLiteral(resourceName: "ARCH-PIN"),
+                            "AHS": #imageLiteral(resourceName: "LAN-PIN"),
+                            "VET": #imageLiteral(resourceName: "LAN-PIN"),
+                            "ARTS": #imageLiteral(resourceName: "LAN-PIN"),
+                            "PHARM": #imageLiteral(resourceName: "LAN-PIN"),
+                            "ECON": #imageLiteral(resourceName: "LAN-PIN"),
+                            "CUSAR": #imageLiteral(resourceName: "LAN-PIN"),
+                            "GRAD": #imageLiteral(resourceName: "GRAND AUDIT"),
+                            "SMART": #imageLiteral(resourceName: "SMART-PIN"),
+                            "HEALTH": #imageLiteral(resourceName: "LAN-PIN"),
+                            "HUMAN": #imageLiteral(resourceName: "LAN-PIN"),
+                            "ART": #imageLiteral(resourceName: "LAN-PIN"),
+                            "MAINSTAGE": #imageLiteral(resourceName: "LAN-PIN"),
+                            "HALL": #imageLiteral(resourceName: "LAN-PIN"),
+                            "SALA": #imageLiteral(resourceName: "SALA"),
+                            "INTERFORUM": #imageLiteral(resourceName: "LAN-PIN"),
+                            "MARKET": #imageLiteral(resourceName: "LAN-PIN"),
+                            "INFO": #imageLiteral(resourceName: "INF-PIN")
+    
+    ]
     
     var isDescShowing = false
     var isCurrentShowing = false
@@ -40,6 +82,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    
+        map.delegate = self
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -157,6 +201,102 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        print(annotation.subtitle)
+        if annotation is MKUserLocation || annotation.subtitle! == nil {
+            
+            print("userlocation")
+            
+            return nil
+            
+        }
+        
+        let annotationIdentifier = "CustomerIdentifier"
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.canShowCallout = true
+            
+            // Resize image
+            
+            let pinImage = annotationIcon[annotation.subtitle!!]
+            
+            let size = CGSize(width: 33.67, height: 48.33)
+            UIGraphicsBeginImageContext(size)
+            pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            annotationView?.image = resizedImage
+            
+            let rightButton: AnyObject! = UIButton(type: UIButtonType.detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = rightButton as? UIView
+            
+        } else {
+            
+            annotationView?.annotation = annotation
+            
+        }
+        
+        return annotationView
+        
+    }
+    
+//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//        
+//        // Don't want to show a custom image if the annotation is the user's location.
+//        guard !(annotation is MKUserLocation) else {
+//            
+//            return nil
+//            
+//        }
+//
+//        // Better to make this class property
+//        let annotationIdentifier = "AnnotationIdentifier"
+//        
+//        var annotationView: MKAnnotationView?
+//        
+//        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+//            annotationView = dequeuedAnnotationView
+//            annotationView?.annotation = annotation
+//        }
+//        else {
+//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+//            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+//        }
+//        
+//        if let annotationView = annotationView {
+//            // Configure your annotation view here
+//            annotationView.canShowCallout = true
+//            
+//            if var pinImage = annotationIcon[annotation.subtitle!!] {
+//                
+//                if pinImage == nil {
+//                    
+//                    pinImage = #imageLiteral(resourceName: "LAN-PIN")
+//                    
+//                }
+//                let size = CGSize(width: 33.67, height: 48.33)
+//                UIGraphicsBeginImageContext(size)
+//                pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+//                let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+//                UIGraphicsEndImageContext()
+//            
+//                annotationView.image = resizedImage
+//                
+//            }
+//            
+//        }
+//        
+//        return annotationView
+//        
+//        
+//        
+//    }
+    
     func addZoneAnnotation() {
         
         let zoneLocations = ZoneData.fetchZoneLocation(inManageobjectcontext: managedObjectContext!)
@@ -167,10 +307,9 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             let zoneAnnotation = MKPointAnnotation()
             zoneAnnotation.coordinate = zoneCoordinate
+            zoneAnnotation.subtitle = zoneLocation["shortName"]
             
             map.addAnnotation(zoneAnnotation)
-            
-            print(zoneAnnotation)
             
         }
         

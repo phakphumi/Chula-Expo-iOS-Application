@@ -30,6 +30,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     var tapped = [UIImageView]()
     
+    @IBOutlet var numberLabel: UILabel!
+    
     @IBOutlet weak var finButton: UIButton! {
         didSet{
             roundedCornerBack1()
@@ -101,6 +103,12 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         // self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
+        
         
     }
     

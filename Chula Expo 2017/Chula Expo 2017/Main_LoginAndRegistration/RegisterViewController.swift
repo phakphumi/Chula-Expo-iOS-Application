@@ -41,6 +41,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     let educationYearPicker = UIPickerView()
     let careerPicker = UIPickerView()
     
+    @IBOutlet var numberLabel: UILabel!
+    
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var profileImageView: UIView!
     @IBOutlet var cameraIconView: UIView!
@@ -78,6 +80,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     override func viewDidLayoutSubviews() {
 
+        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
+        
+        
         profileImage.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
         profileImage.layer.borderWidth = 3
         profileImage.layer.cornerRadius = profileImage.frame.height / 2

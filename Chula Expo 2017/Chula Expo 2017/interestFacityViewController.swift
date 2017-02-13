@@ -28,6 +28,9 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     var managedObjectContext: NSManagedObjectContext?
     
     var tapped = [UIImageView]()
+    
+    @IBOutlet var numberLabel: UILabel!
+    
     @IBOutlet weak var finButton2: UIButton! {
         didSet{
             roundedCornerBack1()
@@ -100,20 +103,11 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLayoutSubviews() {
+        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
+        
+        
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     // MARK: UICollectionViewDataSource
     

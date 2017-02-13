@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
 
     
     var managedObjectContext: NSManagedObjectContext? =
@@ -18,17 +18,64 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    var data: ActivityData
+    var Events = [ActivityData]()
+    let searchController = UISearchController(searchResultsController: nil)
+    var filterEvents = [String]()
+    var ShouldShowResult = false
     
+   
+
+    /*func filterContentForSearchText(searchText: String, scope: String = "All"){
+        filterEvents = Events.filter{ ActivityData in
+              //  return (ActivityData.name?.lowercased()
+        }
+        tableView.reloadData()
+     
+    }*/
     //@IBOutlet var tableHeader: TableHeaderView!
     override func viewDidLoad() {
+    //    super.viewDidLoad()
+       
+           /* var name: String?
+            var toRound: NSSet?
+            var thumbnail: String?
+            var facity: String?
+            fetchData.managedObjectContext?.performAndWait{
+                // it's easy to forget to do this on the proper queue
+                name = fetchData.name
+                thumbnail = fetchData.thumbnailsUrl
+                facity = fetchData.faculty
+                toRound = fetchData.toRound
+                // we're not assuming the context is a main queue context
+                // so we'll grab the screenName and return to the main queue
+                // to do the cell.textLabel?.text setting
+            }
+            print("feedCell name == \(name)")
+            if let eventFeedCell = cell as? EventfeedTableViewCell{
+                print("feedCell name == \(name)")
+                eventFeedCell.name = name
+                eventFeedCell.toRound = toRound
+                eventFeedCell.thumbnail = thumbnail
+                eventFeedCell.facity = facity
+            }
+        }
+             */
         
-        super.viewDidLoad()
         requestForFeedEvent()
         // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
-        navigationItem.titleView = searchBar
-        navigationController?.navigationBar.barTintColor = UIColor.white
+
+        //navigationController?.navigationBar.barTintColor = UIColor.white
        // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
+       // searchBar.showsCancelButton = true
+        searchBar.placeholder = "Enter na"
+        searchBar.delegate = self
+        self.navigationItem.titleView = searchBar
+        /*searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar*/
     }
     
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
@@ -63,6 +110,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             )
         }
     }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        filterEvents = 
+        
+        if searchText != "" {
+            ShouldShowResult = true
+            self.tableView.reloadData()
+        }
+        else {
+            ShouldShowResult = false
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,25 +131,40 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 2
+        if(ShouldShowResult){
+            return 1
+        }
+        else {
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(section == 1){
-            if let i = fetchedResultsController?.sections?[0]{
-                return i.numberOfObjects+1
-            }
+        if(ShouldShowResult) {
+            return filterEvents.count
         }
+        else{
+                if(section == 1){
+                    if let i = fetchedResultsController?.sections?[0]{
+                        return i.numberOfObjects+1
+                    }
+                }
 
-            return 2
+                return 2
+        }
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
                 var cell: UITableViewCell
+        
+        if(ShouldShowResult){
+            cell = tableView.dequeueReusableCell(withIdentifier: "Basic", for: indexPath)
+            cell.textLabel!.text = filterEvents[indexPath.row]
+        }
+        else {
+        
                 if indexPath.section == 0 && indexPath.row == 0 {
                     cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
                     if let headerCell = cell as? HeaderSearchTableViewCell{
@@ -102,8 +176,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 else if indexPath.section == 0 && indexPath.row == 1 {
         
-                    cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
+                    /*cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
+                    cell.selectionStyle = .none*/
+                    cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
+                    if let headerCell = cell as? HeaderSearchTableViewCell{
+                        headerCell.title1 = "POPULAR EVENTS"
+                        headerCell.title2 = "Events ที่กำลังได้รับความนิยมในขณะนี้"
+                        headerCell.iconImage = "heartIcon"
+                    }
                     cell.selectionStyle = .none
+            
         
                 }
         
@@ -144,8 +226,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
 
                 }
+        }
         return cell
         
+    }
+    
+    func searchButtonClicked(searchBar: UISearchBar){
+        ShouldShowResult = true
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -153,33 +242,37 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
      func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
-        if section == 0 {
-            return 4
+        if(!ShouldShowResult){
+            if section == 0 {
+                return 4
+            }
         }
-        return 0
+            return 0
     }
     
      func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 0{
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            view.backgroundColor = UIColor.clear
-            return view
+        if(!ShouldShowResult){
+            if section == 0{
+                let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+                view.backgroundColor = UIColor.clear
+                return view
+            }
         }
         return nil
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.row == 1 && indexPath.section == 0 {
-            return self.view.bounds.width * 218 / 375
-        }
-        else if indexPath.row == 0{
-                
-                return 58
+        if(!ShouldShowResult){
+            if indexPath.row == 1 && indexPath.section == 0 {
+                return self.view.bounds.width * 218 / 375
             }
-        else if indexPath.section == 1 {
-            return 78
+            else if indexPath.row == 0{
+                
+                    return 58
+                }
+            else if indexPath.section == 1 {
+                return 78
+            }
         }
         
         return UITableViewAutomaticDimension
@@ -187,7 +280,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
 }
-
 
     // Core Data
 
@@ -199,7 +291,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //    // MARK: - Table view data source
 //    
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
+//        ((
 //        var cell: UITableViewCell
 //        
 //        if indexPath.section == 0 && indexPath.row == 0 {

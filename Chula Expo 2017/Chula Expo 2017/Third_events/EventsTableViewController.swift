@@ -255,6 +255,7 @@ class EventsTableViewController: CoreDataTableViewController
                         
                         if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
                             
+                            destination.activityId = fetch.activityId
                             destination.bannerUrl = fetch.bannerUrl
                             destination.topic = fetch.name
                             destination.locationDesc = ""

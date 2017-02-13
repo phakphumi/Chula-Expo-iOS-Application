@@ -27,6 +27,7 @@ class EventDetailTableViewController: UITableViewController {
 //                ["08.00-09.00", "10.00-11.00"]
 //               ]
     
+    var activityId: String!
     var bannerUrl: String!
     var topic: String!
     var locationDesc: String!
@@ -322,25 +323,29 @@ class EventDetailTableViewController: UITableViewController {
             
             let destination = segue.destination as! GalleryViewController
             
-//            let images = toImages.allObjects as! [ImageData]
-            
             destination.images = images
-            
-//            for image in images {
-//                
-//                destination?.imageName.append(image.url!)
-//                
-//            }
             
         } else if segue.identifier == "presentFavorite" {
             
             let destination = segue.destination as! FavoriteViewController
             
+            if self.reservable! {
+                
+                destination.dates = self.dates
+                destination.times = self.times
+                
+            } else {
+                
+                print(self.dates)
+                print(self.times)
+                
+            }
+            
+            destination.activityId = self.activityId
             destination.topic = self.topic
-            destination.dates = self.dates
-            destination.times = self.times
             destination.dateTimeList = self.dateTimeList
             destination.reservable = self.reservable
+            destination.managedObjectContext = self.managedObjectContext
             
         }
         

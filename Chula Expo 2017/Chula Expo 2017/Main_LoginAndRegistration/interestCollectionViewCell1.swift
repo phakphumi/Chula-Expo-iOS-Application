@@ -122,10 +122,10 @@ class interestCollectionViewCell1: UICollectionViewCell {
         {
             interestImg1.image = UIImage(named: Iname1)
         }
-        if let Bname1: String = tagBack[0]
+       /* if let Bname1: String = tagBack[0]
         {
             backImg1.image = UIImage(named: Bname1)
-        }
+        }*/
         if let Tname1: String = tagName[0]
         {
             if(Tname1 != ""){interestName1.isHidden = false}

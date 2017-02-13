@@ -46,10 +46,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="btd-fD-VK3" secondAttribute="trailing" id="IDD-sK-W6z"/>
                             <constraint firstAttribute="bottom" secondItem="btd-fD-VK3" secondAttribute="bottom" id="L6O-Vc-Thr"/>
-                            <constraint firstItem="836-hJ-Ldy" firstAttribute="centerX" secondItem="8D7-2W-idW" secondAttribute="centerX" id="PuQ-U1-EFX"/>
                             <constraint firstItem="btd-fD-VK3" firstAttribute="leading" secondItem="8D7-2W-idW" secondAttribute="leading" id="fIm-v2-ZaS"/>
                             <constraint firstItem="btd-fD-VK3" firstAttribute="top" secondItem="8D7-2W-idW" secondAttribute="top" id="gnW-4S-Drb"/>
-                            <constraint firstItem="WSP-YP-NMW" firstAttribute="top" secondItem="836-hJ-Ldy" secondAttribute="bottom" constant="15" id="ppY-j6-yCy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -101,9 +99,6 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กรุณาเลือกประเภทผู้ใช้" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPR-nh-wC8">
                                         <rect key="frame" x="54.5" y="1" width="262.5" height="37.5"/>
@@ -218,6 +213,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kix-BG-8Np"/>
                     <connections>
+                        <outlet property="numberLabel" destination="tB8-7M-ZH4" id="3al-9i-fSt"/>
                         <outlet property="personIcon" destination="OJn-RZ-e6J" id="Qaj-am-NKA"/>
                         <outlet property="personLabel" destination="0iX-Dp-2Qt" id="AyD-uY-wrQ"/>
                         <outlet property="personView" destination="onn-Vg-4kL" id="Vyw-0z-U5Q"/>
@@ -255,9 +251,6 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลงทะเบียน" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKL-h3-mrk">
                                         <rect key="frame" x="54.5" y="-21.5" width="262.5" height="83"/>
@@ -795,6 +788,7 @@
                         <outlet property="firstNameField" destination="6yh-41-sUg" id="Nbp-EN-F2n"/>
                         <outlet property="genderField" destination="OVN-2D-3Pg" id="fwY-BI-cJk"/>
                         <outlet property="lastNameField" destination="EoN-8V-dde" id="Um8-OU-EgR"/>
+                        <outlet property="numberLabel" destination="zNk-aP-lsp" id="qEw-2O-vRS"/>
                         <outlet property="profileImage" destination="Abj-U5-Wfa" id="gs4-Y8-jYY"/>
                         <outlet property="profileImageView" destination="bwE-Ed-f7b" id="p4w-cd-eie"/>
                         <outlet property="schoolField" destination="h8X-gG-sZx" id="MaS-8O-OvN"/>
@@ -986,9 +980,6 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทเนื้อหาที่สนใจ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-Bg-fgx">
                                         <rect key="frame" x="54.5" y="-0.5" width="262.5" height="40.5"/>
@@ -1100,7 +1091,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fade" translatesAutoresizingMaskIntoConstraints="NO" id="amI-Rg-r1m">
-                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="468" width="375" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
@@ -1139,6 +1130,7 @@
                     <connections>
                         <outlet property="collectionView" destination="kL5-xc-L1H" id="aEH-F6-2ze"/>
                         <outlet property="finButton" destination="Dbs-Dv-fge" id="R2V-gO-a4O"/>
+                        <outlet property="numberLabel" destination="qgJ-0H-dOd" id="4YK-91-xzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PG4-WO-mgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1169,9 +1161,6 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
-                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คณะที่สนใจ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBG-Y2-GfQ">
                                         <rect key="frame" x="54.5" y="0.0" width="262.5" height="40"/>
@@ -1323,6 +1312,7 @@
                     <connections>
                         <outlet property="collectionView" destination="XG9-WX-Fxo" id="vye-eO-p3d"/>
                         <outlet property="finButton2" destination="i4X-9j-RYi" id="d2c-yj-4pd"/>
+                        <outlet property="numberLabel" destination="9Ix-oj-xDG" id="CMd-0O-wbP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0Q-2m-hDt" userLabel="First Responder" sceneMemberID="firstResponder"/>

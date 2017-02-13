@@ -115,55 +115,55 @@ class EventDetailsTableViewController: UITableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "WhenAndWhereCell", for: indexPath)
             
-            if let wawCell = cell as? WhenAndWhereTableViewCell {
-                
-                wawCell.boundsTag()
-                
-                wawCell.placeLabel.text = locationDesc
-                
+//            if let wawCell = cell as? WhenAndWhereTableViewCell {
+//                
+//                wawCell.boundsTag()
+//                
+//                wawCell.placeLabel.text = locationDesc
+            
 //                if let faculty = toFaculty.allObjects.first as? FacultyData {
 //                    
 //                    wawCell.tagLabel.text = faculty.shortName
 //                    
 //                }
-                
-                if let eventDateText = dateText {
-                
-                    if let eventStartTime = startTime {
-                    
-                        if let eventEndTime = endTime {
-                        
-                            let dateFormatter = DateFormatter()
-                        
-                            dateFormatter.dateFormat = "H:mm"
-                        
-                            let sTime = dateFormatter.string(from: eventStartTime as Date)
-                        
-                            let eTime = dateFormatter.string(from: eventEndTime as Date)
-                        
-                            wawCell.dateLabel.text = "\(eventDateText) • \(sTime) - \(eTime)"
-                      
-                        }
-                    
-                    }
-                    
-                }
-                
-            }
+//                
+//                if let eventDateText = dateText {
+//                
+//                    if let eventStartTime = startTime {
+//                    
+//                        if let eventEndTime = endTime {
+//                        
+//                            let dateFormatter = DateFormatter()
+//                        
+//                            dateFormatter.dateFormat = "H:mm"
+//                        
+//                            let sTime = dateFormatter.string(from: eventStartTime as Date)
+//                        
+//                            let eTime = dateFormatter.string(from: eventEndTime as Date)
+//                        
+//                            wawCell.dateLabel.text = "\(eventDateText) • \(sTime) - \(eTime)"
+//                      
+//                        }
+//                    
+//                    }
+//                    
+//                }
+//                
+//            }
             
         } else if indexPath.row == 1 {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "reserveAndFavorite", for: indexPath)
-            
-            if let ravtCell = cell as? ReservedAndFavoriteTableViewCell {
-                
-                ravtCell.canReserve = reservable
-                ravtCell.isReserve = isReserve
-                ravtCell.isFavorite = isFavorite
-                
-                ravtCell.initializeReservedAndFavoriteButton()
-                
-            }
+//            cell = tableView.dequeueReusableCell(withIdentifier: "reserveAndFavorite", for: indexPath)
+//            
+//            if let ravtCell = cell as? ReservedAndFavoriteTableViewCell {
+//                
+//                ravtCell.canReserve = reservable
+//                ravtCell.isReserve = isReserve
+//                ravtCell.isFavorite = isFavorite
+//                
+//                ravtCell.initializeReservedAndFavoriteButton()
+//                
+//            }
             
         } else if indexPath.row == 2 {
             
@@ -205,32 +205,32 @@ class EventDetailsTableViewController: UITableViewController {
             
         } else {
             
-            cell = tableView.dequeueReusableCell(withIdentifier: "RelatedCell", for: indexPath) as! RelatedTableViewCell
-            
-            if let rtvc = cell as? RelatedTableViewCell {
-                
-                if let tags = toTags.allObjects as? [TagData] {
-                    
-                    var text = ""
-                    
-                    for tag in tags {
-                        
-                        if tag == tags.last {
-                         
-                            text += "\(tag.name!)"
-                        
-                        } else {
-                            
-                            text += "\(tag.name!) • "
-                        }
-                        
-                    }
-                    
-                    rtvc.relatedText.text = text
-                    
-                }
-                
-            }
+//            cell = tableView.dequeueReusableCell(withIdentifier: "RelatedCell", for: indexPath) as! RelatedTableViewCell
+//            
+//            if let rtvc = cell as? RelatedTableViewCell {
+//                
+//                if let tags = toTags.allObjects as? [TagData] {
+//                    
+//                    var text = ""
+//                    
+//                    for tag in tags {
+//                        
+//                        if tag == tags.last {
+//                         
+//                            text += "\(tag.name!)"
+//                        
+//                        } else {
+//                            
+//                            text += "\(tag.name!) • "
+//                        }
+//                        
+//                    }
+//                    
+//                    rtvc.relatedText.text = text
+//                    
+//                }
+//                
+//            }
             
             
         }
@@ -258,35 +258,35 @@ class EventDetailsTableViewController: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.section == 0 {
-            
-            return self.view.bounds.height * 0.42
-            
-        } else if indexPath.row == 0 {
-            
-            return 55
-            
-        } else if indexPath.row == 2 {
-            
-            return DescTableViewCell.descTextHeight
-            
-        } else if indexPath.row == 3 {
-            
-            return 0
-            
-        } else if indexPath.row == 5 {
-            
-            return RelatedTableViewCell.relatedTextHeight
-            
-        } else {
-            
-            return 55
-            
-        }
-        
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        if indexPath.section == 0 {
+//            
+//            return self.view.bounds.height * 0.42
+//            
+//        } else if indexPath.row == 0 {
+//            
+//            return 55
+//            
+//        } else if indexPath.row == 2 {
+//            
+//            return DescTableViewCell.descTextHeight
+//            
+//        } else if indexPath.row == 3 {
+//            
+//            return 0
+//            
+//        } else if indexPath.row == 5 {
+//            
+////            return RelatedTableViewCell.relatedTextHeight
+//            
+//        } else {
+//            
+//            return 55
+//            
+//        }
+//        
+//    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         

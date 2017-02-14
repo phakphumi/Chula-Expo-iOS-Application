@@ -71,10 +71,21 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     }*/
     
     func wasTap() {
-
+        
         let parentVC = self.parentViewController!
         
-        parentVC.performSegue(withIdentifier: "presentGallery", sender: parentVC)
+        if images.count > 0 {
+        
+            parentVC.performSegue(withIdentifier: "presentGallery", sender: parentVC)
+        
+        } else {
+            
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "กิจกรรมนี้ไม่มีรูปภาพประกอบ", preferredStyle: UIAlertControllerStyle.alert)
+            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+        
+            parentVC.present(confirm, animated: true, completion: nil)
+        
+        }
         
     }
     

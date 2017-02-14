@@ -32,6 +32,7 @@ public class ActivityData: NSManagedObject {
         seatAvaliable: Int16,
         isReserve: Bool,
         video: String,
+        pdf: String,
         images: [String],
         rounds: NSArray,
         tags: [String],
@@ -66,6 +67,7 @@ public class ActivityData: NSManagedObject {
                 activityData.isStageEvent = false
                 activityData.stageNo = 0
                 activityData.video = video
+                activityData.pdf = pdf
 //                newData.toImages = toImages
 //                newData.toRound = toRounds
 //                newData.toTags = toTags

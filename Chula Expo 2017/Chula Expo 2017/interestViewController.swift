@@ -195,4 +195,9 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     */
 
+    @IBAction func next(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "toFaculty", sender: self)
+        
+    }
 }

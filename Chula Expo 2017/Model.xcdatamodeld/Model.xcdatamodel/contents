@@ -10,6 +10,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pdf" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reservable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
@@ -92,7 +93,8 @@
         <relationship name="toPlaces" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaceData" inverseName="toZone" inverseEntity="PlaceData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="313"/>
+        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="330"/>
+        <element name="FavoritedActivity" positionX="-9" positionY="243" width="128" height="60"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="75"/>
         <element name="PlaceData" positionX="27" positionY="90" width="128" height="148"/>
         <element name="RoomData" positionX="216" positionY="122" width="128" height="103"/>
@@ -101,6 +103,5 @@
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>
         <element name="ZoneData" positionX="-128" positionY="108" width="128" height="178"/>
-        <element name="FavoritedActivity" positionX="-9" positionY="243" width="128" height="60"/>
     </elements>
 </model>

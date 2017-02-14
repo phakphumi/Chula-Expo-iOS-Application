@@ -38,6 +38,7 @@ class EventDetailTableViewController: UITableViewController {
     var place: String!
     var latitude: Double!
     var longitude: Double!
+    var pdf: String!
     var toImages: NSSet!
     var toTags: NSSet!
     var managedObjectContext: NSManagedObjectContext?
@@ -220,6 +221,12 @@ class EventDetailTableViewController: UITableViewController {
         } else if indexPath.row == 2 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "DocCell", for: indexPath)
+            
+            if let dtvc = cell as? DocumentTableViewCell {
+                
+                dtvc.pdfUrl = pdf
+                
+            }
             
         } else if indexPath.row == 3 {
             

@@ -117,7 +117,7 @@ class EventsTableViewController: CoreDataTableViewController
         }
         else{
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
             
             if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
                 
@@ -220,9 +220,18 @@ class EventsTableViewController: CoreDataTableViewController
 //        self.performSegue(withIdentifier: "toEventDetails", sender: self)
 //    }
     
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        if indexPath.row > 0 {
+//            
+//            performSegue(withIdentifier: "toEventDetail", sender: self)
+//        }
+//       
+//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toEventDetail" {
+    
+        print("segue 111")
+        if segue.identifier == "toDetail" {
             
             if let destination = segue.destination as? EventDetailTableViewController{
                 
@@ -232,6 +241,7 @@ class EventsTableViewController: CoreDataTableViewController
                         
                         if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
                             
+                            destination.activityId = fetch.activityId
                             destination.bannerUrl = fetch.bannerUrl
                             destination.topic = fetch.name
                             destination.locationDesc = ""
@@ -246,7 +256,6 @@ class EventsTableViewController: CoreDataTableViewController
                             destination.toImages = fetch.toImages
                             destination.toTags = fetch.toTags
                             destination.managedObjectContext = self.managedObjectContext
-                            
                         }
                     }
                 }

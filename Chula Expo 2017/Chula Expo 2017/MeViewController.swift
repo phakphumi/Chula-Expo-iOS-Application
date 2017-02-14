@@ -73,7 +73,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 self.name.text = fetchUser.name
                 self.email.text = fetchUser.email
                 self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + fetchUser.gender!
-                self.year.text = fetchUser.level! + " ปี" + fetchUser.year!
+                self.year.text = (fetchUser.level ?? "") + " ปี" + (fetchUser.year ?? "")
                 self.uni.text = fetchUser.school
             }
             

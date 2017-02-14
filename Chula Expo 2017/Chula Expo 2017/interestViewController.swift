@@ -90,7 +90,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
          collectionView!.collectionViewLayout = layout */
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 20, right: 30)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 30, right: 30)
         layout.itemSize = CGSize(width: (self.view.frame.width-65)/3, height: (self.view.frame.width-65)/3)
         layout.minimumInteritemSpacing = 2.5
         layout.minimumLineSpacing = 2.5

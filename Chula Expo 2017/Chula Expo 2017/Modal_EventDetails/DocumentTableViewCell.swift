@@ -15,6 +15,8 @@ class DocumentTableViewCell: UITableViewCell {
     @IBOutlet var descLabel: UILabel!
     @IBOutlet var iconImage: UIImageView!
     
+    var pdfUrl: String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,12 +26,29 @@ class DocumentTableViewCell: UITableViewCell {
         documentView.layer.cornerRadius = 4
         documentView.layer.masksToBounds = true
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DocumentTableViewCell.wasTap))
+        documentView.addGestureRecognizer(tapGestureRecognizer)
+        
+        documentView.isUserInteractionEnabled = true
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func wasTap() {
+        
+        if pdfUrl == "" {
+            
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "กิจกรรมนี้ไม่มีเอกสารประกอบ", preferredStyle: UIAlertControllerStyle.alert)
+            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+            
+            let parentVC = self.parentViewController!
+            parentVC.present(confirm, animated: true, completion: nil)
+            
+        } else {
+            
+            UIApplication.shared.openURL(URL(string: pdfUrl)!)
+            
+        }
+        
     }
 
 }

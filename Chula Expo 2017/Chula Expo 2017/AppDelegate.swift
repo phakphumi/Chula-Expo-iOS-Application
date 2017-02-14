@@ -157,7 +157,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 let JSON = response.result.value as! NSDictionary
                 let results = JSON["results"] as! NSArray
-            
+            print(results)
                 for result in results {
                 
                     let result = result as! NSDictionary
@@ -194,6 +194,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                           seatAvaliable: 100,
                                                           isReserve: false,
                                                           video: result["video"] as? String ?? "",
+                                                          pdf: result["pdf"] as? String ?? "",
                                                           images: pictures,
                                                           rounds: rounds,
                                                           tags: tags,

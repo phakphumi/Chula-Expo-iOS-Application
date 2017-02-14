@@ -421,4 +421,43 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
     }
     
+    @IBAction func next(_ sender: UIButton) {
+        
+        if userType == "Academic" {
+            
+            if firstNameField.text == "" || lastNameField.text == "" || emailField.text == "" || ageField.text == "" || genderField.text == "" || educationField.text == "" || educationYearField.text == "" || schoolField.text == "" {
+                
+                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "กรุณากรอกข้อมูลให้ครบถ้วน", preferredStyle: UIAlertControllerStyle.alert)
+                
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(confirm, animated: true, completion: nil)
+
+                
+            } else {
+                
+                self.performSegue(withIdentifier: "toInterested", sender: self)
+                
+            }
+            
+        } else {
+            
+            if firstNameField.text == "" || lastNameField.text == "" || emailField.text == "" || ageField.text == "" || genderField.text == "" || careerField.text == "" {
+                
+                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "กรุณากรอกข้อมูลให้ครบถ้วน", preferredStyle: UIAlertControllerStyle.alert)
+                
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(confirm, animated: true, completion: nil)
+                
+            } else {
+                
+                self.performSegue(withIdentifier: "toInterested", sender: self)
+                
+            }
+            
+        }
+        
+    }
+    
 }

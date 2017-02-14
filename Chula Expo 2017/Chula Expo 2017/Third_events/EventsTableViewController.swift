@@ -242,6 +242,7 @@ class EventsTableViewController: CoreDataTableViewController
                             destination.place = fetch.place
                             destination.latitude = fetch.latitude
                             destination.longitude = fetch.longitude
+                            destination.pdf = fetch.pdf
                             destination.toImages = fetch.toImages
                             destination.toTags = fetch.toTags
                             destination.managedObjectContext = self.managedObjectContext

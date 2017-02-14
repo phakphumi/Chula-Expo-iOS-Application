@@ -95,7 +95,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_detail_temp" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-OP-AAz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-OP-AAz">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MF7-OP-AAz" secondAttribute="height" multiplier="375:281" id="L7P-hZ-9He"/>
@@ -417,7 +417,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot6" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-yM-WMI">
+                                                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-yM-WMI">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
@@ -753,11 +753,10 @@
         <image name="calendarIcon" width="128" height="128"/>
         <image name="cross_black" width="16" height="16"/>
         <image name="cross_white" width="12" height="12"/>
+        <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow" width="64" height="64"/>
-        <image name="event_detail_temp" width="137" height="89"/>
         <image name="mapIcon" width="128" height="128"/>
         <image name="pdfRed" width="128" height="128"/>
-        <image name="robot6" width="320" height="314"/>
         <image name="starPink" width="128" height="128"/>
         <image name="starYellow" width="64" height="64"/>
         <image name="tag" width="128" height="128"/>

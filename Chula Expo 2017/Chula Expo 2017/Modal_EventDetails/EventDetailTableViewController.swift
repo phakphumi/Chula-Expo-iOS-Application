@@ -13,7 +13,7 @@ class EventDetailTableViewController: UITableViewController {
     
     var didReload = false
     
-    var images = [UIImage]()
+    var images = [String]()
     var tags = [String]()
     var dates = [String]()
     var times = [String: [String]]()
@@ -141,14 +141,18 @@ class EventDetailTableViewController: UITableViewController {
             
             if let itvCell = cell as? ImageTableViewCell {
                 
-                bannerUrl = "http://staff.chulaexpo.com\(bannerUrl!)"
-                
-                let bannerData = URL(string: bannerUrl!)
-                
-                if let data = NSData(contentsOf: bannerData!) {
+                if let url = bannerUrl{
                     
-                    itvCell.bannerImage.image = UIImage(data: data as Data)
+                    bannerUrl = "http://staff.chulaexpo.com\(url)"
+                    //                let bannerData = URL(string: bannerUrl!)
+                    //
+                    //                if let data = NSData(contentsOf: bannerData!) {
                     
+                    itvCell.bannerImage.imageFromServerURL(urlString: bannerUrl)
+                    //                    image = UIImage(data: data as Data)
+                    
+                    //                }
+
                 }
                 
             }
@@ -233,14 +237,18 @@ class EventDetailTableViewController: UITableViewController {
                 
                 for image in imagesObj {
                     
-                    image.url = "http://staff.chulaexpo.com\(image.url!)"
-                    
-                    let imageData = URL(string: image.url!)
-                    
-                    if let data = NSData(contentsOf: imageData!) {
+                    if var url = image.url{
                         
-                        images.append(UIImage(data: data as Data)!)
+                        url = "http://staff.chulaexpo.com\(url)"
+                        //
+                        //                    let imageData = URL(string: image.url!)
+                        //
+                        //                    if let data = NSData(contentsOf: imageData!) {
                         
+                        images.append(url)
+                        
+                        //                    }
+
                     }
                     
                 }
@@ -324,6 +332,7 @@ class EventDetailTableViewController: UITableViewController {
             let destination = segue.destination as! GalleryViewController
             
             destination.images = images
+            
             
         } else if segue.identifier == "presentFavorite" {
             

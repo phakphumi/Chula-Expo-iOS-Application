@@ -12,7 +12,8 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
 
 //    var imageName = [String]()
 
-    var images = [UIImage]()
+    var images = [String]()
+    var currentImageIndex: Int = 0
     
     let appearance = UIPageControl.appearance()
     
@@ -25,7 +26,8 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
         
         let frameViewController = ImageFrameViewController()
 //        frameViewController.imageName = imageName.first
-        frameViewController.image = images.first
+        frameViewController.imageView.imageFromServerURL(urlString: images.first ?? "")
+//        frameViewController.image = images.first
         let viewController = [frameViewController]
         
         setViewControllers(viewController, direction: .forward, animated: true, completion: nil)
@@ -137,12 +139,14 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
 //        let currentImageIndex = imageName.index(of: currentImageFrameName!)
 
         let currentImageFrameName = (viewController as! ImageFrameViewController).image
-        let currentImageIndex = images.index(of: currentImageFrameName!)
+//        let currentImageIndex = images.index(of: currentImageFrameName!)
 
-        if currentImageIndex! < images.count - 1 {
+        if currentImageIndex < images.count - 1 {
             
             let frameViewController = ImageFrameViewController()
-            frameViewController.image = images[currentImageIndex! + 1]
+            currentImageIndex = currentImageIndex + 1
+            frameViewController.imageView.imageFromServerURL(urlString: images[currentImageIndex])
+            
             
             return frameViewController
             
@@ -167,12 +171,14 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
 //        let currentImageIndex = imageName.index(of: currentImageFrameName!)
 
         let currentImageFrameName = (viewController as! ImageFrameViewController).image
-        let currentImageIndex = images.index(of: currentImageFrameName!)
+//        let currentImageIndex = images.index(of: currentImageFrameName!)
 
-        if currentImageIndex! > 0 {
+        if currentImageIndex > 0 {
             
             let frameViewController = ImageFrameViewController()
-            frameViewController.image = images[currentImageIndex! - 1]
+            currentImageIndex = currentImageIndex - 1
+            frameViewController.imageView.imageFromServerURL(urlString: images[currentImageIndex])
+            
             
             return frameViewController
             

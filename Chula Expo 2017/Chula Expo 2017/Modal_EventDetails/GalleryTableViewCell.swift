@@ -38,7 +38,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     @IBOutlet var galleryCollectionView: UICollectionView!
     @IBOutlet var galleryView: UIView!
     
-    var images = [UIImage]()
+    var images = [String]()
     /*
     @IBOutlet var image1: UIImageView!
     @IBOutlet var image2: UIImageView!
@@ -112,7 +112,8 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         
-        imageView.image = images[indexPath.row]
+        imageView.imageFromServerURL(urlString: images[indexPath.row])
+//        imageView.image = images[indexPath.row]
         
         return cell
         

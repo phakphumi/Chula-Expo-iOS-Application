@@ -245,6 +245,7 @@ class EventsTableViewController: CoreDataTableViewController
                             destination.toImages = fetch.toImages
                             destination.toTags = fetch.toTags
                             destination.managedObjectContext = self.managedObjectContext
+                            
                         }
                     }
                 }

@@ -351,6 +351,7 @@ class FirstViewController: MainCoreDataTableViewController {
                         
                         if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
                             
+                            destination.activityId = fetch.activityId
                             destination.bannerUrl = fetch.bannerUrl
                             destination.topic = fetch.name
                             destination.locationDesc = ""
@@ -361,6 +362,7 @@ class FirstViewController: MainCoreDataTableViewController {
                             destination.place = fetch.place
                             destination.latitude = fetch.latitude
                             destination.longitude = fetch.longitude
+                            destination.pdf = fetch.pdf
                             destination.toImages = fetch.toImages
                             destination.toTags = fetch.toTags
                             destination.managedObjectContext = self.managedObjectContext

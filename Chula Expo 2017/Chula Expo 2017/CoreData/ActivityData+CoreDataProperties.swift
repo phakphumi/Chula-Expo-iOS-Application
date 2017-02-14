@@ -30,6 +30,7 @@ extension ActivityData {
     @NSManaged public var stageNo: Int16
     @NSManaged public var thumbnailsUrl: String?
     @NSManaged public var video: String?
+    @NSManaged public var pdf: String?
     @NSManaged public var faculty: String
     @NSManaged public var toImages: NSSet?
     @NSManaged public var toRound: NSSet?

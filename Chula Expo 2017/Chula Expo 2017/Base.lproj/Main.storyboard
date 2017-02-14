@@ -558,7 +558,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="boL-LR-X1g" secondAttribute="height" multiplier="5:4" id="wAl-kN-aXs"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="12"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -688,7 +688,7 @@
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heq-GW-oA1">
                                 <rect key="frame" x="27.5" y="445" width="320" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อาชีพ" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiG-k8-ngG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อาชีพ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiG-k8-ngG">
                                         <rect key="frame" x="10" y="0.0" width="49" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="hiG-k8-ngG" secondAttribute="height" multiplier="49:40" id="Mz8-Sp-5ID"/>
@@ -697,7 +697,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="วิศวกรคอมพิวเตอร์" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-ay-Edm">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="โปรแกรมเมอร์" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-ay-Edm">
                                         <rect key="frame" x="60" y="0.0" width="251" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zBD-ay-Edm" secondAttribute="height" multiplier="251:40" id="ObS-FY-wEf"/>
@@ -744,7 +744,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="1cI-z6-raX" kind="show" identifier="toInterested" id="mwf-1Z-aVg"/>
+                                    <action selector="next:" destination="rrg-uN-Qbj" eventType="touchUpInside" id="SbN-GZ-TSX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -806,6 +806,7 @@
                         <outlet property="profileImageView" destination="bwE-Ed-f7b" id="p4w-cd-eie"/>
                         <outlet property="schoolField" destination="h8X-gG-sZx" id="MaS-8O-OvN"/>
                         <outlet property="schoolView" destination="cCG-Ra-xLw" id="mqi-NV-e2W"/>
+                        <segue destination="1cI-z6-raX" kind="show" identifier="toInterested" id="6Sk-ae-WEp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJE-Ap-ozA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1113,7 +1114,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendtag:" destination="1cI-z6-raX" eventType="touchUpInside" id="qcv-wo-rGg"/>
+                                    <action selector="next:" destination="1cI-z6-raX" eventType="touchUpInside" id="0zJ-qG-WmM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1142,11 +1143,12 @@
                         <outlet property="collectionView" destination="kL5-xc-L1H" id="aEH-F6-2ze"/>
                         <outlet property="finButton" destination="Dbs-Dv-fge" id="R2V-gO-a4O"/>
                         <outlet property="numberLabel" destination="qgJ-0H-dOd" id="4YK-91-xzV"/>
+                        <segue destination="NNG-St-L30" kind="show" identifier="toFaculty" id="JmL-a0-8zi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PG4-WO-mgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.59999999999999" y="-563.56821589205401"/>
+            <point key="canvasLocation" x="142" y="-564"/>
         </scene>
         <!--Interest Facity View Controller-->
         <scene sceneID="Rbs-ic-mZ9">
@@ -1343,7 +1345,7 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gH4-31-fBe"/>
-        <segue reference="LyB-1c-TFn"/>
+        <segue reference="fK9-5N-HnN"/>
+        <segue reference="6Sk-ae-WEp"/>
     </inferredMetricsTieBreakers>
 </document>

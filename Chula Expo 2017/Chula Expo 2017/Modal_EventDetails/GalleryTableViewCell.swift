@@ -38,7 +38,7 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     @IBOutlet var galleryCollectionView: UICollectionView!
     @IBOutlet var galleryView: UIView!
     
-    var images = [UIImage]()
+    var images = [String]()
     /*
     @IBOutlet var image1: UIImageView!
     @IBOutlet var image2: UIImageView!
@@ -71,10 +71,21 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     }*/
     
     func wasTap() {
-
+        
         let parentVC = self.parentViewController!
         
-        parentVC.performSegue(withIdentifier: "presentGallery", sender: parentVC)
+        if images.count > 0 {
+        
+            parentVC.performSegue(withIdentifier: "presentGallery", sender: parentVC)
+        
+        } else {
+            
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "กิจกรรมนี้ไม่มีรูปภาพประกอบ", preferredStyle: UIAlertControllerStyle.alert)
+            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+        
+            parentVC.present(confirm, animated: true, completion: nil)
+        
+        }
         
     }
     
@@ -112,7 +123,8 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         
-        imageView.image = images[indexPath.row]
+        imageView.imageFromServerURL(urlString: images[indexPath.row])
+//        imageView.image = images[indexPath.row]
         
         return cell
         

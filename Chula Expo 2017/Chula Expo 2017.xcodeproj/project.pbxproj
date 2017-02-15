@@ -96,6 +96,7 @@
 		80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D11E27ED6F00491730 /* StageCell.swift */; };
 		80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D31E27ED8300491730 /* EventFeedCell.swift */; };
 		80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */; };
+		80D103241E54AF55004F8998 /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D103231E54AF55004F8998 /* EventsController.swift */; };
 		80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */; };
 		80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */; };
 		80DC94251E366B5200A1D01A /* RoundData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC94191E366B5200A1D01A /* RoundData+CoreDataClass.swift */; };
@@ -209,6 +210,7 @@
 		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageCell.swift; path = First_home/StageCell.swift; sourceTree = "<group>"; };
 		80BFD4D31E27ED8300491730 /* EventFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventFeedCell.swift; path = First_home/EventFeedCell.swift; sourceTree = "<group>"; };
 		80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoreDataTableViewController.swift; path = First_home/CoreData/MainCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		80D103231E54AF55004F8998 /* EventsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
 		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = Third_events/EventTableViewCell.swift; sourceTree = "<group>"; };
 		80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTableViewController.swift; path = Third_events/CoreData/CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		80DC94191E366B5200A1D01A /* RoundData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RoundData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/RoundData+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -453,20 +455,17 @@
 			isa = PBXGroup;
 			children = (
 				80320A841E4F10A200278CCC /* EventAsset.xcassets */,
+				80D103251E54AFB2004F8998 /* Old */,
 				80BFD4D81E27F3AA00491730 /* CoreData */,
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
 				80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */,
-				80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */,
 				802F979D1E4AD01900B83976 /* CityLayout.swift */,
+				80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */,
 				80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */,
 				80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */,
 				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
-				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
+				80D103231E54AF55004F8998 /* EventsController.swift */,
 				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
-				802F13B21E23FC240098A687 /* BookTableViewCell.swift */,
-				80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */,
-				80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */,
-				80314F3C1E4A1D61003DB96A /* CollectionViewController.swift */,
 			);
 			name = Third_events;
 			sourceTree = "<group>";
@@ -494,10 +493,22 @@
 			isa = PBXGroup;
 			children = (
 				80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */,
-				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
-				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		80D103251E54AFB2004F8998 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
+				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
+				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
+				802F13B21E23FC240098A687 /* BookTableViewCell.swift */,
+				80073CDD1E1E32AF00C1F64E /* FacityTableViewCell.swift */,
+				80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */,
+				80314F3C1E4A1D61003DB96A /* CollectionViewController.swift */,
+			);
+			name = Old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -718,6 +729,7 @@
 				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
 				5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */,
 				80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */,
+				80D103241E54AF55004F8998 /* EventsController.swift in Sources */,
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
 				581940D11E4463AB000C566C /* SearchViewController.swift in Sources */,
 				80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */,

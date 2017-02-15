@@ -21,23 +21,25 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     
     var selectionIndicatorView: UIView = UIView()
     var selectedDate: Int = 1
-    var stageNo: Int?
-        {
-        didSet
-        {
+    var stageNo: Int? {
+        
+        didSet {
+            
             updateUI()
         }
     }
-    var managedObjectContext: NSManagedObjectContext?
-        {
-        didSet
-        {
+    var managedObjectContext: NSManagedObjectContext? {
+        
+        didSet {
+            
             updateUI()
         }
     }
     
     var selectSection: Int?{
+        
         didSet{
+            
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
         }

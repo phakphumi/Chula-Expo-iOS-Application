@@ -27,6 +27,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var prayerIcon: UIView!
     @IBOutlet var carParkIcon: UIView!
     
+    @IBOutlet var navigatorView: UIView!
+    @IBOutlet var navigatorPin: UIImageView!
+    @IBOutlet var facultyNameEn: UILabel!
+    @IBOutlet var facultyNameTh: UILabel!
+    @IBOutlet var navigatorCancel: UIView!
+    
     let managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
@@ -75,8 +81,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     ]
     
+    var facultyTh = [String: String]()
+    var facultyEn = [String: String]()
+    
     var isDescShowing = false
     var isCurrentShowing = false
+    var isNavigatorShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +143,19 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         carParkIcon.layer.cornerRadius = carParkIcon.frame.height / 2
         carParkIcon.layer.borderWidth = 3
         carParkIcon.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
+        
+        navigatorView.layer.cornerRadius = 10
+//        navigatorView.layer.masksToBounds = true
+        navigatorView.layer.shadowOffset = CGSize.zero
+        navigatorView.layer.shadowColor = UIColor.black.cgColor
+        navigatorView.layer.shadowOpacity = 0.3
+        navigatorView.layer.shadowRadius = 2
+        
+        navigatorCancel.layer.cornerRadius = navigatorCancel.frame.height / 2
+        navigatorCancel.layer.shadowOffset = CGSize.zero
+        navigatorCancel.layer.shadowColor = UIColor.black.cgColor
+        navigatorCancel.layer.shadowOpacity = 0.3
+        navigatorCancel.layer.shadowRadius = 2
         
     }
 
@@ -203,7 +226,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        if annotation is MKUserLocation || annotation.subtitle! == nil {
+        if annotation is MKUserLocation || annotation.title! == nil {
             
             return nil
             
@@ -216,11 +239,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         if annotationView == nil {
             
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-            annotationView?.canShowCallout = true
+//            annotationView?.canShowCallout = true
             
             // Resize image
             
-            let pinImage = annotationIcon[annotation.subtitle!!]
+            let pinImage = annotationIcon[annotation.title!!]
             
             let size = CGSize(width: 33.67, height: 48.33)
             UIGraphicsBeginImageContext(size)
@@ -228,10 +251,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             
+            
             annotationView?.image = resizedImage
             
-            let rightButton: AnyObject! = UIButton(type: UIButtonType.detailDisclosure)
-            annotationView?.rightCalloutAccessoryView = rightButton as? UIView
+            let rightButton = UIButton(type: UIButtonType.detailDisclosure)
+            annotationView?.rightCalloutAccessoryView = rightButton
             
         } else {
             
@@ -243,6 +267,50 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        let selectedAnnotation = view.annotation as? MKPointAnnotation
+        
+        if isNavigatorShowing {
+            
+            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+            facultyNameTh.text = facultyTh[(selectedAnnotation?.title)!]
+            facultyNameEn.text = facultyEn[(selectedAnnotation?.title)!]
+            
+        } else {
+            
+            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+            facultyNameTh.text = facultyTh[(selectedAnnotation?.title)!]
+            facultyNameEn.text = facultyEn[(selectedAnnotation?.title)!]
+            
+            UIView.animate(withDuration: 0.5, animations: {
+            
+                self.navigatorView.isHidden = false
+                self.navigatorCancel.isHidden = false
+                
+            })
+            
+            isNavigatorShowing = true
+            
+        }
+        
+        
+        print(selectedAnnotation?.title)
+        
+    }
+    
+    @IBAction func hideNavigator(_ sender: UIButton) {
+        
+        if isNavigatorShowing {
+        
+            navigatorCancel.isHidden = true
+            navigatorView.isHidden = true
+            
+            isNavigatorShowing = false
+            
+        }
+        
+    }
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //        
 //        // Don't want to show a custom image if the annotation is the user's location.
@@ -305,7 +373,9 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             let zoneAnnotation = MKPointAnnotation()
             zoneAnnotation.coordinate = zoneCoordinate
-            zoneAnnotation.subtitle = zoneLocation["shortName"]
+            zoneAnnotation.title = zoneLocation["shortName"]
+            facultyEn.updateValue(zoneLocation["name"]!, forKey: zoneLocation["shortName"]!)
+            facultyTh.updateValue(zoneLocation["nameTh"]!, forKey: zoneLocation["shortName"]!)
             
             map.addAnnotation(zoneAnnotation)
             

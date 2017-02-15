@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bBm-ic-pP8">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,6 +9,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="SukhumvitSet.ttc">
+            <string>SukhumvitSet-Medium</string>
             <string>SukhumvitSet-SemiBold</string>
             <string>SukhumvitSet-Text</string>
         </array>
@@ -23,11 +24,11 @@
                         <viewControllerLayoutGuide type="bottom" id="dcX-s3-PvN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BFL-xF-YJL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DBx-34-xfv">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-sH-3aY">
                                 <rect key="frame" x="13" y="75" width="155" height="40"/>
@@ -51,7 +52,7 @@
                                         <rect key="frame" x="10" y="48" width="40" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="students-cap" translatesAutoresizingMaskIntoConstraints="NO" id="nD4-Dp-KvG">
-                                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="8" width="25" height="25"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.79676657915115356" green="0.22131633758544922" blue="0.20880782604217529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +69,7 @@
                                         <rect key="frame" x="10" y="98" width="40" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico-star" translatesAutoresizingMaskIntoConstraints="NO" id="QLr-vC-EpW">
-                                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="8" width="25" height="25"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.88392442464828491" blue="0.34743431210517883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,7 +86,7 @@
                                         <rect key="frame" x="10" y="148" width="40" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canteen" translatesAutoresizingMaskIntoConstraints="NO" id="3Qa-ut-iD7">
-                                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="8" width="25" height="25"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.64753681421279907" green="0.93397778272628784" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -102,7 +103,7 @@
                                         <rect key="frame" x="10" y="198" width="40" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toilet" translatesAutoresizingMaskIntoConstraints="NO" id="64B-VC-qfx">
-                                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="8" width="25" height="25"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.35929623246192932" green="0.64628022909164429" blue="0.89979881048202515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,7 +120,7 @@
                                         <rect key="frame" x="10" y="248" width="40" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prayer" translatesAutoresizingMaskIntoConstraints="NO" id="SHe-pv-nYX">
-                                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="8" width="25" height="25"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.88520461320877075" blue="0.81368762254714966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -136,7 +137,7 @@
                                         <rect key="frame" x="10" y="298" width="40" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="dpR-eO-hmt">
-                                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="8" width="25" height="25"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.18509575724601746" green="0.48799824714660645" blue="0.77450257539749146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -416,7 +417,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q41-1c-XXe">
-                                <rect key="frame" x="180" y="75" width="127" height="40"/>
+                                <rect key="frame" x="235" y="75" width="127" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNC-FL-xWF">
                                         <rect key="frame" x="0.0" y="4" width="127" height="33"/>
@@ -452,6 +453,47 @@
                                     <constraint firstAttribute="width" constant="127" id="rm6-K4-aEU"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aze-Xl-ROs">
+                                <rect key="frame" x="22" y="533" width="330" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ENG-PIN" translatesAutoresizingMaskIntoConstraints="NO" id="W15-Ec-tBD">
+                                        <rect key="frame" x="18" y="8" width="34" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Faculty of Engineering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jp6-k3-xcr">
+                                        <rect key="frame" x="67" y="10" width="255" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="YuE-AR-3li">
+                                        <rect key="frame" x="67" y="34" width="255" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98812824487686157" green="0.98829704523086548" blue="0.988117516040802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFY-xM-4PQ">
+                                <rect key="frame" x="335" y="522" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DM0-BR-L1U">
+                                        <rect key="frame" x="7.5" y="7.5" width="10" height="10"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="multiply"/>
+                                        <connections>
+                                            <action selector="hideNavigator:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="inC-3S-c01"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -477,16 +519,21 @@
                         <outlet property="descButton" destination="42y-16-LY5" id="M1Q-Ah-Wji"/>
                         <outlet property="descIcon" destination="WFC-Fj-wiH" id="hEW-4g-e1d"/>
                         <outlet property="facultyIcon" destination="uRN-em-TIm" id="iRh-iL-eQX"/>
+                        <outlet property="facultyNameEn" destination="jp6-k3-xcr" id="SDE-Yh-e6M"/>
+                        <outlet property="facultyNameTh" destination="YuE-AR-3li" id="eJQ-V6-DXx"/>
                         <outlet property="favoriteIcon" destination="xVw-5p-i4J" id="wyn-CL-rZu"/>
                         <outlet property="iconDescView" destination="cqx-sH-3aY" id="kXW-Ce-WaT"/>
                         <outlet property="map" destination="DBx-34-xfv" id="sUj-HP-bLp"/>
+                        <outlet property="navigatorCancel" destination="dFY-xM-4PQ" id="qnf-Wf-Mj4"/>
+                        <outlet property="navigatorPin" destination="W15-Ec-tBD" id="qzS-db-JXA"/>
+                        <outlet property="navigatorView" destination="aze-Xl-ROs" id="cPN-SM-TNW"/>
                         <outlet property="prayerIcon" destination="xbB-IP-Tac" id="7ev-QZ-hWm"/>
                         <outlet property="toiletIcon" destination="szT-P5-Vtd" id="Xzx-fr-ZlH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvK-yQ-9oU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372.5" y="685.56338028169012"/>
+            <point key="canvasLocation" x="1372" y="685.00749625187416"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YMa-fC-YEw">
@@ -498,7 +545,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2IQ-wG-YmE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2IQ-wG-YmE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -516,12 +563,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ENG-PIN" width="101" height="145"/>
         <image name="annotation" width="512" height="512"/>
         <image name="canteen" width="52" height="60"/>
         <image name="car" width="64" height="64"/>
         <image name="ico-star" width="60" height="54"/>
         <image name="list" width="512" height="512"/>
         <image name="mapTabIcon2" width="25" height="25"/>
+        <image name="multiply" width="64" height="64"/>
         <image name="prayer" width="64" height="64"/>
         <image name="students-cap" width="76" height="46"/>
         <image name="toilet" width="60" height="64"/>

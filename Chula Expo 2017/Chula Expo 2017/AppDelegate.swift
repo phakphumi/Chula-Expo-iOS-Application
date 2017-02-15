@@ -264,6 +264,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                              longitude: location["longitude"] as! Double,
                                              latitude: location["latitude"] as! Double,
                                              name: name["en"] as! String,
+                                             nameTh: name["th"] as! String,
                                              welcomeMessage: welcomeMsg["th"] as? String ?? "",
                                              inManageobjectcontext: context)
                         

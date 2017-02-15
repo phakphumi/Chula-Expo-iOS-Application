@@ -24,6 +24,7 @@ extension ZoneData {
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
     @NSManaged public var name: String?
+    @NSManaged public var nameTh: String?
     @NSManaged public var welcomeMessage: String?
     @NSManaged public var toPlaces: NSSet?
 

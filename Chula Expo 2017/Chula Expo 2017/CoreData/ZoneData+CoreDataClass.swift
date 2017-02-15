@@ -21,6 +21,7 @@ public class ZoneData: NSManagedObject {
         longitude: Double,
         latitude: Double,
         name: String,
+        nameTh: String,
         welcomeMessage: String,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> ZoneData?
@@ -43,6 +44,7 @@ public class ZoneData: NSManagedObject {
                 zoneData.longitude = longitude
                 zoneData.latitude = latitude
                 zoneData.name = name
+                zoneData.nameTh = nameTh
                 zoneData.welcomeMessage = welcomeMessage
                 
                 return zoneData
@@ -96,6 +98,8 @@ public class ZoneData: NSManagedObject {
                 locations.append(["latitude": String(result.latitude),
                                   "longitude": String(result.longitude),
                                   "id": result.id!,
+                                  "name": result.name!,
+                                  "nameTh": result.nameTh!,
                                   "shortName": result.shortName!])
                 
             }

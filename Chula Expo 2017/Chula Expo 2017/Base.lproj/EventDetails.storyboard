@@ -135,12 +135,12 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTo-8I-vGq">
                                             <rect key="frame" x="8" y="16" width="359" height="180"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kb-IV6">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kb-IV6">
                                                     <rect key="frame" x="17" y="8" width="329" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KqX-kb-IV6" secondAttribute="height" multiplier="329:30" id="Lfd-8X-qGM"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -150,7 +150,7 @@
                                                         <constraint firstAttribute="width" secondItem="vuV-oO-mdK" secondAttribute="height" multiplier="13:12" id="F31-um-h4a"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้อง 204 ชั้น 2 ตึก 3 คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-V5-gqe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้อง 204 ชั้น 2 ตึก 3 คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-V5-gqe">
                                                     <rect key="frame" x="42" y="42" width="301" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mRi-V5-gqe" secondAttribute="height" multiplier="301:20" id="XYm-pg-2zV"/>
@@ -185,15 +185,22 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="15"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15 มีนาคม" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-PP-Rj7">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 มีนาคม" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-PP-Rj7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="15"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="X2o-PP-Rj7" secondAttribute="height" multiplier="5:1" id="c4S-1Y-8eX"/>
+                                                                        </constraints>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                             </view>
+                                                            <constraints>
+                                                                <constraint firstItem="X2o-PP-Rj7" firstAttribute="width" secondItem="Bgz-0Q-GQD" secondAttribute="width" multiplier="1.07143" id="cr6-M4-wkT"/>
+                                                                <constraint firstItem="X2o-PP-Rj7" firstAttribute="centerY" secondItem="Bgz-0Q-GQD" secondAttribute="centerY" id="d1Y-nd-1gt"/>
+                                                                <constraint firstItem="X2o-PP-Rj7" firstAttribute="centerX" secondItem="Bgz-0Q-GQD" secondAttribute="centerX" multiplier="1.07143" id="gLi-L6-ZjM"/>
+                                                            </constraints>
                                                             <size key="customSize" width="70" height="15"/>
                                                         </collectionViewCell>
                                                     </cells>
@@ -522,7 +529,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
                                                                         <rect key="frame" x="3" y="0.0" width="54" height="25"/>
                                                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
@@ -625,7 +632,7 @@
                                     <constraint firstAttribute="width" secondItem="OjM-j6-hhw" secondAttribute="height" multiplier="149:40" id="u6D-L1-XMz"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
                                 <rect key="frame" x="16" y="215" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oOR-m2-Uen" secondAttribute="height" multiplier="343:40" id="ZIj-IJ-TsS"/>

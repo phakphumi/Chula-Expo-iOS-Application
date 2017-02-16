@@ -43,7 +43,7 @@ class EventsTableViewController: CoreDataTableViewController {
                 
                 else {
                     
-                request.predicate = NSPredicate(format: "any faculty contains[c] %@", facity)
+                request.predicate = NSPredicate(format: "faculty contains[c] %@", facity)
                 }
             
             request.sortDescriptors = [NSSortDescriptor(

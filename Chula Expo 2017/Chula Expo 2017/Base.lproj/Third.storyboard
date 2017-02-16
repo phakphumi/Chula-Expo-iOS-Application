@@ -921,7 +921,7 @@ Cg
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AF2F77C3-872C-4DEB-913B-6D853910F50A" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="47833204-AFC7-4B08-96D8-51E3621B3675" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="DhE-io-uuX"/>
@@ -1235,7 +1235,7 @@ Cg
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BC8DE989-C819-4690-8201-637CCFBA2CE7" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-BE-w5X" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CE9990C6-8F0B-48E8-A3A2-6BF60B7788EF" translatesAutoresizingMaskIntoConstraints="NO" id="KH5-BE-w5X" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="HcX-Og-Hpg"/>
@@ -1317,7 +1317,7 @@ Cg
         </scene>
     </scenes>
     <resources>
-        <image name="AF2F77C3-872C-4DEB-913B-6D853910F50A" width="17" height="18">
+        <image name="47833204-AFC7-4B08-96D8-51E3621B3675" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1389,7 +1389,7 @@ DroOwg7PDtQO1g7YDt0O5Q7oDu0O9Q74DwoPDQ8SAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAA
 DxQ
 </mutableData>
         </image>
-        <image name="BC8DE989-C819-4690-8201-637CCFBA2CE7" width="17" height="18">
+        <image name="CE9990C6-8F0B-48E8-A3A2-6BF60B7788EF" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

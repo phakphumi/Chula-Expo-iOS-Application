@@ -15,7 +15,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var map: MKMapView!
     @IBOutlet var iconDescView: UIView!
     @IBOutlet var iconDescLabel: UILabel!
-    @IBOutlet var miniDescView: UIView!
     @IBOutlet var descIcon: UIImageView!
     @IBOutlet var iconDescButton: UIView!
     
@@ -42,48 +41,50 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var navigatorPin: UIImageView!
     @IBOutlet var facultyNameEn: UILabel!
     @IBOutlet var facultyNameTh: UILabel!
-    @IBOutlet var navigatorCancel: UIView!
+    @IBOutlet var navigatorCancel: UIButton!
     
     @IBOutlet var whereAmIView: UIView!
     @IBOutlet var whereAmILabel: UILabel!
-    @IBOutlet var whereAmICancel: UIView!
+    @IBOutlet var whereAmICancel: UIButton!
     
     
     
     let managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
+    var userLocation = CLLocation(latitude: 13.7387312, longitude: 100.5306979)
+    
     var locationManager = CLLocationManager()
     var annotation = MKPointAnnotation()
     let annotationIcon = [
                             "LAND": #imageLiteral(resourceName: "LAN-PIN"),
-                            "BUSSTOP": #imageLiteral(resourceName: "BUS-PIN1"),
-                            "FAVORITE": #imageLiteral(resourceName: "FAV-PIN"),
-                            "RESERVED": #imageLiteral(resourceName: "RES-PIN"),
+                            "BUSSTOP": #imageLiteral(resourceName: "pin_cutour"),
+                            "FAVORITE": #imageLiteral(resourceName: "pin_landmark"),
+                            "RESERVED": #imageLiteral(resourceName: "pin_landmark"),
                             "CATEEN": #imageLiteral(resourceName: "FOD-PIN"),
                             "TOILET": #imageLiteral(resourceName: "TOI-PIN"),
                             "CARPARK": #imageLiteral(resourceName: "LAN-PIN"),
                             "MUSLIMPRAYER": #imageLiteral(resourceName: "LAN-PIN"),
-                            "ENG": #imageLiteral(resourceName: "ENG-PIN"),
-                            "MED": #imageLiteral(resourceName: "LAN-PIN"),
-                            "SCI": #imageLiteral(resourceName: "LAN-PIN"),
-                            "ACC": #imageLiteral(resourceName: "LAN-PIN"),
-                            "POLSCI": #imageLiteral(resourceName: "POLSCI-PIN"),
-                            "EDU": #imageLiteral(resourceName: "LAN-PIN"),
-                            "PSY": #imageLiteral(resourceName: "LAN-PIN"),
-                            "DENT": #imageLiteral(resourceName: "LAN-PIN"),
-                            "LAW": #imageLiteral(resourceName: "LAN-PIN"),
-                            "COMMARTS": #imageLiteral(resourceName: "LAN-PIN"),
+                            "ENG": #imageLiteral(resourceName: "eng_pin_21"),
+                            "ARTS": #imageLiteral(resourceName: "arts_pin_22"),
+                            "SCI": #imageLiteral(resourceName: "sci_pin_23"),
+                            "POLSCI": #imageLiteral(resourceName: "polsci_pin_24"),
+                            "ARCH": #imageLiteral(resourceName: "arch_pin_25"),
+                            "ACC": #imageLiteral(resourceName: "acc_pin_26"),
+                            "EDU": #imageLiteral(resourceName: "edu_pin_27"),
+                            "COMMARTS": #imageLiteral(resourceName: "commarts_pin_28"),
+                            "ECON": #imageLiteral(resourceName: "econ_pin_29"),
+                            "MED": #imageLiteral(resourceName: "med_pin_30"),
+                            "VET": #imageLiteral(resourceName: "vet_pin_31"),
+                            "DENT": #imageLiteral(resourceName: "dent_pin_32"),
+                            "PHARM": #imageLiteral(resourceName: "pharm_pin_33"),
+                            "LAW": #imageLiteral(resourceName: "law_pin_34"),
+                            "FAA": #imageLiteral(resourceName: "faa_pin_35"),
                             "NUR": #imageLiteral(resourceName: "LAN-PIN"),
-                            "SPSC": #imageLiteral(resourceName: "LAN-PIN"),
-                            "FAA": #imageLiteral(resourceName: "FAA-PIN"),
-                            "ARCH": #imageLiteral(resourceName: "ARCH-PIN"),
-                            "AHS": #imageLiteral(resourceName: "LAN-PIN"),
-                            "VET": #imageLiteral(resourceName: "LAN-PIN"),
-                            "ARTS": #imageLiteral(resourceName: "LAN-PIN"),
-                            "PHARM": #imageLiteral(resourceName: "LAN-PIN"),
-                            "ECON": #imageLiteral(resourceName: "LAN-PIN"),
-                            "CUSAR": #imageLiteral(resourceName: "LAN-PIN"),
+                            "AHS": #imageLiteral(resourceName: "ahs_pin_37"),
+                            "PSY": #imageLiteral(resourceName: "psy_pin_38"),
+                            "SPSC": #imageLiteral(resourceName: "spsc_pin_39"),
+                            "CUSAR": #imageLiteral(resourceName: "cussar_pin_40"),
                             "GRAD": #imageLiteral(resourceName: "GRAND AUDIT"),
                             "SMART": #imageLiteral(resourceName: "SMART-PIN"),
                             "HEALTH": #imageLiteral(resourceName: "LAN-PIN"),
@@ -94,12 +95,14 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "SALA": #imageLiteral(resourceName: "SALA"),
                             "INTERFORUM": #imageLiteral(resourceName: "LAN-PIN"),
                             "MARKET": #imageLiteral(resourceName: "LAN-PIN"),
-                            "INFO": #imageLiteral(resourceName: "INF-PIN")
+                            "INFO": #imageLiteral(resourceName: "pin_information")
     
     ]
     
     var facultyTh = [String: String]()
     var facultyEn = [String: String]()
+    var latitude = [String: CLLocationDegrees]()
+    var longitude = [String: CLLocationDegrees]()
     
     var isDescShowing = false
     var isCurrentShowing = false
@@ -124,17 +127,20 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        let lat: CLLocationDegrees = 13.7387312
-        let lon: CLLocationDegrees = 100.5306979
-        let latDelta: CLLocationDegrees = 0.01
-        let lonDelta: CLLocationDegrees = 0.01
+        setCurrentRegion(lat: 13.7387312, lon: 100.5306979, latDelta: 0.01, lonDelta: 0.01)
+    
+        addZoneAnnotation()
+        
+    }
+    
+    private func setCurrentRegion(lat: CLLocationDegrees, lon: CLLocationDegrees, latDelta: CLLocationDegrees, lonDelta: CLLocationDegrees) {
+        
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
         
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
+        
         map.setRegion(region, animated: true)
-    
-        addZoneAnnotation()
         
     }
 
@@ -239,7 +245,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let userLocation: CLLocation = locations[0]
+        userLocation = locations[0]
         
         map.removeAnnotation(annotation)
         
@@ -276,14 +282,15 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             let pinImage = annotationIcon[annotation.title!!]
             
-            let size = CGSize(width: 33.67, height: 48.33)
-            UIGraphicsBeginImageContext(size)
-            pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
+//            let size = CGSize(width: 33.67, height: 48.33)
+//            UIGraphicsBeginImageContext(size)
+//            pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+//            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
             
             
-            annotationView?.image = resizedImage
+            annotationView?.image = pinImage
+            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 34, height: 48)
             
             let rightButton = UIButton(type: UIButtonType.detailDisclosure)
             annotationView?.rightCalloutAccessoryView = rightButton
@@ -301,6 +308,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         let selectedAnnotation = view.annotation as? MKPointAnnotation
+        
+        setCurrentRegion(lat: latitude[(selectedAnnotation?.title)!]!, lon: longitude[(selectedAnnotation?.title)!]!, latDelta: 0.01, lonDelta: 0.01)
         
         if isNavigatorShowing {
             
@@ -337,9 +346,15 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: 40)
+                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: self.view.bounds.height * 0.059970015)
                 
-                self.miniDescView.frame = CGRect(x: self.miniDescView.frame.origin.x, y: self.miniDescView.frame.origin.y, width: self.miniDescView.frame.width, height: 0)
+                
+                self.facultyButton.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.favoriteButton.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.canteenButton.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.toiletButton.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.prayerButton.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.carParkButton.transform = CGAffineTransform(translationX: 0, y: 0)
                 
             })
             
@@ -350,10 +365,15 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: 350)
-               
-                self.miniDescView.frame = CGRect(x: self.miniDescView.frame.origin.x, y: self.miniDescView.frame.origin.y, width: self.miniDescView.frame.width, height: 290)
+                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: self.view.bounds.height * 0.497751124)
                 
+                self.facultyButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.120481928)
+                self.favoriteButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.265060241)
+                self.canteenButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.409638554)
+                self.toiletButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.554216867)
+                self.prayerButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.698795181)
+                self.carParkButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.843373494)
+               
             })
             
         }
@@ -489,6 +509,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func currentViewTapped(gestureRecognizer: UITapGestureRecognizer) {
         
         if isCurrentShowing {
+            
             hideWherAmI(UIButton())
             
         } else {
@@ -501,6 +522,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             whereAmIView.isHidden = false
             
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.01, lonDelta: 0.01)
             
         }
         
@@ -597,6 +619,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             zoneAnnotation.title = zoneLocation["shortName"]
             facultyEn.updateValue(zoneLocation["name"]!, forKey: zoneLocation["shortName"]!)
             facultyTh.updateValue(zoneLocation["nameTh"]!, forKey: zoneLocation["shortName"]!)
+            latitude.updateValue(Double(zoneLocation["latitude"]!)!, forKey: zoneLocation["shortName"]!)
+            longitude.updateValue(Double(zoneLocation["longitude"]!)!, forKey: zoneLocation["shortName"]!)
             
             map.addAnnotation(zoneAnnotation)
             

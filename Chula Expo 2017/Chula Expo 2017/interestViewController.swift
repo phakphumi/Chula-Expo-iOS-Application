@@ -28,6 +28,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     var fbImage: UIImage!
     var managedObjectContext: NSManagedObjectContext?
     
+    var selectedList: [Bool] = []
     var tapped = [UIImageView]()
     
     @IBOutlet var numberLabel: UILabel!
@@ -82,6 +83,9 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for i in 0...tagList.count{
+            selectedList.append(false)
+        }
         /* let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
          layout.itemSize = CGSize(width: (self.view.frame.width-42.5)/2, height: 100)
@@ -180,9 +184,20 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         }
         //cell.backgroundColor = UIColor.black
+        cell.tag = indexPath.row
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if selectedList[indexPath.row] == false {
+            selectedList[indexPath.row] = true
+            
+        }
+        else {
+            selectedList[indexPath.row] = false
+            print(indexPath.row)
+        }
+    }
 
  
     /*
@@ -194,10 +209,23 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Pass the selected object to the new view controller.
     }
     */
-
     @IBAction func next(_ sender: UIButton) {
+        var check = false
+        for i in 0...tagList.count {
+            print(selectedList[i])
+            if selectedList[i] {
+                check = true
+            }
+        }
         
-        self.performSegue(withIdentifier: "toFaculty", sender: self)
+        if(check == false){
+            let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
+            button2Alert.show()
+        }
+        else {
+            self.performSegue(withIdentifier: "toFaculty", sender: self)
+        }
+        
         
     }
 }

@@ -79,6 +79,42 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar*/
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        
+        if segue.identifier == "toEventDetails" {
+            
+            if let destination = segue.destination as? EventDetailTableViewController{
+                
+                if let eventcell = sender as? EventFeedCell?{
+                    
+                    if let id = eventcell?.activityId{
+                        
+                        if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
+                            
+                            destination.activityId = fetch.activityId
+                            destination.bannerUrl = fetch.bannerUrl
+                            destination.topic = fetch.name
+                            destination.locationDesc = ""
+                            destination.toRounds = fetch.toRound
+                            destination.reservable = fetch.reservable
+                            destination.desc = fetch.desc
+                            destination.room = fetch.room
+                            destination.place = fetch.place
+                            destination.latitude = fetch.latitude
+                            destination.longitude = fetch.longitude
+                            destination.pdf = fetch.pdf
+                            destination.toImages = fetch.toImages
+                            destination.toTags = fetch.toTags
+                            destination.managedObjectContext = self.managedObjectContext
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true

@@ -67,13 +67,13 @@ class InterestCollectionViewCell: UICollectionViewCell {
 
         //interestName1.backgroundColor = UIColor.black.withAlphaComponent(0.4)
     }
-    var isTappedObjects: [Bool] = [false,false,false]
+    var isTappedObjects = false
     func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
         
         print("tap")
         if interestName1.text != nil {
-            if isTappedObjects[0] == true{
-                isTappedObjects[0] = false;
+            if isTappedObjects == true{
+                isTappedObjects = false;
                 //interestName1.font = UIFont(name: interestName1.font.fontName, size: 14)
                 backImg1.frame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x-1, y: backImg1.frame.origin.y-1), size: CGSize(width: backImg1.bounds.size.width+1,height: backImg1.bounds.size.height+1))
                 interestImg1.frame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x-1, y: interestImg1.frame.origin.y-1), size: CGSize(width: interestImg1.bounds.size.width+1,height: interestImg1.bounds.size.height+1))
@@ -99,7 +99,7 @@ class InterestCollectionViewCell: UICollectionViewCell {
                 interestView1.layer.borderWidth = 3
                 interestName1.textColor = UIColor.green
                 
-                isTappedObjects[0] = true;
+                isTappedObjects = true;
             }
             
         }

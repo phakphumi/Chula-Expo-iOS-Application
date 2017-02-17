@@ -196,8 +196,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         print("numofsection   \(cityDatas.count)")
         return 1
     }
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         switch selectedSection {

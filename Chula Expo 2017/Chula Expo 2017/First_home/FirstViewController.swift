@@ -334,8 +334,9 @@ class FirstViewController: MainCoreDataTableViewController {
             print("segue")
             if let dest = segue.destination as? StageExpandTableViewController{
                 dest.managedObjectContext = managedObjectContext
-                dest.stageNo = 1
+                
                 if let stageNo = (sender as? StageCell)?.stage{
+                    dest.stageNo = stageNo
                     dest.title = "Stage \(stageNo) Schedule"
                 }
             }

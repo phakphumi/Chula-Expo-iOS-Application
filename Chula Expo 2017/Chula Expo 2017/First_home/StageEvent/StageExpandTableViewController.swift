@@ -115,7 +115,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         if let context = managedObjectContext{
             if let stageNo = stageNo{
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-//                request.predicate = NSPredicate(format: "stage == %@", stageNo)
+                request.predicate = NSPredicate(format: "stageNo == %i", stageNo)
                 request.sortDescriptors = [NSSortDescriptor(
                     key: "name",
                     ascending: true

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,25 +31,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginPage" translatesAutoresizingMaskIntoConstraints="NO" id="btd-fD-VK3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="836-hJ-Ldy">
-                                <rect key="frame" x="164.5" y="568" width="46" height="30"/>
+                                <rect key="frame" x="164" y="568" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="NNG-St-L30" kind="show" id="0fr-SB-fsN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnX-iv-cce">
-                                <rect key="frame" x="305" y="568.5" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="291" y="569" width="74" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.30542900232474834" blue="0.42288477872157304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Buttonกดด">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="1cI-z6-raX" kind="show" id="LyB-1c-TFn"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginPage" translatesAutoresizingMaskIntoConstraints="NO" id="btd-fD-VK3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,6 +64,7 @@
                             <constraint firstItem="WSP-YP-NMW" firstAttribute="top" secondItem="836-hJ-Ldy" secondAttribute="bottom" constant="20" id="jSA-qQ-B3q"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <segue destination="5AM-Et-Oxl" kind="show" identifier="toUserType" id="uEO-0U-4NF"/>
                         <segue destination="QME-Np-NQV" kind="show" identifier="toHomeScreen" id="gH4-31-fBe"/>
@@ -76,7 +78,7 @@
         <scene sceneID="GHL-cU-sBM">
             <objects>
                 <navigationController navigationBarHidden="YES" id="5AM-Et-Oxl" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xpl-Pi-vJ6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xpl-Pi-vJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -144,7 +146,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นักเรียน นิสิต นักศึกษา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-Us-BmX">
-                                        <rect key="frame" x="7.5" y="75" width="235" height="40"/>
+                                        <rect key="frame" x="8" y="75" width="234" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jEd-Us-BmX" secondAttribute="height" multiplier="117:20" id="rnr-4C-E53"/>
                                         </constraints>
@@ -173,7 +175,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บุคคลทั่วไป" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iX-Dp-2Qt">
-                                        <rect key="frame" x="7.5" y="75" width="235" height="40"/>
+                                        <rect key="frame" x="8" y="75" width="234" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0iX-Dp-2Qt" secondAttribute="height" multiplier="117:20" id="tpY-LA-gzw"/>
                                         </constraints>
@@ -256,7 +258,7 @@
                                 <rect key="frame" x="29" y="60" width="317" height="40"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNk-aP-lsp">
-                                        <rect key="frame" x="0.0" y="0.0" width="40.5" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="40.5" height="40.5"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zNk-aP-lsp" secondAttribute="height" multiplier="1:1" id="IgF-FR-dS0"/>
@@ -996,7 +998,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ประเภทเนื้อหาที่สนใจ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCE-Bg-fgx">
-                                        <rect key="frame" x="54" y="-0.5" width="263" height="40.5"/>
+                                        <rect key="frame" x="54.5" y="0.0" width="262" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aCE-Bg-fgx" secondAttribute="height" multiplier="131:20" id="Wex-5M-dnE"/>
                                         </constraints>
@@ -1320,6 +1322,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="jPc-gd-3Yp"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="XG9-WX-Fxo" id="vye-eO-p3d"/>
                         <outlet property="finButton2" destination="i4X-9j-RYi" id="d2c-yj-4pd"/>
@@ -1344,7 +1347,7 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fK9-5N-HnN"/>
-        <segue reference="6Sk-ae-WEp"/>
+        <segue reference="gH4-31-fBe"/>
+        <segue reference="LyB-1c-TFn"/>
     </inferredMetricsTieBreakers>
 </document>

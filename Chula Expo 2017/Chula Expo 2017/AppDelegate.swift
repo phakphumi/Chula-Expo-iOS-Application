@@ -135,10 +135,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityID)/rounds").responseJSON { (response) in
             
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
+            if let JSON = response.result.value as? NSDictionary{
+                let results = JSON["results"] as! NSArray
+                
+                completion(results)
+            }
             
-            completion(results)
             
         }
         

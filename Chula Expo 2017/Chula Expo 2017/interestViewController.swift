@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 
 class interestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
 
+    
     var userType: String!
     var name: String!
     var email: String!
@@ -83,7 +84,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0...tagList.count{
+        for _ in 0...tagList.count{
             selectedList.append(false)
         }
         /* let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -93,12 +94,15 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
          layout.minimumLineSpacing = 2.5
          collectionView!.collectionViewLayout = layout */
         
+       
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 40, right: 30)
         layout.itemSize = CGSize(width: (self.view.frame.width-65)/3, height: (self.view.frame.width-65)/3)
         layout.minimumInteritemSpacing = 2.5
         layout.minimumLineSpacing = 2.5
         collectionView!.collectionViewLayout = layout
+//        collectionView.allowsSelection = false
+//        collectionView.isUserInteractionEnabled = false
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -111,8 +115,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func viewDidLayoutSubviews() {
-        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
         
+        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
         
     }
     
@@ -172,16 +176,20 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
         
         // Configure the cell
-        if let interestCell = cell as? InterestCollectionViewCell {
+        if let cell = cell as? InterestCollectionViewCell {
             
             if tagList.count > (indexPath.row) {
-                interestCell.imgName[0] = tagList[(indexPath.row)].imgName
-                interestCell.tagName[0] = tagList[(indexPath.row)].tagName
-                interestCell.tagBack[0] = tagList[(indexPath.row)].tagBack
-                interestCell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                cell.imgName[0] = tagList[(indexPath.row)].imgName
+                cell.tagName[0] = tagList[(indexPath.row)].tagName
+                cell.tagBack[0] = tagList[(indexPath.row)].tagBack
+                cell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                cell.didSelectCell = selectedList[indexPath.row]
+                
+    
             }else{
-                interestCell.tagName[0] = ""
+                cell.tagName[0] = ""
             }
+            return cell
         }
         //cell.backgroundColor = UIColor.black
         cell.tag = indexPath.row
@@ -189,14 +197,23 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         if selectedList[indexPath.row] == false {
-            selectedList[indexPath.row] = true
             
+            selectedList[indexPath.row] = true
         }
         else {
+            
             selectedList[indexPath.row] = false
             print(indexPath.row)
         }
+        if let cell = collectionView.cellForItem(at: indexPath) as? InterestCollectionViewCell{
+            
+            cell.didSelectCell = selectedList[indexPath.row]
+            print("\(cell.didSelectCell)")
+            
+        }
+        collectionView.reloadItems(at: [indexPath])
     }
 
  

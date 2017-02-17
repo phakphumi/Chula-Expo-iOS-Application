@@ -45,8 +45,22 @@ public class ActivityData: NSManagedObject {
         
         if let result = (try? context.fetch(request))?.first as? ActivityData
         {
-            // found this event in the database, return it ...
-            print("Found \(result.name) in ActivityData")
+           
+            result.name = name
+            result.desc = desc
+            result.room = room
+            result.place = place
+            result.latitude = latitude
+            result.longitude = longitude
+            result.bannerUrl = bannerUrl
+            result.thumbnailsUrl = thumbnailsUrl
+            result.reservable = reservable
+            result.video = video
+            result.pdf = pdf
+            result.faculty = faculty
+            result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
+ 
+            print("  Found \(result.name) in ActivityData and update data!")
             return result
         }
         else {
@@ -65,13 +79,15 @@ public class ActivityData: NSManagedObject {
                 activityData.thumbnailsUrl = thumbnailsUrl
                 activityData.isHighlight = isHighlight
                 activityData.isStageEvent = false
-                activityData.stageNo = 0
+                activityData.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
                 activityData.video = video
                 activityData.pdf = pdf
+                activityData.faculty = faculty
+                
 //                newData.toImages = toImages
 //                newData.toRound = toRounds
 //                newData.toTags = toTags
-                activityData.faculty = faculty
+                
                 
                 for image in images {
                     
@@ -172,7 +188,30 @@ public class ActivityData: NSManagedObject {
         
             return fetchResult
     }
-
+    
+    class func findStageNoFrom(placeId: String, incontext context: NSManagedObjectContext) -> Int16 {
+        
+        var stage:Int16 = 0
+        
+        context.performAndWait {
+            
+            let zoneId = ZoneData.fetchZoneFromPlace(id: placeId, incontext: context)
+            
+            switch zoneId{
+            case "589c52dfa8bbbb1c7165d3f1":
+                stage = 1
+            case "589c5330a8bbbb1c7165d3f2":
+                stage = 2
+            case "589c536ca8bbbb1c7165d3f3":
+                stage = 3
+            default:
+                break
+            }
+        }
+        
+        return stage
+        
+    }
     
 //    func addRound(
 //        roundNo: Int16,

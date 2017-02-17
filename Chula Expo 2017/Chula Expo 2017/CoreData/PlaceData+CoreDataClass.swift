@@ -59,6 +59,6 @@ public class PlaceData: NSManagedObject {
         
         return nil
         
-    }
+    }   
     
 }

@@ -64,49 +64,82 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var name: UILabel!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        name.text = "ไม่พบข้อมูลผู้ใช้"
-        
+        editproButton.titleLabel?.adjustsFontSizeToFitWidth = true
         managedObjectContext?.performAndWait {
             if let fetchUser = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!){
+                
+                self.profileImg.imageFromServerURL(urlString: fetchUser.profile ?? "")
                 self.name.text = fetchUser.name
                 self.email.text = fetchUser.email
-                self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + fetchUser.gender!
+                self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + (fetchUser.gender ?? "")
                 self.year.text = (fetchUser.level ?? "") + " ปี" + (fetchUser.year ?? "")
                 self.uni.text = fetchUser.school
+            } else {
+                
+                self.name.text = ""
+                self.email.text = ""
+                self.agegen.text = "ไม่พบข้อมูลผู้ใช้ โปรดเข้าสู่ระบบอีกครั้ง"
+                self.agegen.sizeToFit()
+                self.year.text = ""
+                self.uni.text = ""
             }
-            
         }
         
+//        profileImg.imageFromServerURL(urlString: <#T##String#>)
+//        proView.layer.cornerRadius = 7.5
+//        proView.layer.masksToBounds = true
+        proView.cardStyle(background: proView)
+        
+//        editproButton.layer.cornerRadius = 3
+//        editproButton.layer.masksToBounds = true
+        editproButton.cardStyle(background: editproButton)
+        
+//        aboutView.layer.cornerRadius = 3
+//        aboutView.layer.masksToBounds = true
+        aboutView.cardStyle(background: aboutView)
+        
+//        faqView.layer.cornerRadius = 3
+//        faqView.layer.masksToBounds = true
+        faqView.cardStyle(background: faqView)
+        
+//        editfacView.layer.cornerRadius = 3
+//        editfacView.layer.masksToBounds = true
+        editfacView.cardStyle(background: editfacView)
+        
+//        edittagView.layer.cornerRadius = 3
+//        edittagView.layer.masksToBounds = true
+        edittagView.cardStyle(background: edittagView)
+        
+//        eventView.layer.cornerRadius = 3
+//        eventView.layer.masksToBounds = true
+        eventView.cardStyle(background: eventView)
+        
+//        reserveView.layer.cornerRadius = 3
+//        reserveView.layer.masksToBounds = true
+        reserveView.cardStyle(background: reserveView)
+        
+//        reserveView.layer.cornerRadius = 3
+//        reserveView.layer.masksToBounds = true
+        
+
+//        logoutView.layer.cornerRadius = 5
+//        logoutView.layer.masksToBounds = true
+        logoutView.cardStyle(background: logoutView)
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+       
+        super.viewDidLayoutSubviews()
         profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
         profileImg.layer.borderWidth = 3
         profileImg.layer.cornerRadius = profileImg.frame.height / 2
         profileImg.layer.masksToBounds = true
-        proView.layer.cornerRadius = 7.5
-        proView.layer.masksToBounds = true
-        editproButton.layer.cornerRadius = 3
-        editproButton.layer.masksToBounds = true
-        aboutView.layer.cornerRadius = 3
-        aboutView.layer.masksToBounds = true
-        faqView.layer.cornerRadius = 3
-        faqView.layer.masksToBounds = true
-        editfacView.layer.cornerRadius = 3
-        editfacView.layer.masksToBounds = true
-        edittagView.layer.cornerRadius = 3
-        edittagView.layer.masksToBounds = true
-        eventView.layer.cornerRadius = 3
-        eventView.layer.masksToBounds = true
-        reserveView.layer.cornerRadius = 3
-        reserveView.layer.masksToBounds = true
-        reserveView.layer.cornerRadius = 3
-        reserveView.layer.masksToBounds = true
-
-        logoutView.layer.cornerRadius = 5
-        logoutView.layer.masksToBounds = true
-
         
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

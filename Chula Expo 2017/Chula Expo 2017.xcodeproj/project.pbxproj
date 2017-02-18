@@ -114,6 +114,7 @@
 		931613E81E4F713400298127 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E71E4F713400298127 /* FavViewController.swift */; };
 		931613EA1E4F8F8600298127 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E91E4F8F8600298127 /* FAQViewController.swift */; };
 		931613EC1E4F910D00298127 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613EB1E4F910D00298127 /* FAQTableViewCell.swift */; };
+		93753C071E5623290048DD6B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93753C061E5623290048DD6B /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -228,6 +229,7 @@
 		931613E71E4F713400298127 /* FavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		931613E91E4F8F8600298127 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		931613EB1E4F910D00298127 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		93753C061E5623290048DD6B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		CBC6164695A978B130E3802A /* Pods_Chula_Expo_2017.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chula_Expo_2017.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -338,6 +340,7 @@
 				931613E71E4F713400298127 /* FavViewController.swift */,
 				931613E91E4F8F8600298127 /* FAQViewController.swift */,
 				931613EB1E4F910D00298127 /* FAQTableViewCell.swift */,
+				93753C061E5623290048DD6B /* AboutViewController.swift */,
 			);
 			name = Fourth_more;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				80DC94281E366B5200A1D01A /* ActivityData+CoreDataProperties.swift in Sources */,
 				808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */,
 				80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */,
+				93753C071E5623290048DD6B /* AboutViewController.swift in Sources */,
 				803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				80314F3F1E4A2F0D003DB96A /* CityCollectionViewCell.swift in Sources */,

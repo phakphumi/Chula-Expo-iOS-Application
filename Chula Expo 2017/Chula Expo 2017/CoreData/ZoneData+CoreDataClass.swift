@@ -132,5 +132,21 @@ public class ZoneData: NSManagedObject {
         return nil
 
     }
+    
+    class func fetchZoneFromPlace(id: String, incontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "ANY toPlaces.id = %@", id)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.id ?? ""
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+
+        return ""
+    }
 
 }

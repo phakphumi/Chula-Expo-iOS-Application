@@ -9,34 +9,43 @@
 import UIKit
 
 class InterestCollectionViewCell: UICollectionViewCell {
-    var imgName: [String?] = ["","",""]
-        {
+    var imgName: [String?] = ["","",""] {
+        
         didSet{
             updateUI()
         }
     }
     
-    var tagName: [String?] = ["","",""]
-        {
+    var tagName: [String?] = ["","",""] {
+        
         didSet{
             updateUI()
         }
     }
     
-    var tagBack: [String?] = ["","",""]
-        {
+    var tagBack: [String?] = ["","",""] {
+        
         didSet{
             updateUI()
         }
     }
     
-    var tagEngName: [String?] = ["","",""]
-        {
+    var tagEngName: [String?] = ["","",""] {
+        
         didSet{
             updateUI()
         }
     }
+    
+    var didSelectCell: Bool = false {
+        
+        didSet{
+            updateUI()
+        }
+    }
+    
     @IBOutlet weak var interestView1: UIView! {
+        
         didSet{
             roundedCornerBack1()
         }
@@ -47,68 +56,45 @@ class InterestCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var interestName1: UILabel!
     @IBOutlet weak var engName1: UILabel!
     
+    var isAlreadyUpdateFrameSize = false
+    
+    var bigBackImgFrame : CGRect = CGRect()
+    var bigInterestImagFrame : CGRect = CGRect()
+    var bigInterestNameFrame : CGRect = CGRect()
+    var bigEngnameframe : CGRect = CGRect()
+    var smallBackImgFrame : CGRect = CGRect()
+    var smallInterestImagFrame : CGRect = CGRect()
+    var smallInterestNameFrame : CGRect = CGRect()
+    var smallEngnameframe : CGRect = CGRect()
+
+    var f = 0
     override func layoutSubviews() {
+        
         super.layoutSubviews()
         roundedCornerBack1()
-        
         backImg1.isUserInteractionEnabled = true
         interestImg1.isUserInteractionEnabled = true
-        
-        let tapGestureRecognizer1 = UITapGestureRecognizer(target: self, action: #selector(InterestCollectionViewCell.wasTapped(gestureRecognizer:)))
-        tapGestureRecognizer1.numberOfTapsRequired = 1
-        
-        backImg1.addGestureRecognizer(tapGestureRecognizer1)
-        
-        let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(InterestCollectionViewCell.wasTapped(gestureRecognizer:)))
-        tapGestureRecognizer2.numberOfTapsRequired = 1
-        
-        interestImg1.addGestureRecognizer(tapGestureRecognizer2)
-        
-
+      //  setupFrame()
         //interestName1.backgroundColor = UIColor.black.withAlphaComponent(0.4)
     }
-    var isTappedObjects: [Bool] = [false,false,false]
-    func wasTapped(gestureRecognizer: UITapGestureRecognizer) {
-        
-        print("tap")
-        if interestName1.text != nil {
-            if isTappedObjects[0] == true{
-                isTappedObjects[0] = false;
-                //interestName1.font = UIFont(name: interestName1.font.fontName, size: 14)
-                backImg1.frame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x-1, y: backImg1.frame.origin.y-1), size: CGSize(width: backImg1.bounds.size.width+1,height: backImg1.bounds.size.height+1))
-                interestImg1.frame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x-1, y: interestImg1.frame.origin.y-1), size: CGSize(width: interestImg1.bounds.size.width+1,height: interestImg1.bounds.size.height+1))
-                interestName1.frame = CGRect(origin: CGPoint(x:interestName1.frame.origin.x-1, y: interestName1.frame.origin.y-1), size: CGSize(width: interestName1.bounds.size.width+1,height: interestName1.bounds.size.height+1))
-                engName1.frame = CGRect(origin: CGPoint(x:engName1.frame.origin.x-1, y: engName1.frame.origin.y-1), size: CGSize(width: engName1.bounds.size.width+1,height: engName1.bounds.size.height+1))
-                
-                //interestName1.font = UIFont.systemFont(ofSize: 14)
-               
-                interestView1.layer.borderColor = UIColor.white.cgColor
-                interestView1.layer.borderWidth = 0
-                interestName1.textColor = UIColor.white
-                
-                
-            }
-            else {
-                //interestName1.font = UIFont.systemFont(ofSize: 13)
-                //interestName1.font = UIFont(name: interestName1.font.fontName, size: 13)
-                backImg1.frame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x+1, y: backImg1.frame.origin.y+1), size: CGSize(width: backImg1.bounds.size.width-1,height: backImg1.bounds.size.height-1))
-                engName1.frame = CGRect(origin: CGPoint(x:engName1.frame.origin.x+1, y: engName1.frame.origin.y+1), size: CGSize(width: engName1.bounds.size.width-1,height: engName1.bounds.size.height-1))
-                interestImg1.frame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x+1, y: interestImg1.frame.origin.y+1), size: CGSize(width: interestImg1.bounds.size.width-1,height: interestImg1.bounds.size.height-1))
-                interestName1.frame = CGRect(origin: CGPoint(x:interestName1.frame.origin.x+1, y: interestName1.frame.origin.y+1), size: CGSize(width: interestName1.bounds.size.width-1,height: interestName1.bounds.size.height-1))
-                interestView1.layer.borderColor = UIColor.green.cgColor
-                interestView1.layer.borderWidth = 3
-                interestName1.textColor = UIColor.green
-                
-                isTappedObjects[0] = true;
-            }
-            
-        }
-        
+     /// ปลยังหาวิธีเรียกให้มันได้ค่าที่ถูกต้องไม่ได้เลยย
+    func setupFrame(){
+        print("FM",f)
+        f+=1
+        bigBackImgFrame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x-1, y: backImg1.frame.origin.y-1), size: CGSize(width: backImg1.bounds.size.width+1,height: backImg1.bounds.size.height+1))
+        bigInterestImagFrame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x-1, y: interestImg1.frame.origin.y-1), size: CGSize(width: interestImg1.bounds.size.width+1,height: interestImg1.bounds.size.height+1))
+        bigInterestNameFrame = CGRect(origin: CGPoint(x:interestName1.frame.origin.x-1, y: interestName1.frame.origin.y-1), size: CGSize(width: interestName1.bounds.size.width+1,height: interestName1.bounds.size.height+1))
+        bigEngnameframe = CGRect(origin: CGPoint(x:engName1.frame.origin.x-1, y: engName1.frame.origin.y-1), size: CGSize(width: engName1.bounds.size.width+1,height: engName1.bounds.size.height+1))
+        smallBackImgFrame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x+1, y: backImg1.frame.origin.y+1), size: CGSize(width: backImg1.bounds.size.width-1,height: backImg1.bounds.size.height-1))
+        smallInterestImagFrame = CGRect(origin: CGPoint(x:engName1.frame.origin.x+1, y: engName1.frame.origin.y+1), size: CGSize(width: engName1.bounds.size.width-1,height: engName1.bounds.size.height-1))
+        smallInterestNameFrame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x+1, y: interestImg1.frame.origin.y+1), size: CGSize(width: interestImg1.bounds.size.width-1,height: interestImg1.bounds.size.height-1))
+        smallEngnameframe = CGRect(origin: CGPoint(x:interestName1.frame.origin.x+1, y: interestName1.frame.origin.y+1), size: CGSize(width: interestName1.bounds.size.width-1,height: interestName1.bounds.size.height-1))
     }
-
     
     func updateUI(){
+        
         //Reset old data
+        
         interestImg1.image = nil
         interestName1.text = nil
        // backImg1.image = nil
@@ -117,24 +103,51 @@ class InterestCollectionViewCell: UICollectionViewCell {
         engName1.text = nil
         engName1.isHidden = true
         //Set new data
-        if let Iname1: String = imgName[0]
-        {
+        if let Iname1: String = imgName[0] {
+            
             interestImg1.image = UIImage(named: Iname1)
         }
      /*   if let Bname1: String = tagBack[0]
         {
             backImg1.image = UIImage(named: Bname1)
         }*/
-        if let Tname1: String = tagName[0]
-        {
+        if let Tname1: String = tagName[0] {
+            
             if(Tname1 != ""){interestName1.isHidden = false}
             interestName1.text = Tname1
         }
-        if let Ename1: String = tagEngName[0]
-        {
+        if let Ename1: String = tagEngName[0] {
+            
             if(Ename1 != ""){engName1.isHidden = false}
             engName1.text = Ename1
         }
+/*        if didSelectCell {
+            
+            interestView1.layer.borderColor = UIColor.green.cgColor
+            interestView1.layer.borderWidth = 3
+            interestName1.textColor = UIColor.green
+            backImg1.frame = smallBackImgFrame
+            interestImg1.frame = smallInterestImagFrame
+            interestName1.frame = smallInterestNameFrame
+            engName1.frame = smallEngnameframe
+         //   CGRect(
+            
+        }
+        else {
+            
+            interestView1.layer.borderColor = UIColor.white.cgColor
+            interestView1.layer.borderWidth = 0
+            interestName1.textColor = UIColor.white
+
+            
+            
+            backImg1.frame = bigBackImgFrame
+            interestImg1.frame = bigInterestImagFrame
+            interestName1.frame = bigInterestNameFrame
+            engName1.frame = bigEngnameframe
+            
+        }*/
+//        applyChangeTo(isTappedObjects: isSelected)
     }
     
     

@@ -135,10 +135,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityID)/rounds").responseJSON { (response) in
             
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
+            if let JSON = response.result.value as? NSDictionary{
+                let results = JSON["results"] as! NSArray
+                
+                completion(results)
+            }
             
-            completion(results)
             
         }
         
@@ -157,7 +159,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 let JSON = response.result.value as! NSDictionary
                 let results = JSON["results"] as! NSArray
-            print(results)
+                
+//                print(results)
+                
                 for result in results {
                 
                     let result = result as! NSDictionary
@@ -165,6 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let location = result["location"] as! NSDictionary
                 
                     let startTime = result["start"] as! String
+                    
                     let endTime = result["end"] as! String
                 
                     let pictures = result["pictures"] as? [String] ?? [""]
@@ -175,40 +180,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                         context.performAndWait {
                         
-                            _ = ActivityData.addEventData(activityId: result["_id"] as! String,
-                                                          name: (result["name"] as! NSDictionary)["th"] as! String,
-                                                          desc: (result["description"] as! NSDictionary)["th"] as! String,
-                                                          room: location["room"] as? String ?? "",
-                                                          place: location["place"] as! String,
-                                                          latitude: location["latitude"] as! Double,
-                                                          longitude: location["longitude"] as! Double,
-                                                          bannerUrl: result["banner"] as? String ?? "",
-                                                          thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                                          startTime: dateFormatter.date(from: startTime)!,
-                                                          endTime: dateFormatter.date(from: endTime)!,
-                                                          isFavorite: false,
-                                                          isHighlight: result["isHighlight"] as? Bool ?? false,
-                                                          reservable: false,
-                                                          fullCapacity: 110,
-                                                          reserved: 10,
-                                                          seatAvaliable: 100,
-                                                          isReserve: false,
-                                                          video: result["video"] as? String ?? "",
-                                                          pdf: result["pdf"] as? String ?? "",
-                                                          images: pictures,
-                                                          rounds: rounds,
-                                                          tags: tags,
-                                                          faculty: result["zone"] as! String,
-                                                          inManageobjectcontext: context)
-                        
+                            _ = ActivityData.addEventData(
+                                
+                                activityId: result["_id"] as? String ?? "",
+                                name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
+                                desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
+                                room: location["room"] as? String ?? "",
+                                place: location["place"] as? String ?? "",
+                                latitude: location["latitude"] as? Double ?? 0.0,
+                                longitude: location["longitude"] as? Double ?? 0.0,
+                                bannerUrl: result["banner"] as? String ?? "",
+                                thumbnailsUrl: result["thumbnail"] as? String ?? "",
+                                startTime: dateFormatter.date(from: startTime) ?? Date(),
+                                endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                isFavorite: false,
+                                isHighlight: result["isHighlight"] as? Bool ?? false,
+                                reservable: false,
+                                fullCapacity: 110,
+                                reserved: 10,
+                                seatAvaliable: 100,
+                                isReserve: false,
+                                video: result["video"] as? String ?? "",
+                                pdf: result["pdf"] as? String ?? "",
+                                images: pictures,
+                                rounds: rounds,
+                                tags: tags,
+                                faculty: result["zone"] as? String ?? "",
+                                inManageobjectcontext: context
+                            )
                         }
-                    
                     })
                 
-                
                 }
-            
-            
             
                 do{
                 

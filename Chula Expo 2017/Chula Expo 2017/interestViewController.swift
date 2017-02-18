@@ -13,6 +13,7 @@ private let reuseIdentifier = "Cell"
 
 class interestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
 
+    
     var userType: String!
     var name: String!
     var email: String!
@@ -28,6 +29,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     var fbImage: UIImage!
     var managedObjectContext: NSManagedObjectContext?
     
+    var selectedList: [Bool] = []
     var tapped = [UIImageView]()
     
     @IBOutlet var numberLabel: UILabel!
@@ -82,6 +84,9 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for _ in 0...tagList.count{
+            selectedList.append(false)
+        }
         /* let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
          layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
          layout.itemSize = CGSize(width: (self.view.frame.width-42.5)/2, height: 100)
@@ -89,12 +94,15 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
          layout.minimumLineSpacing = 2.5
          collectionView!.collectionViewLayout = layout */
         
+       
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 30, right: 30)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 40, right: 30)
         layout.itemSize = CGSize(width: (self.view.frame.width-65)/3, height: (self.view.frame.width-65)/3)
         layout.minimumInteritemSpacing = 2.5
         layout.minimumLineSpacing = 2.5
         collectionView!.collectionViewLayout = layout
+//        collectionView.allowsSelection = false
+//        collectionView.isUserInteractionEnabled = false
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -107,8 +115,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func viewDidLayoutSubviews() {
-        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
         
+        numberLabel.layer.cornerRadius = numberLabel.frame.height / 2
         
     }
     
@@ -168,21 +176,65 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
         
         // Configure the cell
-        if let interestCell = cell as? InterestCollectionViewCell {
+        if let cell = cell as? InterestCollectionViewCell {
             
             if tagList.count > (indexPath.row) {
-                interestCell.imgName[0] = tagList[(indexPath.row)].imgName
-                interestCell.tagName[0] = tagList[(indexPath.row)].tagName
-                interestCell.tagBack[0] = tagList[(indexPath.row)].tagBack
-                interestCell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                cell.imgName[0] = tagList[(indexPath.row)].imgName
+                cell.tagName[0] = tagList[(indexPath.row)].tagName
+                cell.tagBack[0] = tagList[(indexPath.row)].tagBack
+                cell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                cell.didSelectCell = selectedList[indexPath.row]
+                
+    
             }else{
-                interestCell.tagName[0] = ""
+                cell.tagName[0] = ""
             }
+            return cell
         }
         //cell.backgroundColor = UIColor.black
+        cell.tag = indexPath.row
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if selectedList[indexPath.row] == false {
+            
+            selectedList[indexPath.row] = true
+        }
+        else {
+            
+            selectedList[indexPath.row] = false
+            
+        }
+        print("Selecr ", indexPath.row)
+        if let cell = collectionView.cellForItem(at: indexPath) as? InterestCollectionViewCell{
+            
+            cell.didSelectCell = selectedList[indexPath.row]
+            if selectedList[indexPath.row] {
+            cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x+1, y: cell.backImg1.frame.origin.y+1), size: CGSize(width: cell.backImg1.bounds.size.width-1,height: cell.backImg1.bounds.size.height-1))
+            cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x+1, y: cell.engName1.frame.origin.y+1), size: CGSize(width: cell.engName1.bounds.size.width-1,height: cell.engName1.bounds.size.height-1))
+            cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x+1, y: cell.interestImg1.frame.origin.y+1), size: CGSize(width: cell.interestImg1.bounds.size.width-1,height: cell.interestImg1.bounds.size.height-1))
+            cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x+1, y: cell.interestName1.frame.origin.y+1), size: CGSize(width: cell.interestName1.bounds.size.width-1,height: cell.interestName1.bounds.size.height-1))
+            cell.interestView1.layer.borderColor = UIColor.green.cgColor
+            cell.interestView1.layer.borderWidth = 3
+            cell.interestName1.textColor = UIColor.green
+            cell.engName1.textColor = UIColor.green
+            }
+            else {
+                cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x-1, y: cell.backImg1.frame.origin.y-1), size: CGSize(width: cell.backImg1.bounds.size.width+1,height: cell.backImg1.bounds.size.height+1))
+                cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x-1, y: cell.engName1.frame.origin.y-1), size: CGSize(width: cell.engName1.bounds.size.width+1,height: cell.engName1.bounds.size.height+1))
+                cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x-1, y: cell.interestImg1.frame.origin.y-1), size: CGSize(width: cell.interestImg1.bounds.size.width+1,height: cell.interestImg1.bounds.size.height+1))
+                cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x-1, y: cell.interestName1.frame.origin.y-1), size: CGSize(width: cell.interestName1.bounds.size.width+1,height: cell.interestName1.bounds.size.height+1))
+                cell.interestView1.layer.borderColor = UIColor.white.cgColor
+                cell.interestView1.layer.borderWidth = 0
+                cell.interestName1.textColor = UIColor.white
+                cell.engName1.textColor = UIColor.white
+            }
+         //   print("\(cell.didSelectCell)")
+            
+        }
+    }
 
  
     /*
@@ -194,10 +246,23 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Pass the selected object to the new view controller.
     }
     */
-
     @IBAction func next(_ sender: UIButton) {
+        var check = false
+        for i in 0...tagList.count {
+           // print(selectedList[i])
+            if selectedList[i] {
+                check = true
+            }
+        }
+        print(check)
+        if(check == false){
+            let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
+            button2Alert.show()
+        }
+        else {
+            self.performSegue(withIdentifier: "toFaculty", sender: self)
+        }
         
-        self.performSegue(withIdentifier: "toFaculty", sender: self)
         
     }
 }

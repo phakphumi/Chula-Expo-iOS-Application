@@ -29,6 +29,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     var tapped = [UIImageView]()
     
+    var selectedList: [Bool] = []
     @IBOutlet var numberLabel: UILabel!
     
     @IBOutlet weak var finButton2: UIButton! {
@@ -78,9 +79,11 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        for _ in 0...tagList.count{
+            selectedList.append(false)
+        }
          let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-         layout.sectionInset = UIEdgeInsets(top: 10, left: 0.08*self.view.frame.width, bottom: 30, right: 0.08*self.view.frame.width)
+         layout.sectionInset = UIEdgeInsets(top: 10, left: 0.08*self.view.frame.width, bottom: 40, right: 0.08*self.view.frame.width)
          layout.itemSize = CGSize(width: 0.415*self.view.frame.width, height: 100)
          layout.minimumInteritemSpacing = 0.006*self.view.frame.width
          layout.minimumLineSpacing = 0.006*self.view.frame.width
@@ -269,7 +272,66 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         }
         
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if selectedList[indexPath.row] == false {
+            
+            selectedList[indexPath.row] = true
+        }
+        else {
+            
+            selectedList[indexPath.row] = false
+            
+        }
+        print("Selecr ", indexPath.row)
+        if let cell = collectionView.cellForItem(at: indexPath) as? interestCollectionViewCell1{
+            
+            //cell.didSelectCell = selectedList[indexPath.row]
+            if selectedList[indexPath.row] {
+                cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x+1, y: cell.backImg1.frame.origin.y+1), size: CGSize(width: cell.backImg1.bounds.size.width-1,height: cell.backImg1.bounds.size.height-1))
+                cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x+1, y: cell.engName1.frame.origin.y+1), size: CGSize(width: cell.engName1.bounds.size.width-1,height: cell.engName1.bounds.size.height-1))
+                cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x+1, y: cell.interestImg1.frame.origin.y+1), size: CGSize(width: cell.interestImg1.bounds.size.width-1,height: cell.interestImg1.bounds.size.height-1))
+                cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x+1, y: cell.interestName1.frame.origin.y+1), size: CGSize(width: cell.interestName1.bounds.size.width-1,height: cell.interestName1.bounds.size.height-1))
+                cell.interestView1.layer.borderColor = UIColor.green.cgColor
+                cell.interestView1.layer.borderWidth = 3
+                cell.interestName1.textColor = UIColor.green
+                cell.engName1.textColor = UIColor.green
+            }
+            else {
+                cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x-1, y: cell.backImg1.frame.origin.y-1), size: CGSize(width: cell.backImg1.bounds.size.width+1,height: cell.backImg1.bounds.size.height+1))
+                cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x-1, y: cell.engName1.frame.origin.y-1), size: CGSize(width: cell.engName1.bounds.size.width+1,height: cell.engName1.bounds.size.height+1))
+                cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x-1, y: cell.interestImg1.frame.origin.y-1), size: CGSize(width: cell.interestImg1.bounds.size.width+1,height: cell.interestImg1.bounds.size.height+1))
+                cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x-1, y: cell.interestName1.frame.origin.y-1), size: CGSize(width: cell.interestName1.bounds.size.width+1,height: cell.interestName1.bounds.size.height+1))
+                cell.interestView1.layer.borderColor = UIColor.white.cgColor
+                cell.interestView1.layer.borderWidth = 0
+                cell.interestName1.textColor = UIColor.white
+                cell.engName1.textColor = UIColor.white
+            }
+      //      print("\(cell.didSelectCell)")
+            
+        }
+    }
     
+    @IBAction func next(_ sender: Any) {
+        var check = false
+        for i in 0...tagList.count {
+            print(selectedList[i])
+            if selectedList[i] {
+                check = true
+            }
+        }
+        
+        if(check == false){
+            let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
+            button2Alert.show()
+        }
+        else {
+            self.performSegue(withIdentifier: "toFinish", sender: self)
+        }
+        
+        
+    }
+
     
     /*
      // MARK: - Navigation

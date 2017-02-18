@@ -67,18 +67,20 @@ class InterestCollectionViewCell: UICollectionViewCell {
     var smallInterestNameFrame : CGRect = CGRect()
     var smallEngnameframe : CGRect = CGRect()
 
-    
+    var f = 0
     override func layoutSubviews() {
         
         super.layoutSubviews()
         roundedCornerBack1()
         backImg1.isUserInteractionEnabled = true
         interestImg1.isUserInteractionEnabled = true
+      //  setupFrame()
         //interestName1.backgroundColor = UIColor.black.withAlphaComponent(0.4)
     }
      /// ปลยังหาวิธีเรียกให้มันได้ค่าที่ถูกต้องไม่ได้เลยย
     func setupFrame(){
-        
+        print("FM",f)
+        f+=1
         bigBackImgFrame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x-1, y: backImg1.frame.origin.y-1), size: CGSize(width: backImg1.bounds.size.width+1,height: backImg1.bounds.size.height+1))
         bigInterestImagFrame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x-1, y: interestImg1.frame.origin.y-1), size: CGSize(width: interestImg1.bounds.size.width+1,height: interestImg1.bounds.size.height+1))
         bigInterestNameFrame = CGRect(origin: CGPoint(x:interestName1.frame.origin.x-1, y: interestName1.frame.origin.y-1), size: CGSize(width: interestName1.bounds.size.width+1,height: interestName1.bounds.size.height+1))
@@ -119,15 +121,16 @@ class InterestCollectionViewCell: UICollectionViewCell {
             if(Ename1 != ""){engName1.isHidden = false}
             engName1.text = Ename1
         }
-        if didSelectCell {
+/*        if didSelectCell {
             
             interestView1.layer.borderColor = UIColor.green.cgColor
             interestView1.layer.borderWidth = 3
             interestName1.textColor = UIColor.green
-//            backImg1.frame = bigBackImgFrame
-//            interestImg1.frame = bigInterestImagFrame
-//            interestName1.frame = bigInterestNameFrame
-//            engName1.frame = bigEngnameframe
+            backImg1.frame = smallBackImgFrame
+            interestImg1.frame = smallInterestImagFrame
+            interestName1.frame = smallInterestNameFrame
+            engName1.frame = smallEngnameframe
+         //   CGRect(
             
         }
         else {
@@ -135,12 +138,15 @@ class InterestCollectionViewCell: UICollectionViewCell {
             interestView1.layer.borderColor = UIColor.white.cgColor
             interestView1.layer.borderWidth = 0
             interestName1.textColor = UIColor.white
-//            backImg1.frame = smallBackImgFrame
-//            interestImg1.frame = smallInterestImagFrame
-//            interestName1.frame = smallInterestNameFrame
-//            engName1.frame = smallEngnameframe
+
             
-        }
+            
+            backImg1.frame = bigBackImgFrame
+            interestImg1.frame = bigInterestImagFrame
+            interestName1.frame = bigInterestNameFrame
+            engName1.frame = bigEngnameframe
+            
+        }*/
 //        applyChangeTo(isTappedObjects: isSelected)
     }
     

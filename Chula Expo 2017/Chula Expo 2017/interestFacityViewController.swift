@@ -158,6 +158,12 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
         }
         
+        if self.age == "-" {
+            
+            self.age = "0"
+            
+        }
+        
         var parameters = [String: Any]()
         
         if self.userType == "Academic" {

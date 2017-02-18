@@ -466,7 +466,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVy-B3-jQx">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QVy-B3-jQx">
                                         <rect key="frame" x="60" y="0.0" width="87" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="QVy-B3-jQx" secondAttribute="height" multiplier="87:40" id="HHU-DJ-ntO"/>
@@ -514,7 +514,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ชาย" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-2D-3Pg">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVN-2D-3Pg">
                                         <rect key="frame" x="50" y="0.0" width="105" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OVN-2D-3Pg" secondAttribute="height" multiplier="21:8" id="Xa3-pF-TDg"/>
@@ -1346,6 +1346,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fK9-5N-HnN"/>
+        <segue reference="JmL-a0-8zi"/>
         <segue reference="6Sk-ae-WEp"/>
     </inferredMetricsTieBreakers>
 </document>

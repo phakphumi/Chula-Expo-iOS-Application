@@ -25,7 +25,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     var fbImage: UIImage!
     var managedObjectContext: NSManagedObjectContext?
     
-    let gender = ["ชาย", "หญิง", "อื่น ๆ"]
+    let gender = ["-", "ชาย", "หญิง", "อื่น ๆ"]
     let education = ["มัธยมต้น", "มัธยมปลาย", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่น ๆ"]
     let educationYear = ["มัธยมต้น": ["ม.1", "ม.2", "ม.3"],
                          "มัธยมปลาย": ["ม.4", "ม.5", "ม.6"],
@@ -258,7 +258,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         if pickerView == agePicker {
         
-            return "\(row + 10)"
+            if row == 0 {
+                
+                return "-"
+                
+            } else {
+                
+                return "\(row + 10)"
+                
+            }
             
         } else if pickerView == genderPicker {
         
@@ -284,7 +292,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         if pickerView == agePicker {
             
-            ageField.text = "\(row + 10)"
+            if row == 0 {
+                
+                ageField.text = "-"
+                
+            } else {
+                
+                ageField.text = "\(row + 10)"
+                
+            }
             
         } else if pickerView == genderPicker {
             

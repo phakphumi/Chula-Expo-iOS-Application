@@ -31,14 +31,16 @@ class EventsController: CoreDataTableViewController {
                 
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
                 
-                if facity == "Favourites" {
+                if facity == "Favourite" {
                     
-                    request.predicate = NSPredicate(format: "toRound.isFavorite == %@", NSNumber(booleanLiteral: true))
+                    print("Favorite place")
+                    request.predicate = NSPredicate(format: "ANY toRound.isFavorite == %@", NSNumber(booleanLiteral: true))
                 }
                     
-                else if facity == "Reservations" {
+                else if facity == "Reservation" {
                     
-                    request.predicate = NSPredicate(format: "toRound.isReserve == %@", NSNumber(booleanLiteral: true))
+                    print("Reserve place")
+                    request.predicate = NSPredicate(format: "ANY toRound.isReserve == %@", NSNumber(booleanLiteral: true))
                 }
                     
                 else {

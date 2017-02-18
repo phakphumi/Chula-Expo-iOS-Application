@@ -189,6 +189,29 @@ public class ActivityData: NSManagedObject {
             return fetchResult
     }
     
+    class func fetchHighlightFromAll(inManageobjectcontext context: NSManagedObjectContext) -> [ActivityData]{
+        
+        var fetchResult = [ActivityData]()
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "isHighlight = true")
+        
+        do {
+            let result = try context.fetch(request)
+            
+            for item in result{
+                if let activityItem = item as? ActivityData{
+                    fetchResult.append(activityItem)
+                }
+            }
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return fetchResult
+    }
+    
     class func findStageNoFrom(placeId: String, incontext context: NSManagedObjectContext) -> Int16 {
         
         var stage:Int16 = 0

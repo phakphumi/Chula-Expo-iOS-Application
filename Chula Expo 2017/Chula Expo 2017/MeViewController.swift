@@ -190,6 +190,29 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
         self.present(confirm, animated: true, completion: nil)
         
-
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        print("\(segue.identifier)")
+        if segue.identifier == "showFavorite" {
+            
+            if let dest = segue.destination as? EventsTableViewController {
+                
+                dest.managedObjectContext = managedObjectContext
+                dest.facity = "Favorite"
+            }
+        }
+        
+        else if segue.identifier == "showReserve"{
+            
+            if let dest = segue.destination as? EventsTableViewController {
+                
+                print("dest")
+                dest.managedObjectContext = managedObjectContext
+                dest.facity = "Reservation"
+            }
+        }
+    }
+    
 }

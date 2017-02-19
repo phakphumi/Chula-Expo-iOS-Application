@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1047,14 +1047,14 @@
                                                                 <constraint firstAttribute="width" secondItem="PNV-kw-Q6K" secondAttribute="height" multiplier="1:1" id="Lo0-Up-ALN"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-qg-wwN">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-qg-wwN">
                                                             <rect key="frame" x="17" y="84" width="136" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-pq-7Bh">
-                                                            <rect key="frame" x="0.0" y="66" width="169" height="36"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-pq-7Bh">
+                                                            <rect key="frame" x="0.0" y="72" width="169" height="24"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -1070,7 +1070,7 @@
                                                         <constraint firstItem="OQE-qg-wwN" firstAttribute="centerY" secondItem="fLM-Ue-q2g" secondAttribute="centerY" multiplier="16:10" id="ftg-88-JGj"/>
                                                         <constraint firstItem="5cj-pq-7Bh" firstAttribute="centerX" secondItem="fLM-Ue-q2g" secondAttribute="centerX" id="i5I-nP-kh5"/>
                                                         <constraint firstItem="5cj-pq-7Bh" firstAttribute="centerY" secondItem="fLM-Ue-q2g" secondAttribute="centerY" multiplier="14:10" id="oZW-3l-u4J"/>
-                                                        <constraint firstItem="5cj-pq-7Bh" firstAttribute="height" secondItem="fLM-Ue-q2g" secondAttribute="height" multiplier="3:10" id="s4T-4E-v9W"/>
+                                                        <constraint firstItem="5cj-pq-7Bh" firstAttribute="height" secondItem="fLM-Ue-q2g" secondAttribute="height" multiplier="2:10" id="s4T-4E-v9W"/>
                                                         <constraint firstItem="OQE-qg-wwN" firstAttribute="height" secondItem="fLM-Ue-q2g" secondAttribute="height" multiplier="2:10" id="zJM-Uv-hR1"/>
                                                     </constraints>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -1227,13 +1227,13 @@
                                                                 <constraint firstAttribute="width" secondItem="bqV-U5-zQF" secondAttribute="height" multiplier="1:1" id="0ep-0a-IaN"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-F3-D6a">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ppe-F3-D6a">
                                                             <rect key="frame" x="0.0" y="78" width="169" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0en-2E-NV1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0en-2E-NV1">
                                                             <rect key="frame" x="-0.5" y="66" width="169" height="36"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1349,7 +1349,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gH4-31-fBe"/>
-        <segue reference="LyB-1c-TFn"/>
-        <segue reference="0fr-SB-fsN"/>
+        <segue reference="6Sk-ae-WEp"/>
+        <segue reference="zdr-QO-sNZ"/>
     </inferredMetricsTieBreakers>
 </document>

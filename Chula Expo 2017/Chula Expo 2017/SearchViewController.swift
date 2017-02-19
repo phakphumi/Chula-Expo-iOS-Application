@@ -326,7 +326,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(!ShouldShowResult){
             if indexPath.row == 1 && indexPath.section == 0 {
-                return self.view.bounds.width * 218 / 375
+                return 0
             }
             else if indexPath.row == 0{
                 

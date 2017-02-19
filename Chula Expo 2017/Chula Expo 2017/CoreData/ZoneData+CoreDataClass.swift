@@ -98,9 +98,45 @@ public class ZoneData: NSManagedObject {
                 locations.append(["latitude": String(result.latitude),
                                   "longitude": String(result.longitude),
                                   "id": result.id!,
-                                  "name": result.name!,
+                                  "nameEn": result.name!,
                                   "nameTh": result.nameTh!,
                                   "shortName": result.shortName!])
+                
+            }
+            
+            return locations
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+        return nil
+        
+    }
+
+    class func fetchPlace(InZone id : String, inManageobjectcontext context: NSManagedObjectContext) -> [[String: String]]?{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id = %@", id)
+        
+        do {
+            
+            let zoneResults = try context.fetch(request).first as? ZoneData
+            
+            let places = zoneResults?.toPlaces?.allObjects as! [PlaceData]
+            
+            var locations = [[String: String]]()
+            
+            for place in places {
+                
+                locations.append(["latitude": String(place.latitude),
+                                  "longitude": String(place.longitude),
+                                  "id": place.id!,
+                                  "nameEn": place.name!,
+//                                  "nameTh": place.nameTh!,
+                                  "code": place.code!])
                 
             }
             

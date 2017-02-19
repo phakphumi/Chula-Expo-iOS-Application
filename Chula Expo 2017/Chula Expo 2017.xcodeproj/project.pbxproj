@@ -47,6 +47,8 @@
 		5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */; };
 		5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */; };
 		5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */; };
+		5F663B291E597C01006F2568 /* FacilityData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F663B271E597C01006F2568 /* FacilityData+CoreDataClass.swift */; };
+		5F663B2A1E597C01006F2568 /* FacilityData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F663B281E597C01006F2568 /* FacilityData+CoreDataProperties.swift */; };
 		5F6F34B91E2F7EFE0090F378 /* SlideshowFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F34B81E2F7EFE0090F378 /* SlideshowFrameViewController.swift */; };
 		5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */; };
 		5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */; };
@@ -162,6 +164,8 @@
 		5F5C7D4A1E10DD9D00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Second.storyboard; sourceTree = "<group>"; };
 		5F5C7D4D1E10DDCC00C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Third.storyboard; sourceTree = "<group>"; };
 		5F5C7D501E10DE1500C9D0F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fourth.storyboard; sourceTree = "<group>"; };
+		5F663B271E597C01006F2568 /* FacilityData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FacilityData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/FacilityData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F663B281E597C01006F2568 /* FacilityData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FacilityData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/FacilityData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F6F34B81E2F7EFE0090F378 /* SlideshowFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowFrameViewController.swift; path = First_home/SlideshowFrameViewController.swift; sourceTree = "<group>"; };
 		5F6F34BC1E2F99D00090F378 /* SlideshowPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideshowPageViewController.swift; path = First_home/SlideshowPageViewController.swift; sourceTree = "<group>"; };
 		5F7A1F211E2E0B2900349134 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryViewController.swift; path = Modal_EventDetails/GalleryViewController.swift; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 			children = (
 				80DC941B1E366B5200A1D01A /* ActivityData+CoreDataClass.swift */,
 				80DC941C1E366B5200A1D01A /* ActivityData+CoreDataProperties.swift */,
+				5F663B271E597C01006F2568 /* FacilityData+CoreDataClass.swift */,
+				5F663B281E597C01006F2568 /* FacilityData+CoreDataProperties.swift */,
 				5FD451501E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift */,
 				5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */,
 				80DC94191E366B5200A1D01A /* RoundData+CoreDataClass.swift */,
@@ -660,11 +666,13 @@
 				581940D91E4516BF000C566C /* interestViewController.swift in Sources */,
 				931613E21E4F6FC900298127 /* HeaderMeTableViewCell.swift in Sources */,
 				5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */,
+				5F663B291E597C01006F2568 /* FacilityData+CoreDataClass.swift in Sources */,
 				80DC94261E366B5200A1D01A /* RoundData+CoreDataProperties.swift in Sources */,
 				5FD451531E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift in Sources */,
 				8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
+				5F663B2A1E597C01006F2568 /* FacilityData+CoreDataProperties.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
 				8000A5401E3785A000AED5EF /* TableHeaderView.swift in Sources */,
 				80DC942C1E366B5300A1D01A /* TagData+CoreDataProperties.swift in Sources */,

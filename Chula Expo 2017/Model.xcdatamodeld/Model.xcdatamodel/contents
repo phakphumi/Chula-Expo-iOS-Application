@@ -21,6 +21,17 @@
         <relationship name="toRound" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoundData" inverseName="toActivity" inverseEntity="RoundData" syncable="YES"/>
         <relationship name="toTags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagData" inverseName="toActivity" inverseEntity="TagData" syncable="YES"/>
     </entity>
+    <entity name="FacilityData" representedClassName="FacilityData" syncable="YES">
+        <attribute name="descEn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descTh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nameEn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameTh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toPlace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlaceData" inverseName="toFacility" inverseEntity="PlaceData" syncable="YES"/>
+    </entity>
     <entity name="FavoritedActivity" representedClassName="FavoritedActivity" syncable="YES">
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -34,6 +45,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toFacility" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FacilityData" inverseName="toPlace" inverseEntity="FacilityData" syncable="YES"/>
         <relationship name="toRooms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoomData" inverseName="toPlace" inverseEntity="RoomData" syncable="YES"/>
         <relationship name="toZone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ZoneData" inverseName="toPlaces" inverseEntity="ZoneData" syncable="YES"/>
     </entity>
@@ -97,12 +109,13 @@
         <element name="ActivityData" positionX="-216" positionY="482" width="128" height="330"/>
         <element name="FavoritedActivity" positionX="-9" positionY="243" width="128" height="60"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="75"/>
-        <element name="PlaceData" positionX="27" positionY="90" width="128" height="148"/>
+        <element name="PlaceData" positionX="27" positionY="90" width="128" height="165"/>
         <element name="RoomData" positionX="216" positionY="122" width="128" height="103"/>
         <element name="RoundData" positionX="117" positionY="659" width="128" height="240"/>
         <element name="TagData" positionX="259" positionY="477" width="128" height="73"/>
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>
         <element name="ZoneData" positionX="-128" positionY="108" width="128" height="195"/>
+        <element name="FacilityData" positionX="-9" positionY="243" width="128" height="180"/>
     </elements>
 </model>

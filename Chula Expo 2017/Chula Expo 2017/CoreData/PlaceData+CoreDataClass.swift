@@ -16,7 +16,8 @@ public class PlaceData: NSManagedObject {
     class func addData(
         id: String,
         code: String,
-        name: String,
+        nameTh: String,
+        nameEn: String,
         longitude: Double,
         latitude: Double,
         zoneID: String,
@@ -29,7 +30,7 @@ public class PlaceData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? PlaceData {
             
             // found this event in the database, return it ...
-            print("Found place \(result.name)")
+            print("Found place \(result.nameEn)")
             return result
             
         } else {
@@ -38,7 +39,8 @@ public class PlaceData: NSManagedObject {
                 // created a new event in the database
                 placeData.id = id
                 placeData.code = code
-                placeData.name = name
+                placeData.nameTh = nameTh
+                placeData.nameEn = nameEn
                 placeData.longitude = longitude
                 placeData.latitude = latitude
                 

@@ -22,7 +22,7 @@ public class RoomData: NSManagedObject {
             
             // found this event in the database, return it ...
             
-            let place = "\(result.name!) \((result.toPlace?.name)!) \((result.toPlace?.toZone?.name)!)"
+            let place = "\(result.name!) \((result.toPlace?.nameEn)!) \((result.toPlace?.toZone?.name)!)"
             
             return place
             
@@ -46,7 +46,7 @@ public class RoomData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? RoomData {
             
             // found this event in the database, return it ...
-            print("Found room \(result.name) in  \(result.toPlace?.name)")
+            print("Found room \(result.name) in  \(result.toPlace?.nameEn)")
             return result
             
         } else {

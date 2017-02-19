@@ -26,15 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         downloadActivities()
         downloadZone()
         
-        let placeRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
-        
-        if let result = (try? managedObjectContext.fetch(placeRequest))?.first as? FacilityData {
-            // found this event in the database, return it ...
-            print(1)
-            print(result)
-            
-        }
-        
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
         print("...")
@@ -326,7 +317,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                     _ = PlaceData.addData(id: result["_id"] as! String,
                                           code: result["code"] as! String,
-                                          name: name["th"] as! String,
+                                          nameTh: name["th"] as! String,
+                                          nameEn: name["en"] as! String,
                                           longitude: location["longitude"] as! Double,
                                           latitude: location["latitude"] as! Double,
                                           zoneID: result["zone"] as! String,

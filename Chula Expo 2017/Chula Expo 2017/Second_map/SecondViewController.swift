@@ -106,7 +106,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var zoneLatitude = [String: CLLocationDegrees]()
     var zoneLongitude = [String: CLLocationDegrees]()
     
-    var placeID = [String: [String]]()
+    var placeZone = [String: String]()
+    var placeTh = [String: [String: String]!]()
     var placeEn = [String: [String: String]!]()
     var placeCode = [String: [String: String]!]()
     var placeLatitude = [String: [String: CLLocationDegrees]!]()
@@ -356,9 +357,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         } else {
             
-//            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-//            facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
-//            facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
+            let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
+            
+            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+            facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
+            facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
             
         }
         
@@ -585,6 +588,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
         
     }
+    
+    @IBAction func eventAroundUser(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "toSearch", sender: self)
+        
+    }
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //        
 //        // Don't want to show a custom image if the annotation is the user's location.
@@ -696,6 +705,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let placeLocations = ZoneData.fetchPlace(InZone: id, inManageobjectcontext: managedObjectContext!)
         
+        placeTh[shortName] = [String: String]()
         placeEn[shortName] = [String: String]()
         placeCode[shortName] = [String: String]()
         placeLatitude[shortName] = [String: CLLocationDegrees]()
@@ -703,7 +713,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         for placeLocation in placeLocations! {
 
-            placeID[shortName]?.append(placeLocation["id"]!)
+            placeZone[placeLocation["id"]!] = shortName
+            placeTh[shortName]?.updateValue(placeLocation["nameTh"]!, forKey: placeLocation["id"]!)
             placeEn[shortName]?.updateValue(placeLocation["nameEn"]!, forKey: placeLocation["id"]!)
             placeCode[shortName]?.updateValue(placeLocation["code"]!, forKey: placeLocation["id"]!)
             placeLatitude[shortName]?.updateValue(Double(placeLocation["latitude"]!)!, forKey: placeLocation["id"]!)

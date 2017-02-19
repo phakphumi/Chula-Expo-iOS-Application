@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sMu-od-yNV">
-    <device id="retina4_7" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sMu-od-yNV">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -52,15 +52,15 @@
             <objects>
                 <tableViewController id="vm9-n6-CPl" customClass="FourthViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9AM-xW-aaQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="headCell" rowHeight="160" id="9GB-Wj-nlD" customClass="FourthHeadTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GB-Wj-nlD" id="DUf-zw-WKh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
@@ -74,7 +74,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1b-48-q2A">
-                                                    <rect key="frame" x="24" y="101" width="42" height="42.5"/>
+                                                    <rect key="frame" x="24.333333333333343" y="101" width="41.666666666666657" height="42.666666666666657"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -95,20 +95,20 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="51" id="eYW-ZK-5gL" customClass="FourthMenuTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="188" width="375" height="51"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
-                                            <rect key="frame" x="8" y="15" width="5.5" height="5.5"/>
+                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="4.6666666666666572" height="5.6666666666666696"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="AEk-Ic-ub0" secondAttribute="height" multiplier="21:20" id="QEx-4s-d7o"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fX7-of-2ey">
-                                            <rect key="frame" x="65" y="7" width="171" height="21"/>
+                                            <rect key="frame" x="65.333333333333343" y="7" width="171" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="fX7-of-2ey" secondAttribute="height" multiplier="286:35" id="Sd5-Nn-q5g"/>
                                             </constraints>
@@ -185,50 +185,50 @@
                         <viewControllerLayoutGuide type="bottom" id="txf-ga-UMH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rBy-l2-u1N">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSU-JG-2WL">
-                                <rect key="frame" x="22" y="80" width="332" height="160"/>
+                                <rect key="frame" x="23.666666666666657" y="88.333333333333343" width="366.66666666666663" height="176.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชื่อ นามสกุล" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Esj-gh-HV1">
-                                        <rect key="frame" x="128" y="22" width="196" height="32"/>
+                                        <rect key="frame" x="139.66666666666669" y="24.333333333333343" width="218.99999999999994" height="34.999999999999986"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fmm Fmm@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
-                                        <rect key="frame" x="128" y="50" width="196" height="16"/>
+                                        <rect key="frame" x="139.66666666666669" y="55.333333333333329" width="218.99999999999994" height="18"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อายุ 20 เพศ ชาย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ptc-uh-xdR">
-                                        <rect key="frame" x="128" y="67" width="196" height="24"/>
+                                        <rect key="frame" x="139.66666666666669" y="73.666666666666671" width="218.99999999999994" height="26.666666666666657"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="ef8-4q-M0P">
-                                        <rect key="frame" x="20" y="22" width="93" height="93"/>
+                                        <rect key="frame" x="22.333333333333329" y="24.333333333333336" width="102.33333333333334" height="102.33333333333331"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ef8-4q-M0P" secondAttribute="height" multiplier="1:1" id="QCF-50-qg6"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ปริญญาตรี ปี2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG8-Mb-aU4">
-                                        <rect key="frame" x="128" y="92" width="196" height="32"/>
+                                        <rect key="frame" x="139.66666666666669" y="101.33333333333333" width="218.99999999999994" height="35.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="มหาวิทยาลัยเทพ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
-                                        <rect key="frame" x="128" y="112" width="196" height="32"/>
+                                        <rect key="frame" x="139.66666666666669" y="123.66666666666669" width="218.99999999999994" height="36"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV6-4b-vrs">
-                                        <rect key="frame" x="20" y="121" width="93" height="26"/>
+                                        <rect key="frame" x="22.333333333333329" y="132.66666666666669" width="102.33333333333334" height="28.333333333333343"/>
                                         <color key="backgroundColor" red="0.17254901960784313" green="0.19215686274509802" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="11"/>
                                         <state key="normal" title="แก้ไขข้อมูลส่วนตัว">
@@ -236,6 +236,7 @@
                                         </state>
                                         <connections>
                                             <action selector="epro:" destination="AOk-xI-MMv" eventType="touchUpInside" id="LBN-P9-2ea"/>
+                                            <segue destination="Tm4-On-wRa" kind="show" identifier="toRegister1" id="wgx-jk-kdj"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -271,22 +272,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czm-V6-wiz">
-                                <rect key="frame" x="22" y="249.5" width="159" height="93"/>
+                                <rect key="frame" x="23.666666666666671" y="275" width="176" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-9z-3Jt">
-                                        <rect key="frame" x="0.0" y="0.0" width="159" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="103"/>
                                         <connections>
                                             <segue destination="JPM-5D-OA6" kind="show" identifier="showFavorite" id="Jrg-Aa-a4p"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
-                                        <rect key="frame" x="57" y="12" width="46" height="46"/>
+                                        <rect key="frame" x="62.666666666666664" y="14" width="50.666666666666679" height="50.666666666666686"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bem-fb-AaB" secondAttribute="height" id="wM5-bR-JSw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYR-8u-1AU">
-                                        <rect key="frame" x="7" y="60" width="144" height="28"/>
+                                        <rect key="frame" x="8.6666666666666714" y="66" width="158" height="31.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -308,22 +309,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zog-kW-qpi">
-                                <rect key="frame" x="194" y="248.5" width="160" height="93"/>
+                                <rect key="frame" x="214.33333333333331" y="275" width="175.99999999999994" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-th-1rY">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="175.99999999999997" height="103"/>
                                         <connections>
                                             <segue destination="JPM-5D-OA6" kind="show" identifier="showReserve" id="ruT-hg-AAa"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reserveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
-                                        <rect key="frame" x="57" y="12" width="46" height="46"/>
+                                        <rect key="frame" x="61.999999999999972" y="14" width="51" height="50.666666666666686"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" id="H0K-Q0-feK"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่จอง" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1a-8t-Iub">
-                                        <rect key="frame" x="8" y="60" width="144" height="28"/>
+                                        <rect key="frame" x="8.6666666666666572" y="66" width="158.66666666666669" height="31.666666666666686"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -345,22 +346,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFe-MQ-ftc">
-                                <rect key="frame" x="22" y="350" width="159" height="93"/>
+                                <rect key="frame" x="23.666666666666671" y="386.66666666666669" width="176" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6A-6i-Fgj">
-                                        <rect key="frame" x="0.0" y="0.0" width="159" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="103"/>
                                         <connections>
                                             <action selector="eTag:" destination="AOk-xI-MMv" eventType="touchUpInside" id="4ST-7r-Fkk"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
-                                        <rect key="frame" x="57" y="12" width="46" height="46"/>
+                                        <rect key="frame" x="62.666666666666664" y="13" width="50.666666666666679" height="51.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccO-y6-VRy" secondAttribute="height" id="BzS-Mh-fhG"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขเนื้อหาที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYU-4I-gUD">
-                                        <rect key="frame" x="7" y="60.5" width="144" height="28"/>
+                                        <rect key="frame" x="8.6666666666666714" y="66.666666666666629" width="158" height="31"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -382,22 +383,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25R-3A-hs5">
-                                <rect key="frame" x="194" y="350" width="160" height="93"/>
+                                <rect key="frame" x="214.33333333333331" y="386.66666666666669" width="175.99999999999994" height="103"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWb-CZ-da0">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="93"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="175.99999999999997" height="103"/>
                                         <connections>
                                             <action selector="eac:" destination="AOk-xI-MMv" eventType="touchUpInside" id="9gd-SF-YAp"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facIcon" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
-                                        <rect key="frame" x="57" y="12" width="46" height="46"/>
+                                        <rect key="frame" x="62.333333333333343" y="13" width="50.666666666666629" height="51.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="scs-2p-fYf" secondAttribute="height" id="FKa-Xz-ll4"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="แก้ไขคณะที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKn-QC-pVk">
-                                        <rect key="frame" x="8" y="60.5" width="144" height="28"/>
+                                        <rect key="frame" x="8.6666666666666572" y="66.666666666666629" width="158.66666666666669" height="31"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -419,22 +420,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6QA-cE-lMX">
-                                <rect key="frame" x="22" y="451.5" width="159" height="94"/>
+                                <rect key="frame" x="23.666666666666671" y="499.33333333333337" width="176" height="103.00000000000011"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CH-ye-Lys">
-                                        <rect key="frame" x="0.0" y="0.0" width="159" height="94"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="103.00000000000006"/>
                                         <connections>
                                             <segue destination="P9t-UE-hci" kind="show" id="SZ0-6c-yWz"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faqIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
-                                        <rect key="frame" x="56" y="12" width="47" height="47"/>
+                                        <rect key="frame" x="62.66666666666665" y="13.000000000000057" width="51.000000000000007" height="51.666666666666629"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TCN-63-zka" secondAttribute="height" id="o2d-3g-JWl"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คำถามที่พบบ่อย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5As-Nf-ABA">
-                                        <rect key="frame" x="7" y="61.5" width="144" height="28"/>
+                                        <rect key="frame" x="8.6666666666666714" y="67.666666666666686" width="158" height="30"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -456,22 +457,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-7i-5D0">
-                                <rect key="frame" x="194" y="451.5" width="160" height="94"/>
+                                <rect key="frame" x="214.33333333333331" y="499.33333333333337" width="175.99999999999994" height="103.00000000000011"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPt-Mv-oax">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="94"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="175.99999999999997" height="103.00000000000006"/>
                                         <connections>
                                             <segue destination="HCd-hD-eyz" kind="show" id="utr-Uu-kEX"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
-                                        <rect key="frame" x="57" y="11" width="47" height="47"/>
+                                        <rect key="frame" x="62.666666666666657" y="12" width="51" height="51.666666666666686"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mId-2y-0eS" secondAttribute="height" id="n1Y-Z2-MLg"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ จุฬาฯ Expo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Yp-oYy">
-                                        <rect key="frame" x="8" y="62" width="144" height="28"/>
+                                        <rect key="frame" x="8.6666666666666572" y="68.000000000000057" width="158.66666666666669" height="30"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -493,10 +494,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apy-IZ-zkK">
-                                <rect key="frame" x="22" y="556" width="332" height="50"/>
+                                <rect key="frame" x="23.666666666666657" y="612.66666666666652" width="366.66666666666663" height="55.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NId-Dp-m4C">
-                                        <rect key="frame" x="0.0" y="0.0" width="332" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366.66666666666663" height="55.333333333333371"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="18"/>
                                         <state key="normal" title="ออกจากระบบ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -613,7 +614,7 @@
                 <viewControllerPlaceholder storyboardName="Third" referencedIdentifier="EventSelect" id="JPM-5D-OA6" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhz-Dk-CCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3191" y="1061"/>
+            <point key="canvasLocation" x="3293" y="1060"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="ktU-bA-dt0">
@@ -624,20 +625,20 @@
                         <viewControllerLayoutGuide type="bottom" id="B2c-HJ-b4m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jac-Oa-YLG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutBG" translatesAutoresizingMaskIntoConstraints="NO" id="mNg-rd-zDh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="jGM-C9-fgT">
-                                <rect key="frame" x="122" y="68" width="131" height="131"/>
+                                <rect key="frame" x="145" y="84.999999999999986" width="124" height="124.66666666666664"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jGM-C9-fgT" secondAttribute="height" id="MQX-b8-WRx"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จุฬาฯ เอ็กซ์โป" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1h-rx-Fxq">
-                                <rect key="frame" x="0.0" y="200" width="375" height="401"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จุฬาฯ เอ็กซ์โป" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="m1h-rx-Fxq">
+                                <rect key="frame" x="0.0" y="220.66666666666663" width="414" height="441.66666666666674"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -657,7 +658,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mNg-rd-zDh" firstAttribute="centerX" secondItem="jac-Oa-YLG" secondAttribute="centerX" id="0dS-nL-GUf"/>
-                            <constraint firstItem="jGM-C9-fgT" firstAttribute="width" secondItem="jac-Oa-YLG" secondAttribute="width" multiplier="0.35" id="3G6-hT-Mhf"/>
+                            <constraint firstItem="jGM-C9-fgT" firstAttribute="width" secondItem="jac-Oa-YLG" secondAttribute="width" multiplier="0.3" id="3G6-hT-Mhf"/>
                             <constraint firstItem="jGM-C9-fgT" firstAttribute="centerY" secondItem="jac-Oa-YLG" secondAttribute="centerY" multiplier="0.4" id="77f-jf-ZEq"/>
                             <constraint firstItem="mNg-rd-zDh" firstAttribute="centerY" secondItem="jac-Oa-YLG" secondAttribute="centerY" id="Det-Tt-RJ3"/>
                             <constraint firstItem="m1h-rx-Fxq" firstAttribute="centerX" secondItem="jac-Oa-YLG" secondAttribute="centerX" id="FK8-mp-Q9f"/>
@@ -688,34 +689,34 @@
                         <viewControllerLayoutGuide type="bottom" id="17d-QU-l3J"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UeX-cX-bCH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="111" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wV0-Az-Shx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="QA" rowHeight="111" id="X6h-Ll-NC3" customClass="FAQTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="111"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="111"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X6h-Ll-NC3" id="Fbk-Nm-Rw4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AO-cB-38u">
-                                                    <rect key="frame" x="9" y="9" width="357" height="94"/>
+                                                    <rect key="frame" x="10.333333333333343" y="9" width="393.33333333333337" height="94"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmq-7H-UTE">
-                                                            <rect key="frame" x="17" y="52" width="322" height="28"/>
+                                                            <rect key="frame" x="19.333333333333343" y="52" width="353.66666666666663" height="28"/>
                                                             <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPA-ge-eSk">
-                                                            <rect key="frame" x="18" y="10" width="321" height="28"/>
+                                                            <rect key="frame" x="19.666666666666657" y="10" width="354" height="28"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -778,7 +779,7 @@
     <resources>
         <image name="aboutBG" width="375" height="667"/>
         <image name="chula_expo_logo_white" width="231" height="300"/>
-        <image name="defaultImage" width="200" height="200"/>
+        <image name="defaultImage" width="133" height="133"/>
         <image name="facIcon" width="66" height="54"/>
         <image name="faqIcon" width="57" height="57"/>
         <image name="favoIcon" width="59" height="57"/>
@@ -786,11 +787,11 @@
         <image name="interIcon" width="56" height="56"/>
         <image name="myprofileTabIcon2" width="25" height="25"/>
         <image name="qr_code" width="16" height="16"/>
-        <image name="reserveIcon" width="64" height="57"/>
+        <image name="reserveIcon" width="63" height="57"/>
         <image name="search" width="14" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ruT-hg-AAa"/>
-        <segue reference="BZF-J1-VGl"/>
+        <segue reference="jvz-yj-9Wh"/>
     </inferredMetricsTieBreakers>
 </document>

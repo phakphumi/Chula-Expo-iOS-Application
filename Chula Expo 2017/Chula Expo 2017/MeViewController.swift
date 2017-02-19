@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import CoreData
+import Foundation
 
 class MeViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var profileImg: UIImageView!
@@ -40,8 +41,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
     @IBAction func epro(_ sender: Any) {
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
+//        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+//        button2Alert.show()
     }
     @IBAction func eTag(_ sender: Any) {
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
@@ -53,7 +54,19 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         button2Alert.show()
     }
     
-    
+    var userType = "Academic"
+    var iname: String?
+    var firstName: String?
+    var lastName: String?
+    var iemail: String?
+    var fbId: String!
+    var fbToken: String!
+    var fbImageProfileUrl: String?
+    var fbImage: UIImage?
+    var age: String!
+    var Egender: String!
+    var school: String!
+
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
 
@@ -77,6 +90,24 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + (fetchUser.gender ?? "")
                 self.year.text = (fetchUser.level ?? "") + " ปี" + (fetchUser.year ?? "")
                 self.uni.text = fetchUser.school
+                
+                self.userType = (fetchUser.type ?? "")
+                self.iname = fetchUser.name
+                self.age = String(fetchUser.age)
+                self.Egender = (fetchUser.gender ?? "")
+                self.school = fetchUser.school
+                let fullNameArr = (fetchUser.name ?? "").components(separatedBy: " ")
+                
+                self.firstName = fullNameArr[0]
+                self.lastName = fullNameArr[1]
+                
+                self.iemail = fetchUser.email
+//                self.fbId = fetchUser.
+//                destination.fbToken = self.fbToken
+//                destination.fbImageProfileUrl = self.fbImageProfileUrl
+                self.fbImage = self.profileImg.image
+                
+                
             } else {
                 
                 self.name.text = ""
@@ -85,6 +116,22 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 self.agegen.sizeToFit()
                 self.year.text = ""
                 self.uni.text = ""
+                
+                self.userType = ""
+                self.iname = ""
+                
+                
+                self.firstName = ""
+                self.lastName = ""
+                self.age = ""
+                self.Egender = ""
+                self.school = ""
+                self.iemail = ""
+                //                self.fbId = fetchUser.
+                //                destination.fbToken = self.fbToken
+                //                destination.fbImageProfileUrl = self.fbImageProfileUrl
+                
+
             }
         }
         
@@ -246,6 +293,30 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 dest.facity = "Reservation"
             }
         }
+        else if segue.identifier == "toRegister1" {
+                
+                let destination = segue.destination as! RegisterViewController
+                
+                destination.userType = self.userType
+                destination.name = self.iname
+                destination.firstName = self.firstName
+                destination.lastName = self.lastName
+                destination.email = self.iemail
+                destination.fbId = self.fbId
+                destination.fbToken = self.fbToken
+                destination.fbImageProfileUrl = self.fbImageProfileUrl
+                destination.fbImage = self.fbImage
+                destination.managedObjectContext = self.managedObjectContext
+                destination.age = self.age
+                destination.Egender = self.Egender
+                destination.school = self.school
+                destination.isEdited = true
+                
+            }
+            
+            
+        
+        
     }
     
 }

@@ -23,6 +23,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     var fbToken: String!
     var fbImageProfileUrl: String?
     var fbImage: UIImage!
+    var age: String!
+    var Egender: String!
+    var school: String!
+    var isEdited: Bool!
     var managedObjectContext: NSManagedObjectContext?
     
     let gender = ["-", "ชาย", "หญิง", "อื่น ๆ"]
@@ -360,19 +364,29 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         lastNameField.text = self.lastName
         emailField.text = self.email
         
+        if (self.isEdited ?? false) {
+            self.ageField.text = self.age
+            self.genderField.text = self.Egender
+            self.schoolField.text = self.school
+        }
+        
     }
     
     private func initialField() {
+//        if let UT: String = userType {
         
-        if userType == "Worker" {
-            
-            educationView.alpha = 0
-            educationYearView.alpha = 0
-            schoolView.alpha = 0
-            
-            careerView.alpha = 1
-            
-        }
+            if userType == "Worker" {
+                
+                educationView.alpha = 0
+                educationYearView.alpha = 0
+                schoolView.alpha = 0
+                
+                careerView.alpha = 1
+                
+            }
+//        }
+
+
         
     }
     

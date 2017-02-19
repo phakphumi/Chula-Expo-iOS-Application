@@ -31,13 +31,16 @@ class EventsTableViewController: CoreDataTableViewController {
             
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             
-                if facity == "Favourite" {
-                
+                if facity == "Favorite" {
+                    
+                    title = "MY FAVORITE"
                     request.predicate = NSPredicate(format: "ANY toRound.isFavorite == %@", NSNumber(booleanLiteral: true))
+                    
                 }
 
                 else if facity == "Reservation" {
-                
+                    
+                    title = "MY RESERVATION"
                     request.predicate = NSPredicate(format: "ANY toRound.isReserve == %@", NSNumber(booleanLiteral: true))
                 }
                 
@@ -78,9 +81,25 @@ class EventsTableViewController: CoreDataTableViewController {
                 
                 if tableView.numberOfRows(inSection: 0) == 1 {
                     
-                    headCell.title1 = "EVENT NOT FOUND!"
-                    headCell.title2 = "ไม่พบกิจกรรมที่เกี่ยวข้อง"
-                    headCell.iconImage = "crossIcon"
+                    if facity == "Reservation"{
+                        
+                        headCell.title1 = "NOT HAVE RESERVATION"
+                        headCell.title2 = "ไม่มีบันทึกการจองกิจกรรมที่สนใจ"
+                        headCell.iconImage = "crossIcon"
+                    }
+                    else if facity == "Favorite"{
+                        
+                        headCell.title1 = "NOT HAVE FAVORITE EVENTS"
+                        headCell.title2 = "คุณยังไม่ได้เพิ่มกิจกรรมที่สนใจ"
+                        headCell.iconImage = "crossIcon"
+                    }
+                    else{
+                        
+                        headCell.title1 = "EVENT NOT FOUND!"
+                        headCell.title2 = "ไม่พบกิจกรรมที่เกี่ยวข้อง"
+                        headCell.iconImage = "crossIcon"
+                    }
+                    
                 } else {
                     
                     headCell.title1 = "RELATED EVENTS"

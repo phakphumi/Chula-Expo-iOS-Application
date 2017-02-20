@@ -19,7 +19,8 @@ extension PlaceData {
 
     @NSManaged public var id: String?
     @NSManaged public var code: String?
-    @NSManaged public var name: String?
+    @NSManaged public var nameTh: String?
+    @NSManaged public var nameEn: String?
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
     @NSManaged public var toZone: ZoneData?

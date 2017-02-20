@@ -14,7 +14,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
-    @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var homeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -35,8 +34,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }*/
     //@IBOutlet var tableHeader: TableHeaderView!
     override func viewDidLoad() {
-    //    super.viewDidLoad()
-       
+        super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
            /* var name: String?
             var toRound: NSSet?
             var thumbnail: String?
@@ -81,7 +81,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-        
         if segue.identifier == "toEventDetails" {
             
             if let destination = segue.destination as? EventDetailTableViewController{
@@ -109,7 +108,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             destination.managedObjectContext = self.managedObjectContext
                         }
                     }
-                }
+                }                
             }
         }
     }
@@ -210,7 +209,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-                var cell: UITableViewCell
+        var cell = UITableViewCell()
         
         if(ShouldShowResult){
             cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
@@ -221,6 +220,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
                 eventFeedCell.thumbnail = fetchActivity[indexPath.row].thumbnailsUrl
                 eventFeedCell.facity = fetchActivity[indexPath.row].faculty
+                
             }
         }
         else {
@@ -284,11 +284,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             eventFeedCell.toRound = toRound
                             eventFeedCell.thumbnail = thumbnail
                             eventFeedCell.facity = facity
+                            
                         }
                     }
 
                 }
         }
+        
+        cell.selectionStyle = .none
         return cell
         
     }

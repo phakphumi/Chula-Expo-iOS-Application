@@ -55,9 +55,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var userLocation = CLLocation(latitude: 13.7387312, longitude: 100.5306979)
     
     var locationManager = CLLocationManager()
+    var annotationLevel = 0
     var annotation = MKPointAnnotation()
     let annotationIcon = [
-                            "LAND": #imageLiteral(resourceName: "LAN-PIN"),
+                            "PLACE": #imageLiteral(resourceName: "pin_landmark"),
                             "BUSSTOP": #imageLiteral(resourceName: "pin_cutour"),
                             "FAVORITE": #imageLiteral(resourceName: "pin_landmark"),
                             "RESERVED": #imageLiteral(resourceName: "pin_landmark"),
@@ -99,10 +100,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     ]
     
-    var facultyTh = [String: String]()
-    var facultyEn = [String: String]()
-    var latitude = [String: CLLocationDegrees]()
-    var longitude = [String: CLLocationDegrees]()
+    var zoneID = [String: String]()
+    var zoneTh = [String: String]()
+    var zoneEn = [String: String]()
+    var zoneLatitude = [String: CLLocationDegrees]()
+    var zoneLongitude = [String: CLLocationDegrees]()
+    
+    var placeZone = [String: String]()
+    var placeTh = [String: [String: String]!]()
+    var placeEn = [String: [String: String]!]()
+    var placeCode = [String: [String: String]!]()
+    var placeLatitude = [String: [String: CLLocationDegrees]!]()
+    var placeLongitude = [String: [String: CLLocationDegrees]!]()
     
     var isDescShowing = false
     var isCurrentShowing = false
@@ -129,6 +138,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         setCurrentRegion(lat: 13.7387312, lon: 100.5306979, latDelta: 0.01, lonDelta: 0.01)
     
+        
+        fetchZoneAnnotation()
         addZoneAnnotation()
         
     }
@@ -270,15 +281,16 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
         
         let annotationIdentifier = "CustomerIdentifier"
-        
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
         
-        if annotationView == nil {
-            
+//        if annotationView == nil {
+        
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
 //            annotationView?.canShowCallout = true
             
             // Resize image
+            
+//            print("\(annotation.title!!) \(annotation.coordinate)")
             
             let pinImage = annotationIcon[annotation.title!!]
             
@@ -295,11 +307,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             let rightButton = UIButton(type: UIButtonType.detailDisclosure)
             annotationView?.rightCalloutAccessoryView = rightButton
             
-        } else {
-            
-            annotationView?.annotation = annotation
-            
-        }
+//        } else {
+//            
+//            annotationView?.annotation = annotation
+//            
+//        }
         
         return annotationView
         
@@ -309,29 +321,47 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let selectedAnnotation = view.annotation as? MKPointAnnotation
         
-        setCurrentRegion(lat: latitude[(selectedAnnotation?.title)!]!, lon: longitude[(selectedAnnotation?.title)!]!, latDelta: 0.01, lonDelta: 0.01)
-        
-        if isNavigatorShowing {
+        if selectedAnnotation?.subtitle == "ZONE" {
             
-            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-            facultyNameTh.text = facultyTh[(selectedAnnotation?.title)!]
-            facultyNameEn.text = facultyEn[(selectedAnnotation?.title)!]
+            map.removeAnnotations(map.annotations)
+            
+            addPlaceAnnotation(forZone: (selectedAnnotation?.title)!)
+            
+            setCurrentRegion(lat: zoneLatitude[(selectedAnnotation?.title)!]!, lon: zoneLongitude[(selectedAnnotation?.title)!]!, latDelta: 0.003, lonDelta: 0.003)
+         
+            if isNavigatorShowing {
+                
+                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+                facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
+                facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
+                
+            } else {
+                
+                hideWherAmI(UIButton())
+                
+                annotationLevel += 1
+                
+                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+                facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
+                facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.navigatorView.isHidden = false
+                    
+                })
+                
+                isNavigatorShowing = true
+                
+            }
             
         } else {
             
-            hideWherAmI(UIButton())
+            let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
             
             navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-            facultyNameTh.text = facultyTh[(selectedAnnotation?.title)!]
-            facultyNameEn.text = facultyEn[(selectedAnnotation?.title)!]
-            
-            UIView.animate(withDuration: 0.5, animations: {
-            
-                self.navigatorView.isHidden = false
-                
-            })
-            
-            isNavigatorShowing = true
+            facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
+            facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
             
         }
         
@@ -522,7 +552,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             whereAmIView.isHidden = false
             
-            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.01, lonDelta: 0.01)
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
             
         }
         
@@ -536,6 +566,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             navigatorView.isHidden = true
             
             isNavigatorShowing = false
+            
+            addZoneAnnotation()
+            
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
             
         }
         
@@ -552,6 +586,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             isCurrentShowing = false
             
         }
+        
+    }
+    
+    @IBAction func eventAroundUser(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "toSearch", sender: self)
         
     }
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -608,21 +648,77 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func addZoneAnnotation() {
         
+        map.removeAnnotations(map.annotations)
+        
+        for (key, _) in zoneEn {
+            
+            let zoneCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: zoneLatitude[key]!, longitude: zoneLongitude[key]!)
+            
+            let zoneAnnotation = MKPointAnnotation()
+            zoneAnnotation.coordinate = zoneCoordinate
+            zoneAnnotation.title = key
+            zoneAnnotation.subtitle = "ZONE"
+            
+            map.addAnnotation(zoneAnnotation)
+            
+        }
+        
+    }
+    
+    func addPlaceAnnotation(forZone shortName: String) {
+        
+        for (key, _) in placeEn[shortName]! {
+            
+            let placeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: placeLatitude[shortName]![key]!, longitude: placeLongitude[shortName]![key]!)
+            
+            let placeAnnotation = MKPointAnnotation()
+            placeAnnotation.coordinate = placeCoordinate
+            placeAnnotation.title = "PLACE"
+            placeAnnotation.subtitle = key
+            
+            map.addAnnotation(placeAnnotation)
+            
+        }
+        
+    }
+    
+    func fetchZoneAnnotation() {
+        
         let zoneLocations = ZoneData.fetchZoneLocation(inManageobjectcontext: managedObjectContext!)
         
         for zoneLocation in zoneLocations! {
             
-            let zoneCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(zoneLocation["latitude"]!)!, longitude: Double(zoneLocation["longitude"]!)!)
+            zoneID.updateValue(zoneLocation["id"]!, forKey: zoneLocation["shortName"]!)
+            zoneEn.updateValue(zoneLocation["nameEn"]!, forKey: zoneLocation["shortName"]!)
+            zoneTh.updateValue(zoneLocation["nameTh"]!, forKey: zoneLocation["shortName"]!)
+            zoneLatitude.updateValue(Double(zoneLocation["latitude"]!)!, forKey: zoneLocation["shortName"]!)
+            zoneLongitude.updateValue(Double(zoneLocation["longitude"]!)!, forKey: zoneLocation["shortName"]!)
             
-            let zoneAnnotation = MKPointAnnotation()
-            zoneAnnotation.coordinate = zoneCoordinate
-            zoneAnnotation.title = zoneLocation["shortName"]
-            facultyEn.updateValue(zoneLocation["name"]!, forKey: zoneLocation["shortName"]!)
-            facultyTh.updateValue(zoneLocation["nameTh"]!, forKey: zoneLocation["shortName"]!)
-            latitude.updateValue(Double(zoneLocation["latitude"]!)!, forKey: zoneLocation["shortName"]!)
-            longitude.updateValue(Double(zoneLocation["longitude"]!)!, forKey: zoneLocation["shortName"]!)
+            fetchPlaceAnnotation(forZone: zoneLocation["id"]!, shortName: zoneLocation["shortName"]!)
             
-            map.addAnnotation(zoneAnnotation)
+        }
+        
+        
+    }
+    
+    func fetchPlaceAnnotation(forZone id: String, shortName: String) {
+        
+        let placeLocations = ZoneData.fetchPlace(InZone: id, inManageobjectcontext: managedObjectContext!)
+        
+        placeTh[shortName] = [String: String]()
+        placeEn[shortName] = [String: String]()
+        placeCode[shortName] = [String: String]()
+        placeLatitude[shortName] = [String: CLLocationDegrees]()
+        placeLongitude[shortName] = [String: CLLocationDegrees]()
+        
+        for placeLocation in placeLocations! {
+
+            placeZone[placeLocation["id"]!] = shortName
+            placeTh[shortName]?.updateValue(placeLocation["nameTh"]!, forKey: placeLocation["id"]!)
+            placeEn[shortName]?.updateValue(placeLocation["nameEn"]!, forKey: placeLocation["id"]!)
+            placeCode[shortName]?.updateValue(placeLocation["code"]!, forKey: placeLocation["id"]!)
+            placeLatitude[shortName]?.updateValue(Double(placeLocation["latitude"]!)!, forKey: placeLocation["id"]!)
+            placeLongitude[shortName]?.updateValue(Double(placeLocation["longitude"]!)!, forKey: placeLocation["id"]!)
             
         }
         

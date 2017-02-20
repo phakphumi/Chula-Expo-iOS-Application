@@ -317,7 +317,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                     _ = PlaceData.addData(id: result["_id"] as! String,
                                           code: result["code"] as! String,
-                                          name: name["th"] as! String,
+                                          nameTh: name["th"] as! String,
+                                          nameEn: name["en"] as! String,
                                           longitude: location["longitude"] as! Double,
                                           latitude: location["latitude"] as! Double,
                                           zoneID: result["zone"] as! String,
@@ -341,6 +342,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             self.downloadRoom()
+            
+            self.downloadFacility()
         
         }
         
@@ -384,6 +387,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 }
             
+            }
+            
+        }
+        
+    }
+    
+    private func downloadFacility() {
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/facilities").responseJSON { (response) in
+            
+            let context = self.managedObjectContext
+            
+            let JSON = response.result.value as! NSDictionary
+            let results = JSON["results"] as! NSArray
+            
+            for result in results {
+                
+                let result = result as! NSDictionary
+                
+                let name = result["name"] as! NSDictionary
+                let desc = result["description"] as! NSDictionary
+                let location = result["location"] as! NSDictionary
+                
+                context.performAndWait {
+                    
+                    _ = FacilityData.addData(id: result["_id"] as! String,
+                                             nameTh: name["th"] as! String,
+                                             nameEn: name["en"] as! String,
+                                             descTh: desc["th"] as! String,
+                                             descEn: desc["en"] as! String,
+                                             type: result["type"] as! String,
+                                             latitude: location["latitude"] as! Double,
+                                             longitude: location["longitude"] as! Double,
+                                             placeID: result["place"] as! String,
+                                             inManageobjectcontext: context)
+
+                }
+                
+                do{
+                    
+                    try context.save()
+                    print("FacilityData Saved")
+                    
+                }
+                    
+                catch let error {
+                    
+                    print("FacilityData save error with \(error)")
+                    
+                }
+                
             }
             
         }

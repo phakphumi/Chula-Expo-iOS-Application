@@ -84,7 +84,7 @@ class FirstViewController: MainCoreDataTableViewController {
     func requestForFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: false))
+        request.predicate = NSPredicate(format: "stageNo = 0")
         request.sortDescriptors = [NSSortDescriptor(
             key: "activityId",
             ascending: true
@@ -162,8 +162,8 @@ class FirstViewController: MainCoreDataTableViewController {
             slideshowPageViewController.imageName = images
             slideshowPageViewController.topicLabelText = titles
             slideshowPageViewController.descLabelText = desc
-            
-//            self.addChildViewController(slideshowPageViewController)
+   
+            self.addChildViewController(slideshowPageViewController)
             cell.contentView.addSubview(slideshowPageViewController.view)
         }
             

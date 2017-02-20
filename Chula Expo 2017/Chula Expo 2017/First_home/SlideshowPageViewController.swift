@@ -110,13 +110,15 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        let currentImageFrameName = (viewController as! SlideshowFrameViewController).imageName
-        let currentImageIndex = imageName?.index(of: currentImageFrameName!)
+        let currentFrameIndex = frameIndex
+        
+//        let currentImageFrameName = (viewController as! SlideshowFrameViewController).imageName
+//        let currentImageIndex = imageName?.index(of: currentImageFrameName!)
 //        let frameViewController = SlideshowFrameViewController()
         
-        if currentImageIndex! < (imageName?.count)! - 1 {
+        if currentFrameIndex < (imageName?.count)! - 1 {
             
-            return frameViewControllers[currentImageIndex! + 1]
+            return frameViewControllers[currentFrameIndex + 1]
 //            setSlideshowPropoties(frameViewController: frameViewController, atIndex: currentImageIndex! + 1)
             
         } else {
@@ -132,19 +134,20 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        let currentImageFrameName = (viewController as! SlideshowFrameViewController).imageName
-        let currentImageIndex = imageName?.index(of: currentImageFrameName!)
+        let currentFrameIndex = frameIndex
+//        let currentImageFrameName = (viewController as! SlideshowFrameViewController).imageName
+//        let currentImageIndex = imageName?.index(of: currentImageFrameName!)
         
 //        let frameViewController = SlideshowFrameViewController()
         
-        if currentImageIndex! > 0 {
+        if currentFrameIndex > 0 {
             
-            return frameViewControllers[currentImageIndex! - 1]
+            return frameViewControllers[currentFrameIndex - 1]
 //            setSlideshowPropoties(frameViewController: frameViewController, atIndex: currentImageIndex! - 1)
             
         } else {
             
-            return frameViewControllers[(imageName?.count)! - 1]
+            return frameViewControllers[frameViewControllers.count - 1]
 //            setSlideshowPropoties(frameViewController: frameViewController, atIndex: (imageName?.count)! - 1)
             
         }
@@ -162,10 +165,14 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         
         if completed {
-            let currentImageFrameName = (pageViewController.viewControllers?.first as! SlideshowFrameViewController).imageName
-            let currentImageIndex = imageName?.index(of: currentImageFrameName!)
+            let currentFrameIndex = (pageViewController.viewControllers?.first as! SlideshowFrameViewController).frameIndex
+//            let currentImageIndex = imageName?.index(of: currentImageFrameName!)
         
-            frameIndex = currentImageIndex!
+            frameIndex = currentFrameIndex
+            
+//            if frameIndex > imageName!.count{
+//                frameIndex = 0
+//            }
             
             self.pageControl.currentPage = frameIndex
             if finished{
@@ -215,6 +222,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
         frameViewController.imageName = imageName?[atIndex]
         frameViewController.topicLabelText = topicLabelText?[atIndex]
         frameViewController.descLabelText = descLabelText?[atIndex]
+        frameViewController.frameIndex = atIndex
         
     }
     

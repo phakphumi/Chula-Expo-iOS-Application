@@ -46,7 +46,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var whereAmIView: UIView!
     @IBOutlet var whereAmILabel: UILabel!
     @IBOutlet var whereAmICancel: UIButton!
-    
+    @IBOutlet weak var eventAroundUser: UIButton!
     
     
     let managedObjectContext: NSManagedObjectContext? =
@@ -62,10 +62,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "BUSSTOP": #imageLiteral(resourceName: "pin_cutour"),
                             "FAVORITE": #imageLiteral(resourceName: "pin_landmark"),
                             "RESERVED": #imageLiteral(resourceName: "pin_landmark"),
-                            "CATEEN": #imageLiteral(resourceName: "FOD-PIN"),
+                            "CANTEEN": #imageLiteral(resourceName: "FOD-PIN"),
                             "TOILET": #imageLiteral(resourceName: "TOI-PIN"),
                             "CARPARK": #imageLiteral(resourceName: "LAN-PIN"),
-                            "MUSLIMPRAYER": #imageLiteral(resourceName: "LAN-PIN"),
+                            "PRAYER": #imageLiteral(resourceName: "LAN-PIN"),
+                            "EMERGENCY": #imageLiteral(resourceName: "LAN-PIN"),
                             "ENG": #imageLiteral(resourceName: "eng_pin_21"),
                             "ARTS": #imageLiteral(resourceName: "arts_pin_22"),
                             "SCI": #imageLiteral(resourceName: "sci_pin_23"),
@@ -100,18 +101,30 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     ]
     
+    var zoneAnnotations = [MKPointAnnotation]()
     var zoneID = [String: String]()
     var zoneTh = [String: String]()
     var zoneEn = [String: String]()
     var zoneLatitude = [String: CLLocationDegrees]()
     var zoneLongitude = [String: CLLocationDegrees]()
     
+    var placeAnnotations = [MKPointAnnotation]()
     var placeZone = [String: String]()
     var placeTh = [String: [String: String]!]()
     var placeEn = [String: [String: String]!]()
     var placeCode = [String: [String: String]!]()
     var placeLatitude = [String: [String: CLLocationDegrees]!]()
     var placeLongitude = [String: [String: CLLocationDegrees]!]()
+    
+    var facilityZone = [String: String]()
+    var facilityPlace = [String: String]()
+    var facilityTh = [String: [String: String]!]()
+    var facilityEn = [String: [String: String]!]()
+    var facilityDescTh = [String: [String: String]!]()
+    var facilityDescEn = [String: [String: String]!]()
+    var facilityType = [String: [String: String]!]()
+    var facilityLatitude = [String: [String: CLLocationDegrees]!]()
+    var facilityLongitude = [String: [String: CLLocationDegrees]!]()
     
     var isDescShowing = false
     var isCurrentShowing = false
@@ -138,6 +151,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         setCurrentRegion(lat: 13.7387312, lon: 100.5306979, latDelta: 0.01, lonDelta: 0.01)
     
+        
+        eventAroundUser.titleLabel?.adjustsFontSizeToFitWidth = true
         
         fetchZoneAnnotation()
         addZoneAnnotation()
@@ -323,9 +338,14 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         if selectedAnnotation?.subtitle == "ZONE" {
             
-            map.removeAnnotations(map.annotations)
-            
+            if isFacultyShowing {
+                
+                toggleDescIconButton(toggleIcon: "faculty")
+                
+            }
+    
             addPlaceAnnotation(forZone: (selectedAnnotation?.title)!)
+            addFacilityAnnotation(forZone: (selectedAnnotation?.title)!)
             
             setCurrentRegion(lat: zoneLatitude[(selectedAnnotation?.title)!]!, lon: zoneLongitude[(selectedAnnotation?.title)!]!, latDelta: 0.003, lonDelta: 0.003)
          
@@ -355,13 +375,21 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             }
             
-        } else {
+        } else if selectedAnnotation?.title == "PLACE" {
             
             let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
             
             navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
             facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
             facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
+            
+        } else {
+            
+            let zoneName = facilityZone[(selectedAnnotation?.subtitle)!]!
+            
+            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+            facultyNameTh.text = facilityTh[zoneName]?[(selectedAnnotation?.subtitle)!]
+            facultyNameEn.text = facilityEn[zoneName]?[(selectedAnnotation?.subtitle)!]
             
         }
         
@@ -418,114 +446,27 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             case facultyButton:
                 
-                if isFacultyShowing {
-                    
-                    isFacultyShowing = false
-                    
-                    facultyIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-                    facultyIcon.layer.borderColor = UIColor.darkGray.cgColor
-                    
-                } else {
-                    
-                    isFacultyShowing = true
-                    
-                    facultyIcon.layer.backgroundColor = UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor
-                    facultyIcon.layer.borderColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1).cgColor
-                    
-                }
+                toggleDescIconButton(toggleIcon: "faculty")
                 
             case favoriteButton:
                 
-                if isFavoriteShowing {
-                    
-                    isFavoriteShowing = false
-                    
-                    favoriteIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-                    favoriteIcon.layer.borderColor = UIColor.darkGray.cgColor
-                    
-                } else {
-                    
-                    isFavoriteShowing = true
-                    
-                    favoriteIcon.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
-                    favoriteIcon.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-                    
-                    
-                }
+                toggleDescIconButton(toggleIcon: "favorite")
                 
             case canteenButton:
                 
-                if isCanteenShowing {
-                    
-                    isCanteenShowing = false
-                    
-                    canteenIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-                    canteenIcon.layer.borderColor = UIColor.darkGray.cgColor
-                    
-                } else {
-                    
-                    isCanteenShowing = true
-                    
-                    canteenIcon.layer.backgroundColor = UIColor(red: 0.654901961, green: 0.925490196, blue: 0, alpha: 1).cgColor
-                    canteenIcon.layer.borderColor = UIColor(red: 0.584, green: 0.824, blue: 0, alpha: 1).cgColor
-                    
-                    
-                }
+                toggleDescIconButton(toggleIcon: "canteen")
                 
             case toiletButton:
                 
-                if isToiletShowing {
-                    
-                    isToiletShowing = false
-                    
-                    toiletIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-                    toiletIcon.layer.borderColor = UIColor.darkGray.cgColor
-                    
-                } else {
-                    
-                    isToiletShowing = true
-                    
-                    toiletIcon.layer.backgroundColor = UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor
-                    toiletIcon.layer.borderColor = UIColor(red: 0.22, green: 0.5725, blue: 0.878, alpha: 1).cgColor
-                    
-                    
-                }
+                toggleDescIconButton(toggleIcon: "toilet")
                 
             case prayerButton:
                 
-                if isPrayerShowing {
-                    
-                    isPrayerShowing = false
-                    
-                    prayerIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-                    prayerIcon.layer.borderColor = UIColor.darkGray.cgColor
-                    
-                } else {
-                    
-                    isPrayerShowing = true
-                    
-                    prayerIcon.layer.backgroundColor = UIColor(red: 0.066666667, green: 0.882352941, blue: 0.811764706, alpha: 1).cgColor
-                    prayerIcon.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
-                    
-                }
+                toggleDescIconButton(toggleIcon: "prayer")
                 
             case carParkButton:
                 
-                if isCarParkShowing {
-                    
-                    isCarParkShowing = false
-                    
-                    carParkIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-                    carParkIcon.layer.borderColor = UIColor.darkGray.cgColor
-                    
-                } else {
-                    
-                    isCarParkShowing = true
-                    
-                    carParkIcon.layer.backgroundColor = UIColor(red: 0.203921569, green: 0.494117647, blue: 0.764705882, alpha: 1).cgColor
-                    carParkIcon.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
-                    
-                }
+                toggleDescIconButton(toggleIcon: "carPark")
                 
             default: break
                 
@@ -556,18 +497,148 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         }
         
+    }
+    
+    private func toggleDescIconButton(toggleIcon: String) {
+        
+        switch toggleIcon {
+            
+        case "faculty":
+            
+            if isFacultyShowing {
+                
+                isFacultyShowing = false
+                
+                facultyIcon.layer.backgroundColor = UIColor.lightGray.cgColor
+                facultyIcon.layer.borderColor = UIColor.darkGray.cgColor
+                
+                map.removeAnnotations(zoneAnnotations)
+                
+            } else {
+                
+                isFacultyShowing = true
+                
+                facultyIcon.layer.backgroundColor = UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor
+                facultyIcon.layer.borderColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1).cgColor
+                
+                map.addAnnotations(zoneAnnotations)
+                
+            }
+            
+        case "favorite":
+            
+            if isFavoriteShowing {
+                
+                isFavoriteShowing = false
+                
+                favoriteIcon.layer.backgroundColor = UIColor.lightGray.cgColor
+                favoriteIcon.layer.borderColor = UIColor.darkGray.cgColor
+                
+            } else {
+                
+                isFavoriteShowing = true
+                
+                favoriteIcon.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
+                favoriteIcon.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
+                
+                
+            }
+            
+        case "canteen":
+            
+            if isCanteenShowing {
+                
+                isCanteenShowing = false
+                
+                canteenIcon.layer.backgroundColor = UIColor.lightGray.cgColor
+                canteenIcon.layer.borderColor = UIColor.darkGray.cgColor
+                
+            } else {
+                
+                isCanteenShowing = true
+                
+                canteenIcon.layer.backgroundColor = UIColor(red: 0.654901961, green: 0.925490196, blue: 0, alpha: 1).cgColor
+                canteenIcon.layer.borderColor = UIColor(red: 0.584, green: 0.824, blue: 0, alpha: 1).cgColor
+                
+                
+            }
+            
+        case "toilet":
+            
+            if isToiletShowing {
+                
+                isToiletShowing = false
+                
+                toiletIcon.layer.backgroundColor = UIColor.lightGray.cgColor
+                toiletIcon.layer.borderColor = UIColor.darkGray.cgColor
+                
+            } else {
+                
+                isToiletShowing = true
+                
+                toiletIcon.layer.backgroundColor = UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor
+                toiletIcon.layer.borderColor = UIColor(red: 0.22, green: 0.5725, blue: 0.878, alpha: 1).cgColor
+                
+                
+            }
+            
+        case "prayer":
+            
+            if isPrayerShowing {
+                
+                isPrayerShowing = false
+                
+                prayerIcon.layer.backgroundColor = UIColor.lightGray.cgColor
+                prayerIcon.layer.borderColor = UIColor.darkGray.cgColor
+                
+            } else {
+                
+                isPrayerShowing = true
+                
+                prayerIcon.layer.backgroundColor = UIColor(red: 0.066666667, green: 0.882352941, blue: 0.811764706, alpha: 1).cgColor
+                prayerIcon.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
+                
+            }
+            
+        case "carPark":
+            
+            if isCarParkShowing {
+                
+                isCarParkShowing = false
+                
+                carParkIcon.layer.backgroundColor = UIColor.lightGray.cgColor
+                carParkIcon.layer.borderColor = UIColor.darkGray.cgColor
+                
+            } else {
+                
+                isCarParkShowing = true
+                
+                carParkIcon.layer.backgroundColor = UIColor(red: 0.203921569, green: 0.494117647, blue: 0.764705882, alpha: 1).cgColor
+                carParkIcon.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
+                
+            }
+            
+        default: break
+            
+        }
         
     }
     
     @IBAction func hideNavigator(_ sender: UIButton) {
         
         if isNavigatorShowing {
+            
+            if !isFacultyShowing {
+                
+                toggleDescIconButton(toggleIcon: "faculty")
+                
+            }
+            
+            map.removeAnnotations(placeAnnotations)
         
             navigatorView.isHidden = true
             
             isNavigatorShowing = false
-            
-            addZoneAnnotation()
             
             setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
             
@@ -648,7 +719,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func addZoneAnnotation() {
         
-        map.removeAnnotations(map.annotations)
+        zoneAnnotations.removeAll()
         
         for (key, _) in zoneEn {
             
@@ -659,6 +730,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             zoneAnnotation.title = key
             zoneAnnotation.subtitle = "ZONE"
             
+            zoneAnnotations.append(zoneAnnotation)
             map.addAnnotation(zoneAnnotation)
             
         }
@@ -667,7 +739,9 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func addPlaceAnnotation(forZone shortName: String) {
         
-        for (key, _) in placeEn[shortName]! {
+        placeAnnotations.removeAll()
+        
+        for (key, _) in placeEn[shortName] ?? [String: String]() {
             
             let placeCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: placeLatitude[shortName]![key]!, longitude: placeLongitude[shortName]![key]!)
             
@@ -676,9 +750,29 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             placeAnnotation.title = "PLACE"
             placeAnnotation.subtitle = key
             
+            placeAnnotations.append(placeAnnotation)
             map.addAnnotation(placeAnnotation)
             
         }
+        
+    }
+    
+    func addFacilityAnnotation(forZone zoneShortName: String) {
+        
+        for (key, _) in facilityEn[zoneShortName] ?? [String: String]() {
+            
+            let facilityCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: facilityLatitude[zoneShortName]![key]!, longitude: facilityLongitude[zoneShortName]![key]!)
+            
+            let facilityAnnotation = MKPointAnnotation()
+            facilityAnnotation.coordinate = facilityCoordinate
+            print(facilityType[zoneShortName]![key]!.uppercased())
+            facilityAnnotation.title = facilityType[zoneShortName]![key]!.uppercased()
+            facilityAnnotation.subtitle = key
+            
+            map.addAnnotation(facilityAnnotation)
+            
+        }
+        
         
     }
     
@@ -694,6 +788,20 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             zoneLatitude.updateValue(Double(zoneLocation["latitude"]!)!, forKey: zoneLocation["shortName"]!)
             zoneLongitude.updateValue(Double(zoneLocation["longitude"]!)!, forKey: zoneLocation["shortName"]!)
             
+            placeTh[zoneLocation["shortName"]!] = [String: String]()
+            placeEn[zoneLocation["shortName"]!] = [String: String]()
+            placeCode[zoneLocation["shortName"]!] = [String: String]()
+            placeLatitude[zoneLocation["shortName"]!] = [String: CLLocationDegrees]()
+            placeLongitude[zoneLocation["shortName"]!] = [String: CLLocationDegrees]()
+            
+            facilityTh[zoneLocation["shortName"]!] = [String: String]()
+            facilityEn[zoneLocation["shortName"]!] = [String: String]()
+            facilityDescTh[zoneLocation["shortName"]!] = [String: String]()
+            facilityDescEn[zoneLocation["shortName"]!] = [String: String]()
+            facilityType[zoneLocation["shortName"]!] = [String: String]()
+            facilityLatitude[zoneLocation["shortName"]!] = [String: CLLocationDegrees]()
+            facilityLongitude[zoneLocation["shortName"]!] = [String: CLLocationDegrees]()
+            
             fetchPlaceAnnotation(forZone: zoneLocation["id"]!, shortName: zoneLocation["shortName"]!)
             
         }
@@ -705,12 +813,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let placeLocations = ZoneData.fetchPlace(InZone: id, inManageobjectcontext: managedObjectContext!)
         
-        placeTh[shortName] = [String: String]()
-        placeEn[shortName] = [String: String]()
-        placeCode[shortName] = [String: String]()
-        placeLatitude[shortName] = [String: CLLocationDegrees]()
-        placeLongitude[shortName] = [String: CLLocationDegrees]()
-        
         for placeLocation in placeLocations! {
 
             placeZone[placeLocation["id"]!] = shortName
@@ -720,7 +822,31 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             placeLatitude[shortName]?.updateValue(Double(placeLocation["latitude"]!)!, forKey: placeLocation["id"]!)
             placeLongitude[shortName]?.updateValue(Double(placeLocation["longitude"]!)!, forKey: placeLocation["id"]!)
             
+            fetchFacilityAnnotation(forPlace: placeLocation["id"]!, zoneShortName: shortName)
+            
         }
+        
+    }
+    
+    private func fetchFacilityAnnotation(forPlace id: String, zoneShortName:String) {
+        
+        let facilityLocations = PlaceData.fetchFacility(InPlace: id, inManageobjectcontext: managedObjectContext!)
+        
+        for facilityLocation in facilityLocations! {
+            
+            facilityZone[facilityLocation["id"]!] = zoneShortName
+            facilityPlace[facilityLocation["id"]!] = id
+            facilityTh[zoneShortName]?.updateValue(facilityLocation["nameTh"]!, forKey: facilityLocation["id"]!)
+            facilityEn[zoneShortName]?.updateValue(facilityLocation["nameEn"]!, forKey: facilityLocation["id"]!)
+            facilityDescTh[zoneShortName]?.updateValue(facilityLocation["descTh"]!, forKey: facilityLocation["id"]!)
+            facilityDescEn[zoneShortName]?.updateValue(facilityLocation["descEn"]!, forKey:facilityLocation["id"]!)
+            facilityType[zoneShortName]?.updateValue(facilityLocation["type"]!, forKey: facilityLocation["id"]!)
+            facilityLatitude[zoneShortName]?.updateValue(Double(facilityLocation["latitude"]!)!, forKey: facilityLocation["id"]!)
+            facilityLongitude[zoneShortName]?.updateValue(Double(facilityLocation["longitude"]!)!, forKey: facilityLocation["id"]!)
+            
+        }
+        print(zoneShortName)
+        print(facilityType[zoneShortName])
         
     }
 

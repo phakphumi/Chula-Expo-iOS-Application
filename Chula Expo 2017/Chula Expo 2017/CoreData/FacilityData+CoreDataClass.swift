@@ -42,7 +42,7 @@ public class FacilityData: NSManagedObject {
                 facilityData.nameTh = nameTh
                 facilityData.nameEn = nameEn
                 facilityData.descTh = descTh
-                facilityData.nameEn = descEn
+                facilityData.descEn = descEn
                 facilityData.type = type
                 facilityData.latitude = latitude
                 facilityData.longitude = longitude

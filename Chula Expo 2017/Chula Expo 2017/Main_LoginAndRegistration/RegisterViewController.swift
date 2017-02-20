@@ -66,6 +66,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     @IBOutlet var schoolField: UITextField!
     @IBOutlet var careerField: UITextField!
     
+    @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -368,6 +369,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
             self.ageField.text = self.age
             self.genderField.text = self.Egender
             self.schoolField.text = self.school
+            self.nextButton.titleLabel?.text = "เสร็จสิ้น"
         }
         
     }
@@ -453,7 +455,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     @IBAction func next(_ sender: UIButton) {
         
-        if userType == "Academic" {
+        if (self.isEdited ?? false) {
+             self.performSegue(withIdentifier: "toMe", sender: self)
+        }
+        
+        else if userType == "Academic" {
             
             if firstNameField.text == "" || lastNameField.text == "" || emailField.text == "" || ageField.text == "" || genderField.text == "" || educationField.text == "" || educationYearField.text == "" || schoolField.text == "" {
                 

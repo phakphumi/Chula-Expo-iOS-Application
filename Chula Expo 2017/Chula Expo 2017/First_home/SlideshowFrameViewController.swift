@@ -45,7 +45,7 @@ class SlideshowFrameViewController: UIViewController {
     let imageView: UIImageView = {
         
         let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: 375, height: 220))
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleAspectFill
         
         return iv
         

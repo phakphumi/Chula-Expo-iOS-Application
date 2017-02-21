@@ -300,51 +300,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/api/places").responseJSON { (response) in
             
-            let context = self.managedObjectContext
+            if response.result.isSuccess {
             
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
+                let context = self.managedObjectContext
             
-            for result in results {
+                let JSON = response.result.value as! NSDictionary
+                let results = JSON["results"] as! NSArray
+            
+                for result in results {
                 
-                let result = result as! NSDictionary
+                    let result = result as! NSDictionary
             
-                let name = result["name"] as! NSDictionary
+                    let name = result["name"] as! NSDictionary
             
-                let location = result["location"] as! NSDictionary
+                    let location = result["location"] as! NSDictionary
             
-                context.performAndWait {
+                    context.performAndWait {
                 
-                    _ = PlaceData.addData(id: result["_id"] as! String,
-                                          code: result["code"] as! String,
-                                          nameTh: name["th"] as! String,
-                                          nameEn: name["en"] as! String,
-                                          longitude: location["longitude"] as! Double,
-                                          latitude: location["latitude"] as! Double,
-                                          zoneID: result["zone"] as! String,
-                                          inManageobjectcontext: context)
+                        _ = PlaceData.addData(id: result["_id"] as! String,
+                                              code: result["code"] as! String,
+                                              nameTh: name["th"] as! String,
+                                              nameEn: name["en"] as! String,
+                                              longitude: location["longitude"] as! Double,
+                                              latitude: location["latitude"] as! Double,
+                                              zoneID: result["zone"] as! String,
+                                              inManageobjectcontext: context)
                 
+                    }
+            
+                    do {
+                
+                        try context.save()
+                        print("PlaceData Saved")
+                
+                    }
+                
+                    catch let error {
+                
+                        print("PlaceData save error with \(error)")
+                
+                    }
+            
                 }
             
-                do{
-                
-                    try context.save()
-                    print("PlaceData Saved")
-                
-                }
-                
-                catch let error {
-                
-                    print("PlaceData save error with \(error)")
-                
-                }
+                self.downloadRoom()
             
+                self.downloadFacility()
+        
             }
             
-            self.downloadRoom()
-            
-            self.downloadFacility()
-        
         }
         
     }
@@ -353,38 +357,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/api/rooms").responseJSON { (response) in
             
-            let context = self.managedObjectContext
+            if response.result.isSuccess {
             
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
+                let context = self.managedObjectContext
             
-            for result in results {
-                
-                let result = result as! NSDictionary
+                let JSON = response.result.value as! NSDictionary
+                let results = JSON["results"] as! NSArray
             
-                let name = result["name"] as! NSDictionary
+                for result in results {
+                
+                    let result = result as! NSDictionary
             
-                context.performAndWait {
-                
-                    _ = RoomData.addData(id: result["_id"] as! String,
-                                         floor: result["floor"] as! String,
-                                         name: name["th"] as! String,
-                                         placeID: result["place"] as! String,
-                                         inManageobjectcontext: context)
-                
-                }
+                    let name = result["name"] as! NSDictionary
             
-                do{
+                    context.performAndWait {
                 
-                    try context.save()
-                    print("RoomData Saved")
+                        _ = RoomData.addData(id: result["_id"] as! String,
+                                             floor: result["floor"] as! String,
+                                             name: name["th"] as! String,
+                                             placeID: result["place"] as! String,
+                                             inManageobjectcontext: context)
                 
-                }
+                    }
+            
+                    do{
                 
-                catch let error {
+                        try context.save()
+                        print("RoomData Saved")
                 
-                    print("RoomData save error with \(error)")
+                    }
                 
+                    catch let error {
+                
+                        print("RoomData save error with \(error)")
+                
+                    }
+            
                 }
             
             }
@@ -397,45 +405,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/api/facilities").responseJSON { (response) in
             
-            let context = self.managedObjectContext
+            if response.result.isSuccess {
+                
+                let context = self.managedObjectContext
             
-            let JSON = response.result.value as! NSDictionary
-            let results = JSON["results"] as! NSArray
+                let JSON = response.result.value as! NSDictionary
+                let results = JSON["results"] as! NSArray
             
-            for result in results {
+                for result in results {
                 
-                let result = result as! NSDictionary
+                    let result = result as! NSDictionary
                 
-                let name = result["name"] as! NSDictionary
-                let desc = result["description"] as! NSDictionary
-                let location = result["location"] as! NSDictionary
+                    let name = result["name"] as! NSDictionary
+                    let desc = result["description"] as! NSDictionary
+                    let location = result["location"] as! NSDictionary
                 
-                context.performAndWait {
+                    context.performAndWait {
                     
-                    _ = FacilityData.addData(id: result["_id"] as! String,
-                                             nameTh: name["th"] as! String,
-                                             nameEn: name["en"] as! String,
-                                             descTh: desc["th"] as! String,
-                                             descEn: desc["en"] as! String,
-                                             type: result["type"] as! String,
-                                             latitude: location["latitude"] as! Double,
-                                             longitude: location["longitude"] as! Double,
-                                             placeID: result["place"] as! String,
-                                             inManageobjectcontext: context)
+                        _ = FacilityData.addData(id: result["_id"] as! String,
+                                                 nameTh: name["th"] as! String,
+                                                 nameEn: name["en"] as! String,
+                                                 descTh: desc["th"] as! String,
+                                                 descEn: desc["en"] as! String,
+                                                 type: result["type"] as! String,
+                                                 latitude: location["latitude"] as! Double,
+                                                 longitude: location["longitude"] as! Double,
+                                                 placeID: result["place"] as! String,
+                                                 inManageobjectcontext: context)
 
-                }
+                    }
                 
-                do{
+                    do{
                     
-                    try context.save()
-                    print("FacilityData Saved")
+                        try context.save()
+                        print("FacilityData Saved")
                     
-                }
+                    }
                     
-                catch let error {
+                    catch let error {
                     
-                    print("FacilityData save error with \(error)")
+                        print("FacilityData save error with \(error)")
                     
+                    }
+                
                 }
                 
             }

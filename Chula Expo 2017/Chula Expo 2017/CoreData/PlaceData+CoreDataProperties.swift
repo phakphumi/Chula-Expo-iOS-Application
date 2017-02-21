@@ -25,6 +25,7 @@ extension PlaceData {
     @NSManaged public var latitude: Double
     @NSManaged public var toZone: ZoneData?
     @NSManaged public var toRooms: NSSet?
+    @NSManaged public var toFacility: NSSet?
 
 }
 

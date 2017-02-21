@@ -46,53 +46,65 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                         Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                             
-                            let JSON = response.result.value as! NSDictionary
+                            if response.result.isSuccess {
                             
-                            if let results = JSON["results"] as? NSDictionary{
+                                let JSON = response.result.value as! NSDictionary
+                            
+                                if let results = JSON["results"] as? NSDictionary {
                                 
-                                let academic = results["academic"] as? [String: String]
+                                    let academic = results["academic"] as? [String: String]
                                 
-                                let worker = results["worker"] as? [String: String]
+                                    let worker = results["worker"] as? [String: String]
                                 
-                                let managedObjectContext: NSManagedObjectContext? =
+                                    let managedObjectContext: NSManagedObjectContext? =
                                     (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
                                 
-                                managedObjectContext?.performAndWait {
+                                    managedObjectContext?.performAndWait {
                                     
-                                    _ = UserData.addUser(id: results["_id"] as! String,
-                                                         token: token,
-                                                         type: results["type"] as! String,
-                                                         name: results["name"] as! String,
-                                                         email: results["email"] as! String,
-                                                         age: results["age"] as! Int,
-                                                         gender: results["gender"] as! String,
-                                                         school: academic?["school"] ?? "",
-                                                         level: academic?["level"] ?? "",
-                                                         year: academic?["year"] ?? "",
-                                                         job: worker?["job"] ?? "",
-                                                         profile: results["profile"] as? String ?? "",
-                                                         inManageobjectcontext: managedObjectContext!
-                                    )
+                                        _ = UserData.addUser(id: results["_id"] as! String,
+                                                             token: token,
+                                                             type: results["type"] as! String,
+                                                             name: results["name"] as! String,
+                                                             email: results["email"] as! String,
+                                                             age: results["age"] as! Int,
+                                                             gender: results["gender"] as! String,
+                                                             school: academic?["school"] ?? "",
+                                                             level: academic?["level"] ?? "",
+                                                             year: academic?["year"] ?? "",
+                                                             job: worker?["job"] ?? "",
+                                                             profile: results["profile"] as? String ?? "",
+                                                             inManageobjectcontext: managedObjectContext!
+                                        )
                                     
+                                    }
+                                
+                                    do {
+                                    
+                                        try managedObjectContext?.save()
+                                        print("saved user")
+                                    
+                                    } catch let error {
+                                    
+                                        print("saveUserError with \(error)")
+                                    
+                                    }
+                                
+                                
                                 }
                                 
-                                do {
-                                    
-                                    try managedObjectContext?.save()
-                                    print("saved user")
-                                    
-                                } catch let error {
-                                    
-                                    print("saveUserError with \(error)")
-                                    
-                                }
+                                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                                 
+                            } else {
+                                
+                                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(confirm, animated: true, completion: nil)
                                 
                             }
                             
                         }
-                        
-                        self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                         
                     }
                     
@@ -212,53 +224,67 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                                 
-                                let JSON = response.result.value as! NSDictionary
+                                if response.result.isSuccess {
                                 
-                                if let results = JSON["results"] as? NSDictionary{
-                                    
-                                    let academic = results["academic"] as? [String: String]
-                                    
-                                    let worker = results["worker"] as? [String: String]
+                                    let JSON = response.result.value as! NSDictionary
                                 
-                                    let managedObjectContext: NSManagedObjectContext? =
+                                    if let results = JSON["results"] as? NSDictionary{
+                                    
+                                        let academic = results["academic"] as? [String: String]
+                                    
+                                        let worker = results["worker"] as? [String: String]
+                                
+                                        let managedObjectContext: NSManagedObjectContext? =
                                         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
                                     
-                                    managedObjectContext?.performAndWait {
+                                        managedObjectContext?.performAndWait {
                                     
-                                        _ = UserData.addUser(id: results["_id"] as! String,
-                                                             token: token,
-                                                             type: results["type"] as! String,
-                                                             name: results["name"] as! String,
-                                                             email: results["email"] as! String,
-                                                             age: results["age"] as! Int,
-                                                             gender: results["gender"] as! String,
-                                                             school: academic?["school"] ?? "",
-                                                             level: academic?["level"] ?? "",
-                                                             year: academic?["year"] ?? "",
-                                                             job: worker?["job"] ?? "",
-                                                             profile: results["profile"] as? String ?? "",
-                                                             inManageobjectcontext: managedObjectContext!
-                                        )
+                                            _ = UserData.addUser(id: results["_id"] as! String,
+                                                                 token: token,
+                                                                 type: results["type"] as! String,
+                                                                 name: results["name"] as! String,
+                                                                 email: results["email"] as! String,
+                                                                 age: results["age"] as! Int,
+                                                                 gender: results["gender"] as! String,
+                                                                 school: academic?["school"] ?? "",
+                                                                 level: academic?["level"] ?? "",
+                                                                 year: academic?["year"] ?? "",
+                                                                 job: worker?["job"] ?? "",
+                                                                 profile: results["profile"] as? String ?? "",
+                                                                 inManageobjectcontext: managedObjectContext!
+                                            )
                                         
+                                        }
+                                    
+                                        do {
+                                    
+                                            try managedObjectContext?.save()
+                                            print("saved user")
+                                        
+                                        } catch let error {
+                                    
+                                            print("saveUserError with \(error)")
+                                        
+                                        }
+                                    
+                                    
                                     }
+                                
+                                    self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                                     
-                                    do {
+                                } else {
                                     
-                                        try managedObjectContext?.save()
-                                        print("saved user")
-                                        
-                                    } catch let error {
+                                    let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
                                     
-                                        print("saveUserError with \(error)")
-                                        
-                                    }
+                                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                                     
+                                    self.present(confirm, animated: true, completion: nil)
+
                                     
                                 }
                                 
                             }
                             
-                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                             
                         } else {
                             
@@ -280,21 +306,33 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         Alamofire.request("http://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
             
-            let JSON = response.result.value as! NSDictionary
+            if response.result.isSuccess {
             
-            let success = JSON["success"] as! Bool
+                let JSON = response.result.value as! NSDictionary
             
-            if success {
+                let success = JSON["success"] as! Bool
+            
+                if success {
                 
-                if let token = (JSON["results"] as! NSDictionary)["token"] as? String{
+                    if let token = (JSON["results"] as! NSDictionary)["token"] as? String{
                     
-                    completion(success, token)
+                        completion(success, token)
                     
+                    }
+                
+                } else {
+                
+                    completion(success, "")
+                
                 }
                 
             } else {
                 
-                completion(success, "")
+                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(confirm, animated: true, completion: nil)
                 
             }
             

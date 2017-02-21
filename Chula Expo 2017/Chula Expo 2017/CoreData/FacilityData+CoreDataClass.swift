@@ -42,7 +42,7 @@ public class FacilityData: NSManagedObject {
                 facilityData.nameTh = nameTh
                 facilityData.nameEn = nameEn
                 facilityData.descTh = descTh
-                facilityData.nameEn = descEn
+                facilityData.descEn = descEn
                 facilityData.type = type
                 facilityData.latitude = latitude
                 facilityData.longitude = longitude
@@ -59,6 +59,41 @@ public class FacilityData: NSManagedObject {
                 return facilityData
                 
             }
+            
+        }
+        
+        return nil
+        
+    }
+    
+    class func fetchFacility(inManageobjectcontext context: NSManagedObjectContext) -> [[String: String]]?{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
+        
+        do {
+            
+            let facilities = try context.fetch(request) as! [FacilityData]
+            
+            var locations = [[String: String]]()
+            
+            for facility in facilities {
+                
+                locations.append(["latitude": String(facility.latitude),
+                                  "longitude": String(facility.longitude),
+                                  "id": facility.id!,
+                                  "type": facility.type!,
+                                  "nameTh": facility.nameTh!,
+                                  "nameEn": facility.nameEn!,
+                                  "descTh": facility.descTh!,
+                                  "descEn": facility.descEn!])
+                
+            }
+            
+            return locations
+            
+        } catch {
+            
+            print("Couldn't fetch results")
             
         }
         

@@ -99,6 +99,7 @@ public class PlaceData: NSManagedObject {
         return nil
         
     }
+    
     class func fetchFacility(InPlace id : String, inManageobjectcontext context: NSManagedObjectContext) -> [[String: String]]?{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")

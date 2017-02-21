@@ -40,10 +40,10 @@
                                         <rect key="frame" x="10" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRN-em-TIm">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="students-cap" translatesAutoresizingMaskIntoConstraints="NO" id="nD4-Dp-KvG">
-                                                        <rect key="frame" x="8.5" y="8" width="24.5" height="25"/>
+                                                        <rect key="frame" x="8.5" y="8.5" width="24.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="nD4-Dp-KvG" secondAttribute="height" multiplier="1:1" id="XBb-ZW-cgt"/>
                                                         </constraints>
@@ -58,7 +58,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คณะ/เมือง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="k3j-84-hGp">
-                                                <rect key="frame" x="50.5" y="2" width="99.5" height="19.5"/>
+                                                <rect key="frame" x="50.5" y="1.5" width="99.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="k3j-84-hGp" secondAttribute="height" multiplier="5:1" id="vRZ-8f-PT6"/>
                                                 </constraints>
@@ -93,10 +93,10 @@
                                         <rect key="frame" x="10" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVw-5p-i4J">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico-star" translatesAutoresizingMaskIntoConstraints="NO" id="QLr-vC-EpW">
-                                                        <rect key="frame" x="8.5" y="8" width="24.5" height="25"/>
+                                                        <rect key="frame" x="8.5" y="8.5" width="24.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="QLr-vC-EpW" secondAttribute="height" multiplier="1:1" id="z2O-2Z-br2"/>
                                                         </constraints>
@@ -146,10 +146,10 @@
                                         <rect key="frame" x="10" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbc-bP-O7Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="canteen" translatesAutoresizingMaskIntoConstraints="NO" id="3Qa-ut-iD7">
-                                                        <rect key="frame" x="8.5" y="8" width="24.5" height="25"/>
+                                                        <rect key="frame" x="8.5" y="8.5" width="24.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="3Qa-ut-iD7" secondAttribute="height" multiplier="1:1" id="68J-vj-WHX"/>
                                                         </constraints>
@@ -164,7 +164,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="โรงอาหาร" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="CMr-Bh-aec">
-                                                <rect key="frame" x="50.5" y="2" width="99.5" height="22.5"/>
+                                                <rect key="frame" x="50.5" y="1.5" width="99.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CMr-Bh-aec" secondAttribute="height" multiplier="100:23" id="LdH-hl-x1f"/>
                                                 </constraints>
@@ -199,10 +199,10 @@
                                         <rect key="frame" x="10" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szT-P5-Vtd">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="toilet" translatesAutoresizingMaskIntoConstraints="NO" id="64B-VC-qfx">
-                                                        <rect key="frame" x="8.5" y="8" width="24.5" height="25"/>
+                                                        <rect key="frame" x="8.5" y="8.5" width="24.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="64B-VC-qfx" secondAttribute="height" multiplier="1:1" id="UGX-eS-Ejw"/>
                                                         </constraints>
@@ -217,7 +217,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้องน้ำ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="uXr-ub-ddt">
-                                                <rect key="frame" x="50.5" y="2" width="99.5" height="22.5"/>
+                                                <rect key="frame" x="50.5" y="1.5" width="99.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uXr-ub-ddt" secondAttribute="height" multiplier="100:23" id="3g9-YT-nzi"/>
                                                 </constraints>
@@ -252,10 +252,10 @@
                                         <rect key="frame" x="10" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbB-IP-Tac">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prayer" translatesAutoresizingMaskIntoConstraints="NO" id="SHe-pv-nYX">
-                                                        <rect key="frame" x="8.5" y="8" width="24.5" height="25"/>
+                                                        <rect key="frame" x="8.5" y="8.5" width="24.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="SHe-pv-nYX" secondAttribute="height" multiplier="1:1" id="TUb-Oy-lgS"/>
                                                         </constraints>
@@ -270,7 +270,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้องละหมาด" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="4jN-T5-t87">
-                                                <rect key="frame" x="50.5" y="2" width="99.5" height="22.5"/>
+                                                <rect key="frame" x="50.5" y="1.5" width="99.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="4jN-T5-t87" secondAttribute="height" multiplier="100:23" id="hLB-ay-kVP"/>
                                                 </constraints>
@@ -305,10 +305,10 @@
                                         <rect key="frame" x="10" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVT-50-qwI">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="39.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="dpR-eO-hmt">
-                                                        <rect key="frame" x="8.5" y="8" width="24.5" height="25"/>
+                                                        <rect key="frame" x="8.5" y="8.5" width="24.5" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="dpR-eO-hmt" secondAttribute="height" multiplier="1:1" id="Bgw-TD-hV6"/>
                                                         </constraints>
@@ -323,7 +323,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ที่จอดรถ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="sOd-Ht-QCW">
-                                                <rect key="frame" x="50.5" y="2.5" width="99.5" height="22.5"/>
+                                                <rect key="frame" x="50.5" y="2" width="99.5" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="sOd-Ht-QCW" secondAttribute="height" multiplier="100:23" id="UIZ-kg-6ub"/>
                                                 </constraints>
@@ -358,7 +358,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-Ry-xIK">
-                                                <rect key="frame" x="15" y="13" width="15" height="15"/>
+                                                <rect key="frame" x="15.5" y="13" width="14.5" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jBZ-Ry-xIK" secondAttribute="height" multiplier="1:1" id="qqR-3b-ZR8"/>
                                                 </constraints>
@@ -415,7 +415,7 @@
                                 <rect key="frame" x="217" y="75" width="145" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annotation" translatesAutoresizingMaskIntoConstraints="NO" id="Thw-5A-N7m">
-                                        <rect key="frame" x="16.5" y="14" width="12.5" height="13"/>
+                                        <rect key="frame" x="16" y="14" width="13" height="13"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Thw-5A-N7m" secondAttribute="height" multiplier="1:1" id="7l0-oL-FmP"/>
                                         </constraints>
@@ -445,13 +445,13 @@
                                 <rect key="frame" x="22.5" y="533" width="330" height="65"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eng_pin_21" translatesAutoresizingMaskIntoConstraints="NO" id="W15-Ec-tBD">
-                                        <rect key="frame" x="18" y="8" width="34" height="49"/>
+                                        <rect key="frame" x="18" y="8.5" width="34" height="48.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="W15-Ec-tBD" secondAttribute="height" multiplier="34:49" id="LhL-IG-YhZ"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="YuE-AR-3li">
-                                        <rect key="frame" x="67" y="12" width="236.5" height="25"/>
+                                        <rect key="frame" x="67" y="12" width="237" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YuE-AR-3li" secondAttribute="height" multiplier="237:25" id="bBP-fB-BJH"/>
                                         </constraints>
@@ -460,7 +460,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faculty of Engineering" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jp6-k3-xcr">
-                                        <rect key="frame" x="67" y="34" width="236.5" height="20"/>
+                                        <rect key="frame" x="67" y="34" width="237" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jp6-k3-xcr" secondAttribute="height" multiplier="237:20" id="vgY-CC-8qG"/>
                                         </constraints>
@@ -502,7 +502,7 @@
                                 <rect key="frame" x="22.5" y="533" width="330" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ZnE-pO-DqG">
-                                        <rect key="frame" x="15" y="30" width="169" height="30"/>
+                                        <rect key="frame" x="15.5" y="30" width="168.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZnE-pO-DqG" secondAttribute="height" multiplier="169:30" id="jPN-tZ-tM1"/>
                                         </constraints>
@@ -517,7 +517,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="คุณอยู่ที่" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="t38-fG-Jcm">
-                                        <rect key="frame" x="15" y="4" width="123" height="28"/>
+                                        <rect key="frame" x="15.5" y="4" width="122.5" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="t38-fG-Jcm" secondAttribute="height" multiplier="123:28" id="rKl-hJ-RLk"/>
                                         </constraints>
@@ -652,7 +652,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2IQ-wG-YmE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2IQ-wG-YmE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

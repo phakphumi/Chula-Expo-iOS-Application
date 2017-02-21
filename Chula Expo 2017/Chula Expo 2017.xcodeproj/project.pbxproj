@@ -280,8 +280,8 @@
 		5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */ = {
 			isa = PBXGroup;
 			children = (
+				80889D751E5CA45D00145F1D /* Old */,
 				5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */,
-				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
 				5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
 				5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */,
@@ -491,6 +491,14 @@
 				8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */,
 			);
 			name = StageEvent;
+			sourceTree = "<group>";
+		};
+		80889D751E5CA45D00145F1D /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
+			);
+			name = Old;
 			sourceTree = "<group>";
 		};
 		80BFD4D71E27F39D00491730 /* CoreData */ = {

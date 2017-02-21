@@ -64,14 +64,15 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
 //            let viewController = [frameViewController]
             
             setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
-            
             createPageIndicator()
+
             
             timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
             
         }
         
     }
+
     
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         

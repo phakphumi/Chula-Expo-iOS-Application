@@ -20,15 +20,17 @@ class ImageFrameViewController: UIViewController {
 //        
 //    }
 
-    var image: UIImage? {
-        
-        didSet {
-            
-            imageView.image = image
-            
-        }
-        
-    }
+//    var image: UIImage? {
+//        
+//        didSet {
+//            
+//            imageView.image = image
+//            
+//        }
+//        
+//    }
+    
+    var frameIndex: Int = 0
     
     let imageView: UIImageView = {
         

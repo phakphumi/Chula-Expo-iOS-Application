@@ -336,10 +336,15 @@ class EventDetailTableViewController: UITableViewController {
         
         if segue.identifier == "presentGallery" {
             
-            let destination = segue.destination as! GalleryViewController
-            
-            destination.images = images
-            
+            if let destination = segue.destination as? GalleryViewController{
+                
+                destination.images = images
+                
+                if let cell = sender as? UICollectionViewCell{
+                    
+                    destination.currentImageIndex = cell.backgroundView!.tag
+                }
+            }
             
         } else if segue.identifier == "presentFavorite" {
             

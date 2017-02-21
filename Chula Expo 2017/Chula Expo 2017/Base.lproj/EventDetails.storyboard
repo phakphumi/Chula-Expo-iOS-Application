@@ -431,6 +431,9 @@
                                                                 </subviews>
                                                             </view>
                                                             <size key="customSize" width="50" height="50"/>
+                                                            <connections>
+                                                                <segue destination="NnA-DQ-MK0" kind="presentation" identifier="presentGallery" id="T2M-I4-7RB"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -758,7 +761,7 @@
     </scenes>
     <resources>
         <image name="calendarIcon" width="128" height="128"/>
-        <image name="cross_black" width="16" height="16"/>
+        <image name="cross_black" width="73" height="73"/>
         <image name="cross_white" width="12" height="12"/>
         <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow" width="64" height="64"/>
@@ -768,4 +771,7 @@
         <image name="starYellow" width="64" height="64"/>
         <image name="tag" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="T2M-I4-7RB"/>
+    </inferredMetricsTieBreakers>
 </document>

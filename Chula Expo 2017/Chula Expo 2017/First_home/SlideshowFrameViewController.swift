@@ -14,8 +14,14 @@ class SlideshowFrameViewController: UIViewController {
         
         didSet {
             
-            imageView.image = UIImage(named: imageName!)
+            var imgUrl = ""
             
+            if let url = imageName{
+                
+                imgUrl = "http://staff.chulaexpo.com" + url
+            }
+            
+            imageView.imageFromServerURL(urlString: imgUrl)
         }
         
     }
@@ -25,25 +31,24 @@ class SlideshowFrameViewController: UIViewController {
         didSet {
             
             topicLabel.text = topicLabelText
-            
         }
-        
     }
+    
+    var frameIndex: Int = 0
     
     var descLabelText: String? {
         
         didSet {
             
             descLabel.text = descLabelText
-            
         }
-        
     }
     
     let imageView: UIImageView = {
-        
+
         let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: 375, height: 220))
-        iv.contentMode = .scaleToFill
+        iv.image = #imageLiteral(resourceName: "defaultImage")
+        iv.contentMode = .scaleAspectFill
         
         return iv
         
@@ -52,7 +57,10 @@ class SlideshowFrameViewController: UIViewController {
     let topicLabel: UILabel = {
         
         let tl = UILabel(frame: CGRect(x: 15, y: 22, width: 375 - 15, height: 26))
-        tl.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
+        
+        
+        tl.font = UIFont(name: "SukhumvitSet-Medium", size: 20)
+//        tl.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         tl.textColor = UIColor.white
         tl.layer.shadowOffset = CGSize(width: 0, height: 0)
         tl.layer.shadowOpacity = 0.15
@@ -72,8 +80,8 @@ class SlideshowFrameViewController: UIViewController {
         
     }()
     
-    var slideshowTopic = ["Welcome to Chula Expo 2017", "Chula Expo Special Event"]
-    var slideshowDesc = ["9:41-10:41 • Main auditorium Building 3", "13:00-14:00 • Main auditorium"]
+//    var slideshowTopic = ["Welcome to Chula Expo 2017", "Chula Expo Special Event"]
+//    var slideshowDesc = ["9:41-10:41 • Main auditorium Building 3", "13:00-14:00 • Main auditorium"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +107,7 @@ class SlideshowFrameViewController: UIViewController {
         highlightLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
         highlightLabel.text = "HIGHLIGHT"
         highlightLabel.textColor = UIColor.white
-        highlightLabel.backgroundColor = UIColor(red: 0.97, green: 0.34, blue: 0.72, alpha: 1)
+        highlightLabel.backgroundColor = UIColor(red:1.00, green:0.42, blue:0.60, alpha:0.7)
         highlightLabel.textAlignment = NSTextAlignment.center
         highlightLabel.layer.cornerRadius = highlightLabel.bounds.height / 2
         highlightLabel.layer.masksToBounds = true

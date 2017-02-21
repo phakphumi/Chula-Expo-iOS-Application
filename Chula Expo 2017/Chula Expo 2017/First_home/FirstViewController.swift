@@ -16,6 +16,8 @@ class FirstViewController: MainCoreDataTableViewController {
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
+    let slideshowPageViewController = SlideshowPageViewController()
+    
     @IBOutlet var homeTableView: UITableView!
     
     override func viewDidLoad() {
@@ -82,7 +84,7 @@ class FirstViewController: MainCoreDataTableViewController {
     func requestForFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: false))
+        request.predicate = NSPredicate(format: "stageNo = 0")
         request.sortDescriptors = [NSSortDescriptor(
             key: "activityId",
             ascending: true
@@ -138,9 +140,29 @@ class FirstViewController: MainCoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath)
             cell.selectionStyle = .none
-            let slideshowPageViewController = SlideshowPageViewController()
+            
             slideshowPageViewController.view.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
             slideshowPageViewController.view.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
+            var images: [String] = []
+            var titles: [String] = []
+            var desc: [String] = []
+            
+            managedObjectContext?.performAndWait {
+                
+                let fetchdata = ActivityData.fetchHighlightFromAll(inManageobjectcontext: self.managedObjectContext!)
+                
+                for data in fetchdata{
+                    
+                    images.append(data.thumbnailsUrl ?? "")
+                    titles.append(data.name ?? "")
+                    desc.append("desc")
+                }
+            }
+            
+            slideshowPageViewController.imageName = images
+            slideshowPageViewController.topicLabelText = titles
+            slideshowPageViewController.descLabelText = desc
+   
             self.addChildViewController(slideshowPageViewController)
             cell.contentView.addSubview(slideshowPageViewController.view)
         }

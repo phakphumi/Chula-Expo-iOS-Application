@@ -802,6 +802,7 @@
                         <outlet property="firstNameField" destination="6yh-41-sUg" id="Nbp-EN-F2n"/>
                         <outlet property="genderField" destination="OVN-2D-3Pg" id="fwY-BI-cJk"/>
                         <outlet property="lastNameField" destination="EoN-8V-dde" id="Um8-OU-EgR"/>
+                        <outlet property="nextButton" destination="J7c-K1-2Tg" id="qZG-zI-kiZ"/>
                         <outlet property="numberLabel" destination="zNk-aP-lsp" id="qEw-2O-vRS"/>
                         <outlet property="profileImage" destination="Abj-U5-Wfa" id="gs4-Y8-jYY"/>
                         <outlet property="profileImageView" destination="bwE-Ed-f7b" id="p4w-cd-eie"/>

@@ -121,7 +121,15 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        var check = false
+        for i in 0...tagList.count {
+            // print(selectedList[i])
+            if selectedList[i] {
+                check = true
+            }
+        }
+        print(check)
+        if(check == true){
         if segue.identifier == "toFaculty" {
             
             let destination = segue.destination as! interestFacityViewController
@@ -154,8 +162,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
             }
             
+            }
         }
-        
     }
     
     // MARK: UICollectionViewDataSource

@@ -85,27 +85,27 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             if let fetchUser = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!){
                 
                 self.profileImg.imageFromServerURL(urlString: fetchUser.profile ?? "")
-                self.name.text = fetchUser.name
-                self.email.text = fetchUser.email
+                self.name.text = (fetchUser.name ?? "")
+                self.email.text = (fetchUser.email ?? "")
                 self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + (fetchUser.gender ?? "")
                 self.year.text = (fetchUser.level ?? "") + " ปี" + (fetchUser.year ?? "")
-                self.uni.text = fetchUser.school
+                self.uni.text = (fetchUser.school ?? "")
                 
                 self.userType = (fetchUser.type ?? "")
-                self.iname = fetchUser.name
+                self.iname = (fetchUser.name ?? "")
                 self.age = String(fetchUser.age)
                 self.Egender = (fetchUser.gender ?? "")
-                self.school = fetchUser.school
+                self.school = (fetchUser.school ?? "")
                 let fullNameArr = (fetchUser.name ?? "").components(separatedBy: " ")
                 
                 self.firstName = fullNameArr[0]
                 self.lastName = fullNameArr[1]
                 
-                self.iemail = fetchUser.email
+                self.iemail = (fetchUser.email ?? "")
 //                self.fbId = fetchUser.
 //                destination.fbToken = self.fbToken
 //                destination.fbImageProfileUrl = self.fbImageProfileUrl
-                self.fbImage = self.profileImg.image
+                self.fbImage = self.profileImg.image!
                 
                 
             } else {

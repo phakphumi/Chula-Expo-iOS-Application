@@ -2,7 +2,7 @@
 //  EventsTableViewController.swift
 //  Chula Expo 2017
 //
-//  Created by NOT on 1/7/2560 BE.
+//  Created by PANUPONG TONGTAWACH on 1/7/2560 BE.
 //  Copyright © 2560 Chula Computer Engineering Batch#41. All rights reserved.
 //
 
@@ -13,17 +13,17 @@ class EventsTableViewController: CoreDataTableViewController {
     
     var facity: String? {
         didSet {
-            updateUI()
+            updateData()
         }
     }
     
     var managedObjectContext: NSManagedObjectContext? {
         didSet {
-            updateUI()
+            updateData()
         }
     }
     
-    fileprivate func updateUI() {
+    fileprivate func updateData() {
         
         if let facity = facity {
             
@@ -42,11 +42,13 @@ class EventsTableViewController: CoreDataTableViewController {
                     
                     title = "MY RESERVATION"
                     request.predicate = NSPredicate(format: "ANY toRound.isReserve == %@", NSNumber(booleanLiteral: true))
+                    
                 }
                 
                 else {
                     
                 request.predicate = NSPredicate(format: "faculty contains[c] %@", facity)
+                    
                 }
             
             request.sortDescriptors = [NSSortDescriptor(
@@ -107,7 +109,9 @@ class EventsTableViewController: CoreDataTableViewController {
                     headCell.iconImage = "relatedeventsIcon"
                 }
             }
-        } else {
+        }
+        
+        else {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
             
@@ -120,10 +124,10 @@ class EventsTableViewController: CoreDataTableViewController {
                 
                 fetchData.managedObjectContext?.performAndWait {
                     
-                        name = fetchData.name
-                        toRound = fetchData.toRound
-                        thumbnail = fetchData.thumbnailsUrl
-                        activityId = fetchData.activityId
+                    name = fetchData.name
+                    toRound = fetchData.toRound
+                    thumbnail = fetchData.thumbnailsUrl
+                    activityId = fetchData.activityId
                 }
                 
                 if let eventCell = cell as? EventFeedCell {
@@ -140,6 +144,7 @@ class EventsTableViewController: CoreDataTableViewController {
         
         cell.selectionStyle = .none
         return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -157,42 +162,8 @@ class EventsTableViewController: CoreDataTableViewController {
         return UITableViewAutomaticDimension
     }
 
-
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        let currentCell = tableView.cellForRow(at: indexPath) as? EventTableViewCell
-//        
-//        selectedActivityId = currentCell?.activityId
-//        selectedName = currentCell?.name
-//        selectedStartTime = currentCell?.startTime
-//        selectedEndTime = currentCell?.endTime
-//        selectedLocationDesc = currentCell?.locationDesc
-//        selectedDesc = currentCell?.desc
-//        selectedBannerUrl = currentCell?.bannerUrl
-//        selectedIsHighlight = currentCell?.isHighlight
-//        selectedIsFavorite = currentCell?.isFavorite
-//        selectedReservable = currentCell?.reservable
-//        selectedIsReserve = currentCell?.isReserve
-//        selectedToTags = currentCell?.toTags
-//        selectedToFaculty = currentCell?.toFaculty
-//        selectedToImages = currentCell?.toImages
-//        selectedToVideos = currentCell?.toVideos
-//        selectedDateText = currentCell?.dateText
-//            
-//        self.performSegue(withIdentifier: "toEventDetails", sender: self)
-//    }
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        if indexPath.row > 0 {
-//            
-//            performSegue(withIdentifier: "toEventDetail", sender: self)
-//        }
-//       
-//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
-        print("segue 111")
         if segue.identifier == "toDetail" {
             
             if let destination = segue.destination as? EventDetailTableViewController{
@@ -221,48 +192,9 @@ class EventsTableViewController: CoreDataTableViewController {
                         }
                     }
                 }
-
-                else if let eventcell = sender as? EventTableViewCell?{
-                    
-                    if let id = eventcell?.activityId{
-                        
-                        if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
-                            
-                            destination.activityId = fetch.activityId
-                            destination.bannerUrl = fetch.bannerUrl
-                            destination.topic = fetch.name
-                            destination.locationDesc = ""
-                            destination.toRounds = fetch.toRound
-                            destination.reservable = fetch.reservable
-                            destination.desc = fetch.desc
-                            destination.room = fetch.room
-                            destination.place = fetch.place
-                            destination.latitude = fetch.latitude
-                            destination.longitude = fetch.longitude
-                            destination.toImages = fetch.toImages
-                            destination.toTags = fetch.toTags
-                            destination.managedObjectContext = self.managedObjectContext
-                            
-//                            destination.activityId = fetch.activityId
-//                            destination.name = fetch.name
-//                            destination.startTime = NSDate()
-//                            destination.endTime = NSDate()
-//                            destination.locationDesc = fetch.locationDesc
-//                            destination.desc = fetch.desc
-//                            destination.bannerUrl = fetch.bannerUrl
-//                            destination.isHighlight = false
-//                            destination.isFavorite = false
-//                            destination.reservable = true
-//                            destination.isReserve = false
-//                            destination.toTags = fetch.toTags
-//                            destination.toFaculty = fetch.toFaculty
-//                            destination.toImages = fetch.toImages
-//                            destination.toVideos = fetch.toVideos
-//                            destination.dateText = "Today"
-                        }
-                    }
-                }
             }
         }
+        
     }
+    
 }

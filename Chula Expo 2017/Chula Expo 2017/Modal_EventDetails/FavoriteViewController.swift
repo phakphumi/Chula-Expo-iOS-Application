@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -16,10 +17,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var reservable = false
     var managedObjectContext: NSManagedObjectContext?
     
-    
+    var roundsId = [String]()
     var dates = [String]()
     var times = [String: [String]]()
     var dateTimeList = [String]()
+    var selectedRow = 0
 
     let dateTimePicker = UIPickerView()
 
@@ -40,12 +42,49 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         if reservable {
             
+            print(1)
+            
+            if let userData = UserData.fetchUser(inManageobjectcontext: managedObjectContext!) {
+                print(2)
+                print(userData.token)
+                print("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
+                let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
+
+                Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserved", headers: header).responseJSON { response in
+
+                    if response.result.isSuccess {
+
+                        let JSON = response.result.value as! NSDictionary
+
+                        let results = JSON["results"] as! NSDictionary
+                        
+                        let message = JSON["message"]
+                        
+                        let success = JSON["success"]
+                        
+                        print(results)
+                        
+                        print(message)
+                        
+                        print(success)
+                        
+                    } else {
+
+                        let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    
+                        self.present(confirm, animated: true, completion: nil)
+
+                    }
+
+                }
+                
+            }
             
         } else {
             
             var confirm = UIAlertController()
-            
-            
             
             if FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)! {
                 
@@ -87,7 +126,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
@@ -150,6 +189,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        selectedRow = row
         dateTimeField.text = dateTimeList[row]
         
     }

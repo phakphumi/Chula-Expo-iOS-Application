@@ -48,7 +48,9 @@ class FirstViewController: MainCoreDataTableViewController {
     func requestForStageEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
+//        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
+        request.predicate = NSPredicate(format: "stageNo = %i", NSNumber(booleanLiteral: true), 1)
+
         request.sortDescriptors = [NSSortDescriptor(
         key: "activityId",
         ascending: true
@@ -63,7 +65,8 @@ class FirstViewController: MainCoreDataTableViewController {
                 cacheName: nil
             )
             
-            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
+//            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
+            request.predicate = NSPredicate(format: "stageNo = %i", NSNumber(booleanLiteral: true), 2)
             fetchedResultsControllerStage2 = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
@@ -71,7 +74,8 @@ class FirstViewController: MainCoreDataTableViewController {
                 cacheName: nil
             )
 
-            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
+//            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
+            request.predicate = NSPredicate(format: "stageNo = %i", NSNumber(booleanLiteral: true), 3)
             fetchedResultsControllerStage3 = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
@@ -379,7 +383,6 @@ class FirstViewController: MainCoreDataTableViewController {
                             destination.topic = fetch.name
                             destination.locationDesc = ""
                             destination.toRounds = fetch.toRound
-                            destination.reservable = fetch.reservable
                             destination.desc = fetch.desc
                             destination.room = fetch.room
                             destination.place = fetch.place

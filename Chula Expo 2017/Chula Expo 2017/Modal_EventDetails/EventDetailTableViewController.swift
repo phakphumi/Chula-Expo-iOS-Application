@@ -15,6 +15,7 @@ class EventDetailTableViewController: UITableViewController {
     
     var images = [String]()
     var tags = [String]()
+    var roundsId = [String]()
     var dates = [String]()
     var times = [String: [String]]()
     var dateTimeList = [String]()
@@ -75,10 +76,26 @@ class EventDetailTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        calculateIsReservable()
+        
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailsTableViewController.toDismiss))
         swipeRight.direction = .right
         
         self.view.addGestureRecognizer(swipeRight)
+        
+    }
+    
+    private func calculateIsReservable() {
+        
+        if toRounds.allObjects.count > 0 {
+            
+            self.reservable = true
+            
+        } else {
+            
+            self.reservable = false
+            
+        }
         
     }
 
@@ -196,6 +213,8 @@ class EventDetailTableViewController: UITableViewController {
                         times[date]?.append("\(sTime)-\(eTime)")
                         
                         dateTimeList.append("\(date) \(sTime)-\(eTime)")
+                        
+                        roundsId.append(round.id!)
                     
                     }
                     
@@ -359,6 +378,7 @@ class EventDetailTableViewController: UITableViewController {
             
             destination.activityId = self.activityId
             destination.topic = self.topic
+            destination.roundsId = self.roundsId
             destination.dateTimeList = self.dateTimeList
             destination.reservable = self.reservable
             destination.managedObjectContext = self.managedObjectContext

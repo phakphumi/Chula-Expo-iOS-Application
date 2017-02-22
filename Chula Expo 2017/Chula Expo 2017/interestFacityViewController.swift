@@ -15,16 +15,16 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     var userType: String!
     var name: String!
     var email: String!
-    var age: String!
-    var gender: String!
-    var education: String!
-    var educationYear: String!
-    var school: String!
-    var career: String!
-    var fbId: String!
-    var fbToken: String!
+    var age: String?
+    var gender: String?
+    var education: String?
+    var educationYear: String?
+    var school: String?
+    var career: String?
+    var fbId: String?
+    var fbToken: String?
     var fbImageProfileUrl: String?
-    var fbImage: UIImage!
+    var fbImage: UIImage?
     var managedObjectContext: NSManagedObjectContext?
     
     var tapped = [UIImageView]()
@@ -145,7 +145,22 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         return cell
     }
     
-    @IBAction func registerToServer(_ sender: UIButton) {
+    private func registerToServer() {
+        
+        print(userType)
+        print(name)
+        print(email)
+        print(age)
+        print(gender)
+        print(education)
+        print(educationYear)
+        print(school)
+        print(career)
+        print(fbId)
+        print(fbToken)
+        print(fbImageProfileUrl)
+        print(fbImage)
+
         
         if self.gender == "ชาย" {
             
@@ -171,101 +186,151 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         
         if self.userType == "Academic" {
             
-            parameters = [
-                "name": self.name,
-                "email": self.email,
-                "age": Int(self.age) ?? 0,
-                "academicLevel": self.education,
-                "academicYear": self.educationYear,
-                "academicSchool": self.school,
-                "gender": self.gender,
-                "type": self.userType,
-                "facebook": self.fbId,
-                "profile": self.fbImageProfileUrl ?? "",
-                "tokens": [
-                    [
-                            "kind": "facebook",
-                            "accessToken": self.fbToken
+            if let academicLevel = self.education,
+                let academicYear = self.educationYear,
+                let academicSchool = self.school,
+                let gender = self.gender
+            {
+                
+                if let facebook = self.fbId {
+                    
+                    parameters = [
+                        "name": self.name,
+                        "email": self.email,
+                        "age": Int(self.age!) ?? 0,
+                        "academicLevel": academicLevel,
+                        "academicYear": academicYear,
+                        "academicSchool": academicSchool,
+                        "gender": gender,
+                        "type": self.userType,
+                        "facebook": facebook,
+                        "profile": self.fbImageProfileUrl!,
+                        "tokens": [
+                            [
+                                "kind": "facebook",
+                                "accessToken": self.fbToken!
+                            ]
+                            
+                        ]
                     ]
                     
-                ]
-            ]
+                }
+            
+            }
             
         } else {
             
-            parameters = [
-                "name": self.name,
-                "email": self.email,
-                "age": Int(self.age) ?? 0,
-                "workerJob": self.career,
-                "gender": self.gender,
-                "type": self.userType,
-                "facebook": self.fbId,
-                "profile": self.fbImageProfileUrl ?? "",
-                "tokens": [
-                    [
-                        "kind": "facebook",
-                        "accessToken": self.fbToken
+            if let career = self.career,
+                let gender = self.gender
+            {
+                
+                if let facebook = self.fbId {
+                    
+                    parameters = [
+                        "name": self.name,
+                        "email": self.email,
+                        "age": Int(self.age!) ?? 0,
+                        "workerJob": career,
+                        "gender": gender,
+                        "type": self.userType,
+                        "facebook": facebook,
+                        "profile": self.fbImageProfileUrl!,
+                        "tokens": [
+                            [
+                                "kind": "facebook",
+                                "accessToken": self.fbToken!
+                            ]
+                            
+                        ]
+                        
                     ]
                     
-                ]
-            ]
-            
+                }
+                
+            }
+
         }
         
         Alamofire.request("http://staff.chulaexpo.com/api/signup", method: .post, parameters: parameters).responseJSON { (response) in
             
-            let JSON = response.result.value as! NSDictionary
-            let tokenResponse = JSON["results"] as! NSDictionary
-            print(parameters)
-            print(JSON)
+            if response.result.isSuccess {
             
-            let header: HTTPHeaders = ["Authorization": "JWT \(tokenResponse["token"] as! String)"]
-            
-            Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
-                
                 let JSON = response.result.value as! NSDictionary
+                let tokenResponse = JSON["results"] as! NSDictionary
+                print(parameters)
+                print(JSON)
+            
+                let header: HTTPHeaders = ["Authorization": "JWT \(tokenResponse["token"] as! String)"]
+            
+                Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                 
-                if let results = JSON["results"] as? NSDictionary{
+                    if response.result.isSuccess {
+                
+                        let JSON = response.result.value as! NSDictionary
+                
+                        if let results = JSON["results"] as? NSDictionary{
                     
-                    let academic = results["academic"] as? [String: String]
+                            let academic = results["academic"] as? [String: String]
                     
-                    let worker = results["worker"] as? [String: String]
+                            let worker = results["worker"] as? [String: String]
                     
-                    let managedObjectContext: NSManagedObjectContext? =
+                            let managedObjectContext: NSManagedObjectContext? =
                         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
                     
-                    managedObjectContext?.performAndWait {
+                            managedObjectContext?.performAndWait {
                         
-                        _ = UserData.addUser(id: results["_id"] as! String,
-                                             token: tokenResponse["token"] as! String,
-                                             type: results["type"] as! String,
-                                             name: results["name"] as! String,
-                                             email: results["email"] as! String,
-                                             age: results["age"] as! Int,
-                                             gender: results["gender"] as! String,
-                                             school: academic?["school"] ?? "",
-                                             level: academic?["level"] ?? "",
-                                             year: academic?["year"] ?? "",
-                                             job: worker?["job"] ?? "",
-                                             profile: results["profile"] as? String ?? "",
-                                             inManageobjectcontext: managedObjectContext!
-                        )
+                                _ = UserData.addUser(id: results["_id"] as! String,
+                                                     token: tokenResponse["token"] as! String,
+                                                     type: results["type"] as! String,
+                                                     name: results["name"] as! String,
+                                                     email: results["email"] as! String,
+                                                     age: results["age"] as! Int,
+                                                     gender: results["gender"] as! String,
+                                                     school: academic?["school"] ?? "",
+                                                     level: academic?["level"] ?? "",
+                                                     year: academic?["year"] ?? "",
+                                                     job: worker?["job"] ?? "",
+                                                     profile: results["profile"] as? String ?? "",
+                                                     inManageobjectcontext: managedObjectContext!
+                                )
                         
-                    }
+                            }
                     
-                    do {
+                            do {
                         
-                        try managedObjectContext?.save()
-                        print("saved user")
+                                try managedObjectContext?.save()
+                                print("saved user")
                         
-                    } catch let error {
+                            } catch let error {
                         
-                        print("saveUserError with \(error)")
+                                print("saveUserError with \(error)")
                         
-                    }
+                            }
+                        
+                        }
                     
+                        self.performSegue(withIdentifier: "toFinish", sender: self)
+                    
+                    } else {
+                    
+                        let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    
+                        self.present(confirm, animated: true, completion: nil)
+
+                    
+                    }
+                
                 }
+                
+            } else {
+                
+                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(confirm, animated: true, completion: nil)
                 
             }
             
@@ -326,7 +391,9 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             button2Alert.show()
         }
         else {
-            self.performSegue(withIdentifier: "toFinish", sender: self)
+            
+            registerToServer()
+            
         }
         
         

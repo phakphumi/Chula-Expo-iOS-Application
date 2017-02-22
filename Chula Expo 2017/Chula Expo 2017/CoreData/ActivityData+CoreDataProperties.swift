@@ -20,13 +20,11 @@ extension ActivityData {
     @NSManaged public var bannerUrl: String?
     @NSManaged public var desc: String?
     @NSManaged public var isHighlight: Bool
-    @NSManaged public var isStageEvent: Bool
     @NSManaged public var place: String?
     @NSManaged public var room: String?
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var name: String?
-    @NSManaged public var reservable: Bool
     @NSManaged public var stageNo: Int16
     @NSManaged public var thumbnailsUrl: String?
     @NSManaged public var video: String?

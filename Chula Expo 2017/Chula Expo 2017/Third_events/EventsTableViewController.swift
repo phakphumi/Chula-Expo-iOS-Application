@@ -179,7 +179,6 @@ class EventsTableViewController: CoreDataTableViewController {
                             destination.topic = fetch.name
                             destination.locationDesc = ""
                             destination.toRounds = fetch.toRound
-                            destination.reservable = fetch.reservable
                             destination.desc = fetch.desc
                             destination.room = fetch.room
                             destination.place = fetch.place

@@ -23,6 +23,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
+        
+        let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
+        
+        let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+        let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+        
+        let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+        let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+        
+        let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
+        
+        let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+        let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+        
+        let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+        let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
+        
+        let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
+        let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
+        
+        let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
+        let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
+        
+        let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
+        let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
+        
+        do {
+            
+            try managedObjectContext.execute(requestDeleteActivityData)
+            try managedObjectContext.execute(requestDeleteZoneData)
+            try managedObjectContext.execute(requestDeleteImageData)
+            try managedObjectContext.execute(requestDeleteTagData)
+            try managedObjectContext.execute(requestDeleteUserData)
+            try managedObjectContext.execute(requestDeleteVideoData)
+            try managedObjectContext.execute(requestDeletePlaceData)
+            try managedObjectContext.execute(requestDeleteRoomData)
+            try managedObjectContext.execute(requestDeleteRoundData)
+            try managedObjectContext.execute(requestDeleteFacilityData)
+            
+        } catch let error {
+            
+            print(error)
+            
+        }
+        
         downloadActivities()
         downloadZone()
         
@@ -193,13 +242,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 thumbnailsUrl: result["thumbnail"] as? String ?? "",
                                 startTime: dateFormatter.date(from: startTime) ?? Date(),
                                 endTime: dateFormatter.date(from: endTime) ?? Date(),
-                                isFavorite: false,
                                 isHighlight: result["isHighlight"] as? Bool ?? false,
-                                reservable: false,
-                                fullCapacity: 110,
-                                reserved: 10,
-                                seatAvaliable: 100,
-                                isReserve: false,
                                 video: result["video"] as? String ?? "",
                                 pdf: result["pdf"] as? String ?? "",
                                 images: pictures,

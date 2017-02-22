@@ -15,26 +15,21 @@ public class RoundData: NSManagedObject {
     class func addData(
         id: String,
         activityId: String,
-        roundNo: Int16,
         startTime: Date,
         endTime: Date,
-        reservable: Bool,
         seatAvaliable: Int16,
         reserved: Int16,
         fullCapacity: Int16,
-        isReserve: Bool,
-        isFavorite: Bool,
-        isHighlight: Bool,
         inManageobjectcontext context: NSManagedObjectContext
         ) -> RoundData?
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
-        request.predicate = NSPredicate(format: "activityId = %@ AND roundNo = %i", activityId, roundNo)
+        request.predicate = NSPredicate(format: "activityId = %@", activityId)
         
         if let result = (try? context.fetch(request))?.first as? RoundData
         {
             // found this event in the database, return it ...
-            print("Found round \(result.roundNo) in activityId \(result.activityId)")
+            print("Found round \(result.id ?? "") in activityId \(result.activityId ?? "")")
             return result
         }
         else {
@@ -43,16 +38,11 @@ public class RoundData: NSManagedObject {
                 // created a new event in the database
                 newData.id = id
                 newData.activityId = activityId
-                newData.roundNo = roundNo
                 newData.startTime = startTime
                 newData.endTime = endTime
-                newData.reservable = reservable
                 newData.seatAvaliable = seatAvaliable
                 newData.reserved = reserved
                 newData.fullCapacity = fullCapacity
-                newData.isReserve = isReserve
-                newData.isFavorite = isFavorite
-                newData.isHighlight = isHighlight
                 return newData
             }
         }

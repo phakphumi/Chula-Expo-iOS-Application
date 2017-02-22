@@ -20,12 +20,7 @@ extension RoundData {
     @NSManaged public var endTime: Date?
     @NSManaged public var fullCapacity: Int16
     @NSManaged public var id: String?
-    @NSManaged public var isFavorite: Bool
-    @NSManaged public var isHighlight: Bool
-    @NSManaged public var isReserve: Bool
-    @NSManaged public var reservable: Bool
     @NSManaged public var reserved: Int16
-    @NSManaged public var roundNo: Int16
     @NSManaged public var seatAvaliable: Int16
     @NSManaged public var startTime: Date?
     @NSManaged public var toActivity: ActivityData?

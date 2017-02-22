@@ -128,10 +128,9 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 check = true
             }
         }
-        print(check)
-        if(check == true){
+        
         if segue.identifier == "toFaculty" {
-            
+
             let destination = segue.destination as! interestFacityViewController
             
             destination.userType = self.userType
@@ -141,8 +140,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
             destination.gender = self.gender
             destination.fbId = self.fbId
             destination.fbToken = self.fbToken
-            destination.fbImageProfileUrl = self.fbImageProfileUrl!
-            destination.fbImage = self.fbImage!
+            destination.fbImageProfileUrl = self.fbImageProfileUrl
+            destination.fbImage = self.fbImage
             destination.managedObjectContext = self.managedObjectContext
             
             
@@ -162,8 +161,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
             }
             
-            }
         }
+        
     }
     
     // MARK: UICollectionViewDataSource

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hge-L5-zf6">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1117,7 +1117,6 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="1cI-z6-raX" eventType="touchUpInside" id="0zJ-qG-WmM"/>
-                                    <segue destination="NNG-St-L30" kind="show" identifier="toFaculty" id="zdr-QO-sNZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1146,6 +1145,7 @@
                         <outlet property="collectionView" destination="kL5-xc-L1H" id="aEH-F6-2ze"/>
                         <outlet property="finButton" destination="Dbs-Dv-fge" id="R2V-gO-a4O"/>
                         <outlet property="numberLabel" destination="qgJ-0H-dOd" id="4YK-91-xzV"/>
+                        <segue destination="NNG-St-L30" kind="show" identifier="toFaculty" id="eGe-co-jWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PG4-WO-mgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1297,8 +1297,6 @@
                                 </state>
                                 <connections>
                                     <action selector="next:" destination="NNG-St-L30" eventType="touchUpInside" id="TMP-dM-33g"/>
-                                    <action selector="registerToServer:" destination="NNG-St-L30" eventType="touchUpInside" id="rjf-rG-0Ip"/>
-                                    <segue destination="GS6-3Z-GhW" kind="show" identifier="toFinish" id="554-3K-oZ3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1329,6 +1327,7 @@
                         <outlet property="collectionView" destination="XG9-WX-Fxo" id="vye-eO-p3d"/>
                         <outlet property="finButton2" destination="i4X-9j-RYi" id="d2c-yj-4pd"/>
                         <outlet property="numberLabel" destination="9Ix-oj-xDG" id="CMd-0O-wbP"/>
+                        <segue destination="GS6-3Z-GhW" kind="show" identifier="toFinish" id="mfb-9j-mcx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0Q-2m-hDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1351,6 +1350,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="gH4-31-fBe"/>
         <segue reference="6Sk-ae-WEp"/>
-        <segue reference="zdr-QO-sNZ"/>
+        <segue reference="eGe-co-jWB"/>
     </inferredMetricsTieBreakers>
 </document>

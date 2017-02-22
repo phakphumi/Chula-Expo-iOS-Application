@@ -75,8 +75,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         initialField()
         initialPicker()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController2.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController2.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         

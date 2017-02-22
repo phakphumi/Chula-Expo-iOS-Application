@@ -21,7 +21,6 @@
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
 		5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */; };
 		5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */; };
-		5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */; };
 		5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */; };
 		5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E92E01E48D8A100D5513B /* Alamofire.framework */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
@@ -57,7 +56,6 @@
 		5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E8E831E424A6400241904 /* MapTableViewCell.swift */; };
 		5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */; };
 		5FB054591E23CEEF00428428 /* TagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB054581E23CEEF00428428 /* TagController.swift */; };
-		5FCE0A781E10E4B400E5DB16 /* RegisterViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCE0A771E10E4B400E5DB16 /* RegisterViewController2.swift */; };
 		5FD451521E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD451501E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift */; };
 		5FD451531E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */; };
 		5FDC57B61E47485800B452E7 /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */; };
@@ -137,7 +135,6 @@
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
 		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Modal_EventDetails/ImageTableViewCell.swift; sourceTree = "<group>"; };
-		5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailsTableViewController.swift; path = Modal_EventDetails/EventDetailsTableViewController.swift; sourceTree = "<group>"; };
 		5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescTableViewCell.swift; path = Modal_EventDetails/DescTableViewCell.swift; sourceTree = "<group>"; };
 		5F0E92E01E48D8A100D5513B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "DerivedData/Chula Expo 2017/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = SOURCE_ROOT; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Main_LoginAndRegistration/LoginViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +177,6 @@
 		5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentTableViewCell.swift; path = Modal_EventDetails/DocumentTableViewCell.swift; sourceTree = "<group>"; };
 		5FB054581E23CEEF00428428 /* TagController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagController.swift; path = First_home/TagController.swift; sourceTree = "<group>"; };
-		5FCE0A771E10E4B400E5DB16 /* RegisterViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController2.swift; path = Main_LoginAndRegistration/RegisterViewController2.swift; sourceTree = "<group>"; };
 		5FD451501E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FavoritedActivity+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/FavoritedActivity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FavoritedActivity+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/FavoritedActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTypeViewController.swift; path = Main_LoginAndRegistration/UserTypeViewController.swift; sourceTree = "<group>"; };
@@ -281,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */,
-				5F07EDD41E2BBB950017ECD5 /* EventDetailsTableViewController.swift */,
 				5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */,
 				5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */,
 				5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */,
@@ -415,7 +410,6 @@
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
 				5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */,
 				5FDC57B71E475AE300B452E7 /* RegisterViewController.swift */,
-				5FCE0A771E10E4B400E5DB16 /* RegisterViewController2.swift */,
 				581940D81E4516BF000C566C /* interestViewController.swift */,
 				581940DA1E467A99000C566C /* interestFacityViewController.swift */,
 			);
@@ -695,7 +689,6 @@
 				5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
-				5FCE0A781E10E4B400E5DB16 /* RegisterViewController2.swift in Sources */,
 				931613E41E4F706B00298127 /* FeedMeTableViewCell.swift in Sources */,
 				80DC942A1E366B5300A1D01A /* ImageData+CoreDataProperties.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
@@ -740,7 +733,6 @@
 				931613EA1E4F8F8600298127 /* FAQViewController.swift in Sources */,
 				5F2D9ED01E4CE2A100818474 /* ZoneData+CoreDataClass.swift in Sources */,
 				80DC94291E366B5300A1D01A /* ImageData+CoreDataClass.swift in Sources */,
-				5F07EDD51E2BBB950017ECD5 /* EventDetailsTableViewController.swift in Sources */,
 				5F2D9ED21E4CE2A100818474 /* PlaceData+CoreDataClass.swift in Sources */,
 				80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */,
 				5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */,

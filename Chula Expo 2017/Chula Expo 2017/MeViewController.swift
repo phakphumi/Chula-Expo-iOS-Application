@@ -41,8 +41,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
     @IBAction func epro(_ sender: Any) {
-//        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-//        button2Alert.show()
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
     }
     @IBAction func eTag(_ sender: Any) {
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
@@ -52,6 +52,12 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     @IBAction func eac(_ sender: Any) {
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
         button2Alert.show()
+    }
+    @IBAction func equest(_ sender: UIButton) {
+        
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+        
     }
     
     var userType = "Academic"
@@ -88,7 +94,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 self.name.text = (fetchUser.name ?? "")
                 self.email.text = (fetchUser.email ?? "")
                 self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + (fetchUser.gender ?? "")
-                self.year.text = (fetchUser.level ?? "") + " ปี" + (fetchUser.year ?? "")
+                self.year.text = (fetchUser.level ?? "") + " " + (fetchUser.year ?? "")
                 self.uni.text = (fetchUser.school ?? "")
                 
                 self.userType = (fetchUser.type ?? "")
@@ -242,6 +248,9 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
             let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
             
+            let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
+            let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
+            
             do {
                 
                 try managedObjectContext?.execute(requestDeleteActivityData)
@@ -253,6 +262,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 try managedObjectContext?.execute(requestDeletePlaceData)
                 try managedObjectContext?.execute(requestDeleteRoomData)
                 try managedObjectContext?.execute(requestDeleteRoundData)
+                try managedObjectContext?.execute(requestDeleteFacilityData)
 
                 
                 let loginManager = FBSDKLoginManager()

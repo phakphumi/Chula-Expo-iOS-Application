@@ -24,13 +24,7 @@ public class ActivityData: NSManagedObject {
         thumbnailsUrl: String,
         startTime: Date,
         endTime: Date,
-        isFavorite: Bool,
         isHighlight: Bool,
-        reservable: Bool,
-        fullCapacity: Int16,
-        reserved: Int16,
-        seatAvaliable: Int16,
-        isReserve: Bool,
         video: String,
         pdf: String,
         images: [String],
@@ -54,7 +48,6 @@ public class ActivityData: NSManagedObject {
             result.longitude = longitude
             result.bannerUrl = bannerUrl
             result.thumbnailsUrl = thumbnailsUrl
-            result.reservable = reservable
             result.video = video
             result.pdf = pdf
             result.faculty = faculty
@@ -75,10 +68,8 @@ public class ActivityData: NSManagedObject {
                 activityData.latitude = latitude
                 activityData.longitude = longitude
                 activityData.name = name
-                activityData.reservable = reservable
                 activityData.thumbnailsUrl = thumbnailsUrl
                 activityData.isHighlight = isHighlight
-                activityData.isStageEvent = false
                 activityData.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
                 activityData.video = video
                 activityData.pdf = pdf
@@ -116,6 +107,8 @@ public class ActivityData: NSManagedObject {
                 
                 for round in rounds {
                     
+                    print(round)
+                    
                     if let round = round as? NSDictionary {
                         
                         if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
@@ -132,9 +125,6 @@ public class ActivityData: NSManagedObject {
                             roundData.fullCapacity = seats["fullCapacity"] as! Int16
                             roundData.reserved = seats["reserved"] as! Int16
                             roundData.seatAvaliable = seats["avaliable"] as! Int16
-                            roundData.isFavorite = false
-                            roundData.isReserve = false
-                            roundData.reservable = (seats["avaliable"] as! Int16) > 0 ? true : false
                             roundData.toActivity = activityData
                             
                         }

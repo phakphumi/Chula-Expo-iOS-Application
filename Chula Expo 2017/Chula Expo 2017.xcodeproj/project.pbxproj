@@ -86,6 +86,7 @@
 		80320A851E4F10A200278CCC /* EventAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80320A841E4F10A200278CCC /* EventAsset.xcassets */; };
 		803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803688AA1E42595300C1FB58 /* StageDetailCell.swift */; };
 		803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */; };
+		80403F361E5DECDB009C1937 /* InterestBG.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80403F351E5DECDB009C1937 /* InterestBG.xcassets */; };
 		805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0851E150EDE00E984AB /* Bolts.framework */; };
 		805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
 		805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
@@ -208,6 +209,7 @@
 		80320A841E4F10A200278CCC /* EventAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = EventAsset.xcassets; path = Third_events/EventAsset.xcassets; sourceTree = "<group>"; };
 		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageDetailCell.swift; path = First_home/StageEvent/StageDetailCell.swift; sourceTree = "<group>"; };
 		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = First_home/HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		80403F351E5DECDB009C1937 /* InterestBG.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = InterestBG.xcassets; sourceTree = "<group>"; };
 		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = First_home/StageEvent/StageExpandTableViewController.swift; sourceTree = "<group>"; };
 		8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCell.swift; path = First_home/StageEvent/StageExpandableCell.swift; sourceTree = "<group>"; };
 		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCoreDataTableViewController.swift; path = First_home/StageEvent/StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				80320A841E4F10A200278CCC /* EventAsset.xcassets */,
+				80403F351E5DECDB009C1937 /* InterestBG.xcassets */,
 				80D103251E54AFB2004F8998 /* Old */,
 				80BFD4D81E27F3AA00491730 /* CoreData */,
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
@@ -603,6 +606,7 @@
 				5F4A9D9F1E10300900713580 /* LaunchScreen.storyboard in Resources */,
 				5F5C7D4E1E10DDCC00C9D0F2 /* Third.storyboard in Resources */,
 				5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */,
+				80403F361E5DECDB009C1937 /* InterestBG.xcassets in Resources */,
 				5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
 				5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */,

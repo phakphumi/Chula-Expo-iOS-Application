@@ -153,9 +153,9 @@ class FirstViewController: MainCoreDataTableViewController {
                 
                 for data in fetchdata{
                     
-                    images.append(data.thumbnailsUrl ?? "")
+                    images.append(data.bannerUrl ?? "")
                     titles.append(data.name ?? "")
-                    desc.append("desc")
+                    desc.append(data.desc ?? "")
                 }
             }
             

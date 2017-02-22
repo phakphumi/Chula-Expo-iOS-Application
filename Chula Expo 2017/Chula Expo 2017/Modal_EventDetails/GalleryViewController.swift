@@ -14,6 +14,7 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
 
     var images = [String]()
     var currentImageIndex: Int = 0
+    var imageFrameControllers = [ImageFrameViewController]()
     
     let appearance = UIPageControl.appearance()
     
@@ -24,16 +25,19 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
         
         self.view.backgroundColor = UIColor.black
         
-        let frameViewController = ImageFrameViewController()
-//        frameViewController.imageName = imageName.first
-        frameViewController.imageView.imageFromServerURL(urlString: images.first ?? "")
-//        frameViewController.image = images.first
-        let viewController = [frameViewController]
+        for index in 0..<images.count{
+            let frameViewController = ImageFrameViewController()
+            frameViewController.imageView.imageFromServerURL(urlString: images[index])
+            frameViewController.frameIndex = index
+            imageFrameControllers.append(frameViewController)
+        }
         
-        setViewControllers(viewController, direction: .forward, animated: true, completion: nil)
+
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryViewController.wasTap))
-        self.view.addGestureRecognizer(tapGestureRecognizer)
+        setViewControllers([imageFrameControllers[currentImageIndex]], direction: .forward, animated: false, completion: nil)
+     
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryViewController.wasTap))
+//        self.view.addGestureRecognizer(tapGestureRecognizer)
         
         let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(GalleryViewController.wasDrag(gestureRecognizer:)))
         self.view.addGestureRecognizer(dragGestureRecognizer)
@@ -42,7 +46,7 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     func wasTap() {
         
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
         
     }
     
@@ -66,7 +70,8 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
         let touchedMovingView = gestureRecognizer.view! // get moving object
         
         touchedMovingView.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
-        
+//         touchedMovingView.transform = CGAffineTransform(scaleX: -(abs(translation.y)), y: -(abs(translation.y)))
+        print( (abs(translation.y)))
         if gestureRecognizer.state == UIGestureRecognizerState.ended {
 
             let viewFrameCenter = getViewFrameCenter(myView: touchedMovingView)
@@ -120,46 +125,26 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         
         setupPageControl()
-        
-//        return imageName.count
-
         return images.count
 
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         
-        return 0
+        return currentImageIndex
         
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-//        let currentImageFrameName = (viewController as! ImageFrameViewController).imageName
-//        let currentImageIndex = imageName.index(of: currentImageFrameName!)
-
-        let currentImageFrameName = (viewController as! ImageFrameViewController).image
-//        let currentImageIndex = images.index(of: currentImageFrameName!)
-
-        if currentImageIndex < images.count - 1 {
+        print("current = \(currentImageIndex)")
+        print("after")
+        let viewControllerIndex = (viewController as! ImageFrameViewController).frameIndex
+        if viewControllerIndex < images.count - 1 {
             
-            let frameViewController = ImageFrameViewController()
-            currentImageIndex = currentImageIndex + 1
-            frameViewController.imageView.imageFromServerURL(urlString: images[currentImageIndex])
-            
-            
-            return frameViewController
+            return imageFrameControllers[viewControllerIndex + 1]
             
         }
-        
-//        if currentImageIndex! < imageName.count - 1 {
-//            
-//            let frameViewController = ImageFrameViewController()
-//            frameViewController.imageName = imageName[currentImageIndex! + 1]
-//            
-//            return frameViewController
-//            
-//        }
         
         return nil
         
@@ -167,34 +152,29 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-//        let currentImageFrameName = (viewController as! ImageFrameViewController).imageName
-//        let currentImageIndex = imageName.index(of: currentImageFrameName!)
-
-        let currentImageFrameName = (viewController as! ImageFrameViewController).image
-//        let currentImageIndex = images.index(of: currentImageFrameName!)
-
-        if currentImageIndex > 0 {
+        
+        print("current = \(currentImageIndex)")
+        print("before")
+        let viewControllerIndex = (viewController as! ImageFrameViewController).frameIndex
+        if viewControllerIndex > 0 {
             
-            let frameViewController = ImageFrameViewController()
-            currentImageIndex = currentImageIndex - 1
-            frameViewController.imageView.imageFromServerURL(urlString: images[currentImageIndex])
-            
-            
-            return frameViewController
+            return imageFrameControllers[viewControllerIndex - 1]
             
         }
-        
-//        if currentImageIndex! > 0 {
-//            
-//            let frameViewController = ImageFrameViewController()
-//            frameViewController.imageName = imageName[currentImageIndex! - 1]
-//            
-//            return frameViewController
-//            
-//        }
         
         return nil
         
     }
-
+    
+    func pageViewController(pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [AnyObject],
+                            transitionCompleted completed: Bool)
+    {
+        if finished && completed{
+            if let curPage = pageViewController.viewControllers?.first as? ImageFrameViewController{
+                currentImageIndex = curPage.frameIndex
+            }
+        }
+    }
 }

@@ -65,9 +65,6 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
             }
         }
     }
-
-    
-    // MARK: UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -113,23 +110,33 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .insert: tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-        case .delete: tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .insert: tableView.insertSections(IndexSet(integer: sectionIndex+2), with: .fade)
+        case .delete: tableView.deleteSections(IndexSet(integer: sectionIndex+2), with: .fade)
         default: break
         }
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        var newIndex = IndexPath()
+        var index = IndexPath()
+        if newIndexPath != nil {
+            newIndex = IndexPath(row: newIndexPath!.row, section: newIndexPath!.section + 2)
+        }
+        if indexPath != nil {
+            index = IndexPath(row: indexPath!.row, section: indexPath!.section + 2)
+        }
+
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.insertRows(at: [newIndex], with: .fade)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [index], with: .fade)
         case .update:
-            tableView.reloadRows(at: [indexPath!], with: .fade)
+            tableView.reloadRows(at: [index], with: .fade)
         case .move:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.deleteRows(at: [index], with: .fade)
+            tableView.insertRows(at: [newIndex], with: .fade)
         }
     }
     

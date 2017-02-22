@@ -13,17 +13,21 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     var imageName: [String]?{
         didSet{
             initIfReady()
+            
+            updateAllFrameWithNewData()
         }
     }
     var topicLabelText: [String]?{
         didSet{
             initIfReady()
+            updateAllFrameWithNewData()
         }
     }
 
     var descLabelText: [String]?{
         didSet{
             initIfReady()
+            updateAllFrameWithNewData()
         }
     }
 
@@ -45,7 +49,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
         self.view.frame = CGRect(x: 0, y: 0, width: 375, height: 220)
         delegate = self
         dataSource = self
-        
+        createPageIndicator()
         
     }
     
@@ -62,16 +66,45 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
             }
             
 //            let viewController = [frameViewController]
-            
-            setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
-            
-            createPageIndicator()
+            if frameViewControllers.count > 0 {
+                setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
+                pageControl.numberOfPages = frameViewControllers.count
+            }else{
+//                
+                let frameViewController = SlideshowFrameViewController()
+                frameViewController.imageName = ""
+                frameViewController.topicLabelText = "Welcome to Chula Expo 2017"
+                frameViewController.descLabelText = "15 - 19 March 2017  Chulalongkorn University"
+                frameViewController.frameIndex = 0
+                frameViewControllers.append(frameViewController)
+                setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
+                pageControl.numberOfPages = 1
+               
+            }
+//            createPageIndicator()
+
             
             timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
             
         }
         
     }
+    
+    func updateAllFrameWithNewData(){
+        
+        if imageName?.count == topicLabelText?.count && imageName?.count == descLabelText?.count && imageName?.count != 0{
+            
+            frameViewControllers.removeAll()
+            for index in 0..<(imageName?.count ?? 0) {
+                
+                let frameViewController = SlideshowFrameViewController()
+                setSlideshowPropoties(frameViewController: frameViewController, atIndex: index)
+                frameViewControllers.append(frameViewController)
+            }
+            pageControl.numberOfPages = frameViewControllers.count
+        }
+    }
+
     
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         
@@ -116,7 +149,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
 //        let currentImageIndex = imageName?.index(of: currentImageFrameName!)
 //        let frameViewController = SlideshowFrameViewController()
         
-        if currentFrameIndex < (imageName?.count)! - 1 {
+        if currentFrameIndex < frameViewControllers.count - 1 {
             
             return frameViewControllers[currentFrameIndex + 1]
 //            setSlideshowPropoties(frameViewController: frameViewController, atIndex: currentImageIndex! + 1)
@@ -195,7 +228,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     
     func nextViewController() {
         
-        if frameIndex < (imageName?.count)! - 1 {
+        if frameIndex < frameViewControllers.count - 1 {
          
             frameIndex += 1
             
@@ -228,6 +261,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     
     func createPageIndicator() {
         
+        pageControl = UIPageControl()
         pageControl = UIPageControl(frame: CGRect(x: self.view.center.x - self.view.bounds.width / 2, y: self.view.bounds.height - 10, width: self.view.bounds.width, height: 6))
         pageControl.numberOfPages = (imageName?.count) ?? 0
         

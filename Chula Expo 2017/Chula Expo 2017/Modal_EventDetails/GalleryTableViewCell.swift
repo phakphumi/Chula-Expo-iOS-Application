@@ -96,16 +96,14 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryTableViewCell.wasTap))
-        galleryCollectionView.addGestureRecognizer(tapGestureRecognizer)
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryTableViewCell.wasTap))
+//        galleryCollectionView.addGestureRecognizer(tapGestureRecognizer)
 
         galleryCollectionView.isUserInteractionEnabled = true
         
         /*
         imageAlbum = [image1, image2, image3, image4,
-                      image5, image6]
-        
-        
+                      image5, image6]        
         setImageTag()
         clearImage() */
         
@@ -120,15 +118,24 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as UICollectionViewCell
+//        let view = cell.viewWithTag(0) as! UIImageView
+        if let imageView = cell.viewWithTag(1) as? UIImageView {
+            
+//            let tapGestureRecognizer = UITapGestureRecognizer(target: imageView, action: #selector(GalleryTableViewCell.wasTap))
+//            imageView.addGestureRecognizer(tapGestureRecognizer)
+            imageView.imageFromServerURL(urlString: images[indexPath.row])
+            cell.backgroundView = UIView()
+            cell.backgroundView?.tag = indexPath.row
+        }
         
-        let imageView = cell.viewWithTag(1) as! UIImageView
-        
-        imageView.imageFromServerURL(urlString: images[indexPath.row])
-//        imageView.image = images[indexPath.row]
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryTableViewCell.wasTap))
+//        cell.addGestureRecognizer(tapGestureRecognizer)
+
         
         return cell
         
     }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

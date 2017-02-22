@@ -227,7 +227,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         if indexPath.row == 0 {
             return 50
         }else  if indexPath.row == 1 && indexPath.section == selectSection{
-            return 170
+            return UITableViewAutomaticDimension
         }
         return 0;
     }

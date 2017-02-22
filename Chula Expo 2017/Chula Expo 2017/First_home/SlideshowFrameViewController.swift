@@ -49,17 +49,17 @@ class SlideshowFrameViewController: UIViewController {
         let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: 375, height: 220))
         iv.image = #imageLiteral(resourceName: "defaultImage")
         iv.contentMode = .scaleAspectFill
-        
+        iv.clipsToBounds = true
         return iv
         
     }()
     
     let topicLabel: UILabel = {
         
-        let tl = UILabel(frame: CGRect(x: 15, y: 22, width: 375 - 15, height: 26))
+        let tl = UILabel(frame: CGRect(x: 15, y: 24, width: 375 - 25, height: 26))
         
         
-        tl.font = UIFont(name: "SukhumvitSet-Medium", size: 20)
+        tl.font = UIFont(name: "SukhumvitSet-Bold", size: 22)
 //        tl.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         tl.textColor = UIColor.white
         tl.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -72,8 +72,9 @@ class SlideshowFrameViewController: UIViewController {
     
     let descLabel: UILabel = {
         
-        let dl = UILabel(frame: CGRect(x: 15, y: 50, width: 375 - 15, height: 16))
-        dl.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
+        let dl = UILabel(frame: CGRect(x: 15, y: 50, width: 375 - 25, height: 16))
+        dl.font = UIFont(name: "SukhumvitSet-Medium", size: 13)
+//        dl.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightMedium)
         dl.textColor = UIColor.white
         
         return dl

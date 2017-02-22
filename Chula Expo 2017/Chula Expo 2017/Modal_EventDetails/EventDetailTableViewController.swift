@@ -78,7 +78,7 @@ class EventDetailTableViewController: UITableViewController {
         
         calculateIsReservable()
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailsTableViewController.toDismiss))
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailTableViewController.toDismiss))
         swipeRight.direction = .right
         
         self.view.addGestureRecognizer(swipeRight)

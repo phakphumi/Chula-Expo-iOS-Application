@@ -398,8 +398,8 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             interestData(imgName: "19i",  tagName: "การศึกษา",  tagBack: "19",  tagEngName: "Education"),
             interestData(imgName: "20i",  tagName: "พระราชกรณียกิจ",  tagBack: "20",  tagEngName: "Royal Duties"),
             interestData(imgName: "21i",  tagName: "ความงาม",  tagBack: "21",  tagEngName: "Beauty"),
-            interestData(imgName: "22i",  tagName: "สัตว์และพืชพันธุ์",  tagBack: "22",  tagEngName: "Life"),
-            interestData(imgName: "23i",  tagName: "การสื่อสาร",  tagBack: "23",  tagEngName: "Communication"),
+            interestData(imgName: "22i",  tagName: "สัตว์และพันธุ์พืช",  tagBack: "22",  tagEngName: "Life"),
+            interestData(imgName: "23i",  tagName: "ภาษาและการสื่อสาร",  tagBack: "23",  tagEngName: "Communication"),
             interestData(imgName: "24i",  tagName: "กีฬา",  tagBack: "24",  tagEngName: "Sport")
         ]
     }

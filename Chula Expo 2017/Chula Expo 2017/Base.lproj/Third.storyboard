@@ -28,7 +28,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="dCS-MC-FVq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dCS-MC-FVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.93554258346557617" green="0.47647073864936829" blue="0.60005998611450195" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -70,7 +70,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cityCell" id="cIi-Tn-IR5" customClass="CityCollectionViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                        <rect key="frame" x="7.5" y="0.0" width="360" height="85"/>
+                                        <rect key="frame" x="8" y="0.0" width="360" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="360" height="85"/>
@@ -214,20 +214,20 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="humanICON" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-Wf-dxf">
-                                                    <rect key="frame" x="33" y="18" width="35" height="35"/>
+                                                    <rect key="frame" x="32.5" y="18" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="RoT-II-3dz"/>
                                                         <constraint firstAttribute="height" constant="35" id="WpA-rY-dtE"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สุขภาพ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-db-Enw">
-                                                    <rect key="frame" x="31" y="56" width="39" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สุขภาพ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-db-Enw">
+                                                    <rect key="frame" x="0.0" y="56" width="100" height="21"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lx-im-OKm">
-                                                    <rect key="frame" x="35" y="74" width="32" height="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Lx-im-OKm">
+                                                    <rect key="frame" x="2" y="74" width="96" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -236,15 +236,17 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="Ien-db-Enw" firstAttribute="leading" secondItem="tqI-QD-FNY" secondAttribute="leadingMargin" id="3yq-Ug-R4G"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="9Lx-im-OKm" secondAttribute="trailing" constant="2" id="TCG-o1-PHj"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Ien-db-Enw" secondAttribute="trailing" id="VEH-vM-nOw"/>
                                             <constraint firstItem="Ien-db-Enw" firstAttribute="top" secondItem="bVD-Wf-dxf" secondAttribute="bottom" constant="3" id="YGj-rL-rn8"/>
                                             <constraint firstItem="9Lx-im-OKm" firstAttribute="top" secondItem="Ien-db-Enw" secondAttribute="bottom" constant="-3" id="aGo-Jf-7bB"/>
                                             <constraint firstAttribute="trailing" secondItem="a2P-Nd-FiT" secondAttribute="trailing" id="bOf-QP-A9M"/>
                                             <constraint firstItem="Ien-db-Enw" firstAttribute="centerX" secondItem="bVD-Wf-dxf" secondAttribute="centerX" id="eTs-Jt-i7j"/>
                                             <constraint firstAttribute="bottom" secondItem="a2P-Nd-FiT" secondAttribute="bottom" id="kbs-JX-BY4"/>
-                                            <constraint firstItem="9Lx-im-OKm" firstAttribute="centerX" secondItem="Ien-db-Enw" secondAttribute="centerX" id="mEA-DX-IY2"/>
+                                            <constraint firstItem="9Lx-im-OKm" firstAttribute="leading" secondItem="tqI-QD-FNY" secondAttribute="leadingMargin" constant="2" id="lQz-3r-plu"/>
                                             <constraint firstItem="a2P-Nd-FiT" firstAttribute="top" secondItem="tqI-QD-FNY" secondAttribute="top" id="sHV-ff-ciz"/>
                                             <constraint firstItem="a2P-Nd-FiT" firstAttribute="leading" secondItem="tqI-QD-FNY" secondAttribute="leading" id="tj4-YY-pYD"/>
-                                            <constraint firstItem="bVD-Wf-dxf" firstAttribute="centerX" secondItem="tqI-QD-FNY" secondAttribute="centerX" id="vNR-Hj-aN4"/>
                                             <constraint firstItem="bVD-Wf-dxf" firstAttribute="centerY" secondItem="tqI-QD-FNY" secondAttribute="centerY" constant="-15" id="zcq-Qz-Mcr"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -367,14 +369,14 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="70A261FD-3CA7-4728-B482-64B6EE8EA625" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="32F5394D-978D-4323-B01A-F97FC5A50A48" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="DhE-io-uuX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLl-i4-RXn" userLabel="thaTitle">
-                                                    <rect key="frame" x="25" y="26" width="290" height="19"/>
+                                                    <rect key="frame" x="25" y="26" width="290" height="14"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -427,19 +429,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชื่อกิจกรรม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w89-1z-R5s">
-                                                    <rect key="frame" x="103" y="5" width="246" height="24"/>
+                                                    <rect key="frame" x="103" y="5" width="246" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันนี้ 22-24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-Hl-zlo">
-                                                    <rect key="frame" x="103" y="26" width="242" height="19"/>
+                                                    <rect key="frame" x="103" y="19.5" width="242" height="14"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วิศวะ" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjS-z9-13I" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                                    <rect key="frame" x="103" y="48" width="21.5" height="16"/>
+                                                    <rect key="frame" x="103" y="36.5" width="23" height="16"/>
                                                     <color key="backgroundColor" red="0.56862745100000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="9GH-Bk-ctu"/>
@@ -514,7 +516,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="70A261FD-3CA7-4728-B482-64B6EE8EA625" width="17" height="18">
+        <image name="32F5394D-978D-4323-B01A-F97FC5A50A48" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

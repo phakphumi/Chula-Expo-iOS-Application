@@ -44,41 +44,54 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             print(1)
             
-            if let userData = UserData.fetchUser(inManageobjectcontext: managedObjectContext!) {
-                print(2)
-                print(userData.token)
-                print("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
-                let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
-
-                Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserved", headers: header).responseJSON { response in
-
-                    if response.result.isSuccess {
-
-                        let JSON = response.result.value as! NSDictionary
-
-                        let results = JSON["results"] as! NSDictionary
-                        
-                        let message = JSON["message"]
-                        
-                        let success = JSON["success"]
-                        
-                        print(results)
-                        
-                        print(message)
-                        
-                        print(success)
-                        
-                    } else {
-
-                        let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+            if UserData.isThereUser(inManageobjectcontext: managedObjectContext!) {
+            
+                if let userData = UserData.fetchUser(inManageobjectcontext: managedObjectContext!) {
                     
-                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    print(2)
+                    print(userData.token)
+                    print("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
+                    let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
                     
-                        self.present(confirm, animated: true, completion: nil)
-
+                    Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserved", headers: header).responseJSON { response in
+                        
+                        if response.result.isSuccess {
+                            
+                            let JSON = response.result.value as! NSDictionary
+                            
+                            let results = JSON["results"] as! NSDictionary
+                            
+                            let message = JSON["message"]
+                            
+                            let success = JSON["success"]
+                            
+                            print(results)
+                            
+                            print(message)
+                            
+                            print(success)
+                            
+                        } else {
+                            
+                            let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                            
+                            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                            
+                            self.present(confirm, animated: true, completion: nil)
+                            
+                        }
+                        
                     }
-
+                    
                 }
+                
+            } else {
+                
+                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะ Login User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+                
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(confirm, animated: true, completion: nil)
                 
             }
             

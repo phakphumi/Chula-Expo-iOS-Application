@@ -1,57 +1,58 @@
 //
-//  FavoritedActivity+CoreDataClass.swift
+//  ReservedActivity+CoreDataClass.swift
 //  
 //
-//  Created by Pakpoom on 2/13/2560 BE.
+//  Created by Pakpoom on 2/23/2560 BE.
 //
 //
 
 import Foundation
 import CoreData
 
-@objc(FavoritedActivity)
-public class FavoritedActivity: NSManagedObject {
-    
-    class func fetchFavoritedActivity(inManageobjectcontext context: NSManagedObjectContext) -> [FavoritedActivity]? {
+@objc(ReservedActivity)
+public class ReservedActivity: NSManagedObject {
+
+    class func fetchReservedActivity(inManageobjectcontext context: NSManagedObjectContext) -> [ReservedActivity]? {
         
-        let favoriteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+        let reservedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
         
-        if let favourites = (try? context.fetch(favoriteRequest)) as? [FavoritedActivity] {
+        if let reserves = (try? context.fetch(reservedRequest)) as? [ReservedActivity] {
             
-            return favourites
+            return reserves
             
         }
         
         return nil
         
     }
+
     
     class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool? {
         
-        let favoriteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
-        favoriteRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+        let reservedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+        reservedRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
         
-        if let result = (try? context.fetch(favoriteRequest))?.first as? FavoritedActivity {
+        if let result = (try? context.fetch(reservedRequest))?.first as? ReservedActivity {
             
             // found this event in the database, return it ...
-            print("Found \(result.activityId!) in FavoriteActivity")
+            print("Found \(result.activityId ?? "") in ReservedActivity")
             
             return false
             
         }
-
-        if let favoriteData = NSEntityDescription.insertNewObject(forEntityName: "FavoritedActivity", into: context) as? FavoritedActivity
+        
+        if let reservedData = NSEntityDescription.insertNewObject(forEntityName: "ReservedActivity", into: context) as? ReservedActivity
         {
             
             // created a new event in the database
-            favoriteData.activityId = activityId
+            reservedData.activityId = activityId
             
             let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             activityRequest.predicate = NSPredicate(format: "activityId = %@", activityId)
             
             if let activityResult = try? context.fetch(activityRequest).first as? ActivityData {
                 
-                favoriteData.toActivity = activityResult
+                reservedData.toActivity = activityResult
                 
             } else {
                 
@@ -60,7 +61,7 @@ public class FavoritedActivity: NSManagedObject {
                 return false
                 
             }
-         
+            
             return true
             
         } else {
@@ -72,5 +73,5 @@ public class FavoritedActivity: NSManagedObject {
         }
         
     }
-
+    
 }

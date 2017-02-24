@@ -53,23 +53,71 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     print("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
                     let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
                     
-                    Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserved", headers: header).responseJSON { response in
+                    Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve", method: .post, headers: header).responseJSON { response in
                         
                         if response.result.isSuccess {
                             
                             let JSON = response.result.value as! NSDictionary
+                            print(JSON)
                             
-                            let results = JSON["results"] as! NSDictionary
+                            let success = JSON["success"] as! Bool
                             
-                            let message = JSON["message"]
-                            
-                            let success = JSON["success"]
-                            
-                            print(results)
-                            
-                            print(message)
-                            
-                            print(success)
+                            if success {
+                                
+                                if ReservedActivity.addData(activityId: self.activityId, inManageobjectcontext: self.managedObjectContext!)! {
+                                    
+                                    let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                 
+                                    self.present(confirm, animated: true, completion: nil)
+                                    
+                                }
+                                
+                                do{
+                                    
+                                    try self.managedObjectContext?.save()
+                                    print("ReservedActivity Saved")
+                                    
+                                }
+                                    
+                                catch let error {
+                                    
+                                    print("FavoritedActivity save error with \(error)")
+                                    
+                                }
+                                
+                            } else {
+                                
+                                let errors = JSON["errors"] as! NSDictionary
+                                
+                                let code = errors["code"] as! String
+                                
+                                var message = String()
+                                
+                                switch code {
+                                    
+                                case "27":
+                                    
+                                    message = "คุณเคยจองกิจกรรมรอบนี้แล้ว"
+                                    
+                                case "30":
+                                    
+                                    message = "ตั๋วกิจกรรมบน Application สำหรับรอบนี้ถูกจองหมดแล้ว. (บางกิจกรรมอาจมีการเปิดรับคนหน้างาน)"
+                                    
+                                default:
+                                    
+                                    message = errors["message"] as! String
+                                    
+                                }
+                                
+                                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(confirm, animated: true, completion: nil)
+
+                                
+                            }
                             
                         } else {
                             

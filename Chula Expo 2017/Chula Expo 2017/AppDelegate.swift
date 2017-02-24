@@ -23,9 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
-        
         let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
         let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
         
@@ -47,15 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
         let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
         
-        let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
-        let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
-        
         let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
         let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
         
+//        let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+//        let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
+        
+//        let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+//        let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
+        
         do {
             
-            try managedObjectContext.execute(requestDeleteActivityData)
             try managedObjectContext.execute(requestDeleteZoneData)
             try managedObjectContext.execute(requestDeleteImageData)
             try managedObjectContext.execute(requestDeleteTagData)
@@ -63,8 +62,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try managedObjectContext.execute(requestDeleteVideoData)
             try managedObjectContext.execute(requestDeletePlaceData)
             try managedObjectContext.execute(requestDeleteRoomData)
-            try managedObjectContext.execute(requestDeleteRoundData)
             try managedObjectContext.execute(requestDeleteFacilityData)
+//            try managedObjectContext.execute(requestDeleteFavoritedActivity)
+//            try managedObjectContext.execute(requestDeleteReservedActivity)
             
         } catch let error {
             
@@ -72,8 +72,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        downloadActivities()
-        downloadZone()
+        APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext) { (success) in
+            
+            if success {
+                
+                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext, completion: { (success) in
+                    
+                    if success {
+                        
+                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
+                        
+                    }
+                    
+                })
+                
+            }
+            
+        }
+        
+//        APIController.downloadActivities(inManageobjectcontext: self.managedObjectContext)
+        APIController.downloadZone(inManageobjectcontext: self.managedObjectContext)
+        APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext)
         
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
@@ -180,324 +199,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func getRoundsData(activityID: String, completion: @escaping (NSArray) -> Void) {
-        
-        Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityID)/rounds").responseJSON { (response) in
-            
-            if let JSON = response.result.value as? NSDictionary{
-                let results = JSON["results"] as! NSArray
-                
-                completion(results)
-            }
-            
-            
-        }
-        
-    }
-    
-    private func downloadActivities() {
-        
-        Alamofire.request("http://staff.chulaexpo.com/api/activities").responseJSON { (response) in
-            
-            if response.result.isSuccess {
-                
-                let context = self.managedObjectContext
-        
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-            
-                let JSON = response.result.value as! NSDictionary
-                let results = JSON["results"] as! NSArray
-                
-//                print(results)
-                
-                for result in results {
-                
-                    let result = result as! NSDictionary
-                
-                    let location = result["location"] as! NSDictionary
-                
-                    let startTime = result["start"] as! String
-                    
-                    let endTime = result["end"] as! String
-                
-                    let pictures = result["pictures"] as? [String] ?? [""]
-                
-                    let tags = result["tags"] as! [String]
-                
-                    self.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
-                    
-                        context.performAndWait {
-                        
-                            _ = ActivityData.addEventData(
-                                
-                                activityId: result["_id"] as? String ?? "",
-                                name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                room: location["room"] as? String ?? "",
-                                place: location["place"] as? String ?? "",
-                                latitude: location["latitude"] as? Double ?? 0.0,
-                                longitude: location["longitude"] as? Double ?? 0.0,
-                                bannerUrl: result["banner"] as? String ?? "",
-                                thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                endTime: dateFormatter.date(from: endTime) ?? Date(),
-                                isHighlight: result["isHighlight"] as? Bool ?? false,
-                                video: result["video"] as? String ?? "",
-                                pdf: result["pdf"] as? String ?? "",
-                                images: pictures,
-                                rounds: rounds,
-                                tags: tags,
-                                faculty: result["zone"] as? String ?? "",
-                                inManageobjectcontext: context
-                            )
-                        }
-                    })
-                
-                }
-            
-                do{
-                
-                    try context.save()
-                    print("ActivityData Saved")
-                    
-                }
-                
-                catch let error {
-                
-                    print("ActivityData save error with \(error)")
-                    
-                }
-                
-            }
-            
-        }
-        
-    }
-    
-    private func downloadZone() {
-        
-        Alamofire.request("http://staff.chulaexpo.com/api/zones").responseJSON { (response) in
-            
-            if response.result.isSuccess {
-                
-                let context = self.managedObjectContext
-                
-                let JSON = response.result.value as! NSDictionary
-                let results = JSON["results"] as! NSArray
-                
-                for result in results {
-                    
-                    let result = result as! NSDictionary
-                    
-                    let name = result["name"] as! NSDictionary
-                    
-                    let shortName = result["shortName"] as! NSDictionary
-                    
-                    let desc = result["description"] as! NSDictionary
-                    
-                    let location = result["location"] as! NSDictionary
-                    
-                    let welcomeMsg = result["welcomeMessage"] as! NSDictionary
-                    
-                    
-                    context.performAndWait {
-                        
-                        _ = ZoneData.addData(id: result["_id"] as! String,
-                                             type: result["type"] as! String,
-                                             shortName: shortName["en"] as? String ?? "",
-                                             desc: desc["en"] as? String ?? "",
-                                             longitude: location["longitude"] as! Double,
-                                             latitude: location["latitude"] as! Double,
-                                             name: name["en"] as! String,
-                                             nameTh: name["th"] as! String,
-                                             welcomeMessage: welcomeMsg["th"] as? String ?? "",
-                                             inManageobjectcontext: context)
-                        
-                    }
-                    
-                    do{
-                        
-                        try context.save()
-                        print("ZoneData Saved")
-                        
-                    }
-                        
-                    catch let error {
-                        
-                        print("ZoneData save error with \(error)")
-                        
-                    }
-                    
-                }
-                
-                self.downloadPlace()
-                
-            }
-            
-        }
-        
-    }
-
-    private func downloadPlace() {
-        
-        Alamofire.request("http://staff.chulaexpo.com/api/places").responseJSON { (response) in
-            
-            if response.result.isSuccess {
-            
-                let context = self.managedObjectContext
-            
-                let JSON = response.result.value as! NSDictionary
-                let results = JSON["results"] as! NSArray
-            
-                for result in results {
-                
-                    let result = result as! NSDictionary
-            
-                    let name = result["name"] as! NSDictionary
-            
-                    let location = result["location"] as! NSDictionary
-            
-                    context.performAndWait {
-                
-                        _ = PlaceData.addData(id: result["_id"] as! String,
-                                              code: result["code"] as! String,
-                                              nameTh: name["th"] as! String,
-                                              nameEn: name["en"] as! String,
-                                              longitude: location["longitude"] as! Double,
-                                              latitude: location["latitude"] as! Double,
-                                              zoneID: result["zone"] as! String,
-                                              inManageobjectcontext: context)
-                
-                    }
-            
-                    do {
-                
-                        try context.save()
-                        print("PlaceData Saved")
-                
-                    }
-                
-                    catch let error {
-                
-                        print("PlaceData save error with \(error)")
-                
-                    }
-            
-                }
-            
-                self.downloadRoom()
-            
-                self.downloadFacility()
-        
-            }
-            
-        }
-        
-    }
-    
-    private func downloadRoom() {
-        
-        Alamofire.request("http://staff.chulaexpo.com/api/rooms").responseJSON { (response) in
-            
-            if response.result.isSuccess {
-            
-                let context = self.managedObjectContext
-            
-                let JSON = response.result.value as! NSDictionary
-                let results = JSON["results"] as! NSArray
-            
-                for result in results {
-                
-                    let result = result as! NSDictionary
-            
-                    let name = result["name"] as! NSDictionary
-            
-                    context.performAndWait {
-                
-                        _ = RoomData.addData(id: result["_id"] as! String,
-                                             floor: result["floor"] as! String,
-                                             name: name["th"] as! String,
-                                             placeID: result["place"] as! String,
-                                             inManageobjectcontext: context)
-                
-                    }
-            
-                    do{
-                
-                        try context.save()
-                        print("RoomData Saved")
-                
-                    }
-                
-                    catch let error {
-                
-                        print("RoomData save error with \(error)")
-                
-                    }
-            
-                }
-            
-            }
-            
-        }
-        
-    }
-    
-    private func downloadFacility() {
-        
-        Alamofire.request("http://staff.chulaexpo.com/api/facilities").responseJSON { (response) in
-            
-            if response.result.isSuccess {
-                
-                let context = self.managedObjectContext
-            
-                let JSON = response.result.value as! NSDictionary
-                let results = JSON["results"] as! NSArray
-            
-                for result in results {
-                
-                    let result = result as! NSDictionary
-                
-                    let name = result["name"] as! NSDictionary
-                    let desc = result["description"] as! NSDictionary
-                    let location = result["location"] as! NSDictionary
-                
-                    context.performAndWait {
-                    
-                        _ = FacilityData.addData(id: result["_id"] as! String,
-                                                 nameTh: name["th"] as! String,
-                                                 nameEn: name["en"] as! String,
-                                                 descTh: desc["th"] as! String,
-                                                 descEn: desc["en"] as! String,
-                                                 type: result["type"] as! String,
-                                                 latitude: location["latitude"] as! Double,
-                                                 longitude: location["longitude"] as! Double,
-                                                 placeID: result["place"] as! String,
-                                                 inManageobjectcontext: context)
-
-                    }
-                
-                    do{
-                    
-                        try context.save()
-                        print("FacilityData Saved")
-                    
-                    }
-                    
-                    catch let error {
-                    
-                        print("FacilityData save error with \(error)")
-                    
-                    }
-                
-                }
-                
-            }
-            
-        }
-        
-    }
-
 }
 

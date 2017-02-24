@@ -59,8 +59,9 @@ public class ActivityData: NSManagedObject {
         else {
             if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
             {
+                print(bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)")
                 // created a new event in the database
-                activityData.bannerUrl = bannerUrl
+                activityData.bannerUrl = "http://staff.chulaexpo.com\(bannerUrl)"
                 activityData.desc = desc
                 activityData.activityId = activityId
                 activityData.room = room
@@ -68,7 +69,7 @@ public class ActivityData: NSManagedObject {
                 activityData.latitude = latitude
                 activityData.longitude = longitude
                 activityData.name = name
-                activityData.thumbnailsUrl = thumbnailsUrl
+                activityData.thumbnailsUrl = "http://staff.chulaexpo.com\(thumbnailsUrl)"
                 activityData.isHighlight = isHighlight
                 activityData.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
                 activityData.video = video
@@ -106,8 +107,6 @@ public class ActivityData: NSManagedObject {
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 for round in rounds {
-                    
-                    print(round)
                     
                     if let round = round as? NSDictionary {
                         

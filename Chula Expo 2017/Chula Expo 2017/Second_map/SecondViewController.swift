@@ -60,7 +60,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     let annotationIcon = [
                             "PLACE": #imageLiteral(resourceName: "pin_landmark"),
                             "BUSSTOP": #imageLiteral(resourceName: "pin_cutour"),
-                            "FAVORITE": #imageLiteral(resourceName: "pin_landmark"),
+                            "FAVORITED": #imageLiteral(resourceName: "pin_landmark"),
                             "RESERVED": #imageLiteral(resourceName: "pin_landmark"),
                             "CANTEEN": #imageLiteral(resourceName: "FOD-PIN"),
                             "TOILET": #imageLiteral(resourceName: "TOI-PIN"),
@@ -72,7 +72,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "SCI": #imageLiteral(resourceName: "sci_pin_23"),
                             "POLSCI": #imageLiteral(resourceName: "polsci_pin_24"),
                             "ARCH": #imageLiteral(resourceName: "arch_pin_25"),
-                            "ACC": #imageLiteral(resourceName: "acc_pin_26"),
+                            "BANSHI": #imageLiteral(resourceName: "acc_pin_26"),
                             "EDU": #imageLiteral(resourceName: "edu_pin_27"),
                             "COMMARTS": #imageLiteral(resourceName: "commarts_pin_28"),
                             "ECON": #imageLiteral(resourceName: "econ_pin_29"),
@@ -102,13 +102,23 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     ]
     
     var zoneAnnotations = [MKPointAnnotation]()
+    var placeAnnotations = [MKPointAnnotation]()
+    var toiletAnnotations = [MKPointAnnotation]()
+    var canteenAnnotations = [MKPointAnnotation]()
+    var carParkAnnotations = [MKPointAnnotation]()
+    var prayerAnnotations = [MKPointAnnotation]()
+    var emergencyAnnotations = [MKPointAnnotation]()
+    var favoritedAndReservedAnnotations = [MKPointAnnotation]()
+    
+    var favoritedActivity = [String: ActivityData]()
+    var reservedActivity = [String: ActivityData]()
+    
     var zoneID = [String: String]()
     var zoneTh = [String: String]()
     var zoneEn = [String: String]()
     var zoneLatitude = [String: CLLocationDegrees]()
     var zoneLongitude = [String: CLLocationDegrees]()
     
-    var placeAnnotations = [MKPointAnnotation]()
     var placeZone = [String: String]()
     var placeTh = [String: [String: String]!]()
     var placeEn = [String: [String: String]!]()
@@ -116,11 +126,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var placeLatitude = [String: [String: CLLocationDegrees]!]()
     var placeLongitude = [String: [String: CLLocationDegrees]!]()
     
-    var toiletAnnotations = [MKPointAnnotation]()
-    var canteenAnnotations = [MKPointAnnotation]()
-    var carParkAnnotations = [MKPointAnnotation]()
-    var prayerAnnotations = [MKPointAnnotation]()
-    var emergencyAnnotations = [MKPointAnnotation]()
     var facilityTh = [String: String]()
     var facilityEn = [String: String]()
     var facilityDescTh = [String: String]()
@@ -170,6 +175,25 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         toggleDescIconButton(toggleIcon: "toilet")
         toggleDescIconButton(toggleIcon: "prayer")
         toggleDescIconButton(toggleIcon: "carPark")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        addFavoritedAnnotation()
+        addReservedAnnotation()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        map.removeAnnotations(favoritedAndReservedAnnotations)
+        
+        favoritedAndReservedAnnotations.removeAll()
         
     }
     
@@ -480,7 +504,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             case favoriteButton:
                 
-                toggleDescIconButton(toggleIcon: "favorite")
+                toggleDescIconButton(toggleIcon: "favorited")
                 
             case canteenButton:
                 
@@ -558,7 +582,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             }
             
-        case "favorite":
+        case "favorited":
             
             if isFavoriteShowing {
                 
@@ -568,6 +592,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 //                favoriteIcon.layer.borderColor = UIColor.darkGray.cgColor
                 favoriteIcon.layer.borderWidth = 0
                 
+                map.removeAnnotations(favoritedAndReservedAnnotations)
+                
             } else {
                 
                 isFavoriteShowing = true
@@ -575,6 +601,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 favoriteIcon.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
 //                favoriteIcon.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
                 favoriteIcon.layer.borderWidth = 3
+                
+                map.addAnnotations(favoritedAndReservedAnnotations)
                 
             }
             
@@ -868,6 +896,54 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         }
         
+        
+    }
+    
+    func addFavoritedAnnotation() {
+        
+        let favoritedDatas = FavoritedActivity.fetchFavoritedActivity(inManageobjectcontext: managedObjectContext!)!
+        print("Add Favorited")
+        for favoritedData in favoritedDatas {
+            print(favoritedData.activityId)
+            print(favoritedData.toActivity?.name)
+            let favoritedCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (favoritedData.toActivity?.latitude)!, longitude: (favoritedData.toActivity?.longitude)!)
+            
+            let favoritedAnnotation = MKPointAnnotation()
+            favoritedAnnotation.coordinate = favoritedCoordinate
+            favoritedAnnotation.title = "FAVORITED"
+            favoritedAnnotation.subtitle = favoritedData.activityId
+            
+            favoritedActivity.updateValue(favoritedData.toActivity!, forKey: favoritedData.activityId!)
+            
+            favoritedAndReservedAnnotations.append(favoritedAnnotation)
+            
+            map.addAnnotation(favoritedAnnotation)
+            
+        }
+        
+    }
+    
+    func addReservedAnnotation() {
+        
+        let reservedDatas = ReservedActivity.fetchReservedActivity(inManageobjectcontext: managedObjectContext!)!
+        print("Add Reserved")
+        for reservedData in reservedDatas {
+            print(reservedData.activityId)
+            print(reservedData.toActivity?.name)
+            let reservedCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (reservedData.toActivity?.latitude)!, longitude: (reservedData.toActivity?.longitude)!)
+            
+            let reservedAnnotation = MKPointAnnotation()
+            reservedAnnotation.coordinate = reservedCoordinate
+            reservedAnnotation.title = "RESERVED"
+            reservedAnnotation.subtitle = reservedData.activityId
+            
+            reservedActivity.updateValue(reservedData.toActivity!, forKey: reservedData.activityId!)
+            
+            favoritedAndReservedAnnotations.append(reservedAnnotation)
+            
+            map.addAnnotation(reservedAnnotation)
+            
+        }
         
     }
     

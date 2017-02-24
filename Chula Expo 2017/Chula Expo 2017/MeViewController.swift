@@ -251,6 +251,12 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
             let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
             
+            let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+            let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
+            
+            let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+            let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
+            
             do {
                 
                 try managedObjectContext?.execute(requestDeleteActivityData)
@@ -263,6 +269,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 try managedObjectContext?.execute(requestDeleteRoomData)
                 try managedObjectContext?.execute(requestDeleteRoundData)
                 try managedObjectContext?.execute(requestDeleteFacilityData)
+                try managedObjectContext?.execute(requestDeleteFavoritedActivity)
+                try managedObjectContext?.execute(requestDeleteReservedActivity)
 
                 
                 let loginManager = FBSDKLoginManager()

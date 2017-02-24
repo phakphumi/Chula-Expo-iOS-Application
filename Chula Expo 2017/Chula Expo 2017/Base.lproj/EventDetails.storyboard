@@ -106,7 +106,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ITk-Gp-S35" secondAttribute="height" multiplier="1:1" id="0DJ-Hn-TCH"/>
                                             </constraints>
-                                            <state key="normal" image="cross_black"/>
+                                            <state key="normal" image="closeIcon"/>
                                             <connections>
                                                 <action selector="cancel:" destination="eeD-2d-pSO" eventType="touchUpInside" id="eOn-03-bPT"/>
                                             </connections>
@@ -761,7 +761,7 @@
     </scenes>
     <resources>
         <image name="calendarIcon" width="128" height="128"/>
-        <image name="cross_black" width="73" height="73"/>
+        <image name="closeIcon" width="36" height="36"/>
         <image name="cross_white" width="12" height="12"/>
         <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow" width="64" height="64"/>

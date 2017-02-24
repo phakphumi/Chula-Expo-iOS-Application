@@ -117,6 +117,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         calculateIsReservable()
+        tableView.estimatedRowHeight = 150
 //        UIApplication.shared.isStatusBarHidden = true
 //        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailTableViewController.toDismiss))
 //        swipeRight.direction = .down
@@ -308,7 +309,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                     
                     if var url = image.url{
                         
-                        url = "http://staff.chulaexpo.com\(url)"
+//                        url = "http://staff.chulaexpo.com\(url)"
                         //
                         //                    let imageData = URL(string: image.url!)
                         //
@@ -368,7 +369,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         } else if indexPath.row == 0 {
             
-            return 201
+            return UITableViewAutomaticDimension
             
         } else if indexPath.row == 1 {
             

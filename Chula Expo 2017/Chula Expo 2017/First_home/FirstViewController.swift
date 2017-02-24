@@ -30,6 +30,7 @@ class FirstViewController: MainCoreDataTableViewController {
         requestForFeedEvent()
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tabBarController?.tabBar.backgroundColor = UIColor.white
         
     }
     
@@ -93,7 +94,7 @@ class FirstViewController: MainCoreDataTableViewController {
             key: "activityId",
             ascending: true
             )]
-        
+        request.fetchBatchSize = 20
         if let context = managedObjectContext {
             
             fetchedResultsControllerFeed = NSFetchedResultsController(

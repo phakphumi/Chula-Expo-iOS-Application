@@ -27,7 +27,7 @@ class APIController {
     }
     
     class func downloadRecommendActivities(inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
-        print("Download Recommend")
+        
         Alamofire.request("http://staff.chulaexpo.com/api/activities?highlight=true&fields=_id&limit=10").responseJSON { (response) in
             
             if response.result.isSuccess {
@@ -42,7 +42,7 @@ class APIController {
                     context.performAndWait {
                         
                         RecommendActivity.addData(activityId: result["_id"] as! String, inManageobjectcontext: context, completion: { (success) in
-                            print(success)
+                            
                             if success {
                                 
                                 _ = RecommendActivity.makeRelation(activityId: result["_id"] as! String, inManageObjectContext: context)
@@ -59,15 +59,15 @@ class APIController {
 
                     if EntityHistory.isThereHistory(forEntityName: "RecommendActivity", inManageobjectcontext: context) {
                         
-                        let update = EntityHistory.updateHistory(forEntityName: "RecommendActivity", inManageobjectcontext: context)
+                        _ = EntityHistory.updateHistory(forEntityName: "RecommendActivity", inManageobjectcontext: context)
                         
-                        print("Update RecommendActivity \(update)")
+//                        print("Update RecommendActivity \(update)")
                         
                     } else {
                         
-                        let add = EntityHistory.addHistory(forEntityName: "RecommendActivity", inManageobjectcontext: context)
+                        _ = EntityHistory.addHistory(forEntityName: "RecommendActivity", inManageobjectcontext: context)
                         
-                        print("Add RecommendActivity \(add)")
+//                        print("Add RecommendActivity \(add)")
                         
                     }
                     
@@ -76,7 +76,7 @@ class APIController {
                 do{
                     
                     try context.save()
-                    print("Recommend Data Saved")
+//                    print("Recommend Data Saved")
                     completion?(true)
                     
                 }
@@ -99,7 +99,7 @@ class APIController {
     }
     
     class func downloadStageActivities(inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
-        print("Download Stage")
+        
         //download เวทีกลาง
         Alamofire.request("http://staff.chulaexpo.com/api/activities?zone=589c52dfa8bbbb1c7165d3f1&fields=_id").responseJSON { (response) in
             
@@ -131,7 +131,6 @@ class APIController {
                 do{
                     
                     try context.save()
-                    print("Stage 1 Data Saved")
                     
                     Alamofire.request("http://staff.chulaexpo.com/api/activities?zone=589c5330a8bbbb1c7165d3f2&fields=_id").responseJSON { (response) in
                         
@@ -163,7 +162,7 @@ class APIController {
                             do{
                                 
                                 try context.save()
-                                print("Stage 2 Data Saved")
+//                                print("Stage 2 Data Saved")
                                 
                                 
                                 Alamofire.request("http://staff.chulaexpo.com/api/activities?zone=589c536ca8bbbb1c7165d3f3&fields=_id").responseJSON { (response) in
@@ -197,15 +196,15 @@ class APIController {
                                             
                                             if EntityHistory.isThereHistory(forEntityName: "StageActivity", inManageobjectcontext: context) {
                                                 
-                                                let update = EntityHistory.updateHistory(forEntityName: "StageActivity", inManageobjectcontext: context)
+                                                _ = EntityHistory.updateHistory(forEntityName: "StageActivity", inManageobjectcontext: context)
                                                 
-                                                print("Update StageActivity \(update)")
+//                                                print("Update StageActivity \(update)")
                                                 
                                             } else {
                                                 
-                                                let add = EntityHistory.addHistory(forEntityName: "StageActivity", inManageobjectcontext: context)
+                                                _ = EntityHistory.addHistory(forEntityName: "StageActivity", inManageobjectcontext: context)
                                                 
-                                                print("Add StageActivity \(add)")
+//                                                print("Add StageActivity \(add)")
                                                 
                                             }
                                             
@@ -214,7 +213,7 @@ class APIController {
                                         do{
                                             
                                             try context.save()
-                                            print("Stage 3 Data Saved")
+//                                            print("Stage 3 Data Saved")
                                             completion?(true)
                                             
                                         }
@@ -272,11 +271,11 @@ class APIController {
     }
     
     class func downloadHightlightActivities(inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
-     print("Download highlight")
+     
         Alamofire.request("http://staff.chulaexpo.com/api/activities?highlight=true&fields=_id&limit=10").responseJSON { (response) in
             
             if response.result.isSuccess {
-
+                
                 let JSON = response.result.value as! NSDictionary
                 let results = JSON["results"] as! NSArray
                 
@@ -285,9 +284,9 @@ class APIController {
                     let result = result as! NSDictionary
                     
                     context.performAndWait {
-                        
+                    
                         HighlightActivity.addData(activityId: result["_id"] as! String, inManageobjectcontext: context, completion: { (success) in
-                        
+                            
                             if success {
                                 
                                 _ = HighlightActivity.makeRelation(activityId: result["_id"] as! String, inManageObjectContext: context)
@@ -304,15 +303,15 @@ class APIController {
                     
                     if EntityHistory.isThereHistory(forEntityName: "HighlightActivity", inManageobjectcontext: context) {
                         
-                        let update = EntityHistory.updateHistory(forEntityName: "HighlightActivity", inManageobjectcontext: context)
+                        _ = EntityHistory.updateHistory(forEntityName: "HighlightActivity", inManageobjectcontext: context)
                         
-                        print("Update HighlightActivity \(update!)")
+//                        print("Update HighlightActivity \(update!)")
                         
                     } else {
                         
-                        let add = EntityHistory.addHistory(forEntityName: "HighlightActivity", inManageobjectcontext: context)
+                        _ = EntityHistory.addHistory(forEntityName: "HighlightActivity", inManageobjectcontext: context)
                         
-                        print("Add HighlightActivity \(add!)")
+//                        print("Add HighlightActivity \(add!)")
                         
                     }
                     
@@ -321,7 +320,7 @@ class APIController {
                 do{
                     
                     try context.save()
-                    print("Highlight Data Saved")
+                    
                     completion?(true)
                     
                 }
@@ -346,78 +345,92 @@ class APIController {
     class func downloadActivity(fromActivityId activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
         
         Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId)").responseJSON { (response) in
-            
+        
             if response.result.isSuccess {
-                
+        
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 let JSON = response.result.value as! NSDictionary
-                let result = JSON["results"] as! NSDictionary
+                
+                let success = JSON["success"] as! Bool
+                
+                if !success {
                     
-                let location = result["location"] as! NSDictionary
-                
-                let startTime = result["start"] as! String
-                
-                let endTime = result["end"] as! String
-                
-                let pictures = result["pictures"] as? [String] ?? [""]
-                
-                let tags = result["tags"] as! [String]
-                
-                APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                    print("Can't load activity")
+                    completion?(false)
+                    
+                } else {
+                    
+                    let result = JSON["results"] as! NSDictionary
+                    
+                    let location = result["location"] as! NSDictionary
+                    
+                    let startTime = result["start"] as! String
+                    
+                    let endTime = result["end"] as! String
+                    
+                    let pictures = result["pictures"] as? [String] ?? [""]
+                    
+                    let tags = result["tags"] as! [String]
+                    
+                    APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
                         
-                    _ = ActivityData.addEventData(
-                        
-                        activityId: result["_id"] as? String ?? "",
-                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                        room: location["room"] as? String ?? "",
-                        place: location["place"] as? String ?? "",
-                        latitude: location["latitude"] as? Double ?? 0.0,
-                        longitude: location["longitude"] as? Double ?? 0.0,
-                        bannerUrl: result["banner"] as? String ?? "",
-                        thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                        startTime: dateFormatter.date(from: startTime) ?? Date(),
-                        endTime: dateFormatter.date(from: endTime) ?? Date(),
-                        isHighlight: result["isHighlight"] as? Bool ?? false,
-                        video: result["video"] as? String ?? "",
-                        pdf: result["pdf"] as? String ?? "",
-                        images: pictures,
-                        rounds: rounds,
-                        tags: tags,
-                        faculty: result["zone"] as? String ?? "",
-                        inManageobjectcontext: context,
-                        completion: { (success) in
+                        _ = ActivityData.addEventData(
                             
-                            if success {
+                            activityId: result["_id"] as? String ?? "",
+                            name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
+                            desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
+                            room: location["room"] as? String ?? "",
+                            place: location["place"] as? String ?? "",
+                            latitude: location["latitude"] as? Double ?? 0.0,
+                            longitude: location["longitude"] as? Double ?? 0.0,
+                            bannerUrl: result["banner"] as? String ?? "",
+                            thumbnailsUrl: result["thumbnail"] as? String ?? "",
+                            startTime: dateFormatter.date(from: startTime) ?? Date(),
+                            endTime: dateFormatter.date(from: endTime) ?? Date(),
+                            isHighlight: result["isHighlight"] as? Bool ?? false,
+                            video: result["video"] as? String ?? "",
+                            pdf: result["pdf"] as? String ?? "",
+                            images: pictures,
+                            rounds: rounds,
+                            tags: tags,
+                            faculty: result["zone"] as? String ?? "",
+                            inManageobjectcontext: context,
+                            completion: { (success) in
                                 
-                                do{
+                                if success {
                                     
-                                    try context.save()
-                                    print("ActivityData Saved")
+                                    do{
+                                        
+                                        try context.save()
+                                        //                                    print("ActivityData Saved")
+                                        
+                                        completion?(true)
+                                        
+                                    }
+                                        
+                                    catch let error {
+                                        
+                                        print("ActivityData save error with \(error)")
+                                        
+                                        completion?(false)
+                                        
+                                    }
+                                    
+                                } else {
+                                    // already have data
                                     
                                     completion?(true)
                                     
                                 }
-                                    
-                                catch let error {
-                                    
-                                    print("ActivityData save error with \(error)")
-                                    
-                                    completion?(false)
-                                    
-                                }
                                 
-                            } else {
-                                // already have data
-                                completion?(true)
-                                
-                            }
-                            
+                        })
+                        
                     })
 
-                })
+                    
+                }
                 
             } else {
                 
@@ -549,7 +562,7 @@ class APIController {
                     do{
                         
                         try context.save()
-                        print("ZoneData Saved")
+//                        print("ZoneData Saved")
                         
                     }
                         
@@ -603,7 +616,7 @@ class APIController {
                     do {
                         
                         try context.save()
-                        print("PlaceData Saved")
+//                        print("PlaceData Saved")
                         
                     }
                         
@@ -652,7 +665,7 @@ class APIController {
                     do{
                         
                         try context.save()
-                        print("RoomData Saved")
+//                        print("RoomData Saved")
                         
                     }
                         
@@ -706,7 +719,7 @@ class APIController {
                     do{
                         
                         try context.save()
-                        print("FacilityData Saved")
+//                        print("FacilityData Saved")
                         
                     }
                         
@@ -745,7 +758,15 @@ class APIController {
 
                                     let result = result as! NSDictionary
                                     
-                                    _ = ReservedActivity.addData(activityId: result["activityId"] as! String, inManageobjectcontext: context)
+                                    ReservedActivity.addData(activityId: result["activityId"] as! String, roundId: result["_id"] as! String, inManageobjectcontext: context, completion: { (success) in
+                                        
+                                        if success {
+                                            print(result)
+                                            _ = ReservedActivity.makeRelation(activityId: result["activityId"] as! String, inManageObjectContext: context)
+                                            
+                                        }
+                                        
+                                    })
                                     
                                 }
                                 
@@ -754,7 +775,7 @@ class APIController {
                             do{
                                 
                                 try context.save()
-                                print("Reserved Activity Saved")
+//                                print("Reserved Activity Saved")
                                 
                             }
                                 

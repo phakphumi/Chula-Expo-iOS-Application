@@ -26,51 +26,71 @@ public class ReservedActivity: NSManagedObject {
         
     }
 
-    
-    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool? {
-        
+    class func makeRelation(activityId: String, inManageObjectContext context: NSManagedObjectContext) -> Bool? {
+        print(1)
         let reservedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
         reservedRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
         
-        if let result = (try? context.fetch(reservedRequest))?.first as? ReservedActivity {
-            
+        if let reservedResult = (try? context.fetch(reservedRequest))?.first as? ReservedActivity {
+            print(2)
             // found this event in the database, return it ...
-            print("Found \(result.activityId ?? "") in ReservedActivity")
-            
-            return false
-            
-        }
-        
-        if let reservedData = NSEntityDescription.insertNewObject(forEntityName: "ReservedActivity", into: context) as? ReservedActivity
-        {
-            
-            // created a new event in the database
-            reservedData.activityId = activityId
+            //            print("Found \(highlightResult.activityId!) in HighlightActivity")
             
             let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            activityRequest.predicate = NSPredicate(format: "activityId = %@", activityId)
+            activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
             
-            if let activityResult = try? context.fetch(activityRequest).first as? ActivityData {
-                
-                reservedData.toActivity = activityResult
-                
-            } else {
-                
-                print("can't make a relation to activitydata")
-                
-                return false
+            if let activityResult = (try? context.fetch(activityRequest))?.first as? ActivityData
+            {
+                print(3)
+                reservedResult.toActivity = activityResult
+                print(reservedResult)
+                try? context.save()
+                print("already make relationship btw highlight and activity")
+                return true
                 
             }
             
-            return true
-            
-        } else {
-            
-            print("can't insert new object")
-            
-            return false
-            
         }
+        
+        print("fail to make relationship btw reserve and activity")
+        
+        return false
+        
+    }
+    
+    class func addData(activityId: String, roundId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+        
+        APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
+            
+            if success {
+                
+                if let reservedData = NSEntityDescription.insertNewObject(forEntityName: "ReservedActivity", into: context) as? ReservedActivity
+                {
+                    
+                    reservedData.activityId = activityId
+                    reservedData.roundId = roundId
+                    
+                    print("add an new reserve act")
+                    
+                    completion?(true)
+
+                    
+                    
+                } else {
+                    
+                    print("fail to add new reserv act")
+                    completion?(false)
+                    
+                }
+
+            } else {
+                
+                print("fail to add new reserve act")
+                completion?(false)
+                
+            }
+            
+        })
         
     }
     

@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
 //        let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
         
-//        let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
-//        let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
+        let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+        let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
         
         do {
             
@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             try managedObjectContext.execute(requestDeleteRoomData)
             try managedObjectContext.execute(requestDeleteFacilityData)
 //            try managedObjectContext.execute(requestDeleteFavoritedActivity)
-//            try managedObjectContext.execute(requestDeleteReservedActivity)
+            try managedObjectContext.execute(requestDeleteReservedActivity)
             
         } catch let error {
             
@@ -75,19 +75,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext) { (success) in
             
             if success {
-                
+            
                 APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext, completion: { (success) in
-                    
+            
                     if success {
-                        
+
                         APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: { (success) in
                             
 //                            print("Fetch Highlight")
 //                            HighlightActivity.fetchHighlightActivities(inManageobjectcontext: self.managedObjectContext)
 //                            print("Fetch Stage")
 //                            StageActivity.fetchStageActivities(inManageobjectcontext: self.managedObjectContext)
-                            print("Fetch Recommend")
-                            RecommendActivity.fetchRecommendActivities(inManageobjectcontext: self.managedObjectContext)
+//                            print("Fetch Recommend")
+//                            RecommendActivity.fetchRecommendActivities(inManageobjectcontext: self.managedObjectContext)
                             
                         })
                         
@@ -103,10 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         APIController.downloadZone(inManageobjectcontext: self.managedObjectContext)
         APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext)
         
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
-        print("...")
-        print(urls[urls.count-1] as URL)
+//        print("...")
+//        print(urls[urls.count-1] as URL)
         
         
         return true

@@ -147,7 +147,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.view.setNeedsLayout()
@@ -479,7 +479,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 //                    self.view.bounds.height * 0.497751124)
                 
                 self.facultyButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.120481928)
-                print(self.facultyButton.frame)
+//                print(self.facultyButton.frame)
                 self.favoriteButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.265060241)
                 self.canteenButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.409638554)
                 self.toiletButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.554216867)
@@ -860,7 +860,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             let facilityAnnotation = MKPointAnnotation()
             facilityAnnotation.coordinate = facilityCoordinate
-            print(facilityType[key]!.uppercased())
+//            print(facilityType[key]!.uppercased())
             facilityAnnotation.title = facilityType[key]!.uppercased()
             facilityAnnotation.subtitle = key
             
@@ -902,10 +902,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func addFavoritedAnnotation() {
         
         let favoritedDatas = FavoritedActivity.fetchFavoritedActivity(inManageobjectcontext: managedObjectContext!)!
-        print("Add Favorited")
+//        print("Add Favorited")
         for favoritedData in favoritedDatas {
-            print(favoritedData.activityId)
-            print(favoritedData.toActivity?.name)
+//            print(favoritedData.activityId)
+//            print(favoritedData.toActivity?.name)
             let favoritedCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (favoritedData.toActivity?.latitude)!, longitude: (favoritedData.toActivity?.longitude)!)
             
             let favoritedAnnotation = MKPointAnnotation()
@@ -927,6 +927,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         let reservedDatas = ReservedActivity.fetchReservedActivity(inManageobjectcontext: managedObjectContext!)!
         print("Add Reserved")
+        print(reservedDatas.count)
         for reservedData in reservedDatas {
             print(reservedData.activityId)
             print(reservedData.toActivity?.name)

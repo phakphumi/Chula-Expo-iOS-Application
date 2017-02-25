@@ -64,6 +64,7 @@
     </entity>
     <entity name="ReservedActivity" representedClassName="ReservedActivity" syncable="YES">
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roundId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" syncable="YES"/>
     </entity>
     <entity name="RoomData" representedClassName="RoomData" syncable="YES">
@@ -128,17 +129,17 @@
         <element name="EntityHistory" positionX="-9" positionY="243" width="128" height="90"/>
         <element name="FacilityData" positionX="-9" positionY="243" width="128" height="180"/>
         <element name="FavoritedActivity" positionX="-9" positionY="243" width="128" height="75"/>
+        <element name="HighlightActivity" positionX="-9" positionY="243" width="128" height="75"/>
         <element name="ImageData" positionX="151" positionY="252" width="128" height="75"/>
         <element name="PlaceData" positionX="27" positionY="90" width="128" height="180"/>
-        <element name="ReservedActivity" positionX="-9" positionY="243" width="128" height="75"/>
+        <element name="RecommendActivity" positionX="9" positionY="261" width="128" height="75"/>
+        <element name="ReservedActivity" positionX="-9" positionY="243" width="128" height="90"/>
         <element name="RoomData" positionX="216" positionY="122" width="128" height="103"/>
         <element name="RoundData" positionX="117" positionY="659" width="128" height="180"/>
+        <element name="StageActivity" positionX="0" positionY="252" width="128" height="90"/>
         <element name="TagData" positionX="259" positionY="477" width="128" height="73"/>
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>
         <element name="ZoneData" positionX="-128" positionY="108" width="128" height="195"/>
-        <element name="HighlightActivity" positionX="-9" positionY="243" width="128" height="75"/>
-        <element name="StageActivity" positionX="0" positionY="252" width="128" height="90"/>
-        <element name="RecommendActivity" positionX="9" positionY="261" width="128" height="75"/>
     </elements>
 </model>

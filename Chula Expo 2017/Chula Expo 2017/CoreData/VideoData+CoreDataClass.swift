@@ -24,7 +24,7 @@ public class VideoData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? VideoData
         {
             // found this event in the database, return it ...
-            print("Found \(result.title)")
+//            print("Found \(result.title)")
             return result
         }
         else {

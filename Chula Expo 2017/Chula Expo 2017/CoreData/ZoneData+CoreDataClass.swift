@@ -31,7 +31,7 @@ public class ZoneData: NSManagedObject {
         
         if let result = (try? context.fetch(request))?.first as? ZoneData {
             // found this event in the database, return it ...
-            print("Found round \(result.name) in id \(result.id)")
+//            print("Found round \(result.name) in id \(result.id)")
             return result
         } else {
             if let zoneData = NSEntityDescription.insertNewObject(forEntityName: "ZoneData", into: context) as? ZoneData

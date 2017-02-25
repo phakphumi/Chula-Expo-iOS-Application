@@ -376,15 +376,18 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
         }
     }
+    var facultyList: [tag] = []
     
     @IBAction func next(_ sender: Any) {
         var check = false
         for i in 0...tagList.count {
             print(selectedList[i])
             if selectedList[i] {
+                facultyList.append(tagList[i])
                 check = true
             }
         }
+        
         
         if(check == false){
             let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")

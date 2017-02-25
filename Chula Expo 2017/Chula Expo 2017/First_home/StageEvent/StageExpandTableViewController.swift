@@ -215,19 +215,46 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if selectSection == indexPath.section && indexPath.row == 0{
+            if let selectCell = tableView.cellForRow(at: indexPath) as? StageExpandableCell{
+                
+                selectCell.closeTitle()
+                
+            }
             selectSection = nil
         }
         else{
+            
+            if let selectCell = tableView.cellForRow(at: indexPath) as? StageExpandableCell{
+                
+                selectCell.expandTitle()
+                
+            }
+            
             selectSection = indexPath.section
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.row == 0 {
-            return 50
-        }else  if indexPath.row == 1 && indexPath.section == selectSection{
+       if indexPath.section == selectSection {
+        
+        if indexPath.row == 0{
+            
+//            if UITableViewAutomaticDimension < 0{
+//                
+//                return 50
+//            }
+            print(UITableViewAutomaticDimension.binade)
             return UITableViewAutomaticDimension
+            
+        }else{
+            
+            return UITableViewAutomaticDimension
+        }
+        
+       }
+       else if indexPath.row == 0 {
+            return 50
         }
         return 0;
     }

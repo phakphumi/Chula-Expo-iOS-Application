@@ -17,5 +17,6 @@ extension FavoritedActivity {
     }
 
     @NSManaged public var activityId: String?
+    @NSManaged public var toActivity: ActivityData?
 
 }

@@ -42,6 +42,20 @@ class StageExpandableCell: UITableViewCell {
 
     }
     
+    func expandTitle(){
+        
+        nameLabel.numberOfLines = 0
+        nameLabel.lineBreakMode = .byWordWrapping
+        
+    }
+    
+    func closeTitle(){
+        
+        nameLabel.numberOfLines = 1
+        nameLabel.lineBreakMode = .byTruncatingTail
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

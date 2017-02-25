@@ -9,10 +9,12 @@
 import UIKit
 import CoreData
 
-class EventDetailTableViewController: UITableViewController {
+class EventDetailTableViewController: UITableViewController , UIGestureRecognizerDelegate {
     
     var didReload = false
-    
+//    var panGestureRecognizer: UIPanGestureRecognizer?
+//    var originalPosition: CGPoint?
+//    var currentPositionTouched: CGPoint?
     var images = [String]()
     var tags = [String]()
     var roundsId = [String]()
@@ -27,7 +29,6 @@ class EventDetailTableViewController: UITableViewController {
 //                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
 //                ["08.00-09.00", "10.00-11.00"]
 //               ]
-    
     var activityId: String!
     var bannerUrl: String!
     var topic: String!
@@ -51,21 +52,60 @@ class EventDetailTableViewController: UITableViewController {
     }
     
     func toDismiss() {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+
         
-        UIView.animate(withDuration: 0.2, animations: {
-            
-            self.view.transform = CGAffineTransform(translationX: self.view.bounds.width, y: 0)
-            
-        }) { (success) in
-            
-            if success {
-                
-                self.dismiss(animated: false, completion: nil)
-                
-            }
-        }
+//        UIView.animate(withDuration: 0.2, animations: {
+//            
+//            self.view.transform = CGAffineTransform(translationX: self.view.bounds.width, y: 0)
+//            
+//        }) { (success) in
+//            
+//            if success {
+//                
+//                //                self.dismiss(animated: false, completion: nil)
+//                
+//            }
+//        }
         
     }
+    
+//    func panGestureAction(_ panGesture: UIPanGestureRecognizer) {
+//        let translation = panGesture.translation(in: view)
+//        
+//        if panGesture.state == .began {
+//            originalPosition = view.center
+//            currentPositionTouched = panGesture.location(in: view)
+//        } else if panGesture.state == .changed {
+//            view.frame.origin = CGPoint(
+////                x: translation.x,
+//                x: 0,
+//                y: translation.y
+//            )
+//        } else if panGesture.state == .ended {
+//            let velocity = panGesture.velocity(in: view)
+//            
+//            if velocity.y >= 1500 {
+//                UIView.animate(withDuration: 0.2
+//                    , animations: {
+//                        self.view.frame.origin = CGPoint(
+//                            x: self.view.frame.origin.x,
+//                            y: self.view.frame.size.height
+//                        )
+//                }, completion: { (isCompleted) in
+//                    if isCompleted {
+////                        self.dismiss(animated: false, completion: nil)
+//                        self.toDismiss()
+//                    }
+//                })
+//            } else {
+//                UIView.animate(withDuration: 0.2, animations: {
+//                    self.view.center = self.originalPosition!
+//                })
+//            }
+//        }
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,11 +117,14 @@ class EventDetailTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         calculateIsReservable()
+        tableView.estimatedRowHeight = 150
+//        UIApplication.shared.isStatusBarHidden = true
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailTableViewController.toDismiss))
+//        swipeRight.direction = .down
+//        
+//        self.view.addGestureRecognizer(swipeRight)
+//        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(_:)))
         
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailTableViewController.toDismiss))
-        swipeRight.direction = .right
-        
-        self.view.addGestureRecognizer(swipeRight)
         
     }
     
@@ -113,7 +156,6 @@ class EventDetailTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
         UIApplication.shared.isStatusBarHidden = true
         
     }
@@ -121,7 +163,9 @@ class EventDetailTableViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        
+
+//        statusBarHidden = false
+//        self.setNeedsStatusBarAppearanceUpdate()
         UIApplication.shared.isStatusBarHidden = false
         
     }
@@ -265,7 +309,7 @@ class EventDetailTableViewController: UITableViewController {
                     
                     if var url = image.url{
                         
-                        url = "http://staff.chulaexpo.com\(url)"
+//                        url = "http://staff.chulaexpo.com\(url)"
                         //
                         //                    let imageData = URL(string: image.url!)
                         //
@@ -325,7 +369,7 @@ class EventDetailTableViewController: UITableViewController {
             
         } else if indexPath.row == 0 {
             
-            return 201
+            return UITableViewAutomaticDimension
             
         } else if indexPath.row == 1 {
             

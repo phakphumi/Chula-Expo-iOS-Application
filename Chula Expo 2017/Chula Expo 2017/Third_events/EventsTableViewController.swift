@@ -23,6 +23,8 @@ class EventsTableViewController: CoreDataTableViewController {
         }
     }
     
+    var isFaculty = false
+    
     fileprivate func updateData() {
         
         if let facity = facity {
@@ -71,11 +73,34 @@ class EventsTableViewController: CoreDataTableViewController {
         }
     }
     
+    override func viewDidLoad() {
+        
+        tableView.estimatedRowHeight = 300
+        
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         
         if indexPath.row == 0 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "facBanner", for: indexPath)
+            if let bannercell = cell as? FacultyBannerCell{
+                bannercell.bannerImage.image = #imageLiteral(resourceName: "defaultImage")
+            }
+            
+        }
+        else if indexPath.row == 1 {
+            
+            cell = tableView.dequeueReusableCell(withIdentifier: "facDesc", for: indexPath)
+//            if let descCell = cell as? FacultyDescCell{
+//                
+//            }
+            
+        }
+        
+        else if indexPath.row == 2 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath)
             
@@ -115,7 +140,7 @@ class EventsTableViewController: CoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
             
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? ActivityData {
                 
                 var activityId: String?
                 var name: String?
@@ -152,10 +177,20 @@ class EventsTableViewController: CoreDataTableViewController {
        if indexPath.section == 0{
             
             if indexPath.row == 0{
+                if isFaculty == true {
+                    return UITableViewAutomaticDimension
+                }
+                return 0
+            }
+            else if indexPath.row == 1{
+            
+                return UITableViewAutomaticDimension
+            }
+            else if indexPath.row == 2{
                 
                 return 58
             }
-            
+        
             return 78
         }
         

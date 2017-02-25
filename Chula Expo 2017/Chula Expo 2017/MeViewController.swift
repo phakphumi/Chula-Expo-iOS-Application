@@ -117,8 +117,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             } else {
                 
                 self.name.text = ""
-                self.email.text = ""
-                self.agegen.text = "ไม่พบข้อมูลผู้ใช้ โปรดเข้าสู่ระบบอีกครั้ง"
+                self.email.text = "ไม่พบข้อมูลผู้ใช้"
+                self.agegen.text = "โปรดเข้าสู่ระบบอีกครั้ง"
                 self.agegen.sizeToFit()
                 self.year.text = ""
                 self.uni.text = ""

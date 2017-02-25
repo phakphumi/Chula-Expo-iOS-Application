@@ -32,7 +32,7 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = fetchedResultsController?.sections, sections.count > 0 {
-            return sections[section].numberOfObjects + 1
+            return sections[section].numberOfObjects + 3
         } else {
             return 1
         }
@@ -59,6 +59,7 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
+            
             case .insert: tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
             case .delete: tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
             default: break
@@ -66,16 +67,25 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        var fixedNewIndexpath = IndexPath()
+        var fixedIndexpath = IndexPath()
+        if newIndexPath != nil{
+            fixedNewIndexpath = IndexPath(row: newIndexPath!.row+3, section: newIndexPath!.section)
+        }
+        if indexPath != nil{
+            fixedIndexpath = IndexPath(row: indexPath!.row+3, section: indexPath!.section)
+        }
         switch type {
             case .insert:
-                tableView.insertRows(at: [newIndexPath!], with: .fade)
+                tableView.insertRows(at: [fixedNewIndexpath], with: .fade)
             case .delete:
-                tableView.deleteRows(at: [indexPath!], with: .fade)
+                tableView.deleteRows(at: [fixedIndexpath], with: .fade)
             case .update:
-                tableView.reloadRows(at: [indexPath!], with: .fade)
+                tableView.reloadRows(at: [fixedIndexpath], with: .fade)
             case .move:
-                tableView.deleteRows(at: [indexPath!], with: .fade)
-                tableView.insertRows(at: [newIndexPath!], with: .fade)
+                tableView.deleteRows(at: [fixedIndexpath], with: .fade)
+                tableView.insertRows(at: [fixedNewIndexpath], with: .fade)
         }
     }
     

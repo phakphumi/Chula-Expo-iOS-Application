@@ -233,13 +233,6 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             var tag: String = facultyDatas[indexPath.row].shortName
             var name = facultyDatas[indexPath.row].tagEngName
             
-            switch name{
-            case "Faculty of Sports Science" :
-                name = "Faculty of Sport Science"
-            default :
-                break
-            }
-            
             if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
                 
                 tag = fetchTag
@@ -280,19 +273,13 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             var id: String?
             var name: String = ""
             var title: String = ""
+            var isFaculty = false
             managedObjectContext?.performAndWait {
                 if let cell = sender as? CityCollectionViewCell{
                     
                     name = cell.name ?? ""
                     title = name
                     
-                    switch name{
-                    case "Sala Phrakeaw" :
-                        name = "SalaPhakrew"
-                    default :
-                        break
-                    }
-        
                     id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
                 if let cell = sender as? FacultyCollectionViewCell{
@@ -302,14 +289,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                     {
                         title = "คณะ" + facName
                     }
-                    
-                    switch name{
-                    case "Faculty of Sports Science" :
-                        name = "Faculty of Sport Science"
-                    default :
-                        break
-                    }
-                    
+                    isFaculty = true
                     id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
                 if let cell = sender as? InterCollectionViewCell{
@@ -330,6 +310,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             if let dest = segue.destination as? EventsTableViewController{
                 
                 dest.facity = id
+                dest.isFaculty = isFaculty
                 dest.managedObjectContext = managedObjectContext
                 print("segue success id = \(id)")
             }

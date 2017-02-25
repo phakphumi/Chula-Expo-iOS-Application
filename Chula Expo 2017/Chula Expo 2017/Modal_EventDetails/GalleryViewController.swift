@@ -36,8 +36,8 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
         
         setViewControllers([imageFrameControllers[currentImageIndex]], direction: .forward, animated: false, completion: nil)
      
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryViewController.wasTap))
-//        self.view.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryViewController.wasTap))
+        self.view.addGestureRecognizer(tapGestureRecognizer)
         
         let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(GalleryViewController.wasDrag(gestureRecognizer:)))
         self.view.addGestureRecognizer(dragGestureRecognizer)

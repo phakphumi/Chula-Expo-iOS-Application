@@ -64,15 +64,21 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                             
                             if success {
                                 
-                                if ReservedActivity.addData(activityId: self.activityId, inManageobjectcontext: self.managedObjectContext!)! {
+                                ReservedActivity.addData(activityId: self.activityId, roundId: self.roundsId[self.selectedRow], inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
                                     
-                                    let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
-                                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                                 
-                                    self.present(confirm, animated: true, completion: nil)
+                                    if success {
+                                        
+                                        _ = ReservedActivity.makeRelation(activityId: self.activityId, inManageObjectContext: self.managedObjectContext!)
+                                        
+                                        let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                        
+                                        self.present(confirm, animated: true, completion: nil)
+                                        
+                                    }
                                     
-                                }
-                                
+                                })
+                                                                
                                 do{
                                     
                                     try self.managedObjectContext?.save()

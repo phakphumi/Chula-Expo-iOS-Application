@@ -56,11 +56,11 @@ public class ActivityData: NSManagedObject {
                 //            result.pdf = pdf
                 //            result.faculty = faculty
                 //            result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
-                print("  Found \(result.name) in ActivityData")
+//                print("  Found \(result.name) in ActivityData")
                 
                 completion?(false)
-            }
-            else {
+            } else {
+                
                 if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
                 {
                     

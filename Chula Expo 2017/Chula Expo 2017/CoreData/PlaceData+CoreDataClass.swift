@@ -30,7 +30,7 @@ public class PlaceData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? PlaceData {
             
             // found this event in the database, return it ...
-            print("Found place \(result.nameEn)")
+//            print("Found place \(result.nameEn)")
             return result
             
         } else {

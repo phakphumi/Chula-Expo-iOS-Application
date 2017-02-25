@@ -42,7 +42,7 @@ public class StageActivity: NSManagedObject {
         if let stageResult = (try? context.fetch(stageRequest))?.first as? StageActivity {
             
             // found this event in the database, return it ...
-            print("Found \(stageResult.activityId!) in StageActivity")
+//            print("Found \(stageResult.activityId!) in StageActivity")
             
             let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -52,7 +52,7 @@ public class StageActivity: NSManagedObject {
                 
                 stageResult.toActivity = activityResult
                 
-                print("already make relationship btw stage and activity")
+//                print("already make relationship btw stage and activity")
                 return true
                 
             }
@@ -73,43 +73,41 @@ public class StageActivity: NSManagedObject {
         if let result = (try? context.fetch(stageRequest))?.first as? StageActivity {
             
             // found this event in the database, return it ...
-            print("Found \(result.activityId!) in StageActivity")
+//            print("Found \(result.activityId!) in StageActivity")
             
             completion?(false)
-            
-        }
-        
-        if let stageData = NSEntityDescription.insertNewObject(forEntityName: "StageActivity", into: context) as? StageActivity
-        {
-            
-            // created a new event in the database
-            
-            print("download new stage activity")
-            
-            APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
-                
-                if success {
-                    
-                    stageData.activityId = activityId
-                    stageData.stage = Int16(stage)
-                    
-                    print("add an new stage activity")
-                    
-                    completion?(true)
-                    
-                } else {
-                    
-                    print("fail to add new stage")
-                    completion?(false)
-                    
-                }
-                
-            })
             
         } else {
             
-            print("fail to add new stage")
-            completion?(false)
+            if let stageData = NSEntityDescription.insertNewObject(forEntityName: "StageActivity", into: context) as? StageActivity
+            {
+                
+                // created a new event in the database
+                
+                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
+                    
+                    if success {
+                        
+                        stageData.activityId = activityId
+                        stageData.stage = Int16(stage)
+                        
+                        completion?(true)
+                        
+                    } else {
+                        
+                        print("fail to add new stage")
+                        completion?(false)
+                        
+                    }
+                    
+                })
+                
+            } else {
+                
+                print("fail to add new stage")
+                completion?(false)
+                
+            }
             
         }
         

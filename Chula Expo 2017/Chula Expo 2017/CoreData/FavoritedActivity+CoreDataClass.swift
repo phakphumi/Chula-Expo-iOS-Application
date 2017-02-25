@@ -34,7 +34,7 @@ public class FavoritedActivity: NSManagedObject {
         if let result = (try? context.fetch(favoriteRequest))?.first as? FavoritedActivity {
             
             // found this event in the database, return it ...
-            print("Found \(result.activityId!) in FavoriteActivity")
+//            print("Found \(result.activityId!) in FavoriteActivity")
             
             return false
             

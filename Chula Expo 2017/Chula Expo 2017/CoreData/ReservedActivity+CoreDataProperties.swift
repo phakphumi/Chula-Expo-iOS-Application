@@ -17,6 +17,7 @@ extension ReservedActivity {
     }
 
     @NSManaged public var activityId: String?
+    @NSManaged public var roundId: String?
     @NSManaged public var toActivity: ActivityData?
 
 }

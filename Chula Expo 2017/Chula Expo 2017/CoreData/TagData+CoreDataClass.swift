@@ -23,7 +23,7 @@ public class TagData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? TagData
         {
             // found this event in the database, return it ...
-            print("Found \(result.name)")
+//            print("Found \(result.name)")
             return result
         }
         else {

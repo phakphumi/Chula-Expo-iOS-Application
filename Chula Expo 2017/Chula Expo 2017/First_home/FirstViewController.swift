@@ -28,7 +28,6 @@ class FirstViewController: MainCoreDataTableViewController {
         
         requestForStageEvent()
         requestForFeedEvent()
-        
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
         

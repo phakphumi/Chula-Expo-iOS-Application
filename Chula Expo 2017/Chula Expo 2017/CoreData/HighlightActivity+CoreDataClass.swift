@@ -42,7 +42,7 @@ public class HighlightActivity: NSManagedObject {
         if let highlightResult = (try? context.fetch(highlightRequest))?.first as? HighlightActivity {
             
             // found this event in the database, return it ...
-            print("Found \(highlightResult.activityId!) in HighlightActivity")
+//            print("Found \(highlightResult.activityId!) in HighlightActivity")
             
             let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -52,7 +52,7 @@ public class HighlightActivity: NSManagedObject {
                 
                 highlightResult.toActivity = activityResult
             
-                print("already make relationship btw highlight and activity")
+//                print("already make relationship btw highlight and activity")
                 return true
                 
             }
@@ -74,42 +74,41 @@ public class HighlightActivity: NSManagedObject {
         if let result = (try? context.fetch(highlightRequest))?.first as? HighlightActivity {
             
             // found this event in the database, return it ...
-            print("Found \(result.activityId!) in HighlightActivity")
-            
+//            print("Found \(result.activityId!) in HighlightActivity")
             completion?(false)
-            
-        }
-        
-        if let highlightData = NSEntityDescription.insertNewObject(forEntityName: "HighlightActivity", into: context) as? HighlightActivity
-        {
-            
-            // created a new event in the database
-                
-            print("download new highlight activity")
-            
-            APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
-                    
-                if success {
-                        
-                    highlightData.activityId = activityId
-                    
-                    print("add an new highlight activity")
-                    
-                    completion?(true)
-                        
-                } else {
-                    
-                    print("fail to add new highlight")
-                    completion?(false)
-                    
-                }
-                    
-            })
             
         } else {
             
-            print("fail to add new highlight")
-            completion?(false)
+            if let highlightData = NSEntityDescription.insertNewObject(forEntityName: "HighlightActivity", into: context) as? HighlightActivity
+            {
+                // created a new event in the database
+                
+                //            print("download new highlight activity")
+                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
+                    
+                    if success {
+                        
+                        highlightData.activityId = activityId
+                        
+//                        print("add an new highlight activity")
+                        
+                        completion?(true)
+                        
+                    } else {
+                        
+                        print("fail to add new highlight")
+                        completion?(false)
+                        
+                    }
+                    
+                })
+                
+            } else {
+                
+                print("fail to add new highlight")
+                completion?(false)
+                
+            }
             
         }
         

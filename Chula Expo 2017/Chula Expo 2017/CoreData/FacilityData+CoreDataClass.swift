@@ -31,7 +31,7 @@ public class FacilityData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? FacilityData {
             
             // found this event in the database, return it ...
-            print("Found facility \(result.nameEn)")
+//            print("Found facility \(result.nameEn)")
             return result
             
         } else {

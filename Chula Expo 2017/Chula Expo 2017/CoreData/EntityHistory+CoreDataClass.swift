@@ -19,7 +19,7 @@ public class EntityHistory: NSManagedObject {
         
         if let result = (try? context.fetch(request))?.first as? EntityHistory {
             
-            print("There is history for \(result.name)")
+//            print("There is history for \(result.name)")
             
             return true
             
@@ -37,7 +37,7 @@ public class EntityHistory: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? EntityHistory {
             
             // found this event in the database, return it ...
-            print("Found history \(result.name)")
+//            print("Found history \(result.name)")
             
             result.dateUpdated = Date()
             
@@ -58,7 +58,7 @@ public class EntityHistory: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? EntityHistory {
             
             // found this event in the database, return it ...
-            print("Found history \(result.name)")
+//            print("Found history \(result.name)")
             
         } else {
             

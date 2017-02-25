@@ -42,7 +42,7 @@ public class RecommendActivity: NSManagedObject {
         if let recommendResult = (try? context.fetch(recommendRequest))?.first as? RecommendActivity {
             
             // found this event in the database, return it ...
-            print("Found \(recommendResult.activityId!) in RecommendActivity")
+//            print("Found \(recommendResult.activityId!) in RecommendActivity")
             
             let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
             activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -52,7 +52,7 @@ public class RecommendActivity: NSManagedObject {
                 
                 recommendResult.toActivity = activityResult
                 
-                print("already make relationship btw recommend and activity")
+//                print("already make relationship btw recommend and activity")
                 return true
                 
             }
@@ -73,44 +73,44 @@ public class RecommendActivity: NSManagedObject {
         if let result = (try? context.fetch(recommendRequest))?.first as? RecommendActivity {
             
             // found this event in the database, return it ...
-            print("Found \(result.activityId!) in RecommendActivity")
-            
+//            print("Found \(result.activityId!) in RecommendActivity")
             completion?(false)
-            
-        }
-        
-        if let recommendData = NSEntityDescription.insertNewObject(forEntityName: "RecommendActivity", into: context) as? RecommendActivity
-        {
-            
-            // created a new event in the database
-            
-            print("download new recommend activity")
-            
-            APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
-                
-                if success {
-                    
-                    recommendData.activityId = activityId
-                    
-                    print("add an new recommend activity")
-                    
-                    completion?(true)
-                    
-                } else {
-                    
-                    print("fail to add new recommend")
-                    completion?(false)
-                    
-                }
-                
-            })
             
         } else {
             
-            print("fail to add new recommend")
-            completion?(false)
-            
+            if let recommendData = NSEntityDescription.insertNewObject(forEntityName: "RecommendActivity", into: context) as? RecommendActivity
+            {
+                
+                // created a new event in the database
+                
+                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
+                    
+                    if success {
+                        
+                        recommendData.activityId = activityId
+                        
+//                        print("add an new recommend activity")
+                        
+                        completion?(true)
+                        
+                    } else {
+                        
+                        print("fail to add new recommend")
+                        completion?(false)
+                        
+                    }
+                    
+                })
+                
+            } else {
+                
+                print("fail to add new recommend")
+                completion?(false)
+                
+            }
+
         }
+        
         
     }
     

@@ -29,7 +29,7 @@ public class RoundData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? RoundData
         {
             // found this event in the database, return it ...
-            print("Found round \(result.id ?? "") in activityId \(result.activityId ?? "")")
+//            print("Found round \(result.id ?? "") in activityId \(result.activityId ?? "")")
             return result
         }
         else {

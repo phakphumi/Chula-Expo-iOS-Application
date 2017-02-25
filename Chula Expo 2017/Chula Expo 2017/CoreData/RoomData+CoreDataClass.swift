@@ -46,7 +46,7 @@ public class RoomData: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? RoomData {
             
             // found this event in the database, return it ...
-            print("Found room \(result.name) in  \(result.toPlace?.nameEn)")
+//            print("Found room \(result.name) in  \(result.toPlace?.nameEn)")
             return result
             
         } else {

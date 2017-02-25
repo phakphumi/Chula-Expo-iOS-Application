@@ -47,14 +47,16 @@ class FirstViewController: MainCoreDataTableViewController {
 // Core Data
     func requestForStageEvent(){
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
 //        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
-        request.predicate = NSPredicate(format: "stageNo = %i", NSNumber(booleanLiteral: true), 1)
+        request.predicate = NSPredicate(format: "stage = 1")
 
         request.sortDescriptors = [NSSortDescriptor(
         key: "activityId",
         ascending: true
         )]
+        
+        request.fetchBatchSize = 5
         
         if let context = managedObjectContext {
             
@@ -66,7 +68,7 @@ class FirstViewController: MainCoreDataTableViewController {
             )
             
 //            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
-            request.predicate = NSPredicate(format: "stageNo = %i", NSNumber(booleanLiteral: true), 2)
+            request.predicate = NSPredicate(format: "stage = 2")
             fetchedResultsControllerStage2 = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
@@ -75,20 +77,19 @@ class FirstViewController: MainCoreDataTableViewController {
             )
 
 //            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
-            request.predicate = NSPredicate(format: "stageNo = %i", NSNumber(booleanLiteral: true), 3)
+            request.predicate = NSPredicate(format: "stage = 3")
             fetchedResultsControllerStage3 = NSFetchedResultsController(
                 fetchRequest: request,
                 managedObjectContext: context,
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
-
         }
     }
     func requestForFeedEvent(){
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "stageNo = 0")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+//        request.predicate = NSPredicate(format: "stageNo = 0")
         request.sortDescriptors = [NSSortDescriptor(
             key: "activityId",
             ascending: true
@@ -195,12 +196,15 @@ class FirstViewController: MainCoreDataTableViewController {
                     
                     if(fetchResult.numberOfObjects > 0){
                         
-                        if let fetchData = fetchedResultsControllerStage1?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+                        print("...\(fetchResult.numberOfObjects)")
+                        
+                        if let fetchData = fetchedResultsControllerStage1?.object(at: IndexPath(row: 0 , section: 0)) as? StageActivity {
                         
                             fetchData.managedObjectContext?.performAndWait {
-                                
-                                name = fetchData.name
-                                round = fetchData.toRound
+                                if let activity = fetchData.toActivity{
+                                    name = activity.name
+                                    round = activity.toRound
+                                }
                             }
                         }
                     }
@@ -212,7 +216,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     
                     if(fetchResult.numberOfObjects > 0){
                         
-                        if let fetchData = fetchedResultsControllerStage2?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+                        if let fetchData = (fetchedResultsControllerStage2?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? StageActivity)?.toActivity {
                             
                             fetchData.managedObjectContext?.performAndWait {
                                 
@@ -230,7 +234,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     
                     if(fetchResult.numberOfObjects > 0){
                         
-                        if let fetchData = fetchedResultsControllerStage3?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? ActivityData {
+                        if let fetchData = (fetchedResultsControllerStage3?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? StageActivity)?.toActivity {
                             
                             fetchData.managedObjectContext?.performAndWait {
                                 
@@ -243,9 +247,9 @@ class FirstViewController: MainCoreDataTableViewController {
 
             }
             
-            if let stageCell = cell as? StageCell{
+            if let stageCell = cell as? StageCell {
                 
-                if name == nil{
+                if name == nil {
                     
                     stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
                     stageCell.stage = indexPath.row
@@ -280,7 +284,7 @@ class FirstViewController: MainCoreDataTableViewController {
         else {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-            if let fetchData = fetchedResultsControllerFeed?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
+            if let fetchData = (fetchedResultsControllerFeed?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
                 var name: String?
                 var toRound: NSSet?
                 var thumbnail: String?

@@ -28,13 +28,13 @@ class EventFeedCell: UITableViewCell {
     var activityId: String?
     var name: String?{
         didSet{
-            print("\(name)")
+//            print("\(name)")
             updateUI()
         }
     }
     var thumbnail: String?{
         didSet{
-            thumbnail = "http://staff.chulaexpo.com" + thumbnail!
+//            thumbnail = "http://staff.chulaexpo.com" + thumbnail!
             eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
         }
     }

@@ -46,8 +46,8 @@ public class ActivityData: NSManagedObject {
             result.place = place
             result.latitude = latitude
             result.longitude = longitude
-            result.bannerUrl = bannerUrl
-            result.thumbnailsUrl = thumbnailsUrl
+            result.bannerUrl = "http://staff.chulaexpo.com\(bannerUrl)"
+            result.thumbnailsUrl = "http://staff.chulaexpo.com\(thumbnailsUrl)"
             result.video = video
             result.pdf = pdf
             result.faculty = faculty

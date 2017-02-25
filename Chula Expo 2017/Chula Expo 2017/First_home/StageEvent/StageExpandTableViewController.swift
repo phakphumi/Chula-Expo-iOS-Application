@@ -244,7 +244,6 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
 //                
 //                return 50
 //            }
-            print(UITableViewAutomaticDimension.binade)
             return UITableViewAutomaticDimension
             
         }else{
@@ -254,7 +253,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         
        }
        else if indexPath.row == 0 {
-            return 50
+            return 40
         }
         return 0;
     }

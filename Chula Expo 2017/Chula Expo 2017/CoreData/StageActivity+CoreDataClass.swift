@@ -58,12 +58,12 @@ public class StageActivity: NSManagedObject {
                     if activityData != nil {
                         
                         stageData.toActivity = activityData
-                        
+                        print("make a stage relation to new activity data")
                     }
-                    
+                    print("fail to make a stage relation to new activity data")
                 })
                 
-                print("make a stage relation to new activity data")
+                
                 
             }
             

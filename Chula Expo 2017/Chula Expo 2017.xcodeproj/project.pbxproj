@@ -418,11 +418,11 @@
 				5F23F38E1E22285300ACA6A7 /* Second_map */,
 				80073CDC1E1E315400C1F64E /* Third_events */,
 				5F23F38F1E22287A00ACA6A7 /* Fourth_more */,
-				5F4A9D9B1E10300900713580 /* Assets.xcassets */,
 				5F4A9D9D1E10300900713580 /* LaunchScreen.storyboard */,
 				5F4A9DA01E10300900713580 /* Info.plist */,
 				800641D61E215A7F00760834 /* Model.xcdatamodeld */,
 				58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */,
+				5F4A9D9B1E10300900713580 /* Assets.xcassets */,
 			);
 			path = "Chula Expo 2017";
 			sourceTree = "<group>";

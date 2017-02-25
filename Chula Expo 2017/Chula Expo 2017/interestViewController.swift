@@ -253,11 +253,13 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Pass the selected object to the new view controller.
     }
     */
+    var interestList: [tag] = []
     @IBAction func next(_ sender: UIButton) {
         var check = false
         for i in 0...tagList.count {
            // print(selectedList[i])
             if selectedList[i] {
+                interestList.append(tagList[i])
                 check = true
             }
         }

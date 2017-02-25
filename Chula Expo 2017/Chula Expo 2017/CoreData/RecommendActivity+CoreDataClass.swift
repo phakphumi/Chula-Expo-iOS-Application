@@ -12,7 +12,60 @@ import CoreData
 @objc(RecommendActivity)
 public class RecommendActivity: NSManagedObject {
     
-    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool? {
+    class func fetchRecommendActivities(inManageobjectcontext context: NSManagedObjectContext) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+        
+        do {
+            
+            let results = try context.fetch(request) as? [RecommendActivity]
+            
+            for result in results! {
+                
+                print(result.toActivity)
+                
+            }
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+    }
+    
+    class func makeRelation(activityId: String, inManageObjectContext context: NSManagedObjectContext) -> Bool? {
+        
+        let recommendRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+        recommendRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+        
+        if let recommendResult = (try? context.fetch(recommendRequest))?.first as? RecommendActivity {
+            
+            // found this event in the database, return it ...
+            print("Found \(recommendResult.activityId!) in RecommendActivity")
+            
+            let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+            
+            if let activityResult = (try? context.fetch(activityRequest))?.first as? ActivityData
+            {
+                
+                recommendResult.toActivity = activityResult
+                
+                print("already make relationship btw recommend and activity")
+                return true
+                
+            }
+            
+        }
+        
+        print("fail to make relationship btw recommend and activity")
+        
+        return false
+        
+    }
+    
+    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
         
         let recommendRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         recommendRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -22,7 +75,7 @@ public class RecommendActivity: NSManagedObject {
             // found this event in the database, return it ...
             print("Found \(result.activityId!) in RecommendActivity")
             
-            return false
+            completion?(false)
             
         }
         
@@ -30,56 +83,35 @@ public class RecommendActivity: NSManagedObject {
         {
             
             // created a new event in the database
-            recommendData.activityId = activityId
             
-            let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            activityRequest.predicate = NSPredicate(format: "activityId = %@", activityId)
+            print("download new recommend activity")
             
-            let activityResult = try? context.fetch(activityRequest)
-            
-            if (activityResult?.count)! > 0 {
+            APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
                 
-                print("found an Recommend Activity")
-                
-                if let activityResult = activityResult?.first as? ActivityData {
+                if success {
                     
-                    recommendData.toActivity = activityResult
+                    recommendData.activityId = activityId
+                    
+                    print("add an new recommend activity")
+                    
+                    completion?(true)
+                    
+                } else {
+                    
+                    print("fail to add new recommend")
+                    completion?(false)
                     
                 }
                 
-            } else {
-                
-                print("download new Recommend Activity")
-                
-                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (activityData) in
-                    
-                    if activityData != nil {
-                        
-                        recommendData.toActivity = activityData
-                        print("make a Recommend relation to new activity data")
-                        
-                    }
-                    
-                })
-                
-            }
-            
-            if recommendData.toActivity == nil {
-                
-                return false
-                
-            }
-            
-            return true
+            })
             
         } else {
             
-            print("can't insert Recommend Activity new object")
-            
-            return false
+            print("fail to add new recommend")
+            completion?(false)
             
         }
         
     }
-
+    
 }

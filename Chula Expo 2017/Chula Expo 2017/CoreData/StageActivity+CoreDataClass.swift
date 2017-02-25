@@ -12,7 +12,60 @@ import CoreData
 @objc(StageActivity)
 public class StageActivity: NSManagedObject {
     
-    class func addData(activityId: String, stage: Int, inManageobjectcontext context: NSManagedObjectContext) -> Bool? {
+    class func fetchStageActivities(inManageobjectcontext context: NSManagedObjectContext) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+        
+        do {
+            
+            let results = try context.fetch(request) as? [StageActivity]
+            
+            for result in results! {
+                
+                print(result.toActivity)
+                
+            }
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+    }
+    
+    class func makeRelation(activityId: String, inManageObjectContext context: NSManagedObjectContext) -> Bool? {
+        
+        let stageRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+        stageRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+        
+        if let stageResult = (try? context.fetch(stageRequest))?.first as? StageActivity {
+            
+            // found this event in the database, return it ...
+            print("Found \(stageResult.activityId!) in StageActivity")
+            
+            let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+            
+            if let activityResult = (try? context.fetch(activityRequest))?.first as? ActivityData
+            {
+                
+                stageResult.toActivity = activityResult
+                
+                print("already make relationship btw stage and activity")
+                return true
+                
+            }
+            
+        }
+        
+        print("fail to make relationship btw stage and activity")
+        
+        return false
+        
+    }
+    
+    class func addData(activityId: String, stage: Int, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
         
         let stageRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         stageRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -20,9 +73,9 @@ public class StageActivity: NSManagedObject {
         if let result = (try? context.fetch(stageRequest))?.first as? StageActivity {
             
             // found this event in the database, return it ...
-            print("Found \(result.activityId!) in Stage Activity")
+            print("Found \(result.activityId!) in StageActivity")
             
-            return false
+            completion?(false)
             
         }
         
@@ -30,56 +83,33 @@ public class StageActivity: NSManagedObject {
         {
             
             // created a new event in the database
-            stageData.activityId = activityId
-            stageData.stage = Int16(stage)
             
-            let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            activityRequest.predicate = NSPredicate(format: "activityId = %@", activityId)
+            print("download new stage activity")
             
-            let activityResult = try? context.fetch(activityRequest)
-            
-            if (activityResult?.count)! > 0 {
+            APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
                 
-                print("found an stage activity")
-                
-                if let activityResult = activityResult?.first as? ActivityData {
+                if success {
                     
-                    print(activityResult)
-                    stageData.toActivity = activityResult
+                    stageData.activityId = activityId
+                    stageData.stage = Int16(stage)
+                    
+                    print("add an new stage activity")
+                    
+                    completion?(true)
+                    
+                } else {
+                    
+                    print("fail to add new stage")
+                    completion?(false)
                     
                 }
                 
-            } else {
-                
-                print("download new stage activity")
-                
-                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (activityData) in
-                    
-                    if activityData != nil {
-                        
-                        stageData.toActivity = activityData
-                        print("make a stage relation to new activity data")
-                    }
-                    print("fail to make a stage relation to new activity data")
-                })
-                
-                
-                
-            }
-            
-            if stageData.toActivity == nil {
-                
-                return false
-                
-            }
-            
-            return true
+            })
             
         } else {
             
-            print("can't insert stage new object")
-            
-            return false
+            print("fail to add new stage")
+            completion?(false)
             
         }
         

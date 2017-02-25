@@ -31,113 +31,122 @@ public class ActivityData: NSManagedObject {
         rounds: NSArray,
         tags: [String],
         faculty: String,
-        inManageobjectcontext context: NSManagedObjectContext
-        ) -> ActivityData? {
+        inManageobjectcontext context: NSManagedObjectContext,
+        completion: ((Bool) -> Void)?
+        )  {
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "activityId = %@",  activityId)
-        
-        if let result = (try? context.fetch(request))?.first as? ActivityData
-        {
-           
-            result.name = name
-            result.desc = desc
-            result.room = room
-            result.place = place
-            result.latitude = latitude
-            result.longitude = longitude
-            result.bannerUrl = "http://staff.chulaexpo.com\(bannerUrl)"
-            result.thumbnailsUrl = "http://staff.chulaexpo.com\(thumbnailsUrl)"
-            result.video = video
-            result.pdf = pdf
-            result.faculty = faculty
-            result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
- 
-            print("  Found \(result.name) in ActivityData and update data!")
-            return result
-        }
-        else {
-            if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
+        context.performAndWait {
+            
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            request.predicate = NSPredicate(format: "activityId = %@",  activityId)
+            
+            if let result = (try? context.fetch(request))?.first as? ActivityData
             {
-                print(bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)")
-                // created a new event in the database
-                activityData.bannerUrl = "http://staff.chulaexpo.com\(bannerUrl)"
-                activityData.desc = desc
-                activityData.activityId = activityId
-                activityData.room = room
-                activityData.place = place
-                activityData.latitude = latitude
-                activityData.longitude = longitude
-                activityData.name = name
-                activityData.thumbnailsUrl = "http://staff.chulaexpo.com\(thumbnailsUrl)"
-                activityData.isHighlight = isHighlight
-                activityData.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
-                activityData.video = video
-                activityData.pdf = pdf
-                activityData.faculty = faculty
                 
-//                newData.toImages = toImages
-//                newData.toRound = toRounds
-//                newData.toTags = toTags
+                //            result.name = name
+                //            result.desc = desc
+                //            result.room = room
+                //            result.place = place
+                //            result.latitude = latitude
+                //            result.longitude = longitude
+                //            result.bannerUrl = bannerUrl
+                //            result.thumbnailsUrl = thumbnailsUrl
+                //            result.video = video
+                //            result.pdf = pdf
+                //            result.faculty = faculty
+                //            result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
+                print("  Found \(result.name) in ActivityData")
                 
-                
-                for image in images {
+                completion?(false)
+            }
+            else {
+                if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
+                {
                     
-                    if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
-                        
-                        imageData.url = image
-                        imageData.toActivity = activityData
-                        
-                    }
+                    // created a new event in the database
+                    activityData.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
+                    activityData.desc = desc
+                    activityData.activityId = activityId
+                    activityData.room = room
+                    activityData.place = place
+                    activityData.latitude = latitude
+                    activityData.longitude = longitude
+                    activityData.name = name
+                    activityData.thumbnailsUrl = thumbnailsUrl == "" ? "" : "http://staff.chulaexpo.com\(thumbnailsUrl)"
+                    activityData.isHighlight = isHighlight
+                    activityData.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
+                    activityData.video = video
+                    activityData.pdf = pdf
+                    activityData.faculty = faculty
                     
-                }
-                
-                for tag in tags {
+                    //                newData.toImages = toImages
+                    //                newData.toRound = toRounds
+                    //                newData.toTags = toTags
                     
-                    if let tagData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData {
-                        
-                        tagData.name = tag
-                        tagData.mutableSetValue(forKey: "toActivity").add(activityData)
-                        
-                    }
                     
-                }
-                
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                
-                for round in rounds {
-                    
-                    if let round = round as? NSDictionary {
+                    for image in images {
                         
-                        if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
+                        if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
                             
-                            let startTime = round["start"] as! String
-                            let endTime = round["end"] as! String
-                            
-                            let seats = round["seats"] as! NSDictionary
-                            
-                            roundData.id = round["_id"] as? String ?? ""
-                            roundData.activityId = round["activityId"] as? String ?? ""
-                            roundData.startTime = dateFormatter.date(from: startTime)
-                            roundData.endTime = dateFormatter.date(from: endTime)
-                            roundData.fullCapacity = seats["fullCapacity"] as! Int16
-                            roundData.reserved = seats["reserved"] as! Int16
-                            roundData.seatAvaliable = seats["avaliable"] as! Int16
-                            roundData.toActivity = activityData
+                            imageData.url = image
+                            imageData.toActivity = activityData
                             
                         }
                         
                     }
                     
+                    for tag in tags {
+                        
+                        if let tagData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData {
+                            
+                            tagData.name = tag
+                            tagData.mutableSetValue(forKey: "toActivity").add(activityData)
+                            
+                        }
+                        
+                    }
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                    
+                    for round in rounds {
+                        
+                        if let round = round as? NSDictionary {
+                            
+                            if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
+                                
+                                let startTime = round["start"] as! String
+                                let endTime = round["end"] as! String
+                                
+                                let seats = round["seats"] as! NSDictionary
+                                
+                                roundData.id = round["_id"] as? String ?? ""
+                                roundData.activityId = round["activityId"] as? String ?? ""
+                                roundData.startTime = dateFormatter.date(from: startTime)
+                                roundData.endTime = dateFormatter.date(from: endTime)
+                                roundData.fullCapacity = seats["fullCapacity"] as! Int16
+                                roundData.reserved = seats["reserved"] as! Int16
+                                roundData.seatAvaliable = seats["avaliable"] as! Int16
+                                roundData.toActivity = activityData
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    completion?(true)
+                    
+                } else {
+                    
+                    completion?(false)
+                    
                 }
                 
-                return activityData
             }
             
         }
-        
-        return nil
         
     }
     

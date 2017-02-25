@@ -12,7 +12,61 @@ import CoreData
 @objc(HighlightActivity)
 public class HighlightActivity: NSManagedObject {
     
-    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool? {
+    class func fetchHighlightActivities(inManageobjectcontext context: NSManagedObjectContext) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+        
+        do {
+            
+            let results = try context.fetch(request) as? [HighlightActivity]
+            
+            for result in results! {
+                
+                print(result.toActivity)
+                
+            }
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+    }
+    
+    class func makeRelation(activityId: String, inManageObjectContext context: NSManagedObjectContext) -> Bool? {
+        
+        let highlightRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+        highlightRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+        
+        if let highlightResult = (try? context.fetch(highlightRequest))?.first as? HighlightActivity {
+            
+            // found this event in the database, return it ...
+            print("Found \(highlightResult.activityId!) in HighlightActivity")
+            
+            let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            activityRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
+            
+            if let activityResult = (try? context.fetch(activityRequest))?.first as? ActivityData
+            {
+                
+                highlightResult.toActivity = activityResult
+            
+                print("already make relationship btw highlight and activity")
+                return true
+                
+            }
+            
+        }
+        
+        print("fail to make relationship btw highlight and activity")
+        
+        return false
+        
+    }
+
+    
+    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
         
         let highlightRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
         highlightRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -22,7 +76,7 @@ public class HighlightActivity: NSManagedObject {
             // found this event in the database, return it ...
             print("Found \(result.activityId!) in HighlightActivity")
             
-            return false
+            completion?(false)
             
         }
         
@@ -30,53 +84,32 @@ public class HighlightActivity: NSManagedObject {
         {
             
             // created a new event in the database
-            highlightData.activityId = activityId
-            
-            let activityRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            activityRequest.predicate = NSPredicate(format: "activityId = %@", activityId)
-            
-            let activityResult = try? context.fetch(activityRequest)
-            
-            if (activityResult?.count)! > 0 {
-            
-                print("found an highlight activity")
                 
-                if let activityResult = activityResult?.first as? ActivityData {
+            print("download new highlight activity")
+            
+            APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
                     
-                    highlightData.toActivity = activityResult
+                if success {
+                        
+                    highlightData.activityId = activityId
+                    
+                    print("add an new highlight activity")
+                    
+                    completion?(true)
+                        
+                } else {
+                    
+                    print("fail to add new highlight")
+                    completion?(false)
                     
                 }
-                
-            } else {
-                
-                print("download new highlight activity")
-                
-                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (activityData) in
                     
-                    if activityData != nil {
-                        
-                        highlightData.toActivity = activityData
-                        print("make a highlight relation to new activity data")
-                        
-                    }
-                    
-                })
-                
-            }
-            
-            if highlightData.toActivity == nil {
-                
-                return false
-                
-            }
-            
-            return true
+            })
             
         } else {
             
-            print("can't insert highlight new object")
-            
-            return false
+            print("fail to add new highlight")
+            completion?(false)
             
         }
         

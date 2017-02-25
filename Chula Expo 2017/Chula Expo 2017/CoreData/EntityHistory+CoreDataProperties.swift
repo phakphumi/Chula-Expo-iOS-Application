@@ -17,7 +17,7 @@ extension EntityHistory {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var dateCreated: NSDate?
-    @NSManaged public var dateUpdated: NSDate?
+    @NSManaged public var dateCreated: Date?
+    @NSManaged public var dateUpdated: Date?
 
 }

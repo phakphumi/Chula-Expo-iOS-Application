@@ -80,7 +80,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     if success {
                         
-                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
+                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: { (success) in
+                            
+//                            print("Fetch Highlight")
+//                            HighlightActivity.fetchHighlightActivities(inManageobjectcontext: self.managedObjectContext)
+//                            print("Fetch Stage")
+//                            StageActivity.fetchStageActivities(inManageobjectcontext: self.managedObjectContext)
+                            print("Fetch Recommend")
+                            RecommendActivity.fetchRecommendActivities(inManageobjectcontext: self.managedObjectContext)
+                            
+                        })
                         
                     }
                     

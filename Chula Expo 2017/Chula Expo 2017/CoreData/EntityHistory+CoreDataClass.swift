@@ -23,9 +23,32 @@ public class EntityHistory: NSManagedObject {
             
             return true
             
+        } else {
+            
+            return false
+            
         }
         
-        return false
+    }
+    
+    class func fetchLastUpdate(forEntityName name: String, inManageObjectContext context: NSManagedObjectContext, completion: ((String?) -> Void)?) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EntityHistory")
+        request.predicate = NSPredicate(format: "name = %@", name)
+        
+        if let result = (try? context.fetch(request))?.first as? EntityHistory {
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.timeZone = TimeZone(secondsFromGMT: 7)
+            
+            completion?(dateFormatter.string(from: result.dateUpdated!))
+            
+        } else {
+            
+            completion?(nil)
+            
+        }
         
     }
     

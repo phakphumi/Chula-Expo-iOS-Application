@@ -91,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
 //        APIController.downloadActivities(inManageobjectcontext: self.managedObjectContext)
+        
         APIController.downloadZone(inManageobjectcontext: self.managedObjectContext)
         APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext)
         

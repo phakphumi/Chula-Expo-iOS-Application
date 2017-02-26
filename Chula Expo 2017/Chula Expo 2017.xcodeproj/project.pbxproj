@@ -122,6 +122,8 @@
 		80DC942D1E366B5300A1D01A /* VideoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC94211E366B5200A1D01A /* VideoData+CoreDataClass.swift */; };
 		80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DC94221E366B5200A1D01A /* VideoData+CoreDataProperties.swift */; };
 		80E2AE751E58C3A6003E2148 /* fourthAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80E2AE741E58C3A6003E2148 /* fourthAsset.xcassets */; };
+		80F456671E620C2B00D06378 /* FacultyBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F456661E620C2B00D06378 /* FacultyBannerCell.swift */; };
+		80F456691E620C3B00D06378 /* FacultyDescCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F456681E620C3B00D06378 /* FacultyDescCell.swift */; };
 		931613E21E4F6FC900298127 /* HeaderMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E11E4F6FC900298127 /* HeaderMeTableViewCell.swift */; };
 		931613E41E4F706B00298127 /* FeedMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E31E4F706B00298127 /* FeedMeTableViewCell.swift */; };
 		931613E81E4F713400298127 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931613E71E4F713400298127 /* FavViewController.swift */; };
@@ -250,6 +252,8 @@
 		80DC94211E366B5200A1D01A /* VideoData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VideoData+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/VideoData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		80DC94221E366B5200A1D01A /* VideoData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "VideoData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/VideoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		80E2AE741E58C3A6003E2148 /* fourthAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = fourthAsset.xcassets; sourceTree = "<group>"; };
+		80F456661E620C2B00D06378 /* FacultyBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyBannerCell.swift; sourceTree = "<group>"; };
+		80F456681E620C3B00D06378 /* FacultyDescCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacultyDescCell.swift; sourceTree = "<group>"; };
 		931613E11E4F6FC900298127 /* HeaderMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderMeTableViewCell.swift; sourceTree = "<group>"; };
 		931613E31E4F706B00298127 /* FeedMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedMeTableViewCell.swift; sourceTree = "<group>"; };
 		931613E71E4F713400298127 /* FavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
@@ -506,9 +510,9 @@
 				80314F3E1E4A2F0D003DB96A /* CityCollectionViewCell.swift */,
 				80314F401E4A2F1E003DB96A /* FacultyCollectionViewCell.swift */,
 				80314F461E4A3532003DB96A /* InterCollectionViewCell.swift */,
-				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
-				80D103231E54AF55004F8998 /* EventsController.swift */,
 				807FF6451E21438200A9CA08 /* EventsTableViewController.swift */,
+				80F456661E620C2B00D06378 /* FacultyBannerCell.swift */,
+				80F456681E620C3B00D06378 /* FacultyDescCell.swift */,
 			);
 			name = Third_events;
 			sourceTree = "<group>";
@@ -550,6 +554,8 @@
 		80D103251E54AFB2004F8998 /* Old */ = {
 			isa = PBXGroup;
 			children = (
+				5F25B2321E10E018008A3B11 /* ThirdViewController.swift */,
+				80D103231E54AF55004F8998 /* EventsController.swift */,
 				800641D91E215BAC00760834 /* EventData+CoreDataClass.swift */,
 				800641DA1E215BAC00760834 /* EventData+CoreDataProperties.swift */,
 				800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */,
@@ -701,6 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F456671E620C2B00D06378 /* FacultyBannerCell.swift in Sources */,
 				80314F3B1E4A1CDD003DB96A /* EventSelectViewController.swift in Sources */,
 				800D583F1E40A4C900E854E8 /* InterestCollectionViewCell.swift in Sources */,
 				58BD39451E4C4DFA00218B52 /* MeViewController.swift in Sources */,
@@ -744,6 +751,7 @@
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */,
 				80314F411E4A2F1E003DB96A /* FacultyCollectionViewCell.swift in Sources */,
+				80F456691E620C3B00D06378 /* FacultyDescCell.swift in Sources */,
 				5FAA77661E601E930099809E /* HighlightActivity+CoreDataClass.swift in Sources */,
 				5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */,
 				5F7A1F221E2E0B2900349134 /* GalleryViewController.swift in Sources */,

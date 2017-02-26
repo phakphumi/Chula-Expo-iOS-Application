@@ -23,6 +23,8 @@ class EventsController: CoreDataTableViewController {
         }
     }
     
+//    var isFaculty = false
+    
     fileprivate func updateUI() {
         
         if let facity = facity {

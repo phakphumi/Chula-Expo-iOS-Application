@@ -18,7 +18,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var button5: UIButton!
 
-    
+    let dateComp = NSDateComponents()
     var selectionIndicatorView: UIView = UIView()
     var selectedDate: Int = 1
     var stageNo: Int? {
@@ -39,7 +39,6 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     var selectSection: Int?{
         
         didSet{
-            
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
         }

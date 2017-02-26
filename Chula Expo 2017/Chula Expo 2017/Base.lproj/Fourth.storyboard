@@ -280,7 +280,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
-                                        <rect key="frame" x="62.666666666666664" y="14" width="50.666666666666679" height="50.666666666666686"/>
+                                        <rect key="frame" x="67.333333333333329" y="18.666666666666686" width="41.333333333333343" height="41.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bem-fb-AaB" secondAttribute="height" id="wM5-bR-JSw"/>
                                         </constraints>
@@ -294,7 +294,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="bem-fb-AaB" firstAttribute="height" secondItem="czm-V6-wiz" secondAttribute="height" multiplier="5:10" id="6Ss-ra-q95"/>
+                                    <constraint firstItem="bem-fb-AaB" firstAttribute="height" secondItem="czm-V6-wiz" secondAttribute="height" multiplier="4:10" id="6Ss-ra-q95"/>
                                     <constraint firstItem="bem-fb-AaB" firstAttribute="centerX" secondItem="czm-V6-wiz" secondAttribute="centerX" id="ACE-hK-ybg"/>
                                     <constraint firstItem="nYR-8u-1AU" firstAttribute="width" secondItem="czm-V6-wiz" secondAttribute="width" multiplier="9:10" id="Aqg-W9-SPd"/>
                                     <constraint firstItem="gI1-9z-3Jt" firstAttribute="top" secondItem="czm-V6-wiz" secondAttribute="top" id="JZx-t0-uBV"/>
@@ -317,7 +317,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reserveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
-                                        <rect key="frame" x="61.999999999999972" y="14" width="51" height="50.666666666666686"/>
+                                        <rect key="frame" x="65.666666666666657" y="17.666666666666686" width="43.666666666666686" height="43.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" id="H0K-Q0-feK"/>
                                         </constraints>
@@ -340,7 +340,7 @@
                                     <constraint firstItem="W1a-8t-Iub" firstAttribute="centerY" secondItem="Zog-kW-qpi" secondAttribute="centerY" multiplier="16:10" id="eVV-fC-wJx"/>
                                     <constraint firstAttribute="trailing" secondItem="Eb2-th-1rY" secondAttribute="trailing" id="gG9-VY-9FC"/>
                                     <constraint firstItem="W1a-8t-Iub" firstAttribute="centerX" secondItem="Zog-kW-qpi" secondAttribute="centerX" id="gcU-nT-Tps"/>
-                                    <constraint firstItem="0s7-gn-jvs" firstAttribute="height" secondItem="Zog-kW-qpi" secondAttribute="height" multiplier="5:10" id="i5X-K9-1D3"/>
+                                    <constraint firstItem="0s7-gn-jvs" firstAttribute="height" secondItem="Zog-kW-qpi" secondAttribute="height" multiplier="4.2:10" id="i5X-K9-1D3"/>
                                     <constraint firstItem="Eb2-th-1rY" firstAttribute="leading" secondItem="Zog-kW-qpi" secondAttribute="leading" id="qKR-Yq-tPs"/>
                                 </constraints>
                             </view>
@@ -354,7 +354,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
-                                        <rect key="frame" x="62.666666666666664" y="13" width="50.666666666666679" height="51.333333333333314"/>
+                                        <rect key="frame" x="68.666666666666657" y="19" width="38.666666666666671" height="39.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ccO-y6-VRy" secondAttribute="height" id="BzS-Mh-fhG"/>
                                         </constraints>
@@ -369,7 +369,7 @@
                                 <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="RYU-4I-gUD" firstAttribute="centerY" secondItem="zFe-MQ-ftc" secondAttribute="centerY" multiplier="16:10" id="1Dd-7N-Xio"/>
-                                    <constraint firstItem="ccO-y6-VRy" firstAttribute="height" secondItem="zFe-MQ-ftc" secondAttribute="height" multiplier="5:10" id="3wj-Yz-ASc"/>
+                                    <constraint firstItem="ccO-y6-VRy" firstAttribute="height" secondItem="zFe-MQ-ftc" secondAttribute="height" multiplier="3.8:10" id="3wj-Yz-ASc"/>
                                     <constraint firstItem="ccO-y6-VRy" firstAttribute="centerY" secondItem="zFe-MQ-ftc" secondAttribute="centerY" multiplier="7.5:10" id="Jq2-cJ-bOe"/>
                                     <constraint firstAttribute="bottom" secondItem="i6A-6i-Fgj" secondAttribute="bottom" id="KKu-Ok-vqF"/>
                                     <constraint firstItem="i6A-6i-Fgj" firstAttribute="top" secondItem="zFe-MQ-ftc" secondAttribute="top" id="VHE-2i-jxW"/>
@@ -391,7 +391,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facIcon" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
-                                        <rect key="frame" x="62.333333333333343" y="13" width="50.666666666666629" height="51.333333333333314"/>
+                                        <rect key="frame" x="65.333333333333343" y="16" width="44.666666666666629" height="45.333333333333314"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="scs-2p-fYf" secondAttribute="height" id="FKa-Xz-ll4"/>
                                         </constraints>
@@ -405,7 +405,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="scs-2p-fYf" firstAttribute="height" secondItem="25R-3A-hs5" secondAttribute="height" multiplier="5:10" id="6DP-lX-tdv"/>
+                                    <constraint firstItem="scs-2p-fYf" firstAttribute="height" secondItem="25R-3A-hs5" secondAttribute="height" multiplier="4.4:10" id="6DP-lX-tdv"/>
                                     <constraint firstItem="scs-2p-fYf" firstAttribute="centerY" secondItem="25R-3A-hs5" secondAttribute="centerY" multiplier="7.5:10" id="A9b-hP-bTM"/>
                                     <constraint firstItem="AWb-CZ-da0" firstAttribute="leading" secondItem="25R-3A-hs5" secondAttribute="leading" id="FYP-TU-kBy"/>
                                     <constraint firstItem="IKn-QC-pVk" firstAttribute="centerY" secondItem="25R-3A-hs5" secondAttribute="centerY" multiplier="16:10" id="L69-Wn-TmV"/>
@@ -428,7 +428,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faqIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
-                                        <rect key="frame" x="62.66666666666665" y="13.000000000000057" width="51.000000000000007" height="51.666666666666629"/>
+                                        <rect key="frame" x="66.333333333333329" y="16.666666666666686" width="43.666666666666657" height="44.333333333333371"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TCN-63-zka" secondAttribute="height" id="o2d-3g-JWl"/>
                                         </constraints>
@@ -452,7 +452,7 @@
                                     <constraint firstItem="6CH-ye-Lys" firstAttribute="top" secondItem="6QA-cE-lMX" secondAttribute="top" id="k8O-Bc-01Y"/>
                                     <constraint firstItem="6CH-ye-Lys" firstAttribute="leading" secondItem="6QA-cE-lMX" secondAttribute="leading" id="n5v-ku-CDB"/>
                                     <constraint firstItem="TCN-63-zka" firstAttribute="centerY" secondItem="6QA-cE-lMX" secondAttribute="centerY" multiplier="7.5:10" id="u62-E8-aFx"/>
-                                    <constraint firstItem="TCN-63-zka" firstAttribute="height" secondItem="6QA-cE-lMX" secondAttribute="height" multiplier="5:10" id="zxo-qB-LTc"/>
+                                    <constraint firstItem="TCN-63-zka" firstAttribute="height" secondItem="6QA-cE-lMX" secondAttribute="height" multiplier="4.3:10" id="zxo-qB-LTc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Db-7i-5D0">
@@ -465,7 +465,7 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
-                                        <rect key="frame" x="62.666666666666657" y="12" width="51" height="51.666666666666686"/>
+                                        <rect key="frame" x="66.333333333333343" y="15.666666666666686" width="43.666666666666629" height="44.333333333333371"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mId-2y-0eS" secondAttribute="height" id="n1Y-Z2-MLg"/>
                                         </constraints>
@@ -481,7 +481,7 @@
                                 <constraints>
                                     <constraint firstItem="FPt-Mv-oax" firstAttribute="top" secondItem="1Db-7i-5D0" secondAttribute="top" id="59L-gr-C4F"/>
                                     <constraint firstItem="4Wl-Yp-oYy" firstAttribute="centerX" secondItem="1Db-7i-5D0" secondAttribute="centerX" id="DFD-zl-1wn"/>
-                                    <constraint firstItem="mId-2y-0eS" firstAttribute="height" secondItem="1Db-7i-5D0" secondAttribute="height" multiplier="5:10" id="P7T-y0-RG3"/>
+                                    <constraint firstItem="mId-2y-0eS" firstAttribute="height" secondItem="1Db-7i-5D0" secondAttribute="height" multiplier="4.3:10" id="P7T-y0-RG3"/>
                                     <constraint firstItem="4Wl-Yp-oYy" firstAttribute="centerY" secondItem="1Db-7i-5D0" secondAttribute="centerY" multiplier="16:10" id="S3L-Td-CZ7"/>
                                     <constraint firstItem="4Wl-Yp-oYy" firstAttribute="height" secondItem="1Db-7i-5D0" secondAttribute="height" multiplier="3:10" id="Te7-sf-brD"/>
                                     <constraint firstItem="mId-2y-0eS" firstAttribute="centerY" secondItem="1Db-7i-5D0" secondAttribute="centerY" multiplier="7.5:10" id="UEl-dE-sEe"/>

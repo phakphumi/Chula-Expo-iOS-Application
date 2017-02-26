@@ -55,12 +55,10 @@ class FourthHeadTableViewCell: UITableViewCell {
         //Set new data
         if let Iname1: String = icon
         {
-            print("hijijii11111")
             headImg.image = UIImage(named: Iname1)
         }
         if let Tname1: String = name
         {
-            print("hijijii11111")
             headName.text = Tname1
         }
         

@@ -37,6 +37,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+
            /* var name: String?
             var toRound: NSSet?
             var thumbnail: String?
@@ -62,7 +63,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
              */
         
-        requestForFeedEvent()
+        requestForSearchFeedEvent()
         self.navigationController?.navigationBar.isTranslucent = false
         // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
@@ -70,6 +71,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //navigationController?.navigationBar.barTintColor = UIColor.white
        // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
        // searchBar.showsCancelButton = true
+        for subView in self.searchBar.subviews
+        {
+            for subsubView in subView.subviews
+            {
+                if let textField = subsubView as? UITextField
+                {
+                    textField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search", comment: ""), attributes: [NSForegroundColorAttributeName: UIColor.red])
+                    textField.backgroundColor = UIColor(red:0.92, green:0.92, blue:0.92, alpha:1.0)
+//                    textField.layer.cornerRadius = textField.bounds.height/2
+//                    textField.clipsToBounds = true
+//                    searchBar.layer.cornerRadius = textField.bounds.height / 2
+//                    searchBar.clipsToBounds = true
+                    textField.textColor = UIColor.red
+                }
+            }
+        }
         searchBar.placeholder = "ค้นหากิจกรรม"
        // searchBar.barStyle = UIBarStyle.blackOpaque
         searchBar.delegate = self
@@ -151,10 +168,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
-    func requestForFeedEvent(){
+    func requestForSearchFeedEvent(){
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: false))
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+//        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: false))
         request.sortDescriptors = [NSSortDescriptor(
             key: "activityId",
             ascending: true
@@ -265,7 +282,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
               }
                else {
                     cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
-                    if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
+                    if let fetchData = (fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
                         var name: String?
                         var toRound: NSSet?
                         var thumbnail: String?

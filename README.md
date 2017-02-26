@@ -5,26 +5,26 @@ Chula Expo is organized for celebrating 100 years old of Chulalongkorn Universit
 
 #Developed By
 ##iOS Application: https://github.com/phakphumi/Chula-Expo-iOS-Application
-* 1.Pakpoom Thaweesitthichat (Computer Engineering #41)
-* 2.Panupong Tongtawach (Computer Engineering #41)
-* 3.Thanapon Sirisompark (Computer Engineering #41)
-* 4.Ekkalak Leelasornchai (Computer Engineering #42)
+* Pakpoom Thaweesitthichat (Computer Engineering #41)
+* Panupong Tongtawach (Computer Engineering #41)
+* Thanapon Sirisompark (Computer Engineering #41)
+* Ekkalak Leelasornchai (Computer Engineering #42)
 
 ##Website and Server: https://github.com/nutstick/Chula-Expo
-* 1.Kitipong Sirirueangsakul (Computer Engineering #41)
-* 2.Nuttapat Kirawittaya (Computer Engineering #41)
-* 3.Pongsathorn Chotipanvidhayakul (Computer Engineering #41)
-* 4.Wasin Watthanasrisong (Computer Engineering #41)
-* 5.Apiruj Choomwattana (Computer Engineering #41)
+* Kitipong Sirirueangsakul (Computer Engineering #41)
+* Nuttapat Kirawittaya (Computer Engineering #41)
+* Pongsathorn Chotipanvidhayakul (Computer Engineering #41)
+* Wasin Watthanasrisong (Computer Engineering #41)
+* Apiruj Choomwattana (Computer Engineering #41)
 
 ##Recommendation System:
-* 1.Asst.Prof. Dr.Natawut Nupairoj
+* Asst.Prof. Dr.Natawut Nupairoj
 
 ##Inside Building's Location Prediction System:
-* 1.ISEL Lab
+* ISEL Lab
 
 ##Designed By
-* 1.Nutthawat Pradujdecha (Computer Engineering #41)
+* Nutthawat Pradujdecha (Computer Engineering #41)
 
 #Supported By
 * Department of Computer Engineering, Faculty of Engineering, Chulalongkorn University

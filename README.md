@@ -1,4 +1,4 @@
-# Chula-Expo-iOS-Application-
+# Chula Expo iOS Application
 Application for Chula Expo 2017
 
 Chula Expo is organized for celebrating 100 years old of Chulalongkorn University.

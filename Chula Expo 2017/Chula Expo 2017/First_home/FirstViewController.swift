@@ -157,7 +157,7 @@ class FirstViewController: MainCoreDataTableViewController {
             
             managedObjectContext?.performAndWait {
                 
-                let fetchdata = ActivityData.fetchHighlightFromAll(inManageobjectcontext: self.managedObjectContext!)
+                let fetchdata = HighlightActivity.fetchAllHighlight(inManageobjectcontext: self.managedObjectContext!)
                 
                 for data in fetchdata{
                     

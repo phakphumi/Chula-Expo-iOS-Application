@@ -96,5 +96,29 @@ public class HighlightActivity: NSManagedObject {
         }
         
     }
-
+    
+    class func fetchAllHighlight(inManageobjectcontext context: NSManagedObjectContext) -> [ActivityData] {
+        var fetchResult = [ActivityData]()
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+        do {
+            let result = try context.fetch(request)
+            
+            for item in result{
+                if let highlightItem = item as? HighlightActivity{
+                    if let highlightActivity = highlightItem.toActivity {
+                        
+                        fetchResult.append(highlightActivity)
+                    
+                    }
+                }
+            }
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return fetchResult
+    }
+    
 }

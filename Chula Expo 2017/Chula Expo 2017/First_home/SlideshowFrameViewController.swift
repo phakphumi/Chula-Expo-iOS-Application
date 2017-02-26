@@ -14,14 +14,12 @@ class SlideshowFrameViewController: UIViewController {
         
         didSet {
             
-            var imgUrl = ""
-            
             if let url = imageName{
                 
-                imgUrl = "http://staff.chulaexpo.com" + url
+                imageView.imageFromServerURL(urlString: url)
             }
             
-            imageView.imageFromServerURL(urlString: imgUrl)
+            
         }
         
     }
@@ -47,7 +45,7 @@ class SlideshowFrameViewController: UIViewController {
     let imageView: UIImageView = {
 
         let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: 375, height: 220))
-        iv.image = #imageLiteral(resourceName: "defaultImage")
+        iv.image = #imageLiteral(resourceName: "defaultBig")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv

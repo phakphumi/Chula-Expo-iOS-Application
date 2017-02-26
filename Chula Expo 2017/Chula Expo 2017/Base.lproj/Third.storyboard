@@ -353,17 +353,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96080243587493896" green="0.96076643466949463" blue="0.96079087257385254" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facBanner" rowHeight="375" id="RXW-Zc-svD" userLabel="facBanner" customClass="FacultyBannerCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="375"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facBanner" rowHeight="281" id="RXW-Zc-svD" userLabel="facBanner" customClass="FacultyBannerCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="281"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXW-Zc-svD" id="CaR-CM-O3h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Bdl-Ot-Jy6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="Bdl-Ot-Jy6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Bdl-Ot-Jy6" secondAttribute="height" multiplier="1:1" id="ho9-Ey-bvr"/>
+                                                <constraint firstAttribute="width" secondItem="Bdl-Ot-Jy6" secondAttribute="height" multiplier="4:3" id="ho9-Ey-bvr"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -372,6 +372,7 @@
                                         <constraint firstAttribute="trailing" secondItem="Bdl-Ot-Jy6" secondAttribute="trailing" id="IDf-7O-hqU"/>
                                         <constraint firstItem="Bdl-Ot-Jy6" firstAttribute="top" secondItem="CaR-CM-O3h" secondAttribute="top" id="PfY-Xt-0uM"/>
                                         <constraint firstAttribute="bottom" secondItem="Bdl-Ot-Jy6" secondAttribute="bottom" id="ULj-0o-vl4"/>
+                                        <constraint firstItem="Bdl-Ot-Jy6" firstAttribute="width" secondItem="CaR-CM-O3h" secondAttribute="width" id="tyQ-yi-6op"/>
                                         <constraint firstItem="Bdl-Ot-Jy6" firstAttribute="leading" secondItem="CaR-CM-O3h" secondAttribute="leading" id="zYC-RY-hdW"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -382,7 +383,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facDesc" rowHeight="78" id="MSX-UN-SbD" userLabel="facDesc" customClass="FacultyDescCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="403" width="375" height="78"/>
+                                <rect key="frame" x="0.0" y="309" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MSX-UN-SbD" id="aOR-yn-OUP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
@@ -434,7 +435,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="redraw" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" rowHeight="58" id="WkS-Fu-efq" userLabel="Header" customClass="HeaderTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="481" width="375" height="58"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="WkS-Fu-efq" id="s3K-iz-RW5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
@@ -449,7 +450,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CF6BCE4D-D07C-49AC-AA50-B8006ED8AF29" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="375B2283-7ACF-4D55-B48A-216FFF6AE663" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="DhE-io-uuX"/>
@@ -493,7 +494,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="78" id="MEV-Zf-5b3" customClass="EventFeedCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="539" width="375" height="78"/>
+                                <rect key="frame" x="0.0" y="445" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MEV-Zf-5b3" id="56P-Br-ZEF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
@@ -566,7 +567,7 @@
                                     <outlet property="eventTimeLabel" destination="Kcy-Hl-zlo" id="0nH-Hs-x7T"/>
                                     <outlet property="eventTumbnailImage" destination="P4c-fw-kQ8" id="uXm-Hy-j3D"/>
                                     <outlet property="facityCapsule" destination="LjS-z9-13I" id="7Df-3N-orC"/>
-                                    <segue destination="UyA-5e-QtS" kind="presentation" identifier="toDetail" id="APT-OZ-hNc">
+                                    <segue destination="UyA-5e-QtS" kind="presentation" identifier="toDetail" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="APT-OZ-hNc">
                                         <segue key="commit" inheritsFrom="parent" id="NES-bO-edM"/>
                                         <segue key="preview" inheritsFrom="commit" id="gUF-ky-ylp"/>
                                     </segue>
@@ -596,7 +597,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CF6BCE4D-D07C-49AC-AA50-B8006ED8AF29" width="17" height="18">
+        <image name="375B2283-7ACF-4D55-B48A-216FFF6AE663" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

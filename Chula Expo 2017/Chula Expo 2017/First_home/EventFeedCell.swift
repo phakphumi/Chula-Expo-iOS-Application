@@ -119,7 +119,15 @@ extension UIImageView {
         URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
             
             if error != nil {
-                self.image = #imageLiteral(resourceName: "defaultImage")
+                if self.bounds.width > 200 || self.bounds.height > 200 {
+                    
+                    self.image = #imageLiteral(resourceName: "defaultBig")
+                }
+                else{
+                    
+                    self.image = #imageLiteral(resourceName: "defaultImage")
+                }
+                
                 print(error!)
                 return
             }

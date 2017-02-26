@@ -84,6 +84,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func setupTopTap(){
         self.navigationController?.navigationBar.isTranslucent = false
+        self.tabBarController?.tabBar.isTranslucent = true
         var selectionIndicatorFrame : CGRect = CGRect()
         let sectionWidth = topTab.frame.width / 3
         selectionIndicatorFrame = CGRect(x: (sectionWidth * (CGFloat)(selectedSection - 1) ) + 2 , y: topTab.bounds.height-2, width: sectionWidth - 4, height: 2)

@@ -76,6 +76,8 @@ class EventsTableViewController: CoreDataTableViewController {
     override func viewDidLoad() {
         
         tableView.estimatedRowHeight = 300
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.tabBarController?.tabBar.isTranslucent = true
         
     }
     

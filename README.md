@@ -10,6 +10,12 @@ Chula Expo is organized for celebrating 100 years old of Chulalongkorn Universit
 * Thanapon Sirisompark (Computer Engineering #41)
 * Ekkalak Leelasornchai (Computer Engineering #42)
 
+##Android Application:
+* Nutthaphol Rakratchatakul (Computer Engineering #41)
+* Sirinthra Chantharaj (Computer Engineering #41)
+* Supakrit Paoliwat (Computer Engineering #41)
+* Theerapat Prompunjai (Computer Engineering #42)
+
 ##Application Designed By
 * Nutthawat Pradujdecha (Computer Engineering #41)
 

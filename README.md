@@ -10,6 +10,9 @@ Chula Expo is organized for celebrating 100 years old of Chulalongkorn Universit
 * Thanapon Sirisompark (Computer Engineering #41)
 * Ekkalak Leelasornchai (Computer Engineering #42)
 
+##Application Designed By
+* Nutthawat Pradujdecha (Computer Engineering #41)
+
 ##Website and Server: https://github.com/nutstick/Chula-Expo
 * Kitipong Sirirueangsakul (Computer Engineering #41)
 * Nuttapat Kirawittaya (Computer Engineering #41)
@@ -22,9 +25,6 @@ Chula Expo is organized for celebrating 100 years old of Chulalongkorn Universit
 
 ##Inside Building's Location Prediction System:
 * ISEL Lab
-
-##Designed By
-* Nutthawat Pradujdecha (Computer Engineering #41)
 
 #Supported By
 * Department of Computer Engineering, Faculty of Engineering, Chulalongkorn University

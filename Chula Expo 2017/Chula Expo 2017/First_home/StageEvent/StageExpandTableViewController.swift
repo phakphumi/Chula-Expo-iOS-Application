@@ -38,10 +38,29 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     
     var selectSection: Int?{
         
+        willSet{
+            if selectSection != nil{
+                let indexPath = IndexPath(row: 0, section: selectSection!)
+                if let selectCell = tableView.cellForRow(at: indexPath) as? StageExpandableCell{
+                    
+                    selectCell.closeTitle()
+                    
+                }
+            }
+        }
         didSet{
+            if selectSection != nil{
+                let indexPath = IndexPath(row: 0, section: selectSection!)
+                if let selectCell = tableView.cellForRow(at: indexPath) as? StageExpandableCell{
+                    
+                    selectCell.expandTitle()
+                    
+                }
+            }
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
         }
+        
     }
     
     func setupTopTab(){
@@ -168,7 +187,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         var cell: UITableViewCell
         
         if indexPath.row == 0{
-
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "StageEventCell", for: indexPath)
             if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? ActivityData{
                     
@@ -179,7 +198,11 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                 }
 
                 if let stageExpandableCell = cell as? StageExpandableCell{
-                    
+                    if indexPath.section == selectSection{
+                        stageExpandableCell.expandTitle()
+                    } else {
+                        stageExpandableCell.closeTitle()
+                    }
                     stageExpandableCell.name = name
                     stageExpandableCell.time = "9:41"
                 }
@@ -213,22 +236,12 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if selectSection == indexPath.section && indexPath.row == 0{
-            if let selectCell = tableView.cellForRow(at: indexPath) as? StageExpandableCell{
-                
-                selectCell.closeTitle()
-                
-            }
+        if selectSection == indexPath.section && indexPath.row == 0 {
+            
             selectSection = nil
         }
-        else{
-            
-            if let selectCell = tableView.cellForRow(at: indexPath) as? StageExpandableCell{
-                
-                selectCell.expandTitle()
-                
-            }
-            
+        else {
+    
             selectSection = indexPath.section
         }
     }
@@ -252,7 +265,8 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         
        }
        else if indexPath.row == 0 {
-            return 40
+            return 46
+        
         }
         return 0;
     }

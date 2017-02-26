@@ -83,7 +83,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //                    textField.clipsToBounds = true
 //                    searchBar.layer.cornerRadius = textField.bounds.height / 2
 //                    searchBar.clipsToBounds = true
-                    textField.textColor = UIColor.red
+                    textField.textColor = UIColor(red:1.00, green:0.42, blue:0.60, alpha:1.0)
                 }
             }
         }

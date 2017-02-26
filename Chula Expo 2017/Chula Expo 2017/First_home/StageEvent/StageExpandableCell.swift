@@ -12,7 +12,7 @@ class StageExpandableCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    
+    @IBOutlet var background: UIView!
     
     var time: String?
     {
@@ -38,6 +38,7 @@ class StageExpandableCell: UITableViewCell {
         if let name1 = name{
         
             nameLabel.text = name1
+            cardStyle(background: background)
         }
 
     }
@@ -45,6 +46,7 @@ class StageExpandableCell: UITableViewCell {
     func expandTitle(){
         
         nameLabel.numberOfLines = 0
+        nameLabel.textColor = UIColor(red:1.00, green:0.42, blue:0.60, alpha:1.0)
         nameLabel.lineBreakMode = .byWordWrapping
         
     }
@@ -52,6 +54,7 @@ class StageExpandableCell: UITableViewCell {
     func closeTitle(){
         
         nameLabel.numberOfLines = 1
+        nameLabel.textColor = UIColor.black
         nameLabel.lineBreakMode = .byTruncatingTail
 
     }

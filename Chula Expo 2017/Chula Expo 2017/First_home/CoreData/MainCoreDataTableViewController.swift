@@ -121,10 +121,10 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
         var newIndex = IndexPath()
         var index = IndexPath()
         if newIndexPath != nil {
-            newIndex = IndexPath(row: newIndexPath!.row, section: newIndexPath!.section + 2)
+            newIndex = IndexPath(row: newIndexPath!.row+1, section: newIndexPath!.section + 2)
         }
         if indexPath != nil {
-            index = IndexPath(row: indexPath!.row, section: indexPath!.section + 2)
+            index = IndexPath(row: indexPath!.row+1, section: indexPath!.section + 2)
         }
 
         switch type {

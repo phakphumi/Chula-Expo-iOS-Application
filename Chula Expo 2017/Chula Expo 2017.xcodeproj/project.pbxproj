@@ -522,8 +522,8 @@
 			children = (
 				8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */,
 				8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */,
-				803688AA1E42595300C1FB58 /* StageDetailCell.swift */,
 				8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */,
+				803688AA1E42595300C1FB58 /* StageDetailCell.swift */,
 			);
 			name = StageEvent;
 			sourceTree = "<group>";

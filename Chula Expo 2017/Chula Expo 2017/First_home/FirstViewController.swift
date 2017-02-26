@@ -28,6 +28,7 @@ class FirstViewController: MainCoreDataTableViewController {
         
         requestForStageEvent()
         requestForFeedEvent()
+        
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
         
@@ -36,6 +37,8 @@ class FirstViewController: MainCoreDataTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.tabBarController?.tabBar.isTranslucent = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

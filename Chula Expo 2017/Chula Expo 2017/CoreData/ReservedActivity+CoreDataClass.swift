@@ -58,40 +58,33 @@ public class ReservedActivity: NSManagedObject {
         
     }
     
-    class func addData(activityId: String, roundId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+    class func addData(activityId: String, roundId: String, activityData: ActivityData, inManageobjectcontext context: NSManagedObjectContext, completion: ((ReservedActivity?) -> Void)?) {
         
-        APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
+        let reservedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+        reservedRequest.predicate = NSPredicate(format: "activityId = %@ AND roundId = %@", activityId, roundId)
+        
+        if let result = (try? context.fetch(reservedRequest))?.first as? ReservedActivity {
             
-            if success {
+            completion?(result)
+            
+        } else {
+            
+            if let reservedData = NSEntityDescription.insertNewObject(forEntityName: "ReservedActivity", into: context) as? ReservedActivity {
                 
-                if let reservedData = NSEntityDescription.insertNewObject(forEntityName: "ReservedActivity", into: context) as? ReservedActivity
-                {
-                    
-                    reservedData.activityId = activityId
-                    reservedData.roundId = roundId
-                    
-                    print("add an new reserve act")
-                    
-                    completion?(true)
-
-                    
-                    
-                } else {
-                    
-                    print("fail to add new reserv act")
-                    completion?(false)
-                    
-                }
-
+                reservedData.activityId = activityId
+                reservedData.roundId = roundId
+                reservedData.toActivity = activityData
+                
+                completion?(reservedData)
+                
             } else {
                 
-                print("fail to add new reserve act")
-                completion?(false)
+                completion?(nil)
                 
             }
             
-        })
-        
+        }
+                
     }
     
 }

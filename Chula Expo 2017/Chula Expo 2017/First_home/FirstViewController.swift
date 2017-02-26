@@ -380,23 +380,29 @@ class FirstViewController: MainCoreDataTableViewController {
                     
                     if let id = eventcell?.activityId{
                         
-                        if let fetch = ActivityData.fetchActivityDetails(activityId: id, inManageobjectcontext: managedObjectContext!){
+                        ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
                             
-                            destination.activityId = fetch.activityId
-                            destination.bannerUrl = fetch.bannerUrl
-                            destination.topic = fetch.name
-                            destination.locationDesc = ""
-                            destination.toRounds = fetch.toRound
-                            destination.desc = fetch.desc
-                            destination.room = fetch.room
-                            destination.place = fetch.place
-                            destination.latitude = fetch.latitude
-                            destination.longitude = fetch.longitude
-                            destination.pdf = fetch.pdf
-                            destination.toImages = fetch.toImages
-                            destination.toTags = fetch.toTags
-                            destination.managedObjectContext = self.managedObjectContext
-                        }
+                            if let activityData = activityData {
+                                
+                                destination.activityId = activityData.activityId
+                                destination.bannerUrl = activityData.bannerUrl
+                                destination.topic = activityData.name
+                                destination.locationDesc = ""
+                                destination.toRounds = activityData.toRound
+                                destination.desc = activityData.desc
+                                destination.room = activityData.room
+                                destination.place = activityData.place
+                                destination.latitude = activityData.latitude
+                                destination.longitude = activityData.longitude
+                                destination.pdf = activityData.pdf
+                                destination.toImages = activityData.toImages
+                                destination.toTags = activityData.toTags
+                                destination.managedObjectContext = self.managedObjectContext
+                                
+                            }
+                            
+                        })
+                        
                     }
                 }
             }

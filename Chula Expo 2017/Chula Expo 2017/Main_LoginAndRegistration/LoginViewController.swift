@@ -270,7 +270,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     
                                     }
                                     
-//                                    APIController.downloadReserved(inManageobjectcontext: self.managedObjectContext!)
+                                    APIController.downloadReserved(inManageobjectcontext: self.managedObjectContext!)
                                     
                                     self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                                     

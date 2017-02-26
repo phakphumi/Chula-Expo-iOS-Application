@@ -32,7 +32,7 @@ public class ActivityData: NSManagedObject {
         tags: [String],
         faculty: String,
         inManageobjectcontext context: NSManagedObjectContext,
-        completion: ((Bool) -> Void)?
+        completion: ((ActivityData?) -> Void)?
         )  {
         
         context.performAndWait {
@@ -58,7 +58,8 @@ public class ActivityData: NSManagedObject {
                 //            result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
 //                print("  Found \(result.name) in ActivityData")
                 
-                completion?(false)
+                completion?(result)
+                
             } else {
                 
                 if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
@@ -80,16 +81,11 @@ public class ActivityData: NSManagedObject {
                     activityData.pdf = pdf
                     activityData.faculty = faculty
                     
-                    //                newData.toImages = toImages
-                    //                newData.toRound = toRounds
-                    //                newData.toTags = toTags
-                    
-                    
                     for image in images {
                         
                         if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
                             
-                            imageData.url = image
+                            imageData.url = image == "" ? "" : "http://staff.chulaexpo.com\(image)"
                             imageData.toActivity = activityData
                             
                         }
@@ -136,11 +132,11 @@ public class ActivityData: NSManagedObject {
                         
                     }
                     
-                    completion?(true)
+                    completion?(activityData)
                     
                 } else {
                     
-                    completion?(false)
+                    completion?(nil)
                     
                 }
                 
@@ -150,18 +146,23 @@ public class ActivityData: NSManagedObject {
         
     }
     
-    class func fetchActivityDetails( activityId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ActivityData? {
+    class func fetchActivityData( activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((ActivityData?) -> Void)?) {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
         request.predicate = NSPredicate(format: "activityId = %@", activityId)
         
         do {
             let result = try context.fetch(request).first as? ActivityData
-            return result
+            
+            completion?(result)
+            
         } catch {
+            
             print("Couldn't fetch results")
+            
+            completion?(nil)
+            
         }
-        return nil
     }
     
     class func fetchActivityFromSearch(name: String, inManageobjectcontext context: NSManagedObjectContext) -> [ActivityData]{

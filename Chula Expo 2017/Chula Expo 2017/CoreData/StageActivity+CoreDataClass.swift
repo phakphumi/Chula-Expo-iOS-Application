@@ -65,7 +65,7 @@ public class StageActivity: NSManagedObject {
         
     }
     
-    class func addData(activityId: String, stage: Int, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+    class func addData(activityId: String, activityData: ActivityData, stage: Int, inManageobjectcontext context: NSManagedObjectContext, completion: ((StageActivity?) -> Void)?) {
         
         let stageRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         stageRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -75,37 +75,22 @@ public class StageActivity: NSManagedObject {
             // found this event in the database, return it ...
 //            print("Found \(result.activityId!) in StageActivity")
             
-            completion?(false)
+            completion?(result)
             
         } else {
             
             if let stageData = NSEntityDescription.insertNewObject(forEntityName: "StageActivity", into: context) as? StageActivity
             {
+                        
+                stageData.activityId = activityId
+                stageData.stage = Int16(stage)
+                stageData.toActivity = activityData
                 
-                // created a new event in the database
-                
-                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
-                    
-                    if success {
-                        
-                        stageData.activityId = activityId
-                        stageData.stage = Int16(stage)
-                        
-                        completion?(true)
-                        
-                    } else {
-                        
-                        print("fail to add new stage")
-                        completion?(false)
-                        
-                    }
-                    
-                })
+                completion?(stageData)
                 
             } else {
-                
-                print("fail to add new stage")
-                completion?(false)
+
+                completion?(nil)
                 
             }
             

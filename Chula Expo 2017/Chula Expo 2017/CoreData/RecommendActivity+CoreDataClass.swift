@@ -65,7 +65,7 @@ public class RecommendActivity: NSManagedObject {
         
     }
     
-    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+    class func addData(activityId: String, activityData: ActivityData, inManageobjectcontext context: NSManagedObjectContext, completion: ((RecommendActivity?) -> Void)?) {
         
         let recommendRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         recommendRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -74,43 +74,26 @@ public class RecommendActivity: NSManagedObject {
             
             // found this event in the database, return it ...
 //            print("Found \(result.activityId!) in RecommendActivity")
-            completion?(false)
+            completion?(result)
             
         } else {
             
             if let recommendData = NSEntityDescription.insertNewObject(forEntityName: "RecommendActivity", into: context) as? RecommendActivity
             {
+                        
+                recommendData.activityId = activityId
+                recommendData.toActivity = activityData
                 
-                // created a new event in the database
-                
-                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
-                    
-                    if success {
-                        
-                        recommendData.activityId = activityId
-                        
-//                        print("add an new recommend activity")
-                        
-                        completion?(true)
-                        
-                    } else {
-                        
-                        print("fail to add new recommend")
-                        completion?(false)
-                        
-                    }
-                    
-                })
+                completion?(recommendData)
                 
             } else {
                 
                 print("fail to add new recommend")
-                completion?(false)
+                completion?(nil)
                 
             }
 
         }
-        
         
     }
     

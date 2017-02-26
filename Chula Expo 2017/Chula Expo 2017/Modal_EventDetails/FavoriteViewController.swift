@@ -42,14 +42,10 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         if reservable {
             
-            print(1)
-            
             if UserData.isThereUser(inManageobjectcontext: managedObjectContext!) {
             
                 if let userData = UserData.fetchUser(inManageobjectcontext: managedObjectContext!) {
                     
-                    print(2)
-                    print(userData.token)
                     print("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
                     let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
                     
@@ -64,25 +60,29 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                             
                             if success {
                                 
-                                ReservedActivity.addData(activityId: self.activityId, roundId: self.roundsId[self.selectedRow], inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
+                                self.managedObjectContext?.performAndWait {
                                     
-                                    if success {
+                                    ActivityData.fetchActivityData(activityId: self.activityId, inManageobjectcontext: self.managedObjectContext!, completion: { (activityData) in
                                         
-                                        _ = ReservedActivity.makeRelation(activityId: self.activityId, inManageObjectContext: self.managedObjectContext!)
+                                        if let activityData = activityData {
+                                            
+                                            ReservedActivity.addData(activityId: self.activityId, roundId: self.roundsId[self.selectedRow], activityData: activityData, inManageobjectcontext: self.managedObjectContext!, completion: nil)
+                                            
+                                            
+                                        }
                                         
-                                        let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
-                                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                                        
-                                        self.present(confirm, animated: true, completion: nil)
-                                        
-                                    }
+                                    })
                                     
-                                })
-                                                                
+                                }
+                                
                                 do{
                                     
                                     try self.managedObjectContext?.save()
-                                    print("ReservedActivity Saved")
+                                    
+                                    let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                    
+                                    self.present(confirm, animated: true, completion: nil)
                                     
                                 }
                                     
@@ -102,7 +102,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                 
                                 switch code {
                                     
-                                case "27":
+                                case "28":
                                     
                                     message = "คุณเคยจองกิจกรรมรอบนี้แล้ว"
                                     

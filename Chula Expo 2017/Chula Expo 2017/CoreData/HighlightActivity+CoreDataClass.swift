@@ -66,7 +66,7 @@ public class HighlightActivity: NSManagedObject {
     }
 
     
-    class func addData(activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+    class func addData(activityId: String, activityData: ActivityData, inManageobjectcontext context: NSManagedObjectContext, completion: ((HighlightActivity?) -> Void)?) {
         
         let highlightRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
         highlightRequest.predicate = NSPredicate(format: "activityId = %@",  activityId)
@@ -75,38 +75,21 @@ public class HighlightActivity: NSManagedObject {
             
             // found this event in the database, return it ...
 //            print("Found \(result.activityId!) in HighlightActivity")
-            completion?(false)
+            completion?(result)
             
         } else {
             
-            if let highlightData = NSEntityDescription.insertNewObject(forEntityName: "HighlightActivity", into: context) as? HighlightActivity
-            {
+            if let highlightData = NSEntityDescription.insertNewObject(forEntityName: "HighlightActivity", into: context) as? HighlightActivity {
                 // created a new event in the database
-                
-                //            print("download new highlight activity")
-                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (success) in
-                    
-                    if success {
                         
-                        highlightData.activityId = activityId
+                highlightData.activityId = activityId
+                highlightData.toActivity = activityData
                         
-//                        print("add an new highlight activity")
-                        
-                        completion?(true)
-                        
-                    } else {
-                        
-                        print("fail to add new highlight")
-                        completion?(false)
-                        
-                    }
-                    
-                })
+                completion?(highlightData)
                 
             } else {
                 
-                print("fail to add new highlight")
-                completion?(false)
+                completion?(nil)
                 
             }
             

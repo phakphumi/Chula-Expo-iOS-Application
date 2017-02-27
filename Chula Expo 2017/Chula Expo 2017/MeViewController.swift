@@ -26,17 +26,18 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     
     @IBAction func qr(_ sender: Any) {
         
-        if UserController.loginStatus! {
+        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
             
-            tabBarController?.performSegue(withIdentifier: "toQRCodeVC", sender: tabBarController)
+            tabBarController?.performSegue(withIdentifier: "toQRCode", sender: tabBarController)
             
         } else {
             
-            let confirm = UIAlertController(title: "Coming soon", message: "This function will release soon.", preferredStyle: UIAlertControllerStyle.alert)
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
             
             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             
             self.present(confirm, animated: true, completion: nil)
+            
         }
         
     }

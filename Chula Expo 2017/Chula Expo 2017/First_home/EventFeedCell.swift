@@ -35,6 +35,7 @@ class EventFeedCell: UITableViewCell {
     var thumbnail: String?{
         didSet{
 //            thumbnail = "http://staff.chulaexpo.com" + thumbnail!
+            
             eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
         }
     }

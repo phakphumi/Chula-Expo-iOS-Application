@@ -9,8 +9,29 @@
 import UIKit
 
 class FacultyBannerCell: UITableViewCell {
+    
+    var bannerUrl: String?{
+        
+        didSet{
+            
+            updateUI()
+            
+        }
+    }
 
     @IBOutlet var bannerImage: UIImageView!
+    
+    
+    private func updateUI() {
+        
+        if let banUrl = bannerUrl {
+            
+            bannerImage.imageFromServerURL(urlString: banUrl)
+        
+        }
+        
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

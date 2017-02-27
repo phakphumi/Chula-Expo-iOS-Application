@@ -19,7 +19,9 @@ extension ZoneData {
 
     @NSManaged public var id: String?
     @NSManaged public var type: String?
+    @NSManaged public var shortNameTh: String?
     @NSManaged public var shortName: String?
+    @NSManaged public var banner: String?
     @NSManaged public var desc: String?
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double

@@ -9,6 +9,20 @@
 import UIKit
 
 class FacultyDescCell: UITableViewCell {
+    
+    var facityTitle: String? {
+        
+        didSet{
+            updateUI()
+        }
+    }
+    
+    var facityDesc: String? {
+        
+        didSet{
+            updateUI()
+        }
+    }
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descLabel: UILabel!
@@ -17,6 +31,24 @@ class FacultyDescCell: UITableViewCell {
         // Initialization code
     }
 
+    private func updateUI(){
+        
+        titleLabel.text = nil
+        descLabel.text = nil
+        
+        if let title = facityTitle {
+            
+            titleLabel.text = title
+            
+        }
+        if let desc = facityDesc {
+            
+            descLabel.text = desc
+            
+        }
+        
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -181,6 +181,14 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.tabBarController?.tabBar.isTranslucent = false
+        
+    }
+    
+    
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()

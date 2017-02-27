@@ -23,6 +23,10 @@ class EventsTableViewController: CoreDataTableViewController {
         }
     }
     
+    var facityBanner: String?
+    var facityName: String?
+    var facityDesc: String?
+    
     var isFaculty = false
     
     fileprivate func updateData() {
@@ -76,9 +80,22 @@ class EventsTableViewController: CoreDataTableViewController {
     override func viewDidLoad() {
         
         tableView.estimatedRowHeight = 300
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.tabBarController?.tabBar.isTranslucent = true
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
-        
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.tabBarController?.tabBar.isTranslucent = false
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,16 +106,40 @@ class EventsTableViewController: CoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "facBanner", for: indexPath)
             if let bannercell = cell as? FacultyBannerCell{
-                bannercell.bannerImage.image = #imageLiteral(resourceName: "defaultImage")
+                
+                var bannerURL: String?
+                managedObjectContext?.performAndWait {
+                    if let facityID = self.facity{
+                        
+                        bannerURL = ZoneData.fetchZoneBannerFrom(id: facityID, incontext: self.managedObjectContext!)
+                        
+                    }
+                }
+                
+                bannercell.bannerUrl = bannerURL
+                
             }
             
         }
         else if indexPath.row == 1 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "facDesc", for: indexPath)
-//            if let descCell = cell as? FacultyDescCell{
-//                
-//            }
+            
+            
+            if let descCell = cell as? FacultyDescCell{
+                var name: String?
+                var desc: String?
+                managedObjectContext?.performAndWait {
+                    if let facityID = self.facity{
+                        
+                        name = ZoneData.fetchZoneNameFrom(id: facityID, incontext: self.managedObjectContext!)
+                        desc = ZoneData.fetchZoneDescFrom(id: facityID, incontext: self.managedObjectContext!)
+                        
+                    }
+                }
+                descCell.facityDesc = desc
+                descCell.facityTitle = name
+            }
             
         }
         

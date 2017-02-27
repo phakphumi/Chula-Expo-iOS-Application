@@ -655,6 +655,8 @@ class APIController {
                         _ = ZoneData.addData(id: result["_id"] as! String,
                                              type: result["type"] as! String,
                                              shortName: shortName["en"] as? String ?? "",
+                                             shortNameTh: shortName["th"] as? String ?? "",
+                                             banner: result["banner"] as? String ?? "",
                                              desc: desc["en"] as? String ?? "",
                                              longitude: location["longitude"] as! Double,
                                              latitude: location["latitude"] as! Double,

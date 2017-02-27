@@ -17,6 +17,8 @@ public class ZoneData: NSManagedObject {
         id: String,
         type: String,
         shortName: String,
+        shortNameTh: String,
+        banner: String,
         desc: String,
         longitude: Double,
         latitude: Double,
@@ -40,6 +42,8 @@ public class ZoneData: NSManagedObject {
                 zoneData.id = id
                 zoneData.type = type
                 zoneData.shortName = shortName
+                zoneData.shortNameTh = shortNameTh
+                zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
                 zoneData.desc = desc
                 zoneData.longitude = longitude
                 zoneData.latitude = latitude
@@ -186,4 +190,52 @@ public class ZoneData: NSManagedObject {
         return ""
     }
     
+    class func fetchZoneBannerFrom(id: String, incontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id == %@", id)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.banner ?? ""
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return ""
+    }
+
+    class func fetchZoneNameFrom(id: String, incontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id == %@", id)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.name ?? ""
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return ""
+    }
+    
+    class func fetchZoneDescFrom(id: String, incontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id == %@", id)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.desc ?? ""
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return ""
+    }
+
 }

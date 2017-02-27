@@ -70,6 +70,23 @@ public class ZoneData: NSManagedObject {
         }
         return nil
     }
+    
+    class func fetchId(fromShortName name : String, inManageobjectcontext context: NSManagedObjectContext, completion: ((String?) -> Void)?) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "shortName = %@", name)
+        
+        if let result = (try? context.fetch(request))?.first as? ZoneData {
+            
+            completion?(result.id)
+            
+        } else {
+            
+            completion?(nil)
+            
+        }
+        
+    }
 
     class func fetchIdFrom(name: String, inManageobjectcontext context: NSManagedObjectContext) -> String?{
         

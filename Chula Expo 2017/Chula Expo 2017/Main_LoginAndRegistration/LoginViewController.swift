@@ -38,6 +38,12 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
                         
+                        self.managedObjectContext?.performAndWait {
+                            
+                            APIController.downloadReserved(inManageobjectcontext: self.managedObjectContext!)
+                            
+                        }
+                        
                         self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                         
                     } else {
@@ -270,7 +276,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     
                                     }
                                     
-                                    APIController.downloadReserved(inManageobjectcontext: self.managedObjectContext!)
+                                    self.managedObjectContext?.performAndWait {
+                                        
+                                        APIController.downloadReserved(inManageobjectcontext: self.managedObjectContext!)
+                                        
+                                    }
                                     
                                     self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                                     

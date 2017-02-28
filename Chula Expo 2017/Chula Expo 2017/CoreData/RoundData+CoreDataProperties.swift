@@ -143,19 +143,19 @@ extension Date
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM dd, EEE H m"
-        print("TODAY == \(dateFormatter.string(from: today))")
-        print("TOMORROW == \(dateFormatter.string(from: tomorrow))")
+//        print("TODAY == \(dateFormatter.string(from: today))")
+//        print("TOMORROW == \(dateFormatter.string(from: tomorrow))")
         
         
         if(self.isLessThanDate(dateToCompare: tomorrow)){
             print("PASS1")
             if(self.isGreaterThanDate(dateToCompare: today) || self.equalToDate(dateToCompare: today)){
                 isToday = true
-                print("PASS2")
+//                print("PASS2")
             }
-            print("MISS2")
+//            print("MISS2")
         }
-        print("MISS1")
+//        print("MISS1")
         return isToday
     }
     
@@ -183,10 +183,10 @@ extension Date
         let yesterday = calendar.startOfDay(for: calendar.date(byAdding: .day, value: -1, to: Date())!)
         
         if(self.isLessThanDate(dateToCompare: today)){
-            print("PASS1")
+//            print("PASS1")
             if(self.isGreaterThanDate(dateToCompare: yesterday) || self.equalToDate(dateToCompare: yesterday)){
                 isYesterday = true
-                print("PASS2")
+//                print("PASS2")
             }
         }
         return isYesterday

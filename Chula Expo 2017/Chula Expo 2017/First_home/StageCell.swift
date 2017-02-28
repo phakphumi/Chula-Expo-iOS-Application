@@ -18,59 +18,48 @@ class StageCell: UITableViewCell {
     
     var name: String?{
         didSet{
-            updateUI()
+            cardStyle(background: background)
+            stageEventNameLabel.text = name
         }
     }
     var toRound: NSSet?{
         didSet{
-            updateUI()
+            if let rounds = toRound{
+                if let round = rounds.allObjects.first as! RoundData?{
+                    let stageStartTime = round.startTime!
+                    let stageEndTime = round.endTime!
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "H:mm"
+                    let sTime = dateFormatter.string(from: stageStartTime as Date)
+                    let eTime = dateFormatter.string(from: stageEndTime as Date)
+                    timeLabel.text = "\(sTime) - \(eTime)"
+                }
+            } else {
+                timeLabel.text = "แตะเพื่อดูกิจกรรมในช่วงเวลาอื่น"
+            }
         }
     }
     var stage: Int?{
         didSet{
-            updateUI()
+            if let stageNo = stage{
+                if stageNo == 1{
+                    stageNoLabel.text = "STAGE 1"
+                    stageNameLabel.text = "เวทีหลัก"
+                }
+                if stageNo == 2{
+                    stageNoLabel.text = "STAGE 2"
+                    stageNameLabel.text = "หอประชุมใหญ่"
+                }
+                if stageNo == 3{
+                    stageNoLabel.text = "STAGE 3"
+                    stageNameLabel.text = "ศาลาพระเกี้ยว"
+                }
+            }
+
         }
     }
     private func updateUI(){
-        // reset
-        timeLabel.text=nil
-        stageNameLabel.text = nil
-        stageEventNameLabel.text = nil
-        if let stageEventName = name{
-            stageEventNameLabel.text = stageEventName
-        }
-        if let rounds = toRound{
-            if let round = rounds.allObjects.first as! RoundData?{
-                let stageStartTime = round.startTime!
-                let stageEndTime = round.endTime!
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "H:mm"
-                let sTime = dateFormatter.string(from: stageStartTime as Date)
-                let eTime = dateFormatter.string(from: stageEndTime as Date)
-                timeLabel.text = "\(sTime) - \(eTime)"
-            }
-        } else {
-            timeLabel.text = "แตะเพื่อดูกิจกรรมในช่วงเวลาอื่น"
-        }
-        
-        if let stageNo = stage{
-            if stageNo == 1{
-                stageNoLabel.text = "STAGE 1"
-                stageNameLabel.text = "เวทีหลัก"
-            }
-            if stageNo == 2{
-                stageNoLabel.text = "STAGE 2"
-                stageNameLabel.text = "หอประชุมใหญ่"
-            }
-            if stageNo == 3{
-                stageNoLabel.text = "STAGE 3"
-                stageNameLabel.text = "ศาลาพระเกี้ยว"
-            }
-        }
+   
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        cardStyle(background: background)
-    }
 }

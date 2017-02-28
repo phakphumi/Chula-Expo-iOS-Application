@@ -64,7 +64,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
              */
         
         requestForSearchFeedEvent()
-        self.navigationController?.navigationBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
         // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
 //        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
 

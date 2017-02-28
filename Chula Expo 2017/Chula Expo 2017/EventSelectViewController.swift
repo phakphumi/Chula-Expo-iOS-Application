@@ -83,8 +83,8 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func setupTopTap(){
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.tabBarController?.tabBar.isTranslucent = true
+//        self.navigationController?.navigationBar.isTranslucent = false
+//        self.tabBarController?.tabBar.isTranslucent = true
         var selectionIndicatorFrame : CGRect = CGRect()
         let sectionWidth = topTab.frame.width / 3
         selectionIndicatorFrame = CGRect(x: (sectionWidth * (CGFloat)(selectedSection - 1) ) + 2 , y: topTab.bounds.height-2, width: sectionWidth - 4, height: 2)
@@ -183,8 +183,8 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.tabBarController?.tabBar.isTranslucent = false
+//        self.navigationController?.navigationBar.isTranslucent = false
+//        self.tabBarController?.tabBar.isTranslucent = false
         
     }
     
@@ -230,7 +230,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 cityCell.name = cityDatas[indexPath.row].name
                 cityCell.bg = cityDatas[indexPath.row].bgImage
                 cityCell.icon = cityDatas[indexPath.row].iconImage
-                cityCell.sub = "200 Events"
+                cityCell.sub = "City Events"
                 cityCell.tagname = cityDatas[indexPath.row].tagName
                 cityCell.tagColor = cityDatas[indexPath.row].tagColor
             }
@@ -240,12 +240,12 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facultyCell", for: indexPath)
             
             var tag: String = facultyDatas[indexPath.row].shortName
-            var name = facultyDatas[indexPath.row].tagEngName
-            
-            if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
-                
-                tag = fetchTag
-            }
+//            var name = facultyDatas[indexPath.row].tagEngName
+//            
+//            if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
+//                
+//                tag = fetchTag
+//            }
             
             if let facultyCell = cell as? FacultyCollectionViewCell{
                 facultyCell.name = facultyDatas[indexPath.row].tagName
@@ -292,7 +292,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                     id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
                 if let cell = sender as? FacultyCollectionViewCell{
-                    
+                    APIController.downloadActivities(fromZoneShortName: cell.tagname ?? "", inManageobjectcontext: self.managedObjectContext!, completion: nil)
                     name = cell.sub ?? ""
                     if let facName = cell.name
                     {

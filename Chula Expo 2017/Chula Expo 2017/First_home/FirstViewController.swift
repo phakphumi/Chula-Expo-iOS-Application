@@ -147,8 +147,6 @@ class FirstViewController: MainCoreDataTableViewController {
         if indexPath.section == 0 && indexPath.row == 0 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath)
-            cell.selectionStyle = .none
-            
             slideshowPageViewController.view.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
             slideshowPageViewController.view.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
             var images: [String] = []
@@ -198,8 +196,6 @@ class FirstViewController: MainCoreDataTableViewController {
                 if let fetchResult = fetchedResultsControllerStage1?.sections?[0]{
                     
                     if(fetchResult.numberOfObjects > 0){
-                        
-                        print("...\(fetchResult.numberOfObjects)")
                         
                         if let fetchData = fetchedResultsControllerStage1?.object(at: IndexPath(row: 0 , section: 0)) as? StageActivity {
                         
@@ -300,9 +296,9 @@ class FirstViewController: MainCoreDataTableViewController {
                     toRound = fetchData.toRound
                     activityId = fetchData.activityId
                 }
-                print("feedCell name == \(name)")
+//                print("feedCell name == \(name)")
                 if let eventFeedCell = cell as? EventFeedCell{
-                    print("feedCell name == \(name)")
+//                    print("feedCell name == \(name)")
                     eventFeedCell.manageObjectContext = managedObjectContext
                     eventFeedCell.name = name
                     eventFeedCell.toRound = toRound
@@ -364,7 +360,7 @@ class FirstViewController: MainCoreDataTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "stageSelect"{
-            print("segue")
+//            print("segue")
             if let dest = segue.destination as? StageExpandTableViewController{
                 dest.managedObjectContext = managedObjectContext
                 

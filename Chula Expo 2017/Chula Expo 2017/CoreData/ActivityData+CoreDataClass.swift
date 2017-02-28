@@ -34,36 +34,104 @@ public class ActivityData: NSManagedObject {
         inManageobjectcontext context: NSManagedObjectContext,
         completion: ((ActivityData?) -> Void)?
         )  {
+            
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "activityId = %@",  activityId)
         
-        context.performAndWait {
+        if let result = (try? context.fetch(request))?.first as? ActivityData
+        {
             
+            context.performAndWait {
+                
+                // created a new event in the database
+                result.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
+                result.desc = desc
+                result.activityId = activityId
+                result.room = room
+                result.place = place
+                result.latitude = latitude
+                result.longitude = longitude
+                result.name = name
+                result.thumbnailsUrl = thumbnailsUrl == "" ? "" : "http://staff.chulaexpo.com\(thumbnailsUrl)"
+                result.isHighlight = isHighlight
+                result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
+                result.video = video
+                result.pdf = pdf
+                result.faculty = faculty
+                
+                for image in images {
+                    
+                    context.performAndWait {
+                        
+                        if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
+                            
+                            imageData.url = image == "" ? "" : "http://staff.chulaexpo.com\(image)"
+                            imageData.toActivity = result
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                for tag in tags {
+                    
+                    context.performAndWait {
+                        
+                        if let tagData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData {
+                            
+                            tagData.name = tag
+                            tagData.mutableSetValue(forKey: "toActivity").add(result)
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                
+                for round in rounds {
+                    
+                    if let round = round as? NSDictionary {
+                        
+                        context.performAndWait {
+                            
+                            if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
+                                
+                                let startTime = round["start"] as! String
+                                let endTime = round["end"] as! String
+                                
+                                let seats = round["seats"] as! NSDictionary
+                                
+                                roundData.id = round["_id"] as? String ?? ""
+                                roundData.activityId = round["activityId"] as? String ?? ""
+                                roundData.startTime = dateFormatter.date(from: startTime)
+                                roundData.endTime = dateFormatter.date(from: endTime)
+                                roundData.fullCapacity = seats["fullCapacity"] as! Int16
+                                roundData.reserved = seats["reserved"] as! Int16
+                                roundData.seatAvaliable = seats["avaliable"] as! Int16
+                                roundData.toActivity = result
+                                
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
             
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            request.predicate = NSPredicate(format: "activityId = %@",  activityId)
+            completion?(result)
             
-            if let result = (try? context.fetch(request))?.first as? ActivityData
+        } else {
+            
+            if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
             {
                 
-                //            result.name = name
-                //            result.desc = desc
-                //            result.room = room
-                //            result.place = place
-                //            result.latitude = latitude
-                //            result.longitude = longitude
-                //            result.bannerUrl = bannerUrl
-                //            result.thumbnailsUrl = thumbnailsUrl
-                //            result.video = video
-                //            result.pdf = pdf
-                //            result.faculty = faculty
-                //            result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
-//                print("  Found \(result.name) in ActivityData")
-                
-                completion?(result)
-                
-            } else {
-                
-                if let activityData = NSEntityDescription.insertNewObject(forEntityName: "ActivityData", into: context) as? ActivityData
-                {
+                context.performAndWait {
                     
                     // created a new event in the database
                     activityData.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
@@ -83,10 +151,14 @@ public class ActivityData: NSManagedObject {
                     
                     for image in images {
                         
-                        if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
+                        context.performAndWait {
                             
-                            imageData.url = image == "" ? "" : "http://staff.chulaexpo.com\(image)"
-                            imageData.toActivity = activityData
+                            if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
+                                
+                                imageData.url = image == "" ? "" : "http://staff.chulaexpo.com\(image)"
+                                imageData.toActivity = activityData
+                                
+                            }
                             
                         }
                         
@@ -94,10 +166,14 @@ public class ActivityData: NSManagedObject {
                     
                     for tag in tags {
                         
-                        if let tagData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData {
+                        context.performAndWait {
                             
-                            tagData.name = tag
-                            tagData.mutableSetValue(forKey: "toActivity").add(activityData)
+                            if let tagData = NSEntityDescription.insertNewObject(forEntityName: "TagData", into: context) as? TagData {
+                                
+                                tagData.name = tag
+                                tagData.mutableSetValue(forKey: "toActivity").add(activityData)
+                                
+                            }
                             
                         }
                         
@@ -110,21 +186,25 @@ public class ActivityData: NSManagedObject {
                         
                         if let round = round as? NSDictionary {
                             
-                            if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
+                            context.performAndWait {
                                 
-                                let startTime = round["start"] as! String
-                                let endTime = round["end"] as! String
-                                
-                                let seats = round["seats"] as! NSDictionary
-                                
-                                roundData.id = round["_id"] as? String ?? ""
-                                roundData.activityId = round["activityId"] as? String ?? ""
-                                roundData.startTime = dateFormatter.date(from: startTime)
-                                roundData.endTime = dateFormatter.date(from: endTime)
-                                roundData.fullCapacity = seats["fullCapacity"] as! Int16
-                                roundData.reserved = seats["reserved"] as! Int16
-                                roundData.seatAvaliable = seats["avaliable"] as! Int16
-                                roundData.toActivity = activityData
+                                if let roundData = NSEntityDescription.insertNewObject(forEntityName: "RoundData", into: context) as? RoundData {
+                                    
+                                    let startTime = round["start"] as! String
+                                    let endTime = round["end"] as! String
+                                    
+                                    let seats = round["seats"] as! NSDictionary
+                                    
+                                    roundData.id = round["_id"] as? String ?? ""
+                                    roundData.activityId = round["activityId"] as? String ?? ""
+                                    roundData.startTime = dateFormatter.date(from: startTime)
+                                    roundData.endTime = dateFormatter.date(from: endTime)
+                                    roundData.fullCapacity = seats["fullCapacity"] as! Int16
+                                    roundData.reserved = seats["reserved"] as! Int16
+                                    roundData.seatAvaliable = seats["avaliable"] as! Int16
+                                    roundData.toActivity = activityData
+                                    
+                                }
                                 
                             }
                             
@@ -132,13 +212,13 @@ public class ActivityData: NSManagedObject {
                         
                     }
                     
-                    completion?(activityData)
-                    
-                } else {
-                    
-                    completion?(nil)
-                    
                 }
+                
+                completion?(activityData)
+                
+            } else {
+                
+                completion?(nil)
                 
             }
             

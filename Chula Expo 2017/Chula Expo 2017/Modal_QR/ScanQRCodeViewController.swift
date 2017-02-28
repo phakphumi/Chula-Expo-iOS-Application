@@ -11,6 +11,9 @@ import AVFoundation
 
 class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
+    
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var qrCodeFrameView: UIView!
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -63,9 +66,12 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = self.view.bounds
+        previewLayer.frame = self.qrCodeFrameView.bounds
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer.addSublayer(previewLayer)
+        
+        self.qrCodeFrameView.layer.addSublayer(previewLayer)
+        
+        self.view.bringSubview(toFront: closeButton)
         
     }
 
@@ -115,15 +121,50 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             
             found(code: readableObject.stringValue)
             
+        } else {
+            
+            self.dismiss(animated: true, completion: nil)
+            
         }
-        
-        dismiss(animated: true, completion: nil)
         
     }
     
     func found(code: String) {
+    
+        let seperatedCode = code.components(separatedBy: "/")
+        print(seperatedCode)
         
-        print(code)
+        if seperatedCode.count >= 5 {
+            
+            let domainName = seperatedCode[2]
+            
+            print(domainName)
+            
+            if domainName == "staff.chulaexpo.com" {
+                
+                let activityId = seperatedCode[5]
+                
+                print(activityId)
+                
+                self.dismiss(animated: true, completion: nil)
+                
+                return
+                
+            }
+            
+        }
+        
+        let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ไม่พบข้อมูลกิจกรรมนี้ใน Application", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }))
+        
+        self.present(confirm, animated: true, completion: nil)
+        
+//        UIApplication.shared.openURL(URL(string: code)!)
         
     }
     

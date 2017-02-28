@@ -211,17 +211,8 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             if let itvCell = cell as? ImageTableViewCell {
                 
                 if let url = bannerUrl{
-                    
-                    bannerUrl = "http://staff.chulaexpo.com\(url)"
-                    //                let bannerData = URL(string: bannerUrl!)
-                    //
-                    //                if let data = NSData(contentsOf: bannerData!) {
-                    
-                    itvCell.bannerImage.imageFromServerURL(urlString: bannerUrl)
-                    //                    image = UIImage(data: data as Data)
-                    
-                    //                }
-
+                
+                    itvCell.bannerImage.imageFromServerURL(urlString: url)
                 }
                 
             }
@@ -314,18 +305,9 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
                 for image in imagesObj {
                     
-                    if var url = image.url{
-                        
-//                        url = "http://staff.chulaexpo.com\(url)"
-                        //
-                        //                    let imageData = URL(string: image.url!)
-                        //
-                        //                    if let data = NSData(contentsOf: imageData!) {
+                    if let url = image.url{
                         
                         images.append(url)
-                        
-                        //                    }
-
                     }
                     
                 }

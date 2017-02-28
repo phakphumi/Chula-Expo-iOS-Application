@@ -17,49 +17,25 @@ class HeaderTableViewCell: UITableViewCell {
     
     var title1: String?{
         didSet{
-            updateUI()
+            engLabel.text = title1
         }
     }
     var title2: String?{
         didSet{
-            updateUI()
+            thaLabel.text = title2
         }
     }
     var iconImage: String?{
         didSet{
-            updateUI()
+            icon.image = UIImage(named: iconImage ?? "heartIcon")
         }
     }
     
     private func updateUI(){
-        engLabel.text = nil
-        thaLabel.text = nil
-        icon.image = nil
-        
-        engLabel.text = title1
-        thaLabel.text = title2
-        if let iconI = iconImage{
-            icon.image = UIImage(named: iconI)
-        }
     }
 
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-//        cardStyle(background: background)
-    }
 }
+
 extension UIView{
 
     func cardStyle(background: UIView){

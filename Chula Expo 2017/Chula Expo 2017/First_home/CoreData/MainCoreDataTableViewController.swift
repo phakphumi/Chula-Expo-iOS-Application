@@ -118,25 +118,29 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
-        var newIndex = IndexPath()
-        var index = IndexPath()
-        if newIndexPath != nil {
-            newIndex = IndexPath(row: newIndexPath!.row+1, section: newIndexPath!.section + 2)
-        }
-        if indexPath != nil {
-            index = IndexPath(row: indexPath!.row+1, section: indexPath!.section + 2)
-        }
-
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndex], with: .fade)
-        case .delete:
-            tableView.deleteRows(at: [index], with: .fade)
-        case .update:
-            tableView.reloadRows(at: [index], with: .fade)
-        case .move:
-            tableView.deleteRows(at: [index], with: .fade)
-            tableView.insertRows(at: [newIndex], with: .fade)
+        if controller == fetchedResultsControllerFeed{
+            var newIndex = IndexPath()
+            var index = IndexPath()
+            
+            if newIndexPath != nil {
+                newIndex = IndexPath(row: newIndexPath!.row+1, section: newIndexPath!.section + 2)
+            }
+            
+            if indexPath != nil {
+                index = IndexPath(row: indexPath!.row+1, section: indexPath!.section + 2)
+            }
+            
+            switch type {
+            case .insert:
+                tableView.insertRows(at: [newIndex], with: .fade)
+            case .delete:
+                tableView.deleteRows(at: [index], with: .fade)
+            case .update:
+                tableView.reloadRows(at: [index], with: .fade)
+            case .move:
+                tableView.deleteRows(at: [index], with: .fade)
+                tableView.insertRows(at: [newIndex], with: .fade)
+            }
         }
     }
     

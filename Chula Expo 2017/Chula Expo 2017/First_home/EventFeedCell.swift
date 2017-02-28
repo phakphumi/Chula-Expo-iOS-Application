@@ -16,42 +16,54 @@ class EventFeedCell: UITableViewCell {
             cardStyle(background: background)
         }
     }
+    
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var background: UIView!
     @IBOutlet var facityCapsule: CapsuleUILabel!
     
-    struct FacityCap{
+    struct FacityCap {
         var facText: String
         var facColor: UIColor
     }
+    
     var activityId: String?
     var name: String?{
         didSet{
-//            print("\(name)")
-            updateUI()
+           eventNameLabel.text = name
         }
     }
     var thumbnail: String?{
         didSet{
-//            thumbnail = "http://staff.chulaexpo.com" + thumbnail!
-            
             eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
         }
     }
     var toRound: NSSet?{
         didSet{
-            updateUI()
+            if let rounds = toRound{
+                if let round = rounds.allObjects.first as! RoundData?{
+                    let eventDate = round.dateText
+                    let eventStartTime = round.startTime!
+                    let eventEndTime = round.endTime!
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "H:mm"
+                    let sTime = dateFormatter.string(from: eventStartTime as Date)
+                    let eTime = dateFormatter.string(from: eventEndTime as Date)
+                    eventTimeLabel.text = "\(eventDate) • \(sTime)-\(eTime)"
+                }
+            }
         }
     }
+    
     var facity: String?{
         didSet{
             updateUI()
         }
     }
+    
     var date: String?{
         didSet{
-            updateUI()
+//            updateUI()
         }
     }
     var manageObjectContext: NSManagedObjectContext?{
@@ -60,44 +72,20 @@ class EventFeedCell: UITableViewCell {
         }
     }
     
-    override func layoutSubviews() {
-        
-        super.layoutSubviews()
-        cardStyle(background: background)
-    }
+//    override func layoutSubviews() {
+//        
+//        super.layoutSubviews()
+//        cardStyle(background: background)
+//    }
     
     func updateUI(){
-        // reset
-        eventNameLabel.text = nil
-        eventTimeLabel.text = nil
-        
-        
-        if let rounds = toRound{
-            if let round = rounds.allObjects.first as! RoundData?{
-                let eventDate = round.dateText
-                let eventStartTime = round.startTime!
-                let eventEndTime = round.endTime!
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "H:mm"
-                let sTime = dateFormatter.string(from: eventStartTime as Date)
-                let eTime = dateFormatter.string(from: eventEndTime as Date)
-                eventTimeLabel.text = "\(eventDate) • \(sTime)-\(eTime)"
+
+        if manageObjectContext != nil{
+            if let eventFacity = facity{
+                getFacultyFrom(id: eventFacity)
             }
         }
-        if let eventName = name{
-            eventNameLabel.text = eventName
-        }
         
-        if let eventFacity = facity{
-            
-            getFacultyFrom(id: eventFacity)
-//            let fac = facity as! FacultyData
-//            let cap = getCapsule(forFacity: fac.name!)
-//            facityCapsule.text = cap.facText
-//            facityCapsule.backgroundColor = cap.facColor
-//            facityCapsule.layer.cornerRadius = facityCapsule.bounds.height/4.5
-//            facityCapsule.layer.masksToBounds = true
-        }
     }
     
     func getFacultyFrom(id: String){

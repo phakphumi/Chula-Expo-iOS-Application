@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fGA-5k-K08">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fGA-5k-K08">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,13 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SukhumvitSet.ttc">
+            <string>SukhumvitSet-Medium</string>
+            <string>SukhumvitSet-SemiBold</string>
+            <string>SukhumvitSet-Text</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="VME-Xt-Jao">
@@ -22,120 +29,124 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceu-4Y-evc">
-                                <rect key="frame" x="24" y="52" width="327" height="563"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-nV-CFV">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="238"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark_zuckerberg" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
-                                                <rect key="frame" x="105" y="42" width="118" height="118"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="liV-hZ-JeP" secondAttribute="height" multiplier="1:1" id="V5X-4U-51F"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerburg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-XC-CqN">
-                                                <rect key="frame" x="0.0" y="170" width="327" height="27"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="E3M-XC-CqN" secondAttribute="height" multiplier="12:1" id="YBo-sF-tyl"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harvard University" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82c-A8-06g">
-                                                <rect key="frame" x="0.0" y="198" width="327" height="19"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="82c-A8-06g" secondAttribute="height" multiplier="151:9" id="43b-Ar-5JF"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" red="0.83520287275314331" green="0.83534681797027588" blue="0.8351936936378479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17F-Rr-mtn">
-                                                <rect key="frame" x="289.5" y="19" width="26" height="26"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="17F-Rr-mtn" secondAttribute="height" multiplier="1:1" id="eHp-JN-Gda"/>
-                                                </constraints>
-                                                <state key="normal" image="cross_white"/>
-                                                <connections>
-                                                    <action selector="cancle:" destination="fGA-5k-K08" eventType="touchUpInside" id="JfQ-nd-GHq"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="82c-A8-06g" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" id="2x1-gv-A7V"/>
-                                            <constraint firstItem="E3M-XC-CqN" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" id="5NL-hZ-RQq"/>
-                                            <constraint firstItem="liV-hZ-JeP" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.36" id="7nT-jR-NXk"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" multiplier="1.85" id="89h-gJ-nvS"/>
-                                            <constraint firstItem="liV-hZ-JeP" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="8Xa-yT-a35"/>
-                                            <constraint firstItem="82c-A8-06g" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="ISR-rC-mHu"/>
-                                            <constraint firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="height" multiplier="11:8" id="L8N-4l-uWj"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="0.275" id="dBh-oQ-Ebk"/>
-                                            <constraint firstItem="liV-hZ-JeP" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="0.85" id="dh1-mB-Jyi"/>
-                                            <constraint firstItem="82c-A8-06g" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="1.74" id="eal-YM-oRx"/>
-                                            <constraint firstItem="E3M-XC-CqN" firstAttribute="centerX" secondItem="PAf-nV-CFV" secondAttribute="centerX" id="fHu-19-cLS"/>
-                                            <constraint firstItem="E3M-XC-CqN" firstAttribute="centerY" secondItem="PAf-nV-CFV" secondAttribute="centerY" multiplier="1.54" id="kjH-ZF-Mg7"/>
-                                            <constraint firstItem="17F-Rr-mtn" firstAttribute="width" secondItem="PAf-nV-CFV" secondAttribute="width" multiplier="0.08" id="n7I-Jj-1N7"/>
-                                        </constraints>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-tX-Vt8">
-                                        <rect key="frame" x="30" y="270" width="267" height="267"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="I3K-tX-Vt8" secondAttribute="height" multiplier="1:1" id="tAD-aK-Ka3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo" translatesAutoresizingMaskIntoConstraints="NO" id="q0r-37-Hpm">
-                                        <rect key="frame" x="131" y="371" width="65" height="65"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="q0r-37-Hpm" secondAttribute="height" multiplier="1:1" id="RuT-9u-nOM"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sna-dn-eEq">
+                                <rect key="frame" x="320" y="40" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstItem="PAf-nV-CFV" firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="width" id="AKH-CJ-j0y"/>
-                                    <constraint firstItem="q0r-37-Hpm" firstAttribute="centerY" secondItem="ceu-4Y-evc" secondAttribute="centerY" multiplier="1.43" id="CEB-6V-qYC"/>
-                                    <constraint firstItem="I3K-tX-Vt8" firstAttribute="centerX" secondItem="ceu-4Y-evc" secondAttribute="centerX" id="ED7-eU-hgj"/>
-                                    <constraint firstItem="PAf-nV-CFV" firstAttribute="centerY" secondItem="ceu-4Y-evc" secondAttribute="centerY" multiplier="0.42" id="UpZ-ip-ACn"/>
-                                    <constraint firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="height" multiplier="328:565" id="UwZ-hQ-9Az"/>
-                                    <constraint firstItem="PAf-nV-CFV" firstAttribute="centerX" secondItem="ceu-4Y-evc" secondAttribute="centerX" id="YTA-QE-7Gm"/>
-                                    <constraint firstItem="I3K-tX-Vt8" firstAttribute="centerY" secondItem="ceu-4Y-evc" secondAttribute="centerY" multiplier="1.43" id="ba6-9F-FJ7"/>
-                                    <constraint firstItem="q0r-37-Hpm" firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="width" multiplier="0.2" id="fXf-iQ-oWx"/>
-                                    <constraint firstItem="I3K-tX-Vt8" firstAttribute="width" secondItem="ceu-4Y-evc" secondAttribute="width" multiplier="0.815" id="ktD-0b-cTP"/>
-                                    <constraint firstItem="q0r-37-Hpm" firstAttribute="centerX" secondItem="ceu-4Y-evc" secondAttribute="centerX" id="m3j-oR-WG1"/>
+                                    <constraint firstAttribute="width" secondItem="Sna-dn-eEq" secondAttribute="height" multiplier="1:1" id="9Mn-Fd-jFl"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="19"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                                <state key="normal" image="closeIcon"/>
+                                <connections>
+                                    <action selector="cancle:" destination="fGA-5k-K08" eventType="touchUpInside" id="LjY-4D-5eC"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark_zuckerberg" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
+                                <rect key="frame" x="122" y="80" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="liV-hZ-JeP" secondAttribute="height" multiplier="1:1" id="pbj-2n-RqS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark Zuckerburg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-XC-CqN">
+                                <rect key="frame" x="24" y="230" width="327" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="E3M-XC-CqN" secondAttribute="height" multiplier="109:10" id="42R-v7-ABf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harvard University" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="82c-A8-06g">
+                                <rect key="frame" x="24" y="260" width="327" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="82c-A8-06g" secondAttribute="height" multiplier="327:20" id="hzp-NL-rfX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="14"/>
+                                <color key="textColor" red="0.83520287275314331" green="0.83534681797027588" blue="0.8351936936378479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temp_qrcode" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-tX-Vt8">
+                                <rect key="frame" x="70" y="305" width="235" height="235"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="I3K-tX-Vt8" secondAttribute="height" multiplier="1:1" id="HJW-8H-uUE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo" translatesAutoresizingMaskIntoConstraints="NO" id="q0r-37-Hpm">
+                                <rect key="frame" x="142" y="377" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="q0r-37-Hpm" secondAttribute="height" multiplier="1:1" id="gQp-qw-pP4"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jix-fF-Do2">
+                                <rect key="frame" x="45" y="570" width="285" height="50"/>
+                                <color key="backgroundColor" red="0.30568939447402954" green="0.3095405101776123" blue="0.32611706852912903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jix-fF-Do2" secondAttribute="height" multiplier="57:10" id="pHm-3N-Fzf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="20"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="สแกน QR Code">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.56000000000000005" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ceu-4Y-evc" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" id="FLy-ch-Jj2"/>
-                            <constraint firstItem="ceu-4Y-evc" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.8735" id="IqR-Mj-xyf"/>
-                            <constraint firstItem="ceu-4Y-evc" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="Jg5-4T-fGS"/>
+                            <constraint firstItem="82c-A8-06g" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.872" id="1hh-3t-Z3W"/>
+                            <constraint firstItem="liV-hZ-JeP" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.346667" id="79t-6w-fsr"/>
+                            <constraint firstItem="q0r-37-Hpm" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="1.26537" id="8Fd-wG-5Ca"/>
+                            <constraint firstItem="q0r-37-Hpm" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="A5y-cx-djE"/>
+                            <constraint firstItem="liV-hZ-JeP" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="0.434783" id="Egm-DU-W3f"/>
+                            <constraint firstItem="liV-hZ-JeP" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="FaO-9L-Ybc"/>
+                            <constraint firstItem="I3K-tX-Vt8" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.626667" id="HmB-P4-LKV"/>
+                            <constraint firstItem="82c-A8-06g" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="OLo-vy-uZv"/>
+                            <constraint firstItem="q0r-37-Hpm" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.24" id="RgV-lE-Qle"/>
+                            <constraint firstItem="I3K-tX-Vt8" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="S91-N4-IVg"/>
+                            <constraint firstItem="E3M-XC-CqN" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="0.734633" id="WDa-11-Fzo"/>
+                            <constraint firstItem="82c-A8-06g" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="0.809595" id="WFv-cy-qxh"/>
+                            <constraint firstItem="Sna-dn-eEq" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="0.164918" id="WY6-ey-ZlB"/>
+                            <constraint firstItem="E3M-XC-CqN" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="ZXe-OM-XZc"/>
+                            <constraint firstItem="jix-fF-Do2" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="1.78411" id="boq-79-QeN"/>
+                            <constraint firstItem="jix-fF-Do2" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.76" id="hoY-54-nM7"/>
+                            <constraint firstItem="jix-fF-Do2" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" id="j0h-xG-rhl"/>
+                            <constraint firstItem="I3K-tX-Vt8" firstAttribute="centerY" secondItem="t24-2A-MQC" secondAttribute="centerY" multiplier="1.26687" id="lI7-xP-wrK"/>
+                            <constraint firstItem="Sna-dn-eEq" firstAttribute="centerX" secondItem="t24-2A-MQC" secondAttribute="centerX" multiplier="1.78667" id="q6k-e9-r7q"/>
+                            <constraint firstItem="E3M-XC-CqN" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.872" id="vO3-1X-Vti"/>
+                            <constraint firstItem="Sna-dn-eEq" firstAttribute="width" secondItem="t24-2A-MQC" secondAttribute="width" multiplier="0.08" id="vWu-dh-K8d"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="gradientView" destination="PAf-nV-CFV" id="F56-Mm-LPa"/>
                         <outlet property="name" destination="E3M-XC-CqN" id="nyc-1l-5IN"/>
                         <outlet property="profileImage" destination="liV-hZ-JeP" id="QW0-D9-YBC"/>
                         <outlet property="qrCodeImage" destination="I3K-tX-Vt8" id="Oft-HI-dYW"/>
-                        <outlet property="qrView" destination="ceu-4Y-evc" id="xNX-5o-myI"/>
-                        <outlet property="schoolOrCompany" destination="82c-A8-06g" id="C6e-dW-qQP"/>
+                        <outlet property="scanQR" destination="jix-fF-Do2" id="pmo-S2-zFa"/>
+                        <outlet property="school" destination="82c-A8-06g" id="aEV-LJ-DE0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V14-tC-m7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1141.5999999999999" y="895.50224887556226"/>
         </scene>
+        <!--ScanQR Code View Controller-->
+        <scene sceneID="d3k-UD-h4a">
+            <objects>
+                <viewController id="EaW-xq-82k" customClass="ScanQRCodeViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rpK-zm-zcY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ioq-nY-tAc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pf2-m1-v2u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ukD-Rk-ESU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="896"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="chula_expo_logo" width="1638" height="1638"/>
-        <image name="cross_white" width="12" height="12"/>
+        <image name="chula_expo_logo" width="1024" height="1024"/>
+        <image name="closeIcon" width="36" height="36"/>
         <image name="mark_zuckerberg" width="547" height="547"/>
         <image name="temp_qrcode" width="267" height="267"/>
     </resources>

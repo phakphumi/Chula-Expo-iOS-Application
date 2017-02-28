@@ -66,7 +66,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
                                 
                                     managedObjectContext?.performAndWait {
-                                    
+                                
                                         _ = UserData.addUser(id: results["_id"] as! String,
                                                              token: token,
                                                              type: results["type"] as! String,

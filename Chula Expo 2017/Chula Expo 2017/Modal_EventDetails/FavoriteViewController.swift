@@ -141,7 +141,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
             } else {
                 
-                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะ Login User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
                 
                 confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 

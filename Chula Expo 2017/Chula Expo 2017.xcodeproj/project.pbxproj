@@ -56,6 +56,7 @@
 		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
 		5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */; };
 		5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E8E831E424A6400241904 /* MapTableViewCell.swift */; };
+		5F9CD2D21E64808F00EAC5A9 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9CD2D11E64808F00EAC5A9 /* ScanQRCodeViewController.swift */; };
 		5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */; };
 		5FAA77661E601E930099809E /* HighlightActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA77601E601E930099809E /* HighlightActivity+CoreDataClass.swift */; };
 		5FAA77671E601E930099809E /* HighlightActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA77611E601E930099809E /* HighlightActivity+CoreDataProperties.swift */; };
@@ -186,6 +187,7 @@
 		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFrameViewController.swift; path = Modal_EventDetails/ImageFrameViewController.swift; sourceTree = "<group>"; };
 		5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteViewController.swift; path = Modal_EventDetails/FavoriteViewController.swift; sourceTree = "<group>"; };
 		5F7E8E831E424A6400241904 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTableViewCell.swift; path = Modal_EventDetails/MapTableViewCell.swift; sourceTree = "<group>"; };
+		5F9CD2D11E64808F00EAC5A9 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanQRCodeViewController.swift; path = Modal_QR/ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
 		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				5F307C8D1E26AF0000DEF3B0 /* QRCode.storyboard */,
+				5F9CD2D11E64808F00EAC5A9 /* ScanQRCodeViewController.swift */,
 				5F307C8B1E26893300DEF3B0 /* QRViewController.swift */,
 			);
 			name = Modal_QR;
@@ -774,6 +777,7 @@
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
 				5F4ED17D1E43082F008F3A19 /* TagTableViewCell.swift in Sources */,
 				5FAA776E1E60692D0099809E /* RecommendActivity+CoreDataClass.swift in Sources */,
+				5F9CD2D21E64808F00EAC5A9 /* ScanQRCodeViewController.swift in Sources */,
 				5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */,
 				5F2D9ECF1E4CE2A100818474 /* RoomData+CoreDataProperties.swift in Sources */,
 				581940D51E44783B000C566C /* MapSearchTableViewCell.swift in Sources */,

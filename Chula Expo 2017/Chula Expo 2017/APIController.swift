@@ -29,7 +29,7 @@ class APIController {
     class func downloadRecommendActivities(inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
         
         let dateRequestFormatter = DateFormatter()
-        dateRequestFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateRequestFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
         dateRequestFormatter.timeZone = TimeZone(secondsFromGMT: 7)
         
         let currentTime = dateRequestFormatter.string(from: Date())
@@ -51,7 +51,7 @@ class APIController {
                 let results = JSON["results"] as! NSArray
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 for result in results {
                     
@@ -186,7 +186,7 @@ class APIController {
                         let results = JSON["results"] as! NSArray
                         
                         let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                         
                         for result in results {
                             
@@ -309,7 +309,7 @@ class APIController {
     class func downloadHightlightActivities(inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
      
         let dateRequestFormatter = DateFormatter()
-        dateRequestFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateRequestFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
         dateRequestFormatter.timeZone = TimeZone(secondsFromGMT: 7)
         
         let currentTime = dateRequestFormatter.string(from: Date())
@@ -327,11 +327,11 @@ class APIController {
             if response.result.isSuccess {
                 
                 let JSON = response.result.value as! NSDictionary
-                
+          
                 let results = JSON["results"] as! NSArray
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 for result in results {
                     
@@ -452,7 +452,7 @@ class APIController {
             if response.result.isSuccess {
         
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 let JSON = response.result.value as! NSDictionary
                 print(JSON)
@@ -587,7 +587,7 @@ class APIController {
                             if let results = JSON["results"] as? NSArray {
                                 
                                 let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                                 
                                 for result in results {
                                     

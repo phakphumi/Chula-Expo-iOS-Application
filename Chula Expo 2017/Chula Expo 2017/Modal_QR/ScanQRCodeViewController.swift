@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import CoreData
 import AVFoundation
 
 class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     
     @IBOutlet weak var closeButton: UIButton!
-    @IBOutlet weak var qrCodeFrameView: UIView!
+    
+    var managedObjectContext: NSManagedObjectContext!
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -66,10 +69,10 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = self.qrCodeFrameView.bounds
+        previewLayer.frame = self.view.bounds
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         
-        self.qrCodeFrameView.layer.addSublayer(previewLayer)
+        self.view.layer.addSublayer(previewLayer)
         
         self.view.bringSubview(toFront: closeButton)
         
@@ -145,6 +148,8 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
                 let activityId = seperatedCode[5]
                 
                 print(activityId)
+                        
+//                self.performSegue(withIdentifier: "toEventDetails", sender: self)
                 
                 self.dismiss(animated: true, completion: nil)
                 
@@ -180,14 +185,46 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func toDismiss(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+        if let destination = segue.destination as? EventDetailTableViewController{
+            
+            if let eventcell = sender as? EventFeedCell?{
+                
+                if let id = eventcell?.activityId{
+                    
+                    ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
+                        
+                        if let activityData = activityData {
+                            
+                            destination.activityId = activityData.activityId
+                            destination.bannerUrl = activityData.bannerUrl
+                            destination.topic = activityData.name
+                            destination.locationDesc = ""
+                            destination.toRounds = activityData.toRound
+                            destination.desc = activityData.desc
+                            destination.room = activityData.room
+                            destination.place = activityData.place
+                            destination.latitude = activityData.latitude
+                            destination.longitude = activityData.longitude
+                            destination.pdf = activityData.pdf
+                            destination.toImages = activityData.toImages
+                            destination.toTags = activityData.toTags
+                            destination.managedObjectContext = self.managedObjectContext
+                            
+                        }
+                        
+                    })
+                    
+                }
+            }
+        }
+    }
 
 }

@@ -39,7 +39,7 @@ public class EntityHistory: NSManagedObject {
         if let result = (try? context.fetch(request))?.first as? EntityHistory {
             
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
             dateFormatter.timeZone = TimeZone(secondsFromGMT: 7)
             
             completion?(dateFormatter.string(from: result.dateUpdated!))

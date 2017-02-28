@@ -170,6 +170,16 @@ class QRViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? ScanQRCodeViewController {
+            
+            destination.managedObjectContext = self.managedObjectContext
+            
+        }
+        
+    }
+    
 //    func addDragGestureToCancel() {
 //        
 //        let dragGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(QRViewController.drag(gestureRecognizer:)))

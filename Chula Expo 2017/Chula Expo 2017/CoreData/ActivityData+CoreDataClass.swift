@@ -90,7 +90,7 @@ public class ActivityData: NSManagedObject {
                 }
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 for round in rounds {
                     
@@ -180,7 +180,7 @@ public class ActivityData: NSManagedObject {
                     }
                     
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     for round in rounds {
                         
@@ -231,12 +231,11 @@ public class ActivityData: NSManagedObject {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
         request.predicate = NSPredicate(format: "activityId = %@", activityId)
         
-        do {
-            let result = try context.fetch(request).first as? ActivityData
+        if let result = try? context.fetch(request).first as? ActivityData {
             
             completion?(result)
             
-        } catch {
+        } else {
             
             print("Couldn't fetch results")
             

@@ -240,12 +240,12 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facultyCell", for: indexPath)
             
             var tag: String = facultyDatas[indexPath.row].shortName
-//            var name = facultyDatas[indexPath.row].tagEngName
-//            
-//            if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
-//                
-//                tag = fetchTag
-//            }
+            var name = facultyDatas[indexPath.row].tagEngName
+            
+            if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
+                
+                tag = fetchTag
+            }
             
             if let facultyCell = cell as? FacultyCollectionViewCell{
                 facultyCell.name = facultyDatas[indexPath.row].tagName

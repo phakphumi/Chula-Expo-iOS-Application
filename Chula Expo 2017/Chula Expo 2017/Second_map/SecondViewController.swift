@@ -92,12 +92,13 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "HEALTH": #imageLiteral(resourceName: "LAN-PIN"),
                             "HUMAN": #imageLiteral(resourceName: "LAN-PIN"),
                             "ART": #imageLiteral(resourceName: "LAN-PIN"),
-                            "MAINSTAGE": #imageLiteral(resourceName: "LAN-PIN"),
+                            "CENSTAGE": #imageLiteral(resourceName: "LAN-PIN"),
                             "HALL": #imageLiteral(resourceName: "LAN-PIN"),
                             "SALA": #imageLiteral(resourceName: "SALA"),
                             "INTERFORUM": #imageLiteral(resourceName: "LAN-PIN"),
                             "MARKET": #imageLiteral(resourceName: "LAN-PIN"),
-                            "INFO": #imageLiteral(resourceName: "pin_information")
+                            "INFO": #imageLiteral(resourceName: "pin_information"),
+                            "RALLY": #imageLiteral(resourceName: "LAN-PIN")
     
     ]
     

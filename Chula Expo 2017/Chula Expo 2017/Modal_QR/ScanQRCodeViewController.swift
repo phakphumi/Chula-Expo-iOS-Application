@@ -20,6 +20,8 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    var activityId: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -145,13 +147,13 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             
             if domainName == "staff.chulaexpo.com" {
                 
-                let activityId = seperatedCode[5]
+                activityId = seperatedCode[5]
                 
                 print(activityId)
                         
-//                self.performSegue(withIdentifier: "toEventDetails", sender: self)
+                self.performSegue(withIdentifier: "toEventDetails", sender: self)
                 
-                self.dismiss(animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
                 
                 return
                 
@@ -194,37 +196,32 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
         if let destination = segue.destination as? EventDetailTableViewController{
-            
-            if let eventcell = sender as? EventFeedCell?{
-                
-                if let id = eventcell?.activityId{
                     
-                    ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
-                        
-                        if let activityData = activityData {
-                            
-                            destination.activityId = activityData.activityId
-                            destination.bannerUrl = activityData.bannerUrl
-                            destination.topic = activityData.name
-                            destination.locationDesc = ""
-                            destination.toRounds = activityData.toRound
-                            destination.desc = activityData.desc
-                            destination.room = activityData.room
-                            destination.place = activityData.place
-                            destination.latitude = activityData.latitude
-                            destination.longitude = activityData.longitude
-                            destination.pdf = activityData.pdf
-                            destination.toImages = activityData.toImages
-                            destination.toTags = activityData.toTags
-                            destination.managedObjectContext = self.managedObjectContext
-                            
-                        }
-                        
-                    })
+            ActivityData.fetchActivityData(activityId: activityId!, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
+                
+                if let activityData = activityData {
+                    
+                    destination.activityId = activityData.activityId
+                    destination.bannerUrl = activityData.bannerUrl
+                    destination.topic = activityData.name
+                    destination.locationDesc = ""
+                    destination.toRounds = activityData.toRound
+                    destination.desc = activityData.desc
+                    destination.room = activityData.room
+                    destination.place = activityData.place
+                    destination.latitude = activityData.latitude
+                    destination.longitude = activityData.longitude
+                    destination.pdf = activityData.pdf
+                    destination.toImages = activityData.toImages
+                    destination.toTags = activityData.toTags
+                    destination.managedObjectContext = self.managedObjectContext
                     
                 }
-            }
+                
+            })
+            
         }
+        
     }
 
 }

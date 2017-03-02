@@ -68,6 +68,7 @@
 		5FBD91991E5ECE4C00EDC311 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD91981E5ECE4C00EDC311 /* APIController.swift */; };
 		5FBD919C1E5F461300EDC311 /* EntityHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD919A1E5F461300EDC311 /* EntityHistory+CoreDataClass.swift */; };
 		5FBD919D1E5F461300EDC311 /* EntityHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD919B1E5F461300EDC311 /* EntityHistory+CoreDataProperties.swift */; };
+		5FCF63131E6807290010A15A /* IconDescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF63121E6807290010A15A /* IconDescTableViewCell.swift */; };
 		5FD451521E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD451501E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift */; };
 		5FD451531E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */; };
 		5FDC57B61E47485800B452E7 /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */; };
@@ -204,6 +205,7 @@
 		5FBD91981E5ECE4C00EDC311 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		5FBD919A1E5F461300EDC311 /* EntityHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EntityHistory+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/EntityHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5FBD919B1E5F461300EDC311 /* EntityHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EntityHistory+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/EntityHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5FCF63121E6807290010A15A /* IconDescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconDescTableViewCell.swift; path = Second_map/IconDescTableViewCell.swift; sourceTree = "<group>"; };
 		5FD451501E521A2400291CE5 /* FavoritedActivity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FavoritedActivity+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/FavoritedActivity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FavoritedActivity+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/FavoritedActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTypeViewController.swift; path = Main_LoginAndRegistration/UserTypeViewController.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5C7D491E10DD9D00C9D0F2 /* Second.storyboard */,
+				5FCF63121E6807290010A15A /* IconDescTableViewCell.swift */,
 				5F25B2301E10E006008A3B11 /* SecondViewController.swift */,
 			);
 			name = Second_map;
@@ -806,6 +809,7 @@
 				5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */,
 				80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */,
 				80D103241E54AF55004F8998 /* EventsController.swift in Sources */,
+				5FCF63131E6807290010A15A /* IconDescTableViewCell.swift in Sources */,
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
 				581940D11E4463AB000C566C /* SearchViewController.swift in Sources */,
 				80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */,

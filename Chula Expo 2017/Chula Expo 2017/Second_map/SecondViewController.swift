@@ -10,18 +10,21 @@ import UIKit
 import MapKit
 import CoreData
 
-class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet var map: MKMapView!
+    @IBOutlet weak var map: MKMapView!
     @IBOutlet var iconDescView: UIView!
     @IBOutlet var iconDescLabel: UILabel!
     @IBOutlet var descIcon: UIImageView!
     @IBOutlet var iconDescButton: UIView!
     
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet var currentView: UIView!
     @IBOutlet var currentViewLabel: UILabel!
     @IBOutlet var currentIcon: UIImageView!
     
+    @IBOutlet weak var iconView: UIView!
     @IBOutlet var facultyIcon: UIView!
     @IBOutlet var favoriteIcon: UIView!
     @IBOutlet var canteenIcon: UIView!
@@ -87,12 +90,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "PSY": #imageLiteral(resourceName: "psy_pin_38"),
                             "SPSC": #imageLiteral(resourceName: "spsc_pin_39"),
                             "CUSAR": #imageLiteral(resourceName: "cussar_pin_40"),
-                            "GRAD": #imageLiteral(resourceName: "GRAND AUDIT"),
+                            "GRAD": #imageLiteral(resourceName: "LAN-PIN"),
                             "SMART": #imageLiteral(resourceName: "SMART-PIN"),
                             "HEALTH": #imageLiteral(resourceName: "LAN-PIN"),
                             "HUMAN": #imageLiteral(resourceName: "LAN-PIN"),
                             "ART": #imageLiteral(resourceName: "LAN-PIN"),
-                            "CENSTAGE": #imageLiteral(resourceName: "LAN-PIN"),
+                            "CENSTAGE": #imageLiteral(resourceName: "GRAND AUDIT"),
                             "HALL": #imageLiteral(resourceName: "LAN-PIN"),
                             "SALA": #imageLiteral(resourceName: "SALA"),
                             "INTERFORUM": #imageLiteral(resourceName: "LAN-PIN"),
@@ -141,10 +144,13 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     var isFacultyShowing = true
     var isFavoriteShowing = true
-    var isCanteenShowing = true
-    var isToiletShowing = true
-    var isPrayerShowing = true
-    var isCarParkShowing = true
+    var isCanteenShowing = false
+    var isRegistrationShowing = false
+    var isInformationShowing = false
+    var isToiletShowing = false
+    var isRallyShowing = false
+    var isCarParkShowing = false
+    var isPrayerShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,10 +178,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         facultyIcon.layer.borderWidth = 3
         favoriteIcon.layer.borderWidth = 3
-        toggleDescIconButton(toggleIcon: "canteen")
-        toggleDescIconButton(toggleIcon: "toilet")
-        toggleDescIconButton(toggleIcon: "prayer")
-        toggleDescIconButton(toggleIcon: "carPark")
         
     }
     
@@ -391,12 +393,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         }
         
         if selectedAnnotation?.subtitle == "ZONE" {
-            
-            if isFacultyShowing {
                 
-                toggleDescIconButton(toggleIcon: "faculty")
-                
-            }
+            map.removeAnnotations(zoneAnnotations)
     
             addPlaceAnnotation(forZone: (selectedAnnotation?.title)!)
             
@@ -456,15 +454,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             UIView.animate(withDuration: 0.5, animations: {
                 
                 self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: UIScreen.main.bounds.height * 0.059970015)
-//                    self.view.bounds.height * 0.059970015)
-                
-                
-                self.facultyButton.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.favoriteButton.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.canteenButton.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.toiletButton.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.prayerButton.transform = CGAffineTransform(translationX: 0, y: 0)
-                self.carParkButton.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.width, height: 0)
                 
             })
             
@@ -479,13 +469,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 self.iconDescButton.frame = CGRect(x: self.iconDescButton.frame.origin.x, y: self.iconDescButton.frame.origin.y, width: self.iconDescButton.frame.width, height: UIScreen.main.bounds.height * 0.059970015)
 //                    self.view.bounds.height * 0.497751124)
                 
-                self.facultyButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.120481928)
-//                print(self.facultyButton.frame)
-                self.favoriteButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.265060241)
-                self.canteenButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.409638554)
-                self.toiletButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.554216867)
-                self.prayerButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.698795181)
-                self.carParkButton.transform = CGAffineTransform(translationX: 0, y: self.iconDescView.bounds.height * 0.843373494)
+                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.width, height: 100)
                
             })
             
@@ -494,41 +478,40 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     
     func iconButtonTapped(gestureRecognizer: UITapGestureRecognizer) {
-        
-        if let iconView = gestureRecognizer.view {
-
-            switch iconView {
-                
-            case facultyButton:
-                
-                toggleDescIconButton(toggleIcon: "faculty")
-                
-            case favoriteButton:
-                
-                toggleDescIconButton(toggleIcon: "favorited")
-                
-            case canteenButton:
-                
-                toggleDescIconButton(toggleIcon: "canteen")
-                
-            case toiletButton:
-                
-                toggleDescIconButton(toggleIcon: "toilet")
-                
-            case prayerButton:
-                
-                toggleDescIconButton(toggleIcon: "prayer")
-                
-            case carParkButton:
-                
-                toggleDescIconButton(toggleIcon: "carPark")
-                
-            default: break
-                
-            }
-            
-        }
-        
+//        
+//        if let iconView = gestureRecognizer.view {
+//
+//            switch iconView {
+//                
+//            case facultyButton:
+//                
+//                toggleDescIconButton(toggleIcon: "faculty")
+//                
+//            case favoriteButton:
+//                
+//                toggleDescIconButton(toggleIcon: "favorited")
+//                
+//            case canteenButton:
+//                
+//                toggleDescIconButton(toggleIcon: "canteen")
+//                
+//            case toiletButton:
+//                
+//                toggleDescIconButton(toggleIcon: "toilet")
+//                
+//            case prayerButton:
+//                
+//                toggleDescIconButton(toggleIcon: "prayer")
+//                
+//            case carParkButton:
+//                
+//                toggleDescIconButton(toggleIcon: "carPark")
+//                
+//            default: break
+//                
+//            }
+//            
+//        }
         
     }
     
@@ -554,175 +537,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
-    private func toggleDescIconButton(toggleIcon: String) {
-        
-        switch toggleIcon {
-            
-        case "faculty":
-            
-            if isFacultyShowing {
-                
-                isFacultyShowing = false
-
-
-                facultyIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-//                facultyIcon.layer.borderColor = UIColor.darkGray.cgColor
-                facultyIcon.layer.borderWidth = 0
-                
-                map.removeAnnotations(zoneAnnotations)
-                
-            } else {
-                
-                isFacultyShowing = true
-                
-                facultyIcon.layer.backgroundColor = UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor
-//                facultyIcon.layer.borderColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1).cgColor
-                facultyIcon.layer.borderWidth = 3
-                
-                map.addAnnotations(zoneAnnotations)
-                
-            }
-            
-        case "favorited":
-            
-            if isFavoriteShowing {
-                
-                isFavoriteShowing = false
-                
-                favoriteIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-//                favoriteIcon.layer.borderColor = UIColor.darkGray.cgColor
-                favoriteIcon.layer.borderWidth = 0
-                
-                map.removeAnnotations(favoritedAndReservedAnnotations)
-                
-            } else {
-                
-                isFavoriteShowing = true
-                
-                favoriteIcon.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
-//                favoriteIcon.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-                favoriteIcon.layer.borderWidth = 3
-                
-                map.addAnnotations(favoritedAndReservedAnnotations)
-                
-            }
-            
-        case "canteen":
-            
-            if isCanteenShowing {
-                
-                isCanteenShowing = false
-                
-                canteenIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-//                canteenIcon.layer.borderColor = UIColor.darkGray.cgColor
-                canteenIcon.layer.borderWidth = 0
-                
-                map.removeAnnotations(canteenAnnotations)
-                
-            } else {
-                
-                isCanteenShowing = true
-                
-                canteenIcon.layer.backgroundColor = UIColor(red: 0.654901961, green: 0.925490196, blue: 0, alpha: 1).cgColor
-//                canteenIcon.layer.borderColor = UIColor(red: 0.584, green: 0.824, blue: 0, alpha: 1).cgColor
-                canteenIcon.layer.borderWidth = 3
-                
-                
-                map.addAnnotations(canteenAnnotations)
-                
-            }
-            
-        case "toilet":
-            
-            if isToiletShowing {
-                
-                isToiletShowing = false
-                
-                toiletIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-//                toiletIcon.layer.borderColor = UIColor.darkGray.cgColor
-                toiletIcon.layer.borderWidth = 0
-                
-                map.removeAnnotations(toiletAnnotations)
-                
-            } else {
-                
-                isToiletShowing = true
-                
-                toiletIcon.layer.backgroundColor = UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor
-//                toiletIcon.layer.borderColor = UIColor(red: 0.22, green: 0.5725, blue: 0.878, alpha: 1).cgColor
-                toiletIcon.layer.borderWidth = 3
-                
-                
-                map.addAnnotations(toiletAnnotations)
-                
-            }
-            
-        case "prayer":
-            
-            if isPrayerShowing {
-                
-                isPrayerShowing = false
-                
-                prayerIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-//                prayerIcon.layer.borderColor = UIColor.darkGray.cgColor
-                prayerIcon.layer.borderWidth = 0
-                
-                map.removeAnnotations(prayerAnnotations)
-                
-            } else {
-                
-                isPrayerShowing = true
-                
-                prayerIcon.layer.backgroundColor = UIColor(red: 0.066666667, green: 0.882352941, blue: 0.811764706, alpha: 1).cgColor
-//                prayerIcon.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
-                prayerIcon.layer.borderWidth = 3
-                
-                
-                map.addAnnotations(prayerAnnotations)
-                
-            }
-            
-        case "carPark":
-            
-            if isCarParkShowing {
-                
-                isCarParkShowing = false
-                
-                carParkIcon.layer.backgroundColor = UIColor.lightGray.cgColor
-//                carParkIcon.layer.borderColor = UIColor.darkGray.cgColor
-                carParkIcon.layer.borderWidth = 0
-                
-                
-                map.removeAnnotations(carParkAnnotations)
-                
-            } else {
-                
-                isCarParkShowing = true
-                
-                carParkIcon.layer.backgroundColor = UIColor(red: 0.203921569, green: 0.494117647, blue: 0.764705882, alpha: 1).cgColor
-//                carParkIcon.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
-                carParkIcon.layer.borderWidth = 3
-                
-                
-                map.addAnnotations(carParkAnnotations)
-                
-            }
-            
-        default: break
-            
-        }
-        
-    }
-    
     @IBAction func hideNavigator(_ sender: UIButton) {
         
         if isNavigatorShowing {
             
-            if !isFacultyShowing {
-                
-                toggleDescIconButton(toggleIcon: "faculty")
-                
-            }
+            map.addAnnotations(zoneAnnotations)
             
             map.removeAnnotations(placeAnnotations)
         
@@ -1008,6 +827,254 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             facilityLongitude.updateValue(Double(facilityLocation["longitude"]!)!, forKey: facilityLocation["id"]!)
             
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 9
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "iconDescCell")
+        
+        if let idtv = cell as? IconDescTableViewCell {
+            
+            if indexPath.row == 0 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 3
+                idtv.iconImage.image = #imageLiteral(resourceName: "students-cap")
+                idtv.descTh.text = "คณะ/เมือง"
+                idtv.descEn.text = "Faculty/Zone"
+                
+            } else if indexPath.row == 1 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 3
+                idtv.iconImage.image = #imageLiteral(resourceName: "ico-star")
+                idtv.descTh.text = "กิจกรรมของฉัน"
+                idtv.descEn.text = "My Event"
+                
+            } else if indexPath.row == 2 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 0.584, green: 0.824, blue: 0, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "canteen")
+                idtv.descTh.text = "ร้านค้า/อาหาร"
+                idtv.descEn.text = "Shop/Food"
+                
+                map.removeAnnotations(canteenAnnotations)
+                
+            } else if indexPath.row == 3 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "id-card")
+                idtv.descTh.text = "จุดลงทะเบียน"
+                idtv.descEn.text = "Registration"
+                
+            } else if indexPath.row == 4 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "info")
+                idtv.descTh.text = "จุดประชาสัมพันธ์"
+                idtv.descEn.text = "Information"
+                
+            } else if indexPath.row == 5 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 0.22, green: 0.5725, blue: 0.878, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "toilet")
+                idtv.descTh.text = "ห้องน้ำ"
+                idtv.descEn.text = "Toilet"
+                
+            } else if indexPath.row == 6 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "checkered-flag")
+                idtv.descTh.text = "กิจกรรมแรลลี่"
+                idtv.descEn.text = "Rally"
+                
+            } else if indexPath.row == 7 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "car")
+                idtv.descTh.text = "ที่จอดรถ"
+                idtv.descEn.text = "Car Park"
+                
+            } else if indexPath.row == 8 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "prayer")
+                idtv.descTh.text = "ห้องละหมาด"
+                idtv.descEn.text = "Prayer"
+                
+            }
+            
+        }
+        
+        return cell!
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        if let idtv = cell as? IconDescTableViewCell {
+         
+            if indexPath.row == 0 {
+                
+                if isNavigatorShowing {
+                    
+                    
+                    
+                } else if isFacultyShowing {
+                    
+                    isFacultyShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: zoneAnnotations)
+                    
+                } else {
+                    
+                    isFacultyShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: zoneAnnotations, bgColor: UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor)
+                    
+                }
+                
+            } else if indexPath.row == 1 {
+                
+                if isFavoriteShowing {
+                    
+                    isFavoriteShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: favoritedAndReservedAnnotations)
+                    
+                } else {
+                    
+                    isFavoriteShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: favoritedAndReservedAnnotations, bgColor: UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor)
+                    
+                }
+                
+            } else if indexPath.row == 2 {
+                
+                if isCanteenShowing {
+                    
+                    isCanteenShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: canteenAnnotations)
+                    
+                } else {
+                    
+                    isCanteenShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: canteenAnnotations, bgColor: UIColor(red: 0.654901961, green: 0.925490196, blue: 0, alpha: 1).cgColor)
+                    
+                }
+                
+            } else if indexPath.row == 3 {
+                
+                
+                
+            } else if indexPath.row == 4 {
+                
+                
+                
+            } else if indexPath.row == 5 {
+                
+                if isToiletShowing {
+                    
+                    isToiletShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: toiletAnnotations)
+                    
+                } else {
+                    
+                    isToiletShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: toiletAnnotations, bgColor: UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor)
+                    
+                }
+                
+            } else if indexPath.row == 6 {
+                
+                
+                
+            } else if indexPath.row == 7 {
+                
+                if isCarParkShowing {
+                    
+                    isCarParkShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: carParkAnnotations)
+                    
+                } else {
+                    
+                    isCarParkShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: carParkAnnotations, bgColor: UIColor(red: 0.203921569, green: 0.494117647, blue: 0.764705882, alpha: 1).cgColor)
+                    
+                }
+                
+                
+            } else if indexPath.row == 8 {
+                
+                if isPrayerShowing {
+                    
+                    isPrayerShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: prayerAnnotations)
+                    
+                } else {
+                    
+                    isPrayerShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: prayerAnnotations, bgColor: UIColor(red: 0.066666667, green: 0.882352941, blue: 0.811764706, alpha: 1).cgColor)
+                    
+                }
+
+            }
+            
+        }
+        
+    }
+    
+    private func turnIconOff(forCell cell: IconDescTableViewCell, annotations: [MKAnnotation]) {
+        
+        cell.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+        
+        cell.iconView.layer.borderWidth = 0
+        
+        map.removeAnnotations(annotations)
+        
+    }
+    
+    private func turnIconOn(forCell cell: IconDescTableViewCell, annotations: [MKAnnotation], bgColor: CGColor) {
+        
+        cell.iconView.layer.backgroundColor = bgColor
+        
+        cell.iconView.layer.borderWidth = 3
+        
+        map.addAnnotations(annotations)
         
     }
 

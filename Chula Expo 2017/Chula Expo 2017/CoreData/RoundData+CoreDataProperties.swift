@@ -239,7 +239,7 @@ extension Date {
         
         if(self.isLessThanDate(today)){
 //            print("PASS1")
-            if(self.isGreaterThanDate(yesterday) || self.equalToDate(dateToCompare: yesterday)){
+            if(self.isGreaterThanDate(yesterday) || self.equalToDate( yesterday)){
                 isYesterday = true
 //                print("PASS2")
             }

@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GB-Wj-nlD" id="DUf-zw-WKh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
@@ -98,7 +98,7 @@
                                 <rect key="frame" x="0.0" y="188" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
@@ -276,7 +276,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-9z-3Jt">
                                         <rect key="frame" x="0.0" y="0.0" width="176" height="103"/>
                                         <connections>
-                                            <segue destination="JPM-5D-OA6" kind="show" identifier="showFavorite" id="Jrg-Aa-a4p"/>
+                                            <action selector="favoriteSoon:" destination="AOk-xI-MMv" eventType="touchUpInside" id="pfk-8g-T2Y"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
@@ -313,7 +313,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-th-1rY">
                                         <rect key="frame" x="0.0" y="0.0" width="175.99999999999997" height="103"/>
                                         <connections>
-                                            <segue destination="JPM-5D-OA6" kind="show" identifier="showReserve" id="ruT-hg-AAa"/>
+                                            <action selector="reserveSoon:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Qnh-db-GsN"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reserveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
@@ -791,6 +791,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jvz-yj-9Wh"/>
-        <segue reference="Jrg-Aa-a4p"/>
     </inferredMetricsTieBreakers>
 </document>

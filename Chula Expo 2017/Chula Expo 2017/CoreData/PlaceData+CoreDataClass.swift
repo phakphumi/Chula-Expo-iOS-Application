@@ -138,5 +138,22 @@ public class PlaceData: NSManagedObject {
         
     }
     
+    class func getPlaceName(fromPlaceId id: String, inManageobjectcontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+        request.predicate = NSPredicate(format: "id = %@", id)
+        
+        if let result = (try? context.fetch(request))?.first as? PlaceData {
+            
+            // found this event in the database, return it ...
+            
+            return result.nameTh!
+            
+        }
+        
+        return ""
+        
+    }
+    
     
 }

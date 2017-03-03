@@ -155,7 +155,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
                             
                             self.activity = activityData
                             
-                            self.performSegue(withIdentifier: "toEventDetails", sender: QRViewController())
+                            self.performSegue(withIdentifier: "toEventDetails", sender: self)
                             
                         }
                         
@@ -215,6 +215,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             destination.desc = activity?.desc
             destination.room = activity?.room
             destination.place = activity?.place
+            destination.zoneId = activity?.faculty
             destination.latitude = activity?.latitude
             destination.longitude = activity?.longitude
             destination.pdf = activity?.pdf

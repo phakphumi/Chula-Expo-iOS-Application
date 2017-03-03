@@ -41,6 +41,18 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         }
         
     }
+    @IBAction func favoriteSoon(_ sender: UIButton) {
+        
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+        
+    }
+    @IBAction func reserveSoon(_ sender: UIButton) {
+        
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+        
+    }
     @IBAction func epro(_ sender: Any) {
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
         button2Alert.show()

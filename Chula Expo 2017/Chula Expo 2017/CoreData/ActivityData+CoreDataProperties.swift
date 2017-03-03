@@ -33,6 +33,8 @@ extension ActivityData {
     @NSManaged public var toImages: NSSet?
     @NSManaged public var toRound: NSSet?
     @NSManaged public var toTags: NSSet?
+    @NSManaged public var start: Date?
+    @NSManaged public var end: Date?
 
 }
 

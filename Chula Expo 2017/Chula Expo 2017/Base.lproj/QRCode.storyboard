@@ -21,7 +21,7 @@
         <!--View Controller-->
         <scene sceneID="VME-Xt-Jao">
             <objects>
-                <viewController providesPresentationContextTransitionStyle="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="fGA-5k-K08" customClass="QRViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainQRCode" providesPresentationContextTransitionStyle="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="fGA-5k-K08" customClass="QRViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WjZ-A1-JbE"/>
                         <viewControllerLayoutGuide type="bottom" id="Ijw-bQ-TW6"/>
@@ -153,6 +153,14 @@
                                     <action selector="toDismiss:" destination="EaW-xq-82k" eventType="touchUpInside" id="P1P-R5-pTT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KfZ-M6-Jm7">
+                                <rect key="frame" x="79" y="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="button:" destination="EaW-xq-82k" eventType="touchUpInside" id="0tR-Jo-UUp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -161,6 +169,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button1" destination="KfZ-M6-Jm7" id="m3A-qk-Ols"/>
                         <outlet property="closeButton" destination="yVX-Qv-j0e" id="Yk6-VX-r3P"/>
                         <segue destination="FN5-n5-f8K" kind="show" identifier="toEventDetails" id="gKJ-zO-TT6"/>
                     </connections>

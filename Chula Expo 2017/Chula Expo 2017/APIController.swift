@@ -82,8 +82,8 @@ class APIController {
                                 longitude: location["longitude"] as? Double ?? 0.0,
                                 bannerUrl: result["banner"] as? String ?? "",
                                 thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                startTime: startTime,
+                                endTime: endTime,
                                 isHighlight: result["isHighlight"] as? Bool ?? false,
                                 video: result["video"] as? String ?? "",
                                 pdf: result["pdf"] as? String ?? "",
@@ -217,8 +217,8 @@ class APIController {
                                         longitude: location["longitude"] as? Double ?? 0.0,
                                         bannerUrl: result["banner"] as? String ?? "",
                                         thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                        startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                        endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                        startTime: startTime,
+                                        endTime: endTime,
                                         isHighlight: result["isHighlight"] as? Bool ?? false,
                                         video: result["video"] as? String ?? "",
                                         pdf: result["pdf"] as? String ?? "",
@@ -362,8 +362,8 @@ class APIController {
                                 longitude: location["longitude"] as? Double ?? 0.0,
                                 bannerUrl: result["banner"] as? String ?? "",
                                 thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                startTime: startTime,
+                                endTime: endTime,
                                 isHighlight: result["isHighlight"] as? Bool ?? false,
                                 video: result["video"] as? String ?? "",
                                 pdf: result["pdf"] as? String ?? "",
@@ -446,7 +446,7 @@ class APIController {
     }
     
     class func downloadActivity(fromActivityId activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((ActivityData?) -> Void)?) {
-        
+          
         Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId)").responseJSON { (response) in
         
             if response.result.isSuccess {
@@ -455,7 +455,7 @@ class APIController {
                 dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 let JSON = response.result.value as! NSDictionary
-                print(JSON)
+                
                 let success = JSON["success"] as! Bool
                 
                 if !success {
@@ -492,8 +492,8 @@ class APIController {
                                 longitude: location["longitude"] as? Double ?? 0.0,
                                 bannerUrl: result["banner"] as? String ?? "",
                                 thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                startTime: startTime,
+                                endTime: endTime,
                                 isHighlight: result["isHighlight"] as? Bool ?? false,
                                 video: result["video"] as? String ?? "",
                                 pdf: result["pdf"] as? String ?? "",
@@ -614,8 +614,8 @@ class APIController {
                                         longitude: location["longitude"] as? Double ?? 0.0,
                                         bannerUrl: result["banner"] as? String ?? "",
                                         thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                        startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                        endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                        startTime: startTime,
+                                        endTime: endTime,
                                         isHighlight: result["isHighlight"] as? Bool ?? false,
                                         video: result["video"] as? String ?? "",
                                         pdf: result["pdf"] as? String ?? "",
@@ -761,8 +761,8 @@ class APIController {
                                                 longitude: location["longitude"] as? Double ?? 0.0,
                                                 bannerUrl: result["banner"] as? String ?? "",
                                                 thumbnailsUrl: result["thumbnail"] as? String ?? "",
-                                                startTime: dateFormatter.date(from: startTime) ?? Date(),
-                                                endTime: dateFormatter.date(from: endTime) ?? Date(),
+                                                startTime: startTime,
+                                                endTime: endTime,
                                                 isHighlight: result["isHighlight"] as? Bool ?? false,
                                                 video: result["video"] as? String ?? "",
                                                 pdf: result["pdf"] as? String ?? "",

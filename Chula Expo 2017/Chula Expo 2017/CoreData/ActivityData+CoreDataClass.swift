@@ -22,8 +22,8 @@ public class ActivityData: NSManagedObject {
         longitude: Double,
         bannerUrl: String,
         thumbnailsUrl: String,
-        startTime: Date,
-        endTime: Date,
+        startTime: String,
+        endTime: String,
         isHighlight: Bool,
         video: String,
         pdf: String,
@@ -133,6 +133,9 @@ public class ActivityData: NSManagedObject {
                 
                 context.performAndWait {
                     
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
+                    
                     // created a new event in the database
                     activityData.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
                     activityData.desc = desc
@@ -148,6 +151,8 @@ public class ActivityData: NSManagedObject {
                     activityData.video = video
                     activityData.pdf = pdf
                     activityData.faculty = faculty
+                    activityData.start = dateFormatter.date(from: startTime)
+                    activityData.end = dateFormatter.date(from: endTime)
                     
                     for image in images {
                         
@@ -178,9 +183,6 @@ public class ActivityData: NSManagedObject {
                         }
                         
                     }
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     for round in rounds {
                         
@@ -231,13 +233,25 @@ public class ActivityData: NSManagedObject {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
         request.predicate = NSPredicate(format: "activityId = %@", activityId)
         
-        if let result = try? context.fetch(request).first as? ActivityData {
+        if let result = (try? context.fetch(request))?.first as? ActivityData {
             
             completion?(result)
             
         } else {
             
             print("Couldn't fetch results")
+            
+            context.performAndWait {
+                
+                APIController.downloadActivity(fromActivityId: activityId, inManageobjectcontext: context, completion: { (activityData) in
+                    
+                    completion?(activityData)
+                    
+                    return
+                    
+                })
+                
+            }
             
             completion?(nil)
             

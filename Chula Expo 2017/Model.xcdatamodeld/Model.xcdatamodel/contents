@@ -4,6 +4,7 @@
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bannerUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="faculty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isHighlight" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -13,6 +14,7 @@
         <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stageNo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="thumbnailsUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="video" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toImages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ImageData" inverseName="toActivity" inverseEntity="ImageData" syncable="YES"/>
@@ -127,7 +129,7 @@
         <relationship name="toPlaces" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaceData" inverseName="toZone" inverseEntity="PlaceData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="300"/>
+        <element name="ActivityData" positionX="-216" positionY="482" width="128" height="330"/>
         <element name="EntityHistory" positionX="-9" positionY="243" width="128" height="90"/>
         <element name="FacilityData" positionX="124" positionY="288" width="128" height="180"/>
         <element name="FavoritedActivity" positionX="-9" positionY="243" width="128" height="75"/>

@@ -15,12 +15,21 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     @IBOutlet weak var closeButton: UIButton!
     
+    @IBOutlet weak var button1: UIButton!
+    @IBAction func button(_ sender: Any) {
+        
+        captureSession.stopRunning()
+        
+        found(code: "http://staff.chulaexpo.com/api/activities/58ae8a1bc58b227f7d1637c3/qrvideo")
+        
+    }
     var managedObjectContext: NSManagedObjectContext!
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     var activityId: String?
+    var activityDetail: activity!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +86,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         self.view.layer.addSublayer(previewLayer)
         
         self.view.bringSubview(toFront: closeButton)
+        self.view.bringSubview(toFront: button1)
         
     }
 
@@ -135,27 +145,34 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func found(code: String) {
-    
+        
         let seperatedCode = code.components(separatedBy: "/")
-        print(seperatedCode)
         
         if seperatedCode.count >= 5 {
             
             let domainName = seperatedCode[2]
             
-            print(domainName)
-            
             if domainName == "staff.chulaexpo.com" {
                 
                 activityId = seperatedCode[5]
                 
-                print(activityId)
+                managedObjectContext.performAndWait {
+                    
+                    ActivityData.fetchActivityData(activityId: self.activityId!, inManageobjectcontext: self.managedObjectContext, completion: { (activityData) in
+                        
+                        if let activityData = activityData {
+                            
+                            self.activityDetail = activity.init(activityId: activityData.activityId, bannerUrl: activityData.bannerUrl, topic: activityData.name, locationDesc: "", toRounds: activityData.toRound, desc: activityData.desc, room: activityData.room, place: activityData.place, latitude: activityData.latitude, longitude: activityData.longitude, pdf: activityData.pdf, toImages: activityData.toImages, toTags: activityData.toTags)
+                            
+                            self.performSegue(withIdentifier: "toEventDetails", sender: QRViewController())
+                            
+                        }
+                        
+                    })
+                    
+                }
                 
-                self.dismiss(animated: true, completion: { 
-                    
-                  self.performSegue(withIdentifier: "toEventDetails", sender: self)
-                    
-                })
+//                self.dismiss(animated: true, completion: nil)
                 
                 return
                 
@@ -196,34 +213,43 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            
+        
         if let destination = segue.destination as? EventDetailTableViewController{
-                    
-            ActivityData.fetchActivityData(activityId: activityId!, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
-                
-                if let activityData = activityData {
-                    
-                    destination.activityId = activityData.activityId
-                    destination.bannerUrl = activityData.bannerUrl
-                    destination.topic = activityData.name
-                    destination.locationDesc = ""
-                    destination.toRounds = activityData.toRound
-                    destination.desc = activityData.desc
-                    destination.room = activityData.room
-                    destination.place = activityData.place
-                    destination.latitude = activityData.latitude
-                    destination.longitude = activityData.longitude
-                    destination.pdf = activityData.pdf
-                    destination.toImages = activityData.toImages
-                    destination.toTags = activityData.toTags
-                    destination.managedObjectContext = self.managedObjectContext
-                    
-                }
-                
-            })
             
+            destination.activityId = activityDetail.activityId
+            destination.bannerUrl = activityDetail.bannerUrl
+            destination.topic = activityDetail.topic
+            destination.locationDesc = ""
+            destination.toRounds = activityDetail.toRounds
+            destination.desc = activityDetail.desc
+            destination.room = activityDetail.room
+            destination.place = activityDetail.place
+            destination.latitude = activityDetail.latitude
+            destination.longitude = activityDetail.longitude
+            destination.pdf = activityDetail.pdf
+            destination.toImages = activityDetail.toImages
+            destination.toTags = activityDetail.toTags
+            destination.managedObjectContext = self.managedObjectContext
+                    
         }
         
+    }
+    
+    public struct activity {
+        
+        var activityId: String?
+        var bannerUrl: String?
+        var topic: String?
+        var locationDesc = ""
+        var toRounds: NSSet?
+        var desc: String?
+        var room: String?
+        var place: String?
+        var latitude: Double?
+        var longitude: Double?
+        var pdf: String?
+        var toImages: NSSet?
+        var toTags: NSSet?
     }
 
 }

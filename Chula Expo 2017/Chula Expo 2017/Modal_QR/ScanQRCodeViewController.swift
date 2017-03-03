@@ -150,10 +150,12 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
                 activityId = seperatedCode[5]
                 
                 print(activityId)
-                        
-                self.performSegue(withIdentifier: "toEventDetails", sender: self)
                 
-//                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: { 
+                    
+                  self.performSegue(withIdentifier: "toEventDetails", sender: self)
+                    
+                })
                 
                 return
                 

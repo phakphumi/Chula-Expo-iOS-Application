@@ -26,6 +26,8 @@ class FirstViewController: MainCoreDataTableViewController {
 //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 //        dateFormatter.timeZone = TimeZone.current
         
+        print("\(Date().toThaiText())")
+        
         requestForStageEvent()
         requestForFeedEvent()
         

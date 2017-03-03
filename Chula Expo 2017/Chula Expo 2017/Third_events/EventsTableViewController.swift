@@ -269,6 +269,8 @@ class EventsTableViewController: CoreDataTableViewController {
                                 destination.toTags = activityData.toTags
                                 destination.managedObjectContext = self.managedObjectContext
                                 
+                                
+                                print(destination.toRounds)
                             }
                             
                         })

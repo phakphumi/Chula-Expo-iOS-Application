@@ -18,7 +18,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     @IBOutlet weak var button1: UIButton!
     @IBAction func button(_ sender: Any) {
         
-        captureSession.stopRunning()
+//        captureSession.stopRunning()
         
         found(code: "http://staff.chulaexpo.com/api/activities/58ae8a1bc58b227f7d1637c3/qrvideo")
         
@@ -230,7 +230,21 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             destination.toImages = activityDetail.toImages
             destination.toTags = activityDetail.toTags
             destination.managedObjectContext = self.managedObjectContext
-                    
+            
+            print(destination.activityId)
+            print(destination.bannerUrl)
+            print(destination.topic)
+            print(destination.locationDesc)
+            print(destination.toRounds)
+            print(destination.desc)
+            print(destination.room)
+            print(destination.place)
+            print(destination.latitude)
+            print(destination.longitude)
+            print(destination.pdf)
+            print(destination.toImages)
+            print(destination.toTags)
+            
         }
         
     }

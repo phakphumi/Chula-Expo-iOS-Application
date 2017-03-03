@@ -107,6 +107,7 @@
 		8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */; };
+		80BAEF411E69A18C00CEA0B2 /* FacultyAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BAEF401E69A18C00CEA0B2 /* FacultyAsset.xcassets */; };
 		80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D11E27ED6F00491730 /* StageCell.swift */; };
 		80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D31E27ED8300491730 /* EventFeedCell.swift */; };
 		80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */; };
@@ -239,6 +240,7 @@
 		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCoreDataTableViewController.swift; path = First_home/StageEvent/StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Third_events/EventsTableViewController.swift; sourceTree = "<group>"; };
 		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CapsuleUILabel.swift; path = First_home/CapsuleUILabel.swift; sourceTree = "<group>"; };
+		80BAEF401E69A18C00CEA0B2 /* FacultyAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FacultyAsset.xcassets; sourceTree = "<group>"; };
 		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageCell.swift; path = First_home/StageCell.swift; sourceTree = "<group>"; };
 		80BFD4D31E27ED8300491730 /* EventFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventFeedCell.swift; path = First_home/EventFeedCell.swift; sourceTree = "<group>"; };
 		80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoreDataTableViewController.swift; path = First_home/CoreData/MainCoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				80320A841E4F10A200278CCC /* EventAsset.xcassets */,
+				80BAEF401E69A18C00CEA0B2 /* FacultyAsset.xcassets */,
 				80403F351E5DECDB009C1937 /* InterestBG.xcassets */,
 				80D103251E54AFB2004F8998 /* Old */,
 				80BFD4D81E27F3AA00491730 /* CoreData */,
@@ -653,6 +656,7 @@
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,
 				80320A851E4F10A200278CCC /* EventAsset.xcassets in Resources */,
 				80E2AE751E58C3A6003E2148 /* fourthAsset.xcassets in Resources */,
+				80BAEF411E69A18C00CEA0B2 /* FacultyAsset.xcassets in Resources */,
 				5F5C7D511E10DE1500C9D0F2 /* Fourth.storyboard in Resources */,
 				5F5C7D4B1E10DD9D00C9D0F2 /* Second.storyboard in Resources */,
 			);

@@ -77,9 +77,105 @@ extension RoundData {
 
 }
 
-extension Date
-{
-    func isGreaterThanDate(dateToCompare: Date) -> Bool {
+
+
+
+extension Date {
+    
+    static var day1 = Date.from(year: 2017, month: 3, day: 15)
+    static var day2 = Date.from(year: 2017, month: 3, day: 16)
+    static var day3 = Date.from(year: 2017, month: 3, day: 17)
+    static var day4 = Date.from(year: 2017, month: 3, day: 18)
+    static var day5 = Date.from(year: 2017, month: 3, day: 19)
+    
+    static func from(year: Int, month: Int, day: Int) -> Date {
+        
+        let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)!
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        
+        let date = gregorianCalendar.date(from: dateComponents)!
+        return date
+    }
+    
+    func toThaiText() -> String{
+        
+        let day = NSCalendar.current.component(.day, from: self)
+        let month = NSCalendar.current.component(.month, from: self)
+        let year = NSCalendar.current.component(.year, from: self)
+        let hour = NSCalendar.current.component(.hour, from: self)
+        let minuite = NSCalendar.current.component(.minute, from: self)
+        
+        var minuiteText = "\(minuite)"
+        if minuite < 10{
+            minuiteText = "0\(minuite)"
+        }
+        
+        var monthText = ""
+        
+        switch month {
+        case 1:
+            monthText = "มกราคม"
+        case 2:
+            monthText = "กุมภาพันธ์"
+        case 3:
+            monthText = "มีนาคม"
+        case 4:
+            monthText = "เมษายน"
+        case 5:
+            monthText = "มิถุนายน"
+        default:
+            monthText = "ธันวาคม"
+        }
+        
+        return ("\(day) \(monthText) \(year) • \(hour):\(minuiteText)")
+    }
+    
+    func toThaiText(withEnd end: Date) -> String{
+        
+        let day = NSCalendar.current.component(.day, from: self)
+        let month = NSCalendar.current.component(.month, from: self)
+        let year = NSCalendar.current.component(.year, from: self)
+        let hour = NSCalendar.current.component(.hour, from: self)
+        let minuite = NSCalendar.current.component(.minute, from: self)
+        let endHour = NSCalendar.current.component(.hour, from: end)
+        let endMin = NSCalendar.current.component(.minute, from: end)
+        
+        var minuiteText = "\(minuite)"
+        if minuite < 10{
+            minuiteText = "0\(minuite)"
+        }
+        
+        var endMinuiteText = "\(endMin)"
+        if endMin < 10{
+            endMinuiteText = "0\(endMin)"
+        }
+        
+        var monthText = ""
+        
+        switch month {
+        case 1:
+            monthText = "มกราคม"
+        case 2:
+            monthText = "กุมภาพันธ์"
+        case 3:
+            monthText = "มีนาคม"
+        case 4:
+            monthText = "เมษายน"
+        case 5:
+            monthText = "มิถุนายน"
+        default:
+            monthText = "ธันวาคม"
+        }
+        
+        return ("\(day) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
+    }
+
+    
+    func isGreaterThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isGreater = false
         
@@ -92,7 +188,7 @@ extension Date
         return isGreater
     }
     
-    func isLessThanDate(dateToCompare: Date) -> Bool {
+    func isLessThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isLess = false
         
@@ -105,7 +201,7 @@ extension Date
         return isLess
     }
     
-    func equalToDate(dateToCompare: Date) -> Bool {
+    func equalToDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isEqualTo = false
         
@@ -147,9 +243,9 @@ extension Date
 //        print("TOMORROW == \(dateFormatter.string(from: tomorrow))")
         
         
-        if(self.isLessThanDate(dateToCompare: tomorrow)){
+        if(self.isLessThanDate(tomorrow)){
             print("PASS1")
-            if(self.isGreaterThanDate(dateToCompare: today) || self.equalToDate(dateToCompare: today)){
+            if(self.isGreaterThanDate(today) || self.equalToDate(today)){
                 isToday = true
 //                print("PASS2")
             }
@@ -167,8 +263,8 @@ extension Date
         let twoDayAfter = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 2, to: Date())!)
         let tomorrow = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
         
-        if(self.isLessThanDate(dateToCompare: twoDayAfter)){
-            if(self.isGreaterThanDate(dateToCompare: tomorrow) || self.equalToDate(dateToCompare: tomorrow)){
+        if(self.isLessThanDate(twoDayAfter)){
+            if(self.isGreaterThanDate(tomorrow) || self.equalToDate(tomorrow)){
                 isTomorrow = true
             }
         }
@@ -182,14 +278,23 @@ extension Date
         let today = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 0, to: Date())!)
         let yesterday = calendar.startOfDay(for: calendar.date(byAdding: .day, value: -1, to: Date())!)
         
-        if(self.isLessThanDate(dateToCompare: today)){
+        if(self.isLessThanDate(today)){
 //            print("PASS1")
-            if(self.isGreaterThanDate(dateToCompare: yesterday) || self.equalToDate(dateToCompare: yesterday)){
+            if(self.isGreaterThanDate(yesterday) || self.equalToDate( yesterday)){
                 isYesterday = true
 //                print("PASS2")
             }
         }
         return isYesterday
+    }
+    
+    func isInRangeOf(start: Date?, end: Date?) -> Bool{
+        
+        if (start == nil || end == nil){
+            return false
+        }
+        return self.isLessThanDate(end!) && (self.isGreaterThanDate(start!) || self.equalToDate(start!))
+        
     }
 }
 

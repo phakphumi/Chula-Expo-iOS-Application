@@ -18,6 +18,8 @@ extension StageActivity {
 
     @NSManaged public var activityId: String?
     @NSManaged public var stage: Int16
+    @NSManaged public var startDate: Date?
+    @NSManaged public var endDate: Date?
     @NSManaged public var toActivity: ActivityData?
 
 }

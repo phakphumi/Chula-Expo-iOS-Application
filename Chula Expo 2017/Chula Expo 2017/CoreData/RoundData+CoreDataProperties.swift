@@ -134,6 +134,47 @@ extension Date {
         return ("\(day) \(monthText) \(year) • \(hour):\(minuiteText)")
     }
     
+    func toThaiText(withEnd end: Date) -> String{
+        
+        let day = NSCalendar.current.component(.day, from: self)
+        let month = NSCalendar.current.component(.month, from: self)
+        let year = NSCalendar.current.component(.year, from: self)
+        let hour = NSCalendar.current.component(.hour, from: self)
+        let minuite = NSCalendar.current.component(.minute, from: self)
+        let endHour = NSCalendar.current.component(.hour, from: end)
+        let endMin = NSCalendar.current.component(.minute, from: end)
+        
+        var minuiteText = "\(minuite)"
+        if minuite < 10{
+            minuiteText = "0\(minuite)"
+        }
+        
+        var endMinuiteText = "\(endMin)"
+        if endMin < 10{
+            endMinuiteText = "0\(endMin)"
+        }
+        
+        var monthText = ""
+        
+        switch month {
+        case 1:
+            monthText = "มกราคม"
+        case 2:
+            monthText = "กุมภาพันธ์"
+        case 3:
+            monthText = "มีนาคม"
+        case 4:
+            monthText = "เมษายน"
+        case 5:
+            monthText = "มิถุนายน"
+        default:
+            monthText = "ธันวาคม"
+        }
+        
+        return ("\(day) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
+    }
+
+    
     func isGreaterThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables
         var isGreater = false
@@ -245,6 +286,15 @@ extension Date {
             }
         }
         return isYesterday
+    }
+    
+    func isInRangeOf(start: Date?, end: Date?) -> Bool{
+        
+        if (start == nil || end == nil){
+            return false
+        }
+        return self.isLessThanDate(end!) && (self.isGreaterThanDate(start!) || self.equalToDate(start!))
+        
     }
 }
 

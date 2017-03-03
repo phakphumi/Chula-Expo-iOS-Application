@@ -15,7 +15,12 @@ class FirstViewController: MainCoreDataTableViewController {
     
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
-    
+    var fetchActivityNowOnstage = [ActivityData?](){
+        didSet{
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
+    }
     let slideshowPageViewController = SlideshowPageViewController()
     
     @IBOutlet var homeTableView: UITableView!
@@ -30,6 +35,8 @@ class FirstViewController: MainCoreDataTableViewController {
         
         requestForStageEvent()
         requestForFeedEvent()
+        
+//        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
@@ -190,86 +197,27 @@ class FirstViewController: MainCoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
             
-            var name: String?
-            var round: NSSet?
-            
-            if indexPath.row == 1{
-                
-                if let fetchResult = fetchedResultsControllerStage1?.sections?[0]{
-                    
-                    if(fetchResult.numberOfObjects > 0){
-                        
-                        if let fetchData = fetchedResultsControllerStage1?.object(at: IndexPath(row: 0 , section: 0)) as? StageActivity {
-                        
-                            fetchData.managedObjectContext?.performAndWait {
-                                if let activity = fetchData.toActivity{
-                                    name = activity.name
-                                    round = activity.toRound
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            else if indexPath.row == 2{
-                
-                if let fetchResult = fetchedResultsControllerStage2?.sections?[0]{
-                    
-                    if(fetchResult.numberOfObjects > 0){
-                        
-                        if let fetchData = (fetchedResultsControllerStage2?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? StageActivity)?.toActivity {
-                            
-                            fetchData.managedObjectContext?.performAndWait {
-                                
-                                name = fetchData.name
-                                round = fetchData.toRound
-                            }
-                        }
-                    }
-                }
-
-            }
-            else {
-                
-                if let fetchResult = fetchedResultsControllerStage3?.sections?[0]{
-                    
-                    if(fetchResult.numberOfObjects > 0){
-                        
-                        if let fetchData = (fetchedResultsControllerStage3?.object(at: IndexPath(row: indexPath.row - 1, section: 0)) as? StageActivity)?.toActivity {
-                            
-                            fetchData.managedObjectContext?.performAndWait {
-                                
-                                name = fetchData.name
-                                round = fetchData.toRound
-                            }
-                        }
-                    }
-                }
-
-            }
-            
             if let stageCell = cell as? StageCell {
-                
-                if name == nil {
+                if let activity = fetchActivityNowOnstage[indexPath.row-1] {
+                    
+                    stageCell.name = activity.name
+                    stageCell.toRound = activity.toRound
+                    
+                }
+                else{
                     
                     stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
                     stageCell.stage = indexPath.row
-                    
-                } else {
-                    
-                    stageCell.name = name
-                    stageCell.toRound = round
-                    stageCell.stage = indexPath.row
                 }
                 
-                
+                stageCell.stage = indexPath.row
             }
             
-            let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))
-            seperator.backgroundColor = UIColor.clear
-            cell.contentView.addSubview(seperator)
+//            let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))
+//            seperator.backgroundColor = UIColor.clear
+//            cell.contentView.addSubview(seperator)
             
-    }
+        }
     
         else if indexPath.section == 2 && indexPath.row == 0{
             

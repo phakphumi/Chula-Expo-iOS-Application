@@ -86,7 +86,9 @@
     </entity>
     <entity name="StageActivity" representedClassName="StageActivity" syncable="YES">
         <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="stage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" syncable="YES"/>
     </entity>
     <entity name="TagData" representedClassName="TagData" syncable="YES">
@@ -138,7 +140,7 @@
         <element name="ReservedActivity" positionX="-9" positionY="243" width="128" height="90"/>
         <element name="RoomData" positionX="216" positionY="122" width="128" height="103"/>
         <element name="RoundData" positionX="117" positionY="659" width="128" height="180"/>
-        <element name="StageActivity" positionX="0" positionY="252" width="128" height="90"/>
+        <element name="StageActivity" positionX="0" positionY="252" width="128" height="118"/>
         <element name="TagData" positionX="259" positionY="477" width="128" height="73"/>
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>

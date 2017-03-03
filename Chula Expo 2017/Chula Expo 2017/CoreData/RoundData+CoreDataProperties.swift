@@ -101,6 +101,21 @@ extension Date {
         return date
     }
     
+    static func from(year: Int, month: Int, day: Int, hour: Int, minuite: Int) -> Date {
+        
+        let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)!
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.hour = hour
+        dateComponents.minute = minuite
+        
+        let date = gregorianCalendar.date(from: dateComponents)!
+        return date
+    }
+    
     func toThaiText() -> String{
         
         let day = NSCalendar.current.component(.day, from: self)

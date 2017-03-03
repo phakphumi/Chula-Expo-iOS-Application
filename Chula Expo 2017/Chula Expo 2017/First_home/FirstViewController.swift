@@ -36,7 +36,7 @@ class FirstViewController: MainCoreDataTableViewController {
         requestForStageEvent()
         requestForFeedEvent()
         
-//        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
+        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white

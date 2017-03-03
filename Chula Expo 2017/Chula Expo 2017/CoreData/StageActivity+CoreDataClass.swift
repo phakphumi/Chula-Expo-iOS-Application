@@ -84,8 +84,8 @@ public class StageActivity: NSManagedObject {
                         
                 stageData.activityId = activityId
                 stageData.stage = Int16(stage)
-//                stageData.startDate = activityData.startTime
-//                stageData.startDate = ( activityData.toRound?.allObjects.first as! RoundData).endTime
+                stageData.startDate = activityData.start
+                stageData.startDate = activityData.end
                 stageData.toActivity = activityData
                 
                 completion?(stageData)
@@ -108,10 +108,11 @@ public class StageActivity: NSManagedObject {
         let request2 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request3 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         
-        let nowDate = Date()
-//        request1.predicate = NSPredicate(format: "endDate <= nowDate AND stage == 1")
-//        request2.predicate = NSPredicate(format: "endDate <= nowDate and stage == 2")
-//        request3.predicate = NSPredicate(format: "endDate <= nowDate and stage == 3")
+        let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 11,minuite: 0)
+        
+        request1.predicate = NSPredicate(format: "endDate <= %@ AND stage == 1", nowDate as NSDate)
+        request2.predicate = NSPredicate(format: "endDate <= %@ AND stage == 2", nowDate as NSDate)
+        request3.predicate = NSPredicate(format: "endDate <= %@ AND stage == 3", nowDate as NSDate)
         
         do {
             let result1 = try context.fetch(request1)

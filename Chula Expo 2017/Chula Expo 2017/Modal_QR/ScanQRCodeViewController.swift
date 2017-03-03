@@ -14,22 +14,14 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
 
     
     @IBOutlet weak var closeButton: UIButton!
-    
-    @IBOutlet weak var button1: UIButton!
-    @IBAction func button(_ sender: Any) {
-        
-//        captureSession.stopRunning()
-        
-        found(code: "http://staff.chulaexpo.com/api/activities/58ae8a1bc58b227f7d1637c3/qrvideo")
-        
-    }
+
     var managedObjectContext: NSManagedObjectContext!
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     var activityId: String?
-    var activityDetail: activity!
+    var activity: ActivityData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,7 +78,6 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         self.view.layer.addSublayer(previewLayer)
         
         self.view.bringSubview(toFront: closeButton)
-        self.view.bringSubview(toFront: button1)
         
     }
 
@@ -162,7 +153,7 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
                         
                         if let activityData = activityData {
                             
-                            self.activityDetail = activity.init(activityId: activityData.activityId, bannerUrl: activityData.bannerUrl, topic: activityData.name, locationDesc: "", toRounds: activityData.toRound, desc: activityData.desc, room: activityData.room, place: activityData.place, latitude: activityData.latitude, longitude: activityData.longitude, pdf: activityData.pdf, toImages: activityData.toImages, toTags: activityData.toTags)
+                            self.activity = activityData
                             
                             self.performSegue(withIdentifier: "toEventDetails", sender: QRViewController())
                             
@@ -216,54 +207,23 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         
         if let destination = segue.destination as? EventDetailTableViewController{
             
-            destination.activityId = activityDetail.activityId
-            destination.bannerUrl = activityDetail.bannerUrl
-            destination.topic = activityDetail.topic
+            destination.activityId = activity?.activityId
+            destination.bannerUrl = activity?.bannerUrl
+            destination.topic = activity?.name
             destination.locationDesc = ""
-            destination.toRounds = activityDetail.toRounds
-            destination.desc = activityDetail.desc
-            destination.room = activityDetail.room
-            destination.place = activityDetail.place
-            destination.latitude = activityDetail.latitude
-            destination.longitude = activityDetail.longitude
-            destination.pdf = activityDetail.pdf
-            destination.toImages = activityDetail.toImages
-            destination.toTags = activityDetail.toTags
+            destination.toRounds = activity?.toRound
+            destination.desc = activity?.desc
+            destination.room = activity?.room
+            destination.place = activity?.place
+            destination.latitude = activity?.latitude
+            destination.longitude = activity?.longitude
+            destination.pdf = activity?.pdf
+            destination.toImages = activity?.toImages
+            destination.toTags = activity?.toTags
             destination.managedObjectContext = self.managedObjectContext
-            
-            print(destination.activityId)
-            print(destination.bannerUrl)
-            print(destination.topic)
-            print(destination.locationDesc)
-            print(destination.toRounds)
-            print(destination.desc)
-            print(destination.room)
-            print(destination.place)
-            print(destination.latitude)
-            print(destination.longitude)
-            print(destination.pdf)
-            print(destination.toImages)
-            print(destination.toTags)
             
         }
         
-    }
-    
-    public struct activity {
-        
-        var activityId: String?
-        var bannerUrl: String?
-        var topic: String?
-        var locationDesc = ""
-        var toRounds: NSSet?
-        var desc: String?
-        var room: String?
-        var place: String?
-        var latitude: Double?
-        var longitude: Double?
-        var pdf: String?
-        var toImages: NSSet?
-        var toTags: NSSet?
     }
 
 }

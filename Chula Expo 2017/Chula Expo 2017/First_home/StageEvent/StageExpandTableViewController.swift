@@ -202,6 +202,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                         startTime = startDate.toTimeText()
                     }
                     if let eTime = fetchData.end{
+                        print("endDate  \(eTime.toThaiText())")
                         endTime = eTime.toTimeText()
                     }
                     

@@ -320,6 +320,9 @@ extension Date {
         if (start == nil || end == nil){
             return false
         }
+        print("condition \(start!.toThaiText()) - \(end!.toThaiText()) compareto \(self.toThaiText()))")
+        let cond1 = self.isLessThanDate(end!)
+        let cond2 = self.isGreaterThanDate(start!) || self.equalToDate(start!)
         return self.isLessThanDate(end!) && (self.isGreaterThanDate(start!) || self.equalToDate(start!))
         
     }

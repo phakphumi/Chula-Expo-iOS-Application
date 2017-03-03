@@ -107,59 +107,66 @@ public class StageActivity: NSManagedObject {
         let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request2 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request3 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
-        let nowDate = Date.from(year: 2017, month: 3, day: 15, hour: 8, minuite: 50)
+        let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 5, minuite: 10)
         
         
         print("time  \(nowDate.toThaiText())")
-        request1.predicate = NSPredicate(format: "ANY toActivity.end <= %@ AND stage == 1", nowDate as NSDate)
-        request2.predicate = NSPredicate(format: "ANY toActivity.end <= %@ AND stage == 2", nowDate as NSDate)
-        request3.predicate = NSPredicate(format: "ANY toActivity.end <= %@ AND stage == 3", nowDate as NSDate)
+        request1.predicate = NSPredicate(format: "ANY toActivity.end >= %@ AND stage == 1", nowDate as NSDate)
+        request2.predicate = NSPredicate(format: "ANY toActivity.end >= %@ AND stage == 2", nowDate as NSDate)
+        request3.predicate = NSPredicate(format: "ANY toActivity.end >= %@ AND stage == 3", nowDate as NSDate)
+        
+        var result1 = [Any]()
+        var result2 = [Any]()
+        var result3 = [Any]()
+        
+        
         
         do {
-            let result1 = try context.fetch(request1)
-            let result2 = try context.fetch(request2)
-            let result3 = try context.fetch(request3)
             
-            for item in result1{
-                
-                if let stageAct = item as? StageActivity{
-                    
-                    if nowDate.isInRangeOf(start: stageAct.startDate, end: stageAct.endDate){
-                        
-                        fetchResult[0] = stageAct.toActivity
-                        break
-                    }
-                }
-            }
-            
-            for item in result2{
-                
-                if let stageAct = item as? StageActivity{
-                    
-                    if nowDate.isInRangeOf(start: stageAct.startDate, end: stageAct.endDate){
-                        
-                        fetchResult[1] = stageAct.toActivity
-                        break
-                    }
-                }
-            }
-            
-            for item in result3{
-                
-                if let stageAct = item as? StageActivity{
-                    
-                    if nowDate.isInRangeOf(start: stageAct.startDate, end: stageAct.endDate){
-                        
-                        fetchResult[2] = stageAct.toActivity
-                        break
-                    }
-                }
-            }
+            result1 = try context.fetch(request1)
+            result2 = try context.fetch(request2)
+            result3 = try context.fetch(request3)
             
         } catch {
             print("Couldn't fetch results")
         }
         
+        for item in result1{
+            
+            if let stageAct = item as? StageActivity{
+                
+                if nowDate.isInRangeOf(start: stageAct.toActivity?.start, end: stageAct.toActivity?.end){
+                    
+                    fetchResult[0] = stageAct.toActivity
+                    break
+                }
+            }
+        }
+        
+        for item in result2{
+            
+            if let stageAct = item as? StageActivity{
+                
+                if nowDate.isInRangeOf(start: stageAct.toActivity?.start, end: stageAct.toActivity?.end){
+                    
+                    fetchResult[1] = stageAct.toActivity
+                    break
+                }
+            }
+        }
+        
+        for item in result3{
+            
+            if let stageAct = item as? StageActivity{
+                
+                if nowDate.isInRangeOf(start: stageAct.toActivity?.start, end: stageAct.toActivity?.end){
+                    
+                    fetchResult[2] = stageAct.toActivity
+                    break
+                }
+            }
+        }
+
         return fetchResult
     }
 }

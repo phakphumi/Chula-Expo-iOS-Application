@@ -24,22 +24,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var currentViewLabel: UILabel!
     @IBOutlet var currentIcon: UIImageView!
     
-    @IBOutlet weak var iconView: UIView!
-    @IBOutlet var facultyIcon: UIView!
-    @IBOutlet var favoriteIcon: UIView!
-    @IBOutlet var canteenIcon: UIView!
-    @IBOutlet var toiletIcon: UIView!
-    @IBOutlet var prayerIcon: UIView!
-    @IBOutlet var carParkIcon: UIView!
-    
-    @IBOutlet var facultyButton: UIView!
-    @IBOutlet var favoriteButton: UIView!
-    @IBOutlet var canteenButton: UIView!
-    @IBOutlet var toiletButton: UIView!
-    @IBOutlet var prayerButton: UIView!
-    @IBOutlet var carParkButton: UIView!
-    
-    
     @IBOutlet var navigatorView: UIView!
     @IBOutlet var navigatorPin: UIImageView!
     @IBOutlet var facultyNameEn: UILabel!
@@ -101,18 +85,23 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "INTERFORUM": #imageLiteral(resourceName: "LAN-PIN"),
                             "MARKET": #imageLiteral(resourceName: "LAN-PIN"),
                             "INFO": #imageLiteral(resourceName: "pin_information"),
+                            "INFORMATION": #imageLiteral(resourceName: "pin_information"),
+                            "REGISTRATION": #imageLiteral(resourceName: "LAN-PIN"),
                             "RALLY": #imageLiteral(resourceName: "LAN-PIN")
     
     ]
     
-    var zoneAnnotations = [MKPointAnnotation]()
     var placeAnnotations = [MKPointAnnotation]()
-    var toiletAnnotations = [MKPointAnnotation]()
+    var zoneAnnotations = [MKPointAnnotation]()
+    var favoritedAndReservedAnnotations = [MKPointAnnotation]()
     var canteenAnnotations = [MKPointAnnotation]()
+    var registrationAnnotations = [MKPointAnnotation]()
+    var informationAnnotations = [MKPointAnnotation]()
+    var toiletAnnotations = [MKPointAnnotation]()
+    var rallyAnnotations = [MKPointAnnotation]()
     var carParkAnnotations = [MKPointAnnotation]()
     var prayerAnnotations = [MKPointAnnotation]()
     var emergencyAnnotations = [MKPointAnnotation]()
-    var favoritedAndReservedAnnotations = [MKPointAnnotation]()
     
     var favoritedActivity = [String: ActivityData]()
     var reservedActivity = [String: ActivityData]()
@@ -150,6 +139,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var isToiletShowing = false
     var isRallyShowing = false
     var isCarParkShowing = false
+    var isEmergencyShowing = false
     var isPrayerShowing = false
     
     override func viewDidLoad() {
@@ -175,9 +165,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         fetchFacilityAnnotation()
         addZoneAnnotation()
         addFacilityAnnotation()
-        
-        facultyIcon.layer.borderWidth = 3
-        favoriteIcon.layer.borderWidth = 3
         
     }
     
@@ -224,6 +211,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         iconDescView.layer.shadowOpacity = 0.3
         iconDescView.layer.shadowRadius = 2
         
+        tableView.layer.cornerRadius = iconDescView.frame.height / 2
+        
+        self.tableView.frame = CGRect(x: 0, y: self.iconDescView.frame.width * 4 / 17, width: self.iconDescView.frame.width, height: 0)
+        
         
         let currentViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.currentViewTapped(gestureRecognizer:)))
         currentView.addGestureRecognizer(currentViewTapGesture)
@@ -235,54 +226,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         currentView.layer.shadowColor = UIColor.black.cgColor
         currentView.layer.shadowOpacity = 0.3
         currentView.layer.shadowRadius = 2
-        
-        let facultyTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconButtonTapped(gestureRecognizer:)))
-        facultyButton.addGestureRecognizer(facultyTapGesture)
-        facultyButton.isUserInteractionEnabled = true
-        
-        facultyIcon.layer.cornerRadius = facultyIcon.frame.height / 2
-//        facultyIcon.layer.borderWidth = 3
-        facultyIcon.layer.borderColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1).cgColor
-        
-        let favoriteTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconButtonTapped(gestureRecognizer:)))
-        favoriteButton.addGestureRecognizer(favoriteTapGesture)
-        favoriteButton.isUserInteractionEnabled = true
-        
-        favoriteIcon.layer.cornerRadius = favoriteIcon.frame.height / 2
-//        favoriteIcon.layer.borderWidth = 3
-        favoriteIcon.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-        
-        let canteenTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconButtonTapped(gestureRecognizer:)))
-        canteenButton.addGestureRecognizer(canteenTapGesture)
-        canteenButton.isUserInteractionEnabled = true
-        
-        canteenIcon.layer.cornerRadius = canteenIcon.frame.height / 2
-//        canteenIcon.layer.borderWidth = 3
-        canteenIcon.layer.borderColor = UIColor(red: 0.584, green: 0.824, blue: 0, alpha: 1).cgColor
-        
-        let toiletTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconButtonTapped(gestureRecognizer:)))
-        toiletButton.addGestureRecognizer(toiletTapGesture)
-        toiletButton.isUserInteractionEnabled = true
-        
-        toiletIcon.layer.cornerRadius = toiletIcon.frame.height / 2
-//        toiletIcon.layer.borderWidth = 3
-        toiletIcon.layer.borderColor = UIColor(red: 0.22, green: 0.5725, blue: 0.878, alpha: 1).cgColor
-        
-        let prayerTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconButtonTapped(gestureRecognizer:)))
-        prayerButton.addGestureRecognizer(prayerTapGesture)
-        prayerButton.isUserInteractionEnabled = true
-        
-        prayerIcon.layer.cornerRadius = prayerIcon.frame.height / 2
-//        prayerIcon.layer.borderWidth = 3
-        prayerIcon.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
-        
-        let carParkTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.iconButtonTapped(gestureRecognizer:)))
-        carParkButton.addGestureRecognizer(carParkTapGesture)
-        carParkButton.isUserInteractionEnabled = true
-        
-        carParkIcon.layer.cornerRadius = carParkIcon.frame.height / 2
-//        carParkIcon.layer.borderWidth = 3
-        carParkIcon.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
         
         navigatorView.layer.cornerRadius = 10
         navigatorView.layer.shadowOffset = CGSize.zero
@@ -453,8 +396,9 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: UIScreen.main.bounds.height * 0.059970015)
-                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.width, height: 0)
+                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: self.iconDescView.frame.width * 4 / 17)
+                
+                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.iconDescView.frame.width * 4 / 17, width: self.tableView.frame.width, height: 0)
                 
             })
             
@@ -465,11 +409,9 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height: UIScreen.main.bounds.height * 0.497751124)
-                self.iconDescButton.frame = CGRect(x: self.iconDescButton.frame.origin.x, y: self.iconDescButton.frame.origin.y, width: self.iconDescButton.frame.width, height: UIScreen.main.bounds.height * 0.059970015)
-//                    self.view.bounds.height * 0.497751124)
+                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height:  UIScreen.main.bounds.height * 0.554722639)
                 
-                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.width, height: 100)
+                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.iconDescView.frame.width * 4 / 17, width: self.tableView.frame.width, height: UIScreen.main.bounds.height * 0.475)
                
             })
             
@@ -668,8 +610,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func addFacilityAnnotation() {
         
-        toiletAnnotations.removeAll()
         canteenAnnotations.removeAll()
+        registrationAnnotations.removeAll()
+        informationAnnotations.removeAll()
+        toiletAnnotations.removeAll()
+        rallyAnnotations.removeAll()
         carParkAnnotations.removeAll()
         prayerAnnotations.removeAll()
         emergencyAnnotations.removeAll()
@@ -685,13 +630,26 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             facilityAnnotation.subtitle = key
             
             switch facilityAnnotation.title! {
-            case "TOILET":
-                
-                toiletAnnotations.append(facilityAnnotation)
                 
             case "CANTEEN":
                 
                 canteenAnnotations.append(facilityAnnotation)
+                
+            case "REGISTRATION":
+                
+                registrationAnnotations.append(facilityAnnotation)
+                
+            case "INFORMATION":
+                
+                informationAnnotations.append(facilityAnnotation)
+                
+            case "TOILET":
+                
+                toiletAnnotations.append(facilityAnnotation)
+                
+            case "RALLY":
+                
+                rallyAnnotations.append(facilityAnnotation)
                 
             case "CARPARK":
                 
@@ -709,10 +667,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             }
             
-                
-            
-            
-            map.addAnnotation(facilityAnnotation)
+//            map.addAnnotation(facilityAnnotation)
             
         }
         
@@ -832,7 +787,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 9
+        return 10
         
     }
     
@@ -841,6 +796,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "iconDescCell")
         
         if let idtv = cell as? IconDescTableViewCell {
+            
+            idtv.frame = CGRect(x: idtv.frame.origin.x, y: idtv.frame.origin.y, width: UIScreen.main.bounds.width * 0.453333333, height: idtv.frame.height)
             
             if indexPath.row == 0 {
                 
@@ -921,6 +878,15 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
+                idtv.iconImage.image = #imageLiteral(resourceName: "first-aid-kit")
+                idtv.descTh.text = "จุดปฐมพยาบาล"
+                idtv.descEn.text = "EMERGENCY"
+                
+            } else if indexPath.row == 9 {
+                
+                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
+                idtv.iconView.layer.borderWidth = 0
                 idtv.iconImage.image = #imageLiteral(resourceName: "prayer")
                 idtv.descTh.text = "ห้องละหมาด"
                 idtv.descEn.text = "Prayer"
@@ -993,11 +959,37 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             } else if indexPath.row == 3 {
                 
+                if isRegistrationShowing {
+                    
+                    isRegistrationShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: registrationAnnotations)
+                    
+                } else {
+                    
+                    isRegistrationShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: registrationAnnotations, bgColor: UIColor.brown.cgColor)
+                    
+                }
+                
                 
                 
             } else if indexPath.row == 4 {
                 
-                
+                if isInformationShowing {
+                    
+                    isInformationShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: informationAnnotations)
+                    
+                } else {
+                    
+                    isInformationShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: informationAnnotations, bgColor: UIColor.green.cgColor)
+                    
+                }
                 
             } else if indexPath.row == 5 {
                 
@@ -1017,7 +1009,19 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             } else if indexPath.row == 6 {
                 
-                
+                if isRallyShowing {
+                    
+                    isRallyShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: rallyAnnotations)
+                    
+                } else {
+                    
+                    isRallyShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: rallyAnnotations, bgColor: UIColor.purple.cgColor)
+                    
+                }
                 
             } else if indexPath.row == 7 {
                 
@@ -1038,6 +1042,22 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             } else if indexPath.row == 8 {
                 
+                if isEmergencyShowing {
+                    
+                    isEmergencyShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: emergencyAnnotations)
+                    
+                } else {
+                    
+                    isEmergencyShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: emergencyAnnotations, bgColor: UIColor.red.cgColor)
+                    
+                }
+
+            } else if indexPath.row == 9 {
+                
                 if isPrayerShowing {
                     
                     isPrayerShowing = false
@@ -1051,7 +1071,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     turnIconOn(forCell: idtv, annotations: prayerAnnotations, bgColor: UIColor(red: 0.066666667, green: 0.882352941, blue: 0.811764706, alpha: 1).cgColor)
                     
                 }
-
+                
             }
             
         }

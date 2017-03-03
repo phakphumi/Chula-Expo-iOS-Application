@@ -22,6 +22,9 @@ class IconDescTableViewCell: UITableViewCell {
         self.layoutIfNeeded()
         self.setNeedsLayout()
         
+        descTh.frame = CGRect(x: descTh.frame.origin.x, y: descTh.frame.origin.y, width: UIScreen.main.bounds.width * 0.225, height: descTh.frame.height)
+        descEn.frame = CGRect(x: descEn.frame.origin.x, y: descEn.frame.origin.y, width: UIScreen.main.bounds.width * 0.225, height: descEn.frame.height)
+        
     }
     
     override func layoutSubviews() {

@@ -17,43 +17,30 @@ class InterCollectionViewCell: UICollectionViewCell {
     
     var bg: String?{
         didSet{
-            updateUI()
+            if let bg = bg{
+                bgImage.image = UIImage(named: bg)
+            }
         }
     }
     var icon: String?{
         didSet{
-            updateUI()
+            if let icon = icon{
+                iconImage.image = UIImage(named: icon)
+            }
         }
     }
     var name: String?{
         didSet{
-            updateUI()
+            if let name = name{
+                nameLabel.text = name
+            }
         }
     }
     var sub: String?{
         didSet{
-            updateUI()
+            if let sub = sub{
+                subLabel.text = sub
+            }
         }
     }
-    
-    private func updateUI(){
-        bgImage.image = nil
-        iconImage.image = nil
-        nameLabel.text = nil
-        subLabel.text = nil
-        
-        if let bg = bg{
-            bgImage.image = UIImage(named: bg)
-        }
-        if let icon = icon{
-            iconImage.image = UIImage(named: icon)
-        }
-        if let name = name{
-            nameLabel.text = name
-        }
-        if let sub = sub{
-            subLabel.text = sub
-        }
-    }
-
 }

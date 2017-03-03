@@ -198,19 +198,19 @@ class FirstViewController: MainCoreDataTableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "Stage", for: indexPath)
             
             if let stageCell = cell as? StageCell {
-//                if let activity = fetchActivityNowOnstage[indexPath.row-1] {
-//                    
-//                    stageCell.name = activity.name
-//                    stageCell.toRound = activity.toRound
-//                    
-//                }
-//                else{
-//                    
-//                    stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
-//                    stageCell.stage = indexPath.row
-//                }
-//                
-//                stageCell.stage = indexPath.row
+                if let activity = fetchActivityNowOnstage[indexPath.row-1] {
+                    
+                    stageCell.name = activity.name
+                    stageCell.toRound = activity.toRound
+                    
+                }
+                else{
+                    
+                    stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
+                    stageCell.stage = indexPath.row
+                }
+                
+                stageCell.stage = indexPath.row
             }
             
 //            let seperator = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 3))

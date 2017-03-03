@@ -192,9 +192,20 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
             if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? ActivityData{
                     
                 var name: String?
+                var startTime: String?
+                var endTime: String?
                 fetchData.managedObjectContext?.performAndWait {
                     
                     name = fetchData.name
+                    if let startDate = fetchData.start{
+                        print("startDate  \(startDate.toThaiText())")
+                        startTime = startDate.toTimeText()
+                    }
+                    if let eTime = fetchData.end{
+                        endTime = eTime.toTimeText()
+                    }
+                    
+                    
                 }
 
                 if let stageExpandableCell = cell as? StageExpandableCell{
@@ -204,7 +215,8 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                         stageExpandableCell.closeTitle()
                     }
                     stageExpandableCell.name = name
-                    stageExpandableCell.time = "9:41"
+                    stageExpandableCell.time = startTime
+                    stageExpandableCell.endTime = ("-\(endTime ?? "")")
                 }
             }
         }

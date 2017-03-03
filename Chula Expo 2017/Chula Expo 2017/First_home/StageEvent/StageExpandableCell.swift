@@ -11,36 +11,36 @@ import UIKit
 class StageExpandableCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var subtimeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet var background: UIView!
     
-    var time: String?
-    {
+    var time: String? {
         didSet{
-            updateUI()
-        }
-    }
-    var name: String?
-    {
-        didSet{
-            updateUI()
+            if let time1 = time{
+                
+                timeLabel.text = time1
+            }
         }
     }
     
-    private func updateUI(){
-        timeLabel.text = nil
-        nameLabel.text = nil
-        
-        if let time1 = time{
-            
-            timeLabel.text = time1
+    var endTime: String? {
+        didSet{
+            if let time2 = endTime{
+                
+                subtimeLabel.text = time2
+            }
         }
-        if let name1 = name{
-        
-            nameLabel.text = name1
-            cardStyle(background: background)
+    }
+    
+    var name: String? {
+        didSet{
+            if let name1 = name{
+                
+                nameLabel.text = name1
+                cardStyle(background: background)
+            }
         }
-
     }
     
     func expandTitle(){

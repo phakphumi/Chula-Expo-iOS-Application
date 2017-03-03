@@ -189,6 +189,18 @@ extension Date {
         return ("\(day) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
     }
 
+    func toTimeText() -> String{
+        
+        let hour = NSCalendar.current.component(.hour, from: self)
+        let minuite = NSCalendar.current.component(.minute, from: self)
+        
+        var minuiteText = "\(minuite)"
+        if minuite < 10{
+            minuiteText = "0\(minuite)"
+        }
+        
+        return ("\(hour):\(minuiteText)")
+    }
     
     func isGreaterThanDate(_ dateToCompare: Date) -> Bool {
         //Declare Variables

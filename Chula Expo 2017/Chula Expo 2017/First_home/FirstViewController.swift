@@ -341,6 +341,7 @@ class FirstViewController: MainCoreDataTableViewController {
                                 destination.desc = activityData.desc
                                 destination.room = activityData.room
                                 destination.place = activityData.place
+                                destination.zoneId = activityData.faculty
                                 destination.latitude = activityData.latitude
                                 destination.longitude = activityData.longitude
                                 destination.pdf = activityData.pdf

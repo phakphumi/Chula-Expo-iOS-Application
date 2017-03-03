@@ -32,6 +32,23 @@ public class RoomData: NSManagedObject {
         
     }
     
+    class func getRoomName(fromRoomId id: String, inManageobjectcontext context: NSManagedObjectContext) -> String {
+     
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
+        request.predicate = NSPredicate(format: "id = %@", id)
+        
+        if let result = (try? context.fetch(request))?.first as? RoomData {
+            
+            // found this event in the database, return it ...
+            
+            return result.name!
+            
+        }
+        
+        return ""
+        
+    }
+    
     class func addData(
         id: String,
         floor: String,

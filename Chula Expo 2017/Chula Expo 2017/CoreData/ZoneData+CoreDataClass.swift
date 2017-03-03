@@ -254,5 +254,22 @@ public class ZoneData: NSManagedObject {
         
         return ""
     }
+    
+    class func getZoneName(fromZoneId id: String, inManageobjectcontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id = %@", id)
+        
+        if let result = (try? context.fetch(request))?.first as? ZoneData {
+            
+            // found this event in the database, return it ...
+            
+            return result.nameTh!
+            
+        }
+        
+        return ""
+        
+    }
 
 }

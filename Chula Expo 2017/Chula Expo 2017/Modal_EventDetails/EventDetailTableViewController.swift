@@ -38,6 +38,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     var desc: String!
     var room: String!
     var place: String!
+    var zoneId: String!
     var latitude: Double!
     var longitude: Double!
     var pdf: String!
@@ -52,6 +53,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     }
     
     func toDismiss() {
+        
         self.presentingViewController?.dismiss(animated: true, completion: nil)
 
         
@@ -260,7 +262,14 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                     
                     }
                     
-                    locationDesc = RoomData.getLocation(fromRoomId: self.room!, inManageobjectcontext: self.managedObjectContext!)
+                    let room = RoomData.getRoomName(fromRoomId: self.room!, inManageobjectcontext: self.managedObjectContext!)
+                    
+                    let place = PlaceData.getPlaceName(fromPlaceId: self.place!, inManageobjectcontext: self.managedObjectContext!)
+                    
+                    let zoneName = ZoneData.getZoneName(fromZoneId: self.zoneId!, inManageobjectcontext: managedObjectContext!)
+                    
+                    
+                    locationDesc = "\(room) \(place) \(zoneName)"
                 
                     ehvc.topic = self.topic
                     ehvc.locationDesc = self.locationDesc

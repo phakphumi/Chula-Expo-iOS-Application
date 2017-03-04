@@ -22,6 +22,7 @@
 		5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */; };
 		5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */; };
 		5F07EDDD1E2CD5DA0017ECD5 /* DescTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */; };
+		5F07FCA91E6AF1C800CB756C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07FCA81E6AF1C800CB756C /* TabBarViewController.swift */; };
 		5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E92E01E48D8A100D5513B /* Alamofire.framework */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
 		5F202CDF1E321F5500AEAF1C /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */; };
@@ -153,6 +154,7 @@
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
 		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Modal_EventDetails/ImageTableViewCell.swift; sourceTree = "<group>"; };
 		5F07EDDC1E2CD5DA0017ECD5 /* DescTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DescTableViewCell.swift; path = Modal_EventDetails/DescTableViewCell.swift; sourceTree = "<group>"; };
+		5F07FCA81E6AF1C800CB756C /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = Main_LoginAndRegistration/TabBarViewController.swift; sourceTree = "<group>"; };
 		5F0E92E01E48D8A100D5513B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "DerivedData/Chula Expo 2017/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = SOURCE_ROOT; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Main_LoginAndRegistration/LoginViewController.swift; sourceTree = "<group>"; };
 		5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SukhumvitSet.ttc; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				5F4A9D951E10300900713580 /* Main.storyboard */,
+				5F07FCA81E6AF1C800CB756C /* TabBarViewController.swift */,
 				800D58401E40A4ED00E854E8 /* interestCollectionViewCell1.swift */,
 				800D583E1E40A4C900E854E8 /* InterestCollectionViewCell.swift */,
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
@@ -733,6 +736,7 @@
 				8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */,
 				5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */,
 				5F25B2331E10E018008A3B11 /* ThirdViewController.swift in Sources */,
+				5F07FCA91E6AF1C800CB756C /* TabBarViewController.swift in Sources */,
 				5F663B2A1E597C01006F2568 /* FacilityData+CoreDataProperties.swift in Sources */,
 				800641DC1E215BAC00760834 /* EventData+CoreDataProperties.swift in Sources */,
 				8000A5401E3785A000AED5EF /* TableHeaderView.swift in Sources */,

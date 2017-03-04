@@ -28,10 +28,16 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     var interested: String?
     var managedObjectContext: NSManagedObjectContext?
     
+    var userToken: String?
+    
     var tapped = [UIImageView]()
     
     var selectedList: [Bool] = []
     @IBOutlet var numberLabel: UILabel!
+    
+    var toEdit = false
+    @IBOutlet weak var cancelEdit: UIButton!
+    @IBOutlet weak var saveEdit: UIButton!
     
     @IBOutlet weak var finButton2: UIButton! {
         didSet{
@@ -80,7 +86,15 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(interested)
+        
+        if toEdit {
+            
+            finButton2.isHidden = true
+            
+            cancelEdit.isHidden = false
+            saveEdit.isHidden = false
+            
+        }
         
         for _ in 0...tagList.count{
             selectedList.append(false)
@@ -457,5 +471,85 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
      // Pass the selected object to the new view controller.
      }
      */
+    @IBAction func cancel(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func save(_ sender: UIButton) {
+        
+        var check = false
+        facultyList.removeAll()
+        for i in 0...tagList.count {
+            print(selectedList[i])
+            if selectedList[i] {
+                facultyList.append(tagList[i])
+                check = true
+            }
+        }
+        
+        
+        if(check == false){
+            let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
+            button2Alert.show()
+        }
+        else {
+            
+            self.performSegue(withIdentifier: "endEdit", sender: self)
+            
+        }
+   
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "endEdit" {
+            
+            var faculties: String = ""
+            
+            for (index, faculty) in facultyList.enumerated() {
+                
+                if index == facultyList.endIndex - 1 {
+                    
+                    faculties += "\(faculty.tagEngName)"
+                    
+                } else {
+                    
+                    faculties += "\(faculty.tagEngName),"
+                    
+                }
+                
+            }
+            
+            let combinedTag = "\(interested!),\(faculties)"
+            
+            var parameters = [String: Any]()
+            
+            parameters = [
+                "tags": combinedTag,
+            ]
+            
+            print(combinedTag)
+                    
+            let header: HTTPHeaders = ["Authorization": "JWT \(userToken!)"]
+            
+            Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
+                
+                if !response.result.isSuccess {
+                    
+                    let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    
+                    self.present(confirm, animated: true, completion: nil)
+                    
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
     
 }

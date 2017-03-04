@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
 class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -28,6 +29,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     var school: String!
     var isEdited: Bool!
     var managedObjectContext: NSManagedObjectContext?
+    
+    var userToken: String?
     
     let gender = ["-", "ชาย", "หญิง", "อื่น ๆ"]
     let education = ["มัธยมต้น", "มัธยมปลาย", "ปริญญาตรี", "ปริญญาโท", "ปริญญาเอก", "อื่น ๆ"]
@@ -64,9 +67,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var schoolField: UITextField!
     @IBOutlet var careerField: UITextField!
     
+    var toEdit = false
+    
+    @IBOutlet weak var cancelEdit: UIButton!
+    @IBOutlet weak var saveEdit: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if toEdit {
+            
+            nextButton.isHidden = true
+            
+            cancelEdit.isHidden = false
+            saveEdit.isHidden = false
+            
+        }
 
 //        addChangeProfileImageGesture()
         initialValue()
@@ -491,6 +507,93 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             }
             
         }
+        
+    }
+    
+    @IBAction func save(_ sender: UIButton) {
+        
+        if self.genderField.text == "ชาย" {
+            
+            self.genderField.text = "Male"
+            
+        } else if self.genderField.text == "หญิง" {
+            
+            self.genderField.text = "Female"
+            
+        } else {
+            
+            self.genderField.text = "Other"
+            
+        }
+        
+        if self.ageField.text == "-" {
+            
+            self.ageField.text = "0"
+            
+        }
+        
+        var parameters = [String: Any]()
+        
+        if self.userType == "Academic" {
+            
+            if let academicLevel = self.educationField.text,
+                let academicYear = self.educationYearField.text,
+                let academicSchool = self.schoolField.text,
+                let gender = self.genderField.text
+            {
+                    
+                    parameters = [
+                        "name": "\(self.firstNameField.text!) \(self.lastNameField.text!)",
+                        "email": self.emailField.text!,
+                        "age": Int(self.ageField.text!) ?? 0,
+                        "academicLevel": academicLevel,
+                        "academicYear": academicYear,
+                        "academicSchool": academicSchool,
+                        "gender": gender
+                    ]
+                    
+            }
+            
+        } else {
+            
+            if let career = self.careerField.text,
+                let gender = self.genderField.text
+            {
+                    
+                parameters = [
+                                "name": "\(self.firstNameField.text!) \(self.lastNameField.text!)",
+                                "email": self.emailField.text!,
+                                "age": Int(self.ageField.text!) ?? 0,
+                                "workerJob": career,
+                                "gender": gender
+                            ]
+    
+                
+                let header: HTTPHeaders = ["Authorization": "JWT \(userToken!)"]
+                
+                Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
+                    
+                    if !response.result.isSuccess {
+    
+                        let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+    
+                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+    
+                        self.present(confirm, animated: true, completion: nil)
+    
+                    }
+                    
+                }
+    
+            }
+    
+        }
+        
+    }
+    
+    @IBAction func cancel(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
         
     }
     

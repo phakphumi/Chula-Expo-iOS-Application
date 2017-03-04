@@ -29,11 +29,17 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     var fbImage: UIImage!
     var managedObjectContext: NSManagedObjectContext?
     
+    var userToken: String?
+    
     var selectedList: [Bool] = []
     var tapped = [UIImageView]()
     
     @IBOutlet var numberLabel: UILabel!
     
+    var toEdit = false
+        
+    @IBOutlet weak var cancelEdit: UIButton!
+    @IBOutlet weak var saveEdit: UIButton!
     @IBOutlet weak var finButton: UIButton! {
         didSet{
             roundedCornerBack1()
@@ -87,6 +93,16 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if toEdit {
+            
+            finButton.isHidden = true
+            
+            cancelEdit.isHidden = false
+            saveEdit.isHidden = false
+            
+        }
+        
         for _ in 0...tagList.count{
             selectedList.append(false)
         }
@@ -179,6 +195,30 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 destination.career = self.career
                 
             }
+            
+        } else if segue.identifier == "editFaculty" {
+            
+            var interested: String = ""
+            
+            for (index, interesting) in interestList.enumerated() {
+                
+                if index == interestList.endIndex - 1 {
+                    
+                    interested += "\(interesting.tagEngName)"
+                    
+                } else {
+                    
+                    interested += "\(interesting.tagEngName),"
+                    
+                }
+                
+            }
+            
+            let destination = segue.destination as! interestFacityViewController
+            
+            destination.interested = interested
+            destination.userToken = userToken
+            destination.toEdit = toEdit
             
         }
         
@@ -312,6 +352,33 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
             self.performSegue(withIdentifier: "toFaculty", sender: self)
         }
         
+        
+    }
+    @IBAction func cancel(_ sender: UIButton) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func save(_ sender: UIButton) {
+        
+        var check = false
+        interestList.removeAll()
+        for i in 0...tagList.count {
+            // print(selectedList[i])
+            if selectedList[i] {
+                interestList.append(tagList[i])
+                check = true
+            }
+        }
+        print(check)
+        if(check == false){
+            let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
+            button2Alert.show()
+        }
+        else {
+            self.performSegue(withIdentifier: "editFaculty", sender: self)
+        }
         
     }
 }

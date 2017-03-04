@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GB-Wj-nlD" id="DUf-zw-WKh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
@@ -98,11 +98,11 @@
                                 <rect key="frame" x="0.0" y="188" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
-                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="5.3333333333333286" height="5.6666666666666696"/>
+                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="4.6666666666666572" height="5.6666666666666696"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="AEk-Ic-ub0" secondAttribute="height" multiplier="21:20" id="QEx-4s-d7o"/>
                                             </constraints>
@@ -235,7 +235,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="epro:" destination="AOk-xI-MMv" eventType="touchUpInside" id="LBN-P9-2ea"/>
+                                            <action selector="editInformation:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Hf7-Cd-PgZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -350,7 +350,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6A-6i-Fgj">
                                         <rect key="frame" x="0.0" y="0.0" width="176" height="103"/>
                                         <connections>
-                                            <action selector="eTag:" destination="AOk-xI-MMv" eventType="touchUpInside" id="4ST-7r-Fkk"/>
+                                            <action selector="editTag:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Jnq-Wu-gCo"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
@@ -387,7 +387,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWb-CZ-da0">
                                         <rect key="frame" x="0.0" y="0.0" width="175.99999999999997" height="103"/>
                                         <connections>
-                                            <action selector="eac:" destination="AOk-xI-MMv" eventType="touchUpInside" id="9gd-SF-YAp"/>
+                                            <action selector="editFac:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Y5b-Rd-Oeg"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facIcon" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">

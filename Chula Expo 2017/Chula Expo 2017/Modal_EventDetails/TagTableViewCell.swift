@@ -39,12 +39,14 @@ class TagTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCell", for: indexPath) as UICollectionViewCell
-        
-        let tagLabel = cell.viewWithTag(1) as! UILabel
-        tagLabel.text = tags[indexPath.row]
-        tagLabel.backgroundColor = tagsColor[indexPath.row]
-        tagLabel.layer.cornerRadius = 6
-        tagLabel.layer.masksToBounds = true
+//        let tagLabel = CapsuleUILabel()
+        let tagLabel = cell.viewWithTag(1) as! CapsuleUILabel
+        tagLabel.setText(name: tags[indexPath.row])
+//        tagLabel.text = tags[indexPath.row]
+//        tagLabel.backgroundColor = tagsColor[indexPath.row]
+//        tagLabel.layer.cornerRadius = 6
+//        tagLabel.layer.masksToBounds = true
+//        cell.addSubview(tagLabel)
         
         
         return cell
@@ -59,7 +61,7 @@ class TagTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout, UIC
         print(tagToFit.frame)
         print(tags[indexPath.row])
         
-        return CGSize(width: tagToFit.frame.width + 5, height: UIScreen.main.bounds.height * 0.037481259)
+        return CGSize(width: tagToFit.frame.width, height: UIScreen.main.bounds.height * 0.037481259)
         
     }
 

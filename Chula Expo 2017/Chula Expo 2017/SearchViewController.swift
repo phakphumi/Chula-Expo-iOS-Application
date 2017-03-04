@@ -131,7 +131,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         })
                         
                     }
-                }                
+                }
             }
         }
     }
@@ -264,7 +264,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
                     if let headerCell = cell as? HeaderSearchTableViewCell{
                         headerCell.title1 = "POPULAR EVENTS"
-                        headerCell.title2 = "Events ที่กำลังได้รับความนิยมในขณะนี้"
+                        headerCell.title2 = "กิจกรรมที่กำลังได้รับความนิยมในขณะนี้"
                         headerCell.iconImage = "heartIcon"
                     }
                     cell.selectionStyle = .none
@@ -276,42 +276,58 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
                     if let headerCell = cell as? HeaderSearchTableViewCell{
                         headerCell.title1 = "POPULAR EVENTS"
-                        headerCell.title2 = "Events ที่กำลังได้รับความนิยมในขณะนี้"
+                        headerCell.title2 = "กิจกรรมที่กำลังได้รับความนิยมในขณะนี้"
                         headerCell.iconImage = "heartIcon"
                     }
                     cell.selectionStyle = .none
               }
                else {
                     cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
+                
                     if let fetchData = (fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
+                        
                         var name: String?
-                        var toRound: NSSet?
                         var thumbnail: String?
+                        var toRound: NSSet?
                         var facity: String?
+                        var activityId: String?
+                        var time: String?
                         fetchData.managedObjectContext?.performAndWait{
-                            // it's easy to forget to do this on the proper queue
                             name = fetchData.name
                             thumbnail = fetchData.thumbnailsUrl
                             facity = fetchData.faculty
                             toRound = fetchData.toRound
-                            // we're not assuming the context is a main queue context
-                            // so we'll grab the screenName and return to the main queue
-                            // to do the cell.textLabel?.text setting
+                            
+                            activityId = fetchData.activityId
+                            if let stime = fetchData.start{
+                                if let eTime = fetchData.end{
+                                    time = stime.toThaiText(withEnd: eTime)
+                                }
+                            }
+                            if let toRound = toRound{
+                                if time != nil{
+                                    if toRound.count > 0 {
+                                        time = ("\(time!) + \(toRound.count) รอบ")
+                                    }
+                                }
+                            }
                         }
-                        print("feedCell name == \(name)")
+                        
                         if let eventFeedCell = cell as? EventFeedCell{
-                            print("feedCell name == \(name)")
-
                             eventFeedCell.manageObjectContext = managedObjectContext
-                            eventFeedCell.name = name
-//                            eventFeedCell.toRound = toRound
+                            if name != nil{
+                                eventFeedCell.name = name
+                            }
+                            if time != nil{
+                                eventFeedCell.timeText = time
+                            }
                             eventFeedCell.thumbnail = thumbnail
                             eventFeedCell.facity = facity
-                            
+                            eventFeedCell.activityId = activityId
+                            eventFeedCell.toRound = toRound
                         }
                     }
-
-                }
+            }
         }
         
         cell.selectionStyle = .none

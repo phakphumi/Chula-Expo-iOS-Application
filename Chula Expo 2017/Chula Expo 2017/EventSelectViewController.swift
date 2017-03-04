@@ -121,6 +121,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     struct cityData {
         var name: String = ""
+        var subName: String = ""
         var bgImage: String = ""
         var iconImage: String = ""
         var tagName: String?
@@ -226,23 +227,35 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         var cell = UICollectionViewCell()
         if selectedSection == 1 {
             
-            print ("section 1")
+//            print ("section 1")
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cityCell", for: indexPath)
+           
+            let name = facultyDatas[indexPath.row].tagEngName
+            var tag: String?
+            
+            if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
+                
+                tag = fetchTag
+            }
+           
             if let cityCell = cell as? CityCollectionViewCell{
-                cityCell.name = cityDatas[indexPath.row].name
+                cityCell.sub = cityDatas[indexPath.row].name
                 cityCell.bg = cityDatas[indexPath.row].bgImage
                 cityCell.icon = cityDatas[indexPath.row].iconImage
-                cityCell.sub = "City Events"
+                cityCell.name = cityDatas[indexPath.row].subName
                 cityCell.tagname = cityDatas[indexPath.row].tagName
                 cityCell.tagColor = cityDatas[indexPath.row].tagColor
+                cityCell.fetchTag = tag
             }
+            
         }
         else if selectedSection == 2 {
-            print ("section 2")
+//            print ("section 2")
+            
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facultyCell", for: indexPath)
             
             var tag: String = facultyDatas[indexPath.row].shortName
-            var name = facultyDatas[indexPath.row].tagEngName
+            let name = facultyDatas[indexPath.row].tagEngName
             
             if let fetchTag = ZoneData.fetchTagFrom(name: name, inManageobjectcontext: managedObjectContext!){
                 
@@ -267,6 +280,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 interestCell.bg = interestDatas[indexPath.row].tagBack
                 interestCell.icon = interestDatas[indexPath.row].imgName
                 interestCell.sub = interestDatas[indexPath.row].tagEngName
+                interestCell.desc = interestDatas[indexPath.row].thDesc
             }
         }
         
@@ -285,16 +299,20 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             var name: String = ""
             var title: String = ""
             var isFaculty = false
+            var isInterest = false
+            var interestDesc: String?
             managedObjectContext?.performAndWait {
                 if let cell = sender as? CityCollectionViewCell{
                     
                     name = cell.name ?? ""
                     title = name
                     
+                    APIController.downloadActivities(fromZoneShortName: cell.fetchTag ?? "", inManageobjectcontext: self.managedObjectContext!, completion: nil)
                     id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
-                if let cell = sender as? FacultyCollectionViewCell{
-                    APIController.downloadActivities(fromZoneShortName: cell.tagname ?? "", inManageobjectcontext: self.managedObjectContext!, completion: nil)
+                else if let cell = sender as? FacultyCollectionViewCell {
+                    
+                    APIController.downloadActivities(fromZoneShortName: cell.tagname ?? "" , inManageobjectcontext: self.managedObjectContext!, completion: nil)
                     name = cell.sub ?? ""
                     if let facName = cell.name
                     {
@@ -303,26 +321,30 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                     isFaculty = true
                     id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
-                if let cell = sender as? InterCollectionViewCell{
+                
+                else if let cell = sender as? InterCollectionViewCell{
                     
-                    name = cell.name ?? ""
-                    title = "Coming Soon"
+                    APIController.downloadActivities(fromTagName: cell.sub ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
                     
-//                    switch name{
-//                    case "Sala Phrakeaw" :
-//                        name = "SalaPhakrew"
-//                    default :
-//                        break
-//                    }
+                    id = cell.sub ?? ""
+                    isInterest = true
+                    if let titleName = cell.name{
+                        
+                        title = titleName
+                        
+                    }
+                    interestDesc = cell.desc
                     
-                    id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
             }
             if let dest = segue.destination as? EventsTableViewController{
                 
+                
                 dest.facity = id
                 dest.isFaculty = isFaculty
+                dest.isInterest = isInterest
                 dest.managedObjectContext = managedObjectContext
+                dest.interestDesc = interestDesc
                 print("segue success id = \(id)")
             }
             
@@ -332,11 +354,12 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     func setupCityData(){
         cityDatas = [
-            cityData(name: "Smart City", bgImage: "smartBG", iconImage: "smartICON", tagName: "SMART", tagColor: UIColor(red:1.00, green:0.45, blue:0.00, alpha:1.0)),
-            cityData(name: "Health City", bgImage: "healthBG", iconImage: "healthICON", tagName: "HEALTH", tagColor: UIColor(red:0.24, green:0.68, blue:0.20, alpha:1.0)),
-            cityData(name: "Human City", bgImage: "humanBG", iconImage: "humanICON", tagName: "HUMAN", tagColor: UIColor(red:0.40, green:0.18, blue:0.57, alpha:1.0)),
-            cityData(name: "Sala Phrakeaw", bgImage: "salaBG", iconImage: "salaICON", tagName: nil, tagColor: UIColor.clear),
-            cityData(name: "Art Gallery", bgImage: "artBG", iconImage: "artICON", tagName: nil, tagColor: UIColor.clear)
+            cityData(name: "สมาร์ทซิตี้", subName: "Smart City", bgImage: "smartBG", iconImage: "smartICON", tagName: "SMART", tagColor: UIColor(red:1.00, green:0.45, blue:0.00, alpha:1.0)),
+            cityData(name: "เมืองสุขภาพ", subName: "Health City", bgImage: "healthBG", iconImage: "healthICON", tagName: "HEALTH", tagColor: UIColor(red:0.24, green:0.68, blue:0.20, alpha:1.0)),
+            cityData(name: "เมืองมนุษย์", subName: "Human City", bgImage: "humanBG", iconImage: "humanICON", tagName: "HUMAN", tagColor: UIColor(red:0.40, green:0.18, blue:0.57, alpha:1.0)),
+            cityData(name: "ศาลาพระเกี้ยว", subName: "Sala Phrakeaw", bgImage: "salaBG", iconImage: "salaICON", tagName: nil, tagColor: UIColor.clear),
+            cityData(name: "อาร์ตแกลเลอรี", subName: "Art Gallery", bgImage: "artBG", iconImage: "artICON", tagName: nil, tagColor: UIColor.clear),
+            cityData(name: "ฟอรั่ม", subName: "International Forum", bgImage: "artBG", iconImage: "artICON", tagName: nil, tagColor: UIColor.clear)
         ]
     }
     

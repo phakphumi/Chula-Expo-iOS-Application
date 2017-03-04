@@ -43,4 +43,5 @@ class InterCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    var desc: String?
 }

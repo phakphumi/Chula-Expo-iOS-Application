@@ -16,6 +16,7 @@ public class ActivityData: NSManagedObject {
         activityId: String,
         name: String,
         desc: String,
+        shortDesc: String,
         room: String,
         place: String,
         latitude: Double,
@@ -138,6 +139,7 @@ public class ActivityData: NSManagedObject {
                     
                     // created a new event in the database
                     activityData.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
+                    activityData.shortDesc = shortDesc
                     activityData.desc = desc
                     activityData.activityId = activityId
                     activityData.room = room

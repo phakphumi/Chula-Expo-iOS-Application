@@ -21,6 +21,9 @@ class FirstViewController: MainCoreDataTableViewController {
             tableView.endUpdates()
         }
     }
+    
+    let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 13, minuite: 10)
+    
     let slideshowPageViewController = SlideshowPageViewController()
     
     @IBOutlet var homeTableView: UITableView!
@@ -170,7 +173,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     
                     images.append(data.bannerUrl ?? "")
                     titles.append(data.name ?? "")
-                    desc.append(data.desc ?? "")
+                    desc.append(data.shortDesc ?? "")
                 }
             }
             
@@ -201,12 +204,16 @@ class FirstViewController: MainCoreDataTableViewController {
                 if let activity = fetchActivityNowOnstage[indexPath.row-1] {
                     
                     stageCell.name = activity.name
-                    stageCell.toRound = activity.toRound
+                    
+                    if let sTime = activity.start, let eTime = activity.end{
+                         stageCell.time = ("\(sTime.toTimeText()) - \(eTime.toTimeText()) • แตะเพื่อดูกิจกรรมเพิ่มเติม")
+                    }
+                   
                     
                 }
                 else{
                     
-                    stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
+                    stageCell.name = "ไม่พบกิจกรรมบนเวทีในขณะนี้"
                     stageCell.stage = indexPath.row
                 }
                 
@@ -235,26 +242,44 @@ class FirstViewController: MainCoreDataTableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
             if let fetchData = (fetchedResultsControllerFeed?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
                 var name: String?
-                var toRound: NSSet?
                 var thumbnail: String?
+                var toRound: NSSet?
                 var facity: String?
                 var activityId: String?
+                var time: String?
                 fetchData.managedObjectContext?.performAndWait{
                     name = fetchData.name
                     thumbnail = fetchData.thumbnailsUrl
                     facity = fetchData.faculty
                     toRound = fetchData.toRound
+                    
                     activityId = fetchData.activityId
+                    if let stime = fetchData.start{
+                        if let eTime = fetchData.end{
+                            time = stime.toThaiText(withEnd: eTime)
+                        }
+                    }
+                    if let toRound = toRound{
+                        if time != nil{
+                            if toRound.count > 0 {
+                                time = ("\(time!) + \(toRound.count) รอบ")
+                            }
+                        }
+                    }
                 }
-//                print("feedCell name == \(name)")
+                
                 if let eventFeedCell = cell as? EventFeedCell{
-//                    print("feedCell name == \(name)")
                     eventFeedCell.manageObjectContext = managedObjectContext
-                    eventFeedCell.name = name
-                    eventFeedCell.toRound = toRound
+                    if name != nil{
+                        eventFeedCell.name = name
+                    }
+                    if time != nil{
+                        eventFeedCell.timeText = time
+                    }
                     eventFeedCell.thumbnail = thumbnail
                     eventFeedCell.facity = facity
                     eventFeedCell.activityId = activityId
+                    eventFeedCell.toRound = toRound
                 }
             }
         }
@@ -317,6 +342,10 @@ class FirstViewController: MainCoreDataTableViewController {
                 if let stageNo = (sender as? StageCell)?.stage{
                     dest.stageNo = stageNo
                     dest.title = "Stage \(stageNo) Schedule"
+                    let day = nowDate.checkInday()
+                    if day > 0{
+                        dest.dateForDefault = day
+                    }
                 }
             }
         }

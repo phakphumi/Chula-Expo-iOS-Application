@@ -28,6 +28,14 @@ class EventFeedCell: UITableViewCell {
     }
     
     var activityId: String?
+    var timeText: String?{
+        didSet{
+            if let text = timeText{
+                
+                eventTimeLabel.text = text
+            }
+        }
+    }
     var name: String?{
         didSet{
            eventNameLabel.text = name
@@ -38,22 +46,7 @@ class EventFeedCell: UITableViewCell {
             eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
         }
     }
-    var toRound: NSSet?{
-        didSet{
-            if let rounds = toRound{
-                if let round = rounds.allObjects.first as! RoundData?{
-                    let eventDate = round.dateText
-                    let eventStartTime = round.startTime!
-                    let eventEndTime = round.endTime!
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "H:mm"
-                    let sTime = dateFormatter.string(from: eventStartTime as Date)
-                    let eTime = dateFormatter.string(from: eventEndTime as Date)
-                    eventTimeLabel.text = "\(eventDate) • \(sTime)-\(eTime)"
-                }
-            }
-        }
-    }
+    var toRound: NSSet?
     
     var facity: String?{
         didSet{
@@ -61,22 +54,12 @@ class EventFeedCell: UITableViewCell {
         }
     }
     
-    var date: String?{
-        didSet{
-//            updateUI()
-        }
-    }
     var manageObjectContext: NSManagedObjectContext?{
         didSet{
             updateUI()
         }
     }
     
-//    override func layoutSubviews() {
-//        
-//        super.layoutSubviews()
-//        cardStyle(background: background)
-//    }
     
     func updateUI(){
 

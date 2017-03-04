@@ -17,6 +17,8 @@ class EventsTableViewController: CoreDataTableViewController {
         }
     }
     
+    var interestDesc: String?
+    
     var managedObjectContext: NSManagedObjectContext? {
         didSet {
             updateData()
@@ -28,46 +30,53 @@ class EventsTableViewController: CoreDataTableViewController {
     var facityDesc: String?
     
     var isFaculty = false
+    var isInterest = false
     
     fileprivate func updateData() {
         
         if let facity = facity {
             
             if let context = managedObjectContext, (facity.characters.count) > 0 {
-            
+                
+                
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            
+                
                 if facity == "Favorite" {
                     
                     title = "MY FAVORITE"
                     request.predicate = NSPredicate(format: "ANY toRound.isFavorite == %@", NSNumber(booleanLiteral: true))
                     
                 }
-
+                    
                 else if facity == "Reservation" {
                     
                     title = "MY RESERVATION"
                     request.predicate = NSPredicate(format: "ANY toRound.isReserve == %@", NSNumber(booleanLiteral: true))
+                   
+                }
+                
+                else if isInterest {
                     
+                     request.predicate = NSPredicate(format: "ANY toTags.name == %@", facity)
                 }
                 
                 else {
                     
-                request.predicate = NSPredicate(format: "faculty contains[c] %@", facity)
-                    
+                    request.predicate = NSPredicate(format: "faculty contains[c] %@", facity)
+
                 }
+                
+                request.sortDescriptors = [NSSortDescriptor(
+                    key: "start",
+                    ascending: true
+                    )]
             
-            request.sortDescriptors = [NSSortDescriptor(
-                key: "activityId",
-                ascending: true
-                )]
-            
-            fetchedResultsController = NSFetchedResultsController(
-                fetchRequest: request,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
+                fetchedResultsController = NSFetchedResultsController(
+                    fetchRequest: request,
+                    managedObjectContext: context,
+                    sectionNameKeyPath: nil,
+                    cacheName: nil
+                )
             }
         }
             
@@ -103,44 +112,50 @@ class EventsTableViewController: CoreDataTableViewController {
         var cell = UITableViewCell()
         
         if indexPath.row == 0 {
-            
-            cell = tableView.dequeueReusableCell(withIdentifier: "facBanner", for: indexPath)
-            if let bannercell = cell as? FacultyBannerCell{
-                
-                var bannerURL: String?
-                managedObjectContext?.performAndWait {
-                    if let facityID = self.facity{
-                        
-                        bannerURL = ZoneData.fetchZoneBannerFrom(id: facityID, incontext: self.managedObjectContext!)
-                        
+           
+            if isFaculty{
+                cell = tableView.dequeueReusableCell(withIdentifier: "facBanner", for: indexPath)
+                if let bannercell = cell as? FacultyBannerCell{
+                    
+                    var bannerURL: String?
+                    managedObjectContext?.performAndWait {
+                        if let facityID = self.facity{
+                            
+                            bannerURL = ZoneData.fetchZoneBannerFrom(id: facityID, incontext: self.managedObjectContext!)
+                            
+                        }
                     }
+                    
+                    bannercell.bannerUrl = bannerURL
+                    
                 }
-                
-                bannercell.bannerUrl = bannerURL
-                
             }
-            
         }
         else if indexPath.row == 1 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "facDesc", for: indexPath)
             
             
+                
             if let descCell = cell as? FacultyDescCell{
                 var name: String?
                 var desc: String?
-                managedObjectContext?.performAndWait {
-                    if let facityID = self.facity{
-                        
-                        name = ZoneData.fetchZoneNameFrom(id: facityID, incontext: self.managedObjectContext!)
-                        desc = ZoneData.fetchZoneDescFrom(id: facityID, incontext: self.managedObjectContext!)
-                        
+                if isInterest {
+                    desc = interestDesc
+                    name = facity
+                }else{
+                    managedObjectContext?.performAndWait {
+                        if let facityID = self.facity{
+                            
+                            name = ZoneData.fetchZoneNameFrom(id: facityID, incontext: self.managedObjectContext!)
+                            desc = ZoneData.fetchZoneDescFrom(id: facityID, incontext: self.managedObjectContext!)
+                            
+                        }
                     }
                 }
                 descCell.facityDesc = desc
                 descCell.facityTitle = name
             }
-            
         }
         
         else if indexPath.row == 2 {
@@ -202,7 +217,7 @@ class EventsTableViewController: CoreDataTableViewController {
                     
                     eventCell.manageObjectContext = managedObjectContext
                     eventCell.name = name
-                    eventCell.toRound = toRound
+//                    eventCell.toRound = toRound
                     eventCell.thumbnail = thumbnail
                     eventCell.facity = facity
                     eventCell.activityId = activityId

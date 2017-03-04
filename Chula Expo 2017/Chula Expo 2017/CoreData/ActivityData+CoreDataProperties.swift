@@ -19,6 +19,7 @@ extension ActivityData {
     @NSManaged public var activityId: String?
     @NSManaged public var bannerUrl: String?
     @NSManaged public var desc: String?
+    @NSManaged public var shortDesc: String?
     @NSManaged public var isHighlight: Bool
     @NSManaged public var place: String?
     @NSManaged public var room: String?

@@ -15,6 +15,8 @@ class CityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var subLabel: UILabel!
     @IBOutlet weak var tagLabel: CapsuleUILabel!
     
+    var fetchTag: String?
+    
     var bg: String?{
         didSet{
             if let bg = bg{

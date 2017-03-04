@@ -14,6 +14,7 @@ class StageExpandableCell: UITableViewCell {
     @IBOutlet weak var subtimeLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet var background: UIView!
+    @IBOutlet var runningDot: UIImageView!
     
     var time: String? {
         didSet{

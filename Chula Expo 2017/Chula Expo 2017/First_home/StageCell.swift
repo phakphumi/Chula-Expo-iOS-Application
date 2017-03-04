@@ -22,20 +22,10 @@ class StageCell: UITableViewCell {
             stageEventNameLabel.text = name
         }
     }
-    var toRound: NSSet?{
+    var time: String?{
         didSet{
-            if let rounds = toRound{
-                if let round = rounds.allObjects.first as! RoundData?{
-                    let stageStartTime = round.startTime!
-                    let stageEndTime = round.endTime!
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "H:mm"
-                    let sTime = dateFormatter.string(from: stageStartTime as Date)
-                    let eTime = dateFormatter.string(from: stageEndTime as Date)
-                    timeLabel.text = "\(sTime) - \(eTime)"
-                }
-            } else {
-                timeLabel.text = "แตะเพื่อดูกิจกรรมในช่วงเวลาอื่น"
+            if let timeT = time{
+                timeLabel.text = timeT
             }
         }
     }

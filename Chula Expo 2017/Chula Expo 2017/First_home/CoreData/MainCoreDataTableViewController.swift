@@ -78,7 +78,7 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
 //            if let i = fetchedResultsController?.sections?[0]{
 //                return i.numberOfObjects+1
 //            }
-            return 4
+            return 3
         }
         else if section == 2{
             if let i = fetchedResultsControllerFeed?.sections?[0]{

@@ -375,9 +375,17 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         } else if indexPath.row == 2 {
             
+            if pdf == ""{
+                return 0
+            }
+            
             return 71
             
         } else if indexPath.row == 3 {
+            
+            if images.count == 0{
+                return 0
+            }
             
             return 75
             

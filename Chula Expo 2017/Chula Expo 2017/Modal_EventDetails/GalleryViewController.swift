@@ -32,7 +32,7 @@ class GalleryViewController: UIPageViewController, UIPageViewControllerDataSourc
             imageFrameControllers.append(frameViewController)
         }
         
-
+        
         
         setViewControllers([imageFrameControllers[currentImageIndex]], direction: .forward, animated: false, completion: nil)
      

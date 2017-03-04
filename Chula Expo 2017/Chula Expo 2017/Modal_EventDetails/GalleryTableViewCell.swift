@@ -96,6 +96,15 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
         galleryCollectionView.delegate = self
         galleryCollectionView.dataSource = self
         
+//        
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        let width = UIScreen.main.bounds.width
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+//        layout.itemSize = CGSize(width: width / 2, height: width / 2)
+//        layout.minimumInteritemSpacing = 0
+//        layout.minimumLineSpacing = 0
+//        galleryCollectionView.collectionViewLayout = layout
+        
 //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GalleryTableViewCell.wasTap))
 //        galleryCollectionView.addGestureRecognizer(tapGestureRecognizer)
 
@@ -137,11 +146,11 @@ class GalleryTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout,
     }
 
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: UIScreen.main.bounds.width * 0.133333333, height: UIScreen.main.bounds.width * 0.133333333)
-        
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        
+//        return CGSize(width: UIScreen.main.bounds.width * 0.133333333, height: UIScreen.main.bounds.width * 0.133333333)
+//        
+//    }
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {

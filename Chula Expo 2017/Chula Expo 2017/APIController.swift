@@ -546,6 +546,150 @@ class APIController {
         
     }
     
+    class func downloadActivities(fromTagName tag: String, inManageObjectContext context: NSManagedObjectContext, completion: ((Bool?) -> Void)?) {
+        
+        
+        var parameters: [String: Any]!
+        
+        context.performAndWait {
+            
+            EntityHistory.fetchLastUpdate(forEntityName: "Interested\(tag)", inManageObjectContext: context, completion: { (dateUpdated) in
+                
+                if let dateUpdated = dateUpdated {
+                    
+                    parameters = [
+                        "tags": tag,
+                        "update": ["gte": dateUpdated]
+                    ]
+                    
+                    
+                } else {
+                    
+                    parameters = [
+                        "tags": tag,
+                    ]
+                    
+                }
+                
+            })
+            
+        }
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
+            
+            if response.result.isSuccess {
+                
+                if let JSON = response.result.value as? NSDictionary {
+                    
+                    if let results = JSON["results"] as? NSArray {
+                        print(results)
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
+                        
+                        for result in results {
+                            
+                            let result = result as! NSDictionary
+                            
+                            let location = result["location"] as! NSDictionary
+                            
+                            let startTime = result["start"] as! String
+                            
+                            let endTime = result["end"] as! String
+                            
+                            let pictures = result["pictures"] as? [String] ?? [""]
+                            
+                            let tags = result["tags"] as! [String]
+                            
+                            APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                                
+                                context.performAndWait {
+                                    
+                                    ActivityData.addEventData(
+                                        activityId: result["_id"] as? String ?? "",
+                                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
+                                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
+                                        room: location["room"] as? String ?? "",
+                                        place: location["place"] as? String ?? "",
+                                        latitude: location["latitude"] as? Double ?? 0.0,
+                                        longitude: location["longitude"] as? Double ?? 0.0,
+                                        bannerUrl: result["banner"] as? String ?? "",
+                                        thumbnailsUrl: result["thumbnail"] as? String ?? "",
+                                        startTime: startTime,
+                                        endTime: endTime,
+                                        isHighlight: result["isHighlight"] as? Bool ?? false,
+                                        video: result["video"] as? String ?? "",
+                                        pdf: result["pdf"] as? String ?? "",
+                                        images: pictures,
+                                        rounds: rounds,
+                                        tags: tags,
+                                        faculty: result["zone"] as? String ?? "",
+                                        inManageobjectcontext: context,
+                                        completion: nil)
+                                    
+                                }
+                                
+                                do{
+                                    
+                                    try context.save()
+                                    
+                                }
+                                    
+                                catch let error {
+                                    
+                                    print("Activity in Zone Data save error with \(error)")
+                                    completion?(false)
+                                    
+                                    return
+                                    
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                        context.performAndWait {
+                            
+                            if EntityHistory.isThereHistory(forEntityName: "Interested\(tag)", inManageobjectcontext: context) {
+                                
+                                _ = EntityHistory.updateHistory(forEntityName: "Interested\(tag)", inManageobjectcontext: context)
+                                //                                                                                    print("Update Recommend History")
+                                
+                            } else {
+                                
+                                _ = EntityHistory.addHistory(forEntityName: "Interested\(tag)", inManageobjectcontext: context)
+                                //                                                                                    print("Create Recommend History")
+                                
+                            }
+                            
+                        }
+                        
+                        do{
+                            
+                            try context.save()
+                            
+                        }
+                            
+                        catch let error {
+                            
+                            print("History Data save error with \(error)")
+                            completion?(false)
+                            
+                            return
+                            
+                        }
+                        
+                        completion?(true)
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
     class func downloadActivities(fromZoneID id: String, inManageObjectContext context: NSManagedObjectContext, completion: ((Bool?) -> Void)?) {
         
         

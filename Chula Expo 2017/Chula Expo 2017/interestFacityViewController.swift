@@ -25,6 +25,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     var fbToken: String?
     var fbImageProfileUrl: String?
     var fbImage: UIImage?
+    var interested: String?
     var managedObjectContext: NSManagedObjectContext?
     
     var tapped = [UIImageView]()
@@ -79,6 +80,8 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(interested)
+        
         for _ in 0...tagList.count{
             selectedList.append(false)
         }
@@ -147,21 +150,6 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     private func registerToServer() {
         
-        print(userType)
-        print(name)
-        print(email)
-        print(age)
-        print(gender)
-        print(education)
-        print(educationYear)
-        print(school)
-        print(career)
-        print(fbId)
-        print(fbToken)
-        print(fbImageProfileUrl)
-        print(fbImage)
-
-        
         if self.gender == "ชาย" {
             
             self.gender = "Male"
@@ -182,6 +170,24 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
         }
         
+        var faculties: String = ""
+        
+        for (index, faculty) in facultyList.enumerated() {
+            
+            if index == facultyList.endIndex - 1 {
+                
+                faculties += "\(faculty.tagEngName)"
+                
+            } else {
+                
+                faculties += "\(faculty.tagEngName),"
+                
+            }
+            
+        }
+        
+        let combinedTag = "\(interested!),\(faculties)"
+        
         var parameters = [String: Any]()
         
         if self.userType == "Academic" {
@@ -198,6 +204,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
                         "name": self.name,
                         "email": self.email,
                         "age": Int(self.age!) ?? 0,
+                        "tags": combinedTag,
                         "academicLevel": academicLevel,
                         "academicYear": academicYear,
                         "academicSchool": academicSchool,
@@ -230,6 +237,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
                         "name": self.name,
                         "email": self.email,
                         "age": Int(self.age!) ?? 0,
+                        "tags": combinedTag,
                         "workerJob": career,
                         "gender": gender,
                         "type": self.userType,
@@ -251,14 +259,27 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
 
         }
         
+        print(userType)
+        print(name)
+        print(email)
+        print(age)
+        print(gender)
+        print(education)
+        print(educationYear)
+        print(school)
+        print(career)
+        print(fbId)
+        print(fbToken)
+        print(fbImageProfileUrl)
+        print(fbImage)
+        print(combinedTag)
+        
         Alamofire.request("http://staff.chulaexpo.com/api/signup", method: .post, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
             
                 let JSON = response.result.value as! NSDictionary
                 let tokenResponse = JSON["results"] as! NSDictionary
-                print(parameters)
-                print(JSON)
             
                 let header: HTTPHeaders = ["Authorization": "JWT \(tokenResponse["token"] as! String)"]
             
@@ -380,6 +401,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     
     @IBAction func next(_ sender: Any) {
         var check = false
+        facultyList.removeAll()
         for i in 0...tagList.count {
             print(selectedList[i])
             if selectedList[i] {

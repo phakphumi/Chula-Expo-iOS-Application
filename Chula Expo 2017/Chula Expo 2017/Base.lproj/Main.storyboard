@@ -105,7 +105,7 @@
                                 <rect key="frame" x="25" y="51" width="270" height="34"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tB8-7M-ZH4">
-                                        <rect key="frame" x="0.0" y="1" width="34" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="34" height="34"/>
                                         <color key="backgroundColor" red="0.17174902558326721" green="0.19105857610702515" blue="0.24915933609008789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tB8-7M-ZH4" secondAttribute="height" multiplier="1:1" id="kJn-CO-voE"/>
@@ -139,13 +139,13 @@
                                 <rect key="frame" x="54" y="162" width="213" height="102"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentBlack" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-3q-XwG">
-                                        <rect key="frame" x="89" y="14" width="38" height="47"/>
+                                        <rect key="frame" x="87.5" y="12.5" width="38" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="v2b-3q-XwG" secondAttribute="height" multiplier="9:11" id="wft-Io-Cun"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นักเรียน นิสิต นักศึกษา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-Us-BmX">
-                                        <rect key="frame" x="7" y="65" width="200" height="34"/>
+                                        <rect key="frame" x="7" y="63.5" width="200" height="34.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jEd-Us-BmX" secondAttribute="height" multiplier="117:20" id="rnr-4C-E53"/>
                                         </constraints>
@@ -165,16 +165,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onn-Vg-4kL">
-                                <rect key="frame" x="54" y="285" width="213" height="103"/>
+                                <rect key="frame" x="54" y="285.5" width="213" height="102"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personWhite" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-RZ-e6J">
-                                        <rect key="frame" x="89" y="13" width="38" height="47"/>
+                                        <rect key="frame" x="87.5" y="12.5" width="38" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OJn-RZ-e6J" secondAttribute="height" multiplier="9:11" id="ibj-th-hWS"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บุคคลทั่วไป" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iX-Dp-2Qt">
-                                        <rect key="frame" x="7" y="64" width="200" height="34"/>
+                                        <rect key="frame" x="7" y="63" width="200" height="34.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0iX-Dp-2Qt" secondAttribute="height" multiplier="117:20" id="tpY-LA-gzw"/>
                                         </constraints>
@@ -309,7 +309,7 @@
                                         <rect key="frame" x="81" y="77" width="34" height="34"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7Ui-wP-V9u">
-                                                <rect key="frame" x="6" y="8" width="22" height="21"/>
+                                                <rect key="frame" x="6" y="6" width="22" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="7Ui-wP-V9u" secondAttribute="height" multiplier="1:1" id="W8x-ac-qwd"/>
                                                 </constraints>
@@ -342,7 +342,7 @@
                                 <rect key="frame" x="23" y="251" width="133" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชื่อ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fz8-5a-2Vr">
-                                        <rect key="frame" x="9" y="1" width="26" height="34"/>
+                                        <rect key="frame" x="9" y="0.0" width="26" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="fz8-5a-2Vr" secondAttribute="height" multiplier="3:4" id="IJg-KC-bdq"/>
                                         </constraints>
@@ -351,7 +351,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="คนดี" textAlignment="natural" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="6yh-41-sUg">
-                                        <rect key="frame" x="51" y="0.0" width="78" height="35"/>
+                                        <rect key="frame" x="51" y="0.5" width="78" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="6yh-41-sUg" secondAttribute="height" multiplier="23:10" id="bXO-jL-JWt"/>
                                         </constraints>
@@ -480,7 +480,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="j5y-uj-XU8">
-                                        <rect key="frame" x="118" y="12" width="8" height="8"/>
+                                        <rect key="frame" x="117" y="13" width="8" height="8"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j5y-uj-XU8" secondAttribute="height" multiplier="1:1" id="J4p-JE-wcg"/>
                                         </constraints>
@@ -528,7 +528,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="GzS-qF-oug">
-                                        <rect key="frame" x="118" y="12" width="8" height="8"/>
+                                        <rect key="frame" x="117" y="13" width="8" height="8"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GzS-qF-oug" secondAttribute="height" multiplier="1:1" id="fc3-nv-kat"/>
                                         </constraints>
@@ -603,7 +603,7 @@
                                 <rect key="frame" x="207" y="379" width="89" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชั้น" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgB-Dh-UgE">
-                                        <rect key="frame" x="10" y="0.0" width="26" height="34"/>
+                                        <rect key="frame" x="9" y="0.0" width="26" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ZgB-Dh-UgE" secondAttribute="height" multiplier="3:4" id="bdt-5A-ape"/>
                                         </constraints>
@@ -624,7 +624,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="GxR-2P-050">
-                                        <rect key="frame" x="74" y="13" width="9" height="8"/>
+                                        <rect key="frame" x="74" y="12.5" width="9" height="9"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="GxR-2P-050" secondAttribute="height" multiplier="1:1" id="0fF-zm-Drg"/>
                                         </constraints>
@@ -648,10 +648,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCG-Ra-xLw">
-                                <rect key="frame" x="24" y="421" width="273" height="35"/>
+                                <rect key="frame" x="24" y="421.5" width="273" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สถาบัน" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZj-Ay-yfP">
-                                        <rect key="frame" x="8" y="1" width="42" height="34"/>
+                                        <rect key="frame" x="8" y="0.5" width="42" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="vZj-Ay-yfP" secondAttribute="height" multiplier="49:40" id="rA8-Hh-sTy"/>
                                         </constraints>
@@ -660,7 +660,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="จุฬาลงกรณ์มหาวิทยาลัย" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h8X-gG-sZx">
-                                        <rect key="frame" x="51" y="0.0" width="214" height="35"/>
+                                        <rect key="frame" x="51" y="0.0" width="214" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="h8X-gG-sZx" secondAttribute="height" multiplier="251:40" id="9Xw-2N-RdQ"/>
                                         </constraints>
@@ -711,7 +711,7 @@
                                         </connections>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down-arrow-darkgray" translatesAutoresizingMaskIntoConstraints="NO" id="kOq-Nb-g9R">
-                                        <rect key="frame" x="257" y="13" width="9" height="8"/>
+                                        <rect key="frame" x="257" y="12.5" width="9" height="9"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kOq-Nb-g9R" secondAttribute="height" multiplier="1:1" id="8sJ-Sr-Rcr"/>
                                         </constraints>
@@ -1348,8 +1348,8 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gH4-31-fBe"/>
-        <segue reference="6Sk-ae-WEp"/>
+        <segue reference="fK9-5N-HnN"/>
         <segue reference="eGe-co-jWB"/>
+        <segue reference="6Sk-ae-WEp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,38 +9,62 @@
 import UIKit
 
 class InterestCollectionViewCell: UICollectionViewCell {
-    var imgName: [String?] = ["","",""] {
+    var imgName: String? {
         
         didSet{
-            updateUI()
+            
+            if let imgName = imgName {
+                
+                interestImg1.image = UIImage(named: imgName)
+                
+            }
+//            updateUI()
         }
     }
     
-    var tagName: [String?] = ["","",""] {
+    var tagName: String? {
         
         didSet{
-            updateUI()
+            
+            if let tagName = tagName {
+                
+                interestName1.text = tagName
+                
+            }
+//            updateUI()
         }
     }
     
-    var tagBack: [String?] = ["","",""] {
+    var tagBack: String? {
         
         didSet{
-            updateUI()
+            
+            if let tagBack = tagBack {
+                
+                backImg1.image = UIImage(named: tagBack)
+                
+            }
+//            updateUI()
         }
     }
     
-    var tagEngName: [String?] = ["","",""] {
+    var tagEngName: String? {
         
         didSet{
-            updateUI()
+            
+            if let tagEngName = tagEngName {
+                
+                engName1.text = tagEngName
+                
+            }
+//            updateUI()
         }
     }
     
     var didSelectCell: Bool = false {
         
         didSet{
-            updateUI()
+//            updateUI()
         }
     }
     
@@ -103,7 +127,7 @@ class InterestCollectionViewCell: UICollectionViewCell {
         engName1.text = nil
         engName1.isHidden = true
         //Set new data
-        if let Iname1: String = imgName[0] {
+        if let Iname1: String = imgName {
             
             interestImg1.image = UIImage(named: Iname1)
         }
@@ -111,12 +135,12 @@ class InterestCollectionViewCell: UICollectionViewCell {
         {
             backImg1.image = UIImage(named: Bname1)
         }*/
-        if let Tname1: String = tagName[0] {
+        if let Tname1: String = tagName {
             
             if(Tname1 != ""){interestName1.isHidden = false}
             interestName1.text = Tname1
         }
-        if let Ename1: String = tagEngName[0] {
+        if let Ename1: String = tagEngName {
             
             if(Ename1 != ""){engName1.isHidden = false}
             engName1.text = Ename1

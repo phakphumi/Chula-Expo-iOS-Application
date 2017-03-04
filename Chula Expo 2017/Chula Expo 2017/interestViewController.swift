@@ -54,30 +54,33 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var collectionView: UICollectionView!
     var tagList : [tag] = [
-        tag(imgName: "heartIcon",  tagName: "พระราชกรณียกิจ",  tagBack: "technology",  tagEngName: "Royal Duties"),
-        tag(imgName: "heartIcon",  tagName: "ไทยแลนด์ 4.0",  tagBack: "technology",  tagEngName: "Thailand 4.0"),
-        tag(imgName: "heartIcon",  tagName: "พลังงาน",  tagBack: "technology",  tagEngName: "Energy"),
-        tag(imgName: "heartIcon",  tagName: "สิ่งประดิษฐ์",  tagBack: "technology",  tagEngName: "Invention"),
-        tag(imgName: "heartIcon",  tagName: "การออกแบบ",  tagBack: "technology",  tagEngName: "Design"),
-        tag(imgName: "heartIcon",  tagName: "ไอที",  tagBack: "technology",  tagEngName: "IT"),
-        tag(imgName: "heartIcon",  tagName: "การแพทย์",  tagBack: "technology",  tagEngName: "Medication"),
-        tag(imgName: "heartIcon",  tagName: "ร่างกาย",  tagBack: "technology",  tagEngName: "Body"),
-        tag(imgName: "heartIcon",  tagName: "จิตใจ",  tagBack: "technology",  tagEngName: "Mind"),
-        tag(imgName: "heartIcon",  tagName: "สิ่งแวดล้อม",  tagBack: "technology",  tagEngName: "Environment"),
-        tag(imgName: "heartIcon",  tagName: "สัตว์และพันธุ์พืช",  tagBack: "technology",  tagEngName: "Life"),
-        tag(imgName: "heartIcon",  tagName: "อาหารและน้ำ",  tagBack: "technology",  tagEngName: "Food & Water"),
-        tag(imgName: "heartIcon",  tagName: "ความงาม",  tagBack: "technology",  tagEngName: "Beauty"),
-        tag(imgName: "heartIcon",  tagName: "คุณภาพชีวิต",  tagBack: "technology",  tagEngName: "Quality of Life"),
-        tag(imgName: "heartIcon",  tagName: "สังคมผู้สูงอายุ",  tagBack: "technology",  tagEngName: "Aging Society"),
-        tag(imgName: "heartIcon",  tagName: "เศรษฐกิจ",  tagBack: "technology",  tagEngName: "Economy"),
-        tag(imgName: "heartIcon",  tagName: "ชุมชน",  tagBack: "technology",  tagEngName: "Community"),
-        tag(imgName: "heartIcon",  tagName: "ปัญหาสังคม",  tagBack: "technology",  tagEngName: "Social Issues"),
-        tag(imgName: "heartIcon",  tagName: "การศึกษา",  tagBack: "technology",  tagEngName: "Education"),
-        tag(imgName: "heartIcon",  tagName: "การสื่อสาร",  tagBack: "technology",  tagEngName: "Communication"),
-        tag(imgName: "heartIcon",  tagName: "การขนส่ง",  tagBack: "technology",  tagEngName: "Transportation"),
-        tag(imgName: "heartIcon",  tagName: "ภูมิปัญญาไทย",  tagBack: "technology",  tagEngName: "Thai"),
-        tag(imgName: "heartIcon",  tagName: "ศิลปวัฒนธรรม",  tagBack: "technology",  tagEngName: "Art & Culture"),
-        tag(imgName: "heartIcon",  tagName: "กฎหมาย",  tagBack: "technology",  tagEngName: "Law")
+        tag(imgName: "1i",  tagName: "พลังงาน",  tagBack: "1",  tagEngName: "Energy"),
+        tag(imgName: "2i",  tagName: "สังคมผู้สูงอายุ",  tagBack: "2",  tagEngName: "Ageing Society"),
+        tag(imgName: "3i",  tagName: "ร่างกาย",  tagBack: "3",  tagEngName: "Body"),
+        tag(imgName: "4i",  tagName: "จิตใจ",  tagBack: "4",  tagEngName: "Mind"),
+        tag(imgName: "5i",  tagName: "ปัญหาสังคม",  tagBack: "5",  tagEngName: "Social Issues"),
+        tag(imgName: "6i",  tagName: "สิ่งประดิษฐ์",  tagBack: "6",  tagEngName: "Invention"),
+        tag(imgName: "7i",  tagName: "คุณภาพชีวิต",  tagBack: "7",  tagEngName: "Quality of Life"),
+        tag(imgName: "8i",  tagName: "อาหารและการเกษตร",  tagBack: "8",  tagEngName: "Food & Agriculture"),
+        tag(imgName: "9i",  tagName: "ชุมชน",  tagBack: "9",  tagEngName: "Community"),
+        tag(imgName: "10i",  tagName: "ศิลปวัฒนธรรม",  tagBack: "10",  tagEngName: "Art & Culture"),
+        tag(imgName: "11i",  tagName: "การแพทย์",  tagBack: "11",  tagEngName: "Medication"),
+        tag(imgName: "12i",  tagName: "เศรษฐกิจ",  tagBack: "12",  tagEngName: "Economy"),
+        tag(imgName: "13i",  tagName: "การขนส่ง",  tagBack: "13",  tagEngName: "Transportation"),
+        tag(imgName: "14i",  tagName: "เทคโนโลยี",  tagBack: "14",  tagEngName: "Technology"),
+        tag(imgName: "15i",  tagName: "สิ่งแวดล้อม",  tagBack: "15",  tagEngName: "Environment"),
+        tag(imgName: "16i",  tagName: "ภูมิปัญญาไทย",  tagBack: "16",  tagEngName: "Thai Wisdom"),
+        tag(imgName: "17i",  tagName: "การออกแบบ",  tagBack: "17",  tagEngName: "Design"),
+        tag(imgName: "18i",  tagName: "กฎหมาย",  tagBack: "18",  tagEngName: "Law"),
+        tag(imgName: "19i",  tagName: "การศึกษา",  tagBack: "19",  tagEngName: "Education"),
+        tag(imgName: "20i",  tagName: "พระราชกรณียกิจ",  tagBack: "20",  tagEngName: "Royal Duties"),
+        tag(imgName: "21i",  tagName: "ความงาม",  tagBack: "21",  tagEngName: "Beauty"),
+        tag(imgName: "22i",  tagName: "สัตว์และพันธุ์พืช",  tagBack: "22",  tagEngName: "Life"),
+        tag(imgName: "23i",  tagName: "การสื่อสาร",  tagBack: "23",  tagEngName: "Communication"),
+        tag(imgName: "24i",  tagName: "กีฬา",  tagBack: "24",  tagEngName: "Sport"),
+        tag(imgName: "25i",  tagName: "วิทยาศาสตร์",  tagBack: "25",  tagEngName: "Science"),
+        tag(imgName: "26i",  tagName: "บันเทิง",  tagBack: "26",  tagEngName: "Entertainment"),
+        tag(imgName: "27i",  tagName: "ต่างประเทศ",  tagBack: "27",  tagEngName: "International Issue")
     ]
     
     
@@ -121,15 +124,31 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var check = false
-        for i in 0...tagList.count {
-            // print(selectedList[i])
-            if selectedList[i] {
-                check = true
-            }
-        }
+//        var check = false
+//        for i in 0...tagList.count {
+//            // print(selectedList[i])
+//            if selectedList[i] {
+//                check = true
+//            }
+//        }
         
         if segue.identifier == "toFaculty" {
+            
+            var interested: String = ""
+            
+            for (index, interesting) in interestList.enumerated() {
+                
+                if index == interestList.endIndex - 1 {
+                    
+                    interested += "\(interesting.tagEngName)"
+                    
+                } else {
+                    
+                    interested += "\(interesting.tagEngName),"
+                    
+                }
+                
+            }
 
             let destination = segue.destination as! interestFacityViewController
             
@@ -142,8 +161,8 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
             destination.fbToken = self.fbToken
             destination.fbImageProfileUrl = self.fbImageProfileUrl
             destination.fbImage = self.fbImage
+            destination.interested = interested
             destination.managedObjectContext = self.managedObjectContext
-            
             
             if self.userType == "Academic" {
                 
@@ -186,15 +205,15 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         if let cell = cell as? InterestCollectionViewCell {
             
             if tagList.count > (indexPath.row) {
-                cell.imgName[0] = tagList[(indexPath.row)].imgName
-                cell.tagName[0] = tagList[(indexPath.row)].tagName
-                cell.tagBack[0] = tagList[(indexPath.row)].tagBack
-                cell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                cell.imgName = tagList[(indexPath.row)].imgName
+                cell.tagName = tagList[(indexPath.row)].tagName
+                cell.tagBack = tagList[(indexPath.row)].tagBack
+                cell.tagEngName = tagList[(indexPath.row)].tagEngName
                 cell.didSelectCell = selectedList[indexPath.row]
                 
     
             }else{
-                cell.tagName[0] = ""
+                cell.tagName = ""
             }
             return cell
         }
@@ -256,6 +275,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
     var interestList: [tag] = []
     @IBAction func next(_ sender: UIButton) {
         var check = false
+        interestList.removeAll()
         for i in 0...tagList.count {
            // print(selectedList[i])
             if selectedList[i] {

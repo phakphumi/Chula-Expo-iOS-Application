@@ -18,9 +18,44 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     @IBOutlet weak var button4: UIButton!
     @IBOutlet weak var button5: UIButton!
 
+    var dateForDefault: Int = 1
     let dateComp = NSDateComponents()
+    let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 13, minuite: 10)
     var selectionIndicatorView: UIView = UIView()
-    var selectedDate: Int = 1
+    
+    var selectedDate: Int = 1{
+        didSet{
+            selectSection = nil
+            switch selectedDate {
+            case 1:
+                startDate = Date.day1
+                endDate = Date.day2
+            case 2:
+                startDate = Date.day2
+                endDate = Date.day3
+            case 3:
+                startDate = Date.day3
+                endDate = Date.day4
+            case 4:
+                startDate = Date.day4
+                endDate = Date.day5
+            case 5:
+                startDate = Date.day5
+                endDate = Date.day6
+            default:
+                startDate = Date.day1
+                endDate = Date.day2
+            }
+            updateUI()
+            tableView.reloadData()
+//            tableView.beginUpdates()
+//            tableView.endUpdates()
+        }
+    }
+    
+    var startDate = Date.day1
+    var endDate = Date.day2
+    
     var stageNo: Int? {
         
         didSet {
@@ -132,17 +167,19 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     fileprivate func updateUI(){
         if let context = managedObjectContext{
             if let stageNo = stageNo{
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-                request.predicate = NSPredicate(format: "stageNo == %i", stageNo)
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+                
+                request.predicate = NSPredicate(format: "toActivity.end >= %@ AND toActivity.start <= %@ AND stage == %i", startDate as NSDate, endDate as NSDate, stageNo)
+                
                 request.sortDescriptors = [NSSortDescriptor(
-                    key: "name",
-                    ascending: true
-//                    selector: #selector(NSDate.compare(_:))
+                    key: "toActivity.start",
+                    ascending: true,
+                    selector: #selector(NSDate.compare(_:))
                     )]
                 fetchedResultsController = NSFetchedResultsController(
                     fetchRequest: request,
                     managedObjectContext: context,
-                    sectionNameKeyPath: "name",
+                    sectionNameKeyPath: "activityId",
                     cacheName: nil
                 )
             }
@@ -157,6 +194,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedDate = dateForDefault
         self.navigationController?.navigationBar.isTranslucent = false
         var selectionIndicatorFrame : CGRect = CGRect()
         let sectionWidth = topTab.frame.width / 5
@@ -189,22 +227,36 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         if indexPath.row == 0{
             
             cell = tableView.dequeueReusableCell(withIdentifier: "StageEventCell", for: indexPath)
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? ActivityData{
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? StageActivity{
                     
                 var name: String?
                 var startTime: String?
                 var endTime: String?
+                var dotOption: Int = 0
+                
                 fetchData.managedObjectContext?.performAndWait {
                     
-                    name = fetchData.name
-                    if let startDate = fetchData.start{
-                        print("startDate  \(startDate.toThaiText())")
-                        startTime = startDate.toTimeText()
+                    name = fetchData.toActivity?.name
+                    if let sTime = fetchData.toActivity?.start{
+                        print("sTime  \(sTime.toThaiText())")
+                        startTime = sTime.toTimeText()
+                        
+                        if let eTime = fetchData.toActivity?.end{
+                            print("eTime  \(eTime.toThaiText())")
+                            endTime = eTime.toTimeText()
+                            if self.nowDate.isInRangeOf(start: sTime, end: eTime){
+                                dotOption = 1
+                            }
+                            else if self.nowDate.isLessThanDate(sTime){
+                                dotOption = 2
+                            }
+                            else if self.nowDate.isGreaterThanDate(eTime){
+                                dotOption = 0
+                            }
+                            
+                        }
                     }
-                    if let eTime = fetchData.end{
-                        print("endDate  \(eTime.toThaiText())")
-                        endTime = eTime.toTimeText()
-                    }
+                    
                     
                     
                 }
@@ -218,6 +270,17 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                     stageExpandableCell.name = name
                     stageExpandableCell.time = startTime
                     stageExpandableCell.endTime = ("-\(endTime ?? "")")
+                    
+                    switch dotOption {
+                    case 0:
+                        stageExpandableCell.runningDot.image = #imageLiteral(resourceName: "passedDot")
+                    case 1:
+                        stageExpandableCell.runningDot.image = #imageLiteral(resourceName: "runningDot")
+                    case 2:
+                        stageExpandableCell.runningDot.image = #imageLiteral(resourceName: "nextComingDot")
+                    default:
+                        stageExpandableCell.runningDot.image = #imageLiteral(resourceName: "passedDot")
+                    }
                 }
             }
         }
@@ -226,12 +289,12 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                 
             cell = tableView.dequeueReusableCell(withIdentifier: "stageDetail", for: indexPath)
             
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? ActivityData{
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? StageActivity{
                 
                 var desc: String?
                 fetchData.managedObjectContext?.performAndWait {
                     
-                    desc = fetchData.desc
+                    desc = fetchData.toActivity?.desc
                 }
                 
                 if let stageDetailCell = cell as? StageDetailCell{

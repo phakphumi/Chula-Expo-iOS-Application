@@ -21,6 +21,9 @@ class FirstViewController: MainCoreDataTableViewController {
             tableView.endUpdates()
         }
     }
+    
+    let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 13, minuite: 10)
+    
     let slideshowPageViewController = SlideshowPageViewController()
     
     @IBOutlet var homeTableView: UITableView!
@@ -201,12 +204,16 @@ class FirstViewController: MainCoreDataTableViewController {
                 if let activity = fetchActivityNowOnstage[indexPath.row-1] {
                     
                     stageCell.name = activity.name
-                    stageCell.toRound = activity.toRound
+                    
+                    if let sTime = activity.start, let eTime = activity.end{
+                         stageCell.time = ("\(sTime.toTimeText()) - \(eTime.toTimeText()) • แตะเพื่อดูกิจกรรมเพิ่มเติม")
+                    }
+                   
                     
                 }
                 else{
                     
-                    stageCell.name = "ไม่มีกิจกรรมบนเวทีในขณะนี้"
+                    stageCell.name = "ไม่พบกิจกรรมบนเวทีในขณะนี้"
                     stageCell.stage = indexPath.row
                 }
                 
@@ -317,6 +324,10 @@ class FirstViewController: MainCoreDataTableViewController {
                 if let stageNo = (sender as? StageCell)?.stage{
                     dest.stageNo = stageNo
                     dest.title = "Stage \(stageNo) Schedule"
+                    let day = nowDate.checkInday()
+                    if day > 0{
+                        dest.dateForDefault = day
+                    }
                 }
             }
         }

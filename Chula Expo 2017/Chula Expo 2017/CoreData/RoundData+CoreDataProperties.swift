@@ -87,6 +87,7 @@ extension Date {
     static var day3 = Date.from(year: 2017, month: 3, day: 17)
     static var day4 = Date.from(year: 2017, month: 3, day: 18)
     static var day5 = Date.from(year: 2017, month: 3, day: 19)
+    static var day6 = Date.from(year: 2017, month: 3, day: 20)
     
     static func from(year: Int, month: Int, day: Int) -> Date {
         
@@ -320,11 +321,30 @@ extension Date {
         if (start == nil || end == nil){
             return false
         }
-        print("condition \(start!.toThaiText()) - \(end!.toThaiText()) compareto \(self.toThaiText()))")
-        let cond1 = self.isLessThanDate(end!)
-        let cond2 = self.isGreaterThanDate(start!) || self.equalToDate(start!)
+//        print("condition \(start!.toThaiText()) - \(end!.toThaiText()) compareto \(self.toThaiText()))")
         return self.isLessThanDate(end!) && (self.isGreaterThanDate(start!) || self.equalToDate(start!))
         
+    }
+    
+    func checkInday() -> Int{
+        
+        if self.isInRangeOf(start: Date.day1, end: Date.day2){
+            return 1
+        }
+        else if self.isInRangeOf(start: Date.day2, end: Date.day3){
+            return 2
+        }
+        else if self.isInRangeOf(start: Date.day3, end: Date.day4){
+            return 3
+        }
+        else if self.isInRangeOf(start: Date.day4, end: Date.day5){
+            return 4
+        }
+        else if self.isInRangeOf(start: Date.day5, end: Date.day6){
+            return 5
+        }
+        
+        return 0
     }
 }
 

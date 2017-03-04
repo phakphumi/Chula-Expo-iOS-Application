@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var isFrameMove = false
     var activeField = UITextField()
@@ -48,8 +48,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     @IBOutlet var numberLabel: UILabel!
     
     @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var profileImageView: UIView!
-    @IBOutlet var cameraIconView: UIView!
     
     @IBOutlet var educationView: UIView!
     @IBOutlet var educationYearView: UIView!
@@ -70,7 +68,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addChangeProfileImageGesture()
+//        addChangeProfileImageGesture()
         initialValue()
         initialField()
         initialPicker()
@@ -93,8 +91,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         profileImage.layer.cornerRadius = profileImage.frame.height / 2
         profileImage.layer.masksToBounds = true
         
-        cameraIconView.layer.cornerRadius = cameraIconView.frame.height / 2
-        cameraIconView.layer.masksToBounds = true
+//        cameraIconView.layer.cornerRadius = cameraIconView.frame.height / 2
+//        cameraIconView.layer.masksToBounds = true
         
     }
     
@@ -330,28 +328,28 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
     }
     
-    private func addChangeProfileImageGesture() {
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.changeProfilePicture))
-        tapGestureRecognizer.numberOfTapsRequired = 1
-        profileImage.isUserInteractionEnabled = true
-        profileImage.addGestureRecognizer(tapGestureRecognizer)
-        
-    }
+//    private func addChangeProfileImageGesture() {
+//        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.changeProfilePicture))
+//        tapGestureRecognizer.numberOfTapsRequired = 1
+//        profileImage.isUserInteractionEnabled = true
+//        profileImage.addGestureRecognizer(tapGestureRecognizer)
+//        
+//    }
     
-    func changeProfilePicture() {
-        
-        let imagePickerController = UIImagePickerController()
-        
-        imagePickerController.delegate = self
-        
-        imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        imagePickerController.allowsEditing = false
-        
-        self.present(imagePickerController, animated: true, completion: nil)
-        
-    }
+//    func changeProfilePicture() {
+//        
+//        let imagePickerController = UIImagePickerController()
+//        
+//        imagePickerController.delegate = self
+//        
+//        imagePickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+//        
+//        imagePickerController.allowsEditing = false
+//        
+//        self.present(imagePickerController, animated: true, completion: nil)
+//        
+//    }
     
     private func initialValue() {
         

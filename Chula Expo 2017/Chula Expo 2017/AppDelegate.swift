@@ -26,17 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
         let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
         
-        let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
-        let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+//        let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+//        let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
         
-        let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
-        let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+//        let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+//        let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
         
         let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
         let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
         
-        let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
-        let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+//        let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+//        let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
         
         let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
         let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
@@ -56,10 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             
             try managedObjectContext.execute(requestDeleteZoneData)
-            try managedObjectContext.execute(requestDeleteImageData)
-            try managedObjectContext.execute(requestDeleteTagData)
+//            try managedObjectContext.execute(requestDeleteImageData)
+//            try managedObjectContext.execute(requestDeleteTagData)
             try managedObjectContext.execute(requestDeleteUserData)
-            try managedObjectContext.execute(requestDeleteVideoData)
+//            try managedObjectContext.execute(requestDeleteVideoData)
             try managedObjectContext.execute(requestDeletePlaceData)
             try managedObjectContext.execute(requestDeleteRoomData)
             try managedObjectContext.execute(requestDeleteFacilityData)

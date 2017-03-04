@@ -61,13 +61,6 @@ class InterestCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var didSelectCell: Bool = false {
-        
-        didSet{
-//            updateUI()
-        }
-    }
-    
     @IBOutlet weak var interestView1: UIView! {
         
         didSet{

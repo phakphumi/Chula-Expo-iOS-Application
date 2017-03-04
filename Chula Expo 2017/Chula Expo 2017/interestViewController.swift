@@ -209,9 +209,29 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 cell.tagName = tagList[(indexPath.row)].tagName
                 cell.tagBack = tagList[(indexPath.row)].tagBack
                 cell.tagEngName = tagList[(indexPath.row)].tagEngName
-                cell.didSelectCell = selectedList[indexPath.row]
+//                cell.didSelectCell = selectedList[indexPath.row]
                 
-    
+                if selectedList[indexPath.row] {
+                    cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x+1, y: cell.backImg1.frame.origin.y+1), size: CGSize(width: cell.backImg1.bounds.size.width-1,height: cell.backImg1.bounds.size.height-1))
+                    cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x+1, y: cell.engName1.frame.origin.y+1), size: CGSize(width: cell.engName1.bounds.size.width-1,height: cell.engName1.bounds.size.height-1))
+                    cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x+1, y: cell.interestImg1.frame.origin.y+1), size: CGSize(width: cell.interestImg1.bounds.size.width-1,height: cell.interestImg1.bounds.size.height-1))
+                    cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x+1, y: cell.interestName1.frame.origin.y+1), size: CGSize(width: cell.interestName1.bounds.size.width-1,height: cell.interestName1.bounds.size.height-1))
+                    cell.interestView1.layer.borderColor = UIColor.green.cgColor
+                    cell.interestView1.layer.borderWidth = 3
+                    cell.interestName1.textColor = UIColor.green
+                    cell.engName1.textColor = UIColor.green
+                }
+                else {
+                    cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x-1, y: cell.backImg1.frame.origin.y-1), size: CGSize(width: cell.backImg1.bounds.size.width+1,height: cell.backImg1.bounds.size.height+1))
+                    cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x-1, y: cell.engName1.frame.origin.y-1), size: CGSize(width: cell.engName1.bounds.size.width+1,height: cell.engName1.bounds.size.height+1))
+                    cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x-1, y: cell.interestImg1.frame.origin.y-1), size: CGSize(width: cell.interestImg1.bounds.size.width+1,height: cell.interestImg1.bounds.size.height+1))
+                    cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x-1, y: cell.interestName1.frame.origin.y-1), size: CGSize(width: cell.interestName1.bounds.size.width+1,height: cell.interestName1.bounds.size.height+1))
+                    cell.interestView1.layer.borderColor = UIColor.white.cgColor
+                    cell.interestView1.layer.borderWidth = 0
+                    cell.interestName1.textColor = UIColor.white
+                    cell.engName1.textColor = UIColor.white
+                }
+                
             }else{
                 cell.tagName = ""
             }
@@ -236,7 +256,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
         print("Selecr ", indexPath.row)
         if let cell = collectionView.cellForItem(at: indexPath) as? InterestCollectionViewCell{
             
-            cell.didSelectCell = selectedList[indexPath.row]
+//            cell.didSelectCell = selectedList[indexPath.row]
             if selectedList[indexPath.row] {
             cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x+1, y: cell.backImg1.frame.origin.y+1), size: CGSize(width: cell.backImg1.bounds.size.width-1,height: cell.backImg1.bounds.size.height-1))
             cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x+1, y: cell.engName1.frame.origin.y+1), size: CGSize(width: cell.engName1.bounds.size.width-1,height: cell.engName1.bounds.size.height-1))

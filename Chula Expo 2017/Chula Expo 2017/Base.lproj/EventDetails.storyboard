@@ -125,37 +125,37 @@
                                     <outlet property="bannerImage" destination="MF7-OP-AAz" id="oVn-Wh-VlH"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="202" id="Ew6-N7-E9y" customClass="EventHeaderTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="311" width="375" height="202"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="206" id="Ew6-N7-E9y" customClass="EventHeaderTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="311" width="375" height="206"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ew6-N7-E9y" id="1Tc-TV-iiR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTo-8I-vGq">
-                                            <rect key="frame" x="8" y="16" width="359" height="178"/>
+                                            <rect key="frame" x="8" y="16" width="359" height="182"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kb-IV6">
-                                                    <rect key="frame" x="10" y="5.5" width="343" height="32"/>
+                                                    <rect key="frame" x="18" y="12" width="335" height="32"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapIcon" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-oO-mdK">
-                                                    <rect key="frame" x="14" y="51.5" width="10" height="10"/>
+                                                    <rect key="frame" x="18" y="58" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="PQd-am-L3g"/>
                                                         <constraint firstAttribute="height" constant="10" id="gt7-Ft-naJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้อง 204 ชั้น 2 ตึก 3 คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-V5-gqe">
-                                                    <rect key="frame" x="32" y="45.5" width="319" height="22.5"/>
-                                                    <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="36" y="52" width="315" height="21"/>
+                                                    <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="13"/>
+                                                    <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pLw-Wg-8pN">
-                                                    <rect key="frame" x="32" y="74" width="319" height="29"/>
+                                                    <rect key="frame" x="36" y="79" width="315" height="29"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="JLz-Jn-H4F"/>
@@ -178,7 +178,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="15"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
-                                                                        <nil key="textColor"/>
+                                                                        <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
@@ -188,40 +188,41 @@
                                                     </cells>
                                                 </collectionView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vI0-5w-NOb">
-                                                    <rect key="frame" x="13" y="111" width="333" height="55"/>
+                                                    <rect key="frame" x="20" y="120" width="319" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนใจ Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN5-7p-1Pd">
-                                                            <rect key="frame" x="59" y="5.5" width="80.5" height="27"/>
-                                                            <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนใจกิจกรรม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN5-7p-1Pd">
+                                                            <rect key="frame" x="52" y="5" width="87" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event นี้สามารถเข้าร่วมได้โดยไม่ต้องจอง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVs-f6-NZA">
-                                                            <rect key="frame" x="59" y="30" width="210" height="21"/>
-                                                            <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
-                                                            <nil key="textColor"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมนี้สามารถเข้าร่วมได้โดยไม่ต้องจอง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVs-f6-NZA">
+                                                            <rect key="frame" x="52" y="27.5" width="200" height="19"/>
+                                                            <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
+                                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starPink" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-aC-fAW">
-                                                            <rect key="frame" x="17" y="13" width="30" height="30"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starPink" translatesAutoresizingMaskIntoConstraints="NO" id="PLY-aC-fAW">
+                                                            <rect key="frame" x="10" y="10.5" width="30" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="kl8-Yh-v6v"/>
-                                                                <constraint firstAttribute="height" constant="30" id="xf4-tc-vJP"/>
+                                                                <constraint firstAttribute="height" constant="30" id="99E-g8-pK5"/>
+                                                                <constraint firstAttribute="width" constant="30" id="HJz-Uv-xBB"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="ZN5-7p-1Pd" firstAttribute="leading" secondItem="PLY-aC-fAW" secondAttribute="trailing" constant="12" id="8Nz-ro-Fmo"/>
-                                                        <constraint firstAttribute="height" constant="55" id="F6x-DZ-mwy"/>
-                                                        <constraint firstItem="PLY-aC-fAW" firstAttribute="centerY" secondItem="vI0-5w-NOb" secondAttribute="centerY" id="KzA-jC-sRL"/>
-                                                        <constraint firstItem="ZN5-7p-1Pd" firstAttribute="centerY" secondItem="PLY-aC-fAW" secondAttribute="centerY" constant="-9" id="Sh1-92-GW7"/>
-                                                        <constraint firstItem="IVs-f6-NZA" firstAttribute="leading" secondItem="ZN5-7p-1Pd" secondAttribute="leading" id="Unh-22-505"/>
-                                                        <constraint firstItem="IVs-f6-NZA" firstAttribute="centerY" secondItem="PLY-aC-fAW" secondAttribute="centerY" constant="12" id="Yxt-uA-Yh5"/>
+                                                        <constraint firstItem="IVs-f6-NZA" firstAttribute="leading" secondItem="PLY-aC-fAW" secondAttribute="trailing" constant="12" id="5fw-JV-5nA"/>
+                                                        <constraint firstItem="ZN5-7p-1Pd" firstAttribute="leading" secondItem="PLY-aC-fAW" secondAttribute="trailing" constant="12" id="ALu-WI-HKN"/>
+                                                        <constraint firstAttribute="height" priority="998" constant="50" id="F6x-DZ-mwy"/>
+                                                        <constraint firstItem="PLY-aC-fAW" firstAttribute="centerY" secondItem="vI0-5w-NOb" secondAttribute="centerY" id="adz-If-0Hw"/>
+                                                        <constraint firstItem="IVs-f6-NZA" firstAttribute="centerY" secondItem="PLY-aC-fAW" secondAttribute="centerY" constant="11" id="mfy-RZ-mqB"/>
+                                                        <constraint firstItem="ZN5-7p-1Pd" firstAttribute="centerY" secondItem="PLY-aC-fAW" secondAttribute="centerY" constant="-8" id="nTF-ql-71E"/>
+                                                        <constraint firstItem="PLY-aC-fAW" firstAttribute="leading" secondItem="vI0-5w-NOb" secondAttribute="leading" constant="10" id="wyq-DA-0EV"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="UBT-Ai-E33">
-                                                    <rect key="frame" x="14" y="76" width="10" height="10"/>
+                                                    <rect key="frame" x="18" y="81" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="17E-71-j0H"/>
                                                         <constraint firstAttribute="height" constant="10" id="9s6-2n-PDA"/>
@@ -231,24 +232,23 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="pLw-Wg-8pN" secondAttribute="trailing" constant="8" id="249-lK-vJG"/>
-                                                <constraint firstItem="vuV-oO-mdK" firstAttribute="leading" secondItem="KqX-kb-IV6" secondAttribute="leading" constant="4" id="2ua-bP-oaN"/>
+                                                <constraint firstItem="vuV-oO-mdK" firstAttribute="leading" secondItem="KqX-kb-IV6" secondAttribute="leading" id="2ua-bP-oaN"/>
                                                 <constraint firstItem="UBT-Ai-E33" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vuV-oO-mdK" secondAttribute="bottom" constant="8" id="Cro-MR-gtp"/>
                                                 <constraint firstAttribute="trailing" secondItem="mRi-V5-gqe" secondAttribute="trailing" constant="8" id="Dmi-Zb-pa4"/>
-                                                <constraint firstItem="KqX-kb-IV6" firstAttribute="leading" secondItem="FTo-8I-vGq" secondAttribute="leading" constant="10" id="HSx-MA-oHL"/>
+                                                <constraint firstItem="KqX-kb-IV6" firstAttribute="leading" secondItem="FTo-8I-vGq" secondAttribute="leading" constant="18" id="HSx-MA-oHL"/>
                                                 <constraint firstItem="UBT-Ai-E33" firstAttribute="top" secondItem="mRi-V5-gqe" secondAttribute="bottom" constant="8" id="IlW-p6-h35"/>
                                                 <constraint firstItem="UBT-Ai-E33" firstAttribute="leading" secondItem="vuV-oO-mdK" secondAttribute="leading" id="KT5-ZR-aV7"/>
                                                 <constraint firstItem="pLw-Wg-8pN" firstAttribute="leading" secondItem="UBT-Ai-E33" secondAttribute="trailing" constant="8" id="Kg1-CC-h0z"/>
                                                 <constraint firstItem="pLw-Wg-8pN" firstAttribute="top" secondItem="UBT-Ai-E33" secondAttribute="top" constant="-2" id="N0B-uC-zRA"/>
                                                 <constraint firstItem="KqX-kb-IV6" firstAttribute="top" secondItem="FTo-8I-vGq" secondAttribute="top" priority="750" constant="12" id="PdH-qK-u5L"/>
-                                                <constraint firstItem="vI0-5w-NOb" firstAttribute="leading" secondItem="FTo-8I-vGq" secondAttribute="leading" constant="13" id="Wgx-sW-1Kb"/>
+                                                <constraint firstItem="vI0-5w-NOb" firstAttribute="leading" secondItem="FTo-8I-vGq" secondAttribute="leading" constant="20" id="Wgx-sW-1Kb"/>
                                                 <constraint firstAttribute="trailing" secondItem="KqX-kb-IV6" secondAttribute="trailing" constant="6" id="Zul-Km-caP"/>
-                                                <constraint firstItem="PLY-aC-fAW" firstAttribute="leading" secondItem="FTo-8I-vGq" secondAttribute="leading" constant="30" id="bQ3-Sh-oj2"/>
                                                 <constraint firstItem="mRi-V5-gqe" firstAttribute="top" secondItem="vuV-oO-mdK" secondAttribute="top" constant="-6" id="iTg-gT-KHs"/>
                                                 <constraint firstItem="vuV-oO-mdK" firstAttribute="top" secondItem="KqX-kb-IV6" secondAttribute="bottom" constant="14" id="jxW-2G-iHS"/>
-                                                <constraint firstAttribute="trailing" secondItem="vI0-5w-NOb" secondAttribute="trailing" constant="13" id="nD8-xj-Xe7"/>
-                                                <constraint firstAttribute="bottom" secondItem="vI0-5w-NOb" secondAttribute="bottom" constant="12" id="nUg-gb-AqY"/>
+                                                <constraint firstAttribute="trailing" secondItem="vI0-5w-NOb" secondAttribute="trailing" constant="20" id="nD8-xj-Xe7"/>
+                                                <constraint firstAttribute="bottom" secondItem="vI0-5w-NOb" secondAttribute="bottom" priority="997" constant="12" id="nUg-gb-AqY"/>
                                                 <constraint firstItem="mRi-V5-gqe" firstAttribute="leading" secondItem="vuV-oO-mdK" secondAttribute="trailing" constant="8" id="soO-Kj-KMZ"/>
-                                                <constraint firstItem="vI0-5w-NOb" firstAttribute="top" secondItem="pLw-Wg-8pN" secondAttribute="bottom" constant="8" id="tK5-Hs-kRv"/>
+                                                <constraint firstItem="vI0-5w-NOb" firstAttribute="top" secondItem="pLw-Wg-8pN" secondAttribute="bottom" priority="999" constant="12" id="tK5-Hs-kRv"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -271,7 +271,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DescCell" rowHeight="160" id="OGt-fA-4Fb" customClass="DescTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="513" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="517" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGt-fA-4Fb" id="XKe-Jv-kWZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
@@ -281,9 +281,9 @@
                                             <rect key="frame" x="8" y="0.0" width="359" height="160"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZt-BE-kb1">
-                                                    <rect key="frame" x="8" y="10" width="343" height="142"/>
+                                                    <rect key="frame" x="8" y="10" width="346" height="142"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <string key="text">ปกติทุกคนมีขั้นตอนการทำความสะอาดบ้าน คอนโดฯ หรือที่อยู่อาศัยกันอย่างไรบ้าง หลายคนคงตอบเหมือนกันว่าต้องเริ่มจากการกวาดบ้าน เพื่อกำจัดฝุ่นที่อยู่บนพื้นออกให้หมดก่อน ซึ่งแน่นอนว่าการกวาดบ้านมันก็ไม่ใช่เรื่องง่ายๆเลย ถ้าเราไม่มีอุปกรณ์ดีๆ เราก็ไม่สามารถเก็บฝุ่นผงจากซอกหลืบได้ จึงเป็น</string>
+                                                    <mutableString key="text">ปกติทุกคนมีขั้นตอนการทำความสะอาดบ้าน คอนโดฯ หรือที่อยู่อาศัยกันอย่างไรบ้าง หลายคนคงตอบเหมือนกันว่าต้องเริ่มจากการกวาดบ้าน เพื่อกำจัดฝุ่นที่อยู่บนพื้นออกให้หมดก่อน ซึ่งแน่นอนว่าการกวาดบ้านมันก็ไม่ใช่เรื่องง่ายๆเลย ถ้าเราไม่มีอุปกรณ์ดีๆ เราก็ไม่สามารถเก็บฝุ่นผงจากซอกหลืบได้ จึงเป็น</mutableString>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -292,7 +292,7 @@
                                             <constraints>
                                                 <constraint firstItem="FZt-BE-kb1" firstAttribute="top" secondItem="MbJ-me-ZCC" secondAttribute="top" constant="10" id="4dd-Sr-EFX"/>
                                                 <constraint firstAttribute="bottom" secondItem="FZt-BE-kb1" secondAttribute="bottom" constant="8" id="FwR-yu-uLV"/>
-                                                <constraint firstAttribute="trailing" secondItem="FZt-BE-kb1" secondAttribute="trailing" constant="8" id="V2S-WN-Kdf"/>
+                                                <constraint firstAttribute="trailing" secondItem="FZt-BE-kb1" secondAttribute="trailing" constant="5" id="V2S-WN-Kdf"/>
                                                 <constraint firstItem="FZt-BE-kb1" firstAttribute="leading" secondItem="MbJ-me-ZCC" secondAttribute="leading" constant="8" id="xw3-m9-xwb"/>
                                             </constraints>
                                         </view>
@@ -311,50 +311,48 @@
                                     <outlet property="descText" destination="FZt-BE-kb1" id="tDv-V5-Ym3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DocCell" rowHeight="71" id="qkz-nY-gKD" customClass="DocumentTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="673" width="375" height="71"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DocCell" rowHeight="62" id="qkz-nY-gKD" customClass="DocumentTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="677" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qkz-nY-gKD" id="yYu-gx-h0R">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lyq-Rp-Gft">
-                                            <rect key="frame" x="8" y="0.0" width="359" height="71"/>
+                                            <rect key="frame" x="8" y="0.0" width="359" height="62"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-ya-LdP">
-                                                    <rect key="frame" x="13" y="8" width="333" height="55"/>
+                                                    <rect key="frame" x="20" y="0.0" width="319" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdfRed" translatesAutoresizingMaskIntoConstraints="NO" id="3Yn-ye-Pjo">
-                                                            <rect key="frame" x="17" y="12" width="30" height="30"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdfRed" translatesAutoresizingMaskIntoConstraints="NO" id="3Yn-ye-Pjo">
+                                                            <rect key="frame" x="10" y="10" width="30" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="Nw1-fI-znN"/>
-                                                                <constraint firstAttribute="width" secondItem="3Yn-ye-Pjo" secondAttribute="height" multiplier="1:1" id="kRI-eD-Ygy"/>
+                                                                <constraint firstAttribute="height" constant="30" id="FjM-v1-z5e"/>
+                                                                <constraint firstAttribute="width" constant="30" id="dZP-7f-FTG"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ดาวน์โหลดรายละเอียดเพิ่มเติม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p31-PF-upb">
-                                                            <rect key="frame" x="59" y="14" width="262" height="27"/>
-                                                            <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
+                                                            <rect key="frame" x="52" y="12.5" width="192.5" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="p31-PF-upb" secondAttribute="trailing" constant="12" id="F21-4O-gSN"/>
-                                                        <constraint firstAttribute="height" constant="55" id="IFS-bu-P4F"/>
-                                                        <constraint firstItem="p31-PF-upb" firstAttribute="leading" secondItem="3Yn-ye-Pjo" secondAttribute="trailing" constant="12" id="KJh-Fy-mCI"/>
-                                                        <constraint firstItem="p31-PF-upb" firstAttribute="centerY" secondItem="3Yn-ye-Pjo" secondAttribute="centerY" id="eKS-47-aKR"/>
+                                                        <constraint firstItem="3Yn-ye-Pjo" firstAttribute="leading" secondItem="0dy-ya-LdP" secondAttribute="leading" constant="10" id="Vof-YN-UAv"/>
+                                                        <constraint firstItem="3Yn-ye-Pjo" firstAttribute="centerY" secondItem="0dy-ya-LdP" secondAttribute="centerY" id="emt-ts-QJr"/>
+                                                        <constraint firstItem="p31-PF-upb" firstAttribute="leading" secondItem="0dy-ya-LdP" secondAttribute="leading" constant="52" id="mDz-fh-ZBa"/>
+                                                        <constraint firstItem="p31-PF-upb" firstAttribute="centerY" secondItem="3Yn-ye-Pjo" secondAttribute="centerY" id="vXR-Co-Ile"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="3Yn-ye-Pjo" firstAttribute="centerY" secondItem="Lyq-Rp-Gft" secondAttribute="centerY" id="2h9-da-dTK"/>
-                                                <constraint firstItem="0dy-ya-LdP" firstAttribute="top" secondItem="Lyq-Rp-Gft" secondAttribute="top" constant="8" id="c8R-bM-cHu"/>
-                                                <constraint firstAttribute="bottom" secondItem="0dy-ya-LdP" secondAttribute="bottom" constant="8" id="ezn-Yt-UT1"/>
-                                                <constraint firstItem="0dy-ya-LdP" firstAttribute="leading" secondItem="Lyq-Rp-Gft" secondAttribute="leading" constant="13" id="lGC-Hv-hEB"/>
-                                                <constraint firstItem="3Yn-ye-Pjo" firstAttribute="leading" secondItem="Lyq-Rp-Gft" secondAttribute="leading" constant="30" id="ma1-Ry-WQq"/>
-                                                <constraint firstAttribute="trailing" secondItem="0dy-ya-LdP" secondAttribute="trailing" constant="13" id="xT7-dm-LVx"/>
+                                                <constraint firstItem="0dy-ya-LdP" firstAttribute="top" secondItem="Lyq-Rp-Gft" secondAttribute="top" id="c8R-bM-cHu"/>
+                                                <constraint firstAttribute="bottom" secondItem="0dy-ya-LdP" secondAttribute="bottom" constant="12" id="ezn-Yt-UT1"/>
+                                                <constraint firstItem="0dy-ya-LdP" firstAttribute="leading" secondItem="Lyq-Rp-Gft" secondAttribute="leading" constant="20" id="lGC-Hv-hEB"/>
+                                                <constraint firstAttribute="trailing" secondItem="0dy-ya-LdP" secondAttribute="trailing" constant="20" id="xT7-dm-LVx"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -372,18 +370,18 @@
                                     <outlet property="iconImage" destination="3Yn-ye-Pjo" id="BCN-OX-f9n"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GalleryCell" rowHeight="68" id="ag5-NI-HPH" customClass="GalleryTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="744" width="375" height="68"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GalleryCell" rowHeight="71" id="ag5-NI-HPH" customClass="GalleryTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="739" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ag5-NI-HPH" id="BjB-pC-4a5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jri-wC-02h">
-                                            <rect key="frame" x="8" y="0.0" width="359" height="63"/>
+                                            <rect key="frame" x="8" y="0.0" width="359" height="66"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QKq-HZ-Csp">
-                                                    <rect key="frame" x="8" y="8" width="343" height="47"/>
+                                                    <rect key="frame" x="8" y="8" width="343" height="50"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="kmg-97-P9L">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -393,7 +391,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="imageCell" id="WXb-YL-pYz">
-                                                            <rect key="frame" x="5" y="0.0" width="50" height="47"/>
+                                                            <rect key="frame" x="5" y="2" width="50" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="47"/>
@@ -436,7 +434,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapsCell" rowHeight="230" id="lt2-hg-nCh" customClass="MapTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="812" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="810" width="375" height="230"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lt2-hg-nCh" id="cdi-L1-9LZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
@@ -473,7 +471,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TagCell" rowHeight="45" id="ZUt-0T-0wW" customClass="TagTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1042" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="1040" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUt-0T-0wW" id="UGY-hx-irQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
@@ -488,13 +486,13 @@
                                                         <constraint firstAttribute="width" secondItem="xrC-kc-0rf" secondAttribute="height" multiplier="1:1" id="AR1-Z2-st7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEY-Rf-skA">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEY-Rf-skA">
                                                     <rect key="frame" x="38" y="0.0" width="306" height="25"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="fEY-Rf-skA" secondAttribute="height" multiplier="306:25" id="AXx-PA-g7i"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Yku-au-1pe">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Yku-au-1pe">
                                                         <size key="itemSize" width="60" height="25"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>

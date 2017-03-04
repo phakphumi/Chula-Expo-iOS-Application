@@ -296,7 +296,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if reservable {
         
             titleIcon.image = #imageLiteral(resourceName: "ticketBlue")
-            titleText.text = "จอง EVENT นี้"
+            titleText.text = "จองกิจกรรมนี้"
         
         }
         

@@ -591,22 +591,6 @@
             </objects>
             <point key="canvasLocation" x="2496.8000000000002" y="1041.2293853073463"/>
         </scene>
-        <!--fac-->
-        <scene sceneID="zfD-Fi-dDp">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="fac" storyboardName="Main" referencedIdentifier="fac" id="6bU-9f-eus" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vXH-ov-LOP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3255" y="1227"/>
-        </scene>
-        <!--tag-->
-        <scene sceneID="Nep-FI-G1L">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="tag" id="io4-iK-cfR" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ApN-2n-RwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3250" y="1267"/>
-        </scene>
         <!--EventSelect-->
         <scene sceneID="MTx-7Y-aoL">
             <objects>

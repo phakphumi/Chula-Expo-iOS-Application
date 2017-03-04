@@ -41,6 +41,13 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         }
         
     }
+    @IBAction func aboutUs(_ sender: UIButton) {
+        
+        let aboutView = storyboard?.instantiateViewController(withIdentifier: "aboutUs") as? AboutViewController
+        
+        tabBarController?.present(aboutView!, animated: true, completion: nil)
+        
+    }
     @IBAction func favoriteSoon(_ sender: UIButton) {
         
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")

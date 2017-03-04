@@ -157,6 +157,7 @@ extension Date {
         let year = NSCalendar.current.component(.year, from: self)
         let hour = NSCalendar.current.component(.hour, from: self)
         let minuite = NSCalendar.current.component(.minute, from: self)
+        let endDay = NSCalendar.current.component(.day, from: end)
         let endHour = NSCalendar.current.component(.hour, from: end)
         let endMin = NSCalendar.current.component(.minute, from: end)
         
@@ -169,7 +170,6 @@ extension Date {
         if endMin < 10{
             endMinuiteText = "0\(endMin)"
         }
-        
         var monthText = ""
         
         switch month {
@@ -186,8 +186,19 @@ extension Date {
         default:
             monthText = "ธันวาคม"
         }
+        var dayText = "\(day)"
         
-        return ("\(day) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
+        if endDay != day {
+            if day == 15 && endDay == 19{
+                dayText = "ทุกวัน"
+                return ("\(dayText) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
+                
+            } else {
+            dayText = ("\(dayText)-\(endDay)")
+            }
+        }
+        
+        return ("\(dayText) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
     }
 
     func toTimeText() -> String{

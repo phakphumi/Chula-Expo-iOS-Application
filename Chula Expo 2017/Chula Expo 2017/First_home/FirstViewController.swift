@@ -242,23 +242,39 @@ class FirstViewController: MainCoreDataTableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
             if let fetchData = (fetchedResultsControllerFeed?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
                 var name: String?
-                var toRound: NSSet?
                 var thumbnail: String?
                 var facity: String?
                 var activityId: String?
+                var time: String?
                 fetchData.managedObjectContext?.performAndWait{
                     name = fetchData.name
                     thumbnail = fetchData.thumbnailsUrl
                     facity = fetchData.faculty
-                    toRound = fetchData.toRound
+                    
                     activityId = fetchData.activityId
+                    if let stime = fetchData.start{
+                        if let eTime = fetchData.end{
+                            time = stime.toThaiText(withEnd: eTime)
+                        }
+                    }
+                    if let toRound = fetchData.toRound{
+                        if time != nil{
+                            if toRound.count > 0 {
+                                time = ("\(time!) + \(toRound.count) รอบ")
+                            }
+                        }
+                    }
                 }
 //                print("feedCell name == \(name)")
                 if let eventFeedCell = cell as? EventFeedCell{
 //                    print("feedCell name == \(name)")
                     eventFeedCell.manageObjectContext = managedObjectContext
-                    eventFeedCell.name = name
-                    eventFeedCell.toRound = toRound
+                    if name != nil{
+                        eventFeedCell.name = name
+                    }
+                    if time != nil{
+                        eventFeedCell.timeText = time
+                    }
                     eventFeedCell.thumbnail = thumbnail
                     eventFeedCell.facity = facity
                     eventFeedCell.activityId = activityId

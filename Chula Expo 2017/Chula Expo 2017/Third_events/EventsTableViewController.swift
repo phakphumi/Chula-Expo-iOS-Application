@@ -202,7 +202,7 @@ class EventsTableViewController: CoreDataTableViewController {
                     
                     eventCell.manageObjectContext = managedObjectContext
                     eventCell.name = name
-                    eventCell.toRound = toRound
+//                    eventCell.toRound = toRound
                     eventCell.thumbnail = thumbnail
                     eventCell.facity = facity
                     eventCell.activityId = activityId

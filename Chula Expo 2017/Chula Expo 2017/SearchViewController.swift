@@ -240,7 +240,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
               //  print("feedCell name == \(name)")
                 eventFeedCell.manageObjectContext = managedObjectContext
                 eventFeedCell.name = fetchActivity[indexPath.row].name
-                eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
+//                eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
                 eventFeedCell.thumbnail = fetchActivity[indexPath.row].thumbnailsUrl
                 eventFeedCell.facity = fetchActivity[indexPath.row].faculty
                 
@@ -304,7 +304,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                             eventFeedCell.manageObjectContext = managedObjectContext
                             eventFeedCell.name = name
-                            eventFeedCell.toRound = toRound
+//                            eventFeedCell.toRound = toRound
                             eventFeedCell.thumbnail = thumbnail
                             eventFeedCell.facity = facity
                             

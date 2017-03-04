@@ -321,6 +321,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             if time != nil{
                                 eventFeedCell.timeText = time
                             }
+                            eventFeedCell.eventTumbnailImage.image = #imageLiteral(resourceName: "defaultImage")
                             eventFeedCell.thumbnail = thumbnail
                             eventFeedCell.facity = facity
                             eventFeedCell.activityId = activityId

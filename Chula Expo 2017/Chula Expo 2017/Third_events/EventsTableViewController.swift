@@ -198,29 +198,50 @@ class EventsTableViewController: CoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
             
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? ActivityData {
+            
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? ActivityData{
                 
-                var activityId: String?
                 var name: String?
-                var toRound: NSSet?
                 var thumbnail: String?
+                var toRound: NSSet?
+                var facity: String?
+                var activityId: String?
+                var time: String?
                 
-                fetchData.managedObjectContext?.performAndWait {
-                    
+                fetchData.managedObjectContext?.performAndWait{
                     name = fetchData.name
-                    toRound = fetchData.toRound
                     thumbnail = fetchData.thumbnailsUrl
+                    facity = fetchData.faculty
+                    toRound = fetchData.toRound
+                    
                     activityId = fetchData.activityId
+                    if let stime = fetchData.start{
+                        if let eTime = fetchData.end{
+                            time = stime.toThaiText(withEnd: eTime)
+                        }
+                    }
+                    if let toRound = toRound{
+                        if time != nil{
+                            if toRound.count > 0 {
+                                time = ("\(time!) + \(toRound.count) รอบ")
+                            }
+                        }
+                    }
                 }
                 
-                if let eventCell = cell as? EventFeedCell {
-                    
-                    eventCell.manageObjectContext = managedObjectContext
-                    eventCell.name = name
-//                    eventCell.toRound = toRound
-                    eventCell.thumbnail = thumbnail
-                    eventCell.facity = facity
-                    eventCell.activityId = activityId
+                if let eventFeedCell = cell as? EventFeedCell{
+                    eventFeedCell.manageObjectContext = managedObjectContext
+                    if name != nil{
+                        eventFeedCell.name = name
+                    }
+                    if time != nil{
+                        eventFeedCell.timeText = time
+                    }
+                    eventFeedCell.eventTumbnailImage.image = #imageLiteral(resourceName: "defaultImage")
+                    eventFeedCell.thumbnail = thumbnail
+                    eventFeedCell.facity = facity
+                    eventFeedCell.activityId = activityId
+                    eventFeedCell.toRound = toRound
                 }
             }
         }

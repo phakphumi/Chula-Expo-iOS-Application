@@ -95,7 +95,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-OP-AAz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBig" translatesAutoresizingMaskIntoConstraints="NO" id="MF7-OP-AAz">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="281"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MF7-OP-AAz" secondAttribute="height" multiplier="375:281" id="L7P-hZ-9He"/>
@@ -197,7 +197,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event นี้สามารถเข้าร่วมได้โดยไม่ต้องจอง" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVs-f6-NZA">
-                                                            <rect key="frame" x="59" y="29.5" width="210" height="21"/>
+                                                            <rect key="frame" x="59" y="30" width="210" height="21"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -739,6 +739,7 @@
         <image name="calendarIcon" width="128" height="128"/>
         <image name="closeIcon" width="36" height="36"/>
         <image name="cross_white" width="12" height="12"/>
+        <image name="defaultBig" width="375" height="375"/>
         <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow" width="64" height="64"/>
         <image name="mapIcon" width="128" height="128"/>

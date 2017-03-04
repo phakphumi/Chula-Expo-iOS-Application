@@ -42,6 +42,7 @@ class CityCollectionViewCell: UICollectionViewCell {
         didSet{
             if let sub = sub{
                 subLabel.text = sub
+                subLabel.text = nil
             }
         }
     }

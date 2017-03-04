@@ -1115,6 +1115,7 @@ class APIController {
                                              shortName: shortName["en"] as? String ?? "",
                                              shortNameTh: shortName["th"] as? String ?? "",
                                              banner: result["banner"] as? String ?? "",
+                                             thumbnail: result["thumbnail"] as? String ?? "",
                                              desc: desc["en"] as? String ?? "",
                                              longitude: location["longitude"] as! Double,
                                              latitude: location["latitude"] as! Double,

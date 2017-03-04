@@ -35,14 +35,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="836-hJ-Ldy">
-                                <rect key="frame" x="137" y="469" width="46" height="30"/>
+                                <rect key="frame" x="137" y="518" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="NNG-St-L30" kind="show" id="0fr-SB-fsN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnX-iv-cce">
-                                <rect key="frame" x="243" y="469.5" width="74" height="30"/>
+                                <rect key="frame" x="243" y="518.5" width="74" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.30542900232474834" blue="0.42288477872157304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Buttonกดด">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -683,6 +683,34 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsv-rO-zYl">
+                                <rect key="frame" x="163" y="499" width="132" height="43"/>
+                                <color key="backgroundColor" red="0.17173078659999999" green="0.19096046689999999" blue="0.25320106739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dsv-rO-zYl" secondAttribute="height" multiplier="132:43" id="Bfs-KL-KaX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="19"/>
+                                <state key="normal" title="บันทึกข้อมูล">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="rrg-uN-Qbj" eventType="touchUpInside" id="cvD-9W-9NN"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-ZY-K1p">
+                                <rect key="frame" x="26" y="499" width="132" height="43"/>
+                                <color key="backgroundColor" red="0.3483977318" green="0.36393064260000002" blue="0.40960484740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MVb-ZY-K1p" secondAttribute="height" multiplier="132:43" id="jYA-cu-FcX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                <state key="normal" title="ยกเลิก">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="rrg-uN-Qbj" eventType="touchUpInside" id="RQz-Vh-hMj"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7c-K1-2Tg">
                                 <rect key="frame" x="26" y="499" width="269" height="43"/>
                                 <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -706,7 +734,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="MVb-ZY-K1p" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.4125" id="0fu-1N-ho8"/>
                             <constraint firstItem="cCG-Ra-xLw" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" id="2fP-AR-HL5"/>
+                            <constraint firstItem="MVb-ZY-K1p" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.83275" id="4Et-CW-0wP"/>
                             <constraint firstItem="heq-GW-oA1" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" id="4cV-3M-hRt"/>
                             <constraint firstItem="heq-GW-oA1" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.3943" id="4nl-3e-Ook"/>
                             <constraint firstItem="heq-GW-oA1" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.8533" id="5Px-m0-7Fs"/>
@@ -716,6 +746,7 @@
                             <constraint firstItem="rWO-Wb-zRA" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" id="8eC-HC-mFK"/>
                             <constraint firstItem="Abj-U5-Wfa" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="0.58" id="8qF-ck-zCC"/>
                             <constraint firstItem="rWO-Wb-zRA" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.845" id="AGD-Dd-wds"/>
+                            <constraint firstItem="dsv-rO-zYl" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.83275" id="Cf7-Gl-HRq"/>
                             <constraint firstItem="d2e-TM-dxr" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="0.9445" id="Cwr-Oz-HXx"/>
                             <constraint firstItem="UHP-dz-2PA" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.09445" id="HpY-kq-3wX"/>
                             <constraint firstItem="jbE-08-8lo" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" multiplier="1.432" id="Hra-li-3iI"/>
@@ -723,6 +754,7 @@
                             <constraint firstItem="UHP-dz-2PA" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.8533" id="MIE-CC-jhM"/>
                             <constraint firstItem="2hV-If-vgc" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" multiplier="0.56" id="Mc7-Z2-fe5"/>
                             <constraint firstItem="mCu-vQ-k4w" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.544" id="N8d-qP-ht1"/>
+                            <constraint firstItem="dsv-rO-zYl" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" multiplier="1.43125" id="OFa-g0-0Pz"/>
                             <constraint firstItem="mCu-vQ-k4w" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.3943" id="PdA-px-0Xr"/>
                             <constraint firstItem="Abj-U5-Wfa" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" id="RZJ-H5-isI"/>
                             <constraint firstItem="UHP-dz-2PA" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" id="Sps-Lr-0KX"/>
@@ -734,9 +766,11 @@
                             <constraint firstItem="cCG-Ra-xLw" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.8533" id="d7p-Rr-RBJ"/>
                             <constraint firstItem="VLm-d0-KmT" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" multiplier="1.568" id="dDz-LN-h7i"/>
                             <constraint firstItem="rWO-Wb-zRA" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="0.24" id="dj3-pV-Dc0"/>
+                            <constraint firstItem="MVb-ZY-K1p" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" multiplier="0.575" id="h2E-LM-ikz"/>
                             <constraint firstItem="zQN-18-b9X" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="0.944527" id="i3l-33-Hpf"/>
                             <constraint firstItem="Abj-U5-Wfa" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.34375" id="jKH-IB-JBy"/>
                             <constraint firstItem="J7c-K1-2Tg" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" id="mNM-6V-TY0"/>
+                            <constraint firstItem="dsv-rO-zYl" firstAttribute="width" secondItem="uPd-FB-cm8" secondAttribute="width" multiplier="0.4125" id="mXQ-4r-joB"/>
                             <constraint firstItem="J7c-K1-2Tg" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.832" id="rvo-mA-x0B"/>
                             <constraint firstItem="d2e-TM-dxr" firstAttribute="centerX" secondItem="uPd-FB-cm8" secondAttribute="centerX" multiplier="1.432" id="swi-Ag-FBv"/>
                             <constraint firstItem="cCG-Ra-xLw" firstAttribute="centerY" secondItem="uPd-FB-cm8" secondAttribute="centerY" multiplier="1.54423" id="xwP-mP-WI9"/>
@@ -746,6 +780,7 @@
                     </view>
                     <connections>
                         <outlet property="ageField" destination="QVy-B3-jQx" id="5t0-g0-zmw"/>
+                        <outlet property="cancelEdit" destination="MVb-ZY-K1p" id="KAb-zm-GgB"/>
                         <outlet property="careerField" destination="zBD-ay-Edm" id="JXV-A3-bQq"/>
                         <outlet property="careerView" destination="heq-GW-oA1" id="IAI-BZ-OrG"/>
                         <outlet property="educationField" destination="cIF-Bo-82m" id="KXD-eY-kY1"/>
@@ -759,6 +794,7 @@
                         <outlet property="nextButton" destination="J7c-K1-2Tg" id="qZG-zI-kiZ"/>
                         <outlet property="numberLabel" destination="zNk-aP-lsp" id="qEw-2O-vRS"/>
                         <outlet property="profileImage" destination="Abj-U5-Wfa" id="gs4-Y8-jYY"/>
+                        <outlet property="saveEdit" destination="dsv-rO-zYl" id="xac-fd-ymH"/>
                         <outlet property="schoolField" destination="h8X-gG-sZx" id="MaS-8O-OvN"/>
                         <outlet property="schoolView" destination="cCG-Ra-xLw" id="mqi-NV-e2W"/>
                         <segue destination="1cI-z6-raX" kind="show" identifier="toInterested" id="6Sk-ae-WEp"/>
@@ -766,12 +802,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJE-Ap-ozA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751.20000000000005" y="-562.66866566716647"/>
+            <point key="canvasLocation" x="-751.875" y="-563.02816901408448"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="jzS-1A-0HZ">
             <objects>
-                <tabBarController id="QME-Np-NQV" sceneMemberID="viewController">
+                <tabBarController id="QME-Np-NQV" customClass="TabBarViewController" customModule="Chula_Expo_2017" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="qUQ-1H-bi7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="C5o-RP-gIy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -789,6 +825,7 @@
                         <segue destination="QKQ-M8-HIg" kind="show" identifier="toSearch" id="qz9-RL-x8f"/>
                         <segue destination="1cI-z6-raX" kind="show" identifier="editTag" id="TO2-yU-nnK"/>
                         <segue destination="NNG-St-L30" kind="show" identifier="editFac" id="IwA-jx-m5S"/>
+                        <segue destination="rrg-uN-Qbj" kind="show" identifier="editInfo" id="AgV-hs-Pux"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLO-ng-9RH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1063,6 +1100,34 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2X-t8-xbD">
+                                <rect key="frame" x="162" y="494" width="130" height="48.5"/>
+                                <color key="backgroundColor" red="0.17173078659999999" green="0.19096046689999999" blue="0.25320106739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="j2X-t8-xbD" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="w5E-Xw-DvN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="19"/>
+                                <state key="normal" title="ถัดไป">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="1cI-z6-raX" eventType="touchUpInside" id="di0-sZ-O0g"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hY-S5-jXa">
+                                <rect key="frame" x="28" y="494" width="130" height="48.5"/>
+                                <color key="backgroundColor" red="0.34839773178100586" green="0.36393064260482788" blue="0.40960484743118286" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8hY-S5-jXa" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="qwO-9S-sNU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                <state key="normal" title="ยกเลิก">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="1cI-z6-raX" eventType="touchUpInside" id="mXw-Y3-byz"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbs-Dv-fge">
                                 <rect key="frame" x="28" y="494" width="264" height="48.5"/>
                                 <color key="backgroundColor" red="0.17173078656196594" green="0.19096046686172485" blue="0.25320106744766235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1082,25 +1147,34 @@
                             <constraint firstItem="Dbs-Dv-fge" firstAttribute="height" secondItem="q6c-49-8ib" secondAttribute="height" multiplier="0.85:10" id="3SA-Y8-y4Q"/>
                             <constraint firstItem="kL5-xc-L1H" firstAttribute="width" secondItem="q6c-49-8ib" secondAttribute="width" id="BMM-sa-yoc"/>
                             <constraint firstItem="kL5-xc-L1H" firstAttribute="centerY" secondItem="q6c-49-8ib" secondAttribute="centerY" multiplier="1.05" id="BmH-ZC-iNu"/>
+                            <constraint firstItem="8hY-S5-jXa" firstAttribute="centerX" secondItem="q6c-49-8ib" secondAttribute="centerX" multiplier="0.58125" id="Elo-BJ-m0f"/>
                             <constraint firstItem="Dbs-Dv-fge" firstAttribute="centerY" secondItem="q6c-49-8ib" secondAttribute="centerY" multiplier="18.25:10" id="Gx9-jq-kRG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="amI-Rg-r1m" secondAttribute="trailing" constant="-16" id="Keh-Jy-Aoa"/>
                             <constraint firstItem="Dbs-Dv-fge" firstAttribute="centerX" secondItem="q6c-49-8ib" secondAttribute="centerX" id="On0-k6-SvK"/>
                             <constraint firstItem="amI-Rg-r1m" firstAttribute="height" secondItem="q6c-49-8ib" secondAttribute="height" multiplier="2.25:10" id="WLc-IZ-zNp"/>
+                            <constraint firstItem="j2X-t8-xbD" firstAttribute="centerY" secondItem="q6c-49-8ib" secondAttribute="centerY" multiplier="1.82482" id="YBs-LE-q8O"/>
                             <constraint firstItem="amI-Rg-r1m" firstAttribute="leading" secondItem="q6c-49-8ib" secondAttribute="leadingMargin" constant="-16" id="a4J-x1-4R6"/>
                             <constraint firstItem="Dmo-N9-gEW" firstAttribute="top" secondItem="amI-Rg-r1m" secondAttribute="bottom" id="dJt-XK-o1r"/>
+                            <constraint firstItem="j2X-t8-xbD" firstAttribute="width" secondItem="q6c-49-8ib" secondAttribute="width" multiplier="0.40625" id="dgd-dl-gg1"/>
                             <constraint firstItem="yT4-DN-YBt" firstAttribute="centerX" secondItem="q6c-49-8ib" secondAttribute="centerX" id="eyj-6E-Dif"/>
                             <constraint firstItem="kL5-xc-L1H" firstAttribute="centerX" secondItem="q6c-49-8ib" secondAttribute="centerX" id="jGM-2g-xSV"/>
+                            <constraint firstItem="8hY-S5-jXa" firstAttribute="width" secondItem="q6c-49-8ib" secondAttribute="width" multiplier="0.40625" id="jkB-ex-ewJ"/>
                             <constraint firstItem="Dbs-Dv-fge" firstAttribute="width" secondItem="q6c-49-8ib" secondAttribute="width" multiplier="8.25:10" id="lMq-up-owu"/>
                             <constraint firstItem="kL5-xc-L1H" firstAttribute="height" secondItem="q6c-49-8ib" secondAttribute="height" multiplier="0.7" id="nSE-dR-BAf"/>
+                            <constraint firstItem="j2X-t8-xbD" firstAttribute="centerX" secondItem="q6c-49-8ib" secondAttribute="centerX" multiplier="1.41875" id="uX4-bH-xQ6"/>
+                            <constraint firstItem="8hY-S5-jXa" firstAttribute="centerY" secondItem="q6c-49-8ib" secondAttribute="centerY" multiplier="1.82482" id="xfP-tK-bqw"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="XNI-mw-Su9"/>
                     <connections>
+                        <outlet property="cancelEdit" destination="8hY-S5-jXa" id="K3y-cR-HFQ"/>
                         <outlet property="collectionView" destination="kL5-xc-L1H" id="aEH-F6-2ze"/>
                         <outlet property="finButton" destination="Dbs-Dv-fge" id="R2V-gO-a4O"/>
                         <outlet property="numberLabel" destination="qgJ-0H-dOd" id="4YK-91-xzV"/>
+                        <outlet property="saveEdit" destination="j2X-t8-xbD" id="qAW-u8-FBo"/>
                         <segue destination="NNG-St-L30" kind="show" identifier="toFaculty" id="eGe-co-jWB"/>
+                        <segue destination="NNG-St-L30" kind="show" identifier="editFaculty" action="showDetailViewController:sender:" id="Dhn-Nj-6rL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PG4-WO-mgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1243,6 +1317,34 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drp-iG-12Q">
+                                <rect key="frame" x="28" y="494" width="130" height="48.5"/>
+                                <color key="backgroundColor" red="0.3483977318" green="0.36393064260000002" blue="0.40960484740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="drp-iG-12Q" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="MuG-w8-NAo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
+                                <state key="normal" title="ยกเลิก">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="NNG-St-L30" eventType="touchUpInside" id="9am-ya-dag"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fA-9u-L0Q">
+                                <rect key="frame" x="162" y="494" width="130" height="48.5"/>
+                                <color key="backgroundColor" red="0.17173078659999999" green="0.19096046689999999" blue="0.25320106739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2fA-9u-L0Q" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="ZAz-iN-DSt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="19"/>
+                                <state key="normal" title="บันทึกข้อมูล">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="NNG-St-L30" eventType="touchUpInside" id="EVz-f3-vTO"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4X-9j-RYi">
                                 <rect key="frame" x="28" y="494" width="264" height="48.5"/>
                                 <color key="backgroundColor" red="0.17173078656196594" green="0.19096046686172485" blue="0.25320106744766235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1258,6 +1360,8 @@
                         <color key="backgroundColor" red="0.95283776521682739" green="0.95300072431564331" blue="0.95282751321792603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XG9-WX-Fxo" firstAttribute="centerY" secondItem="ew4-gP-Gyy" secondAttribute="centerY" multiplier="1.05" id="3Wi-yI-e2Q"/>
+                            <constraint firstItem="drp-iG-12Q" firstAttribute="width" secondItem="ew4-gP-Gyy" secondAttribute="width" multiplier="0.40625" id="5Fl-SA-BXX"/>
+                            <constraint firstItem="2fA-9u-L0Q" firstAttribute="width" secondItem="ew4-gP-Gyy" secondAttribute="width" multiplier="0.40625" id="9mI-6n-kO4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EvA-mb-wrE" secondAttribute="trailing" constant="-16" id="C03-Gf-GvM"/>
                             <constraint firstItem="i4X-9j-RYi" firstAttribute="height" secondItem="ew4-gP-Gyy" secondAttribute="height" multiplier="0.85:10" id="C35-GN-iuH"/>
                             <constraint firstItem="EvA-mb-wrE" firstAttribute="height" secondItem="ew4-gP-Gyy" secondAttribute="height" multiplier="2.25:10" id="Et4-8d-xZb"/>
@@ -1266,23 +1370,30 @@
                             <constraint firstItem="i4X-9j-RYi" firstAttribute="width" secondItem="ew4-gP-Gyy" secondAttribute="width" multiplier="8.25:10" id="M55-hx-AZt"/>
                             <constraint firstItem="baB-d4-vRM" firstAttribute="width" secondItem="ew4-gP-Gyy" secondAttribute="width" multiplier="0.845" id="Mh6-0P-HzG"/>
                             <constraint firstItem="XG9-WX-Fxo" firstAttribute="height" secondItem="ew4-gP-Gyy" secondAttribute="height" multiplier="0.7" id="R0E-fY-5Lh"/>
+                            <constraint firstItem="drp-iG-12Q" firstAttribute="centerY" secondItem="ew4-gP-Gyy" secondAttribute="centerY" multiplier="1.82482" id="Slu-Ot-BdO"/>
                             <constraint firstItem="baB-d4-vRM" firstAttribute="centerX" secondItem="ew4-gP-Gyy" secondAttribute="centerX" id="X6R-aK-4Zv"/>
                             <constraint firstItem="s6t-ft-ihn" firstAttribute="top" secondItem="EvA-mb-wrE" secondAttribute="bottom" id="Zvw-bR-X4E"/>
                             <constraint firstItem="i4X-9j-RYi" firstAttribute="centerY" secondItem="ew4-gP-Gyy" secondAttribute="centerY" multiplier="18.25:10" id="lUj-oX-WYA"/>
                             <constraint firstItem="i4X-9j-RYi" firstAttribute="centerX" secondItem="ew4-gP-Gyy" secondAttribute="centerX" id="n1W-4h-ct1"/>
+                            <constraint firstItem="2fA-9u-L0Q" firstAttribute="centerY" secondItem="ew4-gP-Gyy" secondAttribute="centerY" multiplier="1.82482" id="oev-0F-xs0"/>
+                            <constraint firstItem="drp-iG-12Q" firstAttribute="centerX" secondItem="ew4-gP-Gyy" secondAttribute="centerX" multiplier="0.58125" id="olG-Lp-9nF"/>
                             <constraint firstItem="XG9-WX-Fxo" firstAttribute="centerX" secondItem="ew4-gP-Gyy" secondAttribute="centerX" id="rDs-y8-29w"/>
                             <constraint firstItem="EvA-mb-wrE" firstAttribute="leading" secondItem="ew4-gP-Gyy" secondAttribute="leadingMargin" constant="-16" id="tHn-9f-CON"/>
                             <constraint firstAttribute="trailing" secondItem="XG9-WX-Fxo" secondAttribute="trailing" id="vO7-Cg-zQL"/>
+                            <constraint firstItem="2fA-9u-L0Q" firstAttribute="centerX" secondItem="ew4-gP-Gyy" secondAttribute="centerX" multiplier="1.41875" id="wQO-Gk-YTM"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="jPc-gd-3Yp"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="cancelEdit" destination="drp-iG-12Q" id="iaC-dd-u0O"/>
                         <outlet property="collectionView" destination="XG9-WX-Fxo" id="vye-eO-p3d"/>
                         <outlet property="finButton2" destination="i4X-9j-RYi" id="d2c-yj-4pd"/>
                         <outlet property="numberLabel" destination="9Ix-oj-xDG" id="CMd-0O-wbP"/>
+                        <outlet property="saveEdit" destination="2fA-9u-L0Q" id="nIn-je-t9B"/>
                         <segue destination="GS6-3Z-GhW" kind="show" identifier="toFinish" id="mfb-9j-mcx"/>
+                        <segue destination="QME-Np-NQV" kind="show" identifier="endEdit" id="nET-Xg-sPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I0Q-2m-hDt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1302,8 +1413,9 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fK9-5N-HnN"/>
-        <segue reference="IwA-jx-m5S"/>
+        <segue reference="nET-Xg-sPe"/>
+        <segue reference="Dhn-Nj-6rL"/>
         <segue reference="TO2-yU-nnK"/>
+        <segue reference="AgV-hs-Pux"/>
     </inferredMetricsTieBreakers>
 </document>

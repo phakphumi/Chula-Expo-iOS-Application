@@ -196,11 +196,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Do any additional setup after loading the view.
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        
-        self.view.insertSubview(blurEffectView, at: 0)
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.view.frame
+//        
+//        self.view.insertSubview(blurEffectView, at: 0)
         
         if reservable {
             

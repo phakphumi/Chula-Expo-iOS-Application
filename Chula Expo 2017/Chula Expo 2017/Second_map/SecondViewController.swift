@@ -73,7 +73,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "AHS": #imageLiteral(resourceName: "ahs_pin_37"),
                             "PSY": #imageLiteral(resourceName: "psy_pin_38"),
                             "SPSC": #imageLiteral(resourceName: "spsc_pin_39"),
-                            "CUSAR": #imageLiteral(resourceName: "cussar_pin_40"),
+                            "SAR": #imageLiteral(resourceName: "cussar_pin_40"),
                             "GRAD": #imageLiteral(resourceName: "LAN-PIN"),
                             "SMART": #imageLiteral(resourceName: "SMART-PIN"),
                             "HEALTH": #imageLiteral(resourceName: "LAN-PIN"),

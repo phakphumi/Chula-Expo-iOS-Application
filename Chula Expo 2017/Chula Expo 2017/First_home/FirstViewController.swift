@@ -173,7 +173,7 @@ class FirstViewController: MainCoreDataTableViewController {
                     
                     images.append(data.bannerUrl ?? "")
                     titles.append(data.name ?? "")
-                    desc.append(data.desc ?? "")
+                    desc.append(data.shortDesc ?? "")
                 }
             }
             

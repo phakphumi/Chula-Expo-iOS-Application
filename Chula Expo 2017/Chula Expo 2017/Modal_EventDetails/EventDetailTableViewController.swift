@@ -112,14 +112,9 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         calculateIsReservable()
         tableView.estimatedRowHeight = 150
+        
 //        UIApplication.shared.isStatusBarHidden = true
 //        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(EventDetailTableViewController.toDismiss))
 //        swipeRight.direction = .down
@@ -371,15 +366,24 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         } else if indexPath.row == 1 {
             
-            return DescTableViewCell.descCellHeight
+            return UITableViewAutomaticDimension
+//            return DescTableViewCell.descCellHeight
             
         } else if indexPath.row == 2 {
             
-            return 71
+            if pdf == ""{
+                return 0
+            }
+            
+            return 62
             
         } else if indexPath.row == 3 {
             
-            return 75
+            if images.count == 0{
+                return 0
+            }
+            
+            return 71
             
         } else if indexPath.row == 4 {
             

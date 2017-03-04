@@ -38,45 +38,77 @@ class EventsTableViewController: CoreDataTableViewController {
             
             if let context = managedObjectContext, (facity.characters.count) > 0 {
                 
-                
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-                
-                if facity == "Favorite" {
-                    
-                    title = "MY FAVORITE"
-                    request.predicate = NSPredicate(format: "ANY toRound.isFavorite == %@", NSNumber(booleanLiteral: true))
-                    
-                }
-                    
-                else if facity == "Reservation" {
-                    
+                if facity == "Reservation" {
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
                     title = "MY RESERVATION"
-                    request.predicate = NSPredicate(format: "ANY toRound.isReserve == %@", NSNumber(booleanLiteral: true))
+                    request.predicate = NSPredicate(format: "ANY toRound.reserved == %@", NSNumber(booleanLiteral: true))
+                    request.sortDescriptors = [NSSortDescriptor(
+                        key: "start",
+                        ascending: true
+                        )]
+                    
+                    fetchedResultsController = NSFetchedResultsController(
+                        fetchRequest: request,
+                        managedObjectContext: context,
+                        sectionNameKeyPath: nil,
+                        cacheName: nil
+                    )
+
                    
+                }
+                else if facity == "Favorite" {
+                        
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+                    title = "MY FAVORITE"
+                    request.sortDescriptors = [NSSortDescriptor(
+                            key: "toActivity.start",
+                            ascending: true
+                            )]
+                    
+                    fetchedResultsController = NSFetchedResultsController(
+                        fetchRequest: request,
+                        managedObjectContext: context,
+                        sectionNameKeyPath: nil,
+                        cacheName: nil
+                    )
+
                 }
                 
                 else if isInterest {
                     
-                     request.predicate = NSPredicate(format: "ANY toTags.name == %@", facity)
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+                    request.predicate = NSPredicate(format: "ANY toTags.name == %@", facity)
+                    request.sortDescriptors = [NSSortDescriptor(
+                        key: "start",
+                        ascending: true
+                        )]
+                    
+                    fetchedResultsController = NSFetchedResultsController(
+                        fetchRequest: request,
+                        managedObjectContext: context,
+                        sectionNameKeyPath: nil,
+                        cacheName: nil
+                    )
+
                 }
                 
                 else {
                     
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
                     request.predicate = NSPredicate(format: "faculty contains[c] %@", facity)
+                    request.sortDescriptors = [NSSortDescriptor(
+                        key: "start",
+                        ascending: true
+                        )]
+                    
+                    fetchedResultsController = NSFetchedResultsController(
+                        fetchRequest: request,
+                        managedObjectContext: context,
+                        sectionNameKeyPath: nil,
+                        cacheName: nil
+                    )
 
                 }
-                
-                request.sortDescriptors = [NSSortDescriptor(
-                    key: "start",
-                    ascending: true
-                    )]
-            
-                fetchedResultsController = NSFetchedResultsController(
-                    fetchRequest: request,
-                    managedObjectContext: context,
-                    sectionNameKeyPath: nil,
-                    cacheName: nil
-                )
             }
         }
             
@@ -135,7 +167,6 @@ class EventsTableViewController: CoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "facDesc", for: indexPath)
             
-            
                 
             if let descCell = cell as? FacultyDescCell{
                 var name: String?
@@ -166,19 +197,19 @@ class EventsTableViewController: CoreDataTableViewController {
                 
                 if tableView.numberOfRows(inSection: 0) == 1 {
                     
-                    if facity == "Reservation"{
+                    if facity == "Reservation" {
                         
                         headCell.title1 = "NOT HAVE RESERVATION"
-                        headCell.title2 = "ไม่มีบันทึกการจองกิจกรรมที่สนใจ"
+                        headCell.title2 = "ไม่มีบันทึกการจองกิจกรรม"
                         headCell.iconImage = "crossIcon"
                     }
-                    else if facity == "Favorite"{
+                    else if facity == "Favorite" {
                         
                         headCell.title1 = "NOT HAVE FAVORITE EVENTS"
                         headCell.title2 = "คุณยังไม่ได้เพิ่มกิจกรรมที่สนใจ"
                         headCell.iconImage = "crossIcon"
                     }
-                    else{
+                    else {
                         
                         headCell.title1 = "EVENT NOT FOUND!"
                         headCell.title2 = "ไม่พบกิจกรรมที่เกี่ยวข้อง"
@@ -187,9 +218,24 @@ class EventsTableViewController: CoreDataTableViewController {
                     
                 } else {
                     
-                    headCell.title1 = "RELATED EVENTS"
-                    headCell.title2 = "กิจกรรมที่เกี่ยวข้อง"
-                    headCell.iconImage = "relatedeventsIcon"
+                    if facity == "Reservation" {
+                        
+                        headCell.title1 = "MY RESERVATION"
+                        headCell.title2 = "กิจกรรมที่คุณได้ทำการจองไว้"
+                        headCell.iconImage = "relatedeventsIcon"
+                    }
+                    else if facity == "Favorite" {
+                        
+                        headCell.title1 = "MY FAVORITE EVENTS"
+                        headCell.title2 = "กิจกรรมที่คุณสนใจ"
+                        headCell.iconImage = "relatedeventsIcon"
+                    }
+                    else {
+                        
+                        headCell.title1 = "RELATED EVENTS"
+                        headCell.title2 = "กิจกรรมที่เกี่ยวข้อง"
+                        headCell.iconImage = "relatedeventsIcon"
+                    }
                 }
             }
         }
@@ -198,30 +244,80 @@ class EventsTableViewController: CoreDataTableViewController {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
             
-            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? ActivityData {
+            var name: String?
+            var thumbnail: String?
+            var toRound: NSSet?
+            var facity: String?
+            var activityId: String?
+            var time: String?
+            
+            
+            
+            if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? ActivityData{
                 
-                var activityId: String?
-                var name: String?
-                var toRound: NSSet?
-                var thumbnail: String?
-                
-                fetchData.managedObjectContext?.performAndWait {
-                    
+                fetchData.managedObjectContext?.performAndWait{
                     name = fetchData.name
-                    toRound = fetchData.toRound
                     thumbnail = fetchData.thumbnailsUrl
+                    facity = fetchData.faculty
+                    toRound = fetchData.toRound
+                    
                     activityId = fetchData.activityId
+                    if let stime = fetchData.start{
+                        if let eTime = fetchData.end{
+                            time = stime.toThaiText(withEnd: eTime)
+                        }
+                    }
+                    if let toRound = toRound{
+                        if time != nil{
+                            if toRound.count > 0 {
+                                time = ("\(time!) + \(toRound.count) รอบ")
+                            }
+                        }
+                    }
                 }
                 
-                if let eventCell = cell as? EventFeedCell {
+            }
+            else if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? FavoritedActivity {
+                
+                fetchData.managedObjectContext?.performAndWait{
+                    name = fetchData.toActivity?.name
+                    thumbnail = fetchData.toActivity?.thumbnailsUrl
+                    facity = fetchData.toActivity?.faculty
+                    toRound = fetchData.toActivity?.toRound
                     
-                    eventCell.manageObjectContext = managedObjectContext
-                    eventCell.name = name
-//                    eventCell.toRound = toRound
-                    eventCell.thumbnail = thumbnail
-                    eventCell.facity = facity
-                    eventCell.activityId = activityId
+                    activityId = fetchData.toActivity?.activityId
+                    if let stime = fetchData.toActivity?.start{
+                        if let eTime = fetchData.toActivity?.end{
+                            time = stime.toThaiText(withEnd: eTime)
+                        }
+                    }
+                    if let toRound = toRound{
+                        if time != nil{
+                            if toRound.count > 0 {
+                                time = ("\(time!) + \(toRound.count) รอบ")
+                            }
+                        }
+                    }
                 }
+            }
+                
+            
+            
+            
+            
+            if let eventFeedCell = cell as? EventFeedCell{
+                    eventFeedCell.manageObjectContext = managedObjectContext
+                    if name != nil{
+                        eventFeedCell.name = name
+                    }
+                    if time != nil{
+                        eventFeedCell.timeText = time
+                    }
+                    eventFeedCell.eventTumbnailImage.image = #imageLiteral(resourceName: "defaultImage")
+                    eventFeedCell.thumbnail = thumbnail
+                    eventFeedCell.facity = facity
+                    eventFeedCell.activityId = activityId
+                    eventFeedCell.toRound = toRound
             }
         }
         
@@ -242,6 +338,9 @@ class EventsTableViewController: CoreDataTableViewController {
             }
             else if indexPath.row == 1{
             
+                if facity == "Favorite" || facity == "Reservation" {
+                    return 0
+                }
                 return UITableViewAutomaticDimension
             }
             else if indexPath.row == 2{

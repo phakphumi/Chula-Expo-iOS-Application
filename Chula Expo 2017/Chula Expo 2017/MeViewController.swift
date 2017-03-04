@@ -32,7 +32,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             
         } else {
             
-            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
             
             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             
@@ -48,6 +48,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         tabBarController?.present(aboutView!, animated: true, completion: nil)
         
     }
+
     @IBAction func favoriteSoon(_ sender: UIButton) {
         
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
@@ -358,22 +359,21 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         print("\(segue.identifier)")
-        if segue.identifier == "showFavorite" {
+        if segue.identifier == "showEventReserve" {
+            
+            if let dest = segue.destination as? EventsTableViewController {
+                
+                dest.managedObjectContext = managedObjectContext
+                dest.facity = "Reservation"
+            }
+        }
+        if segue.identifier == "showEventFavorite" {
             
             if let dest = segue.destination as? EventsTableViewController {
                 
                 dest.managedObjectContext = managedObjectContext
                 dest.facity = "Favorite"
-            }
-        }
-        
-        else if segue.identifier == "showReserve"{
-            
-            if let dest = segue.destination as? EventsTableViewController {
                 
-                print("dest")
-                dest.managedObjectContext = managedObjectContext
-                dest.facity = "Reservation"
             }
         }
         else if segue.identifier == "toRegister1" {

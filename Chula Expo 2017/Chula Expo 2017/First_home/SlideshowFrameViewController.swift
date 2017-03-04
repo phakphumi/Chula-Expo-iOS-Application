@@ -57,7 +57,7 @@ class SlideshowFrameViewController: UIViewController {
         let tl = UILabel(frame: CGRect(x: 15, y: 24, width: 375 - 25, height: 26))
         
         
-        tl.font = UIFont(name: "SukhumvitSet-Bold", size: 22)
+        tl.font = UIFont(name: "SukhumvitSet-Bold", size: 20)
 //        tl.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightSemibold)
         tl.textColor = UIColor.white
         tl.layer.shadowOffset = CGSize(width: 0, height: 0)

@@ -197,8 +197,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fmm Fmm@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
-                                        <rect key="frame" x="139.66666666666669" y="55.333333333333329" width="218.99999999999994" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="อีเมล์" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
+                                        <rect key="frame" x="139.66666666666669" y="56.000000000000014" width="218.99999999999994" height="17.666666666666657"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -221,7 +221,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="มหาวิทยาลัยเทพ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จุฬาลงกรณ์มหาวิทยาลัย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
                                         <rect key="frame" x="139.66666666666669" y="123.66666666666669" width="218.99999999999994" height="36"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,7 +276,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gI1-9z-3Jt">
                                         <rect key="frame" x="0.0" y="0.0" width="176" height="103"/>
                                         <connections>
-                                            <action selector="favoriteSoon:" destination="AOk-xI-MMv" eventType="touchUpInside" id="pfk-8g-T2Y"/>
+                                            <segue destination="JPM-5D-OA6" kind="show" identifier="showEventFavorite" id="AGZ-aj-bwR"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
@@ -313,7 +313,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-th-1rY">
                                         <rect key="frame" x="0.0" y="0.0" width="175.99999999999997" height="103"/>
                                         <connections>
-                                            <action selector="reserveSoon:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Qnh-db-GsN"/>
+                                            <segue destination="JPM-5D-OA6" kind="show" identifier="showEventReserve" id="EKw-B2-RkN"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reserveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
@@ -777,4 +777,7 @@
         <image name="reserveIcon" width="63" height="57"/>
         <image name="search" width="14" height="15"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="EKw-B2-RkN"/>
+    </inferredMetricsTieBreakers>
 </document>

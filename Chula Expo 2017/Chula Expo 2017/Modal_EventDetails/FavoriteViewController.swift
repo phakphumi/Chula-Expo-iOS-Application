@@ -108,7 +108,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     
                                 case "30":
                                     
-                                    message = "ตั๋วกิจกรรมบน Application สำหรับรอบนี้ถูกจองหมดแล้ว. (บางกิจกรรมอาจมีการเปิดรับคนหน้างาน)"
+                                    message = "ตั๋วกิจกรรมบน Application สำหรับรอบนี้ถูกจองหมดแล้ว. (บางกิจกรรมอาจมีการเปิดรับเพิ่มที่หน้างาน)"
                                     
                                 default:
                                     
@@ -141,7 +141,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
             } else {
                 
-                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
                 
                 confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 
@@ -178,7 +178,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
                 print("FavoritedActivity save error with \(error)")
                 
-                confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "บันทึกข้อมูลล้มเหลวกรุณาลองใหม่อีกครั้ง", preferredStyle: UIAlertControllerStyle.alert)
+                confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง", preferredStyle: UIAlertControllerStyle.alert)
                 confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
                 
             }
@@ -196,11 +196,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Do any additional setup after loading the view.
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.view.frame
-        
-        self.view.insertSubview(blurEffectView, at: 0)
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = self.view.frame
+//        
+//        self.view.insertSubview(blurEffectView, at: 0)
         
         if reservable {
             
@@ -296,7 +296,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if reservable {
         
             titleIcon.image = #imageLiteral(resourceName: "ticketBlue")
-            titleText.text = "จอง EVENT นี้"
+            titleText.text = "จองกิจกรรมนี้"
         
         }
         

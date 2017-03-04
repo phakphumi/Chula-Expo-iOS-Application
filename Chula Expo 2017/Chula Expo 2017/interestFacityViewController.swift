@@ -133,15 +133,38 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell1", for: indexPath)
         
         // Configure the cell
-        if let interestCell = cell as? interestCollectionViewCell1 {
+        if let cell = cell as? interestCollectionViewCell1 {
             
             if tagList.count > (indexPath.row) {
-                interestCell.imgName[0] = tagList[(indexPath.row)].imgName
-                interestCell.tagName[0] = tagList[(indexPath.row)].tagName
-                interestCell.tagBack[0] = tagList[(indexPath.row)].tagBack
-                interestCell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                cell.imgName[0] = tagList[(indexPath.row)].imgName
+                cell.tagName[0] = tagList[(indexPath.row)].tagName
+                cell.tagBack[0] = tagList[(indexPath.row)].tagBack
+                cell.tagEngName[0] = tagList[(indexPath.row)].tagEngName
+                
+                if selectedList[indexPath.row] {
+                    cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x+1, y: cell.backImg1.frame.origin.y+1), size: CGSize(width: cell.backImg1.bounds.size.width-1,height: cell.backImg1.bounds.size.height-1))
+                    cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x+1, y: cell.engName1.frame.origin.y+1), size: CGSize(width: cell.engName1.bounds.size.width-1,height: cell.engName1.bounds.size.height-1))
+                    cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x+1, y: cell.interestImg1.frame.origin.y+1), size: CGSize(width: cell.interestImg1.bounds.size.width-1,height: cell.interestImg1.bounds.size.height-1))
+                    cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x+1, y: cell.interestName1.frame.origin.y+1), size: CGSize(width: cell.interestName1.bounds.size.width-1,height: cell.interestName1.bounds.size.height-1))
+                    cell.interestView1.layer.borderColor = UIColor.green.cgColor
+                    cell.interestView1.layer.borderWidth = 3
+                    cell.interestName1.textColor = UIColor.green
+                    cell.engName1.textColor = UIColor.green
+                }
+                else {
+                    cell.backImg1.frame = CGRect(origin: CGPoint(x:cell.backImg1.frame.origin.x-1, y: cell.backImg1.frame.origin.y-1), size: CGSize(width: cell.backImg1.bounds.size.width+1,height: cell.backImg1.bounds.size.height+1))
+                    cell.engName1.frame = CGRect(origin: CGPoint(x:cell.engName1.frame.origin.x-1, y: cell.engName1.frame.origin.y-1), size: CGSize(width: cell.engName1.bounds.size.width+1,height: cell.engName1.bounds.size.height+1))
+                    cell.interestImg1.frame = CGRect(origin: CGPoint(x:cell.interestImg1.frame.origin.x-1, y: cell.interestImg1.frame.origin.y-1), size: CGSize(width: cell.interestImg1.bounds.size.width+1,height: cell.interestImg1.bounds.size.height+1))
+                    cell.interestName1.frame = CGRect(origin: CGPoint(x:cell.interestName1.frame.origin.x-1, y: cell.interestName1.frame.origin.y-1), size: CGSize(width: cell.interestName1.bounds.size.width+1,height: cell.interestName1.bounds.size.height+1))
+                    cell.interestView1.layer.borderColor = UIColor.white.cgColor
+                    cell.interestView1.layer.borderWidth = 0
+                    cell.interestName1.textColor = UIColor.white
+                    cell.engName1.textColor = UIColor.white
+                }
+
+
             }else{
-                interestCell.tagName[0] = ""
+                cell.tagName[0] = ""
             }
         }
         //cell.backgroundColor = UIColor.black

@@ -124,6 +124,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 destination.pdf = activityData.pdf
                                 destination.toImages = activityData.toImages
                                 destination.toTags = activityData.toTags
+                                destination.start = activityData.start
+                                destination.end = activityData.end
                                 destination.managedObjectContext = self.managedObjectContext
                                 
                             }

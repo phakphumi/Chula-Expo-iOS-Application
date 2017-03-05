@@ -141,7 +141,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapIcon" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-oO-mdK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loca-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-oO-mdK">
                                                     <rect key="frame" x="18" y="58" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="PQd-am-L3g"/>
@@ -149,18 +149,18 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้อง 204 ชั้น 2 ตึก 3 คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-V5-gqe">
-                                                    <rect key="frame" x="36" y="52" width="315" height="21"/>
+                                                    <rect key="frame" x="36" y="52" width="315" height="28"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="13"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pLw-Wg-8pN">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pLw-Wg-8pN">
                                                     <rect key="frame" x="36" y="79" width="315" height="29"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="JLz-Jn-H4F"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="u7Y-BV-p7E">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="u7Y-BV-p7E">
                                                         <size key="itemSize" width="65" height="15"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -168,13 +168,13 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="timeCell" id="Bgz-0Q-GQD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="15"/>
+                                                            <rect key="frame" x="0.0" y="7" width="110" height="15"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                <rect key="frame" x="0.0" y="0.0" width="70" height="15"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="110" height="15"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15 มีนาคม" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-PP-Rj7">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15 มีนาคม" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" preferredMaxLayoutWidth="78" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-PP-Rj7">
                                                                         <rect key="frame" x="0.0" y="0.0" width="75" height="15"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="12"/>
@@ -183,7 +183,7 @@
                                                                     </label>
                                                                 </subviews>
                                                             </view>
-                                                            <size key="customSize" width="70" height="15"/>
+                                                            <size key="customSize" width="110" height="15"/>
                                                         </collectionViewCell>
                                                     </cells>
                                                 </collectionView>
@@ -191,7 +191,7 @@
                                                     <rect key="frame" x="20" y="120" width="319" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนใจกิจกรรม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN5-7p-1Pd">
-                                                            <rect key="frame" x="52" y="5.5" width="87" height="25.5"/>
+                                                            <rect key="frame" x="52" y="5" width="87" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -221,8 +221,8 @@
                                                         <constraint firstItem="PLY-aC-fAW" firstAttribute="leading" secondItem="vI0-5w-NOb" secondAttribute="leading" constant="10" id="wyq-DA-0EV"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="UBT-Ai-E33">
-                                                    <rect key="frame" x="18" y="81" width="10" height="10"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="schedule icon" translatesAutoresizingMaskIntoConstraints="NO" id="UBT-Ai-E33">
+                                                    <rect key="frame" x="18" y="88" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="17E-71-j0H"/>
                                                         <constraint firstAttribute="height" constant="10" id="9s6-2n-PDA"/>
@@ -239,7 +239,7 @@
                                                 <constraint firstItem="UBT-Ai-E33" firstAttribute="top" secondItem="mRi-V5-gqe" secondAttribute="bottom" constant="8" id="IlW-p6-h35"/>
                                                 <constraint firstItem="UBT-Ai-E33" firstAttribute="leading" secondItem="vuV-oO-mdK" secondAttribute="leading" id="KT5-ZR-aV7"/>
                                                 <constraint firstItem="pLw-Wg-8pN" firstAttribute="leading" secondItem="UBT-Ai-E33" secondAttribute="trailing" constant="8" id="Kg1-CC-h0z"/>
-                                                <constraint firstItem="pLw-Wg-8pN" firstAttribute="top" secondItem="UBT-Ai-E33" secondAttribute="top" constant="-2" id="N0B-uC-zRA"/>
+                                                <constraint firstItem="pLw-Wg-8pN" firstAttribute="top" secondItem="UBT-Ai-E33" secondAttribute="top" constant="-9" id="N0B-uC-zRA"/>
                                                 <constraint firstItem="KqX-kb-IV6" firstAttribute="top" secondItem="FTo-8I-vGq" secondAttribute="top" priority="750" constant="12" id="PdH-qK-u5L"/>
                                                 <constraint firstItem="vI0-5w-NOb" firstAttribute="leading" secondItem="FTo-8I-vGq" secondAttribute="leading" constant="20" id="Wgx-sW-1Kb"/>
                                                 <constraint firstAttribute="trailing" secondItem="KqX-kb-IV6" secondAttribute="trailing" constant="6" id="Zul-Km-caP"/>
@@ -332,7 +332,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ดาวน์โหลดรายละเอียดเพิ่มเติม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p31-PF-upb">
-                                                            <rect key="frame" x="52" y="13" width="192.5" height="25.5"/>
+                                                            <rect key="frame" x="52" y="12.5" width="192.5" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -506,7 +506,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="25"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="nhO-cX-whI" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
                                                                         <rect key="frame" x="3" y="0.0" width="54" height="25"/>
                                                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="14"/>
@@ -734,14 +734,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendarIcon" width="128" height="128"/>
         <image name="closeIcon" width="36" height="36"/>
         <image name="cross_white" width="12" height="12"/>
         <image name="defaultBig" width="375" height="375"/>
         <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow" width="64" height="64"/>
-        <image name="mapIcon" width="128" height="128"/>
+        <image name="loca-icon" width="47" height="47"/>
         <image name="pdfRed" width="128" height="128"/>
+        <image name="schedule icon" width="48" height="48"/>
         <image name="starPink" width="128" height="128"/>
         <image name="starYellow" width="64" height="64"/>
         <image name="tag" width="128" height="128"/>

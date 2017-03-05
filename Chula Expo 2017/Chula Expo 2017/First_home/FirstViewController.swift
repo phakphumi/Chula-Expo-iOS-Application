@@ -355,9 +355,9 @@ class FirstViewController: MainCoreDataTableViewController {
             
             if let destination = segue.destination as? EventDetailTableViewController{
                 
-                if let eventcell = sender as? EventFeedCell?{
+                if let eventcell = sender as? EventFeedCell{
                     
-                    if let id = eventcell?.activityId{
+                    if let id = eventcell.activityId{
                         
                         ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
                             
@@ -377,6 +377,9 @@ class FirstViewController: MainCoreDataTableViewController {
                                 destination.pdf = activityData.pdf
                                 destination.toImages = activityData.toImages
                                 destination.toTags = activityData.toTags
+                                destination.start = activityData.start
+                                destination.end = activityData.end
+                                destination.timeDesc = eventcell.timeText
                                 destination.managedObjectContext = self.managedObjectContext
                                 
                             }

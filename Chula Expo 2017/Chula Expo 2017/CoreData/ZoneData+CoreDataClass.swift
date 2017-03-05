@@ -19,6 +19,7 @@ public class ZoneData: NSManagedObject {
         shortName: String,
         shortNameTh: String,
         banner: String,
+        thumbnail: String,
         desc: String,
         longitude: Double,
         latitude: Double,
@@ -44,6 +45,7 @@ public class ZoneData: NSManagedObject {
                 zoneData.shortName = shortName
                 zoneData.shortNameTh = shortNameTh
                 zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
+                zoneData.thumbnail = thumbnail == "" ? "" : "http://staff.chulaexpo.com\(thumbnail)"
                 zoneData.desc = desc
                 zoneData.longitude = longitude
                 zoneData.latitude = latitude
@@ -190,6 +192,23 @@ public class ZoneData: NSManagedObject {
         return nil
 
     }
+    
+    class func fetchBackgroundFrom(name: String, inManageobjectcontext context: NSManagedObjectContext) -> String?{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.thumbnail
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return nil
+        
+    }
+
     
     class func fetchZoneFromPlace(id: String, incontext context: NSManagedObjectContext) -> String {
         

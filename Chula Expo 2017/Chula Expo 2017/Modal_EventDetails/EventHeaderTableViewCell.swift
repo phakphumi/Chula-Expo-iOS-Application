@@ -14,6 +14,11 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     var locationDesc: String!
     var toRounds: NSSet!
     var reservable = false
+    var timeDesc: String?{
+        didSet{
+            dates.insert(timeDesc!, at: 0)
+        }
+    }
     var dates = [String]()
     var times = [String: [String]]()
     var dateTimeList = [String]()
@@ -53,12 +58,12 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPath.row % 4 == 0 {
+        if indexPath.section == 0{
             
-            return CGSize(width: 55, height: 15)
+            return CGSize(width: 150, height: 15)
             
         } else {
-            
+        
             return CGSize(width: 72, height: 15)
             
         }
@@ -68,8 +73,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return times[dates[section]]!.count + 1 + (times[dates[section]]!.count / 4)
-        
+        return (times[dates[section]]?.count ?? 0) + 1
     }
     
     
@@ -84,15 +88,21 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             
             dateTimeLabel.text = dates[indexPath.section]
             
-        } else if indexPath.row % 4 == 0 {
+//            if indexPath.section == 0{
+//                
+//                dateTimeLabel.sizeToFit()
+//            }
             
-            dateTimeLabel.text = ""
-            
+//        }
+//        else if indexPath.row % 4 == 0 {
+//
+//            dateTimeLabel.text = ""
+//            
         } else {
-            
+//
             dateTimeLabel.text = times[dates[indexPath.section]]?[indexPath.row - 1 - (indexPath.row / 4)]
             dateTimeLabel.textColor = UIColor.gray
-            
+//
         }
         
         return cell

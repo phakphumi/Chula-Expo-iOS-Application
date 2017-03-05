@@ -29,6 +29,9 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
 //                ["09.00-10.00", "11.00-12.00", "14.00-15.00"],
 //                ["08.00-09.00", "10.00-11.00"]
 //               ]
+    var start: Date?
+    var end: Date?
+    var timeDesc: String?
     var activityId: String!
     var bannerUrl: String!
     var topic: String!
@@ -229,13 +232,34 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                         return first.startTime! < second.startTime!
                         
                     }) as! [RoundData]
-                
+                    
+//                    let timeFormatter = DateFormatter()
+//                    let dateFormatter = DateFormatter()
+//                    
+//                    dateFormatter.dateFormat = "dd มีนาคม"
+//                    timeFormatter.dateFormat = "HH.mm"
+//                    
+//                    let date = dateFormatter.string(from: start!)
+//                    let sTime = timeFormatter.string(from: start!)
+//                    let eTime = timeFormatter.string(from: end!)
+//                    
+//                    if !dates.contains(date) {
+//                        
+//                        dates.append(date)
+//                        times[date] = [String]()
+//                        
+//                    }
+//                    
+//                    times[date]?.append("\(sTime)-\(eTime)")
+//                    
+//                    dateTimeList.append("\(date) \(sTime)-\(eTime)")                    
+                    
                     for round in roundsObj {
                     
                         let timeFormatter = DateFormatter()
                         let dateFormatter = DateFormatter()
                         
-                        dateFormatter.dateFormat = "dd มีนาคม"
+                        dateFormatter.dateFormat = "  dd มีนาคม"
                         timeFormatter.dateFormat = "HH.mm"
                     
                         let date = dateFormatter.string(from: round.startTime!)
@@ -270,6 +294,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                     ehvc.locationDesc = self.locationDesc
                     ehvc.dates = self.dates
                     ehvc.times = self.times
+                    ehvc.timeDesc = self.timeDesc
                     ehvc.dateTimeList = self.dateTimeList
                     ehvc.reservable = self.reservable
                 

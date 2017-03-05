@@ -391,7 +391,7 @@ class APIController {
         let parameters: [[String: Any]] = [
                                             ["zone": "589c52dfa8bbbb1c7165d3f1"], // เวทีกลาง
                                             ["zone": "589c5330a8bbbb1c7165d3f2"], // CU Hall
-                                            ["zone": "589c536ca8bbbb1c7165d3f3"]  // ศาลาพระเกี้ยว
+                                            ["zone": "58bc60c9e44acf38e95b2047"]  // ศาลาพระเกี้ยว
         ]
         
         context.performAndWait {

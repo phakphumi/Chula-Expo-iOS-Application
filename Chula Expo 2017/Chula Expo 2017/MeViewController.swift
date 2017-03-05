@@ -184,9 +184,9 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 
                 self.name.text = ""
                 self.email.text = "ไม่พบข้อมูลผู้ใช้"
-                self.agegen.text = "โปรดเข้าสู่ระบบผ่าน Facebook"
+                self.agegen.text = "เพื่อเข้าถึงฟังก์ชั่นได้มากขึ้น"
                 self.agegen.sizeToFit()
-                self.year.text = "เพื่อเข้าถึงฟังก์ชั่นได้มากขึ้น"
+                self.year.text = "โปรดเข้าสู่ระบบผ่าน Facebook"
                 self.uni.text = ""
                 
                 self.userType = ""

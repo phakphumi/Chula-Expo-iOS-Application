@@ -43,7 +43,7 @@ class EventFeedCell: UITableViewCell {
     }
     var thumbnail: String?{
         didSet{
-            eventTumbnailImage.imageFromServerURL(urlString: thumbnail!)
+            eventTumbnailImage.imageFromServerURL(urlString: thumbnail ?? "")
         }
     }
     var toRound: NSSet?

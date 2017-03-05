@@ -17,7 +17,7 @@ class CityLayout: UICollectionViewLayout {
     fileprivate var contentHeight:CGFloat  = 85
     fileprivate var contentWidth: CGFloat {
         let insets = collectionView!.contentInset
-        print("insetleft\(insets.left)")
+//        print("insetleft\(insets.left)")
         return collectionView!.bounds.width - (insets.left + insets.right)
     }
     fileprivate var screenHeight: CGFloat{

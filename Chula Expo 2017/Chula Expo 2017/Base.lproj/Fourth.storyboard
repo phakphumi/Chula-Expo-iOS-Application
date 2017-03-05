@@ -29,7 +29,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CIQ-R5-XgI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CIQ-R5-XgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.94335198402404785" green="0.47247317433357239" blue="0.6000601053237915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -39,6 +39,11 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="view.backgroundColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="AOk-xI-MMv" kind="relationship" relationship="rootViewController" id="BZF-J1-VGl"/>
                     </connections>

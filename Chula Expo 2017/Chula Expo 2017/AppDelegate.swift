@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
 //        let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
         
-        let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
+//        let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+//        let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
         
 //        let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
 //        let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            try managedObjectContext.execute(requestDeleteZoneData)
 //            try managedObjectContext.execute(requestDeleteImageData)
 //            try managedObjectContext.execute(requestDeleteTagData)
-            try managedObjectContext.execute(requestDeleteUserData)
+//            try managedObjectContext.execute(requestDeleteUserData)
 //            try managedObjectContext.execute(requestDeleteVideoData)
 //            try managedObjectContext.execute(requestDeletePlaceData)
 //            try managedObjectContext.execute(requestDeleteRoomData)

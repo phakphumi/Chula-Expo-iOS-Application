@@ -476,6 +476,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
             
+            APIController.getWhereAmI(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
+                
+                self.whereAmILabel.text = zone?["th"]
+                
+            })
+            
         }
         
     }

@@ -33,6 +33,8 @@ class FirstViewController: MainCoreDataTableViewController{
 //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 //        dateFormatter.timeZone = TimeZone.current
         
+        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+        
         print("\(Date().toThaiText())")
         
 //        requestForStageEvent()
@@ -54,9 +56,11 @@ class FirstViewController: MainCoreDataTableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         UIApplication.shared.statusBarStyle = .default
         self.navigationController?.navigationBar.isTranslucent = true
         self.tabBarController?.tabBar.isTranslucent = true
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

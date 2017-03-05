@@ -225,9 +225,9 @@
                                             <constraint firstAttribute="width" secondItem="ZnE-pO-DqG" secondAttribute="height" multiplier="169:30" id="jPN-tZ-tM1"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="ตึก 100 ปี คณะวิศวกรรมศาสตร์">
+                                            <fragment content="คณะวิศวกรรมศาสตร์">
                                                 <attributes>
-                                                    <font key="NSFont" size="12" name="SukhumvitSet-Text"/>
+                                                    <font key="NSFont" size="14" name="SukhumvitSet-Text"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
@@ -291,7 +291,7 @@
                                     <constraint firstItem="t38-fG-Jcm" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" multiplier="0.553846" id="uMw-QB-pNc"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-wj-I3K">
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-wj-I3K">
                                 <rect key="frame" x="19" y="443" width="282" height="55.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ON5-6w-yu1">

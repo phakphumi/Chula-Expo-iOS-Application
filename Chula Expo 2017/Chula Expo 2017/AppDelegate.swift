@@ -76,15 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             if success {
 
-                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext, completion: { (success) in
-
-                    if success {
-
-                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
-                
-                    }
-                
-                })
+                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
         
             }
         

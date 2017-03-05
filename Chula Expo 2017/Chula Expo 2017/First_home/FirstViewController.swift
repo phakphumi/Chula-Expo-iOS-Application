@@ -51,8 +51,9 @@ class FirstViewController: MainCoreDataTableViewController{
         
         
         refreshControl = UIRefreshControl()
-
-        refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl!.backgroundColor = UIColor.white
+        refreshControl!.tintColor = UIColor.gray
+        refreshControl!.attributedTitle = NSAttributedString(string: "")
         refreshControl!.addTarget(self, action: #selector(FirstViewController.handleRefresh(sender:)), for: UIControlEvents.valueChanged)
         tableView?.addSubview(refreshControl!)
         
@@ -98,58 +99,33 @@ class FirstViewController: MainCoreDataTableViewController{
             
         }
         
-//        APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
-//
-//            if success {
-//                
-//                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
-//                    
-//                    if success {
-//                        
-//                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
-//                        
-//                    }
-//                })
-//            }
-//        }
-        let indexPath = IndexPath(item: 0, section: 0)
-        tableView.reloadRows(at: [indexPath], with: .none)
+        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+
+            if success {
+                
+                APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
+                    
+                    if success {
+                        self.reloadSlideShow(finishload: true)
+                        APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
+                        (finish) in
+                            if finish {
+//                                self.reloadSlideShow(finishload: true)
+                            }
+                        })
+                    }
+                })
+            }
+        }
+       
+//        tableView.reloadRows(at: [indexPath], with: .none)
         tableView.reloadSections([0], with: .none)
         tableView.reloadData()
         requestForFeedEvent()
         
-        if let slideshow = tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(9){
-            slideshow.removeFromSuperview()
-        }
         
-        images.removeAll()
-        titles.removeAll()
-        desc.removeAll()
-        managedObjectContext?.performAndWait {
-            
-            let fetchdata = HighlightActivity.fetchAllHighlight(inManageobjectcontext: self.managedObjectContext!)
-            
-            for data in fetchdata{
-                
-                self.images.append(data.bannerUrl ?? "")
-                self.titles.append(data.name ?? "")
-                self.desc.append(data.shortDesc ?? "")
-            }
-        }
         
-        slideshowPageViewController.imageName = images
-        slideshowPageViewController.topicLabelText = titles
-        slideshowPageViewController.descLabelText = desc
         
-        self.addChildViewController(slideshowPageViewController)
-        slideshowPageViewController.view.tag = 9
-        if let cell = tableView.cellForRow(at: indexPath){
-            
-//            cell.cotentView.addSubview(slideshowPageViewController.view)
-            
-        }
-        
-        self.viewDidLoad()
         refreshControl.endRefreshing()
     }
     
@@ -195,6 +171,42 @@ class FirstViewController: MainCoreDataTableViewController{
 //            )
 //        }
 //    }
+    
+    func reloadSlideShow(finishload:Bool){
+        if finishload{
+            images.removeAll()
+            titles.removeAll()
+            desc.removeAll()
+            managedObjectContext?.performAndWait {
+                
+                let fetchdata = HighlightActivity.fetchAllHighlight(inManageobjectcontext: self.managedObjectContext!)
+                
+                for data in fetchdata{
+                    
+                    self.images.append(data.bannerUrl ?? "")
+                    self.titles.append(data.name ?? "")
+                    self.desc.append(data.shortDesc ?? "")
+                }
+            }
+            
+            slideshowPageViewController.imageName = images
+            slideshowPageViewController.topicLabelText = titles
+            slideshowPageViewController.descLabelText = desc
+            
+            slideshowPageViewController.setupData()
+            //        self.addChildViewController(slideshowPageViewController)
+            slideshowPageViewController.view.tag = 9
+            
+            let indexPath = IndexPath(item: 0, section: 0)
+            if let slideshow = tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(9){
+                slideshow.removeFromSuperview()
+            }
+            if let cell = tableView.cellForRow(at: indexPath){
+                cell.contentView.addSubview(slideshowPageViewController.view)
+            }
+
+        }
+    }
     func requestForFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")

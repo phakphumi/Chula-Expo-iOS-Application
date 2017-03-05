@@ -56,40 +56,45 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
     func initIfReady() {
         
         if imageName != nil && descLabelText != nil && topicLabelText != nil && isInit == false{
-            
-            isInit = true
-            for index in 0..<(imageName?.count ?? 0) {
-                
-                let frameViewController = SlideshowFrameViewController()
-                setSlideshowPropoties(frameViewController: frameViewController, atIndex: index)
-                frameViewControllers.append(frameViewController)
-            }
-            
-//            let viewController = [frameViewController]
-            if frameViewControllers.count > 0 {
-                setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
-                pageControl.numberOfPages = frameViewControllers.count
-            }else{
-//                
-                let frameViewController = SlideshowFrameViewController()
-                frameViewController.imageName = ""
-                frameViewController.topicLabelText = "Welcome to Chula Expo 2017"
-                frameViewController.descLabelText = "15 - 19 March 2017  Chulalongkorn University"
-                frameViewController.frameIndex = 0
-                frameViewControllers.append(frameViewController)
-                setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
-                pageControl.numberOfPages = 1
-               
+           
+               setupData()
             }
 //            createPageIndicator()
 
             
-            timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
-            
-        }
         
     }
+
+    func setupData() {
+        
+        frameViewControllers.removeAll()
+        isInit = true
+        for index in 0..<(imageName?.count ?? 0) {
+        
+        let frameViewController = SlideshowFrameViewController()
+        setSlideshowPropoties(frameViewController: frameViewController, atIndex: index)
+        frameViewControllers.append(frameViewController)
+        }
     
+    //            let viewController = [frameViewController]
+        if frameViewControllers.count > 0 {
+            setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
+            pageControl.numberOfPages = frameViewControllers.count
+        }else{
+            //
+            let frameViewController = SlideshowFrameViewController()
+            frameViewController.imageName = ""
+            frameViewController.topicLabelText = "Welcome to Chula Expo 2017"
+            frameViewController.descLabelText = "15 - 19 March 2017  Chulalongkorn University"
+            frameViewController.frameIndex = 0
+            frameViewControllers.append(frameViewController)
+            setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
+            pageControl.numberOfPages = 1
+            timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
+        
+        }
+}
+
     func updateAllFrameWithNewData(){
         
         if imageName?.count == topicLabelText?.count && imageName?.count == descLabelText?.count && imageName?.count != 0{

@@ -38,6 +38,19 @@ public class UserData: NSManagedObject {
             
             // found this event in the database, return it ...
             print("Found \(result.name)")
+            result.id = id
+            result.token = token
+            result.type = type
+            result.name = name
+            result.email = email
+            result.age = Int16(age)
+            result.gender = gender
+            result.school = school
+            result.job = job
+            result.year = year
+            result.level = level
+            result.profile = profile
+            
             return result
             
         } else if let newData = NSEntityDescription.insertNewObject(forEntityName: "UserData", into: context) as? UserData {

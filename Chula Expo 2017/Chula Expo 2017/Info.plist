@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera is used to scan QR Code</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -30,7 +28,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>FacebookAppID</key>
 	<string>1382748031758385</string>
 	<key>FacebookDisplayName</key>
@@ -59,8 +57,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used to scan QR Code</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Access your current&apos;s location to improve your experince in our event</string>
+	<string>Access your current's location to improve your experince in our event</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) To access your photo library to improve your experience</string>
 	<key>UIAppFonts</key>

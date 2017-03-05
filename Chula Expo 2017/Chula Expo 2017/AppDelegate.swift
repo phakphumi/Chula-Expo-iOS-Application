@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
-        let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
+//        let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+//        let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
         
 //        let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
 //        let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
@@ -38,14 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
 //        let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
         
-        let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
-        let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
+//        let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+//        let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
         
-        let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
-        let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
+//        let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
+//        let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
         
-        let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
-        let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
+//        let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
+//        let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
         
 //        let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
 //        let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
@@ -55,14 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             
-            try managedObjectContext.execute(requestDeleteZoneData)
+//            try managedObjectContext.execute(requestDeleteZoneData)
 //            try managedObjectContext.execute(requestDeleteImageData)
 //            try managedObjectContext.execute(requestDeleteTagData)
             try managedObjectContext.execute(requestDeleteUserData)
 //            try managedObjectContext.execute(requestDeleteVideoData)
-            try managedObjectContext.execute(requestDeletePlaceData)
-            try managedObjectContext.execute(requestDeleteRoomData)
-            try managedObjectContext.execute(requestDeleteFacilityData)
+//            try managedObjectContext.execute(requestDeletePlaceData)
+//            try managedObjectContext.execute(requestDeleteRoomData)
+//            try managedObjectContext.execute(requestDeleteFacilityData)
 //            try managedObjectContext.execute(requestDeleteFavoritedActivity)
             try managedObjectContext.execute(requestDeleteReservedActivity)
             

@@ -341,7 +341,7 @@ public class ActivityData: NSManagedObject {
                 stage = 1
             case "589c5330a8bbbb1c7165d3f2":
                 stage = 2
-            case "589c536ca8bbbb1c7165d3f3":
+            case "58bc60c9e44acf38e95b2047":
                 stage = 3
             default:
                 break

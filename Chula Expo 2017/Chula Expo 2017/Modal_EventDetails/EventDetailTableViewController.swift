@@ -48,6 +48,8 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     var toImages: NSSet!
     var toTags: NSSet!
     var managedObjectContext: NSManagedObjectContext?
+    
+    var alreadyShowTextAlert = false
 
     @IBAction func cancel(_ sender: UIButton) {
     
@@ -125,6 +127,76 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
 //        self.view.addGestureRecognizer(swipeRight)
 //        panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(_:)))
         
+        if UserData.isThereUser(inManageobjectcontext: managedObjectContext!) {
+            
+            APIController.sendComment(toActivityID: activityId, message: "Visited Activity", inManageobjectcontext: managedObjectContext!, completion: nil)
+            
+        }
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        if UserData.isThereUser(inManageobjectcontext: managedObjectContext!) {
+            
+            if !alreadyShowTextAlert {
+                
+//                if zoneId == "5899a98a5eeecd3698f6cfc6" { // engineer
+                if zoneId == "589c52b4a8bbbb1c7165d3f0" { //art gallery
+                    
+                    alreadyShowTextAlert = true
+                    
+                    createTextAlert()
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    private func createTextAlert() {
+        
+        let textAlert = UIAlertController(title: "ความรู้สึกของท่าน", message: "ร่วมแสดงความรู้สึกต่อผลงานชิ้นนี้", preferredStyle: .alert)
+        
+        textAlert.addTextField { (textField) in
+            textField.placeholder = "ความรู้สึกของท่าน"
+        }
+        
+        textAlert.addAction(UIAlertAction(title: "ยกเลิก", style: .cancel, handler: nil))
+        textAlert.addAction(UIAlertAction(title: "ส่งความรู้สึก", style: .default, handler: { (alert) in
+            
+            let textField = textAlert.textFields![0] as UITextField
+            
+            APIController.sendComment(toActivityID: self.activityId, message: textField.text!, inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
+                
+                if success {
+                    
+                    let alert = UIAlertController(title: "สำเร็จ", message: "ส่งความรู้สึกของท่านเรียบร้อยแล้ว", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    let alert = UIAlertController(title: "ล้มเหลว", message: "เกิดความผิดพลาดระหว่างส่งข้อมูลโปรดลองใหม่อีกครั้ง", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    
+                    self.present(alert, animated: true, completion: { 
+                        self.present(textAlert, animated: true, completion: nil)
+                        
+                    })
+                    
+                }
+                
+            })
+            
+        }))
+        
+        self.present(textAlert, animated: true, completion: nil)
         
     }
     

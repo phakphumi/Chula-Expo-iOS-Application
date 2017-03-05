@@ -35,6 +35,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var whereAmICancel: UIButton!
     @IBOutlet weak var eventAroundUser: UIButton!
     
+    @IBOutlet weak var myActivityView: UIView!
+    @IBOutlet weak var myActivityName: UILabel!
+    @IBOutlet weak var myActivityCancel: UIButton!
+    @IBOutlet weak var myActivityDetail: UIButton!
+    
     
     let managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
@@ -47,8 +52,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     let annotationIcon = [
                             "PLACE": #imageLiteral(resourceName: "pin_landmark"),
                             "BUSSTOP": #imageLiteral(resourceName: "pin_cutour"),
-                            "FAVORITED": #imageLiteral(resourceName: "pin_landmark"),
-                            "RESERVED": #imageLiteral(resourceName: "pin_landmark"),
+                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "pin_landmark"),
                             "CANTEEN": #imageLiteral(resourceName: "FOD-PIN"),
                             "TOILET": #imageLiteral(resourceName: "TOI-PIN"),
                             "CARPARK": #imageLiteral(resourceName: "LAN-PIN"),
@@ -103,8 +107,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var prayerAnnotations = [MKPointAnnotation]()
     var emergencyAnnotations = [MKPointAnnotation]()
     
-    var favoritedActivity = [String: ActivityData]()
-    var reservedActivity = [String: ActivityData]()
+//    var favoritedActivity = [String: ActivityData]()
+//    var reservedActivity = [String: ActivityData]()
+    
+    var showingMyActivity = ActivityData()
+    var favoritedAndReservedActivity = [String: ActivityData]()
     
     var zoneID = [String: String]()
     var zoneTh = [String: String]()
@@ -130,6 +137,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var isDescShowing = false
     var isCurrentShowing = false
     var isNavigatorShowing = false
+    var isMyActivityShowing = false
     
     var isFacultyShowing = true
     var isFavoriteShowing = true
@@ -160,6 +168,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
         
         eventAroundUser.titleLabel?.adjustsFontSizeToFitWidth = true
+        myActivityDetail.titleLabel?.adjustsFontSizeToFitWidth = true
         
         fetchZoneAnnotation()
         fetchFacilityAnnotation()
@@ -251,6 +260,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         whereAmICancel.layer.shadowOpacity = 0.3
         whereAmICancel.layer.shadowRadius = 2
         
+        myActivityView.layer.cornerRadius = 10
+        myActivityView.layer.shadowOffset = CGSize.zero
+        myActivityView.layer.shadowColor = UIColor.black.cgColor
+        myActivityView.layer.shadowOpacity = 0.3
+        myActivityView.layer.shadowRadius = 2
+        
+        myActivityCancel.layer.cornerRadius = whereAmICancel.frame.height / 2
+        myActivityCancel.layer.shadowOffset = CGSize.zero
+        myActivityCancel.layer.shadowColor = UIColor.black.cgColor
+        myActivityCancel.layer.shadowOpacity = 0.3
+        myActivityCancel.layer.shadowRadius = 2
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -340,6 +361,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             } else {
                 
                 hideWherAmI(UIButton())
+                hideMyActivity(UIButton())
                 
                 annotationLevel += 1
                 
@@ -365,7 +387,35 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
             facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
             
-        } else {
+        } else if selectedAnnotation?.title == "FAVORITEDANDRESERVED"{
+         
+            showingMyActivity = favoritedAndReservedActivity[(selectedAnnotation?.subtitle)!]!
+            
+            if isMyActivityShowing {
+                
+                myActivityName.text = showingMyActivity.name
+                
+            } else {
+                
+                hideWherAmI(UIButton())
+                hideNavigator(UIButton())
+                
+                
+                myActivityName.text = showingMyActivity.name
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    
+                    self.myActivityView.isHidden = false
+                    
+                })
+                
+                isMyActivityShowing = true
+                
+            }
+            
+            
+            
+        }else {
             
             navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
             facultyNameTh.text = facilityTh[(selectedAnnotation?.subtitle)!]
@@ -407,44 +457,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
-    func iconButtonTapped(gestureRecognizer: UITapGestureRecognizer) {
-//        
-//        if let iconView = gestureRecognizer.view {
-//
-//            switch iconView {
-//                
-//            case facultyButton:
-//                
-//                toggleDescIconButton(toggleIcon: "faculty")
-//                
-//            case favoriteButton:
-//                
-//                toggleDescIconButton(toggleIcon: "favorited")
-//                
-//            case canteenButton:
-//                
-//                toggleDescIconButton(toggleIcon: "canteen")
-//                
-//            case toiletButton:
-//                
-//                toggleDescIconButton(toggleIcon: "toilet")
-//                
-//            case prayerButton:
-//                
-//                toggleDescIconButton(toggleIcon: "prayer")
-//                
-//            case carParkButton:
-//                
-//                toggleDescIconButton(toggleIcon: "carPark")
-//                
-//            default: break
-//                
-//            }
-//            
-//        }
-        
-    }
-    
     func currentViewTapped(gestureRecognizer: UITapGestureRecognizer) {
         
         if isCurrentShowing {
@@ -454,6 +466,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         } else {
             
             hideNavigator(UIButton())
+            hideMyActivity(UIButton())
             
             isCurrentShowing = !isCurrentShowing
             
@@ -462,6 +475,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             whereAmIView.isHidden = false
             
             setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
+            
+        }
+        
+    }
+    
+    @IBAction func hideMyActivity(_ sender: UIButton) {
+        
+        if isMyActivityShowing {
+            
+            myActivityView.isHidden = true
+            
+            isMyActivityShowing = false
             
         }
         
@@ -504,6 +529,42 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         self.performSegue(withIdentifier: "toSearch", sender: self)
         
     }
+    
+    @IBAction func myActivityDetail(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "toEventDetail", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toEventDetail" {
+            
+            if let destination = segue.destination as? EventDetailTableViewController {
+                
+                destination.activityId = showingMyActivity.activityId
+                destination.bannerUrl = showingMyActivity.bannerUrl
+                destination.topic = showingMyActivity.name
+                destination.locationDesc = ""
+                destination.toRounds = showingMyActivity.toRound
+                destination.desc = showingMyActivity.desc
+                destination.room = showingMyActivity.room
+                destination.place = showingMyActivity.place
+                destination.zoneId = showingMyActivity.faculty
+                destination.latitude = showingMyActivity.latitude
+                destination.longitude = showingMyActivity.longitude
+                destination.pdf = showingMyActivity.pdf
+                destination.toImages = showingMyActivity.toImages
+                destination.toTags = showingMyActivity.toTags
+                destination.managedObjectContext = self.managedObjectContext
+                
+            }
+            
+        }
+        
+        
+    }
+    
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //        
 //        // Don't want to show a custom image if the annotation is the user's location.
@@ -673,10 +734,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             let favoritedAnnotation = MKPointAnnotation()
             favoritedAnnotation.coordinate = favoritedCoordinate
-            favoritedAnnotation.title = "FAVORITED"
+            favoritedAnnotation.title = "FAVORITEDANDRESERVED"
             favoritedAnnotation.subtitle = favoritedData.activityId
             
-            favoritedActivity.updateValue(favoritedData.toActivity!, forKey: favoritedData.activityId!)
+            favoritedAndReservedActivity.updateValue(favoritedData.toActivity!, forKey: favoritedData.activityId!)
             
             favoritedAndReservedAnnotations.append(favoritedAnnotation)
             
@@ -689,19 +750,17 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func addReservedAnnotation() {
         
         let reservedDatas = ReservedActivity.fetchReservedActivity(inManageobjectcontext: managedObjectContext!)!
-        print("Add Reserved")
-        print(reservedDatas.count)
+        
         for reservedData in reservedDatas {
-            print(reservedData.activityId)
-            print(reservedData.toActivity?.name)
+            
             let reservedCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: (reservedData.toActivity?.latitude)!, longitude: (reservedData.toActivity?.longitude)!)
             
             let reservedAnnotation = MKPointAnnotation()
             reservedAnnotation.coordinate = reservedCoordinate
-            reservedAnnotation.title = "RESERVED"
+            reservedAnnotation.title = "FAVORITEDANDRESERVED"
             reservedAnnotation.subtitle = reservedData.activityId
             
-            reservedActivity.updateValue(reservedData.toActivity!, forKey: reservedData.activityId!)
+            favoritedAndReservedActivity.updateValue(reservedData.toActivity!, forKey: reservedData.activityId!)
             
             favoritedAndReservedAnnotations.append(reservedAnnotation)
             

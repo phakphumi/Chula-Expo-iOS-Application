@@ -12,14 +12,56 @@ import CoreData
 
 class APIController {
     
+    
+    class func sendComment(toActivityID id: String, message: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+        
+        let parameters: [String: Any] = [
+            "activity": id,
+            "message": message
+        ]
+        
+        if let userData = UserData.fetchUser(inManageobjectcontext: context) {
+                
+            let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
+            
+            Alamofire.request("http://staff.chulaexpo.com/api/comments", method: .post, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
+         
+                if response.result.isSuccess {
+                    
+                    if let JSON = response.result.value as? NSDictionary{
+
+                        let results = JSON["success"] as! Bool
+                        
+                        completion?(results)
+                    
+                    }
+                    
+                } else {
+                    
+                    completion?(false)
+                    
+                }
+                
+                print(response.result.value)
+                
+            })
+            
+        }
+        
+    }
+    
     class func getRoundsData(activityID: String, completion: @escaping (NSArray) -> Void) {
         
         Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityID)/rounds").responseJSON { (response) in
             
-            if let JSON = response.result.value as? NSDictionary{
-                let results = JSON["results"] as! NSArray
+            if response.result.isSuccess {
                 
-                completion(results)
+                if let JSON = response.result.value as? NSDictionary{
+                    let results = JSON["results"] as! NSArray
+                    
+                    completion(results)
+                }
+                
             }
             
         }

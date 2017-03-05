@@ -63,57 +63,64 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     }
     @IBAction func editInformation(_ sender: UIButton) {
 //        
-//        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-//        button2Alert.show()
-        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
-            
-            tabBarController?.performSegue(withIdentifier: "editInfo", sender: self)
-            
-        } else {
-            
-            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
-            
-            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            
-            self.present(confirm, animated: true, completion: nil)
-            
-        }
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+//        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+//            
+//            tabBarController?.performSegue(withIdentifier: "editInfo", sender: self)
+//            
+//        } else {
+//            
+//            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            
+//            self.present(confirm, animated: true, completion: nil)
+//            
+//        }
         
     }
 
     @IBAction func editTag(_ sender: UIButton) {
         
-        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
-            
-            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
-            
-        } else {
-            
-            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
-            
-            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            
-            self.present(confirm, animated: true, completion: nil)
-            
-        }
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
         
+//        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+//            
+//            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
+//            
+//        } else {
+//            
+//            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            
+//            self.present(confirm, animated: true, completion: nil)
+//            
+//        }
+//        
     }
     
     @IBAction func editFac(_ sender: UIButton) {
         
-        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
-            
-            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
-            
-        } else {
-            
-            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
-            
-            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            
-            self.present(confirm, animated: true, completion: nil)
-            
-        }
+        
+        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+        button2Alert.show()
+        
+//        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+//            
+//            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
+//            
+//        } else {
+//            
+//            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            
+//            self.present(confirm, animated: true, completion: nil)
+//            
+//        }
         
     }
     

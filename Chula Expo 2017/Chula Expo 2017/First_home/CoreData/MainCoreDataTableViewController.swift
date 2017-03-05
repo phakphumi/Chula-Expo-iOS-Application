@@ -10,47 +10,47 @@ import CoreData
 
 class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate
 {
-    var fetchedResultsControllerStage1: NSFetchedResultsController<NSFetchRequestResult>? {
-        didSet {
-            do {
-                if let frc = fetchedResultsControllerStage1 {
-                    frc.delegate = self
-                    try frc.performFetch()
-                }
-                tableView.reloadData()
-            } catch let error {
-                print("NSFetchedResultsControllerStage1.performFetch() failed: \(error)")
-            }
-        }
-    }
-    
-    var fetchedResultsControllerStage2: NSFetchedResultsController<NSFetchRequestResult>? {
-        didSet {
-            do {
-                if let frc = fetchedResultsControllerStage2 {
-                    frc.delegate = self
-                    try frc.performFetch()
-                }
-                tableView.reloadData()
-            } catch let error {
-                print("NSFetchedResultsControllerStage2.performFetch() failed: \(error)")
-            }
-        }
-    }
-    
-    var fetchedResultsControllerStage3: NSFetchedResultsController<NSFetchRequestResult>? {
-        didSet {
-            do {
-                if let frc = fetchedResultsControllerStage3 {
-                    frc.delegate = self
-                    try frc.performFetch()
-                }
-                tableView.reloadData()
-            } catch let error {
-                print("NSFetchedResultsControllerStage3.performFetch() failed: \(error)")
-            }
-        }
-    }
+//    var fetchedResultsControllerStage1: NSFetchedResultsController<NSFetchRequestResult>? {
+//        didSet {
+//            do {
+//                if let frc = fetchedResultsControllerStage1 {
+//                    frc.delegate = self
+//                    try frc.performFetch()
+//                }
+//                tableView.reloadData()
+//            } catch let error {
+//                print("NSFetchedResultsControllerStage1.performFetch() failed: \(error)")
+//            }
+//        }
+//    }
+//    
+//    var fetchedResultsControllerStage2: NSFetchedResultsController<NSFetchRequestResult>? {
+//        didSet {
+//            do {
+//                if let frc = fetchedResultsControllerStage2 {
+//                    frc.delegate = self
+//                    try frc.performFetch()
+//                }
+//                tableView.reloadData()
+//            } catch let error {
+//                print("NSFetchedResultsControllerStage2.performFetch() failed: \(error)")
+//            }
+//        }
+//    }
+//    
+//    var fetchedResultsControllerStage3: NSFetchedResultsController<NSFetchRequestResult>? {
+//        didSet {
+//            do {
+//                if let frc = fetchedResultsControllerStage3 {
+//                    frc.delegate = self
+//                    try frc.performFetch()
+//                }
+//                tableView.reloadData()
+//            } catch let error {
+//                print("NSFetchedResultsControllerStage3.performFetch() failed: \(error)")
+//            }
+//        }
+//    }
     
     var fetchedResultsControllerFeed: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
@@ -145,7 +145,7 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+            tableView.endUpdates()
     }
 }
 

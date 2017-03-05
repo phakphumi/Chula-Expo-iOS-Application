@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FirstViewController: MainCoreDataTableViewController {
+class FirstViewController: MainCoreDataTableViewController{
 
 //    let dateFormatter = DateFormatter()
     
@@ -35,13 +35,20 @@ class FirstViewController: MainCoreDataTableViewController {
         
         print("\(Date().toThaiText())")
         
-        requestForStageEvent()
+//        requestForStageEvent()
         requestForFeedEvent()
         
         fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
+        
+        
+        refreshControl = UIRefreshControl()
+
+        refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl!.addTarget(self, action: #selector(FirstViewController.handleRefresh(sender:)), for: UIControlEvents.valueChanged)
+        tableView?.addSubview(refreshControl!)
         
     }
     
@@ -58,48 +65,101 @@ class FirstViewController: MainCoreDataTableViewController {
 
     }
     
-// Core Data
-    func requestForStageEvent(){
+    
+    func handleRefresh(sender refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
-//        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
-        request.predicate = NSPredicate(format: "stage = 1")
-
-        request.sortDescriptors = [NSSortDescriptor(
-        key: "activityId",
-        ascending: true
-        )]
+        // Simply adding an object to the data source for this example
         
-        request.fetchBatchSize = 5
+        let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+        let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
+        let fetchStageData = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+        let requestDeleteStageData = NSBatchDeleteRequest(fetchRequest: fetchStageData)
+        let fetchHighlightData = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+        let requestDeleteHighlightData = NSBatchDeleteRequest(fetchRequest: fetchHighlightData)
         
-        if let context = managedObjectContext {
+        do{
+            try managedObjectContext!.execute(requestDeleteRecommendData)
+            try managedObjectContext!.execute(requestDeleteStageData)
+            try managedObjectContext!.execute(requestDeleteHighlightData)
+            try managedObjectContext!.save()
+        } catch let error {
             
-            fetchedResultsControllerStage1 = NSFetchedResultsController(
-                fetchRequest: request,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
+            print(error)
             
-//            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
-            request.predicate = NSPredicate(format: "stage = 2")
-            fetchedResultsControllerStage2 = NSFetchedResultsController(
-                fetchRequest: request,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
-
-//            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
-            request.predicate = NSPredicate(format: "stage = 3")
-            fetchedResultsControllerStage3 = NSFetchedResultsController(
-                fetchRequest: request,
-                managedObjectContext: context,
-                sectionNameKeyPath: nil,
-                cacheName: nil
-            )
         }
+        
+//        APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+//            
+//            if success {
+//                
+//                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
+//                    
+//                    if success {
+//                        
+//                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+//                        
+//                    }
+//                    
+//                })
+//                
+//            }
+//            
+//        }
+        let indexPath = IndexPath(item: 0, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.reloadSections([0], with: .none)
+        tableView.reloadData()
+        requestForFeedEvent()
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+        self.viewDidLoad()
+        refreshControl.endRefreshing()
     }
+    
+// Core Data
+//    func requestForStageEvent(){
+//        
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+////        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
+//        request.predicate = NSPredicate(format: "stage = 1")
+//
+//        request.sortDescriptors = [NSSortDescriptor(
+//        key: "activityId",
+//        ascending: true
+//        )]
+//        
+//        request.fetchBatchSize = 5
+//        
+//        if let context = managedObjectContext {
+//            
+//            fetchedResultsControllerStage1 = NSFetchedResultsController(
+//                fetchRequest: request,
+//                managedObjectContext: context,
+//                sectionNameKeyPath: nil,
+//                cacheName: nil
+//            )
+//            
+////            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
+//            request.predicate = NSPredicate(format: "stage = 2")
+//            fetchedResultsControllerStage2 = NSFetchedResultsController(
+//                fetchRequest: request,
+//                managedObjectContext: context,
+//                sectionNameKeyPath: nil,
+//                cacheName: nil
+//            )
+//
+////            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
+//            request.predicate = NSPredicate(format: "stage = 3")
+//            fetchedResultsControllerStage3 = NSFetchedResultsController(
+//                fetchRequest: request,
+//                managedObjectContext: context,
+//                sectionNameKeyPath: nil,
+//                cacheName: nil
+//            )
+//        }
+//    }
     func requestForFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")

@@ -34,34 +34,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginPage" translatesAutoresizingMaskIntoConstraints="NO" id="btd-fD-VK3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="836-hJ-Ldy">
-                                <rect key="frame" x="137" y="518" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="NNG-St-L30" kind="show" id="0fr-SB-fsN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnX-iv-cce">
-                                <rect key="frame" x="243" y="518.5" width="74" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.30542900232474834" blue="0.42288477872157304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Buttonกดด">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="1cI-z6-raX" kind="show" id="LyB-1c-TFn"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rnX-iv-cce" firstAttribute="centerX" secondItem="8D7-2W-idW" secondAttribute="centerX" multiplier="1.75" id="75s-rr-Xrv"/>
-                            <constraint firstItem="WSP-YP-NMW" firstAttribute="top" secondItem="rnX-iv-cce" secondAttribute="bottom" constant="19.5" id="8og-of-ufj"/>
-                            <constraint firstItem="836-hJ-Ldy" firstAttribute="centerX" secondItem="8D7-2W-idW" secondAttribute="centerX" id="Ebp-w8-7SJ"/>
                             <constraint firstAttribute="trailing" secondItem="btd-fD-VK3" secondAttribute="trailing" id="IDD-sK-W6z"/>
                             <constraint firstAttribute="bottom" secondItem="btd-fD-VK3" secondAttribute="bottom" id="L6O-Vc-Thr"/>
                             <constraint firstItem="btd-fD-VK3" firstAttribute="leading" secondItem="8D7-2W-idW" secondAttribute="leading" id="fIm-v2-ZaS"/>
                             <constraint firstItem="btd-fD-VK3" firstAttribute="top" secondItem="8D7-2W-idW" secondAttribute="top" id="gnW-4S-Drb"/>
-                            <constraint firstItem="WSP-YP-NMW" firstAttribute="top" secondItem="836-hJ-Ldy" secondAttribute="bottom" constant="20" id="jSA-qQ-B3q"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1413,9 +1392,9 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nET-Xg-sPe"/>
-        <segue reference="Dhn-Nj-6rL"/>
+        <segue reference="gH4-31-fBe"/>
         <segue reference="TO2-yU-nnK"/>
         <segue reference="AgV-hs-Pux"/>
+        <segue reference="Dhn-Nj-6rL"/>
     </inferredMetricsTieBreakers>
 </document>

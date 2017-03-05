@@ -34,7 +34,7 @@ class APIController {
                         if success {
                             
                             let results = JSON["results"] as! NSDictionary
-                            let zone = results["zone"] as! [String: String]
+                            let zone = results["text"] as! [String: String]
                             
                             completion?(zone)
                             

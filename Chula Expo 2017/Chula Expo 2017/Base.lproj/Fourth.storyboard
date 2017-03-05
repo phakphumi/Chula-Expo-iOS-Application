@@ -29,7 +29,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CIQ-R5-XgI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="CIQ-R5-XgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.94335198402404785" green="0.47247317433357239" blue="0.6000601053237915" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -612,7 +612,7 @@
                         <viewControllerLayoutGuide type="top" id="Rob-3r-HWO"/>
                         <viewControllerLayoutGuide type="bottom" id="dBy-Bz-123"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0yR-qh-ckV">
+                    <view key="view" contentMode="scaleToFill" id="0yR-qh-ckV" userLabel="rootview">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -620,27 +620,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-RF-mkK">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-RF-mkK">
+                                <rect key="frame" x="20" y="0.0" width="374" height="2000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-11-Qw9">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-11-Qw9" userLabel="contentview">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="2000"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-aF-QA9">
-                                                <rect key="frame" x="34" y="240" width="346" height="490"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="hJg-ZU-r2i">
+                                                <rect key="frame" x="125" y="80" width="124" height="125"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="125" id="AXX-eD-ZqA"/>
+                                                    <constraint firstAttribute="width" constant="124" id="F5e-rf-RKF"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-aF-QA9">
+                                                <rect key="frame" x="14" y="240" width="346" height="490"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="490" id="i9D-z2-Jo4"/>
+                                                </constraints>
                                                 <string key="text">จุฬาฯ Expo จุฬาฯ 100 ปี นวัตกรรมคิดทำเพื่อสังคม  Chula Expo CU@100 toward greater innovation for the society  แนวคิดหลักในการจัดงาน Innovation Social responsibility Sustainability  กลุ่มเป้าหมาย CU Family : ครอบครัวจุฬาฯ หมายถึง นิสิตปัจจุบัน นิสิตเก่า คณาจารย์และเจ้าหน้าที่ ที่มีความเกี่ยวข้องกับจุฬาฯ โดยตรง รวมทั้งนักเรียนที่มีความมุ่งหมายจะเข้ามาเป็นส่วนหนึ่งของจุฬาลงกรณ์มหาวิทยาลัย</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-8k-iwl">
-                                                <rect key="frame" x="34" y="738" width="346" height="754"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-8k-iwl">
+                                                <rect key="frame" x="14" y="738" width="346" height="754"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="754" id="rhB-Eh-ZQv"/>
+                                                </constraints>
                                                 <string key="text">About Application
  Application Designer
 Nutthawat Pradujdecha (CP41) 
@@ -662,56 +671,108 @@ Indoor Localization System Assc.Prof. Dr.Kultida Rojviboonchai Teerapat Vong
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Supported By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-Qv-pJU">
-                                                <rect key="frame" x="129" y="1500" width="157" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supported By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-Qv-pJU">
+                                                <rect key="frame" x="136.33333333333331" y="1500" width="101.33333333333334" height="27"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_LabISEL" translatesAutoresizingMaskIntoConstraints="NO" id="jvr-ci-19D">
-                                                <rect key="frame" x="215" y="1563" width="171" height="159"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_LabISEL" translatesAutoresizingMaskIntoConstraints="NO" id="jvr-ci-19D">
+                                                <rect key="frame" x="214.66666666666669" y="1593" width="105.00000000000006" height="98"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="98" id="kKm-yl-bjz"/>
+                                                    <constraint firstAttribute="width" constant="105" id="tjS-pr-Ci7"/>
+                                                </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_comp" translatesAutoresizingMaskIntoConstraints="NO" id="1El-E1-5un">
-                                                <rect key="frame" x="44" y="1730" width="327" height="68"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_comp" translatesAutoresizingMaskIntoConstraints="NO" id="1El-E1-5un">
+                                                <rect key="frame" x="54.666666666666686" y="1730" width="265" height="55"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="265" id="1JD-0e-cfj"/>
+                                                    <constraint firstAttribute="height" constant="55" id="e2W-7S-IPQ"/>
+                                                </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_clique" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-9S-d1l">
-                                                <rect key="frame" x="40" y="1597" width="167" height="90"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_clique" translatesAutoresizingMaskIntoConstraints="NO" id="3QQ-9S-d1l">
+                                                <rect key="frame" x="33.666666666666657" y="1597" width="167" height="90"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="167" id="hza-Dx-aZO"/>
+                                                    <constraint firstAttribute="height" constant="90" id="jdm-Ja-VGr"/>
+                                                </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponser By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-pa-hQL">
-                                                <rect key="frame" x="129" y="1806" width="157" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponser By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-pa-hQL">
+                                                <rect key="frame" x="145.33333333333337" y="1806" width="83.666666666666657" height="27"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo-sponsors" translatesAutoresizingMaskIntoConstraints="NO" id="TY2-GG-ixD">
-                                                <rect key="frame" x="0.0" y="1854" width="406" height="72"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sponsors" translatesAutoresizingMaskIntoConstraints="NO" id="TY2-GG-ixD">
+                                                <rect key="frame" x="38.666666666666657" y="1854" width="297" height="53"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="297" id="cPs-mk-s0Y"/>
+                                                    <constraint firstAttribute="height" constant="53" id="gNL-DX-D5G"/>
+                                                </constraints>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2000" id="1Mn-QS-tPX"/>
+                                            <constraint firstItem="UKL-8k-iwl" firstAttribute="centerX" secondItem="hmY-aF-QA9" secondAttribute="centerX" id="45w-XM-Ri7"/>
+                                            <constraint firstItem="jvr-ci-19D" firstAttribute="top" secondItem="DWZ-Qv-pJU" secondAttribute="bottom" constant="66" id="4id-BR-d2c"/>
+                                            <constraint firstItem="hmY-aF-QA9" firstAttribute="centerX" secondItem="hJg-ZU-r2i" secondAttribute="centerX" id="5Xk-gv-3od"/>
+                                            <constraint firstItem="1El-E1-5un" firstAttribute="top" secondItem="jvr-ci-19D" secondAttribute="bottom" constant="39" id="AvR-l0-At2"/>
+                                            <constraint firstItem="1El-E1-5un" firstAttribute="centerX" secondItem="DWZ-Qv-pJU" secondAttribute="centerX" id="BsE-4v-3RN"/>
+                                            <constraint firstItem="UKL-8k-iwl" firstAttribute="top" secondItem="hmY-aF-QA9" secondAttribute="bottom" constant="8" id="Cnl-Dq-qKy"/>
+                                            <constraint firstItem="hmY-aF-QA9" firstAttribute="top" secondItem="hJg-ZU-r2i" secondAttribute="bottom" constant="35" id="DYn-fY-C37"/>
+                                            <constraint firstItem="3QQ-9S-d1l" firstAttribute="top" secondItem="DWZ-Qv-pJU" secondAttribute="bottom" constant="70" id="GTw-yb-ANf"/>
+                                            <constraint firstItem="TY2-GG-ixD" firstAttribute="centerX" secondItem="dEl-pa-hQL" secondAttribute="centerX" id="OBI-Ls-lbH"/>
+                                            <constraint firstItem="dEl-pa-hQL" firstAttribute="centerX" secondItem="1El-E1-5un" secondAttribute="centerX" id="TPj-W2-xdc"/>
+                                            <constraint firstItem="TY2-GG-ixD" firstAttribute="top" secondItem="dEl-pa-hQL" secondAttribute="bottom" constant="21" id="WWo-TW-8I9"/>
+                                            <constraint firstItem="hJg-ZU-r2i" firstAttribute="top" secondItem="VVN-11-Qw9" secondAttribute="top" constant="80" id="ama-Dq-dYr"/>
+                                            <constraint firstAttribute="bottom" secondItem="TY2-GG-ixD" secondAttribute="bottom" constant="93" id="b7x-OX-qKj"/>
+                                            <constraint firstItem="3QQ-9S-d1l" firstAttribute="centerX" secondItem="DWZ-Qv-pJU" secondAttribute="centerX" constant="-70" id="cPj-jK-Fji"/>
+                                            <constraint firstItem="DWZ-Qv-pJU" firstAttribute="top" secondItem="UKL-8k-iwl" secondAttribute="bottom" constant="8" id="iim-AA-VUg"/>
+                                            <constraint firstItem="jvr-ci-19D" firstAttribute="centerX" secondItem="DWZ-Qv-pJU" secondAttribute="centerX" constant="80" id="lTV-Gy-XaA"/>
+                                            <constraint firstItem="dEl-pa-hQL" firstAttribute="top" secondItem="1El-E1-5un" secondAttribute="bottom" constant="21" id="vwh-Df-n9f"/>
+                                            <constraint firstItem="hJg-ZU-r2i" firstAttribute="centerX" secondItem="VVN-11-Qw9" secondAttribute="centerX" id="yBp-33-udd"/>
+                                            <constraint firstItem="DWZ-Qv-pJU" firstAttribute="centerX" secondItem="UKL-8k-iwl" secondAttribute="centerX" id="zuF-PW-A9B"/>
+                                        </constraints>
                                     </view>
-                                    <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wil-Rq-c4z">
-                                        <rect key="frame" x="364" y="20" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="closeIcon"/>
-                                        <connections>
-                                            <action selector="cancel:" destination="HCd-hD-eyz" eventType="touchUpInside" id="h64-gr-Q2l"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chula_expo_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="hJg-ZU-r2i">
-                                        <rect key="frame" x="145" y="85" width="124" height="124.66666666666666"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="VVN-11-Qw9" firstAttribute="leading" secondItem="hLK-RF-mkK" secondAttribute="leading" id="46y-cW-UAz"/>
+                                    <constraint firstAttribute="trailing" secondItem="hmY-aF-QA9" secondAttribute="trailing" constant="14" id="G9S-NM-u3H"/>
+                                    <constraint firstItem="hmY-aF-QA9" firstAttribute="leading" secondItem="hLK-RF-mkK" secondAttribute="leading" constant="14" id="Gp6-MF-Wcr"/>
+                                    <constraint firstAttribute="trailing" secondItem="VVN-11-Qw9" secondAttribute="trailing" id="KQK-E4-OCh"/>
+                                    <constraint firstAttribute="bottom" secondItem="VVN-11-Qw9" secondAttribute="bottom" id="NVs-qO-DQC"/>
+                                    <constraint firstItem="VVN-11-Qw9" firstAttribute="width" secondItem="hLK-RF-mkK" secondAttribute="width" id="Z2i-hs-ZuW"/>
+                                    <constraint firstItem="UKL-8k-iwl" firstAttribute="leading" secondItem="hLK-RF-mkK" secondAttribute="leading" constant="14" id="lC4-Qq-BJN"/>
+                                    <constraint firstAttribute="trailing" secondItem="UKL-8k-iwl" secondAttribute="trailing" constant="14" id="tfq-VT-NTc"/>
+                                    <constraint firstItem="VVN-11-Qw9" firstAttribute="top" secondItem="hLK-RF-mkK" secondAttribute="top" id="upX-YF-AZb"/>
+                                </constraints>
+                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </scrollView>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wil-Rq-c4z">
+                                <rect key="frame" x="339" y="30" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="aKD-SH-s7E"/>
+                                    <constraint firstAttribute="width" constant="35" id="acW-z9-VEU"/>
+                                </constraints>
+                                <state key="normal" image="closeIcon"/>
+                                <connections>
+                                    <action selector="cancel:" destination="HCd-hD-eyz" eventType="touchUpInside" id="h64-gr-Q2l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hLK-RF-mkK" firstAttribute="leading" secondItem="0yR-qh-ckV" secondAttribute="leadingMargin" id="B9T-Q4-Zab"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wil-Rq-c4z" secondAttribute="trailing" constant="20" id="FeM-oe-fqr"/>
+                            <constraint firstItem="Wil-Rq-c4z" firstAttribute="top" secondItem="Rob-3r-HWO" secondAttribute="bottom" constant="30" id="a3J-vY-ePQ"/>
+                            <constraint firstItem="hLK-RF-mkK" firstAttribute="top" secondItem="Rob-3r-HWO" secondAttribute="bottom" id="cHt-ft-aZt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hLK-RF-mkK" secondAttribute="trailing" id="fyH-fw-3vd"/>
+                            <constraint firstItem="dBy-Bz-123" firstAttribute="top" secondItem="hLK-RF-mkK" secondAttribute="bottom" id="uAz-IT-Kz6"/>
+                        </constraints>
                     </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="1000"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="2000"/>
@@ -723,7 +784,6 @@ Indoor Localization System Assc.Prof. Dr.Kultida Rojviboonchai Teerapat Vong
         <!--View Controller-->
         <scene sceneID="ktU-bA-dt0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8xN-Uf-ZIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HCd-hD-eyz" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WEx-pR-zjF"/>
@@ -733,10 +793,10 @@ Indoor Localization System Assc.Prof. Dr.Kultida Rojviboonchai Teerapat Vong
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="62C5D82D-79AC-46D2-ABB2-EE92304733F9" translatesAutoresizingMaskIntoConstraints="NO" id="mNg-rd-zDh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BA9F5CCC-4D3D-4D87-9659-6D6F8702143E" translatesAutoresizingMaskIntoConstraints="NO" id="mNg-rd-zDh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6C8FDA6E-534B-4A8F-BAA4-0387DBA61F21" translatesAutoresizingMaskIntoConstraints="NO" id="jGM-C9-fgT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F63ACDE5-9B8B-44C1-8737-7FB48E5F7F34" translatesAutoresizingMaskIntoConstraints="NO" id="jGM-C9-fgT">
                                 <rect key="frame" x="145" y="85.666666666666657" width="124" height="123.99999999999997"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jGM-C9-fgT" secondAttribute="height" id="MQX-b8-WRx"/>
@@ -754,7 +814,7 @@ Indoor Localization System Assc.Prof. Dr.Kultida Rojviboonchai Teerapat Vong
                                     <constraint firstAttribute="height" constant="30" id="82Y-Wz-u1q"/>
                                     <constraint firstAttribute="width" constant="30" id="txl-g4-aYP"/>
                                 </constraints>
-                                <state key="normal" image="14F964C7-B7C8-41BB-BB91-2D10ED84C1C2"/>
+                                <state key="normal" image="B14F7F29-F655-4DF3-BE80-45E97B683171"/>
                                 <connections>
                                     <action selector="cancel:" destination="HCd-hD-eyz" eventType="touchUpInside" id="iFs-BX-g1p"/>
                                 </connections>
@@ -784,6 +844,7 @@ Indoor Localization System Assc.Prof. Dr.Kultida Rojviboonchai Teerapat Vong
                         <outlet property="aboutLabel" destination="m1h-rx-Fxq" id="LEt-bp-dBC"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xN-Uf-ZIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3168" y="1803"/>
         </scene>
@@ -884,7 +945,7 @@ Indoor Localization System Assc.Prof. Dr.Kultida Rojviboonchai Teerapat Vong
         </scene>
     </scenes>
     <resources>
-        <image name="14F964C7-B7C8-41BB-BB91-2D10ED84C1C2" width="35" height="35">
+        <image name="B14F7F29-F655-4DF3-BE80-45E97B683171" width="35" height="35">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1017,7 +1078,7 @@ HN4c5xzsHPQc9xz8HQsdDx0WHR4dKx0wHTIdNB05HUEdRB1JHVEdVB1mHWkdbgAAAAAAAAIBAAAAAAAA
 AEEAAAAAAAAAAAAAAAAAAB1wA
 </mutableData>
         </image>
-        <image name="62C5D82D-79AC-46D2-ABB2-EE92304733F9" width="375" height="667">
+        <image name="BA9F5CCC-4D3D-4D87-9659-6D6F8702143E" width="375" height="667">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -17746,7 +17807,7 @@ AA9OQAAPTkgAD05LAA9OUAAPTl8AD05jAA9OagAPTnIAD05/AA9OhAAPToYAD06IAA9OjQAPTpUAD06Y
 AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
 </mutableData>
         </image>
-        <image name="6C8FDA6E-534B-4A8F-BAA4-0387DBA61F21" width="231" height="300">
+        <image name="F63ACDE5-9B8B-44C1-8737-7FB48E5F7F34" width="231" height="300">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

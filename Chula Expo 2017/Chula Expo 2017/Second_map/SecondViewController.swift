@@ -282,25 +282,13 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         let annotationIdentifier = "CustomerIdentifier"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
         
-//        if annotationView == nil {
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
         
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-//            annotationView?.canShowCallout = true
-            
-            // Resize image
-            
-//            print("\(annotation.title!!) \(annotation.coordinate)")
-            
-            let pinImage = annotationIcon[annotation.title!!]
-            
-//            let size = CGSize(width: 33.67, height: 48.33)
-//            UIGraphicsBeginImageContext(size)
-//            pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//            let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-            
-            
-            annotationView?.image = pinImage
+        let pinImage = annotationIcon[annotation.title!!]
+        
+        
+        
+        annotationView?.image = pinImage
         
         if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" {
             

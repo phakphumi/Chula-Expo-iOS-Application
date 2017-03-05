@@ -22,6 +22,10 @@ class FirstViewController: MainCoreDataTableViewController{
         }
     }
     
+    var images: [String] = []
+    var titles: [String] = []
+    var desc: [String] = []
+    
     let nowDate = Date()
     let slideshowPageViewController = SlideshowPageViewController()
     
@@ -95,7 +99,7 @@ class FirstViewController: MainCoreDataTableViewController{
         }
         
 //        APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
-//            
+//
 //            if success {
 //                
 //                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
@@ -105,19 +109,46 @@ class FirstViewController: MainCoreDataTableViewController{
 //                        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
 //                        
 //                    }
-//                    
 //                })
-//                
 //            }
-//            
 //        }
         let indexPath = IndexPath(item: 0, section: 0)
         tableView.reloadRows(at: [indexPath], with: .none)
         tableView.reloadSections([0], with: .none)
         tableView.reloadData()
         requestForFeedEvent()
-//        tableView.beginUpdates()
-//        tableView.endUpdates()
+        
+        if let slideshow = tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(9){
+            slideshow.removeFromSuperview()
+        }
+        
+        images.removeAll()
+        titles.removeAll()
+        desc.removeAll()
+        managedObjectContext?.performAndWait {
+            
+            let fetchdata = HighlightActivity.fetchAllHighlight(inManageobjectcontext: self.managedObjectContext!)
+            
+            for data in fetchdata{
+                
+                self.images.append(data.bannerUrl ?? "")
+                self.titles.append(data.name ?? "")
+                self.desc.append(data.shortDesc ?? "")
+            }
+        }
+        
+        slideshowPageViewController.imageName = images
+        slideshowPageViewController.topicLabelText = titles
+        slideshowPageViewController.descLabelText = desc
+        
+        self.addChildViewController(slideshowPageViewController)
+        slideshowPageViewController.view.tag = 9
+        if let cell = tableView.cellForRow(at: indexPath){
+            
+//            cell.cotentView.addSubview(slideshowPageViewController.view)
+            
+        }
+        
         self.viewDidLoad()
         refreshControl.endRefreshing()
     }
@@ -224,19 +255,19 @@ class FirstViewController: MainCoreDataTableViewController{
             cell = tableView.dequeueReusableCell(withIdentifier: "Slideshow", for: indexPath)
             slideshowPageViewController.view.transform = CGAffineTransform(scaleX: cell.bounds.width / 375, y: cell.bounds.height / 220)
             slideshowPageViewController.view.frame = CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height)
-            var images: [String] = []
-            var titles: [String] = []
-            var desc: [String] = []
             
+                images.removeAll()
+                titles.removeAll()
+                desc.removeAll()
             managedObjectContext?.performAndWait {
                 
                 let fetchdata = HighlightActivity.fetchAllHighlight(inManageobjectcontext: self.managedObjectContext!)
                 
                 for data in fetchdata{
                     
-                    images.append(data.bannerUrl ?? "")
-                    titles.append(data.name ?? "")
-                    desc.append(data.shortDesc ?? "")
+                    self.images.append(data.bannerUrl ?? "")
+                    self.titles.append(data.name ?? "")
+                    self.desc.append(data.shortDesc ?? "")
                 }
             }
             
@@ -245,6 +276,7 @@ class FirstViewController: MainCoreDataTableViewController{
             slideshowPageViewController.descLabelText = desc
    
             self.addChildViewController(slideshowPageViewController)
+            slideshowPageViewController.view.tag = 9
             cell.contentView.addSubview(slideshowPageViewController.view)
         }
             

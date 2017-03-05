@@ -50,40 +50,43 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         finButton2.layer.masksToBounds = true
         
     }
-    struct tag {
+    struct facultyData {
+        
         var imgName: String = ""
         var tagName: String = ""
         var tagBack: String = ""
         var tagEngName: String = ""
+        var shortName: String = ""
+        var tagColor: UIColor = UIColor.clear
+        var isBlackText:Bool = false
+        
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var tagList : [tag] = [
-        tag(imgName: "heartIcon",  tagName: "ครุศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Education"),
-        tag(imgName: "heartIcon",  tagName: "จิตวิทยา",  tagBack: "technology",  tagEngName: "Faculty of Psychology"),
-        tag(imgName: "heartIcon",  tagName: "ทันตแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Dentistry"),
-        tag(imgName: "heartIcon",  tagName: "นิติศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Law"),
-        tag(imgName: "heartIcon",  tagName: "นิเทศศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Communication Arts"),
-        tag(imgName: "heartIcon",  tagName: "พยาบาลศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Nursing"),
-        tag(imgName: "heartIcon",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "technology",  tagEngName: "Faculty of Commerce and Accountancy"),
-        tag(imgName: "heartIcon",  tagName: "รัฐศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Political Science"),
-        tag(imgName: "heartIcon",  tagName: "วิทยาศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Science"),
-        tag(imgName: "heartIcon",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "technology",  tagEngName: "Faculty of Sports Science"),
-        tag(imgName: "heartIcon",  tagName: "วิศวกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Engineering"),
-        tag(imgName: "heartIcon",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Fine and Applied Arts"),
-        tag(imgName: "heartIcon",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Architecture"),
-        tag(imgName: "heartIcon",  tagName: "สหเวชศาสตร์",  tagBack: "technology",  tagEngName: "aculty of Allied Health Sciences"),
-        tag(imgName: "heartIcon",  tagName: "สัตวแพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Veterinary Science"),
-        tag(imgName: "heartIcon",  tagName: "อักษรศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Arts"),
-        tag(imgName: "heartIcon",  tagName: "เภสัชศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Pharmaceutical Sciences"),
-        tag(imgName: "heartIcon",  tagName: "เศรษฐศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Economic"),
-        tag(imgName: "heartIcon",  tagName: "แพทยศาสตร์",  tagBack: "technology",  tagEngName: "Faculty of Medicine"),
-        tag(imgName: "heartIcon",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "technology",  tagEngName: "School of Agricultural"),
-        tag(imgName: "heartIcon",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "technology",  tagEngName: "Graduate School"),
-    ]
+    var tagList : [facultyData] = [
+        facultyData(imgName: "01_ENG",  tagName: "วิศวกรรมศาสตร์",  tagBack: "01-ENG-bg",  tagEngName: "Faculty of Engineering", shortName: "", tagColor: UIColor(red:0.50, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "02_ARTS",  tagName: "อักษรศาสตร์",  tagBack: "02-ARTS-bg",  tagEngName: "Faculty of Arts", shortName: "ARTS", tagColor: UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "03_SCI",  tagName: "วิทยาศาสตร์",  tagBack: "03-SCI-bg",  tagEngName: "Faculty of Science", shortName: "SCI", tagColor: UIColor(red:1.00, green:1.00, blue:0.00, alpha:1.0), isBlackText: true),
+        facultyData(imgName: "04_POLSCI",  tagName: "รัฐศาสตร์",  tagBack: "04-POLSCI-bg",  tagEngName: "Faculty of Political Science", shortName: "POLISC", tagColor: UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "05_",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "05-ARCH-bg",  tagEngName: "Faculty of Architecture", shortName: "ACHI", tagColor: UIColor(red:0.60, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "06_BANSHI",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "06-BANSHI-bg",  tagEngName: "Faculty of Commerce and Accountancy", shortName: "", tagColor: UIColor(red:0.00, green:0.80, blue:1.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "07_EDU",  tagName: "ครุศาสตร์",  tagBack: "07-EDU-bg",  tagEngName: "Faculty of Education", shortName: "", tagColor: UIColor(red:1.00, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "08_COMMARTS",  tagName: "นิเทศศาสตร์",  tagBack: "08-COMMARTS-bg",  tagEngName: "Faculty of Communication Arts", shortName: "", tagColor: UIColor(red:0.00, green:0.00, blue:0.50, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "09_ECON",  tagName: "เศรษฐศาสตร์",  tagBack: "09-ECON-bg",  tagEngName: "Faculty of Economic", shortName: "", tagColor: UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0), isBlackText: true),
+        facultyData(imgName: "10_MED",  tagName: "แพทยศาสตร์",  tagBack: "10-MED-bg",  tagEngName: "Faculty of Medicine", shortName: "", tagColor: UIColor(red:0.02, green:0.38, blue:0.01, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "11_VET",  tagName: "สัตวแพทยศาสตร์",  tagBack: "11-VET-bg",  tagEngName: "Faculty of Veterinary Science", shortName: "", tagColor: UIColor(red:0.40, green:0.80, blue:0.80, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "12_DENT",  tagName: "ทันตแพทยศาสตร์",  tagBack: "12-DENT-bg",  tagEngName: "Faculty of Dentistry", shortName: "", tagColor: UIColor(red:0.20, green:0.00, blue:0.60, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "13_PHARM",  tagName: "เภสัชศาสตร์",  tagBack: "13-PHARM-bg",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "", tagColor: UIColor(red:0.40, green:0.80, blue:0.20, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "14_LAW",  tagName: "นิติศาสตร์",  tagBack: "14-LAW-bg",  tagEngName: "Faculty of Law", shortName: "", tagColor: UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0), isBlackText: true),
+        facultyData(imgName: "15_FAA",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "15-FAA-bg",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "", tagColor: UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "16_NUR",  tagName: "พยาบาลศาสตร์",  tagBack: "16-NUR-bg",  tagEngName: "Faculty of Nursing", shortName: "", tagColor: UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "17-AHS-bg",  tagEngName: "Faculty of Allied Health Sciences", shortName: "", tagColor: UIColor(red:0.80, green:0.60, blue:1.00, alpha:1.0), isBlackText: true),
+        facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "18-PSY-bg",  tagEngName: "Faculty of Psychology", shortName: "", tagColor: UIColor(red:0.20, green:0.00, blue:1.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "19-SPSC-bg",  tagEngName: "Faculty of Sports Science", shortName: "", tagColor: UIColor(red:1.00, green:0.40, blue:0.00, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural", shortName: "", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
+        facultyData(imgName: "21_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "21-GRAD-bg",  tagEngName: "Graduate School", shortName: "", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
+        ]
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -434,7 +437,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
         }
     }
-    var facultyList: [tag] = []
+    var facultyList: [facultyData] = []
     
     @IBAction func next(_ sender: Any) {
         var check = false

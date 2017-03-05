@@ -23,8 +23,7 @@ class FacultyCollectionViewCell: UICollectionViewCell {
                 if bg == ""{
                     bgImage.image = UIImage(named: "defaultImage")
                 } else {
-                    bgImage.imageFromServerURL(urlString: bg)
-//                    bgImage.image = UIImage(named: bg)
+                    bgImage.image = UIImage(named: bg)
                 }
             }
         }

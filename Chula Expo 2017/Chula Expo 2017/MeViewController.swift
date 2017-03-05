@@ -287,35 +287,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             let managedObjectContext: NSManagedObjectContext? =
                 (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
             
-            let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
-            let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
-            
-            let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
-            let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
-            
-            let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
-            let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
-            
-            let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
-            let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
-            
             let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
             let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
-            
-            let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
-            let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
-            
-            let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
-            let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
-            
-            let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
-            let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
-            
-            let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
-            let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
-            
-            let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
-            let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
             
             let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
             let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
@@ -325,16 +298,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             
             do {
                 
-                try managedObjectContext?.execute(requestDeleteActivityData)
-                try managedObjectContext?.execute(requestDeleteZoneData)
-                try managedObjectContext?.execute(requestDeleteImageData)
-                try managedObjectContext?.execute(requestDeleteTagData)
                 try managedObjectContext?.execute(requestDeleteUserData)
-                try managedObjectContext?.execute(requestDeleteVideoData)
-                try managedObjectContext?.execute(requestDeletePlaceData)
-                try managedObjectContext?.execute(requestDeleteRoomData)
-                try managedObjectContext?.execute(requestDeleteRoundData)
-                try managedObjectContext?.execute(requestDeleteFacilityData)
                 try managedObjectContext?.execute(requestDeleteFavoritedActivity)
                 try managedObjectContext?.execute(requestDeleteReservedActivity)
 

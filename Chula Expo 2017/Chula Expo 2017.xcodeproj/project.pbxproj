@@ -25,6 +25,8 @@
 		5F07FCA91E6AF1C800CB756C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07FCA81E6AF1C800CB756C /* TabBarViewController.swift */; };
 		5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0E92E01E48D8A100D5513B /* Alamofire.framework */; };
 		5F0F9C991E6C3C1E00BAE910 /* MapAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F0F9C981E6C3C1E00BAE910 /* MapAsset.xcassets */; };
+		5F102C9B1E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F102C991E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift */; };
+		5F102C9C1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F102C9A1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
 		5F202CDF1E321F5500AEAF1C /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */; };
 		5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */; };
@@ -159,6 +161,8 @@
 		5F07FCA81E6AF1C800CB756C /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = Main_LoginAndRegistration/TabBarViewController.swift; sourceTree = "<group>"; };
 		5F0E92E01E48D8A100D5513B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "DerivedData/Chula Expo 2017/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = SOURCE_ROOT; };
 		5F0F9C981E6C3C1E00BAE910 /* MapAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MapAsset.xcassets; path = Second_map/MapAsset.xcassets; sourceTree = "<group>"; };
+		5F102C991E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NearbyActivity+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/NearbyActivity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5F102C9A1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NearbyActivity+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/NearbyActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Main_LoginAndRegistration/LoginViewController.swift; sourceTree = "<group>"; };
 		5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SukhumvitSet.ttc; sourceTree = "<group>"; };
 		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = First_home/FirstViewController.swift; sourceTree = "<group>"; };
@@ -478,6 +482,8 @@
 		800052CB1E326F7D006C4E95 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				5F102C991E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift */,
+				5F102C9A1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift */,
 				80DC941B1E366B5200A1D01A /* ActivityData+CoreDataClass.swift */,
 				80DC941C1E366B5200A1D01A /* ActivityData+CoreDataProperties.swift */,
 				5FBD919A1E5F461300EDC311 /* EntityHistory+CoreDataClass.swift */,
@@ -731,6 +737,7 @@
 				80F456671E620C2B00D06378 /* FacultyBannerCell.swift in Sources */,
 				80314F3B1E4A1CDD003DB96A /* EventSelectViewController.swift in Sources */,
 				800D583F1E40A4C900E854E8 /* InterestCollectionViewCell.swift in Sources */,
+				5F102C9C1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift in Sources */,
 				58BD39451E4C4DFA00218B52 /* MeViewController.swift in Sources */,
 				802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */,
 				5F629CF51E5EB1E400801941 /* ReservedActivity+CoreDataProperties.swift in Sources */,
@@ -811,6 +818,7 @@
 				5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */,
 				931613E81E4F713400298127 /* FavViewController.swift in Sources */,
 				58611AA81E2B598F00B0BFDA /* FourthHeadTableViewCell.swift in Sources */,
+				5F102C9B1E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift in Sources */,
 				5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */,
 				800641D81E215A7F00760834 /* Model.xcdatamodeld in Sources */,
 				5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */,

@@ -14,11 +14,11 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     var locationDesc: String!
     var toRounds: NSSet!
     var reservable = false
-    var timeDesc: String?{
-        didSet{
-            dates.insert(timeDesc!, at: 0)
-        }
-    }
+//    var timeDesc: String?{
+//        didSet{
+//            dates.insert(timeDesc!, at: 0)
+//        }
+//    }
     var dates = [String]()
     var times = [String: [String]]()
     var dateTimeList = [String]()
@@ -58,15 +58,15 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if indexPath.section == 0{
-            
-            return CGSize(width: 150, height: 15)
-            
-        } else {
+//        if indexPath.section == 0{
+//            
+//            return CGSize(width: 150, height: 15)
+//            
+//        } else {
         
             return CGSize(width: 72, height: 15)
             
-        }
+//        }
         
         
     }
@@ -87,6 +87,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         if indexPath.row == 0 {
             
             dateTimeLabel.text = dates[indexPath.section]
+            dateTimeLabel.textColor = UIColor.black
             
 //            if indexPath.section == 0{
 //                
@@ -100,7 +101,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
 //            
         } else {
 //
-            dateTimeLabel.text = times[dates[indexPath.section]]?[indexPath.row - 1 - (indexPath.row / 4)]
+            dateTimeLabel.text = times[dates[indexPath.section]]?[indexPath.row - 1]
             dateTimeLabel.textColor = UIColor.gray
 //
         }

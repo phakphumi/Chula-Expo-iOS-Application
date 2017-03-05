@@ -107,7 +107,7 @@ public class StageActivity: NSManagedObject {
         let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request2 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request3 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
-        let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 13, minuite: 5)
+        let nowDate = Date()
         
         
         print("time  \(nowDate.toThaiText())")

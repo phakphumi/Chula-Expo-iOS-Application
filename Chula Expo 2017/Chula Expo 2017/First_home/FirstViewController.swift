@@ -22,8 +22,7 @@ class FirstViewController: MainCoreDataTableViewController {
         }
     }
     
-    let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 13, minuite: 10)
-    
+    let nowDate = Date()
     let slideshowPageViewController = SlideshowPageViewController()
     
     @IBOutlet var homeTableView: UITableView!

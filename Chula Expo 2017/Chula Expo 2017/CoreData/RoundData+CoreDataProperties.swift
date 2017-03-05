@@ -201,6 +201,46 @@ extension Date {
         return ("\(dayText) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
     }
 
+    
+    func toThaiTextOnlyDate(withEnd end: Date) -> String{
+        
+        let day = NSCalendar.current.component(.day, from: self)
+        let month = NSCalendar.current.component(.month, from: self)
+       
+        let endDay = NSCalendar.current.component(.day, from: end)
+        
+        var monthText = ""
+        
+        switch month {
+        case 1:
+            monthText = "มกราคม"
+        case 2:
+            monthText = "กุมภาพันธ์"
+        case 3:
+            monthText = "มีนาคม"
+        case 4:
+            monthText = "เมษายน"
+        case 5:
+            monthText = "มิถุนายน"
+        default:
+            monthText = "ธันวาคม"
+        }
+        var dayText = "\(day)"
+        
+        if endDay != day {
+            if day == 15 && endDay == 19{
+                dayText = "ทุกวัน"
+                return ("    \(dayText)")
+                
+            } else {
+                dayText = ("\(dayText)-\(endDay)")
+            }
+        }
+        
+        return ("\(dayText) \(monthText)")
+    }
+
+    
     func toTimeText() -> String{
         
         let hour = NSCalendar.current.component(.hour, from: self)

@@ -31,6 +31,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
 //               ]
     var start: Date?
     var end: Date?
+    
     var timeDesc: String?
     var activityId: String!
     var bannerUrl: String!
@@ -304,16 +305,28 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                         return first.startTime! < second.startTime!
                         
                     }) as! [RoundData]
-                    
+//                    
 //                    let timeFormatter = DateFormatter()
 //                    let dateFormatter = DateFormatter()
 //                    
 //                    dateFormatter.dateFormat = "dd มีนาคม"
 //                    timeFormatter.dateFormat = "HH.mm"
-//                    
-//                    let date = dateFormatter.string(from: start!)
-//                    let sTime = timeFormatter.string(from: start!)
-//                    let eTime = timeFormatter.string(from: end!)
+                    if let start = start{
+                        if let end = end{
+                            let date = start.toThaiTextOnlyDate(withEnd: end)
+                            let timeFormatter = DateFormatter()
+                            timeFormatter.dateFormat = "HH.mm"
+                            
+                            let sTime = timeFormatter.string(from: start)
+                            let eTime = timeFormatter.string(from: end)
+                            dates.append(date)
+                            times[date] = [String]()
+                            times[date]?.append("\(sTime)-\(eTime)")
+                            dateTimeList.append("\(date) \(sTime)-\(eTime)")
+                        }
+                    }
+                   
+
 //                    
 //                    if !dates.contains(date) {
 //                        
@@ -331,7 +344,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                         let timeFormatter = DateFormatter()
                         let dateFormatter = DateFormatter()
                         
-                        dateFormatter.dateFormat = "  dd มีนาคม"
+                        dateFormatter.dateFormat = "  d มีนาคม"
                         timeFormatter.dateFormat = "HH.mm"
                     
                         let date = dateFormatter.string(from: round.startTime!)
@@ -366,7 +379,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                     ehvc.locationDesc = self.locationDesc
                     ehvc.dates = self.dates
                     ehvc.times = self.times
-                    ehvc.timeDesc = self.timeDesc
+//                    ehvc.timeDesc = self.timeDesc
                     ehvc.dateTimeList = self.dateTimeList
                     ehvc.reservable = self.reservable
                 

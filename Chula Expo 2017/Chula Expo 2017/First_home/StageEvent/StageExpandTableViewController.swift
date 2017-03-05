@@ -20,7 +20,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
 
     var dateForDefault: Int = 1
     let dateComp = NSDateComponents()
-    let nowDate = Date.from(year: 2017, month: 3, day: 17, hour: 13, minuite: 10)
+    let nowDate = Date()
     var selectionIndicatorView: UIView = UIView()
     
     var selectedDate: Int = 1{

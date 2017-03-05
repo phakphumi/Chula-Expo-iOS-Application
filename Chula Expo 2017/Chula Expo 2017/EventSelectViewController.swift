@@ -263,12 +263,13 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             
             if let facultyCell = cell as? FacultyCollectionViewCell{
-                
+                facultyCell.bgImage.image = nil
                 managedObjectContext?.performAndWait {
                     background = ZoneData.fetchBackgroundFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
                 
                 facultyCell.name = facultyDatas[indexPath.row].tagName
+                
                 facultyCell.bg = background
 //                facultyCell.bg = facultyDatas[indexPath.row].tagBack
                 facultyCell.icon = facultyDatas[indexPath.row].imgName
@@ -361,12 +362,13 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     func setupCityData(){
         cityDatas = [
-            cityData(name: "Smart City", subName: "Smart City", bgImage: "smartBG", iconImage: "smartICON", tagName: "SMART", tagColor: UIColor(red:1.00, green:0.45, blue:0.00, alpha:1.0)),
-            cityData(name: "Health City", subName: "Health City", bgImage: "healthBG", iconImage: "healthICON", tagName: "HEALTH", tagColor: UIColor(red:0.24, green:0.68, blue:0.20, alpha:1.0)),
-            cityData(name: "Human City", subName: "Human City", bgImage: "humanBG", iconImage: "humanICON", tagName: "HUMAN", tagColor: UIColor(red:0.40, green:0.18, blue:0.57, alpha:1.0)),
-            cityData(name: "CU@100\nTowards Greater Innovation for Society Exhibition", subName: "Sala Phrakeaw", bgImage: "salaBG", iconImage: "salaICON", tagName: nil, tagColor: UIColor.clear),
-            cityData(name: "Art gallery", subName: "Art Gallery", bgImage: "artBG", iconImage: "artICON", tagName: nil, tagColor: UIColor.clear),
-            cityData(name: "Chulalongkorn International Forum", subName: "International Forum", bgImage: "artBG", iconImage: "artICON", tagName: nil, tagColor: UIColor.clear)
+            cityData(name: "Smart City", subName: "Smart City", bgImage: "SMART-bg", iconImage: "smart-icon", tagName: "SMART", tagColor: UIColor(red:0.96, green:0.54, blue:0.29, alpha:1.0)),
+            cityData(name: "Health City", subName: "Health City", bgImage: "HEALTH-bg", iconImage: "health-icon", tagName: "HEALTH", tagColor: UIColor(red:0.44, green:0.76, blue:0.63, alpha:1.0)),
+            cityData(name: "Human City", subName: "Human City", bgImage: "HUMAN-bg", iconImage: "human-icon", tagName: "HUMAN", tagColor: UIColor(red:0.22, green:0.15, blue:0.38, alpha:1.0)),
+            cityData(name: "CU Talk", subName: "Sala Phrakeaw", bgImage: "CUTALK-bg", iconImage: "cutalk-icon", tagName: "CUTALK", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
+            cityData(name: "CU@100 Exhibition", subName: "Sala Phrakeaw", bgImage: "CU100-bg", iconImage: "cu100-icon", tagName: "CU100", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
+            cityData(name: "Art gallery", subName: "Art Gallery", bgImage: "ARTGAL-bg", iconImage: "artgal-icon", tagName: "ARTGAL", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
+            cityData(name: "International Forum", subName: "International FORUM-bg", bgImage: "artBG", iconImage: "forum-icon", tagName: "FORUM", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0))
         ]
     }
     
@@ -374,27 +376,27 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         
         facultyDatas = [
             
-            facultyData(imgName: "heartIcon",  tagName: "วิศวกรรมศาสตร์",  tagBack: "eng",  tagEngName: "Faculty of Engineering", shortName: "", tagColor: UIColor(red:0.50, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "แพทยศาสตร์",  tagBack: "med",  tagEngName: "Faculty of Medicine", shortName: "", tagColor: UIColor(red:0.02, green:0.38, blue:0.01, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "วิทยาศาสตร์",  tagBack: "sci",  tagEngName: "Faculty of Science", shortName: "", tagColor: UIColor(red:1.00, green:1.00, blue:0.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "heartIcon",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "banshi",  tagEngName: "Faculty of Commerce and Accountancy", shortName: "", tagColor: UIColor(red:0.00, green:0.80, blue:1.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "รัฐศาสตร์",  tagBack: "",  tagEngName: "Faculty of Political Science", shortName: "", tagColor: UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "ครุศาสตร์",  tagBack: "edu",  tagEngName: "Faculty of Education", shortName: "", tagColor: UIColor(red:1.00, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "จิตวิทยา",  tagBack: "",  tagEngName: "Faculty of Psychology", shortName: "", tagColor: UIColor(red:0.20, green:0.00, blue:1.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "ทันตแพทยศาสตร์",  tagBack: "dent",  tagEngName: "Faculty of Dentistry", shortName: "", tagColor: UIColor(red:0.20, green:0.00, blue:0.60, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "นิติศาสตร์",  tagBack: "",  tagEngName: "Faculty of Law", shortName: "", tagColor: UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "heartIcon",  tagName: "นิเทศศาสตร์",  tagBack: "commarts",  tagEngName: "Faculty of Communication Arts", shortName: "", tagColor: UIColor(red:0.00, green:0.00, blue:0.50, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "พยาบาลศาสตร์",  tagBack: "",  tagEngName: "Faculty of Nursing", shortName: "", tagColor: UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "",  tagEngName: "Faculty of Sports Science", shortName: "", tagColor: UIColor(red:1.00, green:0.40, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "faa",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "", tagColor: UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "",  tagEngName: "Faculty of Architecture", shortName: "", tagColor: UIColor(red:0.60, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "สหเวชศาสตร์",  tagBack: "",  tagEngName: "Faculty of Allied Health Sciences", shortName: "", tagColor: UIColor(red:0.80, green:0.60, blue:1.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "heartIcon",  tagName: "สัตวแพทยศาสตร์",  tagBack: "vet",  tagEngName: "Faculty of Veterinary Science", shortName: "", tagColor: UIColor(red:0.40, green:0.80, blue:0.80, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "อักษรศาสตร์",  tagBack: "arts",  tagEngName: "Faculty of Arts", shortName: "", tagColor: UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "เภสัชศาสตร์",  tagBack: "pharm",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "", tagColor: UIColor(red:0.40, green:0.80, blue:0.20, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "เศรษฐศาสตร์",  tagBack: "econ",  tagEngName: "Faculty of Economic", shortName: "", tagColor: UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "heartIcon",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "cusar",  tagEngName: "School of Agricultural", shortName: "", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "heartIcon",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "",  tagEngName: "Graduate School", shortName: "", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "01_ENG",  tagName: "วิศวกรรมศาสตร์",  tagBack: "eng",  tagEngName: "Faculty of Engineering", shortName: "", tagColor: UIColor(red:0.50, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "02_ARTS",  tagName: "อักษรศาสตร์",  tagBack: "arts",  tagEngName: "Faculty of Arts", shortName: "", tagColor: UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "03_SCI",  tagName: "วิทยาศาสตร์",  tagBack: "sci",  tagEngName: "Faculty of Science", shortName: "", tagColor: UIColor(red:1.00, green:1.00, blue:0.00, alpha:1.0), isBlackText: true),
+            facultyData(imgName: "04_POLSCI",  tagName: "รัฐศาสตร์",  tagBack: "",  tagEngName: "Faculty of Political Science", shortName: "", tagColor: UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "05_",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "",  tagEngName: "Faculty of Architecture", shortName: "", tagColor: UIColor(red:0.60, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "06_BANSHI",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "banshi",  tagEngName: "Faculty of Commerce and Accountancy", shortName: "", tagColor: UIColor(red:0.00, green:0.80, blue:1.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "07_EDU",  tagName: "ครุศาสตร์",  tagBack: "edu",  tagEngName: "Faculty of Education", shortName: "", tagColor: UIColor(red:1.00, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "08_COMMARTS",  tagName: "นิเทศศาสตร์",  tagBack: "commarts",  tagEngName: "Faculty of Communication Arts", shortName: "", tagColor: UIColor(red:0.00, green:0.00, blue:0.50, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "09_ECON",  tagName: "เศรษฐศาสตร์",  tagBack: "econ",  tagEngName: "Faculty of Economic", shortName: "", tagColor: UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0), isBlackText: true),
+            facultyData(imgName: "10_MED",  tagName: "แพทยศาสตร์",  tagBack: "med",  tagEngName: "Faculty of Medicine", shortName: "", tagColor: UIColor(red:0.02, green:0.38, blue:0.01, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "11_VET",  tagName: "สัตวแพทยศาสตร์",  tagBack: "vet",  tagEngName: "Faculty of Veterinary Science", shortName: "", tagColor: UIColor(red:0.40, green:0.80, blue:0.80, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "12_DENT",  tagName: "ทันตแพทยศาสตร์",  tagBack: "dent",  tagEngName: "Faculty of Dentistry", shortName: "", tagColor: UIColor(red:0.20, green:0.00, blue:0.60, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "13_PHARM",  tagName: "เภสัชศาสตร์",  tagBack: "pharm",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "", tagColor: UIColor(red:0.40, green:0.80, blue:0.20, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "14_LAW",  tagName: "นิติศาสตร์",  tagBack: "",  tagEngName: "Faculty of Law", shortName: "", tagColor: UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0), isBlackText: true),
+            facultyData(imgName: "15_FAA",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "faa",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "", tagColor: UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "16_NUR",  tagName: "พยาบาลศาสตร์",  tagBack: "",  tagEngName: "Faculty of Nursing", shortName: "", tagColor: UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "",  tagEngName: "Faculty of Allied Health Sciences", shortName: "", tagColor: UIColor(red:0.80, green:0.60, blue:1.00, alpha:1.0), isBlackText: true),
+            facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "",  tagEngName: "Faculty of Psychology", shortName: "", tagColor: UIColor(red:0.20, green:0.00, blue:1.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "",  tagEngName: "Faculty of Sports Science", shortName: "", tagColor: UIColor(red:1.00, green:0.40, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "sar",  tagEngName: "School of Agricultural", shortName: "", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "21_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "",  tagEngName: "Graduate School", shortName: "", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
             
     ]
     }

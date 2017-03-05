@@ -112,6 +112,7 @@
 		80BFD4D21E27ED6F00491730 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D11E27ED6F00491730 /* StageCell.swift */; };
 		80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D31E27ED8300491730 /* EventFeedCell.swift */; };
 		80BFD4D61E27EDA300491730 /* MainCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */; };
+		80C806BE1E6C07A60039F6B6 /* CityAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C806BD1E6C07A60039F6B6 /* CityAsset.xcassets */; };
 		80D103241E54AF55004F8998 /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D103231E54AF55004F8998 /* EventsController.swift */; };
 		80D6586D1E1EB1A0009720AF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */; };
 		80D6586F1E1EB1DB009720AF /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */; };
@@ -246,6 +247,7 @@
 		80BFD4D11E27ED6F00491730 /* StageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageCell.swift; path = First_home/StageCell.swift; sourceTree = "<group>"; };
 		80BFD4D31E27ED8300491730 /* EventFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventFeedCell.swift; path = First_home/EventFeedCell.swift; sourceTree = "<group>"; };
 		80BFD4D51E27EDA300491730 /* MainCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCoreDataTableViewController.swift; path = First_home/CoreData/MainCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		80C806BD1E6C07A60039F6B6 /* CityAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CityAsset.xcassets; sourceTree = "<group>"; };
 		80D103231E54AF55004F8998 /* EventsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
 		80D6586C1E1EB1A0009720AF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewCell.swift; path = Third_events/EventTableViewCell.swift; sourceTree = "<group>"; };
 		80D6586E1E1EB1DB009720AF /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataTableViewController.swift; path = Third_events/CoreData/CoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				80320A841E4F10A200278CCC /* EventAsset.xcassets */,
 				80BAEF401E69A18C00CEA0B2 /* FacultyAsset.xcassets */,
 				80403F351E5DECDB009C1937 /* InterestBG.xcassets */,
+				80C806BD1E6C07A60039F6B6 /* CityAsset.xcassets */,
 				80D103251E54AFB2004F8998 /* Old */,
 				80BFD4D81E27F3AA00491730 /* CoreData */,
 				5F5C7D4C1E10DDCC00C9D0F2 /* Third.storyboard */,
@@ -654,6 +657,7 @@
 				80403F361E5DECDB009C1937 /* InterestBG.xcassets in Resources */,
 				5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */,
 				5F4A9D971E10300900713580 /* Main.storyboard in Resources */,
+				80C806BE1E6C07A60039F6B6 /* CityAsset.xcassets in Resources */,
 				5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */,
 				581940CF1E446395000C566C /* Search.storyboard in Resources */,
 				5F5C7D431E10DC6A00C9D0F2 /* First.storyboard in Resources */,

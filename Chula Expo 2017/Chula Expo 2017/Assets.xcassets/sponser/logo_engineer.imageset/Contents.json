@@ -4,6 +4,14 @@
       "idiom" : "universal",
       "filename" : "Logo_Brand_Chula-Engineering_Black_Red.jpg",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

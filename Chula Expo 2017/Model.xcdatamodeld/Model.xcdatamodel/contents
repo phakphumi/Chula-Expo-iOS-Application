@@ -50,6 +50,10 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" inverseName="toImages" inverseEntity="ActivityData" syncable="YES"/>
     </entity>
+    <entity name="NearbyActivity" representedClassName="NearbyActivity" syncable="YES">
+        <attribute name="activityId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityData" syncable="YES"/>
+    </entity>
     <entity name="PlaceData" representedClassName="PlaceData" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -150,5 +154,6 @@
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>
         <element name="ZoneData" positionX="-128" positionY="108" width="128" height="255"/>
+        <element name="NearbyActivity" positionX="-9" positionY="243" width="128" height="75"/>
     </elements>
 </model>

@@ -22,17 +22,37 @@ public class FacilityData: NSManagedObject {
         latitude: Double,
         longitude: Double,
         placeID: String,
-        inManageobjectcontext context: NSManagedObjectContext
-        ) -> FacilityData?
+        inManageobjectcontext context: NSManagedObjectContext,
+        completion: ((FacilityData?) -> Void)?
+        )
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
         request.predicate = NSPredicate(format: "id = %@", id)
         
-        if let result = (try? context.fetch(request))?.first as? FacilityData {
+        if let facilityData = (try? context.fetch(request))?.first as? FacilityData {
             
             // found this event in the database, return it ...
 //            print("Found facility \(result.nameEn)")
-            return result
+                // created a new event in the database
+            facilityData.id = id
+            facilityData.nameTh = nameTh
+            facilityData.nameEn = nameEn
+            facilityData.descTh = descTh
+            facilityData.descEn = descEn
+            facilityData.type = type
+            facilityData.latitude = latitude
+            facilityData.longitude = longitude
+            
+            let placeRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+            placeRequest.predicate = NSPredicate(format: "id = %@", placeID)
+            
+            if let result = (try? context.fetch(placeRequest))?.first as? PlaceData {
+                // found this event in the database, return it ...
+                facilityData.toPlace = result
+                
+            }
+            
+            completion?(facilityData)
             
         } else {
             
@@ -56,13 +76,14 @@ public class FacilityData: NSManagedObject {
                     
                 }
                 
-                return facilityData
+                completion?(facilityData)
                 
+            } else {
+                
+                completion?(nil)
             }
             
         }
-        
-        return nil
         
     }
     

@@ -1298,7 +1298,32 @@ class APIController {
     
     class func downloadZone(inManageobjectcontext context: NSManagedObjectContext) {
         
-        Alamofire.request("http://staff.chulaexpo.com/api/zones").responseJSON { (response) in
+        var parameters: [String: Any]!
+        
+        context.performAndWait {
+            
+            EntityHistory.fetchLastUpdate(forEntityName: "Zone", inManageObjectContext: context, completion: { (dateUpdated) in
+                
+                if let dateUpdated = dateUpdated {
+                    
+                    parameters = [
+                        
+                        "update": ["gte": dateUpdated]
+                        
+                    ]
+                    
+                    
+                } else {
+                    
+                    parameters = [:]
+                    
+                }
+                
+            })
+            
+        }
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/zones", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1322,19 +1347,42 @@ class APIController {
                     
                     context.performAndWait {
                         
-                        _ = ZoneData.addData(id: result["_id"] as! String,
-                                             type: result["type"] as! String,
-                                             shortName: shortName["en"] as? String ?? "",
-                                             shortNameTh: shortName["th"] as? String ?? "",
-                                             banner: result["banner"] as? String ?? "",
-                                             thumbnail: result["thumbnail"] as? String ?? "",
-                                             desc: desc["en"] as? String ?? "",
-                                             longitude: location["longitude"] as! Double,
-                                             latitude: location["latitude"] as! Double,
-                                             name: name["en"] as! String,
-                                             nameTh: name["th"] as! String,
-                                             welcomeMessage: welcomeMsg["th"] as? String ?? "",
-                                             inManageobjectcontext: context)
+                        ZoneData.addData(id: result["_id"] as! String,
+                                         type: result["type"] as! String,
+                                         shortName: shortName["en"] as? String ?? "",
+                                         shortNameTh: shortName["th"] as? String ?? "",
+                                         banner: result["banner"] as? String ?? "",
+                                         thumbnail: result["thumbnail"] as? String ?? "",
+                                         desc: desc["en"] as? String ?? "",
+                                         longitude: location["longitude"] as! Double,
+                                         latitude: location["latitude"] as! Double,
+                                         name: name["en"] as! String,
+                                         nameTh: name["th"] as! String,
+                                         welcomeMessage: welcomeMsg["th"] as? String ?? "",
+                                         inManageobjectcontext: context,
+                                         completion: { (zoneData) in
+                                            
+                                            if zoneData != nil {
+                                                
+                                                context.performAndWait {
+                                                    
+                                                    if EntityHistory.isThereHistory(forEntityName: "Zone", inManageobjectcontext: context) {
+                                                        
+                                                        _ = EntityHistory.updateHistory(forEntityName: "Zone", inManageobjectcontext: context)
+                                                        //                                                                                    print("Update Recommend History")
+                                                        
+                                                    } else {
+                                                        
+                                                        _ = EntityHistory.addHistory(forEntityName: "Zone", inManageobjectcontext: context)
+                                                        //                                                                                    print("Create Recommend History")
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                        })
                         
                     }
                     
@@ -1364,7 +1412,32 @@ class APIController {
     
     class func downloadPlace(inManageobjectcontext context: NSManagedObjectContext) {
         
-        Alamofire.request("http://staff.chulaexpo.com/api/places").responseJSON { (response) in
+        var parameters: [String: Any]!
+        
+        context.performAndWait {
+            
+            EntityHistory.fetchLastUpdate(forEntityName: "Place", inManageObjectContext: context, completion: { (dateUpdated) in
+                
+                if let dateUpdated = dateUpdated {
+                    
+                    parameters = [
+                        
+                        "update": ["gte": dateUpdated]
+                        
+                    ]
+                    
+                    
+                } else {
+                    
+                    parameters = [:]
+                    
+                }
+                
+            })
+            
+        }
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/places", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1381,14 +1454,38 @@ class APIController {
                     
                     context.performAndWait {
                         
-                        _ = PlaceData.addData(id: result["_id"] as! String,
-                                              code: result["code"] as! String,
-                                              nameTh: name["th"] as! String,
-                                              nameEn: name["en"] as! String,
-                                              longitude: location["longitude"] as! Double,
-                                              latitude: location["latitude"] as! Double,
-                                              zoneID: result["zone"] as! String,
-                                              inManageobjectcontext: context)
+                        
+                        PlaceData.addData(id: result["_id"] as! String,
+                                          code: result["code"] as! String,
+                                          nameTh: name["th"] as! String,
+                                          nameEn: name["en"] as! String,
+                                          longitude: location["longitude"] as! Double,
+                                          latitude: location["latitude"] as! Double,
+                                          zoneID: result["zone"] as! String,
+                                          inManageobjectcontext: context,
+                                          completion: { (placeData) in
+                                            
+                                            if placeData != nil {
+                                                
+                                                context.performAndWait {
+                                                    
+                                                    if EntityHistory.isThereHistory(forEntityName: "Place", inManageobjectcontext: context) {
+                                                        
+                                                        _ = EntityHistory.updateHistory(forEntityName: "Place", inManageobjectcontext: context)
+                                                        //                                                                                    print("Update Recommend History")
+                                                        
+                                                    } else {
+                                                        
+                                                        _ = EntityHistory.addHistory(forEntityName: "Place", inManageobjectcontext: context)
+                                                        //                                                                                    print("Create Recommend History")
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                        })
                         
                     }
                     
@@ -1418,7 +1515,32 @@ class APIController {
     
     class func downloadRoom(inManageobjectcontext context: NSManagedObjectContext) {
         
-        Alamofire.request("http://staff.chulaexpo.com/api/rooms").responseJSON { (response) in
+        var parameters: [String: Any]!
+        
+        context.performAndWait {
+            
+            EntityHistory.fetchLastUpdate(forEntityName: "Room", inManageObjectContext: context, completion: { (dateUpdated) in
+                
+                if let dateUpdated = dateUpdated {
+                    
+                    parameters = [
+                        
+                        "update": ["gte": dateUpdated]
+                        
+                    ]
+                    
+                    
+                } else {
+                    
+                    parameters = [:]
+                    
+                }
+                
+            })
+            
+        }
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/rooms", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1433,11 +1555,34 @@ class APIController {
                     
                     context.performAndWait {
                         
-                        _ = RoomData.addData(id: result["_id"] as! String,
-                                             floor: result["floor"] as! String,
-                                             name: name["th"] as! String,
-                                             placeID: result["place"] as! String,
-                                             inManageobjectcontext: context)
+                        RoomData.addData(id: result["_id"] as! String,
+                                         floor: result["floor"] as! String,
+                                         name: name["th"] as! String,
+                                         placeID: result["place"] as! String,
+                                         inManageobjectcontext: context,
+                                         completion: { (roomData) in
+                                            
+                                            if roomData != nil {
+                                                
+                                                context.performAndWait {
+                                                    
+                                                    if EntityHistory.isThereHistory(forEntityName: "Room", inManageobjectcontext: context) {
+                                                        
+                                                        _ = EntityHistory.updateHistory(forEntityName: "Room", inManageobjectcontext: context)
+                                                        //                                                                                    print("Update Recommend History")
+                                                        
+                                                    } else {
+                                                        
+                                                        _ = EntityHistory.addHistory(forEntityName: "Room", inManageobjectcontext: context)
+                                                        //                                                                                    print("Create Recommend History")
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                                            }
+                                            
+                        })
                         
                     }
                     
@@ -1465,7 +1610,32 @@ class APIController {
     
     class func downloadFacility(inManageobjectcontext context: NSManagedObjectContext) {
         
-        Alamofire.request("http://staff.chulaexpo.com/api/facilities").responseJSON { (response) in
+        var parameters: [String: Any]!
+        
+        context.performAndWait {
+            
+            EntityHistory.fetchLastUpdate(forEntityName: "Facility", inManageObjectContext: context, completion: { (dateUpdated) in
+                
+                if let dateUpdated = dateUpdated {
+                    
+                    parameters = [
+                        
+                        "update": ["gte": dateUpdated]
+                        
+                    ]
+                    
+                    
+                } else {
+                    
+                    parameters = [:]
+                    
+                }
+                
+            })
+            
+        }
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/facilities", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1482,16 +1652,39 @@ class APIController {
                     
                     context.performAndWait {
                         
-                        _ = FacilityData.addData(id: result["_id"] as! String,
-                                                 nameTh: name["th"] as! String,
-                                                 nameEn: name["en"] as! String,
-                                                 descTh: desc["th"] as! String,
-                                                 descEn: desc["en"] as! String,
-                                                 type: result["type"] as! String,
-                                                 latitude: location["latitude"] as! Double,
-                                                 longitude: location["longitude"] as! Double,
-                                                 placeID: result["place"] as! String,
-                                                 inManageobjectcontext: context)
+                        FacilityData.addData(id: result["_id"] as! String,
+                                             nameTh: name["th"] as! String,
+                                             nameEn: name["en"] as! String,
+                                             descTh: desc["th"] as! String,
+                                             descEn: desc["en"] as! String,
+                                             type: result["type"] as! String,
+                                             latitude: location["latitude"] as! Double,
+                                             longitude: location["longitude"] as! Double,
+                                             placeID: result["place"] as! String,
+                                             inManageobjectcontext: context,
+                                             completion: { (facilityData) in
+                                                
+                                                if facilityData != nil {
+                                                    
+                                                    context.performAndWait {
+                                                        
+                                                        if EntityHistory.isThereHistory(forEntityName: "Facility", inManageobjectcontext: context) {
+                                                            
+                                                            _ = EntityHistory.updateHistory(forEntityName: "Facility", inManageobjectcontext: context)
+                                                            //                                                                                    print("Update Recommend History")
+                                                            
+                                                        } else {
+                                                            
+                                                            _ = EntityHistory.addHistory(forEntityName: "Facility", inManageobjectcontext: context)
+                                                            //                                                                                    print("Create Recommend History")
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                    
+                                                }
+                                                
+                        })
                         
                     }
                     

@@ -54,17 +54,32 @@ public class RoomData: NSManagedObject {
         floor: String,
         name: String,
         placeID: String,
-        inManageobjectcontext context: NSManagedObjectContext
-        ) -> RoomData?
+        inManageobjectcontext context: NSManagedObjectContext,
+        completion: ((RoomData?) -> Void)?
+        )
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
         request.predicate = NSPredicate(format: "id = %@", id)
         
-        if let result = (try? context.fetch(request))?.first as? RoomData {
+        if let roomData = (try? context.fetch(request))?.first as? RoomData {
             
             // found this event in the database, return it ...
 //            print("Found room \(result.name) in  \(result.toPlace?.nameEn)")
-            return result
+            roomData.id = id
+            roomData.floor = floor
+            roomData.name = name
+            
+            let placeRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+            placeRequest.predicate = NSPredicate(format: "id = %@", placeID)
+            
+            if let result = (try? context.fetch(placeRequest))?.first as? PlaceData {
+                
+                // found this event in the database, return it ...
+                roomData.toPlace = result
+                
+            }
+            
+            completion?(roomData)
             
         } else {
             
@@ -84,13 +99,15 @@ public class RoomData: NSManagedObject {
                     
                 }
                 
-                return roomData
+                completion?(roomData)
+                
+            } else {
+                
+                completion?(nil)
                 
             }
             
         }
-        
-        return nil
         
     }
 

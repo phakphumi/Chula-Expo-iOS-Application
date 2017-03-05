@@ -120,6 +120,7 @@
     <entity name="ZoneData" representedClassName="ZoneData" syncable="YES">
         <attribute name="banner" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descTh" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -148,6 +149,6 @@
         <element name="TagData" positionX="259" positionY="477" width="128" height="73"/>
         <element name="UserData" positionX="414" positionY="207" width="128" height="225"/>
         <element name="VideoData" positionX="234" positionY="380" width="128" height="88"/>
-        <element name="ZoneData" positionX="-128" positionY="108" width="128" height="238"/>
+        <element name="ZoneData" positionX="-128" positionY="108" width="128" height="255"/>
     </elements>
 </model>

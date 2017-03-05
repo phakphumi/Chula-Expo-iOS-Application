@@ -1372,6 +1372,7 @@ class APIController {
                                          banner: result["banner"] as? String ?? "",
                                          thumbnail: result["thumbnail"] as? String ?? "",
                                          desc: desc["en"] as? String ?? "",
+                                         descTh: desc["th"] as? String ?? "",
                                          longitude: location["longitude"] as! Double,
                                          latitude: location["latitude"] as! Double,
                                          name: name["en"] as! String,

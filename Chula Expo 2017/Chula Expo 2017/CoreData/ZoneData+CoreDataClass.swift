@@ -21,6 +21,7 @@ public class ZoneData: NSManagedObject {
         banner: String,
         thumbnail: String,
         desc: String,
+        descTh: String,
         longitude: Double,
         latitude: Double,
         name: String,
@@ -44,6 +45,7 @@ public class ZoneData: NSManagedObject {
             zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
             zoneData.thumbnail = thumbnail == "" ? "" : "http://staff.chulaexpo.com\(thumbnail)"
             zoneData.desc = desc
+            zoneData.descTh = descTh
             zoneData.longitude = longitude
             zoneData.latitude = latitude
             zoneData.name = name
@@ -63,6 +65,7 @@ public class ZoneData: NSManagedObject {
                 zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
                 zoneData.thumbnail = thumbnail == "" ? "" : "http://staff.chulaexpo.com\(thumbnail)"
                 zoneData.desc = desc
+                zoneData.descTh = descTh
                 zoneData.longitude = longitude
                 zoneData.latitude = latitude
                 zoneData.name = name
@@ -288,7 +291,7 @@ public class ZoneData: NSManagedObject {
         
         do {
             let result = try context.fetch(request).first as? ZoneData
-            return result?.desc ?? ""
+            return result?.descTh ?? ""
             
         } catch {
             print("Couldn't fetch results")

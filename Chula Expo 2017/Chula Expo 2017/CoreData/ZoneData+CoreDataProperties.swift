@@ -24,6 +24,7 @@ extension ZoneData {
     @NSManaged public var banner: String?
     @NSManaged public var thumbnail: String?
     @NSManaged public var desc: String?
+    @NSManaged public var descTh: String?
     @NSManaged public var longitude: Double
     @NSManaged public var latitude: Double
     @NSManaged public var name: String?

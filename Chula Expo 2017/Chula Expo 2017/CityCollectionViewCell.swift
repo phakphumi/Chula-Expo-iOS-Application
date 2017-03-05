@@ -17,6 +17,8 @@ class CityCollectionViewCell: UICollectionViewCell {
     
     var fetchTag: String?
     
+    var id: String?
+    
     var bg: String?{
         didSet{
             if let bg = bg{

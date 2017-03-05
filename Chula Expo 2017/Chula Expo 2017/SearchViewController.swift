@@ -375,6 +375,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             else if indexPath.row == 0{
                 
+                if indexPath.section == 0{
+                    return 0
+                }
                     return 58
                 }
             else if indexPath.section == 1 {

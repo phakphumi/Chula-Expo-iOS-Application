@@ -886,92 +886,190 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             if indexPath.row == 0 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor
+                if isFacultyShowing {
+                
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.788235294, green: 0.22745098, blue: 0.22745098, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
                 idtv.iconView.layer.borderColor = UIColor(red: 0.75, green: 0, blue: 0, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 3
                 idtv.iconImage.image = #imageLiteral(resourceName: "students-cap")
                 idtv.descTh.text = "คณะ/เมือง"
                 idtv.descEn.text = "Faculty/Zone"
                 
             } else if indexPath.row == 1 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
+                if isFavoriteShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 1, green: 0.878431373, blue: 0.392156863, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
                 idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 3
                 idtv.iconImage.image = #imageLiteral(resourceName: "ico-star")
                 idtv.descTh.text = "กิจกรรมของฉัน"
                 idtv.descEn.text = "My Event"
                 
             } else if indexPath.row == 2 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 0.584, green: 0.824, blue: 0, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isCanteenShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 1, green: 0.752941176, blue: 0.435294118, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.596, blue: 0.180392157, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "canteen")
                 idtv.descTh.text = "ร้านค้า/อาหาร"
                 idtv.descEn.text = "Shop/Food"
                 
-                map.removeAnnotations(canteenAnnotations)
-                
             } else if indexPath.row == 3 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isRegistrationShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.22745098, green: 0.803921569, blue: 0.396078431, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 0.1412, green: 0.6941, blue: 0.2941, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "user")
                 idtv.descTh.text = "จุดลงทะเบียน"
                 idtv.descEn.text = "Registration"
                 
             } else if indexPath.row == 4 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isInformationShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.168627451, green: 0.878431373, blue: 0.811764706, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 0.129411765, green: 0.7922, blue: 0.725490196, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "icon")
                 idtv.descTh.text = "จุดประชาสัมพันธ์"
                 idtv.descEn.text = "Information"
                 
             } else if indexPath.row == 5 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                if isToiletShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
                 idtv.iconView.layer.borderColor = UIColor(red: 0.22, green: 0.5725, blue: 0.878, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
                 idtv.iconImage.image = #imageLiteral(resourceName: "toilet")
                 idtv.descTh.text = "ห้องน้ำ"
                 idtv.descEn.text = "Toilet"
                 
             } else if indexPath.row == 6 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isRallyShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.466666667, green: 0.352941176, blue: 0.62745098, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 0.361, green: 0.2588, blue: 0.6941, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "flag")
                 idtv.descTh.text = "กิจกรรมแรลลี่"
                 idtv.descEn.text = "Rally"
                 
             } else if indexPath.row == 7 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isCarParkShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.333333333, green: 0.501960784, blue: 0.647058824, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 0.250980392, green: 0.423529412, blue: 0.57254902, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "parking-sign")
                 idtv.descTh.text = "ที่จอดรถ"
                 idtv.descEn.text = "Car Park"
                 
             } else if indexPath.row == 8 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isEmergencyShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.976470588, green: 0.180392157, blue: 0.203921569, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 0.788235294, green: 0.074509804, blue: 0.152941176, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "emergency")
                 idtv.descTh.text = "จุดปฐมพยาบาล"
                 idtv.descEn.text = "EMERGENCY"
                 
             } else if indexPath.row == 9 {
                 
-                idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
-                idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
-                idtv.iconView.layer.borderWidth = 0
+                if isPrayerShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red: 0.57254902, green: 0.450980392, blue: 0.31372549, alpha: 1).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red: 0.466666667, green: 0.376470588, blue: 0.270588235, alpha: 1).cgColor
                 idtv.iconImage.image = #imageLiteral(resourceName: "muslim-praying")
                 idtv.descTh.text = "ห้องละหมาด"
                 idtv.descEn.text = "Prayer"
@@ -1038,7 +1136,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isCanteenShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: canteenAnnotations, bgColor: UIColor(red: 0.654901961, green: 0.925490196, blue: 0, alpha: 1).cgColor)
+                    turnIconOn(forCell: idtv, annotations: canteenAnnotations, bgColor: UIColor(red: 1, green: 0.752941176, blue: 0.435294118, alpha: 1).cgColor)
                     
                 }
                 
@@ -1054,7 +1152,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isRegistrationShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: registrationAnnotations, bgColor: UIColor.brown.cgColor)
+                    turnIconOn(forCell: idtv, annotations: registrationAnnotations, bgColor: UIColor(red: 0.22745098, green: 0.803921569, blue: 0.396078431, alpha: 1).cgColor)
                     
                 }
                 
@@ -1072,7 +1170,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isInformationShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: informationAnnotations, bgColor: UIColor.green.cgColor)
+                    turnIconOn(forCell: idtv, annotations: informationAnnotations, bgColor: UIColor(red: 0.168627451, green: 0.878431373, blue: 0.811764706, alpha: 1).cgColor)
                     
                 }
                 
@@ -1087,6 +1185,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 } else {
                     
                     isToiletShowing = true
+                    
                     
                     turnIconOn(forCell: idtv, annotations: toiletAnnotations, bgColor: UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor)
                     
@@ -1104,7 +1203,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isRallyShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: rallyAnnotations, bgColor: UIColor.purple.cgColor)
+                    turnIconOn(forCell: idtv, annotations: rallyAnnotations, bgColor: UIColor(red: 0.466666667, green: 0.352941176, blue: 0.62745098, alpha: 1).cgColor)
                     
                 }
                 
@@ -1120,7 +1219,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isCarParkShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: carParkAnnotations, bgColor: UIColor(red: 0.203921569, green: 0.494117647, blue: 0.764705882, alpha: 1).cgColor)
+                    turnIconOn(forCell: idtv, annotations: carParkAnnotations, bgColor: UIColor(red: 0.333333333, green: 0.501960784, blue: 0.647058824, alpha: 1).cgColor)
                     
                 }
                 
@@ -1137,7 +1236,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isEmergencyShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: emergencyAnnotations, bgColor: UIColor.red.cgColor)
+                    turnIconOn(forCell: idtv, annotations: emergencyAnnotations, bgColor: UIColor(red: 0.976470588, green: 0.180392157, blue: 0.203921569, alpha: 1).cgColor)
                     
                 }
 
@@ -1153,7 +1252,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     isPrayerShowing = true
                     
-                    turnIconOn(forCell: idtv, annotations: prayerAnnotations, bgColor: UIColor(red: 0.066666667, green: 0.882352941, blue: 0.811764706, alpha: 1).cgColor)
+                    turnIconOn(forCell: idtv, annotations: prayerAnnotations, bgColor: UIColor(red: 0.57254902, green: 0.450980392, blue: 0.31372549, alpha: 1).cgColor)
                     
                 }
                 

@@ -106,7 +106,7 @@ class FirstViewController: MainCoreDataTableViewController{
                 APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
                     
                     if success {
-                        self.reloadSlideShow(finishload: true)
+//                        self.reloadSlideShow(finishload: true)
                         APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
                         (finish) in
                             if finish {

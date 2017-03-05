@@ -180,7 +180,14 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
         
         if currentFrameIndex > 0 {
             
-            return frameViewControllers[currentFrameIndex - 1]
+            
+            if currentFrameIndex - 1 < frameViewControllers.count{
+               return frameViewControllers[currentFrameIndex - 1]
+            }
+            else {
+                return frameViewControllers[0]
+            }
+            
 //            setSlideshowPropoties(frameViewController: frameViewController, atIndex: currentImageIndex! - 1)
             
         } else {

@@ -20,7 +20,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var roundsId = [String]()
     var dates = [String]()
     var times = [String: [String]]()
-    var dateTimeList = [String]()
+    var dateTimeList = [String](){
+        didSet{
+            dateTimeList.remove(at: 0)
+        }
+    }
     var selectedRow = 0
 
     let dateTimePicker = UIPickerView()

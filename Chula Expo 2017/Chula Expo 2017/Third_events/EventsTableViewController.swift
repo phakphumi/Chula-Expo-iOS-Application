@@ -29,7 +29,7 @@ class EventsTableViewController: CoreDataTableViewController {
     var facityName: String?
     var facityDesc: String?
     
-    var isFaculty = false
+//    var isFaculty = false
     var isInterest = false
     
     fileprivate func updateData() {
@@ -145,7 +145,7 @@ class EventsTableViewController: CoreDataTableViewController {
         
         if indexPath.row == 0 {
            
-            if isFaculty{
+            if !isInterest{
                 cell = tableView.dequeueReusableCell(withIdentifier: "facBanner", for: indexPath)
                 if let bannercell = cell as? FacultyBannerCell{
                     
@@ -331,7 +331,11 @@ class EventsTableViewController: CoreDataTableViewController {
        if indexPath.section == 0{
             
             if indexPath.row == 0{
-                if isFaculty == true {
+                
+                if facity == "Favorite" || facity == "Reservation" {
+                    return 0
+                }
+                else if !isInterest == true {
                     return UITableViewAutomaticDimension
                 }
                 return 0

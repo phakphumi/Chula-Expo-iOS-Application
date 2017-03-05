@@ -244,6 +244,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 cityCell.name = cityDatas[indexPath.row].name
                 cityCell.tagname = cityDatas[indexPath.row].tagName
                 cityCell.tagColor = cityDatas[indexPath.row].tagColor
+                cityCell.id = cityDatas[indexPath.row].subName
                 cityCell.fetchTag = tag
             }
             
@@ -299,7 +300,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             var id: String?
             var name: String = ""
             var title: String = ""
-            var isFaculty = false
+//            var isFaculty = false
             var isInterest = false
             var interestDesc: String?
             managedObjectContext?.performAndWait {
@@ -307,20 +308,25 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                     name = cell.name ?? ""
                     title = name
+                    id = cell.id
+                    APIController.downloadActivities(fromZoneID: id ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
                     
-                    APIController.downloadActivities(fromZoneShortName: cell.fetchTag ?? "", inManageobjectcontext: self.managedObjectContext!, completion: nil)
-                    id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                 }
                 else if let cell = sender as? FacultyCollectionViewCell {
                     
-                    APIController.downloadActivities(fromZoneShortName: cell.tagname ?? "" , inManageobjectcontext: self.managedObjectContext!, completion: nil)
                     name = cell.sub ?? ""
+                    self.managedObjectContext?.performAndWait {
+                        id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
+                    }
+                    APIController.downloadActivities(fromZoneID: id ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
+                    
+                    
                     if let facName = cell.name
                     {
                         title = "คณะ" + facName
                     }
-                    isFaculty = true
-                    id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
+//                    isFaculty = true
+                    
                 }
                 
                 else if let cell = sender as? InterCollectionViewCell{
@@ -342,7 +348,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 
                 
                 dest.facity = id
-                dest.isFaculty = isFaculty
+//                dest.isFaculty = isFaculty
                 dest.isInterest = isInterest
                 dest.managedObjectContext = managedObjectContext
                 dest.interestDesc = interestDesc
@@ -355,13 +361,13 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     func setupCityData(){
         cityDatas = [
-            cityData(name: "Smart City", subName: "Smart City", bgImage: "SMART-bg", iconImage: "smart-icon", tagName: "SMART", tagColor: UIColor(red:0.96, green:0.54, blue:0.29, alpha:1.0)),
-            cityData(name: "Health City", subName: "Health City", bgImage: "HEALTH-bg", iconImage: "health-icon", tagName: "HEALTH", tagColor: UIColor(red:0.44, green:0.76, blue:0.63, alpha:1.0)),
-            cityData(name: "Human City", subName: "Human City", bgImage: "HUMAN-bg", iconImage: "human-icon", tagName: "HUMAN", tagColor: UIColor(red:0.22, green:0.15, blue:0.38, alpha:1.0)),
-            cityData(name: "CU Talk", subName: "Sala Phrakeaw", bgImage: "CUTALK-bg", iconImage: "cutalk-icon", tagName: "CUTALK", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
-            cityData(name: "CU@100 Exhibition", subName: "Sala Phrakeaw", bgImage: "CU100-bg", iconImage: "cu100-icon", tagName: "CU100", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
-            cityData(name: "Art gallery", subName: "Art Gallery", bgImage: "ARTGAL-bg", iconImage: "artgal-icon", tagName: "ARTGAL", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
-            cityData(name: "International Forum", subName: "International FORUM-bg", bgImage: "artBG", iconImage: "forum-icon", tagName: "FORUM", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0))
+            cityData(name: "Smart City", subName: "589c4d15a8bbbb1c7165d3ed", bgImage: "SMART-bg", iconImage: "smart-icon", tagName: "SMART", tagColor: UIColor(red:0.96, green:0.54, blue:0.29, alpha:1.0)),
+            cityData(name: "Health City", subName: "589c4dd0a8bbbb1c7165d3ee", bgImage: "HEALTH-bg", iconImage: "health-icon", tagName: "HEALTH", tagColor: UIColor(red:0.44, green:0.76, blue:0.63, alpha:1.0)),
+            cityData(name: "Human City", subName: "589c50e6a8bbbb1c7165d3ef", bgImage: "HUMAN-bg", iconImage: "human-icon", tagName: "HUMAN", tagColor: UIColor(red:0.22, green:0.15, blue:0.38, alpha:1.0)),
+            cityData(name: "CU Talk", subName: "589c5330a8bbbb1c7165d3f2", bgImage: "CUTALK-bg", iconImage: "cutalk-icon", tagName: "CUTALK", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
+            cityData(name: "CU@100 Exhibition", subName: "589c536ca8bbbb1c7165d3f3", bgImage: "CU100-bg", iconImage: "cu100-icon", tagName: "CU100", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
+            cityData(name: "Art gallery", subName: "589c52b4a8bbbb1c7165d3f0", bgImage: "ARTGAL-bg", iconImage: "artgal-icon", tagName: "ARTGAL", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
+            cityData(name: "International Forum", subName: "589c5391a8bbbb1c7165d3f4", bgImage: "FORUM-bg", iconImage: "forum-icon", tagName: "FORUM", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0))
         ]
     }
     

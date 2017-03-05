@@ -50,48 +50,78 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var annotationLevel = 0
     var annotation = MKPointAnnotation()
     let annotationIcon = [
-                            "PLACE": #imageLiteral(resourceName: "pin_landmark"),
-                            "BUSSTOP": #imageLiteral(resourceName: "pin_cutour"),
-                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "pin_landmark"),
-                            "CANTEEN": #imageLiteral(resourceName: "FOD-PIN"),
-                            "TOILET": #imageLiteral(resourceName: "TOI-PIN"),
-                            "CARPARK": #imageLiteral(resourceName: "LAN-PIN"),
-                            "PRAYER": #imageLiteral(resourceName: "LAN-PIN"),
-                            "EMERGENCY": #imageLiteral(resourceName: "LAN-PIN"),
-                            "ENG": #imageLiteral(resourceName: "eng_pin_21"),
-                            "ARTS": #imageLiteral(resourceName: "arts_pin_22"),
-                            "SCI": #imageLiteral(resourceName: "sci_pin_23"),
-                            "POLSCI": #imageLiteral(resourceName: "polsci_pin_24"),
-                            "ARCH": #imageLiteral(resourceName: "arch_pin_25"),
-                            "BANSHI": #imageLiteral(resourceName: "acc_pin_26"),
-                            "EDU": #imageLiteral(resourceName: "edu_pin_27"),
-                            "COMMARTS": #imageLiteral(resourceName: "commarts_pin_28"),
-                            "ECON": #imageLiteral(resourceName: "econ_pin_29"),
-                            "MED": #imageLiteral(resourceName: "med_pin_30"),
-                            "VET": #imageLiteral(resourceName: "vet_pin_31"),
-                            "DENT": #imageLiteral(resourceName: "dent_pin_32"),
-                            "PHARM": #imageLiteral(resourceName: "pharm_pin_33"),
-                            "LAW": #imageLiteral(resourceName: "law_pin_34"),
-                            "FAA": #imageLiteral(resourceName: "faa_pin_35"),
-                            "NUR": #imageLiteral(resourceName: "LAN-PIN"),
-                            "AHS": #imageLiteral(resourceName: "ahs_pin_37"),
-                            "PSY": #imageLiteral(resourceName: "psy_pin_38"),
-                            "SPSC": #imageLiteral(resourceName: "spsc_pin_39"),
-                            "SAR": #imageLiteral(resourceName: "cussar_pin_40"),
-                            "GRAD": #imageLiteral(resourceName: "LAN-PIN"),
-                            "SMART": #imageLiteral(resourceName: "SMART-PIN"),
-                            "HEALTH": #imageLiteral(resourceName: "LAN-PIN"),
-                            "HUMAN": #imageLiteral(resourceName: "LAN-PIN"),
-                            "ART": #imageLiteral(resourceName: "LAN-PIN"),
-                            "CENSTAGE": #imageLiteral(resourceName: "GRAND AUDIT"),
-                            "HALL": #imageLiteral(resourceName: "LAN-PIN"),
-                            "SALA": #imageLiteral(resourceName: "SALA"),
-                            "INTERFORUM": #imageLiteral(resourceName: "LAN-PIN"),
-                            "MARKET": #imageLiteral(resourceName: "LAN-PIN"),
-                            "INFO": #imageLiteral(resourceName: "pin_information"),
-                            "INFORMATION": #imageLiteral(resourceName: "pin_information"),
-                            "REGISTRATION": #imageLiteral(resourceName: "LAN-PIN"),
-                            "RALLY": #imageLiteral(resourceName: "LAN-PIN")
+                            "ENG": #imageLiteral(resourceName: "PIN-ENG"),
+                            "ENG-PLACE": #imageLiteral(resourceName: "PLACE-ENG"),
+                            "MED": #imageLiteral(resourceName: "PIN-MED"),
+                            "MED-PLACE": #imageLiteral(resourceName: "PLACE-MED"),
+                            "SCI": #imageLiteral(resourceName: "PIN-SCI"),
+                            "SCI-PLACE": #imageLiteral(resourceName: "PLACE-SCI"),
+                            "BANSHI": #imageLiteral(resourceName: "PIN-BANSHI"),
+                            "BANSHI-PLACE": #imageLiteral(resourceName: "PLACE-BANSHI"),
+                            "POLSCI": #imageLiteral(resourceName: "PIN-POLSCI"),
+                            "POLSCI-PLACE": #imageLiteral(resourceName: "PLACE-POLSCI"),
+                            "EDU": #imageLiteral(resourceName: "PIN-EDU"),
+                            "EDU-PLACE": #imageLiteral(resourceName: "PLACE-EDU"),
+                            "PSY": #imageLiteral(resourceName: "PIN-PSY"),
+                            "PSY-PLACE": #imageLiteral(resourceName: "PLACE-PSY"),
+                            "DENT": #imageLiteral(resourceName: "PIN-DENT"),
+                            "DENT-PLACE": #imageLiteral(resourceName: "PLACE-DENT"),
+                            "LAW": #imageLiteral(resourceName: "PIN-LAW"),
+                            "LAW-PLACE": #imageLiteral(resourceName: "PLACE-LAW"),
+                            "COMMARTS": #imageLiteral(resourceName: "PIN-COMMARTS"),
+                            "COMMARTS-PLACE": #imageLiteral(resourceName: "PLACE-COMMARTS"),
+                            "NUR": #imageLiteral(resourceName: "PIN-NUR"),
+                            "NUR-PLACE": #imageLiteral(resourceName: "PLACE-NUR"),
+                            "SPSC": #imageLiteral(resourceName: "PIN-SPSC"),
+                            "SPSC-PLACE": #imageLiteral(resourceName: "PLACE-SPSC"),
+                            "FAA": #imageLiteral(resourceName: "PIN-FAA"),
+                            "FAA-PLACE": #imageLiteral(resourceName: "PLACE-FAA"),
+                            "ARCH": #imageLiteral(resourceName: "PIN-ARCH"),
+                            "ARCH-PLACE": #imageLiteral(resourceName: "PLACE-ARCH"),
+                            "AHS": #imageLiteral(resourceName: "PIN-AHS"),
+                            "AHS-PLACE": #imageLiteral(resourceName: "PLACE-AHS"),
+                            "VET": #imageLiteral(resourceName: "PIN-VET"),
+                            "VET-PLACE": #imageLiteral(resourceName: "PLACE-VET"),
+                            "ARTS": #imageLiteral(resourceName: "PIN-ARTS"),
+                            "ARTS-PLACE": #imageLiteral(resourceName: "PLACE-ARTS"),
+                            "PHARM": #imageLiteral(resourceName: "PIN-PHARM"),
+                            "PHARM-PLACE": #imageLiteral(resourceName: "PLACE-PHARM"),
+                            "ECON": #imageLiteral(resourceName: "PIN-ECON"),
+                            "ECON-PLACE": #imageLiteral(resourceName: "PLACE-ECON"),
+                            "SAR": #imageLiteral(resourceName: "PIN-SAR"),
+                            "SAR-PLACE": #imageLiteral(resourceName: "PLACE-SAR"),
+                            "GRAD": #imageLiteral(resourceName: "PIN-GRAD"),
+                            "GRAD-PLACE": #imageLiteral(resourceName: "PLACE-GRAD"),
+                            "SMART": #imageLiteral(resourceName: "CTY-SMART"),
+                            "SMART-PLACE": #imageLiteral(resourceName: "PLACE-SMART"),
+                            "HEALTH": #imageLiteral(resourceName: "CTY-HEALTH"),
+                            "HEALTH-PLACE": #imageLiteral(resourceName: "PLACE-HEALTH"),
+                            "HUMAN": #imageLiteral(resourceName: "CTY-HUMAN"),
+                            "HUMAN-PLACE": #imageLiteral(resourceName: "PLACE-HUMAN"),
+                            "ART": #imageLiteral(resourceName: "CTY-ARTGAL"),
+                            "ART-PLACE": #imageLiteral(resourceName: "PLACE-ARTGAL"),
+                            "CENSTAGE": #imageLiteral(resourceName: "CTY-CENSTAGE"),
+                            "CENSTAGE-PLACE": #imageLiteral(resourceName: "PLACE-CENSTAGE"),
+                            "HALL": #imageLiteral(resourceName: "CTY-CUTALK"),
+                            "HALL-PLACE": #imageLiteral(resourceName: "PLACE-CUTALK"),
+                            "SALA": #imageLiteral(resourceName: "CTY-CU100"),
+                            "SALA-PLACE": #imageLiteral(resourceName: "PLACE-CU100"),
+                            "INTERFORUM": #imageLiteral(resourceName: "CTY-FORUM"),
+                            "INTERFORUM-PLACE": #imageLiteral(resourceName: "PLACE-FORUM"),
+                            "MARKET": #imageLiteral(resourceName: "SHOP"),
+                            "MARKET-PLACE": #imageLiteral(resourceName: "SHOP"),
+                            "RALLY": #imageLiteral(resourceName: "RALLY"),
+                            "RALLY-PLACE": #imageLiteral(resourceName: "RALLY"),
+                            "TOILET": #imageLiteral(resourceName: "TOILET"),
+                            "CANTEEN": #imageLiteral(resourceName: "FOOD"),
+                            "CARPARK": #imageLiteral(resourceName: "PARK"),
+                            "PRAYER": #imageLiteral(resourceName: "PRAY"),
+                            "EMERGENCY": #imageLiteral(resourceName: "AID"),
+                            "INFORMATION": #imageLiteral(resourceName: "INFO"),
+                            "REGISTRATION": #imageLiteral(resourceName: "REGIS"),
+                            "BUSSTOP": #imageLiteral(resourceName: "BUS"),
+                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "RES"),
+//                            "INFO": #imageLiteral(resourceName: "pin_information"),
     
     ]
     
@@ -110,7 +140,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 //    var favoritedActivity = [String: ActivityData]()
 //    var reservedActivity = [String: ActivityData]()
     
-    var showingMyActivity = ActivityData()
+    static var showingMyActivity = ActivityData()
     var favoritedAndReservedActivity = [String: ActivityData]()
     
     var zoneID = [String: String]()
@@ -311,7 +341,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         annotationView?.image = pinImage
         
-        if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" {
+        if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" {
             
             annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 23, height: 32)
             
@@ -379,7 +409,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             }
             
-        } else if selectedAnnotation?.title == "PLACE" {
+        } else if selectedAnnotation?.title?.components(separatedBy: "-")[1] == "PLACE" {
             
             let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
             
@@ -389,11 +419,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         } else if selectedAnnotation?.title == "FAVORITEDANDRESERVED"{
          
-            showingMyActivity = favoritedAndReservedActivity[(selectedAnnotation?.subtitle)!]!
-            
+            SecondViewController.showingMyActivity = favoritedAndReservedActivity[(selectedAnnotation?.subtitle)!]!
+         
             if isMyActivityShowing {
                 
-                myActivityName.text = showingMyActivity.name
+                myActivityName.text = SecondViewController.showingMyActivity.name
                 
             } else {
                 
@@ -401,8 +431,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 hideNavigator(UIButton())
                 
                 
-                myActivityName.text = showingMyActivity.name
-                
+                myActivityName.text = SecondViewController.showingMyActivity.name
+         
                 UIView.animate(withDuration: 0.5, animations: {
                     
                     self.myActivityView.isHidden = false
@@ -537,39 +567,41 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     
     @IBAction func myActivityDetail(_ sender: UIButton) {
+
+        tabBarController?.performSegue(withIdentifier: "toEventDetail", sender: self)
         
-        self.performSegue(withIdentifier: "toEventDetail", sender: self)
+//        self.performSegue(withIdentifier: "toEventDetail", sender: self)
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toEventDetail" {
-            
-            if let destination = segue.destination as? EventDetailTableViewController {
-                
-                destination.activityId = showingMyActivity.activityId
-                destination.bannerUrl = showingMyActivity.bannerUrl
-                destination.topic = showingMyActivity.name
-                destination.locationDesc = ""
-                destination.toRounds = showingMyActivity.toRound
-                destination.desc = showingMyActivity.desc
-                destination.room = showingMyActivity.room
-                destination.place = showingMyActivity.place
-                destination.zoneId = showingMyActivity.faculty
-                destination.latitude = showingMyActivity.latitude
-                destination.longitude = showingMyActivity.longitude
-                destination.pdf = showingMyActivity.pdf
-                destination.toImages = showingMyActivity.toImages
-                destination.toTags = showingMyActivity.toTags
-                destination.managedObjectContext = self.managedObjectContext
-                
-            }
-            
-        }
-        
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "toEventDetail" {
+//            
+//            if let destination = segue.destination as? EventDetailTableViewController {
+//                
+////                destination.activityId = showingMyActivity.activityId
+////                destination.bannerUrl = showingMyActivity.bannerUrl
+////                destination.topic = showingMyActivity.name
+////                destination.locationDesc = ""
+////                destination.toRounds = showingMyActivity.toRound
+////                destination.desc = showingMyActivity.desc
+////                destination.room = showingMyActivity.room
+////                destination.place = showingMyActivity.place
+////                destination.zoneId = showingMyActivity.faculty
+////                destination.latitude = showingMyActivity.latitude
+////                destination.longitude = showingMyActivity.longitude
+////                destination.pdf = showingMyActivity.pdf
+////                destination.toImages = showingMyActivity.toImages
+////                destination.toTags = showingMyActivity.toTags
+//                destination.managedObjectContext = self.managedObjectContext
+//                
+//            }
+//            
+//        }
+//    
+//        
+//    }
     
 //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //        
@@ -653,7 +685,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             let placeAnnotation = MKPointAnnotation()
             placeAnnotation.coordinate = placeCoordinate
-            placeAnnotation.title = "PLACE"
+            placeAnnotation.title = "\(shortName)-PLACE"
             placeAnnotation.subtitle = key
             
             placeAnnotations.append(placeAnnotation)
@@ -886,7 +918,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
-                idtv.iconImage.image = #imageLiteral(resourceName: "id-card")
+                idtv.iconImage.image = #imageLiteral(resourceName: "user")
                 idtv.descTh.text = "จุดลงทะเบียน"
                 idtv.descEn.text = "Registration"
                 
@@ -895,7 +927,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
-                idtv.iconImage.image = #imageLiteral(resourceName: "info")
+                idtv.iconImage.image = #imageLiteral(resourceName: "icon")
                 idtv.descTh.text = "จุดประชาสัมพันธ์"
                 idtv.descEn.text = "Information"
                 
@@ -913,7 +945,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
-                idtv.iconImage.image = #imageLiteral(resourceName: "checkered-flag")
+                idtv.iconImage.image = #imageLiteral(resourceName: "flag")
                 idtv.descTh.text = "กิจกรรมแรลลี่"
                 idtv.descEn.text = "Rally"
                 
@@ -922,7 +954,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.376, blue: 0.725, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
-                idtv.iconImage.image = #imageLiteral(resourceName: "car")
+                idtv.iconImage.image = #imageLiteral(resourceName: "parking-sign")
                 idtv.descTh.text = "ที่จอดรถ"
                 idtv.descEn.text = "Car Park"
                 
@@ -931,7 +963,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
-                idtv.iconImage.image = #imageLiteral(resourceName: "first-aid-kit")
+                idtv.iconImage.image = #imageLiteral(resourceName: "emergency")
                 idtv.descTh.text = "จุดปฐมพยาบาล"
                 idtv.descEn.text = "EMERGENCY"
                 
@@ -940,7 +972,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
                 idtv.iconView.layer.borderColor = UIColor(red: 0, green: 0.79, blue: 0.725, alpha: 1).cgColor
                 idtv.iconView.layer.borderWidth = 0
-                idtv.iconImage.image = #imageLiteral(resourceName: "prayer")
+                idtv.iconImage.image = #imageLiteral(resourceName: "muslim-praying")
                 idtv.descTh.text = "ห้องละหมาด"
                 idtv.descEn.text = "Prayer"
                 

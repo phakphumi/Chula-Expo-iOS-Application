@@ -805,11 +805,20 @@
                         <segue destination="1cI-z6-raX" kind="show" identifier="editTag" id="TO2-yU-nnK"/>
                         <segue destination="NNG-St-L30" kind="show" identifier="editFac" id="IwA-jx-m5S"/>
                         <segue destination="rrg-uN-Qbj" kind="show" identifier="editInfo" id="AgV-hs-Pux"/>
+                        <segue destination="eDH-kL-ilX" kind="show" identifier="toEventDetail" id="dMH-rc-OLD"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLO-ng-9RH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="142" y="119"/>
+        </scene>
+        <!--EventDetails-->
+        <scene sceneID="ncA-A8-dds">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EventDetails" id="eDH-kL-ilX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aWK-wj-LMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-92" y="537"/>
         </scene>
         <!--First-->
         <scene sceneID="Ejb-Hx-K6b">
@@ -1075,7 +1084,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fade" translatesAutoresizingMaskIntoConstraints="NO" id="amI-Rg-r1m">
-                                <rect key="frame" x="0.0" y="440" width="320" height="128"/>
+                                <rect key="frame" x="0.0" y="391" width="320" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
@@ -1292,7 +1301,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fade" translatesAutoresizingMaskIntoConstraints="NO" id="EvA-mb-wrE">
-                                <rect key="frame" x="0.0" y="440" width="320" height="128"/>
+                                <rect key="frame" x="0.0" y="391" width="320" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
@@ -1395,6 +1404,6 @@
         <segue reference="gH4-31-fBe"/>
         <segue reference="TO2-yU-nnK"/>
         <segue reference="AgV-hs-Pux"/>
-        <segue reference="Dhn-Nj-6rL"/>
+        <segue reference="IwA-jx-m5S"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -107,6 +107,28 @@ class TabBarViewController: UITabBarController {
                 
             }
             
+        } else if segue.identifier == "toEventDetail" {
+            
+            if let destination = segue.destination as? EventDetailTableViewController {
+                
+                destination.activityId = SecondViewController.showingMyActivity.activityId
+                destination.bannerUrl = SecondViewController.showingMyActivity.bannerUrl
+                destination.topic = SecondViewController.showingMyActivity.name
+                destination.locationDesc = ""
+                destination.toRounds = SecondViewController.showingMyActivity.toRound
+                destination.desc = SecondViewController.showingMyActivity.desc
+                destination.room = SecondViewController.showingMyActivity.room
+                destination.place = SecondViewController.showingMyActivity.place
+                destination.zoneId = SecondViewController.showingMyActivity.faculty
+                destination.latitude = SecondViewController.showingMyActivity.latitude
+                destination.longitude = SecondViewController.showingMyActivity.longitude
+                destination.pdf = SecondViewController.showingMyActivity.pdf
+                destination.toImages = SecondViewController.showingMyActivity.toImages
+                destination.toTags = SecondViewController.showingMyActivity.toTags
+                destination.managedObjectContext = self.managedObjectContext
+                
+            }
+            
         }
         
     }

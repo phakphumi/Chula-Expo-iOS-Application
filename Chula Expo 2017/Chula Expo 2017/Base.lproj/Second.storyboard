@@ -291,7 +291,7 @@
                                     <constraint firstItem="t38-fG-Jcm" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" multiplier="0.553846" id="uMw-QB-pNc"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-wj-I3K">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-wj-I3K">
                                 <rect key="frame" x="19" y="443" width="282" height="55.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ON5-6w-yu1">
@@ -332,7 +332,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-1k-pFC">
-                                        <rect key="frame" x="178" y="15" width="89" height="26"/>
+                                        <rect key="frame" x="178" y="16" width="89" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="1h6-1k-pFC" secondAttribute="height" multiplier="89:26" id="Ysj-QF-xhz"/>
                                         </constraints>
@@ -349,7 +349,7 @@
                                             <action selector="myActivityDetail:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="R1H-cN-WpG"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin_landmark" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-aR-GjF">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RES" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-aR-GjF">
                                         <rect key="frame" x="8" y="9" width="29" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4TO-aR-GjF" secondAttribute="height" multiplier="29:41" id="H7z-fw-MPs"/>
@@ -478,12 +478,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RES" width="200" height="290"/>
         <image name="annotation" width="512" height="512"/>
         <image name="eng_pin_21" width="97" height="136"/>
         <image name="list" width="512" height="512"/>
         <image name="mapTabIcon2" width="25" height="25"/>
         <image name="multiply" width="64" height="64"/>
-        <image name="pin_landmark" width="97" height="136"/>
         <image name="students-cap" width="76" height="46"/>
     </resources>
 </document>

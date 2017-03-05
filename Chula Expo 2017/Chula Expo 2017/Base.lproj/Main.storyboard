@@ -998,7 +998,7 @@
                                     <constraint firstItem="qgJ-0H-dOd" firstAttribute="width" secondItem="yT4-DN-YBt" secondAttribute="width" multiplier="0.125" id="wOW-IZ-lhq"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-xc-L1H">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-xc-L1H">
                                 <rect key="frame" x="0.0" y="99.5" width="320" height="397.5"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -1019,10 +1019,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLM-Ue-q2g">
                                                     <rect key="frame" x="-10" y="-10" width="169" height="120"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comBG" translatesAutoresizingMaskIntoConstraints="NO" id="LLw-J1-FLr">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comBG" translatesAutoresizingMaskIntoConstraints="NO" id="LLw-J1-FLr">
                                                             <rect key="frame" x="0.0" y="0.0" width="169" height="120"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNV-kw-Q6K">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNV-kw-Q6K">
                                                             <rect key="frame" x="64" y="27" width="42" height="42"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="PNV-kw-Q6K" secondAttribute="height" multiplier="1:1" id="Lo0-Up-ALN"/>
@@ -1215,7 +1215,7 @@
                                     <constraint firstItem="dBG-Y2-GfQ" firstAttribute="centerX" secondItem="baB-d4-vRM" secondAttribute="centerX" multiplier="1.1735" id="woJ-PF-3n7"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-WX-Fxo">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-WX-Fxo">
                                 <rect key="frame" x="0.0" y="99.5" width="320" height="397.5"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -1236,10 +1236,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drM-JS-4pr">
                                                     <rect key="frame" x="-10" y="-10" width="169" height="120"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="engBG" translatesAutoresizingMaskIntoConstraints="NO" id="yGe-Pc-aEg">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="engBG" translatesAutoresizingMaskIntoConstraints="NO" id="yGe-Pc-aEg">
                                                             <rect key="frame" x="0.0" y="0.0" width="169" height="120"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-U5-zQF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-U5-zQF">
                                                             <rect key="frame" x="61" y="21" width="48" height="48"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="bqV-U5-zQF" secondAttribute="height" multiplier="1:1" id="0ep-0a-IaN"/>

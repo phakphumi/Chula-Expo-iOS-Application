@@ -1019,7 +1019,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLM-Ue-q2g">
                                                     <rect key="frame" x="-10" y="-10" width="169" height="120"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comBG" translatesAutoresizingMaskIntoConstraints="NO" id="LLw-J1-FLr">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBig" translatesAutoresizingMaskIntoConstraints="NO" id="LLw-J1-FLr">
                                                             <rect key="frame" x="0.0" y="0.0" width="169" height="120"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PNV-kw-Q6K">
@@ -1236,7 +1236,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drM-JS-4pr">
                                                     <rect key="frame" x="-10" y="-10" width="169" height="120"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="engBG" translatesAutoresizingMaskIntoConstraints="NO" id="yGe-Pc-aEg">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultBig" translatesAutoresizingMaskIntoConstraints="NO" id="yGe-Pc-aEg">
                                                             <rect key="frame" x="0.0" y="0.0" width="169" height="120"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqV-U5-zQF">
@@ -1392,18 +1392,17 @@
     <resources>
         <image name="LoginPage" width="375" height="667"/>
         <image name="checkmarkDark" width="512" height="512"/>
-        <image name="comBG" width="114" height="114"/>
+        <image name="defaultBig" width="375" height="375"/>
         <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow-darkgray" width="32" height="32"/>
-        <image name="engBG" width="177" height="109"/>
         <image name="fade" width="11" height="165"/>
         <image name="personWhite" width="128" height="128"/>
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gH4-31-fBe"/>
+        <segue reference="nET-Xg-sPe"/>
+        <segue reference="eGe-co-jWB"/>
         <segue reference="TO2-yU-nnK"/>
         <segue reference="AgV-hs-Pux"/>
-        <segue reference="IwA-jx-m5S"/>
     </inferredMetricsTieBreakers>
 </document>

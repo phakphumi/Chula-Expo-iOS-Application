@@ -54,6 +54,8 @@ class CapsuleUILabel: UILabel {
             self.textColor = UIColor.black
         case "POLISC":
             backgroundColor = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 1.0
         case "ARCH":
             backgroundColor = UIColor(red:0.60, green:0.20, blue:0.00, alpha:1.0)
         case "BANSHI":

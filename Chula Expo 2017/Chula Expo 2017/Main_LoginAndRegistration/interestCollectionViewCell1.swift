@@ -67,7 +67,7 @@ class interestCollectionViewCell1: UICollectionViewCell {
         //Reset old data
         interestImg1.image = nil
         interestName1.text = nil
-        // backImg1.image = nil
+        backImg1.image = nil
         interestName1.isHidden = true
         
         
@@ -75,14 +75,16 @@ class interestCollectionViewCell1: UICollectionViewCell {
         engName1.isHidden = true
         
         //Set new data
+        
         if let Iname1: String = imgName[0]
         {
             interestImg1.image = UIImage(named: Iname1)
         }
-       /* if let Bname1: String = tagBack[0]
+        
+        if let Bname1: String = tagBack[0]
         {
             backImg1.image = UIImage(named: Bname1)
-        }*/
+        }
         if let Tname1: String = tagName[0]
         {
             if(Tname1 != ""){interestName1.isHidden = false}

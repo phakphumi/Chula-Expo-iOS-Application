@@ -275,7 +275,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
         else {
-            print ("section else")
+//            print ("section else")
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "interestCell", for: indexPath)
             if let interestCell = cell as? InterCollectionViewCell{
                 interestCell.name = interestDatas[indexPath.row].tagName

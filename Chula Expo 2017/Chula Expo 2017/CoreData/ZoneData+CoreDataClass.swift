@@ -26,16 +26,32 @@ public class ZoneData: NSManagedObject {
         name: String,
         nameTh: String,
         welcomeMessage: String,
-        inManageobjectcontext context: NSManagedObjectContext
-        ) -> ZoneData?
+        inManageobjectcontext context: NSManagedObjectContext,
+        completion: ((ZoneData?) -> Void)?
+        )
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
         request.predicate = NSPredicate(format: "id = %@", id)
         
-        if let result = (try? context.fetch(request))?.first as? ZoneData {
+        if let zoneData = (try? context.fetch(request))?.first as? ZoneData {
             // found this event in the database, return it ...
 //            print("Found round \(result.name) in id \(result.id)")
-            return result
+            
+            zoneData.id = id
+            zoneData.type = type
+            zoneData.shortName = shortName
+            zoneData.shortNameTh = shortNameTh
+            zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
+            zoneData.thumbnail = thumbnail == "" ? "" : "http://staff.chulaexpo.com\(thumbnail)"
+            zoneData.desc = desc
+            zoneData.longitude = longitude
+            zoneData.latitude = latitude
+            zoneData.name = name
+            zoneData.nameTh = nameTh
+            zoneData.welcomeMessage = welcomeMessage
+            
+            completion?(zoneData)
+            
         } else {
             if let zoneData = NSEntityDescription.insertNewObject(forEntityName: "ZoneData", into: context) as? ZoneData
             {
@@ -53,10 +69,17 @@ public class ZoneData: NSManagedObject {
                 zoneData.nameTh = nameTh
                 zoneData.welcomeMessage = welcomeMessage
                 
-                return zoneData
+                
+                completion?(zoneData)
+                
+            } else {
+                
+                completion?(nil)
+                
             }
+            
         }
-        return nil
+
     }
     
     class func fetchZoneDetail( zoneId: String, inManageobjectcontext context: NSManagedObjectContext ) -> ZoneData? {

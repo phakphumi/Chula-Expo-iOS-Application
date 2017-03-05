@@ -21,17 +21,34 @@ public class PlaceData: NSManagedObject {
         longitude: Double,
         latitude: Double,
         zoneID: String,
-        inManageobjectcontext context: NSManagedObjectContext
-        ) -> PlaceData?
+        inManageobjectcontext context: NSManagedObjectContext,
+        completion: ((PlaceData?) -> Void)?
+        )
     {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
         request.predicate = NSPredicate(format: "id = %@", id)
         
-        if let result = (try? context.fetch(request))?.first as? PlaceData {
+        if let placeData = (try? context.fetch(request))?.first as? PlaceData {
             
             // found this event in the database, return it ...
 //            print("Found place \(result.nameEn)")
-            return result
+            placeData.id = id
+            placeData.code = code
+            placeData.nameTh = nameTh
+            placeData.nameEn = nameEn
+            placeData.longitude = longitude
+            placeData.latitude = latitude
+            
+            let zoneRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+            zoneRequest.predicate = NSPredicate(format: "id = %@", zoneID)
+            
+            if let result = (try? context.fetch(zoneRequest))?.first as? ZoneData {
+                // found this event in the database, return it ...
+                placeData.toZone = result
+                
+            }
+            
+            completion?(placeData)
             
         } else {
             
@@ -53,13 +70,15 @@ public class PlaceData: NSManagedObject {
                     
                 }
                 
-                return placeData
+                completion?(placeData)
+                
+            } else {
+                
+                completion?(nil)
                 
             }
             
         }
-        
-        return nil
         
     }
     

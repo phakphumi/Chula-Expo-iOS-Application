@@ -409,7 +409,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             }
             
-        } else if selectedAnnotation?.title?.components(separatedBy: "-")[1] == "PLACE" {
+        } else if (selectedAnnotation?.title?.contains("PLACE"))! {
             
             let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
             

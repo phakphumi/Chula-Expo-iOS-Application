@@ -34,6 +34,8 @@ class FirstViewController: MainCoreDataTableViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
+        
 //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 //        dateFormatter.timeZone = TimeZone.current
         
@@ -99,30 +101,61 @@ class FirstViewController: MainCoreDataTableViewController{
             
         }
         
-        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+//        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+//
+//            if success {
+//                
+//                APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
+//                    
+//                    if success {
+////                        self.reloadSlideShow(finishload: true)
+//                        APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
+//                        (finish) in
+//                            if finish {
+////                                self.reloadSlideShow(finishload: true)
+//                                StageActivity.getNumberOfStage(inManageobejectcontext: self.managedObjectContext!)
+//                            }
+//                        })
+//                    }
+//                })
+//            }
+//        }
 
+        
+//        managedObjectContext?.performAndWait {
+//            
+//            APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+//            APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+//            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+//
+//        }
+        
+        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
             if success {
                 
                 APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
                     
                     if success {
-//                        self.reloadSlideShow(finishload: true)
+                        //                        self.reloadSlideShow(finishload: true)
                         APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
-                        (finish) in
+                            (finish) in
                             if finish {
-//                                self.reloadSlideShow(finishload: true)
+                                //                                self.reloadSlideShow(finishload: true)
+//                                StageActivity.getNumberOfStage(inManageobejectcontext: self.managedObjectContext!)
                             }
                         })
                     }
                 })
             }
         }
-       
+        
+//        StageActivity.fetchStageActivities(inManageobjectcontext: self.managedObjectContext!)
+        
 //        tableView.reloadRows(at: [indexPath], with: .none)
         tableView.reloadSections([0], with: .none)
         tableView.reloadData()
         requestForFeedEvent()
-        
+        StageActivity.getNumberOfStage(inManageobejectcontext: self.managedObjectContext!)
         
         
         

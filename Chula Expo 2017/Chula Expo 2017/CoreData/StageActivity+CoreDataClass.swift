@@ -12,6 +12,24 @@ import CoreData
 @objc(StageActivity)
 public class StageActivity: NSManagedObject {
     
+    class func getNumberOfStage(inManageobejectcontext context: NSManagedObjectContext) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+        
+        do {
+            
+            let results = try context.fetch(request) as? [StageActivity]
+            print("stage")
+            print(results?.count)
+            
+        } catch {
+            
+            print("Couldn't fetch results")
+            
+        }
+        
+    }
+    
     class func fetchStageActivities(inManageobjectcontext context: NSManagedObjectContext) {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")

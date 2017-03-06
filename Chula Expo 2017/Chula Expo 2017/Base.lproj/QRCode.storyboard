@@ -14,7 +14,6 @@
         <array key="SukhumvitSet.ttc">
             <string>SukhumvitSet-Medium</string>
             <string>SukhumvitSet-SemiBold</string>
-            <string>SukhumvitSet-Text</string>
         </array>
     </customFonts>
     <scenes>
@@ -76,16 +75,28 @@
                                     <constraint firstAttribute="width" secondItem="q0r-37-Hpm" secondAttribute="height" multiplier="1:1" id="gQp-qw-pP4"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jix-fF-Do2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jix-fF-Do2">
                                 <rect key="frame" x="45" y="570" width="285" height="50"/>
-                                <color key="backgroundColor" red="0.30568939447402954" green="0.3095405101776123" blue="0.32611706852912903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.42352941176470588" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jix-fF-Do2" secondAttribute="height" multiplier="57:10" id="pHm-3N-Fzf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="20"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="สแกน QR Code">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="สแกน">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="23" name="SukhumvitSet-Medium"/>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content=" QR Code">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" metaFont="system" size="20"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="EaW-xq-82k" kind="show" id="lja-1Q-OMv"/>

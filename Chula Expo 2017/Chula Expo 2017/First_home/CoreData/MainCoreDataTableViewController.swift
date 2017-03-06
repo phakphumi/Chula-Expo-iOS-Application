@@ -82,7 +82,7 @@ class MainCoreDataTableViewController: UITableViewController, NSFetchedResultsCo
         }
         else if section == 2{
             if let i = fetchedResultsControllerFeed?.sections?[0]{
-//                print("Number of feed cell = \(i.numberOfObjects)")
+                print("Number of feed cell = \(i.numberOfObjects)")
                 return i.numberOfObjects+1
             }
             print("section 2 else")

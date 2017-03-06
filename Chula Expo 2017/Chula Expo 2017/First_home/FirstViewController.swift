@@ -37,7 +37,7 @@ class FirstViewController: MainCoreDataTableViewController{
 //        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 //        dateFormatter.timeZone = TimeZone.current
         
-        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+//        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         
         print("\(Date().toThaiText())")
         

@@ -10,11 +10,10 @@ import UIKit
 import CoreData
 
 class FirstViewController: MainCoreDataTableViewController{
-
-//    let dateFormatter = DateFormatter()
     
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+    
     var fetchActivityNowOnstage = [ActivityData?](){
         didSet{
             tableView.beginUpdates()
@@ -34,16 +33,14 @@ class FirstViewController: MainCoreDataTableViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
         
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-//        dateFormatter.timeZone = TimeZone.current
-        
-//        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+        APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         
         print("\(Date().toThaiText())")
         
-//        requestForStageEvent()
         requestForFeedEvent()
         
         fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
@@ -163,47 +160,6 @@ class FirstViewController: MainCoreDataTableViewController{
     }
     
 // Core Data
-//    func requestForStageEvent(){
-//        
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
-////        request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 1)
-//        request.predicate = NSPredicate(format: "stage = 1")
-//
-//        request.sortDescriptors = [NSSortDescriptor(
-//        key: "activityId",
-//        ascending: true
-//        )]
-//        
-//        request.fetchBatchSize = 5
-//        
-//        if let context = managedObjectContext {
-//            
-//            fetchedResultsControllerStage1 = NSFetchedResultsController(
-//                fetchRequest: request,
-//                managedObjectContext: context,
-//                sectionNameKeyPath: nil,
-//                cacheName: nil
-//            )
-//            
-////            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 2)
-//            request.predicate = NSPredicate(format: "stage = 2")
-//            fetchedResultsControllerStage2 = NSFetchedResultsController(
-//                fetchRequest: request,
-//                managedObjectContext: context,
-//                sectionNameKeyPath: nil,
-//                cacheName: nil
-//            )
-//
-////            request.predicate = NSPredicate(format: "isStageEvent = %@ AND stageNo = %i", NSNumber(booleanLiteral: true), 3)
-//            request.predicate = NSPredicate(format: "stage = 3")
-//            fetchedResultsControllerStage3 = NSFetchedResultsController(
-//                fetchRequest: request,
-//                managedObjectContext: context,
-//                sectionNameKeyPath: nil,
-//                cacheName: nil
-//            )
-//        }
-//    }
     
     func reloadSlideShow(finishload:Bool){
         if finishload{
@@ -240,10 +196,11 @@ class FirstViewController: MainCoreDataTableViewController{
 
         }
     }
+    
+    
     func requestForFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
-//        request.predicate = NSPredicate(format: "stageNo = 0")
         request.sortDescriptors = [NSSortDescriptor(
             key: "activityId",
             ascending: true

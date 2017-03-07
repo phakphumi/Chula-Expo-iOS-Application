@@ -11,7 +11,7 @@ import CoreData
 
 protocol EventDetailTableViewControllerDelegate {
     
-    func updateData(data: String)
+    func updateData()
     
 }
 
@@ -57,13 +57,13 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     var managedObjectContext: NSManagedObjectContext?
     
     var alreadyShowTextAlert = false
-    var fromQRScanner = false
+    
     var delegate: EventDetailTableViewControllerDelegate?
 
     @IBAction func cancel(_ sender: UIButton) {
-    
-        self.delegate?.updateData(data: "dddd")
-        
+            
+        self.delegate?.updateData()
+            
         toDismiss()
     
     }

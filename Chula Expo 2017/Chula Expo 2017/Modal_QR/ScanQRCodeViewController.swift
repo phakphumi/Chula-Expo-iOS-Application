@@ -12,7 +12,7 @@ import AVFoundation
 
 extension ScanQRCodeViewController: EventDetailTableViewControllerDelegate {
     
-    func updateData(data: String) {
+    func updateData() {
         
         self.dismiss(animated: false, completion: nil)
         
@@ -219,7 +219,6 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
         if let destination = segue.destination as? EventDetailTableViewController{
             
             destination.delegate = self
-            destination.fromQRScanner = true
             destination.activityId = activity?.activityId
             destination.bannerUrl = activity?.bannerUrl
             destination.topic = activity?.name

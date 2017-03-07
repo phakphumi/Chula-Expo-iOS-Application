@@ -31,6 +31,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var facultyNameTh: UILabel!
     @IBOutlet var navigatorCancel: UIButton!
     
+    @IBOutlet weak var placeView: UIView!
+    @IBOutlet weak var placePin: UIImageView!
+    @IBOutlet weak var placeTH: UILabel!
+    @IBOutlet weak var placeEN: UILabel!
+    @IBOutlet weak var placeCancel: UIButton!
+    
     @IBOutlet var whereAmIView: UIView!
     @IBOutlet var whereAmILabel: UILabel!
     @IBOutlet var whereAmICancel: UIButton!
@@ -48,7 +54,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var userLocation = CLLocation(latitude: 13.7387312, longitude: 100.5306979)
     
     var locationManager = CLLocationManager()
-    var annotationLevel = 0
+    
 //    var annotation = MKPointAnnotation()
     let annotationIcon = [
                             "ENG": #imageLiteral(resourceName: "PIN-ENG"),
@@ -168,6 +174,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var isDescShowing = false
     var isCurrentShowing = false
     var isNavigatorShowing = false
+    var isPlaceShowing = false
     var isMyActivityShowing = false
     
     var isFacultyShowing = true
@@ -279,6 +286,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         navigatorCancel.layer.shadowOpacity = 0.3
         navigatorCancel.layer.shadowRadius = 2
         
+        placeView.layer.cornerRadius = 10
+        placeView.layer.shadowOffset = CGSize.zero
+        placeView.layer.shadowColor = UIColor.black.cgColor
+        placeView.layer.shadowOpacity = 0.3
+        placeView.layer.shadowRadius = 2
+        
+        placeCancel.layer.cornerRadius = placeCancel.frame.height / 2
+        placeCancel.layer.shadowOffset = CGSize.zero
+        placeCancel.layer.shadowColor = UIColor.black.cgColor
+        placeCancel.layer.shadowOpacity = 0.3
+        placeCancel.layer.shadowRadius = 2
+        
         whereAmIView.layer.cornerRadius = 10
         whereAmIView.layer.shadowOffset = CGSize.zero
         whereAmIView.layer.shadowColor = UIColor.black.cgColor
@@ -317,7 +336,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         APIController.getWhereAmI(latitude: map.userLocation.coordinate.latitude, longitude: map.userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
             
-            self.map.userLocation.title = "คุณอยู่ที่\((zone?["th"])!)"
+            self.map.userLocation.title = "คุณอยู่ที่\(zone?["th"] ?? "\'ไม่พบข้อมูล\'")"
             
         })
         
@@ -381,7 +400,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         } else {
             
-            
             let selectedAnnotation = view.annotation as? MKPointAnnotation
             
             if isDescShowing {
@@ -408,8 +426,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     hideWherAmI(UIButton())
                     hideMyActivity(UIButton())
-                    
-                    annotationLevel += 1
+                    hidePlace(UIButton())
                     
                     navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
                     facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
@@ -417,6 +434,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     UIView.animate(withDuration: 0.5, animations: {
                         
+                        self.navigatorCancel.isHidden = false
                         self.navigatorView.isHidden = false
                         
                     })
@@ -424,14 +442,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     isNavigatorShowing = true
                     
                 }
-                
-            } else if (selectedAnnotation?.title?.contains("PLACE"))! {
-                
-                let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
-                
-                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-                facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
-                facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
                 
             } else if selectedAnnotation?.title == "FAVORITEDANDRESERVED"{
                 
@@ -445,12 +455,14 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     
                     hideWherAmI(UIButton())
                     hideNavigator(UIButton())
+                    hidePlace(UIButton())
                     
                     
                     myActivityName.text = SecondViewController.showingMyActivity.name
                     
                     UIView.animate(withDuration: 0.5, animations: {
                         
+                        self.myActivityCancel.isHidden = false
                         self.myActivityView.isHidden = false
                         
                     })
@@ -461,16 +473,93 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
                 
                 
-            }else {
+            } else if (selectedAnnotation?.title?.contains("PLACE"))! {
                 
-                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-                facultyNameTh.text = facilityTh[(selectedAnnotation?.subtitle)!]
-                facultyNameEn.text = facilityEn[(selectedAnnotation?.subtitle)!]
+                let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
+                
+                if isPlaceShowing {
+                    
+                    placePin.image = annotationIcon[(selectedAnnotation?.title)!]
+                    placeTH.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
+                    placeEN.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
+                    
+                } else {
+                    
+                    hideWherAmI(UIButton())
+                    hideMyActivity(UIButton())
+                    
+                    placePin.image = annotationIcon[(selectedAnnotation?.title)!]
+                    placeTH.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
+                    placeEN.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.placeCancel.isHidden = false
+                        self.placeView.isHidden = false
+                        
+                    })
+                    
+                    isPlaceShowing = true
+                    
+                }
+                
+            } else {
+                
+                if isPlaceShowing {
+                    
+                    placePin.image = annotationIcon[(selectedAnnotation?.title)!]
+                    placeTH.text = facilityTh[(selectedAnnotation?.subtitle)!]
+                    placeEN.text = facilityEn[(selectedAnnotation?.subtitle)!]
+                    
+                } else {
+                    
+                    hideWherAmI(UIButton())
+                    hideMyActivity(UIButton())
+                    
+                    placePin.image = annotationIcon[(selectedAnnotation?.title)!]
+                    placeTH.text = facilityTh[(selectedAnnotation?.subtitle)!]
+                    placeEN.text = facilityEn[(selectedAnnotation?.subtitle)!]
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.placeCancel.isHidden = false
+                        self.placeView.isHidden = false
+                        
+                    })
+                    
+                    isPlaceShowing = true
+                    
+                }
                 
             }
             
         }
         
+    }
+    
+    var timerForShowScrollIndicator: Timer?
+    var timerForTimeout: Timer?
+    
+    func showScrollIndicatorsInContacts() {
+        UIView.animate(withDuration: 0.001) {
+            self.tableView.flashScrollIndicators()
+        }
+    }
+    
+    /// Start timer for always show scroll indicator in table view
+    func startTimerForShowScrollIndicator() {
+        
+        self.timerForShowScrollIndicator = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.showScrollIndicatorsInContacts), userInfo: nil, repeats: true)
+        
+    }
+    
+    /// Stop timer for always show scroll indicator in table view
+    func stopTimerForShowScrollIndicator() {
+        self.timerForShowScrollIndicator?.invalidate()
+        self.timerForShowScrollIndicator = nil
+        
+        self.timerForTimeout?.invalidate()
+        self.timerForTimeout = nil
     }
     
     func iconDescButtonTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -501,6 +590,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                
             })
             
+            startTimerForShowScrollIndicator()
+            
+            timerForTimeout = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.stopTimerForShowScrollIndicator), userInfo: nil, repeats: false)
+            
         }
         
     }
@@ -520,6 +613,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             currentIcon.image = #imageLiteral(resourceName: "annotationPink")
             
+            whereAmICancel.isHidden = false
             whereAmIView.isHidden = false
             
             setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
@@ -538,9 +632,23 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         if isMyActivityShowing {
             
+            myActivityCancel.isHidden = true
             myActivityView.isHidden = true
             
             isMyActivityShowing = false
+            
+        }
+        
+    }
+    
+    @IBAction func hidePlace(_ sender: UIButton) {
+        
+        if isPlaceShowing {
+            
+            placeCancel.isHidden = true
+            placeView.isHidden = true
+            
+            isPlaceShowing = false
             
         }
         
@@ -554,6 +662,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             map.removeAnnotations(placeAnnotations)
         
+            navigatorCancel.isHidden = true
             navigatorView.isHidden = true
             
             isNavigatorShowing = false
@@ -570,6 +679,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             currentIcon.image = #imageLiteral(resourceName: "annotation")
             
+            whereAmICancel.isHidden = true
             whereAmIView.isHidden = true
             
             isCurrentShowing = false

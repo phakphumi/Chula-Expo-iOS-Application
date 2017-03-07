@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        print("...")
+        print(urls[urls.count-1] as URL)
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
@@ -86,12 +90,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         APIController.downloadZone(inManageobjectcontext: self.managedObjectContext)
         APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext)
-        
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        print("...")
-        print(urls[urls.count-1] as URL)
-        
         
         return true
     }

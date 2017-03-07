@@ -394,7 +394,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "17-AHS-bg",  tagEngName: "Faculty of Allied Health Sciences", shortName: "AHS", tagColor: UIColor(red:0.80, green:0.60, blue:1.00, alpha:1.0), isBlackText: true),
             facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "18-PSY-bg",  tagEngName: "Faculty of Psychology", shortName: "PSY", tagColor: UIColor(red:0.20, green:0.00, blue:1.00, alpha:1.0), isBlackText: false),
             facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "19-SPSC-bg",  tagEngName: "Faculty of Sports Science", shortName: "SPSC", tagColor: UIColor(red:1.00, green:0.40, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural", shortName: "SAR", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural resources", shortName: "SAR", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
             facultyData(imgName: "21_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "21-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
             
     ]

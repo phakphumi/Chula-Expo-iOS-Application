@@ -84,7 +84,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     try self.managedObjectContext?.save()
                                     
                                     let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
-                                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                    confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                                        
+                                        self.dismiss(animated: true, completion: nil)
+                                        
+                                    }))
                                     
                                     self.present(confirm, animated: true, completion: nil)
                                     
@@ -166,13 +170,21 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             if FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)! {
                 
                 confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
-                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }))
                 
                 
             } else {
                 
                 confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ท่านเคยบันทึกรายการนี้ไว้แล้ว", preferredStyle: UIAlertControllerStyle.alert)
-                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }))
                 
             }
             

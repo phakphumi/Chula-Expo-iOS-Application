@@ -371,13 +371,17 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 check = true
             }
         }
-        print(check)
-        if(check == false){
+        
+        if(check == false) {
+            
             let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
+            
             button2Alert.show()
-        }
-        else {
+            
+        } else {
+            
             self.performSegue(withIdentifier: "editFaculty", sender: self)
+            
         }
         
     }

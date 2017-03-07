@@ -32,9 +32,14 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
             
         } else {
             
-            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+            let confirm = UIAlertController(title: "ข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
             
-            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            confirm.addAction(UIAlertAction(title: "เข้าสู่ระบบด้วย Facebook", style: UIAlertActionStyle.default, handler: { (alert) in
+                
+                self.tabBarController?.performSegue(withIdentifier: "logout", sender: self)
+                
+            }))
+            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.destructive, handler: nil))
             
             self.present(confirm, animated: true, completion: nil)
             
@@ -62,65 +67,54 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
     @IBAction func editInformation(_ sender: UIButton) {
-//        
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
-//        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
-//            
-//            tabBarController?.performSegue(withIdentifier: "editInfo", sender: self)
-//            
-//        } else {
-//            
-//            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
-//            
-//            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//            
-//            self.present(confirm, animated: true, completion: nil)
-//            
-//        }
+
+        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+            
+            tabBarController?.performSegue(withIdentifier: "editInfo", sender: self)
+            
+        } else {
+            
+            let confirm = UIAlertController(title: "ข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "เข้าสู่ระบบด้วย Facebook", style: UIAlertActionStyle.default, handler: { (alert) in
+                
+                self.tabBarController?.performSegue(withIdentifier: "logout", sender: self)
+                
+            }))
+            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.destructive, handler: nil))
+            
+            self.present(confirm, animated: true, completion: nil)
+            
+        }
         
     }
 
     @IBAction func editTag(_ sender: UIButton) {
         
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
+        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+            
+            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
+            
+        } else {
+            
+            let confirm = UIAlertController(title: "ข้อผิดพลาด", message: "ฟังก์ชัน QR Code เปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+            
+            confirm.addAction(UIAlertAction(title: "เข้าสู่ระบบด้วย Facebook", style: UIAlertActionStyle.default, handler: { (alert) in
+                
+                self.tabBarController?.performSegue(withIdentifier: "logout", sender: self)
+                
+            }))
+            confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.destructive, handler: nil))
+            
+            self.present(confirm, animated: true, completion: nil)
+            
+        }
         
-//        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
-//            
-//            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
-//            
-//        } else {
-//            
-//            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
-//            
-//            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//            
-//            self.present(confirm, animated: true, completion: nil)
-//            
-//        }
-//        
     }
     
     @IBAction func editFac(_ sender: UIButton) {
         
-        
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
-        
-//        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
-//            
-//            tabBarController?.performSegue(withIdentifier: "editTag", sender: self)
-//            
-//        } else {
-//            
-//            let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันแก้ไขข้อมูลเปิดให้ใช้งานได้เฉพาะ Facebook User เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
-//            
-//            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//            
-//            self.present(confirm, animated: true, completion: nil)
-//            
-//        }
+        editTag(sender)
         
     }
     
@@ -346,29 +340,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 dest.facity = "Favorite"
                 
             }
-        }
-        else if segue.identifier == "toRegister1" {
-                
-                let destination = segue.destination as! RegisterViewController
-                
-                destination.userType = self.userType
-                destination.name = self.iname
-                destination.firstName = self.firstName
-                destination.lastName = self.lastName
-                destination.email = self.iemail
-                destination.fbId = self.fbId
-                destination.fbToken = self.fbToken
-                destination.fbImageProfileUrl = self.fbImageProfileUrl
-                destination.fbImage = self.fbImage
-                destination.managedObjectContext = self.managedObjectContext
-                destination.age = self.age
-                destination.Egender = self.Egender
-                destination.school = self.school
-                destination.isEdited = true
-                
-        }
             
-        
+        }
         
     }
     

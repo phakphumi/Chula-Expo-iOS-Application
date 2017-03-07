@@ -24,10 +24,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     var fbToken: String!
     var fbImageProfileUrl: String?
     var fbImage: UIImage!
-    var age: String!
-    var Egender: String!
-    var school: String!
-    var isEdited: Bool!
     var managedObjectContext: NSManagedObjectContext?
     
     var userToken: String?
@@ -68,6 +64,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     @IBOutlet var careerField: UITextField!
     
     var toEdit = false
+    var userData: UserData?
     
     @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var saveEdit: UIButton!
@@ -375,15 +372,62 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             
         }
         
-        firstNameField.text = self.firstName
-        lastNameField.text = self.lastName
-        emailField.text = self.email
-        
-        if (self.isEdited ?? false) {
-            self.ageField.text = self.age
-            self.genderField.text = self.Egender
-            self.schoolField.text = self.school
-            self.nextButton.titleLabel?.text = "เสร็จสิ้น"
+        if toEdit {
+            
+            let facebookProfileUrl = URL(string: (userData?.profile)!)
+            
+            if let data = NSData(contentsOf: facebookProfileUrl!) {
+                
+                profileImage.image = UIImage(data: data as Data)
+                
+            }
+            
+            if let name = userData?.name?.components(separatedBy: " ") {
+                
+                if name.count > 1 {
+            
+                    self.firstNameField.text = name[0]
+                    self.lastNameField.text = name[1]
+                    
+                } else {
+                    
+                    self.firstNameField.text = name[0]
+                    
+                }
+                
+            }
+            
+            if let gender = userData?.gender {
+                
+                if gender == "Male" {
+                    
+                    self.genderField.text = "ชาย"
+                    
+                } else if gender == "Female" {
+                    
+                    self.genderField.text = "หญิง"
+                    
+                } else {
+                    
+                    self.genderField.text = "อื่น ๆ"
+                    
+                }
+                
+            }
+            
+            self.emailField.text = userData?.email
+            self.ageField.text = String(Int((userData?.age)!))
+            self.careerField.text = userData?.job
+            self.educationYearField.text = userData?.year
+            self.educationField.text = userData?.level
+            self.schoolField.text = userData?.school
+            
+        } else {
+            
+            firstNameField.text = self.firstName
+            lastNameField.text = self.lastName
+            emailField.text = self.email
+            
         }
         
     }
@@ -469,11 +513,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     
     @IBAction func next(_ sender: UIButton) {
         
-        if (self.isEdited ?? false) {
-             self.performSegue(withIdentifier: "toMe", sender: self)
-        }
-        
-        else if userType == "Academic" {
+        if userType == "Academic" {
             
             if firstNameField.text == "" || lastNameField.text == "" || emailField.text == "" || ageField.text == "" || genderField.text == "" || educationField.text == "" || educationYearField.text == "" || schoolField.text == "" {
                 
@@ -543,6 +583,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             {
                     
                     parameters = [
+                        "type": "Academic",
                         "name": "\(self.firstNameField.text!) \(self.lastNameField.text!)",
                         "email": self.emailField.text!,
                         "age": Int(self.ageField.text!) ?? 0,
@@ -561,6 +602,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
             {
                     
                 parameters = [
+                                "type": "Worker",
                                 "name": "\(self.firstNameField.text!) \(self.lastNameField.text!)",
                                 "email": self.emailField.text!,
                                 "age": Int(self.ageField.text!) ?? 0,
@@ -568,26 +610,90 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                                 "gender": gender
                             ]
     
-                
-                let header: HTTPHeaders = ["Authorization": "JWT \(userToken!)"]
-                
-                Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
-                    
-                    if !response.result.isSuccess {
-    
-                        let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
-    
-                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-    
-                        self.present(confirm, animated: true, completion: nil)
-    
-                    }
-                    
-                }
-    
             }
     
         }
+        
+        let header: HTTPHeaders = ["Authorization": "JWT \((userData?.token)!)"]
+        
+        Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
+        
+            if response.result.isSuccess {
+                
+                Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                    
+                    if response.result.isSuccess {
+                        
+                        let JSON = response.result.value as! NSDictionary
+                        
+                        if let results = JSON["results"] as? NSDictionary{
+                            
+                            let academic = results["academic"] as? [String: String]
+                            
+                            let worker = results["worker"] as? [String: String]
+                            
+                            let managedObjectContext: NSManagedObjectContext? =
+                                (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
+                            
+                            managedObjectContext?.performAndWait {
+                                
+                                _ = UserData.addUser(id: results["_id"] as! String,
+                                                     token: "",
+                                                     type: results["type"] as! String,
+                                                     name: results["name"] as! String,
+                                                     email: results["email"] as! String,
+                                                     age: results["age"] as! Int,
+                                                     gender: results["gender"] as! String,
+                                                     school: academic?["school"] ?? "",
+                                                     level: academic?["level"] ?? "",
+                                                     year: academic?["year"] ?? "",
+                                                     job: worker?["job"] ?? "",
+                                                     profile: results["profile"] as? String ?? "",
+                                                     inManageobjectcontext: managedObjectContext!
+                                )
+                                
+                            }
+                            
+                            do {
+                                
+                                try managedObjectContext?.save()
+                                print("saved user")
+                                
+                            } catch let error {
+                                
+                                print("saveUserError with \(error)")
+                                
+                            }
+                            
+                        }
+                        
+                        self.performSegue(withIdentifier: "endEdit", sender: self)
+                        
+                    } else {
+                        
+                        let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                        
+                        self.present(confirm, animated: true, completion: nil)
+                        
+                        
+                    }
+                    
+                }
+            
+            } else {
+                
+                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                
+                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                
+                self.present(confirm, animated: true, completion: nil)
+                
+            }
+            
+        }
+        
         
     }
     

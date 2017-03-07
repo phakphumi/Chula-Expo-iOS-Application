@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreData
+import CoreLocation
 
 class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -48,7 +49,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     var locationManager = CLLocationManager()
     var annotationLevel = 0
-    var annotation = MKPointAnnotation()
+//    var annotation = MKPointAnnotation()
     let annotationIcon = [
                             "ENG": #imageLiteral(resourceName: "PIN-ENG"),
                             "ENG-PLACE": #imageLiteral(resourceName: "PLACE-ENG"),
@@ -306,13 +307,21 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        userLocation = locations[0]
+//        userLocation = locations[0]
+//        
+//        map.removeAnnotation(annotation)
+//        
+//        annotation.coordinate = userLocation.coordinate
+//        
+//        map.addAnnotation(annotation)
         
-        map.removeAnnotation(annotation)
+        APIController.getWhereAmI(latitude: map.userLocation.coordinate.latitude, longitude: map.userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
+            
+            self.map.userLocation.title = "คุณอยู่ที่\((zone?["th"])!)"
+            
+        })
         
-        annotation.coordinate = userLocation.coordinate
-        
-        map.addAnnotation(annotation)
+        map.showsUserLocation = true
         
     }
     
@@ -340,19 +349,20 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         
         annotationView?.image = pinImage
+        annotationView?.contentMode = .scaleAspectFit
         
         if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" {
             
-            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 23, height: 32)
+            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 29.6, height: 38.78)
             
         } else {
             
-            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 34, height: 48)
+            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 37, height: 54)
             
         }
             
-            let rightButton = UIButton(type: UIButtonType.detailDisclosure)
-            annotationView?.rightCalloutAccessoryView = rightButton
+        let rightButton = UIButton(type: UIButtonType.detailDisclosure)
+        annotationView?.rightCalloutAccessoryView = rightButton
             
 //        } else {
 //            
@@ -366,90 +376,98 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        let selectedAnnotation = view.annotation as? MKPointAnnotation
-        
-        if isDescShowing {
+        if view.annotation is MKUserLocation {
             
-            iconDescButtonTapped(gestureRecognizer: UITapGestureRecognizer())
             
-        }
-        
-        if selectedAnnotation?.subtitle == "ZONE" {
-                
-            map.removeAnnotations(zoneAnnotations)
-    
-            addPlaceAnnotation(forZone: (selectedAnnotation?.title)!)
+        } else {
             
-            setCurrentRegion(lat: zoneLatitude[(selectedAnnotation?.title)!]!, lon: zoneLongitude[(selectedAnnotation?.title)!]!, latDelta: 0.003, lonDelta: 0.003)
-         
-            if isNavigatorShowing {
+            
+            let selectedAnnotation = view.annotation as? MKPointAnnotation
+            
+            if isDescShowing {
                 
-                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-                facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
-                facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
-                
-            } else {
-                
-                hideWherAmI(UIButton())
-                hideMyActivity(UIButton())
-                
-                annotationLevel += 1
-                
-                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-                facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
-                facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
-                
-                UIView.animate(withDuration: 0.5, animations: {
-                    
-                    self.navigatorView.isHidden = false
-                    
-                })
-                
-                isNavigatorShowing = true
+                iconDescButtonTapped(gestureRecognizer: UITapGestureRecognizer())
                 
             }
             
-        } else if (selectedAnnotation?.title?.contains("PLACE"))! {
-            
-            let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
-            
-            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-            facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
-            facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
-            
-        } else if selectedAnnotation?.title == "FAVORITEDANDRESERVED"{
-         
-            SecondViewController.showingMyActivity = favoritedAndReservedActivity[(selectedAnnotation?.subtitle)!]!
-         
-            if isMyActivityShowing {
+            if selectedAnnotation?.subtitle == "ZONE" {
                 
-                myActivityName.text = SecondViewController.showingMyActivity.name
+                map.removeAnnotations(zoneAnnotations)
                 
-            } else {
+                addPlaceAnnotation(forZone: (selectedAnnotation?.title)!)
                 
-                hideWherAmI(UIButton())
-                hideNavigator(UIButton())
+                setCurrentRegion(lat: zoneLatitude[(selectedAnnotation?.title)!]!, lon: zoneLongitude[(selectedAnnotation?.title)!]!, latDelta: 0.003, lonDelta: 0.003)
                 
-                
-                myActivityName.text = SecondViewController.showingMyActivity.name
-         
-                UIView.animate(withDuration: 0.5, animations: {
+                if isNavigatorShowing {
                     
-                    self.myActivityView.isHidden = false
+                    navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+                    facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
+                    facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
                     
-                })
+                } else {
+                    
+                    hideWherAmI(UIButton())
+                    hideMyActivity(UIButton())
+                    
+                    annotationLevel += 1
+                    
+                    navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+                    facultyNameTh.text = zoneTh[(selectedAnnotation?.title)!]
+                    facultyNameEn.text = zoneEn[(selectedAnnotation?.title)!]
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.navigatorView.isHidden = false
+                        
+                    })
+                    
+                    isNavigatorShowing = true
+                    
+                }
                 
-                isMyActivityShowing = true
+            } else if (selectedAnnotation?.title?.contains("PLACE"))! {
+                
+                let zoneName = placeZone[(selectedAnnotation?.subtitle)!]!
+                
+                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+                facultyNameTh.text = placeTh[zoneName]?[(selectedAnnotation?.subtitle)!]
+                facultyNameEn.text = placeEn[zoneName]?[(selectedAnnotation?.subtitle)!]
+                
+            } else if selectedAnnotation?.title == "FAVORITEDANDRESERVED"{
+                
+                SecondViewController.showingMyActivity = favoritedAndReservedActivity[(selectedAnnotation?.subtitle)!]!
+                
+                if isMyActivityShowing {
+                    
+                    myActivityName.text = SecondViewController.showingMyActivity.name
+                    
+                } else {
+                    
+                    hideWherAmI(UIButton())
+                    hideNavigator(UIButton())
+                    
+                    
+                    myActivityName.text = SecondViewController.showingMyActivity.name
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        
+                        self.myActivityView.isHidden = false
+                        
+                    })
+                    
+                    isMyActivityShowing = true
+                    
+                }
+                
+                
+                
+            }else {
+                
+                navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
+                facultyNameTh.text = facilityTh[(selectedAnnotation?.subtitle)!]
+                facultyNameEn.text = facilityEn[(selectedAnnotation?.subtitle)!]
                 
             }
-            
-            
-            
-        }else {
-            
-            navigatorPin.image = annotationIcon[(selectedAnnotation?.title)!]
-            facultyNameTh.text = facilityTh[(selectedAnnotation?.subtitle)!]
-            facultyNameEn.text = facilityEn[(selectedAnnotation?.subtitle)!]
             
         }
         

@@ -187,13 +187,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DM0-BR-L1U">
-                                        <rect key="frame" x="267" y="-8" width="23" height="23"/>
-                                        <color key="backgroundColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="256" y="-23.5" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="DM0-BR-L1U" secondAttribute="height" multiplier="1:1" id="9b9-32-7qg"/>
+                                            <constraint firstAttribute="width" secondItem="DM0-BR-L1U" secondAttribute="height" multiplier="1:1" id="uHG-Zg-8x9"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                        <state key="normal" image="multiply"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" image="closeForMap"/>
                                         <connections>
                                             <action selector="hideNavigator:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="inC-3S-c01"/>
                                         </connections>
@@ -205,15 +205,15 @@
                                     <constraint firstItem="jp6-k3-xcr" firstAttribute="centerY" secondItem="aze-Xl-ROs" secondAttribute="centerY" multiplier="1.35385" id="C4w-m1-QMC"/>
                                     <constraint firstItem="W15-Ec-tBD" firstAttribute="width" secondItem="aze-Xl-ROs" secondAttribute="width" multiplier="0.10303" id="Cnw-dL-JqE"/>
                                     <constraint firstItem="W15-Ec-tBD" firstAttribute="centerX" secondItem="aze-Xl-ROs" secondAttribute="centerX" multiplier="0.212121" id="EOr-6L-tOi"/>
-                                    <constraint firstItem="DM0-BR-L1U" firstAttribute="width" secondItem="aze-Xl-ROs" secondAttribute="width" multiplier="0.0819672" id="JPE-QL-5HI"/>
+                                    <constraint firstItem="DM0-BR-L1U" firstAttribute="centerX" secondItem="aze-Xl-ROs" secondAttribute="centerX" multiplier="1.99291" id="F0A-ni-5F3"/>
+                                    <constraint firstItem="DM0-BR-L1U" firstAttribute="centerY" secondItem="aze-Xl-ROs" secondAttribute="centerY" multiplier="0.05" id="Kfc-ib-MuS"/>
                                     <constraint firstItem="jp6-k3-xcr" firstAttribute="centerX" secondItem="aze-Xl-ROs" secondAttribute="centerX" multiplier="1.12424" id="ObR-ub-5lf"/>
                                     <constraint firstItem="YuE-AR-3li" firstAttribute="width" secondItem="aze-Xl-ROs" secondAttribute="width" multiplier="0.718182" id="Vs3-Ph-PVb"/>
                                     <constraint firstItem="W15-Ec-tBD" firstAttribute="centerY" secondItem="aze-Xl-ROs" secondAttribute="centerY" id="aGp-gs-tq0"/>
-                                    <constraint firstItem="DM0-BR-L1U" firstAttribute="centerX" secondItem="aze-Xl-ROs" secondAttribute="centerX" multiplier="1.97273" id="dxJ-Na-0rO"/>
                                     <constraint firstItem="jp6-k3-xcr" firstAttribute="width" secondItem="aze-Xl-ROs" secondAttribute="width" multiplier="0.718182" id="gdL-V6-yYu"/>
-                                    <constraint firstItem="DM0-BR-L1U" firstAttribute="centerY" secondItem="aze-Xl-ROs" secondAttribute="centerY" multiplier="0.107692" id="gmC-sb-IO8"/>
                                     <constraint firstItem="YuE-AR-3li" firstAttribute="centerX" secondItem="aze-Xl-ROs" secondAttribute="centerX" multiplier="1.12424" id="h1a-JA-1Cv"/>
                                     <constraint firstAttribute="width" secondItem="aze-Xl-ROs" secondAttribute="height" multiplier="66:13" id="pyY-XD-Y0v"/>
+                                    <constraint firstItem="DM0-BR-L1U" firstAttribute="width" secondItem="aze-Xl-ROs" secondAttribute="width" multiplier="0.177305" id="uyc-v1-M9P"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeI-t1-01M">
@@ -244,13 +244,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9et-NZ-hLS">
-                                        <rect key="frame" x="267" y="-8" width="23" height="23"/>
-                                        <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="256" y="-23.5" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="9et-NZ-hLS" secondAttribute="height" multiplier="1:1" id="x7p-Fb-MiU"/>
+                                            <constraint firstAttribute="width" secondItem="9et-NZ-hLS" secondAttribute="height" multiplier="1:1" id="9pR-e9-zOT"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="8.5" minY="8.5" maxX="8.5" maxY="8.5"/>
-                                        <state key="normal" image="multiply"/>
+                                        <state key="normal" image="closeForMap"/>
                                         <connections>
                                             <action selector="hideWherAmI:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="JpQ-T2-3lK"/>
                                         </connections>
@@ -276,17 +275,17 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.98812824489999995" green="0.98829704519999995" blue="0.98811751599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="9et-NZ-hLS" firstAttribute="centerX" secondItem="oeI-t1-01M" secondAttribute="centerX" multiplier="1.97273" id="044-Bw-v46"/>
                                     <constraint firstItem="5wR-pL-BQ0" firstAttribute="width" secondItem="oeI-t1-01M" secondAttribute="width" multiplier="0.366667" id="0C7-Sj-oql"/>
                                     <constraint firstItem="ZnE-pO-DqG" firstAttribute="centerX" secondItem="oeI-t1-01M" secondAttribute="centerX" multiplier="0.60303" id="5Mn-rw-Vv7"/>
-                                    <constraint firstItem="9et-NZ-hLS" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" multiplier="0.107692" id="7N2-mL-NPU"/>
+                                    <constraint firstItem="9et-NZ-hLS" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" multiplier="0.05" id="9WR-p4-cY4"/>
                                     <constraint firstItem="t38-fG-Jcm" firstAttribute="centerX" secondItem="oeI-t1-01M" secondAttribute="centerX" multiplier="0.463636" id="AWl-3r-303"/>
                                     <constraint firstItem="5wR-pL-BQ0" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" id="Buz-fu-cif"/>
                                     <constraint firstItem="ZnE-pO-DqG" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" multiplier="1.38462" id="FCe-1n-9CH"/>
-                                    <constraint firstItem="9et-NZ-hLS" firstAttribute="width" secondItem="oeI-t1-01M" secondAttribute="width" multiplier="0.0819672" id="G4W-eh-COx"/>
                                     <constraint firstItem="5wR-pL-BQ0" firstAttribute="centerX" secondItem="oeI-t1-01M" secondAttribute="centerX" multiplier="1.5303" id="XXZ-UC-caT"/>
                                     <constraint firstItem="t38-fG-Jcm" firstAttribute="width" secondItem="oeI-t1-01M" secondAttribute="width" multiplier="0.372727" id="aTs-cS-n0X"/>
                                     <constraint firstAttribute="width" secondItem="oeI-t1-01M" secondAttribute="height" multiplier="66:13" id="dls-Ll-NeO"/>
+                                    <constraint firstItem="9et-NZ-hLS" firstAttribute="width" secondItem="oeI-t1-01M" secondAttribute="width" multiplier="0.177305" id="pXs-1y-vnM"/>
+                                    <constraint firstItem="9et-NZ-hLS" firstAttribute="centerX" secondItem="oeI-t1-01M" secondAttribute="centerX" multiplier="1.99291" id="ple-gf-oBT"/>
                                     <constraint firstItem="ZnE-pO-DqG" firstAttribute="width" secondItem="oeI-t1-01M" secondAttribute="width" multiplier="0.512121" id="tR4-fN-nrA"/>
                                     <constraint firstItem="t38-fG-Jcm" firstAttribute="centerY" secondItem="oeI-t1-01M" secondAttribute="centerY" multiplier="0.553846" id="uMw-QB-pNc"/>
                                 </constraints>
@@ -318,19 +317,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSP-bp-mUa">
-                                        <rect key="frame" x="266.5" y="-8.5" width="23" height="23"/>
-                                        <color key="backgroundColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="SSP-bp-mUa" secondAttribute="height" multiplier="1:1" id="wCZ-e4-M6r"/>
-                                        </constraints>
-                                        <inset key="imageEdgeInsets" minX="8.5" minY="8.5" maxX="8.5" maxY="8.5"/>
-                                        <state key="normal" image="multiply"/>
-                                        <connections>
-                                            <action selector="hideMyActivity:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="fUg-Eg-k1j"/>
-                                            <action selector="hideWherAmI:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="IjS-LN-UN0"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-1k-pFC">
                                         <rect key="frame" x="178" y="16" width="89" height="26"/>
                                         <constraints>
@@ -355,25 +341,37 @@
                                             <constraint firstAttribute="width" secondItem="4TO-aR-GjF" secondAttribute="height" multiplier="29:41" id="H7z-fw-MPs"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSP-bp-mUa">
+                                        <rect key="frame" x="256" y="-23.5" width="50" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SSP-bp-mUa" secondAttribute="height" multiplier="1:1" id="WfJ-We-Jpk"/>
+                                        </constraints>
+                                        <state key="normal" image="closeForMap"/>
+                                        <connections>
+                                            <action selector="hideMyActivity:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="fUg-Eg-k1j"/>
+                                            <action selector="hideWherAmI:" destination="rBa-NL-8Ua" eventType="touchUpInside" id="IjS-LN-UN0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98812824489999995" green="0.98829704519999995" blue="0.98811751599999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="IrV-M5-EZ8" firstAttribute="centerX" secondItem="UuG-wj-I3K" secondAttribute="centerX" multiplier="0.725177" id="0Pb-Of-OK4"/>
                                     <constraint firstItem="1h6-1k-pFC" firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="width" multiplier="0.315603" id="1BP-uE-YDR"/>
+                                    <constraint firstItem="SSP-bp-mUa" firstAttribute="centerY" secondItem="UuG-wj-I3K" secondAttribute="centerY" multiplier="0.05" id="4Bs-UT-pQh"/>
                                     <constraint firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="height" multiplier="282:55" constant="-2.5636363636363626" id="9GK-fg-C33"/>
                                     <constraint firstItem="1h6-1k-pFC" firstAttribute="centerX" secondItem="UuG-wj-I3K" secondAttribute="centerX" multiplier="1.57801" id="ATn-sl-iL3"/>
                                     <constraint firstItem="IrV-M5-EZ8" firstAttribute="centerY" secondItem="UuG-wj-I3K" secondAttribute="centerY" multiplier="0.702703" id="CMt-P7-XSm"/>
                                     <constraint firstItem="4TO-aR-GjF" firstAttribute="centerY" secondItem="UuG-wj-I3K" secondAttribute="centerY" multiplier="1.06306" id="DMl-Cp-gSO"/>
                                     <constraint firstItem="4TO-aR-GjF" firstAttribute="centerX" secondItem="UuG-wj-I3K" secondAttribute="centerX" multiplier="0.159574" id="Ica-m8-2vR"/>
+                                    <constraint firstItem="SSP-bp-mUa" firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="width" multiplier="0.177305" id="REZ-8p-Jyi"/>
                                     <constraint firstItem="IrV-M5-EZ8" firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="width" multiplier="0.370567" id="SaH-U6-qMB"/>
-                                    <constraint firstItem="SSP-bp-mUa" firstAttribute="centerX" secondItem="UuG-wj-I3K" secondAttribute="centerX" multiplier="1.97163" id="Vbm-7u-Eib"/>
                                     <constraint firstItem="ON5-6w-yu1" firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="width" multiplier="0.425532" id="XVQ-2b-nl0"/>
                                     <constraint firstItem="ON5-6w-yu1" firstAttribute="centerY" secondItem="UuG-wj-I3K" secondAttribute="centerY" multiplier="1.36937" id="ZY1-ea-5z4"/>
-                                    <constraint firstItem="SSP-bp-mUa" firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="width" multiplier="0.0815603" id="dOs-qp-1PH"/>
                                     <constraint firstItem="ON5-6w-yu1" firstAttribute="centerX" secondItem="UuG-wj-I3K" secondAttribute="centerX" multiplier="0.780142" id="dTt-Ur-t8X"/>
-                                    <constraint firstItem="SSP-bp-mUa" firstAttribute="centerY" secondItem="UuG-wj-I3K" secondAttribute="centerY" multiplier="0.108108" id="dXI-j9-EGi"/>
                                     <constraint firstItem="4TO-aR-GjF" firstAttribute="width" secondItem="UuG-wj-I3K" secondAttribute="width" multiplier="0.102837" id="evo-KT-02w"/>
                                     <constraint firstItem="1h6-1k-pFC" firstAttribute="centerY" secondItem="UuG-wj-I3K" secondAttribute="centerY" multiplier="1.04505" id="m0Q-9r-iBl"/>
+                                    <constraint firstItem="SSP-bp-mUa" firstAttribute="centerX" secondItem="UuG-wj-I3K" secondAttribute="centerX" multiplier="1.99291" id="uLh-yW-vdG"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -478,12 +476,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RES" width="200" height="290"/>
+        <image name="RES" width="37" height="48"/>
         <image name="annotation" width="512" height="512"/>
+        <image name="closeForMap" width="55" height="55"/>
         <image name="eng_pin_21" width="97" height="136"/>
         <image name="list" width="512" height="512"/>
         <image name="mapTabIcon2" width="25" height="25"/>
-        <image name="multiply" width="64" height="64"/>
         <image name="students-cap" width="76" height="46"/>
     </resources>
 </document>

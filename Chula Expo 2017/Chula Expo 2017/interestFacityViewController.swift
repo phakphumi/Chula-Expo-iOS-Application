@@ -36,6 +36,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
     @IBOutlet var numberLabel: UILabel!
     
     var toEdit = false
+    
     @IBOutlet weak var cancelEdit: UIButton!
     @IBOutlet weak var saveEdit: UIButton!
     
@@ -299,21 +300,6 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
 
         }
         
-        print(userType)
-        print(name)
-        print(email)
-        print(age)
-        print(gender)
-        print(education)
-        print(educationYear)
-        print(school)
-        print(career)
-        print(fbId)
-        print(fbToken)
-        print(fbImageProfileUrl)
-        print(fbImage)
-        print(combinedTag)
-        
         Alamofire.request("http://staff.chulaexpo.com/api/signup", method: .post, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
@@ -498,16 +484,6 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         }
         else {
             
-            self.performSegue(withIdentifier: "endEdit", sender: self)
-            
-        }
-   
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "endEdit" {
-            
             var faculties: String = ""
             
             for (index, faculty) in facultyList.enumerated() {
@@ -532,8 +508,6 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
                 "tags": combinedTag,
             ]
             
-            print(combinedTag)
-                    
             let header: HTTPHeaders = ["Authorization": "JWT \(userToken!)"]
             
             Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
@@ -549,10 +523,13 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
                     
                 }
                 
+                self.performSegue(withIdentifier: "endEdit", sender: self)
+                
             }
             
         }
-        
+   
     }
+    
     
 }

@@ -145,9 +145,15 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
             } else {
                 
-                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
+                let confirm = UIAlertController(title: "ข้อผิดพลาด", message: "ฟังก์ชันการจองเปิดให้ใช้งานได้เฉพาะผู้ใช้ที่ลงทะเบียนผ่าน Facebook เท่านั้น!", preferredStyle: UIAlertControllerStyle.alert)
                 
-                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                confirm.addAction(UIAlertAction(title: "เข้าสู่ระบบด้วย Facebook", style: UIAlertActionStyle.default, handler: { (alert) in
+                    
+                    self.tabBarController?.performSegue(withIdentifier: "logout", sender: self)
+                    
+                }))
+                confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.destructive, handler: nil))
+                
                 
                 self.present(confirm, animated: true, completion: nil)
                 

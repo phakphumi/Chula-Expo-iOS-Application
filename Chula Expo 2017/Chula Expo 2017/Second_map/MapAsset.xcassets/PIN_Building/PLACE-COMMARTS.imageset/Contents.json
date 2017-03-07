@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "FAC-COMMARTS.png",
+      "filename" : "PLACE-COMMARTS.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "PLACE-COMMARTS@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "PLACE-COMMARTS@3x.png",
       "scale" : "3x"
     }
   ],

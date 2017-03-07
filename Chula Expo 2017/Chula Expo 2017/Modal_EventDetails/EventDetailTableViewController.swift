@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 
+protocol EventDetailTableViewControllerDelegate {
+    
+    func updateData(data: String)
+    
+}
+
 class EventDetailTableViewController: UITableViewController , UIGestureRecognizerDelegate {
     
     var didReload = false
@@ -51,9 +57,13 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     var managedObjectContext: NSManagedObjectContext?
     
     var alreadyShowTextAlert = false
+    var fromQRScanner = false
+    var delegate: EventDetailTableViewControllerDelegate?
 
     @IBAction func cancel(_ sender: UIButton) {
     
+        self.delegate?.updateData(data: "dddd")
+        
         toDismiss()
     
     }

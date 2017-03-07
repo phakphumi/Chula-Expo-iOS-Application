@@ -31,15 +31,12 @@ public class UserData: NSManagedObject {
     {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
-        request.predicate = NSPredicate(format: "token = %@", token)
-        request.returnsObjectsAsFaults = false
         
         if let result = (try? context.fetch(request))?.first as? UserData {
             
             // found this event in the database, return it ...
             print("Found \(result.name)")
             result.id = id
-            result.token = token
             result.type = type
             result.name = name
             result.email = email

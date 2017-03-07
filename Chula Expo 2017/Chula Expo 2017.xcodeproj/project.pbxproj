@@ -77,6 +77,7 @@
 		5FD451531E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */; };
 		5FDC57B61E47485800B452E7 /* UserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */; };
 		5FDC57B81E475AE300B452E7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC57B71E475AE300B452E7 /* RegisterViewController.swift */; };
+		5FF140BA1E6E972A00FAED0B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF140B91E6E972A00FAED0B /* CoreLocation.framework */; };
 		5FF51A5A1E40A802000DF788 /* EventHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */; };
 		5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */; };
 		5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */; };
@@ -220,6 +221,7 @@
 		5FD451511E521A2400291CE5 /* FavoritedActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FavoritedActivity+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/FavoritedActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTypeViewController.swift; path = Main_LoginAndRegistration/UserTypeViewController.swift; sourceTree = "<group>"; };
 		5FDC57B71E475AE300B452E7 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = Main_LoginAndRegistration/RegisterViewController.swift; sourceTree = "<group>"; };
+		5FF140B91E6E972A00FAED0B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5FF51A591E40A802000DF788 /* EventHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventHeaderTableViewCell.swift; path = Modal_EventDetails/EventHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		5FF51A5B1E40AF51000DF788 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventDetailTableViewController.swift; path = Modal_EventDetails/EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		5FF7C0E11E2D2142002D6DBD /* GalleryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GalleryTableViewCell.swift; path = Modal_EventDetails/GalleryTableViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FF140BA1E6E972A00FAED0B /* CoreLocation.framework in Frameworks */,
 				5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */,
 				805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */,
 				805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */,
@@ -469,6 +472,7 @@
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FF140B91E6E972A00FAED0B /* CoreLocation.framework */,
 				5F0E92E01E48D8A100D5513B /* Alamofire.framework */,
 				5F9FB0851E150EDE00E984AB /* Bolts.framework */,
 				5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */,

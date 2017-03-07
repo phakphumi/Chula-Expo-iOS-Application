@@ -777,6 +777,7 @@
                         <outlet property="schoolField" destination="h8X-gG-sZx" id="MaS-8O-OvN"/>
                         <outlet property="schoolView" destination="cCG-Ra-xLw" id="mqi-NV-e2W"/>
                         <segue destination="1cI-z6-raX" kind="show" identifier="toInterested" id="6Sk-ae-WEp"/>
+                        <segue destination="QME-Np-NQV" kind="show" identifier="endEdit" id="XpE-uR-q4t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJE-Ap-ozA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1084,7 +1085,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fade" translatesAutoresizingMaskIntoConstraints="NO" id="amI-Rg-r1m">
-                                <rect key="frame" x="0.0" y="391" width="320" height="128"/>
+                                <rect key="frame" x="0.0" y="440" width="320" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
@@ -1301,7 +1302,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fade" translatesAutoresizingMaskIntoConstraints="NO" id="EvA-mb-wrE">
-                                <rect key="frame" x="0.0" y="391" width="320" height="128"/>
+                                <rect key="frame" x="0.0" y="440" width="320" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
@@ -1400,9 +1401,9 @@
         <image name="studentBlack" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nET-Xg-sPe"/>
-        <segue reference="eGe-co-jWB"/>
-        <segue reference="TO2-yU-nnK"/>
+        <segue reference="XpE-uR-q4t"/>
         <segue reference="AgV-hs-Pux"/>
+        <segue reference="6Sk-ae-WEp"/>
+        <segue reference="eGe-co-jWB"/>
     </inferredMetricsTieBreakers>
 </document>

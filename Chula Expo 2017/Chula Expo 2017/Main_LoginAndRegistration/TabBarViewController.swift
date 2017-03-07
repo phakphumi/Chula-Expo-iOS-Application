@@ -48,62 +48,13 @@ class TabBarViewController: UITabBarController {
                 
                 if let userData = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!) {
                     
-                    destination.userType = userData.type
-                    destination.name = userData.name
-                    destination.firstName = userData.name?.components(separatedBy: " ")[0]
-                    destination.lastName = userData.name?.components(separatedBy: " ")[1]
-                    destination.email = userData.email
-                    destination.fbId = ""
-                    destination.fbToken = ""
-                    destination.fbImageProfileUrl = userData.profile
-                    destination.fbImageProfileUrl = userData.profile
-                    destination.userToken = userData.token
-                    
-                    let facebookProfileUrl = URL(string: (userData.profile)!)
-                    
-                    if let data = NSData(contentsOf: facebookProfileUrl!) {
-                        
-                        destination.fbImage = UIImage(data: data as Data)
-                        
-                    }
-                    
-                    destination.managedObjectContext = self.managedObjectContext
-                    destination.isEdited = false
-                    
                     destination.toEdit = true
+                    destination.userType = userData.type
+                    destination.userData = userData
+                    destination.managedObjectContext = self.managedObjectContext
 
                     
                 }
-                
-//                destination.userType = ""
-//            
-//                managedObjectContext?.performAndWait {
-//                    
-//                    
-//                    let destination = segue.destination as! RegisterViewController
-//                    
-//                    destination.userType = userData?.type
-//                    destination.name = userData?.name
-//                    destination.firstName = userData?.name?.components(separatedBy: " ")[0]
-//                    destination.lastName = userData?.name?.components(separatedBy: " ")[1]
-//                    destination.email = userData?.email
-//                    destination.fbImageProfileUrl = userData?.profile
-//                    
-//                    let facebookProfileUrl = URL(string: (userData?.profile)!)
-//                    
-//                    if let data = NSData(contentsOf: facebookProfileUrl!) {
-//                        
-//                        destination.fbImage = UIImage(data: data as Data)
-//                        
-//                    }
-//                    
-//                    destination.managedObjectContext = self.managedObjectContext
-//                    destination.isEdited = false
-//                    
-//                    destination.toEdit = true
-//
-//                    
-//                }
                 
             }
             

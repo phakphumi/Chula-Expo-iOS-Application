@@ -132,7 +132,7 @@ class UserTypeViewController: UIViewController {
             destination.fbImageProfileUrl = self.fbImageProfileUrl
             destination.fbImage = self.fbImage
             destination.managedObjectContext = self.managedObjectContext
-            destination.isEdited = false
+            
         }
         
         

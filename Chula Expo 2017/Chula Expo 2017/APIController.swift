@@ -50,6 +50,40 @@ class APIController {
                 
             })
             
+        } else {
+            
+            let parameters: [String: Any] = [
+                "latitude": latitude,
+                "longitude": longitude
+            ]
+            
+            Alamofire.request("http://staff.chulaexpo.com/api/me/where", method: .get, parameters: parameters).responseJSON(completionHandler: { (response) in
+                
+                if response.result.isSuccess {
+                    
+                    if let JSON = response.result.value as? NSDictionary{
+                        
+                        let success = JSON["success"] as! Bool
+                        
+                        if success {
+                            
+                            let results = JSON["results"] as! NSDictionary
+                            let zone = results["text"] as! [String: String]
+                            
+                            completion?(zone)
+                            
+                        }
+                        
+                    }
+                    
+                } else {
+                    
+                    completion?(nil)
+                    
+                }
+                
+            })
+            
         }
         
     }

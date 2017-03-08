@@ -14,6 +14,8 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
     var locationDesc: String!
     var toRounds: NSSet!
     var reservable = false
+    
+    var wasFavorited = false
 //    var timeDesc: String?{
 //        didSet{
 //            dates.insert(timeDesc!, at: 0)
@@ -136,6 +138,13 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             reserveIcon.image = #imageLiteral(resourceName: "ticketPink")
             reserveTitle.text = "จอง EVENT"
             reserveDesc.text = "EVENT นี้ต้องสำรองที่นั่งก่อนเข้าร่วม"
+            
+        } else if wasFavorited {
+            
+            reserveTitle.text = "ยกเลิกการสนใจ"
+            reserveDesc.text = "นำกิจกรรมนี้ออกจากความสนใจ"
+            reserveTitle.textColor = UIColor.red
+            reserveDesc.textColor = UIColor.red
             
         }
         

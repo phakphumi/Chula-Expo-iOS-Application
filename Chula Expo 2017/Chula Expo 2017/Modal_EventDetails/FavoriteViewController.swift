@@ -15,6 +15,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var activityId: String!
     var topic: String!
     var reservable = false
+    var wasFavorited = false
     var managedObjectContext: NSManagedObjectContext?
     
     var roundsId = [String]()
@@ -167,48 +168,76 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             var confirm = UIAlertController()
             
-            if FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)! {
+            if wasFavorited {
                 
-                confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
-                confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                if FavoritedActivity.deleteFavoritedActivity(fromActivityID: self.activityId, inManageobjectcontext: managedObjectContext!) {
                     
-                    self.dismiss(animated: true, completion: nil)
+                    confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                    confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    }))
                     
-                }))
+                    
+                }
                 
+                
+                do{
+                    
+                    try managedObjectContext?.save()
+                    print("DeleteFavoritedActivity Saved")
+                    
+                }
+                    
+                catch let error {
+                    
+                    print("Delete FavoritedActivity save error with \(error)")
+                    
+                    confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง", preferredStyle: UIAlertControllerStyle.alert)
+                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+                    
+                }
+                
+                self.present(confirm, animated: true, completion: nil)
                 
             } else {
-                
-                confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ท่านเคยบันทึกรายการนี้ไว้แล้ว", preferredStyle: UIAlertControllerStyle.alert)
-                confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+            
+            
+                if FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)! {
                     
-                    self.dismiss(animated: true, completion: nil)
+                    confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                    confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    }))
                     
-                }))
+                    
+                }
+                
+                
+                do{
+                    
+                    try managedObjectContext?.save()
+                    print("FavoritedActivity Saved")
+                    
+                }
+                    
+                catch let error {
+                    
+                    print("FavoritedActivity save error with \(error)")
+                    
+                    confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง", preferredStyle: UIAlertControllerStyle.alert)
+                    confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
+                    
+                }
+                
+                self.present(confirm, animated: true, completion: nil)
                 
             }
-            
-            
-            do{
-                
-                try managedObjectContext?.save()
-                print("FavoritedActivity Saved")
-                
-            }
-                
-            catch let error {
-                
-                print("FavoritedActivity save error with \(error)")
-                
-                confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "บันทึกข้อมูลล้มเหลว กรุณาลองใหม่อีกครั้ง", preferredStyle: UIAlertControllerStyle.alert)
-                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.destructive, handler: nil))
-                
-            }
-            
-            self.present(confirm, animated: true, completion: nil)
             
         }
-        
         
     }
     
@@ -223,6 +252,8 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        blurEffectView.frame = self.view.frame
 //        
 //        self.view.insertSubview(blurEffectView, at: 0)
+        
+        wasFavorited = FavoritedActivity.isFavoritedActivity(fromActivityID: activityId, inManageobjectcontext: managedObjectContext!)
         
         if reservable {
             
@@ -320,6 +351,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             titleIcon.image = #imageLiteral(resourceName: "ticketBlue")
             titleText.text = "จองกิจกรรมนี้"
         
+        } else if wasFavorited {
+            
+            titleText.text = "ยกเลิกการสนใจ"
+            titleText.textColor = UIColor.red
+            
         }
         
     }

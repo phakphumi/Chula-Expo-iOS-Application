@@ -12,6 +12,47 @@ import CoreData
 @objc(FavoritedActivity)
 public class FavoritedActivity: NSManagedObject {
     
+    class func isFavoritedActivity(fromActivityID id: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool {
+        
+        let favoriteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+        favoriteRequest.predicate = NSPredicate(format: "activityId = %@", id)
+        
+        if let favorited = try? context.fetch(favoriteRequest) {
+            
+            if favorited.count > 0 {
+                
+                return true
+                
+            }
+            
+        }
+        
+        return false
+        
+    }
+    
+    class func deleteFavoritedActivity(fromActivityID id: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool {
+        
+        let favoriteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+        favoriteRequest.predicate = NSPredicate(format: "activityId = %@", id)
+        
+        if let favorited = try? context.fetch(favoriteRequest).first {
+            
+            context.delete(favorited as! NSManagedObject)
+            
+            if ((try? context.save()) != nil) {
+                
+                return true
+                
+            }
+            
+        }
+        
+        return false
+        
+        
+    }
+    
     class func fetchFavoritedActivity(inManageobjectcontext context: NSManagedObjectContext) -> [FavoritedActivity]? {
         
         let favoriteRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")

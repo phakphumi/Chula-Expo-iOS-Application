@@ -392,6 +392,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
 //                    ehvc.timeDesc = self.timeDesc
                     ehvc.dateTimeList = self.dateTimeList
                     ehvc.reservable = self.reservable
+                    ehvc.wasFavorited = FavoritedActivity.isFavoritedActivity(fromActivityID: activityId, inManageobjectcontext: managedObjectContext!)
                 
                 }
                 
@@ -542,8 +543,6 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
             } else {
                 
-                print(self.dates)
-                print(self.times)
                 
             }
             

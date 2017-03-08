@@ -1,12 +1,15 @@
 PODS:
   - Alamofire (4.3.0)
+  - Siren (1.1.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
+  - Siren
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Siren: 61777cce2341bad8ecc239518e86572294ea4021
 
-PODFILE CHECKSUM: 87f45a93fa1ae41a2962024fcdcaca4438285eb0
+PODFILE CHECKSUM: 9504c76ecb9ad8580fe83ff777cf81483ed7d2a5
 
 COCOAPODS: 1.1.1

@@ -18,6 +18,7 @@
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
 		58BD39451E4C4DFA00218B52 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BD39441E4C4DFA00218B52 /* MeViewController.swift */; };
+		5F043F461E6FB86A0026EEE4 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F043F451E6FB86A0026EEE4 /* Siren.framework */; };
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
 		5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */; };
 		5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */; };
@@ -155,6 +156,7 @@
 		58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderCell.swift; sourceTree = "<group>"; };
 		58BD39441E4C4DFA00218B52 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		5ADF032F16A51057C2FA9709 /* Pods-Chula Expo 2017.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chula Expo 2017.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017.release.xcconfig"; sourceTree = "<group>"; };
+		5F043F451E6FB86A0026EEE4 /* Siren.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siren.framework; path = "DerivedData/Chula Expo 2017/Build/Products/Debug-iphonesimulator/Siren/Siren.framework"; sourceTree = SOURCE_ROOT; };
 		5F07EDC01E2B48420017ECD5 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5F07EDC31E2B64D50017ECD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/EventDetails.storyboard; sourceTree = "<group>"; };
 		5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Modal_EventDetails/ImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F043F461E6FB86A0026EEE4 /* Siren.framework in Frameworks */,
 				5FF140BA1E6E972A00FAED0B /* CoreLocation.framework in Frameworks */,
 				5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */,
 				805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */,
@@ -472,6 +475,7 @@
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F043F451E6FB86A0026EEE4 /* Siren.framework */,
 				5FF140B91E6E972A00FAED0B /* CoreLocation.framework */,
 				5F0E92E01E48D8A100D5513B /* Alamofire.framework */,
 				5F9FB0851E150EDE00E984AB /* Bolts.framework */,
@@ -630,7 +634,7 @@
 				TargetAttributes = {
 					5F4A9D8D1E10300900713580 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = DPQ3565CLE;
+						DevelopmentTeam = 7Q8Y63KPEP;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -1016,7 +1020,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
-				DEVELOPMENT_TEAM = DPQ3565CLE;
+				DEVELOPMENT_TEAM = 7Q8Y63KPEP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1026,6 +1030,7 @@
 					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/DerivedData/Chula\\ Expo\\ 2017/Build/Products/Debug-iphonesimulator/Alamofire",
+					"$(PROJECT_DIR)/DerivedData/Chula\\ Expo\\ 2017/Build/Products/Debug-iphonesimulator/Siren",
 				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1042,7 +1047,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Chula Expo 2017/Chula Expo 2017.entitlements";
-				DEVELOPMENT_TEAM = DPQ3565CLE;
+				DEVELOPMENT_TEAM = 7Q8Y63KPEP;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1052,6 +1057,7 @@
 					"$(PROJECT_DIR)/Chula\\ Expo\\ 2017",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)/DerivedData/Chula\\ Expo\\ 2017/Build/Products/Debug-iphonesimulator/Alamofire",
+					"$(PROJECT_DIR)/DerivedData/Chula\\ Expo\\ 2017/Build/Products/Debug-iphonesimulator/Siren",
 				);
 				INFOPLIST_FILE = "Chula Expo 2017/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

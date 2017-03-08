@@ -64,7 +64,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9GB-Wj-nlD" id="DUf-zw-WKh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="159.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="kBJ-Os-qLE">
@@ -102,11 +102,11 @@
                                 <rect key="frame" x="0.0" y="188" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eYW-ZK-5gL" id="vIQ-3V-YfI">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="50.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
-                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="5" height="5.6666666666666696"/>
+                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="4.6666666666666572" height="5.6666666666666696"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="AEk-Ic-ub0" secondAttribute="height" multiplier="21:20" id="QEx-4s-d7o"/>
                                             </constraints>
@@ -660,7 +660,7 @@ Ekkalak Leelasornchai (CP42)
  Back-end Developer
 Kitipong Sirirueangsakul (CP41)
 Nuttapat Kirawittaya (CP41)
-Pongsathorn Chotipanvidhayakul (CP41)
+Pongsathorn Chotipanvidhayakul (CP41) Puttiphat Sriratpinyo (CP41)
 Wasin Watthanasrisong (CP41)
 Apiruj Choomwattana (CP41)
  Recommendation System

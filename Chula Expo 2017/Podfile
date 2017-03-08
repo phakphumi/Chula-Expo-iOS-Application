@@ -9,4 +9,6 @@ target 'Chula Expo 2017' do
   
   # Pods for Chula Expo 2017
   pod 'Alamofire', '~> 4.3'
+  pod 'Siren'
+  
 end

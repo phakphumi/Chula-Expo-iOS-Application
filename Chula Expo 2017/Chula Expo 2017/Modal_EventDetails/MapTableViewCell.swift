@@ -11,7 +11,7 @@ import MapKit
 
 class MapTableViewCell: UITableViewCell {
 
-    @IBOutlet var map: MKMapView!
+    @IBOutlet weak var map: MKMapView!
     
     let annotation = MKPointAnnotation()
     

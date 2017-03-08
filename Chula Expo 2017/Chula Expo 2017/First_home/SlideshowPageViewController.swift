@@ -12,13 +12,14 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
 
     var imageName: [String]?{
         didSet{
-            initIfReady()
             
+            initIfReady()
             updateAllFrameWithNewData()
         }
     }
     var topicLabelText: [String]?{
         didSet{
+            
             initIfReady()
             updateAllFrameWithNewData()
         }
@@ -26,6 +27,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
 
     var descLabelText: [String]?{
         didSet{
+            
             initIfReady()
             updateAllFrameWithNewData()
         }
@@ -33,9 +35,9 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
 
     var isInit = false
     
-//    var imageName = ["slideShow1.jpg", "slideShow2.jpg"]
-//    var topicLabelText = ["Welcome to Chula Expo 2017", "Chula Expo Special Event"]
-//    var descLabelText = ["9:41-10:41 • Main auditorium Building 3", "13:00-14:00 • Main auditorium"]
+    var imageNameDemo = ["defaultBig", "defaultBig"]
+    var topicLabelTextDemo = ["Welcome to Chula Expo 2017", "Welcome to Chula Expo 2017"]
+    var descLabelTextDemo = ["15-19 March 2017 • Chulalongkorn University", "15-19 March 2017 • Chulalongkorn University"]
     
     var timer = Timer()
     var frameViewControllers = [SlideshowFrameViewController]()
@@ -60,9 +62,6 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
                setupData()
             }
 //            createPageIndicator()
-
-            
-        
     }
 
     func setupData() {
@@ -76,24 +75,35 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
         frameViewControllers.append(frameViewController)
         }
     
-    //            let viewController = [frameViewController]
         if frameViewControllers.count > 0 {
+            
             setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
             pageControl.numberOfPages = frameViewControllers.count
+            
+            timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
+            
         }else{
             //
-            let frameViewController = SlideshowFrameViewController()
-            frameViewController.imageName = ""
-            frameViewController.topicLabelText = "Welcome to Chula Expo 2017"
-            frameViewController.descLabelText = "15 - 19 March 2017  Chulalongkorn University"
-            frameViewController.frameIndex = 0
-            frameViewControllers.append(frameViewController)
+            
+            for i in 0..<imageNameDemo.count {
+                
+                let frameViewController = SlideshowFrameViewController()
+                frameViewController.imageName = imageNameDemo[i]
+                frameViewController.topicLabelText = topicLabelTextDemo[i]
+                frameViewController.descLabelText = descLabelTextDemo[i]
+                frameViewController.frameIndex = i
+                frameViewControllers.append(frameViewController)
+                
+            }
+            
+            
             setViewControllers([frameViewControllers[0]], direction: .forward, animated: true, completion: nil)
-            pageControl.numberOfPages = 1
+            pageControl.numberOfPages = frameViewControllers.count
+            
             timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
         
         }
-}
+    }
 
     func updateAllFrameWithNewData(){
         
@@ -106,7 +116,10 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
                 setSlideshowPropoties(frameViewController: frameViewController, atIndex: index)
                 frameViewControllers.append(frameViewController)
             }
+            frameIndex = 0
             pageControl.numberOfPages = frameViewControllers.count
+            timer.invalidate()
+            timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
         }
     }
 

@@ -117,7 +117,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sl-O6-Dih">
                                 <rect key="frame" x="54" y="162" width="213" height="102"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentBlack" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-3q-XwG">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-3q-XwG">
                                         <rect key="frame" x="87.5" y="12.5" width="38" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="v2b-3q-XwG" secondAttribute="height" multiplier="9:11" id="wft-Io-Cun"/>
@@ -129,10 +129,11 @@
                                             <constraint firstAttribute="width" secondItem="jEd-Us-BmX" secondAttribute="height" multiplier="117:20" id="rnr-4C-E53"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" red="0.16784432530403137" green="0.18723058700561523" blue="0.24119073152542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="v2b-3q-XwG" firstAttribute="centerY" secondItem="8Sl-O6-Dih" secondAttribute="centerY" multiplier="0.7083" id="2Va-U4-LV9"/>
                                     <constraint firstItem="jEd-Us-BmX" firstAttribute="width" secondItem="8Sl-O6-Dih" secondAttribute="width" multiplier="0.936" id="ME8-hX-kVq"/>
@@ -146,7 +147,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onn-Vg-4kL">
                                 <rect key="frame" x="54" y="285.5" width="213" height="102"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personWhite" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-RZ-e6J">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personBlack" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-RZ-e6J">
                                         <rect key="frame" x="87.5" y="12.5" width="38" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OJn-RZ-e6J" secondAttribute="height" multiplier="9:11" id="ibj-th-hWS"/>
@@ -158,11 +159,10 @@
                                             <constraint firstAttribute="width" secondItem="0iX-Dp-2Qt" secondAttribute="height" multiplier="117:20" id="tpY-LA-gzw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.16784432530403137" green="0.18723058700561523" blue="0.24119073152542114" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="OJn-RZ-e6J" firstAttribute="centerX" secondItem="onn-Vg-4kL" secondAttribute="centerX" id="5kh-bY-1y3"/>
                                     <constraint firstItem="0iX-Dp-2Qt" firstAttribute="width" secondItem="onn-Vg-4kL" secondAttribute="width" multiplier="0.936" id="974-Ol-Gc2"/>
@@ -626,7 +626,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="โปรแกรมเมอร์" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-ay-Edm">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="เกษตรกร" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-ay-Edm">
                                         <rect key="frame" x="51" y="0.0" width="214" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zBD-ay-Edm" secondAttribute="height" multiplier="251:40" id="ObS-FY-wEf"/>
@@ -1398,14 +1398,14 @@
         <image name="defaultImage" width="200" height="200"/>
         <image name="down-arrow-darkgray" width="32" height="32"/>
         <image name="fade" width="11" height="165"/>
-        <image name="personWhite" width="128" height="128"/>
-        <image name="studentBlack" width="128" height="128"/>
+        <image name="personBlack" width="128" height="128"/>
+        <image name="studentWhite" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XpE-uR-q4t"/>
-        <segue reference="AgV-hs-Pux"/>
+        <segue reference="deC-AF-MEr"/>
+        <segue reference="6Sk-ae-WEp"/>
         <segue reference="IwA-jx-m5S"/>
-        <segue reference="TO2-yU-nnK"/>
         <segue reference="N5h-Ga-xYs"/>
     </inferredMetricsTieBreakers>
 </document>

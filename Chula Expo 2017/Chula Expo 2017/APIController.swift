@@ -12,6 +12,46 @@ import CoreData
 
 class APIController {
     
+    class func removeReservedActivity(fromRoundID id: String,  inManageobjectcontext context: NSManagedObjectContext, completion: ((Bool) -> Void)?) {
+        
+        if let userData = UserData.fetchUser(inManageobjectcontext: context) {
+            
+            let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
+            
+            Alamofire.request("http://staff.chulaexpo.com/api/me/reserved_rounds/\(id)", method: .delete, headers: header).responseJSON(completionHandler: { (response) in
+                print(id)
+                print(response)
+                if response.result.isSuccess {
+                    
+                    if let JSON = response.result.value as? NSDictionary{
+                        
+                        let success = JSON["success"] as! Bool
+                        
+                        completion?(success)
+                        
+                    } else {
+                        
+                        completion?(false)
+                        
+                    }
+                    
+                } else {
+                    
+                    completion?(false)
+                    
+                }
+                
+            })
+            
+        } else {
+            
+            completion?(false)
+            
+        }
+        
+        
+    }
+    
     class func getWhereAmI(latitude: Double, longitude: Double, inManageobjectcontext context: NSManagedObjectContext, completion: (([String: String]?) -> Void)?) {
         
         if let userData = UserData.fetchUser(inManageobjectcontext: context) {

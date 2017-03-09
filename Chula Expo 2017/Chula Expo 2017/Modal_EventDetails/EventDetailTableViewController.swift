@@ -16,6 +16,22 @@ protocol EventDetailTableViewControllerDelegate {
     
 }
 
+extension EventDetailTableViewController: FavoriteViewControllerDelegate {
+    
+    func updateData(wasUpdated: Bool) {
+        print(wasUpdated)
+        if wasUpdated {
+            
+            let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? EventHeaderTableViewCell
+            cell?.wasFavorited = FavoritedActivity.isFavoritedActivity(fromActivityID: activityId, inManageobjectcontext: managedObjectContext!)
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+}
+
 class EventDetailTableViewController: UITableViewController , UIGestureRecognizerDelegate {
     
     var didReload = false
@@ -390,7 +406,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                     
                     
                     locationDesc = "\(room) \(place) \(zoneName)"
-                
+                    
                     ehvc.topic = self.topic
                     ehvc.locationDesc = self.locationDesc
                     ehvc.dates = self.dates
@@ -541,6 +557,8 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
         } else if segue.identifier == "presentFavorite" {
             
             let destination = segue.destination as! FavoriteViewController
+            
+            destination.delegate = self
             
             if self.reservable! {
                 

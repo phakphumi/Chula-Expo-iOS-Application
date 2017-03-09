@@ -11,8 +11,16 @@ import CoreData
 import Alamofire
 import Answers
 
+protocol FavoriteViewControllerDelegate {
+    
+    func updateData(wasUpdated: Bool)
+    
+}
+
 class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    var delegate: FavoriteViewControllerDelegate?
+    
     var activityId: String!
     var topic: String!
     var reservable = false
@@ -87,6 +95,8 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     
                                     let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
                                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                                        
+                                        self.delegate?.updateData(wasUpdated: true)
                                         
                                         Answers.logCustomEvent(withName: "Reserved", customAttributes: ["Activity": self.activityId, "Action": "Reserved"])
                                         
@@ -173,10 +183,17 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             if wasFavorited {
                 
-                if FavoritedActivity.deleteFavoritedActivity(fromActivityID: self.activityId, inManageobjectcontext: managedObjectContext!) {
+                
+                _ = FavoritedActivity.deleteFavoritedActivity(fromActivityID: self.activityId, inManageobjectcontext: managedObjectContext!)
+                
+                do{
+                    
+                    try managedObjectContext?.save()
                     
                     confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                       
+                        self.delegate?.updateData(wasUpdated: true)
                         
                         Answers.logCustomEvent(withName: "Favorited", customAttributes: ["Activity": self.activityId, "Action": "Favorited"])
                         
@@ -184,13 +201,6 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         
                     }))
                     
-                    
-                }
-                
-                
-                do{
-                    
-                    try managedObjectContext?.save()
                     print("DeleteFavoritedActivity Saved")
                     
                 }
@@ -209,10 +219,17 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             } else {
             
             
-                if FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)! {
+                _ = FavoritedActivity.addData(activityId: self.activityId, inManageobjectcontext: managedObjectContext!)
+                
+                
+                do{
+                    
+                    try managedObjectContext?.save()
                     
                     confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                        
+                        self.delegate?.updateData(wasUpdated: true)
                         
                         Answers.logCustomEvent(withName: "Favorited", customAttributes: ["Activity": self.activityId, "Action": "Cancel"])
                         
@@ -220,13 +237,6 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         
                     }))
                     
-                    
-                }
-                
-                
-                do{
-                    
-                    try managedObjectContext?.save()
                     print("FavoritedActivity Saved")
                     
                 }

@@ -12,6 +12,27 @@ import CoreData
 @objc(ReservedActivity)
 public class ReservedActivity: NSManagedObject {
 
+    class func deleteReservedActivity(fromRoundID id: String, inManageobjectcontext context: NSManagedObjectContext) -> Bool {
+        
+        let reservedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+        reservedRequest.predicate = NSPredicate(format: "roundId = %@", id)
+        
+        if let reservedActivity = try? context.fetch(reservedRequest).first {
+            print(reservedActivity)
+            context.delete(reservedActivity as! NSManagedObject)
+            
+            if ((try? context.save()) != nil) {
+                
+                return true
+                
+            }
+            
+        }
+        
+        return false
+        
+    }
+    
     class func fetchReservedActivity(inManageobjectcontext context: NSManagedObjectContext) -> [ReservedActivity]? {
         
         let reservedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")

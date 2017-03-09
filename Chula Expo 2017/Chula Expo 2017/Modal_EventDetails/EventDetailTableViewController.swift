@@ -347,7 +347,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                         if let end = end{
                             let date = start.toThaiTextOnlyDate(withEnd: end)
                             let timeFormatter = DateFormatter()
-                            dateFormatter.calendar = Calendar(identifier: .gregorian)
+                            timeFormatter.calendar = Calendar(identifier: .gregorian)
                             timeFormatter.dateFormat = "HH.mm"
                             
                             let sTime = timeFormatter.string(from: start)

@@ -18,6 +18,11 @@ class APIController {
             
             let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
             
+//            let parameters: [String: Any] = [
+//                "latitude": 0,
+//                "longitude": 0
+//            ]
+            
             Alamofire.request("https://staff.chulaexpo.com/api/me/reserved_rounds/\(id)", method: .delete, headers: header).responseJSON(completionHandler: { (response) in
                 print(id)
                 print(response)
@@ -27,7 +32,21 @@ class APIController {
                         
                         let success = JSON["success"] as! Bool
                         
-                        completion?(success)
+                        if success {
+                            
+                            context.performAndWait {
+                                
+                                _ = ReservedActivity.deleteReservedActivity(fromRoundID: id, inManageobjectcontext: context)
+                                
+                            }
+                            
+                            completion?(true)
+                            
+                        } else {
+                            
+                            completion?(false)
+                            
+                        }
                         
                     } else {
                         
@@ -233,7 +252,7 @@ class APIController {
                             
                             let tags = result["tags"] as! [String]
                             
-                            APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                            APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                 
                                 context.performAndWait {
                                     
@@ -836,7 +855,7 @@ class APIController {
                         
                         let tags = result["tags"] as! [String]
                         
-                        APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                        APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                             
                             context.performAndWait {
                                 
@@ -938,7 +957,13 @@ class APIController {
     }
     
     class func downloadActivity(fromActivityId activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((ActivityData?) -> Void)?) {
-          
+        
+        if activityId == "" {
+            
+            return
+            
+        }
+        
         Alamofire.request("https://staff.chulaexpo.com/api/activities/\(activityId)").responseJSON { (response) in
         
             if response.result.isSuccess {
@@ -970,7 +995,7 @@ class APIController {
                     
                     let tags = result["tags"] as! [String]
                     
-                    APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                    APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                         
                         context.performAndWait {
                             
@@ -1095,7 +1120,7 @@ class APIController {
                             
                             let tags = result["tags"] as! [String]
                             
-                            APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                            APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                 
                                 context.performAndWait {
                                     
@@ -1241,7 +1266,7 @@ class APIController {
                             
                             let tags = result["tags"] as! [String]
                             
-                            APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                            APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                 
                                 context.performAndWait {
                                     
@@ -1390,7 +1415,7 @@ class APIController {
                                     
                                     let tags = result["tags"] as! [String]
                                     
-                                    APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
+                                    APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                         
                                         context.performAndWait {
                                             
@@ -2016,7 +2041,7 @@ class APIController {
                                     
                                     context.performAndWait {
                                         
-                                        APIController.downloadActivity(fromActivityId: result["activityId"] as! String, inManageobjectcontext: context, completion: { (activityData) in
+                                        APIController.downloadActivity(fromActivityId: result["activityId"] as? String ?? "", inManageobjectcontext: context, completion: { (activityData) in
                                             
                                             if let activityData = activityData {
                                                 

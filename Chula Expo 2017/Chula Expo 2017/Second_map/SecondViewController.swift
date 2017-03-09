@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 import CoreLocation
+import Answers
 
 class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -191,7 +192,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        Answers.logContentView(withName: "Second",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
         self.view.setNeedsLayout()
     

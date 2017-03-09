@@ -18,7 +18,6 @@
 		58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */; };
 		58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58611AAB1E2B853100B0BFDA /* CustomHeaderCell.swift */; };
 		58BD39451E4C4DFA00218B52 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BD39441E4C4DFA00218B52 /* MeViewController.swift */; };
-		5F043F461E6FB86A0026EEE4 /* Siren.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F043F451E6FB86A0026EEE4 /* Siren.framework */; };
 		5F07EDC11E2B48420017ECD5 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDC01E2B48420017ECD5 /* UserController.swift */; };
 		5F07EDC41E2B64D50017ECD5 /* EventDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F07EDC21E2B64D50017ECD5 /* EventDetails.storyboard */; };
 		5F07EDCD1E2B84980017ECD5 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F07EDCC1E2B84980017ECD5 /* ImageTableViewCell.swift */; };
@@ -29,6 +28,8 @@
 		5F102C9B1E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F102C991E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift */; };
 		5F102C9C1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F102C9A1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift */; };
 		5F18D57D1E14E53300EF81E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */; };
+		5F201DF71E71404700312776 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F201DF51E71404700312776 /* Fabric.framework */; };
+		5F201DF81E71404700312776 /* Answers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F201DF61E71404700312776 /* Answers.framework */; };
 		5F202CDF1E321F5500AEAF1C /* SukhumvitSet.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */; };
 		5F23F3911E2273B300ACA6A7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */; };
 		5F25B2311E10E006008A3B11 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F25B2301E10E006008A3B11 /* SecondViewController.swift */; };
@@ -167,6 +168,8 @@
 		5F102C991E6C8E2C002D6944 /* NearbyActivity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NearbyActivity+CoreDataClass.swift"; path = "Chula Expo 2017/CoreData/NearbyActivity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5F102C9A1E6C8E2C002D6944 /* NearbyActivity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NearbyActivity+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/NearbyActivity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Main_LoginAndRegistration/LoginViewController.swift; sourceTree = "<group>"; };
+		5F201DF51E71404700312776 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		5F201DF61E71404700312776 /* Answers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Answers.framework; sourceTree = SOURCE_ROOT; };
 		5F202CDE1E321F4E00AEAF1C /* SukhumvitSet.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = SukhumvitSet.ttc; sourceTree = "<group>"; };
 		5F23F3901E2273B300ACA6A7 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = First_home/FirstViewController.swift; sourceTree = "<group>"; };
 		5F25B2301E10E006008A3B11 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = Second_map/SecondViewController.swift; sourceTree = "<group>"; };
@@ -288,10 +291,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F043F461E6FB86A0026EEE4 /* Siren.framework in Frameworks */,
 				5FF140BA1E6E972A00FAED0B /* CoreLocation.framework in Frameworks */,
 				5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */,
 				805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */,
+				5F201DF81E71404700312776 /* Answers.framework in Frameworks */,
+				5F201DF71E71404700312776 /* Fabric.framework in Frameworks */,
 				805029BD1E2AA139009ABF2C /* Bolts.framework in Frameworks */,
 				805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */,
 				805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */,
@@ -475,6 +479,8 @@
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F201DF51E71404700312776 /* Fabric.framework */,
+				5F201DF61E71404700312776 /* Answers.framework */,
 				5F043F451E6FB86A0026EEE4 /* Siren.framework */,
 				5FF140B91E6E972A00FAED0B /* CoreLocation.framework */,
 				5F0E92E01E48D8A100D5513B /* Alamofire.framework */,
@@ -612,6 +618,7 @@
 				5F4A9D8C1E10300900713580 /* Resources */,
 				B91A9A7D7B5466C53C3B3EE6 /* [CP] Embed Pods Frameworks */,
 				2CC7230D535FCF9266C27714 /* [CP] Copy Pods Resources */,
+				5F201DEC1E713F1100312776 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -704,6 +711,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chula Expo 2017/Pods-Chula Expo 2017-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5F201DEC1E713F1100312776 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 311a20935600f2e3cb29b9fbf3820d98eb3e4dbe 11f870563b7d372a49990a8e0265990a42700599ad2e4e93b7437be9503d357f";
 		};
 		61BE41AC074E10D1FDE39DAF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

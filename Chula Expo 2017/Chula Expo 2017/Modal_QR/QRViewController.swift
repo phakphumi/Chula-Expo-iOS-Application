@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import FBSDKLoginKit
+import Answers
 
 class QRViewController: UIViewController {
     
@@ -31,7 +32,10 @@ class QRViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        Answers.logContentView(withName: "QR Code",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
         //load auto layout
         view.setNeedsLayout()

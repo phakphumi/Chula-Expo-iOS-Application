@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import AVFoundation
+import Answers
 
 extension ScanQRCodeViewController: EventDetailTableViewControllerDelegate {
     
@@ -35,6 +36,11 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Answers.logContentView(withName: "Scan QR Code",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
         self.view.layer.backgroundColor = UIColor.blue.cgColor
         captureSession = AVCaptureSession()
@@ -217,6 +223,9 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destination = segue.destination as? EventDetailTableViewController{
+            
+            Answers.logCustomEvent(withName: "Scan QR Code Activity",
+                                   customAttributes: ["Activity": activity?.activityId ?? ""])
             
             destination.delegate = self
             destination.activityId = activity?.activityId

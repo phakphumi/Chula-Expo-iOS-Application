@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Answers
 
 protocol EventDetailTableViewControllerDelegate {
     
@@ -127,6 +128,11 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Answers.logContentView(withName: "Activity",
+                               contentType: nil,
+                               contentId: activityId,
+                               customAttributes: nil)
 
         calculateIsReservable()
         tableView.estimatedRowHeight = 150

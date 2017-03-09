@@ -10,6 +10,9 @@ import UIKit
 import FBSDKLoginKit
 import CoreData
 import Alamofire
+//import Crashlytics // If using Answers with Crashlytics
+import Answers // If using Answers without Crashlytics
+
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -27,6 +30,12 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: Track the user action that is important for you.
+        Answers.logContentView(withName: "Login",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
         UIApplication.shared.statusBarStyle = .lightContent
             
@@ -84,6 +93,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 
                             }
                             
+                            Answers.logLogin(withMethod: "Auto Log in", success: true, customAttributes: nil)
+                            
                             self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                             
                         } else {
@@ -94,11 +105,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             self.present(confirm, animated: true, completion: nil)
                             
+                            Answers.logLogin(withMethod: "Auto Log in", success: false, customAttributes: nil)
+                            
                         }
                         
                     }
 
                 } else {
+                    
+                    Answers.logSignUp(withMethod: "Auto Sign up", success: true, customAttributes: nil)
                     
                     self.prepareToRegister()
                     
@@ -185,6 +200,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.name = "Yourname Lastname"
         self.fbImage = UIImage(named: "chula_expo_logo.jpg")
         
+        Answers.logLogin(withMethod: "Guest Log in", success: true, customAttributes: nil)
+        
         performSegue(withIdentifier: "toHomeScreen", sender: self)
         
     }
@@ -266,6 +283,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         
                                     }
                                     
+                                    Answers.logLogin(withMethod: "Log in", success: true, customAttributes: nil)
+                                    
                                     self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                                     
                                 } else {
@@ -277,12 +296,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     self.present(confirm, animated: true, completion: nil)
 
                                     
+                                    Answers.logLogin(withMethod: "Log in", success: false, customAttributes: nil)
+                                    
                                 }
                                 
                             }
                             
                             
                         } else {
+                            
+                            Answers.logSignUp(withMethod: "Sign Up", success: true, customAttributes: nil)
                             
                             self.prepareToRegister()
                             

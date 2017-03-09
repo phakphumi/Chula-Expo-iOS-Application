@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Answers
 
 class EventSelectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -153,6 +154,12 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Answers.logContentView(withName: "Third",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
+        
         title = "EVENTS"
         
         layout2.numberOfColumns = 2

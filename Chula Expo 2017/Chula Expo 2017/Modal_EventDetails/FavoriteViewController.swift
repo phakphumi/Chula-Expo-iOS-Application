@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Alamofire
+import Answers
 
 class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -86,6 +87,8 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     
                                     let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
                                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                                        
+                                        Answers.logCustomEvent(withName: "Reserved", customAttributes: ["Activity": self.activityId, "Action": "Reserved"])
                                         
                                         self.dismiss(animated: true, completion: nil)
                                         
@@ -175,6 +178,8 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
                         
+                        Answers.logCustomEvent(withName: "Favorited", customAttributes: ["Activity": self.activityId, "Action": "Favorited"])
+                        
                         self.dismiss(animated: true, completion: nil)
                         
                     }))
@@ -208,6 +213,8 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     
                     confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                        
+                        Answers.logCustomEvent(withName: "Favorited", customAttributes: ["Activity": self.activityId, "Action": "Cancel"])
                         
                         self.dismiss(animated: true, completion: nil)
                         
@@ -252,6 +259,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        blurEffectView.frame = self.view.frame
 //        
 //        self.view.insertSubview(blurEffectView, at: 0)
+        
+        Answers.logContentView(withName: "Activity Reserved",
+                               contentType: nil,
+                               contentId: activityId,
+                               customAttributes: nil)
         
         wasFavorited = FavoritedActivity.isFavoritedActivity(fromActivityID: activityId, inManageobjectcontext: managedObjectContext!)
         

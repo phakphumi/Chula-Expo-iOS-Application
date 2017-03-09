@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Answers
 
 class AboutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        navigationController?.isNavigationBarHidden = true
+        Answers.logContentView(withName: "About Us",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
     }
     

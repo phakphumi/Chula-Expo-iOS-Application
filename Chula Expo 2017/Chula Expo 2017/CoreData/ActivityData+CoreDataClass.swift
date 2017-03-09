@@ -45,7 +45,7 @@ public class ActivityData: NSManagedObject {
             context.performAndWait {
                 
                 // created a new event in the database
-                result.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
+                result.bannerUrl = bannerUrl == "" ? "" : "https://staff.chulaexpo.com\(bannerUrl)"
                 result.desc = desc
                 result.activityId = activityId
                 result.room = room
@@ -53,7 +53,7 @@ public class ActivityData: NSManagedObject {
                 result.latitude = latitude
                 result.longitude = longitude
                 result.name = name
-                result.thumbnailsUrl = thumbnailsUrl == "" ? "" : "http://staff.chulaexpo.com\(thumbnailsUrl)"
+                result.thumbnailsUrl = thumbnailsUrl == "" ? "" : "https://staff.chulaexpo.com\(thumbnailsUrl)"
                 result.isHighlight = isHighlight
                 result.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
                 result.video = video
@@ -88,7 +88,7 @@ public class ActivityData: NSManagedObject {
                         
                         if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
                             
-                            imageData.url = image == "" ? "" : "http://staff.chulaexpo.com\(image)"
+                            imageData.url = image == "" ? "" : "https://staff.chulaexpo.com\(image)"
                             imageData.toActivity = result
                             
                         }
@@ -162,7 +162,7 @@ public class ActivityData: NSManagedObject {
                     dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     // created a new event in the database
-                    activityData.bannerUrl = bannerUrl == "" ? "" : "http://staff.chulaexpo.com\(bannerUrl)"
+                    activityData.bannerUrl = bannerUrl == "" ? "" : "https://staff.chulaexpo.com\(bannerUrl)"
                     activityData.shortDesc = shortDesc
                     activityData.desc = desc
                     activityData.activityId = activityId
@@ -171,7 +171,7 @@ public class ActivityData: NSManagedObject {
                     activityData.latitude = latitude
                     activityData.longitude = longitude
                     activityData.name = name
-                    activityData.thumbnailsUrl = thumbnailsUrl == "" ? "" : "http://staff.chulaexpo.com\(thumbnailsUrl)"
+                    activityData.thumbnailsUrl = thumbnailsUrl == "" ? "" : "https://staff.chulaexpo.com\(thumbnailsUrl)"
                     activityData.isHighlight = isHighlight
                     activityData.stageNo = ActivityData.findStageNoFrom(placeId: place, incontext: context)
                     activityData.video = video
@@ -186,7 +186,7 @@ public class ActivityData: NSManagedObject {
                             
                             if let imageData = NSEntityDescription.insertNewObject(forEntityName: "ImageData", into: context) as? ImageData {
                                 
-                                imageData.url = image == "" ? "" : "http://staff.chulaexpo.com\(image)"
+                                imageData.url = image == "" ? "" : "https://staff.chulaexpo.com\(image)"
                                 imageData.toActivity = activityData
                                 
                             }

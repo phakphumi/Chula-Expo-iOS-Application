@@ -616,11 +616,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         let header: HTTPHeaders = ["Authorization": "JWT \((userData?.token)!)"]
         
-        Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
+        Alamofire.request("https://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
         
             if response.result.isSuccess {
                 
-                Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                     
                     if response.result.isSuccess {
                         

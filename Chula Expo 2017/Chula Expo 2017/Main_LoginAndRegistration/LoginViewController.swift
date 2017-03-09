@@ -48,7 +48,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
                     
-                    Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                    Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                         
                         if response.result.isSuccess {
                             
@@ -229,7 +229,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
                             
-                            Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                            Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                             
                                 if response.result.isSuccess {
                                 
@@ -323,7 +323,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     private func checkRegisterStatus(completion:@escaping (Bool, String) -> Void) {
         
-        Alamofire.request("http://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
+        Alamofire.request("https://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
 
             if response.result.isSuccess {
             

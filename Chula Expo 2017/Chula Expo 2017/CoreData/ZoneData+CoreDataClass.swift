@@ -42,8 +42,8 @@ public class ZoneData: NSManagedObject {
             zoneData.type = type
             zoneData.shortName = shortName
             zoneData.shortNameTh = shortNameTh
-            zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
-            zoneData.thumbnail = thumbnail == "" ? "" : "http://staff.chulaexpo.com\(thumbnail)"
+            zoneData.banner = banner == "" ? "" : "https://staff.chulaexpo.com\(banner)"
+            zoneData.thumbnail = thumbnail == "" ? "" : "https://staff.chulaexpo.com\(thumbnail)"
             zoneData.desc = desc
             zoneData.descTh = descTh
             zoneData.longitude = longitude
@@ -62,8 +62,8 @@ public class ZoneData: NSManagedObject {
                 zoneData.type = type
                 zoneData.shortName = shortName
                 zoneData.shortNameTh = shortNameTh
-                zoneData.banner = banner == "" ? "" : "http://staff.chulaexpo.com\(banner)"
-                zoneData.thumbnail = thumbnail == "" ? "" : "http://staff.chulaexpo.com\(thumbnail)"
+                zoneData.banner = banner == "" ? "" : "https://staff.chulaexpo.com\(banner)"
+                zoneData.thumbnail = thumbnail == "" ? "" : "https://staff.chulaexpo.com\(thumbnail)"
                 zoneData.desc = desc
                 zoneData.descTh = descTh
                 zoneData.longitude = longitude

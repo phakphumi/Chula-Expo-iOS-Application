@@ -60,10 +60,10 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
                 if let userData = UserData.fetchUser(inManageobjectcontext: managedObjectContext!) {
                     
-                    print("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
+                    print("https://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve")
                     let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
                     
-                    Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve", method: .post, headers: header).responseJSON { response in
+                    Alamofire.request("https://staff.chulaexpo.com/api/activities/\(activityId!)/rounds/\(roundsId[selectedRow])/reserve", method: .post, headers: header).responseJSON { response in
                         
                         if response.result.isSuccess {
                             

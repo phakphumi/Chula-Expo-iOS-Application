@@ -18,7 +18,7 @@ class APIController {
             
             let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/me/reserved_rounds/\(id)", method: .delete, headers: header).responseJSON(completionHandler: { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/me/reserved_rounds/\(id)", method: .delete, headers: header).responseJSON(completionHandler: { (response) in
                 print(id)
                 print(response)
                 if response.result.isSuccess {
@@ -63,7 +63,7 @@ class APIController {
             
             let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/me/where", method: .get, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/me/where", method: .get, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
              
                 if response.result.isSuccess {
                     
@@ -97,7 +97,7 @@ class APIController {
                 "longitude": longitude
             ]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/me/where", method: .get, parameters: parameters).responseJSON(completionHandler: { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/me/where", method: .get, parameters: parameters).responseJSON(completionHandler: { (response) in
                 
                 if response.result.isSuccess {
                     
@@ -139,7 +139,7 @@ class APIController {
                 
             let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/comments", method: .post, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/comments", method: .post, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
          
                 if response.result.isSuccess {
                     
@@ -165,7 +165,7 @@ class APIController {
     
     class func getRoundsData(activityID: String, completion: @escaping (NSArray) -> Void) {
         
-        Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityID)/rounds").responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/activities/\(activityID)/rounds").responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -192,7 +192,7 @@ class APIController {
                 "longitude": longitude
             ]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/activities/nearby", method: .get, parameters: parameters, headers: header).responseJSON { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/activities/nearby", method: .get, parameters: parameters, headers: header).responseJSON { (response) in
                 
                 if response.result.isSuccess {
                     
@@ -341,7 +341,7 @@ class APIController {
             
             let header: HTTPHeaders! = ["Authorization": "JWT \(userData.token!)"]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/activities/recommend", method: .get, headers: header).responseJSON { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/activities/recommend", method: .get, headers: header).responseJSON { (response) in
                 
                 if response.result.isSuccess {
                     
@@ -497,7 +497,7 @@ class APIController {
                 "limit": 20
             ]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
                 
                 if response.result.isSuccess {
                     
@@ -645,7 +645,7 @@ class APIController {
                 
                 context.performAndWait {
                     
-                    Alamofire.request("http://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters[i]).responseJSON(completionHandler: { (response) in
+                    Alamofire.request("https://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters[i]).responseJSON(completionHandler: { (response) in
                         
                         if response.result.isSuccess {
                             
@@ -794,7 +794,7 @@ class APIController {
             "limit": 10
         ]
         
-        Alamofire.request("http://staff.chulaexpo.com/api/activities/highlight", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/activities/highlight", method: .get, parameters: parameters).responseJSON { (response) in
           
             if response.result.isSuccess {
                 
@@ -939,7 +939,7 @@ class APIController {
     
     class func downloadActivity(fromActivityId activityId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((ActivityData?) -> Void)?) {
           
-        Alamofire.request("http://staff.chulaexpo.com/api/activities/\(activityId)").responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/activities/\(activityId)").responseJSON { (response) in
         
             if response.result.isSuccess {
         
@@ -1069,7 +1069,7 @@ class APIController {
             
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1215,7 +1215,7 @@ class APIController {
             
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1364,7 +1364,7 @@ class APIController {
                     
                 }
                 
-                Alamofire.request("http://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
+                Alamofire.request("https://staff.chulaexpo.com/api/activities", method: .get, parameters: parameters).responseJSON { (response) in
                     
                     if response.result.isSuccess {
                         
@@ -1501,7 +1501,7 @@ class APIController {
     
 //    class func downloadActivities(inManageobjectcontext context: NSManagedObjectContext) {
 //        
-//        Alamofire.request("http://staff.chulaexpo.com/api/activities").responseJSON { (response) in
+//        Alamofire.request("https://staff.chulaexpo.com/api/activities").responseJSON { (response) in
 //            
 //            if response.result.isSuccess {
 //                
@@ -1604,7 +1604,7 @@ class APIController {
             
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/zones", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/zones", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1719,7 +1719,7 @@ class APIController {
             
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/places", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/places", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1822,7 +1822,7 @@ class APIController {
             
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/rooms", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/rooms", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -1917,7 +1917,7 @@ class APIController {
             
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/facilities", method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/facilities", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
                 
@@ -2000,7 +2000,7 @@ class APIController {
             
             let parameters: [String: Any] = ["fields": "activityId"]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/me/reserved_rounds", method: .get, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
+            Alamofire.request("https://staff.chulaexpo.com/api/me/reserved_rounds", method: .get, parameters: parameters, headers: header).responseJSON(completionHandler: { (response) in
                 
                 if response.result.isSuccess {
         

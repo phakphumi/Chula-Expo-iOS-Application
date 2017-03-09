@@ -300,7 +300,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
 
         }
         
-        Alamofire.request("http://staff.chulaexpo.com/api/signup", method: .post, parameters: parameters).responseJSON { (response) in
+        Alamofire.request("https://staff.chulaexpo.com/api/signup", method: .post, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {
             
@@ -309,7 +309,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
                 let header: HTTPHeaders = ["Authorization": "JWT \(tokenResponse["token"] as! String)"]
             
-                Alamofire.request("http://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
                 
                     if response.result.isSuccess {
                 
@@ -510,7 +510,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             
             let header: HTTPHeaders = ["Authorization": "JWT \(userToken!)"]
             
-            Alamofire.request("http://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
+            Alamofire.request("https://staff.chulaexpo.com/api/me", method: .put, parameters: parameters, headers: header).responseJSON { response in
                 
                 if !response.result.isSuccess {
                     

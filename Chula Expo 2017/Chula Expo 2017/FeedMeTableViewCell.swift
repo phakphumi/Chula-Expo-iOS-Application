@@ -65,6 +65,7 @@ class FeedMeTableViewCell: UITableViewCell {
                 let eventStartTime = round.startTime!
                 let eventEndTime = round.endTime!
                 let dateFormatter = DateFormatter()
+                dateFormatter.calendar = Calendar(identifier: .gregorian)
                 dateFormatter.dateFormat = "H:mm"
                 let sTime = dateFormatter.string(from: eventStartTime as Date)
                 let eTime = dateFormatter.string(from: eventEndTime as Date)

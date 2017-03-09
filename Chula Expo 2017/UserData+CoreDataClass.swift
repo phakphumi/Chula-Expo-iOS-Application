@@ -37,6 +37,7 @@ public class UserData: NSManagedObject {
             // found this event in the database, return it ...
             print("Found \(result.name)")
             result.id = id
+            result.token = token
             result.type = type
             result.name = name
             result.email = email

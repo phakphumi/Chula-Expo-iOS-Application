@@ -58,7 +58,45 @@ class TabBarViewController: UITabBarController {
                 
             }
             
-        } else if segue.identifier == "toEventDetail" {
+        } else if segue.identifier == "toDetail" {
+            
+            if let destination = segue.destination as? EventDetailTableViewController {
+                
+                
+                let name = sender as! String
+                
+                var activity: ActivityData?
+                managedObjectContext!.performAndWait {
+                    activity = ActivityData.fetchActivityFromFullName(name: name, inManageobjectcontext: self.managedObjectContext!)
+                }
+                
+                if let activityData = activity {
+                        print(activityData)
+                    destination.activityId = activityData.activityId
+                    destination.bannerUrl = activityData.bannerUrl
+                    destination.topic = activityData.name
+                    destination.locationDesc = ""
+                    destination.toRounds = activityData.toRound
+                    destination.desc = activityData.desc
+                    destination.room = activityData.room
+                    destination.place = activityData.place
+                    destination.zoneId = activityData.faculty
+                    destination.latitude = activityData.latitude
+                    destination.longitude = activityData.longitude
+                    destination.pdf = activityData.pdf
+                    destination.toImages = activityData.toImages
+                    destination.toTags = activityData.toTags
+                    destination.start = activityData.start
+                    destination.end = activityData.end
+//                    destination.timeDesc = eventcell.timeText
+                    destination.managedObjectContext = self.managedObjectContext!
+                    }
+
+            }
+            
+        }
+            
+        else if segue.identifier == "toEventDetail" {
             
             if let destination = segue.destination as? EventDetailTableViewController {
                 

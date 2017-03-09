@@ -806,7 +806,8 @@
                         <segue destination="1cI-z6-raX" kind="show" identifier="editTag" id="TO2-yU-nnK"/>
                         <segue destination="NNG-St-L30" kind="show" identifier="editFac" id="IwA-jx-m5S"/>
                         <segue destination="rrg-uN-Qbj" kind="show" identifier="editInfo" id="AgV-hs-Pux"/>
-                        <segue destination="eDH-kL-ilX" kind="show" identifier="toEventDetail" id="dMH-rc-OLD"/>
+                        <segue destination="eDH-kL-ilX" kind="presentation" identifier="toEventDetail" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="dMH-rc-OLD"/>
+                        <segue destination="eDH-kL-ilX" kind="presentation" identifier="toDetail" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="N5h-Ga-xYs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLO-ng-9RH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -819,7 +820,7 @@
                 <viewControllerPlaceholder storyboardName="EventDetails" id="eDH-kL-ilX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWK-wj-LMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-92" y="537"/>
+            <point key="canvasLocation" x="-94" y="671"/>
         </scene>
         <!--First-->
         <scene sceneID="Ejb-Hx-K6b">
@@ -1403,7 +1404,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="XpE-uR-q4t"/>
         <segue reference="AgV-hs-Pux"/>
-        <segue reference="6Sk-ae-WEp"/>
-        <segue reference="eGe-co-jWB"/>
+        <segue reference="IwA-jx-m5S"/>
+        <segue reference="TO2-yU-nnK"/>
+        <segue reference="N5h-Ga-xYs"/>
     </inferredMetricsTieBreakers>
 </document>

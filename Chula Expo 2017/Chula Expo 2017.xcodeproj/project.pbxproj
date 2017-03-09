@@ -93,6 +93,7 @@
 		800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */; };
 		802368F21E262F1000ECF9EF /* UserData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */; };
 		802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */; };
+		802DEC861E709A390041E303 /* NotificationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802DEC851E709A390041E303 /* NotificationList.swift */; };
 		802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F13B21E23FC240098A687 /* BookTableViewCell.swift */; };
 		802F979E1E4AD01900B83976 /* CityLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F979D1E4AD01900B83976 /* CityLayout.swift */; };
 		80314F3B1E4A1CDD003DB96A /* EventSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */; };
@@ -237,6 +238,7 @@
 		800E2A181E1E2B3D00677A54 /* FacityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FacityTableViewController.swift; path = Third_events/FacityTableViewController.swift; sourceTree = "<group>"; };
 		802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataClass.swift"; path = "../UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserData+CoreDataProperties.swift"; path = "../UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		802DEC851E709A390041E303 /* NotificationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationList.swift; sourceTree = "<group>"; };
 		802F13B21E23FC240098A687 /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookTableViewCell.swift; path = Third_events/BookTableViewCell.swift; sourceTree = "<group>"; };
 		802F979D1E4AD01900B83976 /* CityLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityLayout.swift; sourceTree = "<group>"; };
 		80314F3A1E4A1CDD003DB96A /* EventSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSelectViewController.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				5FBD91981E5ECE4C00EDC311 /* APIController.swift */,
 				802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */,
 				5F4A9D911E10300900713580 /* AppDelegate.swift */,
+				802DEC851E709A390041E303 /* NotificationList.swift */,
 				5F8DAB4C1E34B88900B2641F /* Main_LoginAndRegistration */,
 				581940CD1E44637B000C566C /* Modal_Search */,
 				5F07EDC51E2B64E80017ECD5 /* Modal_EventDetails */,
@@ -787,6 +790,7 @@
 				80DC942A1E366B5300A1D01A /* ImageData+CoreDataProperties.swift in Sources */,
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */,
+				802DEC861E709A390041E303 /* NotificationList.swift in Sources */,
 				80314F411E4A2F1E003DB96A /* FacultyCollectionViewCell.swift in Sources */,
 				80F456691E620C3B00D06378 /* FacultyDescCell.swift in Sources */,
 				5FAA77661E601E930099809E /* HighlightActivity+CoreDataClass.swift in Sources */,

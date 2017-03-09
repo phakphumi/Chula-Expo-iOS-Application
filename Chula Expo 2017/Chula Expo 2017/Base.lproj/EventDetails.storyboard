@@ -136,26 +136,26 @@
                                             <rect key="frame" x="8" y="16" width="359" height="182"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kb-IV6">
-                                                    <rect key="frame" x="18" y="12" width="335" height="32"/>
+                                                    <rect key="frame" x="18" y="11" width="335" height="32"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loca-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vuV-oO-mdK">
-                                                    <rect key="frame" x="18" y="58" width="10" height="10"/>
+                                                    <rect key="frame" x="18" y="57" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="PQd-am-L3g"/>
                                                         <constraint firstAttribute="height" constant="10" id="gt7-Ft-naJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ห้อง 204 ชั้น 2 ตึก 3 คณะวิศวกรรมศาสตร์" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mRi-V5-gqe">
-                                                    <rect key="frame" x="36" y="52" width="315" height="28"/>
+                                                    <rect key="frame" x="36" y="51" width="315" height="21"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="13"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pLw-Wg-8pN">
-                                                    <rect key="frame" x="36" y="79" width="315" height="29"/>
+                                                    <rect key="frame" x="36" y="71" width="315" height="29"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="JLz-Jn-H4F"/>
@@ -188,7 +188,7 @@
                                                     </cells>
                                                 </collectionView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vI0-5w-NOb">
-                                                    <rect key="frame" x="20" y="120" width="319" height="50"/>
+                                                    <rect key="frame" x="20" y="112" width="319" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนใจกิจกรรม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN5-7p-1Pd">
                                                             <rect key="frame" x="52" y="5" width="87" height="25.5"/>
@@ -222,7 +222,7 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="schedule icon" translatesAutoresizingMaskIntoConstraints="NO" id="UBT-Ai-E33">
-                                                    <rect key="frame" x="18" y="88" width="10" height="10"/>
+                                                    <rect key="frame" x="18" y="80" width="10" height="10"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="17E-71-j0H"/>
                                                         <constraint firstAttribute="height" constant="10" id="9s6-2n-PDA"/>
@@ -246,7 +246,7 @@
                                                 <constraint firstItem="mRi-V5-gqe" firstAttribute="top" secondItem="vuV-oO-mdK" secondAttribute="top" constant="-6" id="iTg-gT-KHs"/>
                                                 <constraint firstItem="vuV-oO-mdK" firstAttribute="top" secondItem="KqX-kb-IV6" secondAttribute="bottom" constant="14" id="jxW-2G-iHS"/>
                                                 <constraint firstAttribute="trailing" secondItem="vI0-5w-NOb" secondAttribute="trailing" constant="20" id="nD8-xj-Xe7"/>
-                                                <constraint firstAttribute="bottom" secondItem="vI0-5w-NOb" secondAttribute="bottom" priority="997" constant="12" id="nUg-gb-AqY"/>
+                                                <constraint firstAttribute="bottom" secondItem="vI0-5w-NOb" secondAttribute="bottom" priority="997" constant="20" id="nUg-gb-AqY"/>
                                                 <constraint firstItem="mRi-V5-gqe" firstAttribute="leading" secondItem="vuV-oO-mdK" secondAttribute="trailing" constant="8" id="soO-Kj-KMZ"/>
                                                 <constraint firstItem="vI0-5w-NOb" firstAttribute="top" secondItem="pLw-Wg-8pN" secondAttribute="bottom" priority="999" constant="12" id="tK5-Hs-kRv"/>
                                             </constraints>
@@ -736,8 +736,8 @@
     <resources>
         <image name="closeIcon" width="36" height="36"/>
         <image name="cross_white" width="12" height="12"/>
-        <image name="defaultBig" width="375" height="375"/>
-        <image name="defaultImage" width="200" height="200"/>
+        <image name="defaultBig" width="1080" height="810"/>
+        <image name="defaultImage" width="280" height="210"/>
         <image name="down-arrow" width="64" height="64"/>
         <image name="loca-icon" width="47" height="47"/>
         <image name="pdfRed" width="128" height="128"/>

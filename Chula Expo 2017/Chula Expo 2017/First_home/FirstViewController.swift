@@ -259,7 +259,10 @@ class FirstViewController: MainCoreDataTableViewController{
     }
     
     func handleTap(_ sender: UITapGestureRecognizer){
-         tabBarController?.performSegue(withIdentifier: "toDetail", sender: titles[slideshowPageViewController.frameIndex])
+        
+        if titles.count > slideshowPageViewController.frameIndex{
+            tabBarController?.performSegue(withIdentifier: "toDetail", sender: titles[slideshowPageViewController.frameIndex])
+        }
     }
 
     // MARK: - Table view data source

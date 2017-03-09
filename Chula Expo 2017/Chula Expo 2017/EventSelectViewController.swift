@@ -310,23 +310,26 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
 //            var isFaculty = false
             var isInterest = false
             var interestDesc: String?
+            var facityTag: String?
+            
             managedObjectContext?.performAndWait {
                 if let cell = sender as? CityCollectionViewCell{
                     
                     name = cell.name ?? ""
                     title = name
                     id = cell.id
+                    facityTag = cell.tagname
                     APIController.downloadActivities(fromZoneID: id ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
                     
                 }
                 else if let cell = sender as? FacultyCollectionViewCell {
                     
                     name = cell.sub ?? ""
+                    facityTag = cell.tagname
                     self.managedObjectContext?.performAndWait {
                         id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
                     }
                     APIController.downloadActivities(fromZoneID: id ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
-                    
                     
                     if let facName = cell.name
                     {
@@ -341,6 +344,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                     APIController.downloadActivities(fromTagName: cell.sub ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
                     
                     id = cell.sub ?? ""
+                    facityTag = nil
                     isInterest = true
                     if let titleName = cell.name{
                         
@@ -359,6 +363,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 dest.isInterest = isInterest
                 dest.managedObjectContext = managedObjectContext
                 dest.interestDesc = interestDesc
+                dest.facityTag = facityTag
                 print("segue success id = \(id)")
             }
             

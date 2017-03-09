@@ -42,6 +42,7 @@ class FacultyCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
     var sub: String?{
         didSet{
             if let sub = sub{
@@ -49,6 +50,7 @@ class FacultyCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    
     var tagname: String?{
         didSet{
             if tagname != nil{
@@ -60,9 +62,11 @@ class FacultyCollectionViewCell: UICollectionViewCell {
         }
 
     }
+    
     var tagColor: UIColor?{
         didSet{
             tagLabel.backgroundColor = tagColor ?? UIColor.clear
         }
     }
+    
 }

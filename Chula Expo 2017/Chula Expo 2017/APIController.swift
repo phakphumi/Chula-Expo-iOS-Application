@@ -214,6 +214,7 @@ class APIController {
                     let results = JSON["results"] as! NSArray
                     
                     let dateFormatter = DateFormatter()
+                    dateFormatter.calendar = Calendar(identifier: .gregorian)
                     dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     context.performAndWait {
@@ -362,6 +363,7 @@ class APIController {
                     let results = JSON["results"] as! NSArray
                     
                     let dateFormatter = DateFormatter()
+                    dateFormatter.calendar = Calendar(identifier: .gregorian)
                     dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     context.performAndWait {
@@ -481,6 +483,7 @@ class APIController {
         } else {
             
             let dateRequestFormatter = DateFormatter()
+            dateRequestFormatter.calendar = Calendar(identifier: .gregorian)
             dateRequestFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
             dateRequestFormatter.timeZone = TimeZone(secondsFromGMT: 7)
             
@@ -503,6 +506,7 @@ class APIController {
                     let results = JSON["results"] as! NSArray
                     
                     let dateFormatter = DateFormatter()
+                    dateFormatter.calendar = Calendar(identifier: .gregorian)
                     dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     context.performAndWait {
@@ -650,6 +654,7 @@ class APIController {
                             let results = JSON["results"] as! NSArray
                             
                             let dateFormatter = DateFormatter()
+                            dateFormatter.calendar = Calendar(identifier: .gregorian)
                             dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                             
                             for result in results {
@@ -811,6 +816,7 @@ class APIController {
                 let results = JSON["results"] as! NSArray
                 
                 let dateFormatter = DateFormatter()
+                dateFormatter.calendar = Calendar(identifier: .gregorian)
                 dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 context.performAndWait {
@@ -938,6 +944,7 @@ class APIController {
             if response.result.isSuccess {
         
                 let dateFormatter = DateFormatter()
+                dateFormatter.calendar = Calendar(identifier: .gregorian)
                 dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 let JSON = response.result.value as! NSDictionary
@@ -1069,8 +1076,9 @@ class APIController {
                 if let JSON = response.result.value as? NSDictionary {
                     
                     if let results = JSON["results"] as? NSArray {
-                        print(results)
+                        
                         let dateFormatter = DateFormatter()
+                        dateFormatter.calendar = Calendar(identifier: .gregorian)
                         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                         
                         for result in results {
@@ -1216,6 +1224,7 @@ class APIController {
                     if let results = JSON["results"] as? NSArray {
                         
                         let dateFormatter = DateFormatter()
+                        dateFormatter.calendar = Calendar(identifier: .gregorian)
                         dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                         
                         for result in results {
@@ -1364,6 +1373,7 @@ class APIController {
                             if let results = JSON["results"] as? NSArray {
                                 
                                 let dateFormatter = DateFormatter()
+                                dateFormatter.calendar = Calendar(identifier: .gregorian)
                                 dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                                 
                                 for result in results {

@@ -392,24 +392,31 @@
                                     <outlet property="bannerImage" destination="Bdl-Ot-Jy6" id="4DD-Rr-BIy"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facDesc" rowHeight="82" id="MSX-UN-SbD" userLabel="facDesc" customClass="FacultyDescCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="309" width="375" height="82"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="facDesc" rowHeight="111" id="MSX-UN-SbD" userLabel="facDesc" customClass="FacultyDescCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="309" width="375" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MSX-UN-SbD" id="aOR-yn-OUP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="82"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcw-bg-yrv">
-                                            <rect key="frame" x="8" y="8" width="359" height="70"/>
+                                            <rect key="frame" x="8" y="8" width="359" height="99"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ไม่พบชื่อคณะ" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-0C-skL">
-                                                    <rect key="frame" x="12" y="6" width="339" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="ไม่พบชื่อคณะ" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-0C-skL">
+                                                    <rect key="frame" x="12" y="32" width="339" height="30"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ไม่พบคำอธิบายคณะ" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKe-Sw-CpP">
-                                                    <rect key="frame" x="12" y="41" width="339" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAG" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYT-A6-pEG" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                                    <rect key="frame" x="12" y="12" width="29" height="12"/>
+                                                    <color key="backgroundColor" red="0.89642250540000001" green="0.40059655900000002" blue="0.58045971389999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="ไม่พบคำอธิบายคณะ" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKe-Sw-CpP">
+                                                    <rect key="frame" x="12" y="70" width="339" height="21"/>
                                                     <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -419,13 +426,15 @@
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="aIQ-0C-skL" secondAttribute="trailing" constant="8" id="9Wu-fb-FIW"/>
-                                                <constraint firstItem="aIQ-0C-skL" firstAttribute="leading" secondItem="hcw-bg-yrv" secondAttribute="leading" constant="12" id="Bsl-er-wml"/>
-                                                <constraint firstItem="EKe-Sw-CpP" firstAttribute="leading" secondItem="hcw-bg-yrv" secondAttribute="leading" constant="12" id="FDv-NQ-zGw"/>
-                                                <constraint firstItem="EKe-Sw-CpP" firstAttribute="top" secondItem="aIQ-0C-skL" secondAttribute="bottom" constant="5" id="OCy-rs-vqz"/>
-                                                <constraint firstAttribute="trailing" secondItem="EKe-Sw-CpP" secondAttribute="trailing" constant="8" id="Q7L-1g-MIE"/>
-                                                <constraint firstAttribute="bottom" secondItem="EKe-Sw-CpP" secondAttribute="bottom" constant="8" id="WbZ-Tn-D8F"/>
-                                                <constraint firstItem="aIQ-0C-skL" firstAttribute="top" secondItem="hcw-bg-yrv" secondAttribute="top" priority="750" constant="8" id="maR-1Z-soT"/>
+                                                <constraint firstItem="EKe-Sw-CpP" firstAttribute="top" secondItem="aIQ-0C-skL" secondAttribute="bottom" constant="8" symbolic="YES" id="4DX-XT-Rft"/>
+                                                <constraint firstItem="uYT-A6-pEG" firstAttribute="top" secondItem="hcw-bg-yrv" secondAttribute="top" constant="12" id="NTJ-I6-zcQ"/>
+                                                <constraint firstItem="aIQ-0C-skL" firstAttribute="leading" secondItem="EKe-Sw-CpP" secondAttribute="leading" id="Q9l-I7-jIb"/>
+                                                <constraint firstItem="aIQ-0C-skL" firstAttribute="top" secondItem="uYT-A6-pEG" secondAttribute="bottom" constant="8" symbolic="YES" id="i8g-Te-pXg"/>
+                                                <constraint firstItem="uYT-A6-pEG" firstAttribute="leading" secondItem="aIQ-0C-skL" secondAttribute="leading" id="jeu-91-SPs"/>
+                                                <constraint firstItem="uYT-A6-pEG" firstAttribute="leading" secondItem="hcw-bg-yrv" secondAttribute="leading" constant="12" id="jw8-re-xcA"/>
+                                                <constraint firstItem="aIQ-0C-skL" firstAttribute="trailing" secondItem="EKe-Sw-CpP" secondAttribute="trailing" id="o5W-OG-hSS"/>
+                                                <constraint firstItem="EKe-Sw-CpP" firstAttribute="trailing" secondItem="hcw-bg-yrv" secondAttribute="trailingMargin" id="pLO-7g-RUA"/>
+                                                <constraint firstItem="EKe-Sw-CpP" firstAttribute="bottom" secondItem="hcw-bg-yrv" secondAttribute="bottomMargin" id="sAB-ZC-M2i"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -441,11 +450,12 @@
                                 <inset key="separatorInset" minX="1000" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="descLabel" destination="EKe-Sw-CpP" id="5sK-S8-IH7"/>
+                                    <outlet property="tagCap" destination="uYT-A6-pEG" id="NvC-n4-Ska"/>
                                     <outlet property="titleLabel" destination="aIQ-0C-skL" id="riF-SZ-SvS"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="redraw" selectionStyle="default" indentationWidth="10" reuseIdentifier="Header" rowHeight="58" id="WkS-Fu-efq" userLabel="Header" customClass="HeaderTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="391" width="375" height="58"/>
+                                <rect key="frame" x="0.0" y="420" width="375" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="WkS-Fu-efq" id="s3K-iz-RW5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
@@ -460,7 +470,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02DCD18B-F104-492E-BD48-3F7612C9E2BF" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="92002E4C-A6F3-42F6-90D3-8ED820FFDAE9" translatesAutoresizingMaskIntoConstraints="NO" id="4eo-zC-bdy" userLabel="icon">
                                                     <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="DhE-io-uuX"/>
@@ -504,7 +514,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="78" id="MEV-Zf-5b3" customClass="EventFeedCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="449" width="375" height="78"/>
+                                <rect key="frame" x="0.0" y="478" width="375" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MEV-Zf-5b3" id="56P-Br-ZEF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
@@ -605,7 +615,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="02DCD18B-F104-492E-BD48-3F7612C9E2BF" width="17" height="18">
+        <image name="92002E4C-A6F3-42F6-90D3-8ED820FFDAE9" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

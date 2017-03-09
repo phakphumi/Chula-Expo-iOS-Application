@@ -23,6 +23,17 @@ class FacultyDescCell: UITableViewCell {
             updateUI()
         }
     }
+    
+    var facTag: String?{
+        didSet{
+            if let tag = facTag{
+                tagCap.setText(name: tag)
+            }
+            else{
+                tagCap.text = nil
+            }
+        }
+    }
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descLabel: UILabel!
@@ -30,6 +41,7 @@ class FacultyDescCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    @IBOutlet var tagCap: CapsuleUILabel!
 
     private func updateUI(){
         

@@ -28,7 +28,7 @@ class EventsTableViewController: CoreDataTableViewController {
     var facityBanner: String?
     var facityName: String?
     var facityDesc: String?
-    
+    var facityTag: String?
 //    var isFaculty = false
     var isInterest = false
     
@@ -39,11 +39,10 @@ class EventsTableViewController: CoreDataTableViewController {
             if let context = managedObjectContext, (facity.characters.count) > 0 {
                 
                 if facity == "Reservation" {
-                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
                     title = "MY RESERVATION"
-                    request.predicate = NSPredicate(format: "ANY toRound.reserved == %@", NSNumber(booleanLiteral: true))
                     request.sortDescriptors = [NSSortDescriptor(
-                        key: "start",
+                        key: "toActivity.start",
                         ascending: true
                         )]
                     
@@ -186,6 +185,7 @@ class EventsTableViewController: CoreDataTableViewController {
                 }
                 descCell.facityDesc = desc
                 descCell.facityTitle = name
+                descCell.facTag = facityTag
             }
         }
         
@@ -195,7 +195,7 @@ class EventsTableViewController: CoreDataTableViewController {
             
             if let headCell = cell as? HeaderTableViewCell {
                 
-                if tableView.numberOfRows(inSection: 0) == 1 {
+                if tableView.numberOfRows(inSection: 0) == 3 {
                     
                     if facity == "Reservation" {
                         
@@ -300,10 +300,29 @@ class EventsTableViewController: CoreDataTableViewController {
                     }
                 }
             }
+            else if let fetchData = fetchedResultsController?.object(at: IndexPath(row: indexPath.row - 3, section: 0)) as? ReservedActivity {
                 
-            
-            
-            
+                fetchData.managedObjectContext?.performAndWait{
+                    name = fetchData.toActivity?.name
+                    thumbnail = fetchData.toActivity?.thumbnailsUrl
+                    facity = fetchData.toActivity?.faculty
+                    toRound = fetchData.toActivity?.toRound
+                    
+                    activityId = fetchData.toActivity?.activityId
+                    if let stime = fetchData.toActivity?.start{
+                        if let eTime = fetchData.toActivity?.end{
+                            time = stime.toThaiText(withEnd: eTime)
+                        }
+                    }
+                    if let toRound = toRound{
+                        if time != nil{
+                            if toRound.count > 0 {
+                                time = ("\(time!) + \(toRound.count) รอบ")
+                            }
+                        }
+                    }
+                }
+            }
             
             if let eventFeedCell = cell as? EventFeedCell{
                     eventFeedCell.manageObjectContext = managedObjectContext
@@ -323,6 +342,33 @@ class EventsTableViewController: CoreDataTableViewController {
         
         cell.selectionStyle = .none
         return cell
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) ->
+        [UITableViewRowAction]? {
+            
+        if facity == "Reservation" && editActionsForRowAt.row != 0 {
+            
+            let remove = UITableViewRowAction(style: .normal, title: "Cancel") { action, index in
+                if let fetchData = self.fetchedResultsController?.object(at: IndexPath(row: index.row - 3, section: 0)) as? ReservedActivity{
+                    
+                    if let roundId = fetchData.roundId{
+                        APIController.removeReservedActivity(fromRoundID: roundId, inManageobjectcontext: self.managedObjectContext!, completion: nil)
+                    }
+                    
+                }
+                
+                print("remove")
+                
+            }
+            remove.backgroundColor = UIColor.red
+            
+            return [remove]
+        }
+            
+        return nil
         
     }
     
@@ -389,8 +435,6 @@ class EventsTableViewController: CoreDataTableViewController {
                                 destination.start = activityData.start
                                 destination.end = activityData.end
                                 destination.managedObjectContext = self.managedObjectContext
-                                
-                                
                                 print(destination.toRounds)
                             }
                             

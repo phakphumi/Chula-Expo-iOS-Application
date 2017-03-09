@@ -77,6 +77,7 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
         if indexPath != nil{
             fixedIndexpath = IndexPath(row: indexPath!.row+3, section: indexPath!.section)
         }
+        
         switch type {
             case .insert:
                 tableView.insertRows(at: [fixedNewIndexpath], with: .fade)

@@ -206,7 +206,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        setCurrentRegion(lat: 13.7387312, lon: 100.5306979, latDelta: 0.01, lonDelta: 0.01)
+        setCurrentRegion(lat: 13.7387312, lon: 100.5306979, latDelta: 0.012, lonDelta: 0.012)
     
         
         eventAroundUser.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -620,7 +620,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             whereAmICancel.isHidden = false
             whereAmIView.isHidden = false
             
-            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.012, lonDelta: 0.012)
             
             APIController.getWhereAmI(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
                 
@@ -671,7 +671,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             isNavigatorShowing = false
             
-            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.009, lonDelta: 0.009)
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.012, lonDelta: 0.012)
             
         }
         

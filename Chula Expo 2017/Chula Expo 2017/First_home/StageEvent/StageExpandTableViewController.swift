@@ -60,7 +60,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         
         didSet {
             
-            updateUI()
+//            updateUI()
         }
     }
     var managedObjectContext: NSManagedObjectContext? {
@@ -165,6 +165,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
     }
     
     fileprivate func updateUI(){
+        
         if let context = managedObjectContext{
             if let stageNo = stageNo{
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
@@ -183,17 +184,13 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
                     cacheName: nil
                 )
             }
-            else{
-                fetchedResultsController = nil
-            }
         }
-        else{
-            fetchedResultsController = nil
-        }
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(startDate.toThaiText()) - \(endDate.toThaiText())")
         selectedDate = dateForDefault
         self.navigationController?.navigationBar.isTranslucent = false
         var selectionIndicatorFrame : CGRect = CGRect()

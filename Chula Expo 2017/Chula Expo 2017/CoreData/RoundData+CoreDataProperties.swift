@@ -152,14 +152,16 @@ extension Date {
     
     func toThaiText(withEnd end: Date) -> String{
         
-        let day = NSCalendar.current.component(.day, from: self)
-        let month = NSCalendar.current.component(.month, from: self)
-        let year = NSCalendar.current.component(.year, from: self)
-        let hour = NSCalendar.current.component(.hour, from: self)
-        let minuite = NSCalendar.current.component(.minute, from: self)
-        let endDay = NSCalendar.current.component(.day, from: end)
-        let endHour = NSCalendar.current.component(.hour, from: end)
-        let endMin = NSCalendar.current.component(.minute, from: end)
+        let calendar = NSCalendar.current
+        
+        let day = calendar.component(.day, from: self)
+        let month = calendar.component(.month, from: self)
+        let year = calendar.component(.year, from: self)
+        let hour = calendar.component(.hour, from: self)
+        let minuite = calendar.component(.minute, from: self)
+        let endDay = calendar.component(.day, from: end)
+        let endHour = calendar.component(.hour, from: end)
+        let endMin = calendar.component(.minute, from: end)
         
         var minuiteText = "\(minuite)"
         if minuite < 10{
@@ -204,10 +206,11 @@ extension Date {
     
     func toThaiTextOnlyDate(withEnd end: Date) -> String{
         
-        let day = NSCalendar.current.component(.day, from: self)
-        let month = NSCalendar.current.component(.month, from: self)
-       
-        let endDay = NSCalendar.current.component(.day, from: end)
+        let calendar = NSCalendar.current
+
+        let day = calendar.component(.day, from: self)
+        let month = calendar.component(.month, from: self)
+        let endDay = calendar.component(.day, from: end)
         
         var monthText = ""
         
@@ -243,8 +246,9 @@ extension Date {
     
     func toTimeText() -> String{
         
-        let hour = NSCalendar.current.component(.hour, from: self)
-        let minuite = NSCalendar.current.component(.minute, from: self)
+        let calendar = NSCalendar.current
+        let hour = calendar.component(.hour, from: self)
+        let minuite = calendar.component(.minute, from: self)
         
         var minuiteText = "\(minuite)"
         if minuite < 10{
@@ -312,7 +316,7 @@ extension Date {
     func isToday() -> Bool{
         var isToday = false
         
-        let calendar = Calendar.current
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         let today = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 0, to: Date())!)
         let tomorrow = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
         
@@ -337,7 +341,7 @@ extension Date {
     func isTomorrow() -> Bool{
         var isTomorrow = false
         
-        let calendar = Calendar.current
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         
         let twoDayAfter = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 2, to: Date())!)
         let tomorrow = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 1, to: Date())!)
@@ -353,7 +357,7 @@ extension Date {
     func isYesterday() -> Bool{
         var isYesterday = false
         
-        let calendar = Calendar.current
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
         let today = calendar.startOfDay(for: calendar.date(byAdding: .day, value: 0, to: Date())!)
         let yesterday = calendar.startOfDay(for: calendar.date(byAdding: .day, value: -1, to: Date())!)
         

@@ -53,7 +53,8 @@ class FirstViewController: MainCoreDataTableViewController{
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
-        
+        homeTableView.delegate = self
+        homeTableView.dataSource = self
         
         refreshControl = UIRefreshControl()
         refreshControl!.backgroundColor = UIColor.white
@@ -256,6 +257,10 @@ class FirstViewController: MainCoreDataTableViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func handleTap(_ sender: UITapGestureRecognizer){
+         tabBarController?.performSegue(withIdentifier: "toDetail", sender: titles[slideshowPageViewController.frameIndex])
+    }
 
     // MARK: - Table view data source
 
@@ -272,6 +277,7 @@ class FirstViewController: MainCoreDataTableViewController{
                 images.removeAll()
                 titles.removeAll()
                 desc.removeAll()
+            
             managedObjectContext?.performAndWait {
                 
                 let fetchdata = HighlightActivity.fetchAllHighlight(inManageobjectcontext: self.managedObjectContext!)
@@ -290,7 +296,11 @@ class FirstViewController: MainCoreDataTableViewController{
    
             self.addChildViewController(slideshowPageViewController)
             slideshowPageViewController.view.tag = 9
+            let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+            cell.contentView.addGestureRecognizer(tap)
+            
             cell.contentView.addSubview(slideshowPageViewController.view)
+            
         }
             
         else if indexPath.section == 1 && indexPath.row == 0{
@@ -301,7 +311,6 @@ class FirstViewController: MainCoreDataTableViewController{
                 headerCell.title2 = "กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้"
                 headerCell.iconImage = "playIcon"
             }
-            cell.selectionStyle = .none
         }
             
         else if indexPath.section == 1{
@@ -441,10 +450,21 @@ class FirstViewController: MainCoreDataTableViewController{
         
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        
+         if identifier == "toDetail"{
+            if desc.count <= slideshowPageViewController.frameIndex {
+                return false
+            }
+        }
+        return true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "stageSelect"{
-//            print("segue")
+            print("segue")
+            StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
             if let dest = segue.destination as? StageExpandTableViewController{
                 dest.managedObjectContext = managedObjectContext
                 
@@ -458,9 +478,48 @@ class FirstViewController: MainCoreDataTableViewController{
                 }
             }
         }
+        
+        else if segue.identifier == "toDetail"{
+            //            print("segue")
+            if let destination = segue.destination as? EventDetailTableViewController{
+                if desc.count > slideshowPageViewController.frameIndex{
+                    let name = titles[slideshowPageViewController.frameIndex]
+                    var activity: ActivityData?
+                    managedObjectContext!.performAndWait {
+                        activity = ActivityData.fetchActivityFromFullName(name: name, inManageobjectcontext: self.managedObjectContext!)
+                    }
+                    
+                    
+                    if let activityData = activity {
+                        
+                        destination.activityId = activityData.activityId
+                        destination.bannerUrl = activityData.bannerUrl
+                        destination.topic = activityData.name
+                        destination.locationDesc = ""
+                        destination.toRounds = activityData.toRound
+                        destination.desc = activityData.desc
+                        destination.room = activityData.room
+                        destination.place = activityData.place
+                        destination.zoneId = activityData.faculty
+                        destination.latitude = activityData.latitude
+                        destination.longitude = activityData.longitude
+                        destination.pdf = activityData.pdf
+                        destination.toImages = activityData.toImages
+                        destination.toTags = activityData.toTags
+                        destination.start = activityData.start
+                        destination.end = activityData.end
+                        //                    destination.timeDesc = eventcell.timeText
+                        destination.managedObjectContext = managedObjectContext
+                    }
+                }
+
+            }
+                
+        }
+
 
         if segue.identifier == "toEventDetail" {
-            
+    
             if let destination = segue.destination as? EventDetailTableViewController{
                 
                 if let eventcell = sender as? EventFeedCell{

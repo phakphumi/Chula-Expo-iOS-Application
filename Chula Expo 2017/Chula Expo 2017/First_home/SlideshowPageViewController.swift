@@ -116,7 +116,9 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
                 setSlideshowPropoties(frameViewController: frameViewController, atIndex: index)
                 frameViewControllers.append(frameViewController)
             }
-            frameIndex = 0
+            if frameIndex > (descLabelText?.count) ?? 0{
+                frameIndex = 0
+            }
             pageControl.numberOfPages = frameViewControllers.count
             timer.invalidate()
             timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)

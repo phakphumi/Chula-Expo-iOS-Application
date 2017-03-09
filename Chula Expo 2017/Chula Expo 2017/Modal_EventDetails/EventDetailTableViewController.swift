@@ -448,15 +448,20 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
                 images.removeAll()
                 
-                let imagesObj = self.toImages.allObjects as! [ImageData]
-                
-                for image in imagesObj {
+                if toImages != nil{
+                    let imagesObj = self.toImages.allObjects
                     
-                    if let url = image.url{
+                    for image in imagesObj{
                         
-                        images.append(url)
+                        let i = image as! ImageData
+                        
+                        if let url = i.url{
+                            
+                            images.append(url)
+                            
+                        }
+                        
                     }
-                    
                 }
                 
                 gtvc.images = images

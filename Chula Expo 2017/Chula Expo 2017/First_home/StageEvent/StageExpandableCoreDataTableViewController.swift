@@ -12,7 +12,7 @@ import CoreData
 
 class StageExpandableCoreDataTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate
 {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
@@ -21,7 +21,7 @@ class StageExpandableCoreDataTableViewController: UIViewController, UITableViewD
                     frc.delegate = self
                     try frc.performFetch()
                 }
-//                tableView.reloadData()
+                tableView.reloadData()
             } catch let error {
                 print("NSFetchedResultsController.performFetch() failed: \(error)")
             }
@@ -45,8 +45,11 @@ class StageExpandableCoreDataTableViewController: UIViewController, UITableViewD
     
     
     func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        
+        print(" num of section\(fetchedResultsController?.section(forSectionIndexTitle: title, at: index))")
         return fetchedResultsController?.section(forSectionIndexTitle: title, at: index) ?? 0
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }

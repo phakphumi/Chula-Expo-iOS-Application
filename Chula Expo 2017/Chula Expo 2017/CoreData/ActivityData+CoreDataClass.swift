@@ -305,6 +305,29 @@ public class ActivityData: NSManagedObject {
             return fetchResult
     }
     
+    class func fetchActivityFromFullName(name: String, inManageobjectcontext context: NSManagedObjectContext) -> ActivityData? {
+        
+        var fetchResult: ActivityData?
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+        request.predicate = NSPredicate(format: "name == %@", name)
+        
+        do {
+            let result = try context.fetch(request)
+            
+            for item in result{
+                if let activityItem = item as? ActivityData{
+                    fetchResult = activityItem
+                }
+            }
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return fetchResult
+    }
+    
     class func fetchHighlightFromAll(inManageobjectcontext context: NSManagedObjectContext) -> [ActivityData]{
         
         var fetchResult = [ActivityData]()

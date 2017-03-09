@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Answers
 
 class FirstViewController: MainCoreDataTableViewController{
     
@@ -33,6 +34,11 @@ class FirstViewController: MainCoreDataTableViewController{
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        Answers.logContentView(withName: "First",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
         StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
         

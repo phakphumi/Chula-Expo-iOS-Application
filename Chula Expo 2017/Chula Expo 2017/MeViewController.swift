@@ -10,6 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import CoreData
 import Foundation
+import Answers
 
 class MeViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var profileImg: UIImageView!
@@ -152,6 +153,11 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        Answers.logContentView(withName: "Fourth",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
         editproButton.titleLabel?.adjustsFontSizeToFitWidth = true
         managedObjectContext?.performAndWait {

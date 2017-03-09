@@ -106,7 +106,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AEk-Ic-ub0">
-                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="5" height="5.6666666666666696"/>
+                                            <rect key="frame" x="8.3333333333333357" y="15.000000000000002" width="5.3333333333333286" height="5.6666666666666696"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="AEk-Ic-ub0" secondAttribute="height" multiplier="21:20" id="QEx-4s-d7o"/>
                                             </constraints>
@@ -632,15 +632,24 @@
                                                     <constraint firstAttribute="width" constant="124" id="F5e-rf-RKF"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-aF-QA9">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-aF-QA9">
                                                 <rect key="frame" x="14" y="240" width="346" height="490"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="490" id="i9D-z2-Jo4"/>
                                                 </constraints>
-                                                <string key="text">จุฬาฯ Expo จุฬาฯ 100 ปี นวัตกรรมคิดทำเพื่อสังคม  Chula Expo CU@100 toward greater innovation for the society  แนวคิดหลักในการจัดงาน Innovation Social responsibility Sustainability  กลุ่มเป้าหมาย CU Family : ครอบครัวจุฬาฯ หมายถึง นิสิตปัจจุบัน นิสิตเก่า คณาจารย์และเจ้าหน้าที่ ที่มีความเกี่ยวข้องกับจุฬาฯ โดยตรง รวมทั้งนักเรียนที่มีความมุ่งหมายจะเข้ามาเป็นส่วนหนึ่งของจุฬาลงกรณ์มหาวิทยาลัย</string>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <mutableString key="content">งานที่จัดขึ้นเนื่องในวาระจุฬาลงกรณ์มหาวิทยาลัยครบรอบ 100 ปี
+
+ โดยภายในงานจะเป็นการนำเสนอ “นวัตกรรม” ของจุฬาลงกรณ์มหาวิทยาลัยที่ผลิตขึ้นเพื่อพัฒนาสังคมไทยอย่างยั่งยืน จึงเป็นที่มาของชื่องานที่ว่า “จุฬาฯ 100 ปี นวัตกรรม คิดทำเพื่อสังคม” หรือ “CU@100 – Toward greater innovation for society” ตามแนวคิดหลักของงานซึ่งก็คือ Innovation (นวัตกรรม), Social responsibility (การรับผิดชอบต่อสังคม) และ Sustainability (ความยั่งยืน)</mutableString>
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <font key="NSFont" size="17" name="SukhumvitSet-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UKL-8k-iwl">
@@ -881,7 +890,7 @@ Tananan Tangthanachaikul (CP40)  Project Advisor Asst.Prof. Dr.Athasit Sur
         <image name="aboutBG" width="375" height="667"/>
         <image name="chula_expo_logo_white" width="231" height="300"/>
         <image name="closeIcon" width="35" height="35"/>
-        <image name="defaultImage" width="133" height="133"/>
+        <image name="defaultImage" width="280" height="210"/>
         <image name="facIcon" width="66" height="54"/>
         <image name="faqIcon" width="57" height="57"/>
         <image name="favoIcon" width="59" height="57"/>

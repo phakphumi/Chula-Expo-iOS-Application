@@ -42,6 +42,15 @@ class FirstViewController: MainCoreDataTableViewController{
         
         StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
         
+        let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+        let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
+        do{
+            try managedObjectContext!.execute(requestDeleteRecommendData)
+        } catch let error {
+            
+            print(error)
+            
+        }
         APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         
@@ -53,8 +62,7 @@ class FirstViewController: MainCoreDataTableViewController{
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
-        homeTableView.delegate = self
-        homeTableView.dataSource = self
+        
         
         refreshControl = UIRefreshControl()
         refreshControl!.backgroundColor = UIColor.white
@@ -95,6 +103,7 @@ class FirstViewController: MainCoreDataTableViewController{
         let requestDeleteHighlightData = NSBatchDeleteRequest(fetchRequest: fetchHighlightData)
         
         do{
+            
             try managedObjectContext!.execute(requestDeleteRecommendData)
             try managedObjectContext!.execute(requestDeleteStageData)
             try managedObjectContext!.execute(requestDeleteHighlightData)
@@ -104,6 +113,8 @@ class FirstViewController: MainCoreDataTableViewController{
             print(error)
             
         }
+        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
+
         
 //        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
 //
@@ -209,10 +220,10 @@ class FirstViewController: MainCoreDataTableViewController{
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         request.sortDescriptors = [NSSortDescriptor(
-            key: "activityId",
+            key: "toActivity.name",
             ascending: true
             )]
-        request.fetchBatchSize = 20
+        request.fetchBatchSize = 5
         if let context = managedObjectContext {
             
             fetchedResultsControllerFeed = NSFetchedResultsController(

@@ -287,9 +287,9 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     @IBAction func logoutAction(_ sender: Any) {
         let confirm = UIAlertController(title: "ออกจากระบบ", message: "คุณต้องการออกจากระบบใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)
         
-        confirm.addAction(UIAlertAction(title: "ไม่ใช่", style: UIAlertActionStyle.default, handler: nil))
+        confirm.addAction(UIAlertAction(title: "ยกเลิก", style: UIAlertActionStyle.default, handler: nil))
         
-        confirm.addAction(UIAlertAction(title: "ใช่", style: UIAlertActionStyle.destructive, handler: { (action) in
+        confirm.addAction(UIAlertAction(title: "ออกจากระบบ", style: UIAlertActionStyle.destructive, handler: { (action) in
             
             let managedObjectContext: NSManagedObjectContext? =
                 (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext

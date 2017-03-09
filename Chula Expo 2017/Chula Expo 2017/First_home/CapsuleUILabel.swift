@@ -77,6 +77,8 @@ class CapsuleUILabel: UILabel {
             backgroundColor = UIColor(red:0.40, green:0.80, blue:0.20, alpha:1.0)
         case "LAW":
             backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 1.0
             self.textColor = UIColor.black
         case "FAA":
             backgroundColor = UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)

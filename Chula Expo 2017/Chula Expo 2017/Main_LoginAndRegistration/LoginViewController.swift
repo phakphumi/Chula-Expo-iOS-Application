@@ -127,6 +127,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             createGuestLoginButton()
             
+            createUsernameLoginButton()
+            
         }
         
     }
@@ -192,6 +194,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             })
             
         }
+        
+    }
+    
+    func usernameLogin() {
+        
+                
+        self.performSegue(withIdentifier: "toUsernameLogin", sender: self)
         
     }
     
@@ -380,16 +389,59 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    func createUsernameLoginButton() {
+        
+        let usernameLoginViewWidth = self.view.bounds.width * 0.8
+        let usernameLoginViewHeight = self.view.bounds.height * 0.093
+        let usernameLoginViewTopMargin = self.view.bounds.height * 0.80
+        
+        let usernameLoginView = UIView(frame: CGRect(x: self.view.bounds.width / 2 - usernameLoginViewWidth / 2, y: usernameLoginViewTopMargin, width: usernameLoginViewWidth, height: usernameLoginViewHeight))
+        usernameLoginView.layer.cornerRadius = 2
+        //        facebookLoginView.layer.cornerRadius = facebookLoginViewHeight / 2
+        usernameLoginView.layer.backgroundColor = UIColor(red:0.78, green:0.25, blue:0.44, alpha:1.0).cgColor
+        
+        let usernameLoginButton = UIButton(frame: CGRect(x: 0, y: 0, width: usernameLoginViewWidth, height: usernameLoginViewHeight))
+        
+        if self.view.bounds.height >= 667 {
+            
+            usernameLoginButton.titleLabel?.font = usernameLoginButton.titleLabel?.font.withSize(20)
+            
+        } else {
+            
+            usernameLoginButton.titleLabel?.font = usernameLoginButton.titleLabel?.font.withSize(17)
+            
+        }
+        
+        let usernameLoginButtonOffset = usernameLoginView.bounds.width * 0.125
+        usernameLoginButton.setTitle("Login with Username", for: .normal)
+        usernameLoginButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: usernameLoginButtonOffset, bottom: 0, right: 0)
+        //        facebookLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
+        usernameLoginButton.setTitleColor(UIColor.black.withAlphaComponent(0.5), for: .highlighted)
+        
+        let loginLogoOffset = usernameLoginView.bounds.width * 0.11
+        let loginLogo = UIImageView(frame: CGRect(x: loginLogoOffset, y: usernameLoginView.bounds.height / 2 - 27 / 2, width: 27, height: 27))
+        loginLogo.image = UIImage(named: "user_login_icon")
+        
+        usernameLoginView.addSubview(loginLogo)
+        usernameLoginView.addSubview(usernameLoginButton)
+        
+        self.view.addSubview(usernameLoginView)
+        
+        usernameLoginButton.addTarget(self, action: #selector(LoginViewController.usernameLogin), for: .touchUpInside)
+        
+    }
+
+    
     func createFacebookLoginButton() {
         
         let facebookLoginViewWidth = self.view.bounds.width * 0.8
         let facebookLoginViewHeight = self.view.bounds.height * 0.093
-        let facebookLoginViewTopMargin = self.view.bounds.height * 0.75
+        let facebookLoginViewTopMargin = self.view.bounds.height * 0.69
         
         let facebookLoginView = UIView(frame: CGRect(x: self.view.bounds.width / 2 - facebookLoginViewWidth / 2, y: facebookLoginViewTopMargin, width: facebookLoginViewWidth, height: facebookLoginViewHeight))
-        facebookLoginView.layer.cornerRadius = 7
+        facebookLoginView.layer.cornerRadius = 2
 //        facebookLoginView.layer.cornerRadius = facebookLoginViewHeight / 2
-        facebookLoginView.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.20).cgColor
+        facebookLoginView.layer.backgroundColor = UIColor(red:0.23, green:0.35, blue:0.60, alpha:1.0).cgColor
         
         let facebookLoginButton = UIButton(frame: CGRect(x: 0, y: 0, width: facebookLoginViewWidth, height: facebookLoginViewHeight))
         
@@ -424,16 +476,15 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func createGuestLoginButton() {
         
-        let guestLoginButtonWidth = self.view.bounds.width * 0.24
+        let guestLoginButtonWidth = self.view.bounds.width * 0.30
         let guestLoginButtonHeight = self.view.bounds.height * 0.053
-        let guestLoginButtonTopMargin = self.view.bounds.height * 0.86
+        let guestLoginButtonTopMargin = self.view.bounds.height * 0.91
         
         let guestLoginButton = UIButton(frame: CGRect(x: self.view.bounds.width / 2 - guestLoginButtonWidth / 2, y: guestLoginButtonTopMargin, width: guestLoginButtonWidth, height: guestLoginButtonHeight))
 
-        guestLoginButton.setTitle("Guest Mode", for: .normal)
-        guestLoginButton.setTitleColor(UIColor.black, for: .normal)
-        guestLoginButton.setTitleColor(UIColor.black.withAlphaComponent(0.5)
-            , for: .highlighted)
+        guestLoginButton.setTitle("GUEST MODE", for: .normal)
+        guestLoginButton.setTitleColor(UIColor.white, for: .normal)
+        guestLoginButton.setTitleColor(UIColor.white.withAlphaComponent(0.5) , for: .highlighted)
 //        guestLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
         
         

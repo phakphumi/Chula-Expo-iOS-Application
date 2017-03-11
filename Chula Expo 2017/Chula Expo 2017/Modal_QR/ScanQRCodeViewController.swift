@@ -155,12 +155,12 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
     func found(code: String) {
         
         let seperatedCode = code.components(separatedBy: "/")
-        
+
         if seperatedCode.count >= 5 {
             
             let domainName = seperatedCode[2]
             
-            if domainName == "staff.chulaexpo.com" {
+            if domainName.contains("chulaexpo.com") {
                 
                 activityId = seperatedCode[5]
                 

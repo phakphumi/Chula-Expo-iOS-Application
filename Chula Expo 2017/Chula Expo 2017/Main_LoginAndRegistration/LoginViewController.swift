@@ -42,60 +42,77 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         if FBSDKAccessToken.current() != nil {
             
             checkRegisterStatus(completion: { (success, token) in
-
                 
                 if success {
                     
                     let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
                     
                     Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
-                        
+                    
                         if response.result.isSuccess {
                             
                             let JSON = response.result.value as! NSDictionary
                             
-                            if let results = JSON["results"] as? NSDictionary {
+                            if JSON["success"] as! Bool {
                                 
-                                let academic = results["academic"] as? [String: String]
-                                
-                                let worker = results["worker"] as? [String: String]
-                                
-                                self.managedObjectContext?.performAndWait {
+                                if let results = JSON["results"] as? NSDictionary {
                                     
-                                    _ = UserData.addUser(id: results["_id"] as! String,
-                                                         token: token,
-                                                         type: results["type"] as! String,
-                                                         name: results["name"] as! String,
-                                                         email: results["email"] as! String,
-                                                         age: results["age"] as! Int,
-                                                         gender: results["gender"] as! String,
-                                                         school: academic?["school"] ?? "",
-                                                         level: academic?["level"] ?? "",
-                                                         year: academic?["year"] ?? "",
-                                                         job: worker?["job"] ?? "",
-                                                         profile: results["profile"] as? String ?? "",
-                                                         inManageobjectcontext: self.managedObjectContext!
-                                    )
+                                    let academic = results["academic"] as? [String: String]
+                                    
+                                    let worker = results["worker"] as? [String: String]
+                                    
+                                    self.managedObjectContext?.performAndWait {
+                                        
+                                        _ = UserData.addUser(id: results["_id"] as! String,
+                                                             token: token,
+                                                             type: results["type"] as! String,
+                                                             name: results["name"] as! String,
+                                                             email: results["email"] as! String,
+                                                             age: results["age"] as! Int,
+                                                             gender: results["gender"] as! String,
+                                                             school: academic?["school"] ?? "",
+                                                             level: academic?["level"] ?? "",
+                                                             year: academic?["year"] ?? "",
+                                                             job: worker?["job"] ?? "",
+                                                             profile: results["profile"] as? String ?? "",
+                                                             inManageobjectcontext: self.managedObjectContext!
+                                        )
+                                        
+                                    }
+                                    
+                                    do {
+                                        
+                                        try self.managedObjectContext?.save()
+                                        print("saved user")
+                                        
+                                    } catch let error {
+                                        
+                                        print("saveUserError with \(error)")
+                                        
+                                    }
+                                    
                                     
                                 }
                                 
-                                do {
-                                    
-                                    try self.managedObjectContext?.save()
-                                    print("saved user")
-                                    
-                                } catch let error {
-                                    
-                                    print("saveUserError with \(error)")
-                                    
-                                }
+                                Answers.logLogin(withMethod: "Auto Log in", success: true, customAttributes: nil)
+                                
+                                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+                                
+                            } else {
+                                
+                                let error = JSON["errors"] as! NSDictionary
+                                let message = error["message"] as? String ?? ""
+                                
+                                let confirm = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(confirm, animated: true, completion: nil)
+                                
+                                Answers.logLogin(withMethod: "Auto Log in", success: false, customAttributes: nil)
                                 
                                 
                             }
-                            
-                            Answers.logLogin(withMethod: "Auto Log in", success: true, customAttributes: nil)
-                            
-                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                             
                         } else {
                             
@@ -324,7 +341,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     private func checkRegisterStatus(completion:@escaping (Bool, String) -> Void) {
         
         Alamofire.request("https://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
-
+print("https://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)")
+print(response)
             if response.result.isSuccess {
             
                 let JSON = response.result.value as! NSDictionary

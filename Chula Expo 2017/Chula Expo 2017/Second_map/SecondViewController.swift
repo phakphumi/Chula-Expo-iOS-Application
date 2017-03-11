@@ -22,6 +22,14 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var popbusButtonView: UIView!
+    @IBOutlet weak var popbusDesc: UILabel!
+    @IBOutlet weak var route1: UIButton!
+    @IBOutlet weak var route2: UIButton!
+    @IBOutlet weak var route3: UIButton!
+    @IBOutlet weak var route5: UIButton!
+    
+    
     @IBOutlet var currentView: UIView!
     @IBOutlet var currentViewLabel: UILabel!
     @IBOutlet var currentIcon: UIImageView!
@@ -52,7 +60,76 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     let managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
-    var userLocation = CLLocation(latitude: 13.7387312, longitude: 100.5306979)
+    let popBusRouteLocation = [
+        [
+            //สาย1
+            CLLocation(latitude: 13.74562, longitude: 100.53076),
+            CLLocation(latitude: 13.74604, longitude: 100.53133),
+            CLLocation(latitude: 13.74532, longitude: 100.53563),
+            CLLocation(latitude: 13.74522, longitude: 100.53571),
+            CLLocation(latitude: 13.73429, longitude: 100.53400),
+            CLLocation(latitude: 13.73500, longitude: 100.52918),
+            CLLocation(latitude: 13.74563, longitude: 100.53076)
+        ],
+        [
+            //สาย2
+            CLLocation(latitude: 13.73959, longitude: 100.52951),
+            CLLocation(latitude: 13.73794, longitude: 100.52924),
+            CLLocation(latitude: 13.73837, longitude: 100.52666),
+            CLLocation(latitude: 13.73645, longitude: 100.52635),
+            CLLocation(latitude: 13.73636, longitude: 100.52597),
+            CLLocation(latitude: 13.73634, longitude: 100.52566),
+            CLLocation(latitude: 13.73644, longitude: 100.52532),
+            CLLocation(latitude: 13.73663, longitude: 100.52508),
+            CLLocation(latitude: 13.73684, longitude: 100.52496),
+            CLLocation(latitude: 13.73932, longitude: 100.52546),
+            CLLocation(latitude: 13.73927, longitude: 100.52582),
+            CLLocation(latitude: 13.73965, longitude: 100.52586),
+            CLLocation(latitude: 13.73945, longitude: 100.52717),
+            CLLocation(latitude: 13.74631, longitude: 100.52850),
+            CLLocation(latitude: 13.74651, longitude: 100.52734),
+            CLLocation(latitude: 13.74637, longitude: 100.52706),
+            CLLocation(latitude: 13.74644, longitude: 100.52667),
+            CLLocation(latitude: 13.74652, longitude: 100.52657),
+            CLLocation(latitude: 13.74675, longitude: 100.52512),
+            CLLocation(latitude: 13.74445, longitude: 100.52471),
+            CLLocation(latitude: 13.74387, longitude: 100.52808),
+            CLLocation(latitude: 13.73991, longitude: 100.52731),
+            CLLocation(latitude: 13.73961, longitude: 100.52951)
+            
+        ],
+        [
+            //สาย3
+            CLLocation(latitude: 13.73600, longitude: 100.53188),
+            CLLocation(latitude: 13.73615, longitude: 100.53091),
+            CLLocation(latitude: 13.73472, longitude: 100.53069),
+            CLLocation(latitude: 13.73421, longitude: 100.53417),
+            CLLocation(latitude: 13.73310, longitude: 100.53403),
+            CLLocation(latitude: 13.73284, longitude: 100.53614),
+            CLLocation(latitude: 13.73326, longitude: 100.53619),
+            CLLocation(latitude: 13.73333, longitude: 100.53548),
+            CLLocation(latitude: 13.73296, longitude: 100.53543),
+            CLLocation(latitude: 13.73313, longitude: 100.53408),
+            CLLocation(latitude: 13.73423, longitude: 100.53421),
+            CLLocation(latitude: 13.73460, longitude: 100.53173),
+            CLLocation(latitude: 13.73601, longitude: 100.53188)
+            
+        ],
+        [
+            //สาย4
+            CLLocation(latitude: 13.74270, longitude: 100.53014),
+            CLLocation(latitude: 13.74342, longitude: 100.52606),
+            CLLocation(latitude: 13.73573, longitude: 100.52468),
+            CLLocation(latitude: 13.73507, longitude: 100.52898),
+            CLLocation(latitude: 13.74271, longitude: 100.53013)
+            
+        ]
+        
+    ]
+    
+    var popBusPathOverlay = [MKOverlay]()
+    
+    var userLocation = CLLocation(latitude: 13.739957, longitude: 100.532107)
     
     var locationManager = CLLocationManager()
     
@@ -201,12 +278,14 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
         map.delegate = self
         
+        map.showsCompass = false
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        setCurrentRegion(lat: 13.7387312, lon: 100.5306979, latDelta: 0.012, lonDelta: 0.012)
+        setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.011, lonDelta: 0.011)
     
         
         eventAroundUser.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -217,6 +296,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         addZoneAnnotation()
         addFacilityAnnotation()
         
+        createPopbusPolyLine()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -237,6 +317,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         favoritedAndReservedAnnotations.removeAll()
         
     }
+    
+    
     
     private func setCurrentRegion(lat: CLLocationDegrees, lon: CLLocationDegrees, latDelta: CLLocationDegrees, lonDelta: CLLocationDegrees) {
         
@@ -266,6 +348,31 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         self.tableView.frame = CGRect(x: 0, y: self.iconDescView.frame.width * 4 / 17, width: self.iconDescView.frame.width, height: 0)
         
+        popbusButtonView.frame = CGRect(x: iconDescView.bounds.width * 8 / 170, y: UIScreen.main.bounds.height * 365 / 667, width: iconDescView.bounds.width * 154 / 170, height: UIScreen.main.bounds.height * 65 / 667)
+        popbusButtonView.layer.backgroundColor = UIColor(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1).cgColor
+        popbusButtonView.layer.cornerRadius = iconDescView.frame.height / 2
+        
+        route1.frame = CGRect(x: popbusButtonView.bounds.width * 6.5 / 154, y: popbusButtonView.bounds.height * 30 / 67, width: popbusButtonView.bounds.width * 30 / 154, height: popbusButtonView.bounds.width * 30 / 154)
+        route1.layer.cornerRadius = route1.frame.height / 2
+        route1.layer.borderColor = UIColor(red: 0.850980392, green: 0.019607843, blue: 0, alpha: 1).cgColor
+        route1.layer.borderWidth = 0
+        
+        route2.frame = CGRect(x: popbusButtonView.bounds.width * 43.5 / 154, y: popbusButtonView.bounds.height * 30 / 67, width: popbusButtonView.bounds.width * 30 / 154, height: popbusButtonView.bounds.width * 30 / 154)
+        route2.layer.cornerRadius = route1.frame.height / 2
+        route2.layer.borderColor = UIColor(red: 0.078431373, green: 0.443137255, blue: 0.764705882, alpha: 1).cgColor
+        route2.layer.borderWidth = 0
+        
+        route3.frame = CGRect(x: popbusButtonView.bounds.width * 80.5 / 154, y: popbusButtonView.bounds.height * 30 / 67, width: popbusButtonView.bounds.width * 30 / 154, height: popbusButtonView.bounds.width * 30 / 154)
+        route3.layer.cornerRadius = route1.frame.height / 2
+        route3.layer.borderColor = UIColor(red: 90 / 255, green: 167/255, blue: 58 / 255, alpha: 1).cgColor
+        route3.layer.borderWidth = 0
+        
+        route5.frame = CGRect(x: popbusButtonView.bounds.width * 117.5 / 154, y: popbusButtonView.bounds.height * 30 / 67, width: popbusButtonView.bounds.width * 30 / 154, height: popbusButtonView.bounds.width * 30 / 154)
+        route5.layer.cornerRadius = route1.frame.height / 2
+        route5.layer.borderColor = UIColor(red: 102 / 255, green: 0/255, blue: 204 / 255, alpha: 1).cgColor
+        route5.layer.borderWidth = 0
+        
+        self.popbusButtonView.frame = CGRect(x: self.iconDescView.bounds.width * 8 / 170, y: self.iconDescView.frame.width * 4 / 17, width: self.iconDescView.bounds.width * 154 / 170, height: 0)
         
         let currentViewTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.currentViewTapped(gestureRecognizer:)))
         currentView.addGestureRecognizer(currentViewTapGesture)
@@ -354,6 +461,81 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
+    func createPopbusPolyLine(){
+        
+        addPopBusRouteToMap(locations: popBusRouteLocation[0]) { (polyline) in
+            
+            polyline.title = "first"
+            self.popBusPathOverlay.append(polyline as MKOverlay)
+            
+        }
+        
+        addPopBusRouteToMap(locations: popBusRouteLocation[1]) { (polyline) in
+            
+            polyline.title = "second"
+            self.popBusPathOverlay.append(polyline as MKOverlay)
+        }
+        
+        addPopBusRouteToMap(locations: popBusRouteLocation[2]) { (polyline) in
+            
+            polyline.title = "third"
+            self.popBusPathOverlay.append(polyline as MKOverlay)
+            
+        }
+        
+        addPopBusRouteToMap(locations: popBusRouteLocation[3]) { (polyline) in
+            
+            polyline.title = "fifth"
+            self.popBusPathOverlay.append(polyline as MKOverlay)
+            
+        }
+        
+    }
+    
+    func addPopBusRouteToMap(locations: [CLLocation?], completion: ((MKPolyline) -> Void)?) {
+        
+        let coordinates = locations.map { (location) -> CLLocationCoordinate2D in
+            
+            return (location?.coordinate)!
+            
+        }
+        
+        let popBusPolyline = MKPolyline(coordinates: coordinates, count: locations.count)
+        
+        completion?(popBusPolyline)
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        let polylineRender = MKPolylineRenderer(overlay: overlay);
+        
+        if overlay.title! == "first"{
+            
+            polylineRender.strokeColor = UIColor(red: 0.952941176, green: 0.258823529, blue: 0.180392157, alpha: 1)
+            polylineRender.lineWidth = 3;
+            
+        } else if overlay.title! == "second" {
+            
+            polylineRender.strokeColor = UIColor(red: 0.266666667, green: 0.549019608, blue: 0.796078431, alpha: 1)
+            polylineRender.lineWidth = 3;
+            
+        } else if overlay.title! == "third" {
+            
+            polylineRender.strokeColor = UIColor(red: 0.494117647, green: 0.764705882, blue: 0.376470588, alpha: 1)
+            polylineRender.lineWidth = 3;
+            
+        } else {
+            
+            polylineRender.strokeColor = UIColor(red: 102 / 255, green: 0/255, blue: 204 / 255, alpha: 1)
+            polylineRender.lineWidth = 3;
+            
+        }
+        
+        return polylineRender;
+        
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation || annotation.title! == nil {
@@ -376,11 +558,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" {
             
-            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 29.6, height: 38.78)
+            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 25, height: 32.75)
             
         } else {
             
-            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 37, height: 54)
+            annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 32, height: 47.11)
             
         }
             
@@ -579,6 +761,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
                 self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.iconDescView.frame.width * 4 / 17, width: self.tableView.frame.width, height: 0)
                 
+                self.popbusButtonView.frame = CGRect(x: self.iconDescView.bounds.width * 8 / 170, y: self.iconDescView.frame.width * 4 / 17, width: self.iconDescView.bounds.width * 154 / 170, height: 0)
+                
             })
             
         } else {
@@ -588,10 +772,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             UIView.animate(withDuration: 0.5, animations: {
                 
-                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height:  UIScreen.main.bounds.height * 0.554722639)
+                self.iconDescView.frame = CGRect(x: self.iconDescView.frame.origin.x, y: self.iconDescView.frame.origin.y, width: self.iconDescView.frame.width, height:  UIScreen.main.bounds.height * 435 / 667)
                 
-                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.iconDescView.frame.width * 4 / 17, width: self.tableView.frame.width, height: UIScreen.main.bounds.height * 0.475)
+                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.iconDescView.frame.width * 4 / 17, width: self.tableView.frame.width, height: UIScreen.main.bounds.height * 317 / 667)
                
+                self.popbusButtonView.frame = CGRect(x: self.iconDescView.bounds.width * 8 / 170, y: UIScreen.main.bounds.height * 365 / 667, width: self.iconDescView.bounds.width * 154 / 170, height: UIScreen.main.bounds.height * 65 / 667)
+                
             })
             
             startTimerForShowScrollIndicator()
@@ -620,7 +806,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             whereAmICancel.isHidden = false
             whereAmIView.isHidden = false
             
-            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.012, lonDelta: 0.012)
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.0124, lonDelta: 0.0124)
             
             APIController.getWhereAmI(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
                 
@@ -671,7 +857,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             isNavigatorShowing = false
             
-            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.012, lonDelta: 0.012)
+            setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.0124, lonDelta: 0.0124)
             
         }
         
@@ -1414,4 +1600,132 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
 
+    @IBAction func route1(_ sender: UIButton) {
+        
+        let isShowing = map.overlays.contains { (popbusOverlay) -> Bool in
+            
+            if popbusOverlay.title! == "first" {
+                
+                return true
+                
+            }
+            
+            return false
+            
+        }
+        
+        if isShowing {
+            
+            map.remove(popBusPathOverlay[0])
+            
+            route1.layer.backgroundColor = UIColor.lightGray.cgColor
+            route1.layer.borderWidth = 0
+            
+        } else {
+            
+            map.add(popBusPathOverlay[0])
+            
+            route1.layer.backgroundColor = UIColor(red: 230 / 255, green: 62 / 255, blue: 59 / 255, alpha: 1).cgColor
+            route1.layer.borderWidth = 2
+            
+        }
+        
+    }
+    
+    @IBAction func route2(_ sender: UIButton) {
+        
+        let isShowing = map.overlays.contains { (popbusOverlay) -> Bool in
+            
+            if popbusOverlay.title! == "second" {
+                
+                return true
+                
+            }
+            
+            return false
+            
+        }
+        
+        if isShowing {
+            
+            map.remove(popBusPathOverlay[1])
+            
+            route2.layer.backgroundColor = UIColor.lightGray.cgColor
+            route2.layer.borderWidth = 0
+            
+        } else {
+            
+            map.add(popBusPathOverlay[1])
+            
+            route2.layer.backgroundColor = UIColor(red: 68 / 255, green: 140 / 255, blue: 203 / 255, alpha: 1).cgColor
+            route2.layer.borderWidth = 2
+            
+        }
+        
+    }
+    
+    @IBAction func route3(_ sender: UIButton) {
+        
+        let isShowing = map.overlays.contains { (popbusOverlay) -> Bool in
+            
+            if popbusOverlay.title! == "third" {
+                
+                return true
+                
+            }
+            
+            return false
+            
+        }
+        
+        if isShowing {
+            
+            map.remove(popBusPathOverlay[2])
+            
+            route3.layer.backgroundColor = UIColor.lightGray.cgColor
+            route3.layer.borderWidth = 0
+            
+        } else {
+            
+            map.add(popBusPathOverlay[2])
+            
+            route3.layer.backgroundColor = UIColor(red: 126 / 255, green: 195 / 255, blue: 96 / 255, alpha: 1).cgColor
+            route3.layer.borderWidth = 2
+            
+        }
+        
+    }
+    
+    @IBAction func route5(_ sender: UIButton) {
+        
+        let isShowing = map.overlays.contains { (popbusOverlay) -> Bool in
+            
+            if popbusOverlay.title! == "fifth" {
+                
+                return true
+                
+            }
+            
+            return false
+            
+        }
+        
+        if isShowing {
+            
+            map.remove(popBusPathOverlay[3])
+            
+            route5.layer.backgroundColor = UIColor.lightGray.cgColor
+            route5.layer.borderWidth = 0
+            
+        } else {
+            
+            map.add(popBusPathOverlay[3])
+            
+            route5.layer.backgroundColor = UIColor(red: 144 / 255, green: 68 / 255, blue: 225 / 255, alpha: 1).cgColor
+            route5.layer.borderWidth = 2
+            
+        }
+        
+    }
+    
 }

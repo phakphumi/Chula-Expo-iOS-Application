@@ -184,10 +184,17 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 self.age = String(fetchUser.age)
                 self.Egender = (fetchUser.gender ?? "")
                 self.school = (fetchUser.school ?? "")
+                
                 let fullNameArr = (fetchUser.name ?? "").components(separatedBy: " ")
                 
+                if fullNameArr.count > 1 {
+                    
+                    self.lastName = fullNameArr[1]
+                    
+                }
+                
                 self.firstName = fullNameArr[0]
-                self.lastName = fullNameArr[1]
+                
                 
                 self.iemail = (fetchUser.email ?? "")
 //                self.fbId = fetchUser.

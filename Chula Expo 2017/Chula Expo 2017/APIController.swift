@@ -810,7 +810,7 @@ class APIController {
 //            "start": [
 //                    "gte": currentTime,
 //            ],
-            "limit": 10
+            "limit": 20
         ]
         
         Alamofire.request("https://staff.chulaexpo.com/api/activities/highlight", method: .get, parameters: parameters).responseJSON { (response) in

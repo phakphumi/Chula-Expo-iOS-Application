@@ -43,6 +43,7 @@
 		5F2D9ED31E4CE2A100818474 /* PlaceData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D9ECD1E4CE2A100818474 /* PlaceData+CoreDataProperties.swift */; };
 		5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F307C8B1E26893300DEF3B0 /* QRViewController.swift */; };
 		5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F307C8D1E26AF0000DEF3B0 /* QRCode.storyboard */; };
+		5F432B3A1E74746F00D725A0 /* UsernameLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F432B391E74746E00D725A0 /* UsernameLoginViewController.swift */; };
 		5F44390B1E723C400093D9F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44390A1E723C400093D9F2 /* MapKit.framework */; };
 		5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D911E10300900713580 /* AppDelegate.swift */; };
 		5F4A9D971E10300900713580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D951E10300900713580 /* Main.storyboard */; };
@@ -185,6 +186,7 @@
 		5F2D9ECD1E4CE2A100818474 /* PlaceData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PlaceData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/PlaceData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F307C8B1E26893300DEF3B0 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRViewController.swift; path = Modal_QR/QRViewController.swift; sourceTree = "<group>"; };
 		5F307C8E1E26AF0000DEF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QRCode.storyboard; sourceTree = "<group>"; };
+		5F432B391E74746E00D725A0 /* UsernameLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsernameLoginViewController.swift; path = Main_LoginAndRegistration/UsernameLoginViewController.swift; sourceTree = "<group>"; };
 		5F44390A1E723C400093D9F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5F4A9D8E1E10300900713580 /* Chula Expo 2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo 2017.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A9D911E10300900713580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 				800D58401E40A4ED00E854E8 /* interestCollectionViewCell1.swift */,
 				800D583E1E40A4C900E854E8 /* InterestCollectionViewCell.swift */,
 				5F18D57C1E14E53300EF81E6 /* LoginViewController.swift */,
+				5F432B391E74746E00D725A0 /* UsernameLoginViewController.swift */,
 				5FDC57B51E47485800B452E7 /* UserTypeViewController.swift */,
 				5FDC57B71E475AE300B452E7 /* RegisterViewController.swift */,
 				581940D81E4516BF000C566C /* interestViewController.swift */,
@@ -830,6 +833,7 @@
 				803688AB1E42595300C1FB58 /* StageDetailCell.swift in Sources */,
 				802F13B31E23FC240098A687 /* BookTableViewCell.swift in Sources */,
 				80314F3F1E4A2F0D003DB96A /* CityCollectionViewCell.swift in Sources */,
+				5F432B3A1E74746F00D725A0 /* UsernameLoginViewController.swift in Sources */,
 				58611AAC1E2B853100B0BFDA /* CustomHeaderCell.swift in Sources */,
 				80BFD4D41E27ED8300491730 /* EventFeedCell.swift in Sources */,
 				5F4ED17D1E43082F008F3A19 /* TagTableViewCell.swift in Sources */,

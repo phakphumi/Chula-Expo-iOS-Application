@@ -122,22 +122,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgQ-RX-Y26">
-                                                    <rect key="frame" x="8" y="4" width="359" height="50"/>
+                                                    <rect key="frame" x="0.0" y="4" width="375" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOW ON STAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYb-ha-v85" userLabel="engTitle">
-                                                            <rect key="frame" x="12" y="8" width="124" height="20"/>
+                                                            <rect key="frame" x="25" y="8" width="124" height="20"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="F466829D-5C6B-4E78-AE37-E71BD38A8421" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
-                                                            <rect key="frame" x="327" y="15" width="17" height="20"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8E78A0E7-69BA-4ED5-ACC7-220CF7366060" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
+                                                            <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="ofU-ZL-icK"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-fQ-ZHE" userLabel="thaTitle">
-                                                            <rect key="frame" x="12" y="27" width="176" height="19"/>
+                                                            <rect key="frame" x="25" y="27" width="176" height="19"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -149,8 +149,8 @@
                                                         <constraint firstItem="lYb-ha-v85" firstAttribute="top" secondItem="rgQ-RX-Y26" secondAttribute="top" constant="8" id="0bs-Yf-Kc9"/>
                                                         <constraint firstItem="gRj-5x-VIN" firstAttribute="centerY" secondItem="rgQ-RX-Y26" secondAttribute="centerY" id="5f8-fi-fG4"/>
                                                         <constraint firstItem="5ep-fQ-ZHE" firstAttribute="leading" secondItem="lYb-ha-v85" secondAttribute="leading" id="LMb-0P-Rp3"/>
-                                                        <constraint firstAttribute="trailing" secondItem="gRj-5x-VIN" secondAttribute="trailing" constant="15" id="N0i-UO-a76"/>
-                                                        <constraint firstItem="lYb-ha-v85" firstAttribute="leading" secondItem="rgQ-RX-Y26" secondAttribute="leading" constant="12" id="bXT-NO-DFJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gRj-5x-VIN" secondAttribute="trailing" constant="25" id="N0i-UO-a76"/>
+                                                        <constraint firstItem="lYb-ha-v85" firstAttribute="leading" secondItem="rgQ-RX-Y26" secondAttribute="leading" constant="25" id="bXT-NO-DFJ"/>
                                                         <constraint firstItem="5ep-fQ-ZHE" firstAttribute="top" secondItem="lYb-ha-v85" secondAttribute="bottom" constant="-1" id="pbA-ff-psg"/>
                                                     </constraints>
                                                 </view>
@@ -159,8 +159,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="rgQ-RX-Y26" firstAttribute="leading" secondItem="bsj-Mh-xBO" secondAttribute="leading" constant="8" id="0CH-vJ-O33"/>
-                                            <constraint firstAttribute="trailing" secondItem="rgQ-RX-Y26" secondAttribute="trailing" constant="8" id="f8E-JZ-Zhg"/>
+                                            <constraint firstItem="rgQ-RX-Y26" firstAttribute="leading" secondItem="bsj-Mh-xBO" secondAttribute="leading" id="0CH-vJ-O33"/>
+                                            <constraint firstAttribute="trailing" secondItem="rgQ-RX-Y26" secondAttribute="trailing" id="f8E-JZ-Zhg"/>
                                             <constraint firstAttribute="bottom" secondItem="rgQ-RX-Y26" secondAttribute="bottom" constant="4" id="h2W-S8-lb4"/>
                                             <constraint firstItem="rgQ-RX-Y26" firstAttribute="top" secondItem="bsj-Mh-xBO" secondAttribute="top" constant="4" id="vvY-Uc-whW"/>
                                         </constraints>
@@ -301,7 +301,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="F466829D-5C6B-4E78-AE37-E71BD38A8421" width="17" height="18">
+        <image name="8E78A0E7-69BA-4ED5-ACC7-220CF7366060" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -373,7 +373,7 @@ DroOwg7PDtQO1g7YDt0O5Q7oDu0O9Q74DwoPDQ8SAAAAAAAAAgEAAAAAAAAAQQAAAAAAAAAAAAAAAAAA
 DxQ
 </mutableData>
         </image>
-        <image name="defaultImage" width="200" height="200"/>
+        <image name="defaultImage" width="280" height="210"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qZZ-GM-A64"/>

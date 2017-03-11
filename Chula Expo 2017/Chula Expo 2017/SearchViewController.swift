@@ -96,49 +96,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar*/
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
-        if segue.identifier == "toEventDetails" {
-            
-            if let destination = segue.destination as? EventDetailTableViewController{
-                
-                if let eventcell = sender as? EventFeedCell?{
-                    
-                    if let id = eventcell?.activityId{
-                        
-                        ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
-                            
-                            if let activityData = activityData {
-                                
-                                destination.activityId = activityData.activityId
-                                destination.bannerUrl = activityData.bannerUrl
-                                destination.topic = activityData.name
-                                destination.locationDesc = ""
-                                destination.toRounds = activityData.toRound
-                                destination.desc = activityData.desc
-                                destination.room = activityData.room
-                                destination.place = activityData.place
-                                destination.zoneId = activityData.faculty
-                                destination.latitude = activityData.latitude
-                                destination.longitude = activityData.longitude
-                                destination.pdf = activityData.pdf
-                                destination.toImages = activityData.toImages
-                                destination.toTags = activityData.toTags
-                                destination.start = activityData.start
-                                destination.end = activityData.end
-                                destination.managedObjectContext = self.managedObjectContext
-                                
-                            }
-                            
-                        })
-                        
-                    }
-                }
-            }
-        }
-    }
-    
-
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
@@ -157,6 +114,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Perform any necessary work.  E.g., repopulating a table view
         // if the search bar performs filtering.
     }
+    
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>? {
         didSet {
             do {
@@ -174,7 +132,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func requestForSearchFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
-//        request.predicate = NSPredicate(format: "isStageEvent = %@", NSNumber(booleanLiteral: false))
         request.sortDescriptors = [NSSortDescriptor(
             key: "activityId",
             ascending: true
@@ -189,6 +146,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             )
         }
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
        // filterEvents =
         managedObjectContext?.performAndWait {
@@ -239,12 +197,30 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(ShouldShowResult){
             cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
             if let eventFeedCell = cell as? EventFeedCell{
-              //  print("feedCell name == \(name)")
+
                 eventFeedCell.manageObjectContext = managedObjectContext
                 eventFeedCell.name = fetchActivity[indexPath.row].name
-//                eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
                 eventFeedCell.thumbnail = fetchActivity[indexPath.row].thumbnailsUrl
                 eventFeedCell.facity = fetchActivity[indexPath.row].faculty
+                eventFeedCell.activityId = fetchActivity[indexPath.row].activityId
+                
+                var time: String?
+                if let stime = fetchActivity[indexPath.row].start{
+                    if let eTime = fetchActivity[indexPath.row].end{
+                        time = stime.toThaiText(withEnd: eTime)
+                    }
+                }
+                if let toRound = fetchActivity[indexPath.row].toRound{
+                    if time != nil{
+                        if toRound.count > 0 {
+                            time = ("\(time!) + \(toRound.count) รอบ")
+                        }
+                    }
+                }
+
+                eventFeedCell.timeText = time
+                eventFeedCell.eventTumbnailImage.image = #imageLiteral(resourceName: "defaultImage")
+                eventFeedCell.toRound = fetchActivity[indexPath.row].toRound
                 
             }
         }
@@ -259,6 +235,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                     cell.selectionStyle = .none
                 }
+                    
                 else if indexPath.section == 0 && indexPath.row == 1 {
         
                     /*cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
@@ -283,7 +260,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                     cell.selectionStyle = .none
               }
+                    
                else {
+                    
                     cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
                 
                     if let fetchData = (fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
@@ -391,6 +370,49 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return UITableViewAutomaticDimension
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toEventDetails" {
+            
+            if let destination = segue.destination as? EventDetailTableViewController{
+                
+                if let eventcell = sender as? EventFeedCell?{
+                    
+                    if let id = eventcell?.activityId{
+                        
+                        ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
+                            
+                            if let activityData = activityData {
+                                
+                                destination.activityId = activityData.activityId
+                                destination.bannerUrl = activityData.bannerUrl
+                                destination.topic = activityData.name
+                                destination.locationDesc = ""
+                                destination.toRounds = activityData.toRound
+                                destination.desc = activityData.desc
+                                destination.room = activityData.room
+                                destination.place = activityData.place
+                                destination.zoneId = activityData.faculty
+                                destination.latitude = activityData.latitude
+                                destination.longitude = activityData.longitude
+                                destination.pdf = activityData.pdf
+                                destination.toImages = activityData.toImages
+                                destination.toTags = activityData.toTags
+                                destination.start = activityData.start
+                                destination.end = activityData.end
+                                destination.managedObjectContext = self.managedObjectContext
+                                
+                            }
+                            
+                        })
+                        
+                    }
+                }
+            }
+        }
+    }
+
 
 }
 

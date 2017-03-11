@@ -17,6 +17,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
 
     @IBOutlet weak var logoutView: UIView!
     @IBOutlet weak var aboutView: UIView!
+    @IBOutlet var aboutAppView: UIView!
     @IBOutlet weak var faqView: UIView!
     @IBOutlet weak var editfacView: UIView!
     @IBOutlet weak var edittagView: UIView!
@@ -55,18 +56,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
 
-    @IBAction func favoriteSoon(_ sender: UIButton) {
-        
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
-        
-    }
-    @IBAction func reserveSoon(_ sender: UIButton) {
-        
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
-        
-    }
+   
     @IBAction func editInformation(_ sender: UIButton) {
 
         if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
@@ -119,6 +109,13 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
     
+    @IBAction func aboutApp(_ sender: Any) {
+        
+        let aboutApp = storyboard?.instantiateViewController(withIdentifier: "aboutApp") as? AboutViewController
+        
+        tabBarController?.present(aboutApp!, animated: true, completion: nil)
+        
+    }
     
     
     @IBAction func equest(_ sender: UIButton) {
@@ -163,10 +160,22 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         managedObjectContext?.performAndWait {
             if let fetchUser = UserData.fetchUser(inManageobjectcontext: self.managedObjectContext!){
                 
+                var gen = "ไม่มีข้อมูล"
+                switch fetchUser.gender ?? ""{
+                    case "Male":
+                        gen = "ชาย"
+                    case "Female":
+                        gen = "หญิง"
+                    case "Other":
+                        gen = "อื่นๆ"
+                    default:
+                        gen = "ไม่มีข้อมูล"
+                }
+                
                 self.profileImg.imageFromServerURL(urlString: fetchUser.profile ?? "")
                 self.name.text = (fetchUser.name ?? "")
                 self.email.text = (fetchUser.email ?? "")
-                self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + (fetchUser.gender ?? "")
+                self.agegen.text = "อายุ " + String(fetchUser.age) + " เพศ " + (gen)
                 self.year.text = (fetchUser.level ?? "") + " " + (fetchUser.year ?? "")
                 self.uni.text = (fetchUser.school ?? "")
                 
@@ -226,6 +235,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
 //        proView.layer.masksToBounds = true
         proView.cardStyle(background: proView)
         
+        aboutAppView.cardStyle(background: aboutAppView)
 //        editproButton.layer.cornerRadius = 3
 //        editproButton.layer.masksToBounds = true
         editproButton.cardStyle(background: editproButton)

@@ -43,6 +43,7 @@
 		5F2D9ED31E4CE2A100818474 /* PlaceData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2D9ECD1E4CE2A100818474 /* PlaceData+CoreDataProperties.swift */; };
 		5F307C8C1E26893300DEF3B0 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F307C8B1E26893300DEF3B0 /* QRViewController.swift */; };
 		5F307C8F1E26AF0000DEF3B0 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F307C8D1E26AF0000DEF3B0 /* QRCode.storyboard */; };
+		5F44390B1E723C400093D9F2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F44390A1E723C400093D9F2 /* MapKit.framework */; };
 		5F4A9D921E10300900713580 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A9D911E10300900713580 /* AppDelegate.swift */; };
 		5F4A9D971E10300900713580 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D951E10300900713580 /* Main.storyboard */; };
 		5F4A9D9C1E10300900713580 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F4A9D9B1E10300900713580 /* Assets.xcassets */; };
@@ -184,6 +185,7 @@
 		5F2D9ECD1E4CE2A100818474 /* PlaceData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PlaceData+CoreDataProperties.swift"; path = "Chula Expo 2017/CoreData/PlaceData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5F307C8B1E26893300DEF3B0 /* QRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QRViewController.swift; path = Modal_QR/QRViewController.swift; sourceTree = "<group>"; };
 		5F307C8E1E26AF0000DEF3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/QRCode.storyboard; sourceTree = "<group>"; };
+		5F44390A1E723C400093D9F2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5F4A9D8E1E10300900713580 /* Chula Expo 2017.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chula Expo 2017.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A9D911E10300900713580 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F4A9D961E10300900713580 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			files = (
 				5FF140BA1E6E972A00FAED0B /* CoreLocation.framework in Frameworks */,
 				5F0E92E11E48D8A100D5513B /* Alamofire.framework in Frameworks */,
+				5F44390B1E723C400093D9F2 /* MapKit.framework in Frameworks */,
 				805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */,
 				5F201DF81E71404700312776 /* Answers.framework in Frameworks */,
 				5F201DF71E71404700312776 /* Fabric.framework in Frameworks */,
@@ -481,6 +484,7 @@
 		5F9FB0841E150EDE00E984AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F44390A1E723C400093D9F2 /* MapKit.framework */,
 				5F201DF51E71404700312776 /* Fabric.framework */,
 				5F201DF61E71404700312776 /* Answers.framework */,
 				5F043F451E6FB86A0026EEE4 /* Siren.framework */,
@@ -641,6 +645,9 @@
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
 							};
 						};
 					};

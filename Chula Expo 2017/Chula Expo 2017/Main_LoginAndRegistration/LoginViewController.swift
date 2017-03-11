@@ -150,6 +150,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toUserType" {
@@ -167,6 +175,14 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             destination.fbImageProfileUrl = self.fbImageProfileUrl
             destination.fbImage = self.fbImage
             destination.managedObjectContext = self.managedObjectContext
+            
+        } else if segue.identifier == "toUsernameLogin" {
+            
+            if let destination = segue.destination as? UsernameLoginViewController {
+                
+                destination.managedObjectContext = self.managedObjectContext
+                
+            }
             
         }
         
@@ -216,7 +232,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func usernameLogin() {
         
-                
         self.performSegue(withIdentifier: "toUsernameLogin", sender: self)
         
     }

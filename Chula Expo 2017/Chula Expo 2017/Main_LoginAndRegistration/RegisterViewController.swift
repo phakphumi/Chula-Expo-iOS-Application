@@ -484,11 +484,13 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, UIPickerVie
         
         if toEdit {
             
-            let facebookProfileUrl = URL(string: (userData?.profile)!)
-            
-            if let data = NSData(contentsOf: facebookProfileUrl!) {
+            if let facebookProfileUrl = URL(string: (userData?.profile)!) {
                 
-                profileImage.image = UIImage(data: data as Data)
+                if let data = NSData(contentsOf: facebookProfileUrl) {
+                    
+                    profileImage.image = UIImage(data: data as Data)
+                    
+                }   
                 
             }
             

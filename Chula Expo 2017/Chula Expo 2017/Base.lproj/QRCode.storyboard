@@ -39,7 +39,7 @@
                                     <action selector="cancle:" destination="fGA-5k-K08" eventType="touchUpInside" id="LjY-4D-5eC"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mark_zuckerberg" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
                                 <rect key="frame" x="122" y="80" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="liV-hZ-JeP" secondAttribute="height" multiplier="1:1" id="pbj-2n-RqS"/>
@@ -192,7 +192,7 @@
     <resources>
         <image name="chula_expo_logo" width="1024" height="1024"/>
         <image name="closeIcon" width="36" height="36"/>
-        <image name="mark_zuckerberg" width="547" height="547"/>
+        <image name="defaultImage" width="280" height="210"/>
         <image name="temp_qrcode" width="267" height="267"/>
     </resources>
 </document>

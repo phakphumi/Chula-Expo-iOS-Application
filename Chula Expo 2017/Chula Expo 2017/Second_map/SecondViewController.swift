@@ -205,7 +205,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "INFORMATION": #imageLiteral(resourceName: "INFO"),
                             "REGISTRATION": #imageLiteral(resourceName: "REGIS"),
                             "BUSSTOP": #imageLiteral(resourceName: "BUS"),
-                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "RES"),
+                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "FAV") ,
 //                            "INFO": #imageLiteral(resourceName: "pin_information"),
     
     ]

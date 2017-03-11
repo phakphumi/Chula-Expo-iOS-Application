@@ -130,11 +130,13 @@ class QRViewController: UIViewController {
     
     func setImageProfile(pictureUrl: String) {
         
-        let facebookProfileUrl = URL(string: pictureUrl)
-        
-        if let data = NSData(contentsOf: facebookProfileUrl!) {
+        if let facebookProfileUrl = URL(string: pictureUrl) {
             
-            self.profileImage.image = UIImage(data: data as Data)
+            if let data = NSData(contentsOf: facebookProfileUrl) {
+                
+                self.profileImage.image = UIImage(data: data as Data)
+                
+            }
             
         }
         

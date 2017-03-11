@@ -517,7 +517,7 @@ print(response)
         let guestLoginButton = UIButton(frame: CGRect(x: self.view.bounds.width / 2 - guestLoginButtonWidth / 2, y: guestLoginButtonTopMargin, width: guestLoginButtonWidth, height: guestLoginButtonHeight))
 
         guestLoginButton.setTitle("GUEST MODE", for: .normal)
-        guestLoginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        guestLoginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         guestLoginButton.setTitleColor(UIColor.white, for: .normal)
         guestLoginButton.setTitleColor(UIColor.white.withAlphaComponent(0.5) , for: .highlighted)
 //        guestLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)

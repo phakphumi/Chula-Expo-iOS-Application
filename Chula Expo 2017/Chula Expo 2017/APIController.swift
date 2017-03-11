@@ -504,7 +504,7 @@ class APIController {
             let dateRequestFormatter = DateFormatter()
             dateRequestFormatter.calendar = Calendar(identifier: .gregorian)
             dateRequestFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
-            dateRequestFormatter.timeZone = TimeZone(secondsFromGMT: 7)
+            dateRequestFormatter.timeZone = TimeZone(secondsFromGMT: 25200)
             
             let currentTime = dateRequestFormatter.string(from: Date())
             

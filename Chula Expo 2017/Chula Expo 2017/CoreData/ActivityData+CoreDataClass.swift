@@ -114,6 +114,7 @@ public class ActivityData: NSManagedObject {
                 
                 let dateFormatter = DateFormatter()
                 dateFormatter.calendar = Calendar(identifier: .gregorian)
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 25200)!
                 dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                 
                 for round in rounds {
@@ -159,6 +160,7 @@ public class ActivityData: NSManagedObject {
                     
                     let dateFormatter = DateFormatter()
                     dateFormatter.calendar = Calendar(identifier: .gregorian)
+                    dateFormatter.timeZone = TimeZone(secondsFromGMT: 25200)!
                     dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"
                     
                     // created a new event in the database

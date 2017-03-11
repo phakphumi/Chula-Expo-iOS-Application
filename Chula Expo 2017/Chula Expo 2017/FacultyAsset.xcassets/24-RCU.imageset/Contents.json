@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "16-NUR-bg.png",
+      "filename" : "24-RCU-ico.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "16-NUR-bg@2x.png",
+      "filename" : "24-RCU-ico@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "16-NUR-bg@3x.png",
+      "filename" : "24-RCU-ico@3x.png",
       "scale" : "3x"
     }
   ],

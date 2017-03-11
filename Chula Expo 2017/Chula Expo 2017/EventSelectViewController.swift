@@ -402,12 +402,15 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             facultyData(imgName: "13_PHARM",  tagName: "เภสัชศาสตร์",  tagBack: "13-PHARM-bg",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "PHARM", tagColor: UIColor(red:0.40, green:0.80, blue:0.20, alpha:1.0), isBlackText: false),
             facultyData(imgName: "14_LAW",  tagName: "นิติศาสตร์",  tagBack: "14-LAW-bg",  tagEngName: "Faculty of Law", shortName: "LAW", tagColor: UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0), isBlackText: true),
             facultyData(imgName: "15_FAA",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "15-FAA-bg",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "FAA", tagColor: UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "16_NUR",  tagName: "พยาบาลศาสตร์",  tagBack: "16-NUR-bg",  tagEngName: "Faculty of Nursing", shortName: "NUR", tagColor: UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "16-NUR",  tagName: "พยาบาลศาสตร์",  tagBack: "16-FON-bg",  tagEngName: "Faculty of Nursing", shortName: "FON", tagColor: UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
             facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "17-AHS-bg",  tagEngName: "Faculty of Allied Health Sciences", shortName: "AHS", tagColor: UIColor(red:0.80, green:0.60, blue:1.00, alpha:1.0), isBlackText: true),
             facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "18-PSY-bg",  tagEngName: "Faculty of Psychology", shortName: "PSY", tagColor: UIColor(red:0.20, green:0.00, blue:1.00, alpha:1.0), isBlackText: false),
             facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "19-SPSC-bg",  tagEngName: "Faculty of Sports Science", shortName: "SPSC", tagColor: UIColor(red:1.00, green:0.40, blue:0.00, alpha:1.0), isBlackText: false),
             facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural resources", shortName: "SAR", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "21_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "21-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "21-TRCN",  tagName: "พยาบาลกาชาด",  tagBack: "21-TRCN-bg",  tagEngName: "Thai Red Cross College of Nursing", shortName: "TRCN", tagColor: UIColor(red:0.87, green:0.06, blue:0.20, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "22-PNC",  tagName: "พยาบาลตำรวจ",  tagBack: "22-PNC-bg",  tagEngName: "Police Nursing College", shortName: "PNC", tagColor: UIColor(red:0.61, green:0.00, blue:0.19, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "23_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "23-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "24-RCU",  tagName: "หอพักนิสิต",  tagBack: "24-RCU-bg",  tagEngName: "Residence of Chulalongkorn University", shortName: "RCU", tagColor: UIColor(red:0.87, green:0.05, blue:0.43, alpha:1.0), isBlackText: false),
             
     ]
     }

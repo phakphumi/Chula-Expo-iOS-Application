@@ -504,8 +504,8 @@ print(response)
         guestLoginButton.setTitle("GUEST MODE", for: .normal)
         guestLoginButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         guestLoginButton.setTitleColor(UIColor.white, for: .normal)
-//        guestLoginButton.setTitleColor(UIColor.white.withAlphaComponent(0.5) , for: .highlighted)
-        guestLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
+        guestLoginButton.setTitleColor(UIColor.white.withAlphaComponent(0.5) , for: .highlighted)
+//        guestLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
         
         
         if self.view.bounds.height >= 667 {

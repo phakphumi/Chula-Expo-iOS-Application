@@ -52,19 +52,19 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ชื่อกิจกรรม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi5-XL-Fdk">
-                                                            <rect key="frame" x="103" y="5" width="246" height="17.5"/>
+                                                            <rect key="frame" x="103" y="5" width="246" height="24"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วันนี้ 22-24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MhB-iN-bRt">
-                                                            <rect key="frame" x="103" y="19.5" width="242" height="14"/>
+                                                            <rect key="frame" x="103" y="26" width="242" height="19"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                                             <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="วิศวะ" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNm-TP-7wk" customClass="CapsuleUILabel" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                                            <rect key="frame" x="103" y="36.5" width="23" height="16"/>
+                                                            <rect key="frame" x="103" y="48" width="21.5" height="16"/>
                                                             <color key="backgroundColor" red="0.56862745100000001" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="YSD-uO-HVQ"/>
@@ -125,19 +125,19 @@
                                                     <rect key="frame" x="0.0" y="4" width="375" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOW ON STAGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYb-ha-v85" userLabel="engTitle">
-                                                            <rect key="frame" x="12" y="8" width="124" height="20"/>
+                                                            <rect key="frame" x="25" y="8" width="124" height="20"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="281BF006-8750-488F-8E86-3F37B6111D36" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
-                                                            <rect key="frame" x="343" y="15" width="17" height="20"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="8E78A0E7-69BA-4ED5-ACC7-220CF7366060" translatesAutoresizingMaskIntoConstraints="NO" id="gRj-5x-VIN" userLabel="icon">
+                                                            <rect key="frame" x="333" y="15" width="17" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="ofU-ZL-icK"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่กำลังเกิดขึ้นบนเวทีในขณะนี้" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-fQ-ZHE" userLabel="thaTitle">
-                                                            <rect key="frame" x="12" y="27" width="176" height="19"/>
+                                                            <rect key="frame" x="25" y="27" width="176" height="19"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="12"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -149,8 +149,8 @@
                                                         <constraint firstItem="lYb-ha-v85" firstAttribute="top" secondItem="rgQ-RX-Y26" secondAttribute="top" constant="8" id="0bs-Yf-Kc9"/>
                                                         <constraint firstItem="gRj-5x-VIN" firstAttribute="centerY" secondItem="rgQ-RX-Y26" secondAttribute="centerY" id="5f8-fi-fG4"/>
                                                         <constraint firstItem="5ep-fQ-ZHE" firstAttribute="leading" secondItem="lYb-ha-v85" secondAttribute="leading" id="LMb-0P-Rp3"/>
-                                                        <constraint firstAttribute="trailing" secondItem="gRj-5x-VIN" secondAttribute="trailing" constant="15" id="N0i-UO-a76"/>
-                                                        <constraint firstItem="lYb-ha-v85" firstAttribute="leading" secondItem="rgQ-RX-Y26" secondAttribute="leading" constant="12" id="bXT-NO-DFJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="gRj-5x-VIN" secondAttribute="trailing" constant="25" id="N0i-UO-a76"/>
+                                                        <constraint firstItem="lYb-ha-v85" firstAttribute="leading" secondItem="rgQ-RX-Y26" secondAttribute="leading" constant="25" id="bXT-NO-DFJ"/>
                                                         <constraint firstItem="5ep-fQ-ZHE" firstAttribute="top" secondItem="lYb-ha-v85" secondAttribute="bottom" constant="-1" id="pbA-ff-psg"/>
                                                     </constraints>
                                                 </view>
@@ -301,7 +301,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="281BF006-8750-488F-8E86-3F37B6111D36" width="17" height="18">
+        <image name="8E78A0E7-69BA-4ED5-ACC7-220CF7366060" width="17" height="18">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

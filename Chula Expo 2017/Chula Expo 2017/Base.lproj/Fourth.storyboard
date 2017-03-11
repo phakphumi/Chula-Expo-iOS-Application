@@ -112,13 +112,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ปริญญาตรี ปี2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eG8-Mb-aU4">
-                                                <rect key="frame" x="131" y="104.5" width="196" height="25.5"/>
+                                                <rect key="frame" x="131" y="102.5" width="196" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="จุฬาลงกรณ์มหาวิทยาลัย" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dc7-gF-hzv">
-                                                <rect key="frame" x="131" y="130" width="196" height="23"/>
+                                                <rect key="frame" x="131" y="128" width="196" height="23"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -165,7 +165,7 @@
                                             <constraint firstItem="Ptc-uh-xdR" firstAttribute="leading" secondItem="Esj-gh-HV1" secondAttribute="leading" id="hXi-iZ-EBw"/>
                                             <constraint firstAttribute="trailing" secondItem="Esj-gh-HV1" secondAttribute="trailing" constant="8" id="iZi-8G-WLX"/>
                                             <constraint firstItem="Esj-gh-HV1" firstAttribute="leading" secondItem="ef8-4q-M0P" secondAttribute="trailing" constant="15" id="k4F-zo-FQG"/>
-                                            <constraint firstItem="eG8-Mb-aU4" firstAttribute="top" secondItem="Ptc-uh-xdR" secondAttribute="bottom" constant="6" id="o8X-pd-Im1"/>
+                                            <constraint firstItem="eG8-Mb-aU4" firstAttribute="top" secondItem="Ptc-uh-xdR" secondAttribute="bottom" constant="4" id="o8X-pd-Im1"/>
                                             <constraint firstItem="eGM-MA-fGn" firstAttribute="trailing" secondItem="Esj-gh-HV1" secondAttribute="trailing" id="pCe-14-5nm"/>
                                             <constraint firstItem="ef8-4q-M0P" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="2.5:4" id="uyv-Cn-bGL"/>
                                             <constraint firstItem="eGM-MA-fGn" firstAttribute="height" secondItem="mSU-JG-2WL" secondAttribute="height" multiplier="0.8:5" id="vAg-OV-P3y"/>
@@ -187,7 +187,7 @@
                                                                     <segue destination="JPM-5D-OA6" kind="show" identifier="showEventFavorite" id="AGZ-aj-bwR"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star-ico" translatesAutoresizingMaskIntoConstraints="NO" id="bem-fb-AaB">
                                                                 <rect key="frame" x="61" y="14" width="44" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="bem-fb-AaB" secondAttribute="height" multiplier="1:1" id="fe2-g1-ATp"/>
@@ -223,7 +223,7 @@
                                                                     <segue destination="JPM-5D-OA6" kind="show" identifier="showEventReserve" id="EKw-B2-RkN"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reserveIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="res-ico" translatesAutoresizingMaskIntoConstraints="NO" id="0s7-gn-jvs">
                                                                 <rect key="frame" x="60.5" y="14" width="44" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="0s7-gn-jvs" secondAttribute="height" multiplier="1:1" id="ktr-ee-xgP"/>
@@ -264,7 +264,7 @@
                                                                     <action selector="editTag:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Jnq-Wu-gCo"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="interest-ico" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-y6-VRy">
                                                                 <rect key="frame" x="61" y="13.5" width="44" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="ccO-y6-VRy" secondAttribute="height" multiplier="1:1" id="qwJ-fp-bYy"/>
@@ -300,7 +300,7 @@
                                                                     <action selector="editFac:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Y5b-Rd-Oeg"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facIcon" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lang-ico" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
                                                                 <rect key="frame" x="60.5" y="13.5" width="44" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="scs-2p-fYf" secondAttribute="height" multiplier="1:1" id="R91-tG-gw1"/>
@@ -341,7 +341,7 @@
                                                                     <action selector="equest:" destination="AOk-xI-MMv" eventType="touchUpInside" id="c5h-eS-g3r"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faqIcon" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faq-ico" translatesAutoresizingMaskIntoConstraints="NO" id="TCN-63-zka">
                                                                 <rect key="frame" x="60" y="14" width="44" height="44.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="TCN-63-zka" secondAttribute="height" multiplier="1:1" id="Sdr-MC-pK8"/>
@@ -377,7 +377,7 @@
                                                                     <action selector="aboutUs:" destination="AOk-xI-MMv" eventType="touchUpInside" id="lat-Dv-YZs"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about-ico" translatesAutoresizingMaskIntoConstraints="NO" id="mId-2y-0eS">
                                                                 <rect key="frame" x="60.5" y="14" width="44" height="44.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="mId-2y-0eS" secondAttribute="height" multiplier="1:1" id="sLt-YB-h4i"/>
@@ -418,7 +418,7 @@
                                                                     <action selector="aboutApp:" destination="AOk-xI-MMv" eventType="touchUpInside" id="yJa-6P-RT3"/>
                                                                 </connections>
                                                             </button>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faqIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QVq-PC-cgM">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credit-ico" translatesAutoresizingMaskIntoConstraints="NO" id="QVq-PC-cgM">
                                                                 <rect key="frame" x="60" y="13.5" width="44" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="QVq-PC-cgM" secondAttribute="height" multiplier="1:1" id="es1-Tb-fCz"/>
@@ -448,23 +448,37 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apy-IZ-zkK">
                                                         <rect key="frame" x="170" y="0.0" width="165" height="88.5"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NId-Dp-m4C">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NId-Dp-m4C">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="88.5"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="18"/>
-                                                                <state key="normal" title="ออกจากระบบ">
+                                                                <state key="normal">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="logoutAction:" destination="AOk-xI-MMv" eventType="touchUpInside" id="KML-I3-zTb"/>
                                                                 </connections>
                                                             </button>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logout-ico" translatesAutoresizingMaskIntoConstraints="NO" id="aaV-Tu-4J6">
+                                                                <rect key="frame" x="60.5" y="14" width="44" height="44"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="aaV-Tu-4J6" secondAttribute="height" multiplier="1:1" id="el2-sR-fVM"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ออกจากระบบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPo-l5-FaB">
+                                                                <rect key="frame" x="49" y="61" width="67" height="19"/>
+                                                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.28235294117647058" green="0.30980392156862746" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="NId-Dp-m4C" secondAttribute="bottom" id="0Tz-kZ-uyx"/>
-                                                            <constraint firstAttribute="trailing" secondItem="NId-Dp-m4C" secondAttribute="trailing" id="5pl-ZU-8sg"/>
-                                                            <constraint firstItem="NId-Dp-m4C" firstAttribute="leading" secondItem="apy-IZ-zkK" secondAttribute="leading" id="NSa-Ov-Auv"/>
-                                                            <constraint firstItem="NId-Dp-m4C" firstAttribute="top" secondItem="apy-IZ-zkK" secondAttribute="top" id="qKz-13-dJk"/>
+                                                            <constraint firstItem="UPo-l5-FaB" firstAttribute="centerX" secondItem="apy-IZ-zkK" secondAttribute="centerX" id="Fse-Mz-Rbn"/>
+                                                            <constraint firstItem="aaV-Tu-4J6" firstAttribute="centerX" secondItem="apy-IZ-zkK" secondAttribute="centerX" id="Wid-QZ-5mY"/>
+                                                            <constraint firstItem="UPo-l5-FaB" firstAttribute="top" secondItem="aaV-Tu-4J6" secondAttribute="bottom" constant="3" id="YYC-sO-Afg"/>
+                                                            <constraint firstItem="aaV-Tu-4J6" firstAttribute="height" secondItem="apy-IZ-zkK" secondAttribute="height" multiplier="1:2" id="osZ-Ok-rje"/>
+                                                            <constraint firstItem="aaV-Tu-4J6" firstAttribute="centerY" secondItem="apy-IZ-zkK" secondAttribute="centerY" constant="-8" id="w4j-bW-2xc"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -1066,23 +1080,25 @@ Tananan Tangthanachaikul (CP40) </mutableString>
         </scene>
     </scenes>
     <resources>
+        <image name="about-ico" width="82" height="107"/>
         <image name="aboutBG" width="375" height="667"/>
         <image name="chula_expo_logo_white" width="231" height="300"/>
         <image name="closeIcon" width="36" height="36"/>
+        <image name="credit-ico" width="106" height="106"/>
         <image name="defaultImage" width="280" height="210"/>
-        <image name="facIcon" width="66" height="54"/>
-        <image name="faqIcon" width="57" height="57"/>
-        <image name="favoIcon" width="59" height="57"/>
-        <image name="infoIcon" width="60" height="60"/>
-        <image name="interIcon" width="56" height="56"/>
+        <image name="faq-ico" width="102" height="90"/>
+        <image name="interest-ico" width="88" height="88"/>
+        <image name="lang-ico" width="101" height="101"/>
         <image name="logo-sponsors" width="400" height="54"/>
         <image name="logo_LabISEL" width="2117" height="2177"/>
         <image name="logo_clique" width="2362" height="2362"/>
         <image name="logo_comp" width="960" height="140"/>
+        <image name="logout-ico" width="122" height="88"/>
         <image name="myprofileTabIcon2" width="25" height="25"/>
         <image name="qr_code" width="18" height="18"/>
-        <image name="reserveIcon" width="64" height="57"/>
+        <image name="res-ico" width="104" height="105"/>
         <image name="search" width="17" height="18"/>
+        <image name="star-ico" width="102" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EKw-B2-RkN"/>

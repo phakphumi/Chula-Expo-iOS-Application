@@ -477,8 +477,8 @@ print(response)
         let facebookLoginButtonOffset = facebookLoginView.bounds.width * 0.125
         facebookLoginButton.setTitle("Login with Facebook", for: .normal)
         facebookLoginButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: facebookLoginButtonOffset, bottom: 0, right: 0)
-//        facebookLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
-        facebookLoginButton.setTitleColor(UIColor.black.withAlphaComponent(0.5), for: .highlighted)
+        facebookLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
+    facebookLoginButton.setTitleColor(UIColor.black.withAlphaComponent(0.5), for: .highlighted)
         
         let facebookLogoOffset = facebookLoginView.bounds.width * 0.07
         let facebookLogo = UIImageView(frame: CGRect(x: facebookLogoOffset, y: facebookLoginView.bounds.height / 2 - 27 / 2, width: 27, height: 27))

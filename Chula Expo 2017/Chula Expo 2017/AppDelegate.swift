@@ -101,6 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         APIController.downloadZone(inManageobjectcontext: self.managedObjectContext)
         APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext)
+        NSTimeZone.default = TimeZone(secondsFromGMT: 25200)!
 //        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
         return true
     }

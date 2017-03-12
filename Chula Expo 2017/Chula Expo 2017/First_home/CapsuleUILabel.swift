@@ -98,7 +98,7 @@ class CapsuleUILabel: UILabel {
         case "FAA":
             backgroundColor = UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0)
             self.layer.borderWidth = 0
-        case "NUR":
+        case "FON":
             backgroundColor = UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0)
             self.layer.borderWidth = 0
         case "AHS":
@@ -128,6 +128,15 @@ class CapsuleUILabel: UILabel {
             self.layer.borderWidth = 0
         case "FORUM":
             backgroundColor = UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "TRCN":
+            backgroundColor = UIColor(red:0.87, green:0.06, blue:0.20, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "PNC":
+            backgroundColor = UIColor(red:0.61, green:0.00, blue:0.19, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "RCU":
+            backgroundColor = UIColor(red:0.87, green:0.05, blue:0.43, alpha:1.0)
             self.layer.borderWidth = 0
         default:
             

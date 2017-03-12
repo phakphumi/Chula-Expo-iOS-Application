@@ -135,16 +135,17 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
         
         if reservable {
             
-            reserveIcon.image = #imageLiteral(resourceName: "ticketPink")
-            reserveTitle.text = "จอง EVENT"
-            reserveDesc.text = "EVENT นี้ต้องสำรองที่นั่งก่อนเข้าร่วม"
+            reserveIcon.image = #imageLiteral(resourceName: "res-ico-1")
+            reserveTitle.text = "จองกิจกรรม"
+            reserveDesc.text = "กิจกรรมนี้ต้องสำรองที่นั่งก่อนเข้าร่วม"
             
         } else if wasFavorited {
             
-            reserveTitle.text = "ยกเลิกการสนใจ"
-            reserveDesc.text = "นำกิจกรรมนี้ออกจากความสนใจ"
-            reserveTitle.textColor = UIColor.red
-            reserveDesc.textColor = UIColor.red
+            reserveTitle.text = "สนใจกิจกรรมแล้ว"
+            reserveDesc.text = "แตะเพื่อยกเลิกการสนใจกิจกรรม"
+            reserveView.backgroundColor = UIColor(red: 0.9922, green: 0.431, blue: 0.604, alpha: 1)
+            reserveTitle.textColor = UIColor.white
+            reserveDesc.textColor = UIColor.white
             
         } else if !wasFavorited {
             

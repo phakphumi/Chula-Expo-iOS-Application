@@ -92,7 +92,7 @@ extension Date {
     static func from(year: Int, month: Int, day: Int) -> Date {
         
         let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)!
-        
+        gregorianCalendar.timeZone = TimeZone(secondsFromGMT: 25200)!
         var dateComponents = DateComponents()
         dateComponents.year = year
         dateComponents.month = month
@@ -105,7 +105,7 @@ extension Date {
     static func from(year: Int, month: Int, day: Int, hour: Int, minuite: Int) -> Date {
         
         let gregorianCalendar = NSCalendar(calendarIdentifier: .gregorian)!
-        
+        gregorianCalendar.timeZone = TimeZone(secondsFromGMT: 25200)!
         var dateComponents = DateComponents()
         dateComponents.year = year
         dateComponents.month = month
@@ -119,11 +119,15 @@ extension Date {
     
     func toThaiText() -> String{
         
-        let day = NSCalendar.current.component(.day, from: self)
-        let month = NSCalendar.current.component(.month, from: self)
-        let year = NSCalendar.current.component(.year, from: self)
-        let hour = NSCalendar.current.component(.hour, from: self)
-        let minuite = NSCalendar.current.component(.minute, from: self)
+        
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        calendar.timeZone = TimeZone(secondsFromGMT: 25200)!
+        
+        let day = calendar.component(.day, from: self)
+        let month = calendar.component(.month, from: self)
+        let year = calendar.component(.year, from: self)
+        let hour = calendar.component(.hour, from: self)
+        let minuite = calendar.component(.minute, from: self)
         
         var minuiteText = "\(minuite)"
         if minuite < 10{
@@ -152,7 +156,8 @@ extension Date {
     
     func toThaiText(withEnd end: Date) -> String{
         
-        let calendar = NSCalendar.current
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        calendar.timeZone = TimeZone(secondsFromGMT: 25200)!
         
         let day = calendar.component(.day, from: self)
         let month = calendar.component(.month, from: self)
@@ -206,7 +211,8 @@ extension Date {
     
     func toThaiTextOnlyDate(withEnd end: Date) -> String{
         
-        let calendar = NSCalendar.current
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        calendar.timeZone = TimeZone(secondsFromGMT: 25200)!
 
         let day = calendar.component(.day, from: self)
         let month = calendar.component(.month, from: self)
@@ -246,7 +252,8 @@ extension Date {
     
     func toTimeText() -> String{
         
-        let calendar = NSCalendar.current
+        let calendar = NSCalendar(calendarIdentifier: .gregorian)!
+        calendar.timeZone = TimeZone(secondsFromGMT: 25200)!
         let hour = calendar.component(.hour, from: self)
         let minuite = calendar.component(.minute, from: self)
         

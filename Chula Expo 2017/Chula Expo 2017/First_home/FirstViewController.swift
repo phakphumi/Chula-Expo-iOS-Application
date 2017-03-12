@@ -26,7 +26,7 @@ class FirstViewController: MainCoreDataTableViewController{
     var titles: [String] = []
     var desc: [String] = []
     
-    let nowDate = Date()
+    var nowDate = Date()
     let slideshowPageViewController = SlideshowPageViewController()
     
     @IBOutlet var homeTableView: UITableView!
@@ -40,7 +40,7 @@ class FirstViewController: MainCoreDataTableViewController{
                                contentId: nil,
                                customAttributes: nil)
         
-        StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
+//        StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
         
         let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
@@ -51,14 +51,15 @@ class FirstViewController: MainCoreDataTableViewController{
             print(error)
             
         }
+        
+        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
         APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         
-        print("\(Date().toThaiText())")
+        print("now time is == \(nowDate.toThaiText())")
         
         requestForFeedEvent()
         
-        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
@@ -94,7 +95,7 @@ class FirstViewController: MainCoreDataTableViewController{
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
-        
+        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)        
         let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
         let fetchStageData = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")

@@ -275,15 +275,25 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidLayoutSubviews() {
-       
-        super.viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
         profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
         profileImg.layer.borderWidth = 3
-        profileImg.layer.cornerRadius = profileImg.frame.height / 2
+        profileImg.layer.cornerRadius = profileImg.bounds.height / 2
         profileImg.layer.masksToBounds = true
         
     }
+    
+//    override func viewDidLayoutSubviews() {
+//       
+//        super.viewDidLayoutSubviews()
+//        profileImg.layer.borderColor = UIColor(red: 0.1725, green: 0.1922, blue: 0.2471, alpha: 1).cgColor
+//        profileImg.layer.borderWidth = 3
+//        profileImg.layer.cornerRadius = profileImg.bounds.height / 2
+//        profileImg.layer.masksToBounds = true
+//        
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

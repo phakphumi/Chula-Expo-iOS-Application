@@ -231,20 +231,6 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
     
-    @IBAction func aboutApp(_ sender: Any) {
-        
-        let aboutApp = storyboard?.instantiateViewController(withIdentifier: "aboutApp") as? AboutViewController
-        
-        tabBarController?.present(aboutApp!, animated: true, completion: nil)
-        
-        Answers.logContentView(withName: "About Application",
-                               contentType: nil,
-                               contentId: nil,
-                               customAttributes: nil)
-        
-    }
-    
-    
     @IBAction func equest(_ sender: UIButton) {
         
         let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")

@@ -189,7 +189,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.95283776521682739" green="0.95300072431564331" blue="0.95282751321792603" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="onn-Vg-4kL" firstAttribute="width" secondItem="Wz9-ga-wtA" secondAttribute="width" multiplier="0.66667" id="6Ye-5q-tdQ"/>
                             <constraint firstItem="8Sl-O6-Dih" firstAttribute="centerX" secondItem="Wz9-ga-wtA" secondAttribute="centerX" id="9Hf-SC-NFD"/>

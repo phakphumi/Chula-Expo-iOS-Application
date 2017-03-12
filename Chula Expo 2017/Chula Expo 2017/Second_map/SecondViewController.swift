@@ -197,6 +197,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "MARKET-PLACE": #imageLiteral(resourceName: "SHOP"),
                             "RALLY": #imageLiteral(resourceName: "RALLY"),
                             "RALLY-PLACE": #imageLiteral(resourceName: "RALLY"),
+                            "PNC": #imageLiteral(resourceName: "FAC-PNC"),
+                            "PNC-PLACE": #imageLiteral(resourceName: "PLACE-PNC") ,
+                            "TRCN": #imageLiteral(resourceName: "FAC-TRCN"),
+                            "TRCN-PLACE": #imageLiteral(resourceName: "PLACE-TRCN"),
+                            "RCU": #imageLiteral(resourceName: "FAC-RCU"),
+                            "RCU-PLACE": #imageLiteral(resourceName: "PLACE-RCU"),
                             "TOILET": #imageLiteral(resourceName: "TOILET"),
                             "CANTEEN": #imageLiteral(resourceName: "FOOD"),
                             "CARPARK": #imageLiteral(resourceName: "PARK"),
@@ -568,12 +574,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
         let rightButton = UIButton(type: UIButtonType.detailDisclosure)
         annotationView?.rightCalloutAccessoryView = rightButton
-            
-//        } else {
-//            
-//            annotationView?.annotation = annotation
-//            
-//        }
         
         return annotationView
         
@@ -594,13 +594,18 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 
             }
             
-            if selectedAnnotation?.subtitle == "ZONE" {
+            if selectedAnnotation?.subtitle == "ZONE" || selectedAnnotation?.subtitle == "RALLY" {
                 
                 map.removeAnnotations(zoneAnnotations)
+                map.removeAnnotations(rallyAnnotations)
                 
                 addPlaceAnnotation(forZone: (selectedAnnotation?.title)!)
                 
-                setCurrentRegion(lat: zoneLatitude[(selectedAnnotation?.title)!]!, lon: zoneLongitude[(selectedAnnotation?.title)!]!, latDelta: 0.003, lonDelta: 0.003)
+                if selectedAnnotation?.subtitle != "RALLY" {
+                    
+                    setCurrentRegion(lat: zoneLatitude[(selectedAnnotation?.title)!]!, lon: zoneLongitude[(selectedAnnotation?.title)!]!, latDelta: 0.003, lonDelta: 0.003)
+                    
+                }
                 
                 if isNavigatorShowing {
                     
@@ -848,6 +853,12 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         if isNavigatorShowing {
             
+            if isRallyShowing {
+                
+                map.addAnnotations(rallyAnnotations)
+                
+            }
+            
             map.addAnnotations(zoneAnnotations)
             
             map.removeAnnotations(placeAnnotations)
@@ -976,6 +987,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     func addZoneAnnotation() {
         
         zoneAnnotations.removeAll()
+        rallyAnnotations.removeAll()
         
         for (key, _) in zoneEn {
             
@@ -984,10 +996,20 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             let zoneAnnotation = MKPointAnnotation()
             zoneAnnotation.coordinate = zoneCoordinate
             zoneAnnotation.title = key
-            zoneAnnotation.subtitle = "ZONE"
             
-            zoneAnnotations.append(zoneAnnotation)
-            map.addAnnotation(zoneAnnotation)
+            if key == "RALLY" {
+                
+                zoneAnnotation.subtitle = "RALLY"
+                rallyAnnotations.append(zoneAnnotation)
+                
+                
+            } else {
+                
+                zoneAnnotation.subtitle = "ZONE"
+                zoneAnnotations.append(zoneAnnotation)
+                map.addAnnotation(zoneAnnotation)
+                
+            }
             
         }
         
@@ -1019,7 +1041,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         registrationAnnotations.removeAll()
         informationAnnotations.removeAll()
         toiletAnnotations.removeAll()
-        rallyAnnotations.removeAll()
         carParkAnnotations.removeAll()
         prayerAnnotations.removeAll()
         emergencyAnnotations.removeAll()
@@ -1503,7 +1524,6 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 } else {
                     
                     isToiletShowing = true
-                    
                     
                     turnIconOn(forCell: idtv, annotations: toiletAnnotations, bgColor: UIColor(red: 0.37254902, green: 0.650980392, blue: 0.890196078, alpha: 1).cgColor)
                     

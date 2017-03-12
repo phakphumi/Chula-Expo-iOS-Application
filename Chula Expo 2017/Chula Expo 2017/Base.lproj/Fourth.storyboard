@@ -363,7 +363,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="กิจกรรมที่สนใจ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYR-8u-1AU">
-                                                                <rect key="frame" x="46.5" y="66.5" width="73.5" height="19"/>
+                                                                <rect key="frame" x="47" y="66.5" width="73.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -553,7 +553,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ จุฬาฯ Expo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Yp-oYy">
-                                                                <rect key="frame" x="33.5" y="66.5" width="98.5" height="19"/>
+                                                                <rect key="frame" x="34" y="66.5" width="98.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -594,7 +594,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับแอพพลิเคชั่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdK-1d-3uK">
-                                                                <rect key="frame" x="31" y="66.5" width="103" height="19"/>
+                                                                <rect key="frame" x="31.5" y="66.5" width="103" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -635,7 +635,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ออกจากระบบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPo-l5-FaB">
-                                                                <rect key="frame" x="49.5" y="67" width="67" height="19"/>
+                                                                <rect key="frame" x="50" y="67" width="67" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -729,51 +729,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutBG" translatesAutoresizingMaskIntoConstraints="NO" id="gBF-hs-uFR">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
-                                <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
-                            </imageView>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLK-RF-mkK">
                                 <rect key="frame" x="20" y="0.0" width="374" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-11-Qw9" userLabel="contentview">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="618.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="663.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="hJg-ZU-r2i">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-login" translatesAutoresizingMaskIntoConstraints="NO" id="hJg-ZU-r2i">
                                                 <rect key="frame" x="127" y="60" width="120" height="135"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="135" id="ZXR-zm-PoN"/>
                                                     <constraint firstAttribute="width" constant="120" id="zs2-F9-zm4"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-nX-BzN">
-                                                <rect key="frame" x="10" y="230" width="354" height="227.5"/>
-                                                <string key="text">งานที่จัดขึ้นเนื่องในวาระจุฬาลงกรณ์มหาวิทยาลัยครบรอบ 100 ปี โดยภายในงานจะเป็นการนำเสนอ “นวัตกรรม” ของจุฬาลงกรณ์มหาวิทยาลัยที่ผลิตขึ้นเพื่อพัฒนาสังคมไทยอย่างยั่งยืน จึงเป็นที่มาของชื่องานที่ว่า “จุฬาฯ 100 ปี นวัตกรรม คิดทำเพื่อสังคม” หรือ “CU@100 – Toward greater innovation for society” ตามแนวคิดหลักของงานซึ่งก็คือ Innovation (นวัตกรรม), Social responsibility (การรับผิดชอบต่อสังคม) และ Sustainability (ความยั่งยืน)</string>
-                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="16"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-nX-BzN">
+                                                <rect key="frame" x="10" y="230" width="354" height="76"/>
+                                                <string key="text">“จุฬาฯ 100 ปี นวัตกรรม 
+คิดทำเพื่อสังคม”
+15-19 มีนาคม 2560 จุฬาลงกรณ์มหาวิทยาลัย</string>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="16"/>
+                                                <color key="textColor" red="0.17711634933948517" green="0.19526292383670807" blue="0.24324698746204376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนับสนุนโดย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-pa-hQL">
-                                                <rect key="frame" x="143.5" y="487.5" width="87.5" height="27"/>
-                                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zb6-4N-2LZ">
+                                                <rect key="frame" x="10" y="336" width="354" height="287.5"/>
+                                                <mutableString key="text">งานที่จัดขึ้นเนื่องในวาระจุฬาลงกรณ์มหาวิทยาลัย
+ครบรอบ 100 ปี โดยภายในงานจะเป็นการนำเสนอ 
+“นวัตกรรม” ของจุฬาลงกรณ์มหาวิทยาลัยที่ผลิตขึ้น
+เพื่อพัฒนาสังคมไทยอย่างยั่งยืน 
+
+จึงเป็นที่มาของชื่องานที่ว่า 
+“จุฬาฯ 100 ปี นวัตกรรม คิดทำเพื่อสังคม” 
+หรือ 
+“CU@100 – Toward greater innovation for society” 
+ตามแนวคิดหลักของงานซึ่งก็คือ 
+Innovation (นวัตกรรม), 
+Social responsibility (การรับผิดชอบต่อสังคม) 
+และ Sustainability (ความยั่งยืน)</mutableString>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
+                                                <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sponsors" translatesAutoresizingMaskIntoConstraints="NO" id="TY2-GG-ixD">
-                                                <rect key="frame" x="-12.5" y="534.5" width="400" height="54"/>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="dEl-pa-hQL" firstAttribute="top" secondItem="Zq4-nX-BzN" secondAttribute="bottom" constant="30" id="0nW-4t-MYC"/>
-                                            <constraint firstItem="dEl-pa-hQL" firstAttribute="centerX" secondItem="VVN-11-Qw9" secondAttribute="centerX" id="1tl-L9-cYX"/>
-                                            <constraint firstAttribute="bottom" secondItem="TY2-GG-ixD" secondAttribute="bottom" constant="30" id="2qb-MY-7Ff"/>
                                             <constraint firstItem="Zq4-nX-BzN" firstAttribute="top" secondItem="hJg-ZU-r2i" secondAttribute="bottom" constant="35" id="9kj-qk-OFw"/>
                                             <constraint firstItem="Zq4-nX-BzN" firstAttribute="leading" secondItem="VVN-11-Qw9" secondAttribute="leading" constant="10" id="DnS-I2-BBT"/>
+                                            <constraint firstAttribute="trailing" secondItem="zb6-4N-2LZ" secondAttribute="trailing" constant="10" id="ExE-jm-Dv8"/>
+                                            <constraint firstItem="zb6-4N-2LZ" firstAttribute="leading" secondItem="VVN-11-Qw9" secondAttribute="leading" constant="10" id="GzH-xh-hTd"/>
                                             <constraint firstItem="hJg-ZU-r2i" firstAttribute="centerX" secondItem="VVN-11-Qw9" secondAttribute="centerX" id="IYO-5e-Xgn"/>
-                                            <constraint firstItem="TY2-GG-ixD" firstAttribute="centerX" secondItem="VVN-11-Qw9" secondAttribute="centerX" id="LqZ-lq-xXX"/>
+                                            <constraint firstItem="zb6-4N-2LZ" firstAttribute="top" secondItem="Zq4-nX-BzN" secondAttribute="bottom" constant="30" id="WKX-Xj-4mQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="zb6-4N-2LZ" secondAttribute="bottom" constant="40" id="WUN-UO-rjs"/>
                                             <constraint firstAttribute="trailing" secondItem="Zq4-nX-BzN" secondAttribute="trailing" constant="10" id="g0P-XY-aDl"/>
-                                            <constraint firstItem="TY2-GG-ixD" firstAttribute="top" secondItem="dEl-pa-hQL" secondAttribute="bottom" constant="20" id="pGy-nc-z3b"/>
                                             <constraint firstItem="hJg-ZU-r2i" firstAttribute="top" secondItem="VVN-11-Qw9" secondAttribute="top" constant="60" id="yuR-CA-sF5"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
@@ -800,17 +807,13 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dBy-Bz-123" firstAttribute="top" secondItem="gBF-hs-uFR" secondAttribute="bottom" id="3wH-Ir-966"/>
                             <constraint firstItem="hLK-RF-mkK" firstAttribute="leading" secondItem="0yR-qh-ckV" secondAttribute="leadingMargin" id="B9T-Q4-Zab"/>
                             <constraint firstAttribute="trailing" secondItem="Wil-Rq-c4z" secondAttribute="trailing" constant="20" id="FeM-oe-fqr"/>
                             <constraint firstItem="Wil-Rq-c4z" firstAttribute="top" secondItem="Rob-3r-HWO" secondAttribute="bottom" constant="30" id="a3J-vY-ePQ"/>
                             <constraint firstItem="hLK-RF-mkK" firstAttribute="top" secondItem="Rob-3r-HWO" secondAttribute="bottom" id="cHt-ft-aZt"/>
-                            <constraint firstItem="gBF-hs-uFR" firstAttribute="top" secondItem="Rob-3r-HWO" secondAttribute="bottom" id="fa1-vr-SZv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hLK-RF-mkK" secondAttribute="trailing" id="fyH-fw-3vd"/>
-                            <constraint firstItem="gBF-hs-uFR" firstAttribute="leading" secondItem="0yR-qh-ckV" secondAttribute="leading" id="oQb-sF-Cyi"/>
-                            <constraint firstAttribute="trailing" secondItem="gBF-hs-uFR" secondAttribute="trailing" id="of1-rM-bsE"/>
                             <constraint firstItem="dBy-Bz-123" firstAttribute="top" secondItem="hLK-RF-mkK" secondAttribute="bottom" id="uAz-IT-Kz6"/>
                         </constraints>
                     </view>
@@ -999,7 +1002,7 @@ Tananan Tangthanachaikul (CP40) </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนับสนุนโดย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-K6-sxI">
-                                                <rect key="frame" x="144" y="971" width="87.5" height="27"/>
+                                                <rect key="frame" x="143.5" y="971" width="87.5" height="27"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1095,13 +1098,13 @@ Tananan Tangthanachaikul (CP40) </string>
     <resources>
         <image name="about-ico" width="82" height="107"/>
         <image name="aboutBG" width="375" height="667"/>
-        <image name="chula_expo_logo_white" width="231" height="300"/>
         <image name="closeIcon" width="36" height="36"/>
         <image name="credit-ico" width="106" height="106"/>
         <image name="defaultImage" width="280" height="210"/>
         <image name="faq-ico" width="102" height="90"/>
         <image name="interest-ico" width="88" height="88"/>
         <image name="lang-ico" width="101" height="101"/>
+        <image name="logo-login" width="147" height="192"/>
         <image name="logo-sponsors" width="400" height="54"/>
         <image name="logo_LabISEL" width="2117" height="2177"/>
         <image name="logo_clique" width="2362" height="2362"/>

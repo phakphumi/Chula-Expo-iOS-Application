@@ -18,14 +18,8 @@ class APIController {
             
             let header: HTTPHeaders = ["Authorization": "JWT \(userData.token!)"]
             
-//            let parameters: [String: Any] = [
-//                "latitude": 0,
-//                "longitude": 0
-//            ]
-            
             Alamofire.request("https://staff.chulaexpo.com/api/me/reserved_rounds/\(id)", method: .delete, headers: header).responseJSON(completionHandler: { (response) in
-                print(id)
-                print(response)
+                
                 if response.result.isSuccess {
                     
                     if let JSON = response.result.value as? NSDictionary{
@@ -254,14 +248,16 @@ class APIController {
                             
                             APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                 
+                                let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                
                                 context.performAndWait {
                                     
                                     ActivityData.addEventData(
                                         
                                         activityId: result["_id"] as? String ?? "",
-                                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                        shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                        name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                         room: location["room"] as? String ?? "",
                                         place: location["place"] as? String ?? "",
                                         latitude: location["latitude"] as? Double ?? 0.0,
@@ -403,14 +399,16 @@ class APIController {
                             
                             APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
                                 
+                                let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                
                                 context.performAndWait {
                                     
                                     ActivityData.addEventData(
                                         
                                         activityId: result["_id"] as? String ?? "",
-                                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                        shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                        name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                         room: location["room"] as? String ?? "",
                                         place: location["place"] as? String ?? "",
                                         latitude: location["latitude"] as? Double ?? 0.0,
@@ -546,14 +544,16 @@ class APIController {
                             
                             APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
                                 
+                                let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                
                                 context.performAndWait {
                                     
                                     ActivityData.addEventData(
                                         
                                         activityId: result["_id"] as? String ?? "",
-                                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                        shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                        name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                         room: location["room"] as? String ?? "",
                                         place: location["place"] as? String ?? "",
                                         latitude: location["latitude"] as? Double ?? 0.0,
@@ -692,14 +692,16 @@ class APIController {
                                 
                                 APIController.getRoundsData(activityID: result["_id"] as! String, completion: { (rounds) in
                                     
+                                    let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                    
                                     context.performAndWait {
                                         
                                         ActivityData.addEventData(
                                             
                                             activityId: result["_id"] as? String ?? "",
-                                            name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                            desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                            shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                            name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                            desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                            shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                             room: location["room"] as? String ?? "",
                                             place: location["place"] as? String ?? "",
                                             latitude: location["latitude"] as? Double ?? 0.0,
@@ -856,15 +858,17 @@ class APIController {
                         let tags = result["tags"] as! [String]
                         
                         APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
-                          
+                            
+                            let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                            
                             context.performAndWait {
                                 
                                 ActivityData.addEventData(
                                     
                                     activityId: result["_id"] as? String ?? "",
-                                    name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                    desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                    shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                    name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                    desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                    shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                     room: location["room"] as? String ?? "",
                                     place: location["place"] as? String ?? "",
                                     latitude: location["latitude"] as? Double ?? 0.0,
@@ -997,14 +1001,16 @@ class APIController {
                     
                     APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                         
+                        let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                        
                         context.performAndWait {
                             
                             ActivityData.addEventData(
                                 
                                 activityId: result["_id"] as? String ?? "",
-                                name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                 room: location["room"] as? String ?? "",
                                 place: location["place"] as? String ?? "",
                                 latitude: location["latitude"] as? Double ?? 0.0,
@@ -1122,13 +1128,15 @@ class APIController {
                             
                             APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                 
+                                let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                
                                 context.performAndWait {
                                     
                                     ActivityData.addEventData(
                                         activityId: result["_id"] as? String ?? "",
-                                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                        shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                        name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                         room: location["room"] as? String ?? "",
                                         place: location["place"] as? String ?? "",
                                         latitude: location["latitude"] as? Double ?? 0.0,
@@ -1268,13 +1276,15 @@ class APIController {
                             
                             APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                 
+                                let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                
                                 context.performAndWait {
                                     
                                     ActivityData.addEventData(
                                         activityId: result["_id"] as? String ?? "",
-                                        name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                        desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                        shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                        name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                        shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                         room: location["room"] as? String ?? "",
                                         place: location["place"] as? String ?? "",
                                         latitude: location["latitude"] as? Double ?? 0.0,
@@ -1417,13 +1427,15 @@ class APIController {
                                     
                                     APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
                                         
+                                        let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                                        
                                         context.performAndWait {
                                             
                                             ActivityData.addEventData(
                                                 activityId: result["_id"] as? String ?? "",
-                                                name: (result["name"] as? NSDictionary)?["th"] as? String ?? "",
-                                                desc: (result["description"] as? NSDictionary)?["th"] as? String ?? "",
-                                                shortDesc: (result["shortDescription"] as? NSDictionary)?["th"] as? String ?? "",
+                                                name: (result["name"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                                desc: (result["description"] as? NSDictionary)?[currentLanguage] as? String ?? "",
+                                                shortDesc: (result["shortDescription"] as? NSDictionary)?[currentLanguage] as? String ?? "",
                                                 room: location["room"] as? String ?? "",
                                                 place: location["place"] as? String ?? "",
                                                 latitude: location["latitude"] as? Double ?? 0.0,
@@ -1854,6 +1866,8 @@ class APIController {
                 let JSON = response.result.value as! NSDictionary
                 let results = JSON["results"] as! NSArray
                 
+                let currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: context) ?? "th"
+                
                 for result in results {
                     
                     let result = result as! NSDictionary
@@ -1864,7 +1878,7 @@ class APIController {
                         
                         RoomData.addData(id: result["_id"] as! String,
                                          floor: result["floor"] as! String,
-                                         name: name["th"] as! String,
+                                         name: name[currentLanguage] as! String,
                                          placeID: result["place"] as! String,
                                          inManageobjectcontext: context,
                                          completion: { (roomData) in

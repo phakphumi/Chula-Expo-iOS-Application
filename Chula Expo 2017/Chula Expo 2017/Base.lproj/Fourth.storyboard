@@ -466,7 +466,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWb-CZ-da0">
                                                                 <rect key="frame" x="0.0" y="0.0" width="165" height="96.5"/>
                                                                 <connections>
-                                                                    <action selector="editFac:" destination="AOk-xI-MMv" eventType="touchUpInside" id="Y5b-Rd-Oeg"/>
+                                                                    <action selector="changeLanguage:" destination="AOk-xI-MMv" eventType="touchUpInside" id="QVz-If-0lb"/>
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lang-ico" translatesAutoresizingMaskIntoConstraints="NO" id="scs-2p-fYf">
@@ -1116,6 +1116,6 @@ Tananan Tangthanachaikul (CP40) </string>
         <image name="support" width="325" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EKw-B2-RkN"/>
+        <segue reference="AGZ-aj-bwR"/>
     </inferredMetricsTieBreakers>
 </document>

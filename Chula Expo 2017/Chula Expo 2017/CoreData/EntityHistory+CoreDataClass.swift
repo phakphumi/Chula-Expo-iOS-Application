@@ -102,5 +102,26 @@ public class EntityHistory: NSManagedObject {
         return nil
         
     }
-
+    
+    class func getLanguage(inManageobjectcontext context: NSManagedObjectContext) -> String? {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "EntityHistory")
+        request.predicate = NSPredicate(format: "name CONTAINS[c] 'LANGUAGE'")
+        
+        if let result = (try? context.fetch(request))?.first as? EntityHistory {
+            
+            if result.name == "LANGUAGE-EN" {
+                
+                return "en"
+                
+            }
+            
+            return "th"
+            
+        }
+        
+        return nil
+        
+    }
+    
 }

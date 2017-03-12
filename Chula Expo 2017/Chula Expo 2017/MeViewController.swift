@@ -107,16 +107,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
         editTag(sender)
         
-    }
-    
-    @IBAction func aboutApp(_ sender: Any) {
-        
-        let aboutApp = storyboard?.instantiateViewController(withIdentifier: "aboutApp") as? AboutViewController
-        
-        tabBarController?.present(aboutApp!, animated: true, completion: nil)
-        
-    }
-    
+    }    
     
     @IBAction func equest(_ sender: UIButton) {
         

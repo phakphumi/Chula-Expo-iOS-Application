@@ -34,7 +34,7 @@ class StageCell: UITableViewCell {
             if let stageNo = stage{
                 if stageNo == 1{
                     stageNoLabel.text = "STAGE 1"
-                    stageNameLabel.text = "เวทีหลัก"
+                    stageNameLabel.text = "เวทีกลาง"
                 }
                 if stageNo == 2{
                     stageNoLabel.text = "STAGE 2"

@@ -11,7 +11,7 @@ import Alamofire
 import Answers
 import CoreData
 
-class UsernameLoginViewController: UIViewController {
+class UsernameLoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -163,6 +163,16 @@ class UsernameLoginViewController: UIViewController {
     @IBAction func dismiss(_ sender: UIButton) {
      
         self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+                
+        // Not found, so remove keyboard.
+        textField.resignFirstResponder()
+        
+        
+        return false
         
     }
 

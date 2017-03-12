@@ -1431,7 +1431,7 @@
                                         <rect key="frame" x="40" y="3.5" width="213" height="27"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
                                         <connections>
                                             <outlet property="delegate" destination="kMR-E0-3Yq" id="xRU-zu-oRP"/>
                                         </connections>
@@ -1464,7 +1464,7 @@
                                         <rect key="frame" x="40" y="3.5" width="213" height="27"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="kMR-E0-3Yq" id="igU-hQ-rUD"/>
                                         </connections>

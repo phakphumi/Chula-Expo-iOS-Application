@@ -155,7 +155,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "LAW-PLACE": #imageLiteral(resourceName: "PLACE-LAW"),
                             "COMMARTS": #imageLiteral(resourceName: "PIN-COMMARTS"),
                             "COMMARTS-PLACE": #imageLiteral(resourceName: "PLACE-COMMARTS"),
-                            "NUR": #imageLiteral(resourceName: "PIN-NUR"),
+                            "FON": #imageLiteral(resourceName: "PIN-NUR"),
                             "NUR-PLACE": #imageLiteral(resourceName: "PLACE-NUR"),
                             "SPSC": #imageLiteral(resourceName: "PIN-SPSC"),
                             "SPSC-PLACE": #imageLiteral(resourceName: "PLACE-SPSC"),
@@ -556,7 +556,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         annotationView?.image = pinImage
         annotationView?.contentMode = .scaleAspectFit
         
-        if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" {
+        if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" || annotation.title!! == "FAVORITEDANDRESERVED" {
             
             annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 25, height: 32.75)
             

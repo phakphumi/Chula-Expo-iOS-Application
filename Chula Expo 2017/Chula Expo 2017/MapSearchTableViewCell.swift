@@ -11,8 +11,15 @@ import MapKit
 
 class MapSearchTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var map: MKMapView!
-
-    @IBOutlet weak var button: UIButton!
+    
+    @IBOutlet var locationLabel: UILabel!
+    
+    var locationDesc: String?{
+        didSet{
+            locationLabel.text = locationDesc
+        }
+    }
+    
     /*override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,6 +37,7 @@ class MapSearchTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapV
         let lonDelta: CLLocationDegrees = 0.02
         let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+     
         
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
         map.setRegion(region, animated: true)
@@ -46,6 +54,7 @@ class MapSearchTableViewCell: UITableViewCell, CLLocationManagerDelegate, MKMapV
         // Initialization code
     }*/
 
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Chula Expo 2017/LocationForsim.gpx">
+   </FileRef>
+   <FileRef
       location = "group:Chula Expo 2017.xcodeproj">
    </FileRef>
    <FileRef

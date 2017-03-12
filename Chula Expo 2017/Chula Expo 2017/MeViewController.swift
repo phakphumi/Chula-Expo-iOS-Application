@@ -105,7 +105,7 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     
     @IBAction func changeLanguage(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Change Language", message: "The application content need to be reloaded when you change the language. Are you sure to continue?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Change Activity's Language", message: "The application content need to be reloaded when you change the language. Are you sure to continue?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (alert) in
             
@@ -192,15 +192,17 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 
                 if currentLanguage == "th" {
                     
+                    Answers.logCustomEvent(withName: "Change Language", customAttributes: ["type": "TH"])
                     currentLanguage = (EntityHistory.addHistory(forEntityName: "LANGUAGE-EN", inManageobjectcontext: self.managedObjectContext!)?.name)!
                     
                 } else {
                     
+                    Answers.logCustomEvent(withName: "Change Language", customAttributes: ["type": "EN"])
                     currentLanguage = (EntityHistory.addHistory(forEntityName: "LANGUAGE-TH", inManageobjectcontext: self.managedObjectContext!)?.name)!
                     
                 }
                 
-                let changeAlert = UIAlertController(title: "Current Language", message: "Your current language is \(currentLanguage)", preferredStyle: .alert)
+                let changeAlert = UIAlertController(title: "Current Language", message: "Your current activity's content language is \(currentLanguage)", preferredStyle: .alert)
                 changeAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
                     
                     APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
@@ -234,6 +236,11 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         let aboutApp = storyboard?.instantiateViewController(withIdentifier: "aboutApp") as? AboutViewController
         
         tabBarController?.present(aboutApp!, animated: true, completion: nil)
+        
+        Answers.logContentView(withName: "About Application",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
         
     }
     

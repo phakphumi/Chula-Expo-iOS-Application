@@ -211,8 +211,17 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "INFORMATION": #imageLiteral(resourceName: "INFO"),
                             "REGISTRATION": #imageLiteral(resourceName: "REGIS"),
                             "BUSSTOP": #imageLiteral(resourceName: "BUS"),
-                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "FAV") ,
-//                            "INFO": #imageLiteral(resourceName: "pin_information"),
+                            "FAVORITEDANDRESERVED": #imageLiteral(resourceName: "FAV"),
+                            "INFO": #imageLiteral(resourceName: "INFO"),
+                            "INFO-PLACE": #imageLiteral(resourceName: "INFO"),
+                            "SPONSOR1": #imageLiteral(resourceName: "CTY-SPONSOR"),
+                            "SPONSOR1-PLACE": #imageLiteral(resourceName: "CTY-SPONSOR"),
+                            "SPONSOR2": #imageLiteral(resourceName: "CTY-SPONSOR"),
+                            "SPONSOR2-PLACE": #imageLiteral(resourceName: "CTY-SPONSOR"),
+                            "LEARNNET": #imageLiteral(resourceName: "LEARNNET"),
+                            "LEARNNET-PLACE": #imageLiteral(resourceName: "LEARNNET"),
+                            "ACTIVITY": #imageLiteral(resourceName: "EVENT-IOS")
+                            
     
     ]
     
@@ -227,6 +236,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var carParkAnnotations = [MKPointAnnotation]()
     var prayerAnnotations = [MKPointAnnotation]()
     var emergencyAnnotations = [MKPointAnnotation]()
+    var busStopAnnotations = [MKPointAnnotation]()
     
 //    var favoritedActivity = [String: ActivityData]()
 //    var reservedActivity = [String: ActivityData]()
@@ -271,6 +281,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var isCarParkShowing = false
     var isEmergencyShowing = false
     var isPrayerShowing = false
+    var isBusStopShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -562,7 +573,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         annotationView?.image = pinImage
         annotationView?.contentMode = .scaleAspectFit
         
-        if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" || annotation.title!! == "FAVORITEDANDRESERVED" {
+        if annotation.title!! == "TOILET" || annotation.title!! == "CANTEEN" || annotation.title!! == "CARPARK" || annotation.title!! == "INFORMATION" || annotation.title!! == "REGISTRATION" || annotation.title!! == "EMERGENCY" || annotation.title!! == "PRAYER" || annotation.title!! == "MARKET" || annotation.title!! == "BUSSTOP" || annotation.title!! == "RALLY" || annotation.title!! == "FAVORITEDANDRESERVED" || annotation.title!! == "INFO" {
             
             annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 25, height: 32.75)
             
@@ -899,90 +910,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
 
         tabBarController?.performSegue(withIdentifier: "toEventDetail", sender: self)
         
-//        self.performSegue(withIdentifier: "toEventDetail", sender: self)
-        
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "toEventDetail" {
-//            
-//            if let destination = segue.destination as? EventDetailTableViewController {
-//                
-////                destination.activityId = showingMyActivity.activityId
-////                destination.bannerUrl = showingMyActivity.bannerUrl
-////                destination.topic = showingMyActivity.name
-////                destination.locationDesc = ""
-////                destination.toRounds = showingMyActivity.toRound
-////                destination.desc = showingMyActivity.desc
-////                destination.room = showingMyActivity.room
-////                destination.place = showingMyActivity.place
-////                destination.zoneId = showingMyActivity.faculty
-////                destination.latitude = showingMyActivity.latitude
-////                destination.longitude = showingMyActivity.longitude
-////                destination.pdf = showingMyActivity.pdf
-////                destination.toImages = showingMyActivity.toImages
-////                destination.toTags = showingMyActivity.toTags
-//                destination.managedObjectContext = self.managedObjectContext
-//                
-//            }
-//            
-//        }
-//    
-//        
-//    }
-    
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        
-//        // Don't want to show a custom image if the annotation is the user's location.
-//        guard !(annotation is MKUserLocation) else {
-//            
-//            return nil
-//            
-//        }
-//
-//        // Better to make this class property
-//        let annotationIdentifier = "AnnotationIdentifier"
-//        
-//        var annotationView: MKAnnotationView?
-//        
-//        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
-//            annotationView = dequeuedAnnotationView
-//            annotationView?.annotation = annotation
-//        }
-//        else {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-//            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        }
-//        
-//        if let annotationView = annotationView {
-//            // Configure your annotation view here
-//            annotationView.canShowCallout = true
-//            
-//            if var pinImage = annotationIcon[annotation.subtitle!!] {
-//                
-//                if pinImage == nil {
-//                    
-//                    pinImage = #imageLiteral(resourceName: "LAN-PIN")
-//                    
-//                }
-//                let size = CGSize(width: 33.67, height: 48.33)
-//                UIGraphicsBeginImageContext(size)
-//                pinImage?.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//                let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
-//                UIGraphicsEndImageContext()
-//            
-//                annotationView.image = resizedImage
-//                
-//            }
-//            
-//        }
-//        
-//        return annotationView
-//        
-//        
-//        
-//    }
     
     func addZoneAnnotation() {
         
@@ -1044,6 +972,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         carParkAnnotations.removeAll()
         prayerAnnotations.removeAll()
         emergencyAnnotations.removeAll()
+        busStopAnnotations.removeAll()
         
         for (key, _) in facilityEn {
             
@@ -1088,6 +1017,10 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             case "EMERGENCY":
                 
                 emergencyAnnotations.append(facilityAnnotation)
+                
+            case "BUSSTOP":
+                
+                busStopAnnotations.append(facilityAnnotation)
                 
             default: break
                 
@@ -1211,7 +1144,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return 11
         
     }
     
@@ -1413,6 +1346,25 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 idtv.descTh.text = "ห้องละหมาด"
                 idtv.descEn.text = "Prayer"
                 
+            } else if indexPath.row == 10 {
+                
+                if isBusStopShowing {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor(red:1.00, green:0.55, blue:0.71, alpha:1.0).cgColor
+                    idtv.iconView.layer.borderWidth = 3
+                    
+                } else {
+                    
+                    idtv.iconView.layer.backgroundColor = UIColor.lightGray.cgColor
+                    idtv.iconView.layer.borderWidth = 0
+                    
+                }
+                
+                idtv.iconView.layer.borderColor = UIColor(red:1.00, green:0.40, blue:0.63, alpha:1.0).cgColor
+                idtv.iconImage.image = #imageLiteral(resourceName: "front-bus")
+                idtv.descTh.text = "ป้ายรถประจำทาง"
+                idtv.descEn.text = "Bus Stop"
+                
             }
             
         }
@@ -1591,6 +1543,22 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                     isPrayerShowing = true
                     
                     turnIconOn(forCell: idtv, annotations: prayerAnnotations, bgColor: UIColor(red: 0.57254902, green: 0.450980392, blue: 0.31372549, alpha: 1).cgColor)
+                    
+                }
+                
+            } else if indexPath.row == 10 {
+                
+                if isBusStopShowing {
+                    
+                    isBusStopShowing = false
+                    
+                    turnIconOff(forCell: idtv, annotations: busStopAnnotations)
+                    
+                } else {
+                    
+                    isBusStopShowing = true
+                    
+                    turnIconOn(forCell: idtv, annotations: busStopAnnotations, bgColor: UIColor(red:1.00, green:0.55, blue:0.71, alpha:1.0).cgColor)
                     
                 }
                 

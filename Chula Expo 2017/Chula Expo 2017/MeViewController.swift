@@ -103,9 +103,129 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
         
     }
     
-    @IBAction func editFac(_ sender: UIButton) {
+    @IBAction func changeLanguage(_ sender: UIButton) {
         
-        editTag(sender)
+        let alert = UIAlertController(title: "Change Language", message: "The application content need to be reloaded when you change the language. Are you sure to continue?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (alert) in
+            
+            if var currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: self.managedObjectContext!) {
+                
+                self.managedObjectContext?.performAndWait {
+                    
+                    let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+                    let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
+                    
+                    let fetchEntityHistory = NSFetchRequest<NSFetchRequestResult>(entityName: "EntityHistory")
+                    let requestDeleteEntitiyHistory = NSBatchDeleteRequest(fetchRequest: fetchEntityHistory)
+                    
+                    let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
+                    let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
+                    
+                    let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+                    let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
+                    
+                    let fetchHighlighActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+                    let requestDeleteHighlightActivity = NSBatchDeleteRequest(fetchRequest: fetchHighlighActivity)
+                    
+                    let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+                    let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+                    
+                    let fetchNearbyActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "NearbyActivity")
+                    let requestDeleteNearbyActivity = NSBatchDeleteRequest(fetchRequest: fetchNearbyActivity)
+                    
+                    let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+                    let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
+                    
+                    let fetchRecommendActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+                    let requestDeleteRecommendActivity = NSBatchDeleteRequest(fetchRequest: fetchRecommendActivity)
+                    
+                    let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+                    let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
+                    
+                    let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
+                    let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
+                    
+                    let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
+                    let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
+                    
+                    let fetchStageActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+                    let requestDeleteStageActivity = NSBatchDeleteRequest(fetchRequest: fetchStageActivity)
+                    
+                    let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+                    let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+                    
+                    let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+                    let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+                    
+                    let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+                    let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
+                    
+                    
+                    do {
+                        
+                        try self.managedObjectContext?.execute(requestDeleteActivityData)
+                        try self.managedObjectContext?.execute(requestDeleteEntitiyHistory)
+                        try self.managedObjectContext?.execute(requestDeleteFacilityData)
+                        try self.managedObjectContext?.execute(requestDeleteFavoritedActivity)
+                        try self.managedObjectContext?.execute(requestDeleteHighlightActivity)
+                        try self.managedObjectContext?.execute(requestDeleteImageData)
+                        try self.managedObjectContext?.execute(requestDeleteNearbyActivity)
+                        try self.managedObjectContext?.execute(requestDeletePlaceData)
+                        try self.managedObjectContext?.execute(requestDeleteRecommendActivity)
+                        try self.managedObjectContext?.execute(requestDeleteReservedActivity)
+                        try self.managedObjectContext?.execute(requestDeleteRoomData)
+                        try self.managedObjectContext?.execute(requestDeleteRoundData)
+                        try self.managedObjectContext?.execute(requestDeleteStageActivity)
+                        try self.managedObjectContext?.execute(requestDeleteTagData)
+                        try self.managedObjectContext?.execute(requestDeleteVideoData)
+                        try self.managedObjectContext?.execute(requestDeleteZoneData)
+                        
+                    } catch let error {
+                        
+                        print(error)
+                        
+                    }
+                    
+                    
+                }
+                
+                if currentLanguage == "th" {
+                    
+                    currentLanguage = (EntityHistory.addHistory(forEntityName: "LANGUAGE-EN", inManageobjectcontext: self.managedObjectContext!)?.name)!
+                    
+                } else {
+                    
+                    currentLanguage = (EntityHistory.addHistory(forEntityName: "LANGUAGE-TH", inManageobjectcontext: self.managedObjectContext!)?.name)!
+                    
+                }
+                
+                let changeAlert = UIAlertController(title: "Current Language", message: "Your current language is \(currentLanguage)", preferredStyle: .alert)
+                changeAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
+                    
+                    APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+                        
+                        if success {
+                            
+                            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    APIController.downloadZone(inManageobjectcontext: self.managedObjectContext!)
+                    APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext!)
+                    
+                }))
+                
+                self.present(changeAlert, animated: true, completion: nil)
+                
+            }
+            
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -294,22 +414,6 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
 //        profileImg.layer.masksToBounds = true
 //        
 //    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func logoutAction(_ sender: Any) {
         let confirm = UIAlertController(title: "ออกจากระบบ", message: "คุณต้องการออกจากระบบใช่หรือไม่", preferredStyle: UIAlertControllerStyle.alert)

@@ -86,6 +86,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error)
             
         }
+        
+        if EntityHistory.getLanguage(inManageobjectcontext: managedObjectContext) == nil {
+            
+            _ = EntityHistory.addHistory(forEntityName: "LANGUAGE-TH", inManageobjectcontext: managedObjectContext)
+            
+            do {
+                
+                try managedObjectContext.save()
+                
+            } catch {
+                
+                print("error")
+                
+            }
+            
+        }
 
         APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext) { (success) in
 

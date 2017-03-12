@@ -379,6 +379,7 @@ class EventsTableViewController: CoreDataTableViewController {
         } else {
             return false
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

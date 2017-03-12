@@ -63,10 +63,6 @@ class FacultyCollectionViewCell: UICollectionViewCell {
 
     }
     
-    var tagColor: UIColor?{
-        didSet{
-            tagLabel.backgroundColor = tagColor ?? UIColor.clear
-        }
-    }
+    var zoneId: String?
     
 }

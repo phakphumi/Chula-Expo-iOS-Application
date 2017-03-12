@@ -107,7 +107,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Panupong.not@hotmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-MA-fGn">
                                                 <rect key="frame" x="139.5" y="54" width="187.5" height="28"/>
-                                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -384,7 +384,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับ จุฬาฯ Expo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-Yp-oYy">
-                                                                <rect key="frame" x="33.5" y="66.5" width="98.5" height="19"/>
+                                                                <rect key="frame" x="34" y="66.5" width="98.5" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -568,7 +568,7 @@
                                 <rect key="frame" x="20" y="0.0" width="374" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVN-11-Qw9" userLabel="contentview">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="618.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="552"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chula_expo_logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="hJg-ZU-r2i">
                                                 <rect key="frame" x="127" y="60" width="120" height="135"/>
@@ -578,20 +578,20 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-nX-BzN">
-                                                <rect key="frame" x="10" y="230" width="354" height="227.5"/>
+                                                <rect key="frame" x="10" y="230" width="354" height="168"/>
                                                 <string key="text">งานที่จัดขึ้นเนื่องในวาระจุฬาลงกรณ์มหาวิทยาลัยครบรอบ 100 ปี โดยภายในงานจะเป็นการนำเสนอ “นวัตกรรม” ของจุฬาลงกรณ์มหาวิทยาลัยที่ผลิตขึ้นเพื่อพัฒนาสังคมไทยอย่างยั่งยืน จึงเป็นที่มาของชื่องานที่ว่า “จุฬาฯ 100 ปี นวัตกรรม คิดทำเพื่อสังคม” หรือ “CU@100 – Toward greater innovation for society” ตามแนวคิดหลักของงานซึ่งก็คือ Innovation (นวัตกรรม), Social responsibility (การรับผิดชอบต่อสังคม) และ Sustainability (ความยั่งยืน)</string>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="16"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนับสนุนโดย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-pa-hQL">
-                                                <rect key="frame" x="143.5" y="487.5" width="87.5" height="27"/>
+                                                <rect key="frame" x="141" y="428" width="93" height="20"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sponsors" translatesAutoresizingMaskIntoConstraints="NO" id="TY2-GG-ixD">
-                                                <rect key="frame" x="-12.5" y="534.5" width="400" height="54"/>
+                                                <rect key="frame" x="-12.5" y="468" width="400" height="54"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

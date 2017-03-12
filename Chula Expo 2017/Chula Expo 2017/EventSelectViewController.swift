@@ -135,8 +135,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         var tagBack: String = ""
         var tagEngName: String = ""
         var shortName: String = ""
-        var tagColor: UIColor = UIColor.clear
-        var isBlackText:Bool = false
+        var zoneId: String = ""
         
     }
     struct interestData {
@@ -275,10 +274,9 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                 facultyCell.bg = facultyDatas[indexPath.row].tagBack
                 facultyCell.icon = facultyDatas[indexPath.row].imgName
                 facultyCell.sub = facultyDatas[indexPath.row].tagEngName
-                
+                facultyCell.zoneId = facultyDatas[indexPath.row].zoneId
                 facultyCell.tagname = tag
-//                facultyCell.tagColor = UIColor.darkGray
-//                facultyCell.tagColor = facultyDatas[indexPath.row].tagColor
+
             }
         }
         else {
@@ -326,14 +324,13 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
                     
                     name = cell.sub ?? ""
                     facityTag = cell.tagname
-                    self.managedObjectContext?.performAndWait {
-                        id = ZoneData.fetchIdFrom(name: name, inManageobjectcontext: self.managedObjectContext!)
-                    }
+                    id = cell.zoneId
                     APIController.downloadActivities(fromZoneID: id ?? "", inManageObjectContext: self.managedObjectContext!, completion: nil)
                     
-                    if let facName = cell.name
-                    {
+                    if let facName = cell.name {
+                        
                         title = "คณะ" + facName
+                        
                     }
 //                    isFaculty = true
                     
@@ -387,30 +384,30 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         
         facultyDatas = [
             
-            facultyData(imgName: "01_ENG",  tagName: "วิศวกรรมศาสตร์",  tagBack: "01-ENG-bg",  tagEngName: "Faculty of Engineering", shortName: "ENG", tagColor: UIColor(red:0.50, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "02_ARTS",  tagName: "อักษรศาสตร์",  tagBack: "02-ARTS-bg",  tagEngName: "Faculty of Arts", shortName: "ARTS", tagColor: UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "03_SCI",  tagName: "วิทยาศาสตร์",  tagBack: "03-SCI-bg",  tagEngName: "Faculty of Science", shortName: "SCI", tagColor: UIColor(red:1.00, green:1.00, blue:0.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "04_POLSCI",  tagName: "รัฐศาสตร์",  tagBack: "04-POLSCI-bg",  tagEngName: "Faculty of Political Science", shortName: "POLISC", tagColor: UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "05_",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "05-ARCH-bg",  tagEngName: "Faculty of Architecture", shortName: "ARCH", tagColor: UIColor(red:0.60, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "06_BANSHI",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "06-BANSHI-bg",  tagEngName: "Faculty of Commerce and Accountancy", shortName: "BANSHI", tagColor: UIColor(red:0.00, green:0.80, blue:1.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "07_EDU",  tagName: "ครุศาสตร์",  tagBack: "07-EDU-bg",  tagEngName: "Faculty of Education", shortName: "EDU", tagColor: UIColor(red:1.00, green:0.20, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "08_COMMARTS",  tagName: "นิเทศศาสตร์",  tagBack: "08-COMMARTS-bg",  tagEngName: "Faculty of Communication Arts", shortName: "COMMARTS", tagColor: UIColor(red:0.00, green:0.00, blue:0.50, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "09_ECON",  tagName: "เศรษฐศาสตร์",  tagBack: "09-ECON-bg",  tagEngName: "Faculty of Economic", shortName: "ECON", tagColor: UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "10_MED",  tagName: "แพทยศาสตร์",  tagBack: "10-MED-bg",  tagEngName: "Faculty of Medicine", shortName: "MED", tagColor: UIColor(red:0.02, green:0.38, blue:0.01, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "11_VET",  tagName: "สัตวแพทยศาสตร์",  tagBack: "11-VET-bg",  tagEngName: "Faculty of Veterinary Science", shortName: "VET", tagColor: UIColor(red:0.40, green:0.80, blue:0.80, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "12_DENT",  tagName: "ทันตแพทยศาสตร์",  tagBack: "12-DENT-bg",  tagEngName: "Faculty of Dentistry", shortName: "DENT", tagColor: UIColor(red:0.20, green:0.00, blue:0.60, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "13_PHARM",  tagName: "เภสัชศาสตร์",  tagBack: "13-PHARM-bg",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "PHARM", tagColor: UIColor(red:0.40, green:0.80, blue:0.20, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "14_LAW",  tagName: "นิติศาสตร์",  tagBack: "14-LAW-bg",  tagEngName: "Faculty of Law", shortName: "LAW", tagColor: UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "15_FAA",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "15-FAA-bg",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "FAA", tagColor: UIColor(red:0.80, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "16-NUR",  tagName: "พยาบาลศาสตร์",  tagBack: "16-FON-bg",  tagEngName: "Faculty of Nursing", shortName: "FON", tagColor: UIColor(red:1.00, green:0.00, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "17-AHS-bg",  tagEngName: "Faculty of Allied Health Sciences", shortName: "AHS", tagColor: UIColor(red:0.80, green:0.60, blue:1.00, alpha:1.0), isBlackText: true),
-            facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "18-PSY-bg",  tagEngName: "Faculty of Psychology", shortName: "PSY", tagColor: UIColor(red:0.20, green:0.00, blue:1.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "19-SPSC-bg",  tagEngName: "Faculty of Sports Science", shortName: "SPSC", tagColor: UIColor(red:1.00, green:0.40, blue:0.00, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural resources", shortName: "SAR", tagColor: UIColor(red:0.60, green:0.11, blue:0.11, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "21-TRCN",  tagName: "พยาบาลกาชาด",  tagBack: "21-TRCN-bg",  tagEngName: "Thai Red Cross College of Nursing", shortName: "TRCN", tagColor: UIColor(red:0.87, green:0.06, blue:0.20, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "22-PNC",  tagName: "พยาบาลตำรวจ",  tagBack: "22-PNC-bg",  tagEngName: "Police Nursing College", shortName: "PNC", tagColor: UIColor(red:0.61, green:0.00, blue:0.19, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "23_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "23-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", tagColor: UIColor(red:0.75, green:0.38, blue:0.50, alpha:1.0), isBlackText: false),
-            facultyData(imgName: "24-RCU",  tagName: "หอพักนิสิต",  tagBack: "24-RCU-bg",  tagEngName: "Residence of Chulalongkorn University", shortName: "RCU", tagColor: UIColor(red:0.87, green:0.05, blue:0.43, alpha:1.0), isBlackText: false),
+            facultyData(imgName: "01_ENG",  tagName: "วิศวกรรมศาสตร์",  tagBack: "01-ENG-bg",  tagEngName: "Faculty of Engineering", shortName: "ENG", zoneId: "5899a98a5eeecd3698f6cfc6"),
+            facultyData(imgName: "02_ARTS",  tagName: "อักษรศาสตร์",  tagBack: "02-ARTS-bg",  tagEngName: "Faculty of Arts", shortName: "ARTS", zoneId: "5899ac615eeecd3698f6cfd7"),
+            facultyData(imgName: "03_SCI",  tagName: "วิทยาศาสตร์",  tagBack: "03-SCI-bg",  tagEngName: "Faculty of Science", shortName: "SCI", zoneId: "5899a9c75eeecd3698f6cfc8"),
+            facultyData(imgName: "04_POLSCI",  tagName: "รัฐศาสตร์",  tagBack: "04-POLSCI-bg",  tagEngName: "Faculty of Political Science", shortName: "POLISC", zoneId: "5899aa3c5eeecd3698f6cfca"),
+            facultyData(imgName: "05_",  tagName: "สถาปัตยกรรมศาสตร์",  tagBack: "05-ARCH-bg",  tagEngName: "Faculty of Architecture", shortName: "ARCH", zoneId: "5899abf85eeecd3698f6cfd4"),
+            facultyData(imgName: "06_BANSHI",  tagName: "พาณิชยศาสตร์และการบัญชี",  tagBack: "06-BANSHI-bg",  tagEngName: "Faculty of Commerce and Accountancy", shortName: "BANSHI", zoneId: "5899aa015eeecd3698f6cfc9"),
+            facultyData(imgName: "07_EDU",  tagName: "ครุศาสตร์",  tagBack: "07-EDU-bg",  tagEngName: "Faculty of Education", shortName: "EDU", zoneId: "5899aa7c5eeecd3698f6cfcc"),
+            facultyData(imgName: "08_COMMARTS",  tagName: "นิเทศศาสตร์",  tagBack: "08-COMMARTS-bg",  tagEngName: "Faculty of Communication Arts", shortName: "COMMARTS", zoneId: "5899ab605eeecd3698f6cfd0"),
+            facultyData(imgName: "09_ECON",  tagName: "เศรษฐศาสตร์",  tagBack: "09-ECON-bg",  tagEngName: "Faculty of Economic", shortName: "ECON", zoneId: "5899acb15eeecd3698f6cfd9"),
+            facultyData(imgName: "10_MED",  tagName: "แพทยศาสตร์",  tagBack: "10-MED-bg",  tagEngName: "Faculty of Medicine", shortName: "MED", zoneId: "5899a9a85eeecd3698f6cfc7"),
+            facultyData(imgName: "11_VET",  tagName: "สัตวแพทยศาสตร์",  tagBack: "11-VET-bg",  tagEngName: "Faculty of Veterinary Science", shortName: "VET", zoneId: "5899ac445eeecd3698f6cfd6"),
+            facultyData(imgName: "12_DENT",  tagName: "ทันตแพทยศาสตร์",  tagBack: "12-DENT-bg",  tagEngName: "Faculty of Dentistry", shortName: "DENT", zoneId: "5899ab125eeecd3698f6cfce"),
+            facultyData(imgName: "13_PHARM",  tagName: "เภสัชศาสตร์",  tagBack: "13-PHARM-bg",  tagEngName: "Faculty of Pharmaceutical Sciences", shortName: "PHARM", zoneId: "5899ac8d5eeecd3698f6cfd8"),
+            facultyData(imgName: "14_LAW",  tagName: "นิติศาสตร์",  tagBack: "14-LAW-bg",  tagEngName: "Faculty of Law", shortName: "LAW", zoneId: "5899ab315eeecd3698f6cfcf"),
+            facultyData(imgName: "15_FAA",  tagName: "ศิลปกรรมศาสตร์",  tagBack: "15-FAA-bg",  tagEngName: "Faculty of Fine and Applied Arts", shortName: "FAA", zoneId: "5899abd65eeecd3698f6cfd3"),
+            facultyData(imgName: "16-NUR",  tagName: "พยาบาลศาสตร์",  tagBack: "16-FON-bg",  tagEngName: "Faculty of Nursing", shortName: "FON", zoneId: "5899ab815eeecd3698f6cfd1"),
+            facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "17-AHS-bg",  tagEngName: "Faculty of Allied Health Sciences", shortName: "AHS", zoneId: "5899ac185eeecd3698f6cfd5"),
+            facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "18-PSY-bg",  tagEngName: "Faculty of Psychology", shortName: "PSY", zoneId: "5899aaf15eeecd3698f6cfcd"),
+            facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "19-SPSC-bg",  tagEngName: "Faculty of Sports Science", shortName: "SPSC", zoneId: "5899abae5eeecd3698f6cfd2"),
+            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural resources", shortName: "SAR", zoneId: "5899acd95eeecd3698f6cfda"),
+            facultyData(imgName: "21-TRCN",  tagName: "พยาบาลกาชาด",  tagBack: "21-TRCN-bg",  tagEngName: "Thai Red Cross College of Nursing", shortName: "TRCN", zoneId: "58c3dc0335603307a26ed634"),
+            facultyData(imgName: "22-PNC",  tagName: "วิทยาลัยพยาบาลตำรวจ",  tagBack: "22-PNC-bg",  tagEngName: "Police Nursing College", shortName: "PNC", zoneId: "58bd7c2099b6e403ca3a6552"),
+            facultyData(imgName: "23_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "23-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", zoneId: "5899acfe5eeecd3698f6cfdb"),
+            facultyData(imgName: "24-RCU",  tagName: "หอพักนิสิต",  tagBack: "24-RCU-bg",  tagEngName: "Residence of Chulalongkorn University", shortName: "RCU", zoneId: "58c47c3f7b4c6d6cf35dbe2b"),
             
     ]
     }

@@ -349,7 +349,7 @@ class EventsTableViewController: CoreDataTableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) ->
         [UITableViewRowAction]? {
             
-        if facity == "Reservation" && editActionsForRowAt.row != 0 {
+        if facity == "Reservation" && editActionsForRowAt.row > 2 {
             
             let remove = UITableViewRowAction(style: .normal, title: "Cancel") { action, index in
                 if let fetchData = self.fetchedResultsController?.object(at: IndexPath(row: index.row - 3, section: 0)) as? ReservedActivity{
@@ -368,7 +368,17 @@ class EventsTableViewController: CoreDataTableViewController {
             return [remove]
         }
             
-        return nil
+        return []
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        if facity == "Reservation" && indexPath.row > 2 {
+            return true
+        } else {
+            return false
+        }
         
     }
     

@@ -424,7 +424,7 @@ print(response)
     
     func createUsernameLoginButton() {
         
-        let usernameLoginViewWidth = self.view.bounds.width * 0.75
+        let usernameLoginViewWidth = self.view.bounds.width * 0.8
         let usernameLoginViewHeight = self.view.bounds.height * 0.085
         let usernameLoginViewTopMargin = self.view.bounds.height * 0.79
         
@@ -451,10 +451,11 @@ print(response)
         //        facebookLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
         usernameLoginButton.setTitleColor(UIColor.black.withAlphaComponent(0.5), for: .highlighted)
         
-        let loginLogoOffset = usernameLoginView.bounds.width * 0.07
-        let loginLogo = UIImageView(frame: CGRect(x: loginLogoOffset, y: usernameLoginView.bounds.height / 2 - 27 / 2, width: 27, height: 27))
+        let loginLogoOffset = usernameLoginView.bounds.width * 0.12
+        let loginLogo = UIImageView(frame: CGRect(x: loginLogoOffset, y: usernameLoginView.bounds.height / 2 - 24 / 2, width: 24, height: 24))
         
-        loginLogo.image = UIImage(named: "user_login_icon")
+        loginLogo.image = UIImage(named: "loginuser")
+        loginLogo.contentMode = UIViewContentMode.scaleAspectFit
         
         usernameLoginView.addSubview(loginLogo)
         usernameLoginView.addSubview(usernameLoginButton)
@@ -468,7 +469,7 @@ print(response)
     
     func createFacebookLoginButton() {
         
-        let facebookLoginViewWidth = self.view.bounds.width * 0.75
+        let facebookLoginViewWidth = self.view.bounds.width * 0.8
         let facebookLoginViewHeight = self.view.bounds.height * 0.085
         let facebookLoginViewTopMargin = self.view.bounds.height * 0.69
         
@@ -495,9 +496,10 @@ print(response)
         facebookLoginButton.setTitleColor(UIColor(red: 0.2, green: 0.4, blue: 0.8, alpha: 1), for: .highlighted)
     facebookLoginButton.setTitleColor(UIColor.black.withAlphaComponent(0.5), for: .highlighted)
         
-        let facebookLogoOffset = facebookLoginView.bounds.width * 0.07
-        let facebookLogo = UIImageView(frame: CGRect(x: facebookLogoOffset, y: facebookLoginView.bounds.height / 2 - 27 / 2, width: 27, height: 27))
+        let facebookLogoOffset = facebookLoginView.bounds.width * 0.12
+        let facebookLogo = UIImageView(frame: CGRect(x: facebookLogoOffset, y: facebookLoginView.bounds.height / 2 - 24 / 2, width: 24, height: 24))
         facebookLogo.image = UIImage(named: "facebook_logo.png")
+        facebookLogo.contentMode = UIViewContentMode.scaleAspectFit
         
         facebookLoginView.addSubview(facebookLogo)
         facebookLoginView.addSubview(facebookLoginButton)

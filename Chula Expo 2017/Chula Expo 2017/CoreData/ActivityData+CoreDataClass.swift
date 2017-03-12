@@ -120,6 +120,7 @@ public class ActivityData: NSManagedObject {
                 for round in rounds {
                     
                     if let round = round as? NSDictionary {
+                        print("round in add activity")
                         
                         context.performAndWait {
                             

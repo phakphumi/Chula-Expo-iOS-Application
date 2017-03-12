@@ -856,7 +856,7 @@ class APIController {
                         let tags = result["tags"] as! [String]
                         
                         APIController.getRoundsData(activityID: result["_id"] as? String ?? "", completion: { (rounds) in
-                            
+                          
                             context.performAndWait {
                                 
                                 ActivityData.addEventData(

@@ -594,7 +594,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เกี่ยวกับแอพพลิเคชั่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdK-1d-3uK">
-                                                                <rect key="frame" x="31.5" y="66.5" width="103" height="19"/>
+                                                                <rect key="frame" x="30.5" y="66.5" width="103" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -635,7 +635,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ออกจากระบบ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPo-l5-FaB">
-                                                                <rect key="frame" x="50" y="67" width="67" height="19"/>
+                                                                <rect key="frame" x="49" y="67" width="67" height="19"/>
                                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -753,7 +753,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zb6-4N-2LZ">
                                                 <rect key="frame" x="10" y="336" width="354" height="287.5"/>
-                                                <mutableString key="text">งานที่จัดขึ้นเนื่องในวาระจุฬาลงกรณ์มหาวิทยาลัย
+                                                <string key="text">งานที่จัดขึ้นเนื่องในวาระจุฬาลงกรณ์มหาวิทยาลัย
 ครบรอบ 100 ปี โดยภายในงานจะเป็นการนำเสนอ 
 “นวัตกรรม” ของจุฬาลงกรณ์มหาวิทยาลัยที่ผลิตขึ้น
 เพื่อพัฒนาสังคมไทยอย่างยั่งยืน 
@@ -765,7 +765,7 @@
 ตามแนวคิดหลักของงานซึ่งก็คือ 
 Innovation (นวัตกรรม), 
 Social responsibility (การรับผิดชอบต่อสังคม) 
-และ Sustainability (ความยั่งยืน)</mutableString>
+และ Sustainability (ความยั่งยืน)</string>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -941,10 +941,10 @@ Social responsibility (การรับผิดชอบต่อสังค
                                 <rect key="frame" x="20" y="0.0" width="374" height="2000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGB-h2-lEu" userLabel="contentview">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="1272"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="1040"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="kGc-jh-OkP">
-                                                <rect key="frame" x="10" y="60" width="354" height="861.5"/>
+                                                <rect key="frame" x="10" y="60" width="354" height="636.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="About Application">
                                                         <attributes>
@@ -1002,16 +1002,16 @@ Tananan Tangthanachaikul (CP40) </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สนับสนุนโดย" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcX-K6-sxI">
-                                                <rect key="frame" x="143.5" y="971" width="87.5" height="27"/>
+                                                <rect key="frame" x="141" y="746" width="93" height="20"/>
                                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-sponsors" translatesAutoresizingMaskIntoConstraints="NO" id="jin-Uc-xkd">
-                                                <rect key="frame" x="-13" y="1018" width="400" height="54"/>
+                                                <rect key="frame" x="-13" y="786" width="400" height="54"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mrd-Xo-GDT">
-                                                <rect key="frame" x="30" y="1092" width="314" height="150"/>
+                                                <rect key="frame" x="30" y="860" width="314" height="150"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eQ2-eF-tJr">
                                                         <rect key="frame" x="0.0" y="0.0" width="314" height="75"/>

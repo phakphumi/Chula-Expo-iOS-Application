@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Answers
+
 
 class AboutAppTableViewController: UITableViewController {
     
@@ -20,6 +22,12 @@ class AboutAppTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Answers.logContentView(withName: "About Application",
+                               contentType: nil,
+                               contentId: nil,
+                               customAttributes: nil)
+        
         prepareData()
         tableView.estimatedRowHeight = 200
         title = "About Application"

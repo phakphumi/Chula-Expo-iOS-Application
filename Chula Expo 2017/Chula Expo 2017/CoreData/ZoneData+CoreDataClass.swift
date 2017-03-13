@@ -300,6 +300,23 @@ public class ZoneData: NSManagedObject {
         return ""
     }
     
+    class func fetchZoneWelcomeFrom(id: String, incontext context: NSManagedObjectContext) -> String {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+        request.predicate = NSPredicate(format: "id == %@", id)
+        
+        do {
+            let result = try context.fetch(request).first as? ZoneData
+            return result?.welcomeMessage ?? ""
+            
+        } catch {
+            print("Couldn't fetch results")
+        }
+        
+        return ""
+    }
+
+    
     class func getZoneName(fromZoneId id: String, inManageobjectcontext context: NSManagedObjectContext) -> String {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")

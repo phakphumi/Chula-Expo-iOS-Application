@@ -179,6 +179,7 @@ class EventsTableViewController: CoreDataTableViewController {
                             
                             name = ZoneData.fetchZoneNameFrom(id: facityID, incontext: self.managedObjectContext!)
                             desc = ZoneData.fetchZoneDescFrom(id: facityID, incontext: self.managedObjectContext!)
+                            desc = ("\(ZoneData.fetchZoneWelcomeFrom(id: facityID, incontext: self.managedObjectContext!) )\n\n\(desc ?? "")")
                             
                         }
                     }

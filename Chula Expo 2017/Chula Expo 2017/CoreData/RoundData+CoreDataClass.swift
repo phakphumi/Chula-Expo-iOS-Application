@@ -12,6 +12,22 @@ import CoreData
 @objc(RoundData)
 public class RoundData: NSManagedObject {
     
+    class func fetchRoundData( roundId: String, inManageobjectcontext context: NSManagedObjectContext, completion: ((RoundData?) -> Void)?) {
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
+        request.predicate = NSPredicate(format: "id = %@", roundId)
+        
+        if let result = (try? context.fetch(request))?.first as? RoundData {
+            
+            completion?(result)
+            
+        } else {
+            
+            completion?(nil)
+            
+        }
+    }
+    
     class func addData(
         id: String,
         activityId: String,

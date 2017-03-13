@@ -12,6 +12,7 @@ import CoreData
 import Alamofire
 //import Crashlytics // If using Answers with Crashlytics
 import Answers // If using Answers without Crashlytics
+import UserNotifications
 
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
@@ -47,7 +48,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     
                     let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
                     
-                    Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                    Alamofire.request("https://api.chulaexpo.com/api/me", headers: header).responseJSON { response in
                     
                         if response.result.isSuccess {
                             
@@ -270,7 +271,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
                             
-                            Alamofire.request("https://staff.chulaexpo.com/api/me", headers: header).responseJSON { response in
+                            Alamofire.request("https://api.chulaexpo.com/api/me", headers: header).responseJSON { response in
                             
                                 if response.result.isSuccess {
                                 
@@ -364,9 +365,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     private func checkRegisterStatus(completion:@escaping (Bool, String) -> Void) {
         
-        Alamofire.request("https://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
-print("https://staff.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)")
-print(response)
+        Alamofire.request("https://api.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
+
             if response.result.isSuccess {
             
                 let JSON = response.result.value as! NSDictionary

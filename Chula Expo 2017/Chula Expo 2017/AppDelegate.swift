@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         siren.alertType = .force
         siren.checkVersion(checkType: .immediately)
         
-//        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil))
         
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         

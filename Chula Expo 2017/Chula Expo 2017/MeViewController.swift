@@ -205,19 +205,24 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
                 let changeAlert = UIAlertController(title: "Current Language", message: "Your current activity's content language is \(currentLanguage)", preferredStyle: .alert)
                 changeAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
                     
-                    APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+                    self.managedObjectContext?.performAndWait {
                         
-                        if success {
+                        APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
                             
-                            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+                            if success {
+                                
+                                APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+                                
+                            }
                             
                         }
                         
+                        APIController.downloadZone(inManageobjectcontext: self.managedObjectContext!)
+                        APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext!)
+                        
                     }
                     
-                    
-                    APIController.downloadZone(inManageobjectcontext: self.managedObjectContext!)
-                    APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext!)
+                    self.tabBarController?.performSegue(withIdentifier: "logout", sender: self.tabBarController)
                     
                 }))
                 

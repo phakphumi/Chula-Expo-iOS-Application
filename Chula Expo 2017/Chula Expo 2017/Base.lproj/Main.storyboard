@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bm-8y-yhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3388" y="118.29085457271366"/>
+            <point key="canvasLocation" x="-3388.125" y="117.25352112676056"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GHL-cU-sBM">
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="25" y="51" width="270" height="34"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tB8-7M-ZH4">
-                                        <rect key="frame" x="0.0" y="0.5" width="34" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                         <color key="backgroundColor" red="0.17174902558326721" green="0.19105857610702515" blue="0.24915933609008789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="tB8-7M-ZH4" secondAttribute="height" multiplier="1:1" id="kJn-CO-voE"/>
@@ -119,13 +119,13 @@
                                 <rect key="frame" x="54" y="162" width="213" height="102"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="studentWhite" translatesAutoresizingMaskIntoConstraints="NO" id="v2b-3q-XwG">
-                                        <rect key="frame" x="87.5" y="12.5" width="38" height="47"/>
+                                        <rect key="frame" x="88" y="13" width="38" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="v2b-3q-XwG" secondAttribute="height" multiplier="9:11" id="wft-Io-Cun"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="นักเรียน นิสิต นักศึกษา" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEd-Us-BmX">
-                                        <rect key="frame" x="7" y="63.5" width="200" height="34.5"/>
+                                        <rect key="frame" x="7" y="64" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jEd-Us-BmX" secondAttribute="height" multiplier="117:20" id="rnr-4C-E53"/>
                                         </constraints>
@@ -146,16 +146,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onn-Vg-4kL">
-                                <rect key="frame" x="54" y="285.5" width="213" height="102"/>
+                                <rect key="frame" x="54" y="286" width="213" height="102"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="personBlack" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-RZ-e6J">
-                                        <rect key="frame" x="87.5" y="12.5" width="38" height="47"/>
+                                        <rect key="frame" x="88" y="13" width="38" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="OJn-RZ-e6J" secondAttribute="height" multiplier="9:11" id="ibj-th-hWS"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="บุคคลทั่วไป" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iX-Dp-2Qt">
-                                        <rect key="frame" x="7" y="63" width="200" height="34.5"/>
+                                        <rect key="frame" x="7" y="64" width="200" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0iX-Dp-2Qt" secondAttribute="height" multiplier="117:20" id="tpY-LA-gzw"/>
                                         </constraints>
@@ -884,7 +884,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXt-Vk-ryI">
-                                <rect key="frame" x="28" y="494" width="264" height="48.5"/>
+                                <rect key="frame" x="28" y="494" width="264" height="49"/>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.19215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="17"/>
                                 <state key="normal" title="เริ่มใช้งาน Chula Expo Application">
@@ -895,7 +895,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ลงทะเบียนเสร็จสมบูรณ์!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-jy-nPa">
-                                <rect key="frame" x="0.0" y="262.5" width="320" height="43"/>
+                                <rect key="frame" x="0.0" y="263" width="320" height="43"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="23"/>
                                 <color key="textColor" red="0.34901960784313724" green="0.37254901960784315" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -907,13 +907,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สามารถดูวิธีการใช้งานได้ที่เมนู FAQ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-h4-hhr">
-                                <rect key="frame" x="0.0" y="312.5" width="320" height="56.5"/>
+                                <rect key="frame" x="0.0" y="313" width="320" height="56"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
                                 <color key="textColor" red="0.34901960780000002" green="0.37254901959999998" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmarkDark" translatesAutoresizingMaskIntoConstraints="NO" id="zr5-Fs-cOF">
-                                <rect key="frame" x="126" y="174.5" width="68" height="68.5"/>
+                                <rect key="frame" x="126" y="175" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zr5-Fs-cOF" secondAttribute="height" multiplier="1:1" id="GCa-pA-K02"/>
                                 </constraints>
@@ -968,10 +968,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT4-DN-YBt">
-                                <rect key="frame" x="25" y="51" width="270" height="34.5"/>
+                                <rect key="frame" x="25" y="51" width="270" height="34"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgJ-0H-dOd">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="34"/>
                                         <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qgJ-0H-dOd" secondAttribute="height" multiplier="1:1" id="LDZ-Yq-aXc"/>
@@ -1002,7 +1002,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kL5-xc-L1H">
-                                <rect key="frame" x="0.0" y="99.5" width="320" height="397.5"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="397"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mKy-XV-tCp">
@@ -1092,7 +1092,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2X-t8-xbD">
-                                <rect key="frame" x="162" y="494" width="130" height="48.5"/>
+                                <rect key="frame" x="162" y="494.5" width="130" height="48.5"/>
                                 <color key="backgroundColor" red="0.17173078659999999" green="0.19096046689999999" blue="0.25320106739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="j2X-t8-xbD" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="w5E-Xw-DvN"/>
@@ -1106,7 +1106,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hY-S5-jXa">
-                                <rect key="frame" x="28" y="494" width="130" height="48.5"/>
+                                <rect key="frame" x="28" y="494.5" width="130" height="48.5"/>
                                 <color key="backgroundColor" red="0.34839773178100586" green="0.36393064260482788" blue="0.40960484743118286" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8hY-S5-jXa" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="qwO-9S-sNU"/>
@@ -1120,7 +1120,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbs-Dv-fge">
-                                <rect key="frame" x="28" y="494" width="264" height="48.5"/>
+                                <rect key="frame" x="28" y="494" width="264" height="49"/>
                                 <color key="backgroundColor" red="0.17173078656196594" green="0.19096046686172485" blue="0.25320106744766235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
                                 <state key="normal" title="ถัดไป">
@@ -1219,7 +1219,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XG9-WX-Fxo">
-                                <rect key="frame" x="0.0" y="99.5" width="320" height="397.5"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="397"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YbA-Ge-GSk">
@@ -1309,7 +1309,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drp-iG-12Q">
-                                <rect key="frame" x="28" y="494" width="130" height="48.5"/>
+                                <rect key="frame" x="28" y="494.5" width="130" height="48.5"/>
                                 <color key="backgroundColor" red="0.3483977318" green="0.36393064260000002" blue="0.40960484740000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="drp-iG-12Q" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="MuG-w8-NAo"/>
@@ -1323,7 +1323,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fA-9u-L0Q">
-                                <rect key="frame" x="162" y="494" width="130" height="48.5"/>
+                                <rect key="frame" x="162" y="494.5" width="130" height="48.5"/>
                                 <color key="backgroundColor" red="0.17173078659999999" green="0.19096046689999999" blue="0.25320106739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2fA-9u-L0Q" secondAttribute="height" multiplier="65:24" constant="-1.3541666666666856" id="ZAz-iN-DSt"/>
@@ -1337,7 +1337,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4X-9j-RYi">
-                                <rect key="frame" x="28" y="494" width="264" height="48.5"/>
+                                <rect key="frame" x="28" y="494" width="264" height="49"/>
                                 <color key="backgroundColor" red="0.17173078656196594" green="0.19096046686172485" blue="0.25320106744766235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
                                 <state key="normal" title="เสร็จสิ้น">
@@ -1404,7 +1404,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwX-Xb-Oi2">
-                                <rect key="frame" x="31" y="382.5" width="258" height="43"/>
+                                <rect key="frame" x="31" y="382" width="258" height="43"/>
                                 <color key="backgroundColor" red="0.17174902559999999" green="0.19105857609999999" blue="0.24915933609999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="6qC-qX-SMr"/>
@@ -1418,17 +1418,17 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-login" translatesAutoresizingMaskIntoConstraints="NO" id="2Yb-mN-zIu">
-                                <rect key="frame" x="95" y="80.5" width="130" height="130"/>
+                                <rect key="frame" x="95" y="80" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="9p4-Ic-Chd"/>
                                     <constraint firstAttribute="width" constant="130" id="OCy-RY-hJx"/>
                                 </constraints>
                             </imageView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ays-yO-zYY">
-                                <rect key="frame" x="31" y="277.5" width="258" height="34"/>
+                                <rect key="frame" x="31" y="277" width="258" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ชื่อผู้ใช้" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="21" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wiN-R3-KA2">
-                                        <rect key="frame" x="40" y="3.5" width="213" height="27"/>
+                                        <rect key="frame" x="40" y="3" width="213" height="27"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="done"/>
@@ -1458,10 +1458,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1R-1Y-Pzh">
-                                <rect key="frame" x="31" y="323.5" width="258" height="34"/>
+                                <rect key="frame" x="31" y="323" width="258" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="รหัสผ่าน" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7VU-87-wOp">
-                                        <rect key="frame" x="40" y="3.5" width="213" height="27"/>
+                                        <rect key="frame" x="40" y="3" width="213" height="27"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SukhumvitSet-Medium" family="Sukhumvit Set" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -1491,20 +1491,20 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="เข้าสู่ระบบผ่านบัญชีผู้ใช้" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7M-bs-Ua0">
-                                <rect key="frame" x="65.5" y="230.5" width="189.5" height="32"/>
+                                <rect key="frame" x="65" y="230" width="190" height="32"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="20"/>
                                 <color key="textColor" red="0.17711634933948517" green="0.19526292383670807" blue="0.24324698746204376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="information" translatesAutoresizingMaskIntoConstraints="NO" id="dqP-fi-fhF">
-                                <rect key="frame" x="36" y="445.5" width="15" height="15"/>
+                                <rect key="frame" x="36" y="445" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="6nZ-9b-ZGM"/>
                                     <constraint firstAttribute="height" constant="15" id="bdR-RK-2KZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="สามารถลงทะเบียนเพื่อรับ ชื่อผู้ใช้ และ รหัสผ่านได้ที่หน้างาน สำหรับผู้ใช้ที่ไม่มี Facebook" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO8-WX-MdB">
-                                <rect key="frame" x="59" y="442.5" width="230" height="38"/>
+                                <rect key="frame" x="59" y="442" width="230" height="38"/>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="12"/>
                                 <color key="textColor" red="0.44376245141029358" green="0.46578744053840637" blue="0.51772022247314453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -1574,10 +1574,10 @@
         <image name="username_icon" width="19" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LRJ-6z-l8B"/>
-        <segue reference="IwA-jx-m5S"/>
-        <segue reference="N5h-Ga-xYs"/>
-        <segue reference="deC-AF-MEr"/>
         <segue reference="6Sk-ae-WEp"/>
+        <segue reference="deC-AF-MEr"/>
+        <segue reference="gH4-31-fBe"/>
+        <segue reference="N5h-Ga-xYs"/>
+        <segue reference="IwA-jx-m5S"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -46,6 +46,17 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var dateTimeFieldView: UIView!
     @IBOutlet var saveButton: UIButton!
     
+    func notification(title: String, body: String, dateToNoti: Date) {
+        
+        let notification = UILocalNotification()
+        notification.fireDate = Date(timeIntervalSinceReferenceDate: dateToNoti.timeIntervalSinceReferenceDate - 900)
+        notification.alertBody = body
+        notification.alertTitle = title
+        notification.soundName = UILocalNotificationDefaultSoundName
+        UIApplication.shared.scheduleLocalNotification(notification)
+        
+    }
+    
     @IBAction func cancel(_ sender: UIButton) {
         
         self.dismiss(animated: true, completion: nil)
@@ -99,6 +110,12 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                         self.delegate?.updateData(wasUpdated: true)
                                         
                                         Answers.logCustomEvent(withName: "Reserved", customAttributes: ["Activity": self.activityId, "Action": "Reserved"])
+                                        
+                                        RoundData.fetchRoundData(roundId: self.roundsId[self.selectedRow], inManageobjectcontext: self.managedObjectContext!, completion: { (roundData) in
+                                            
+                                            self.notification(title: "กิจกรรมที่จองกำลังจะเริ่ม", body: roundData?.toActivity?.name ?? "", dateToNoti: roundData?.startTime ?? Date())
+                                            
+                                        })
                                         
                                         self.dismiss(animated: true, completion: nil)
                                         
@@ -232,6 +249,13 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         self.delegate?.updateData(wasUpdated: true)
                         
                         Answers.logCustomEvent(withName: "Favorited", customAttributes: ["Activity": self.activityId, "Action": "Cancel"])
+                        
+                        ActivityData.fetchActivityData(activityId: self.activityId, inManageobjectcontext: self.managedObjectContext!, completion: { (activityData) in
+                            
+                            self.notification(title: "กิจกรรมที่คุณสนใจกำลังจะเริ่ม", body: activityData?.name ?? "", dateToNoti: (activityData?.start)!)
+                            
+                        })
+                        
                         
                         self.dismiss(animated: true, completion: nil)
                         

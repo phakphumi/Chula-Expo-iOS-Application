@@ -243,6 +243,8 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             destination.toImages = activity?.toImages
             destination.toTags = activity?.toTags
             destination.managedObjectContext = self.managedObjectContext
+            
+            destination.fromScanQRCode = true
          
         }
         

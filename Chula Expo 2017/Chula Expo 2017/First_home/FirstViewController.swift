@@ -29,6 +29,8 @@ class FirstViewController: MainCoreDataTableViewController{
     var nowDate = Date()
     let slideshowPageViewController = SlideshowPageViewController()
     
+    var didRefreshFirstTime = false
+    
     @IBOutlet var homeTableView: UITableView!
     
     override func viewDidLoad() {
@@ -83,8 +85,18 @@ class FirstViewController: MainCoreDataTableViewController{
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        print(didRefreshFirstTime)
+//        if !didRefreshFirstTime {
+//            
+//            handleRefresh(sender: UIRefreshControl())
+//            
+//            didRefreshFirstTime = true
+//            
+//        }
+        
         self.tableView.reloadData()
 
     }

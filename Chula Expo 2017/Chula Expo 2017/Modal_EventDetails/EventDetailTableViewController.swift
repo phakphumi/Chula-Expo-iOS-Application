@@ -19,7 +19,7 @@ protocol EventDetailTableViewControllerDelegate {
 extension EventDetailTableViewController: FavoriteViewControllerDelegate {
     
     func updateData(wasUpdated: Bool) {
-        print(wasUpdated)
+        
         if wasUpdated {
             
             let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? EventHeaderTableViewCell
@@ -74,6 +74,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     var managedObjectContext: NSManagedObjectContext?
     
     var alreadyShowTextAlert = false
+    var fromScanQRCode = false
     
     var delegate: EventDetailTableViewControllerDelegate?
 
@@ -170,16 +171,20 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     
     override func viewDidLayoutSubviews() {
         
-        if UserData.isThereUser(inManageobjectcontext: managedObjectContext!) {
+        if fromScanQRCode {
+         
+            if UserData.isThereUser(inManageobjectcontext: managedObjectContext!) {
             
-            if !alreadyShowTextAlert {
-                
-//                if zoneId == "5899a98a5eeecd3698f6cfc6" { // engineer
-                if zoneId == "589c52b4a8bbbb1c7165d3f0" { //art gallery
+                if !alreadyShowTextAlert {
                     
-                    alreadyShowTextAlert = true
-                    
-                    createTextAlert()
+                    //                if zoneId == "5899a98a5eeecd3698f6cfc6" { // engineer
+                    if zoneId == "589c52b4a8bbbb1c7165d3f0" { //art gallery
+                        
+                        alreadyShowTextAlert = true
+                        
+                        createTextAlert()
+                        
+                    }
                     
                 }
                 

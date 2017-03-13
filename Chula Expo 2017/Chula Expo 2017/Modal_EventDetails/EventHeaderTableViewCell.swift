@@ -152,7 +152,6 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             reserveView.backgroundColor = UIColor.white
             reserveTitle.text = "สนใจกิจกรรม"
             reserveDesc.text = "กิจกรรมนี้สามารถเข้าร่วมได้โดยไม่ต้องจอง"
-            reserveView.backgroundColor = UIColor.clear
             reserveTitle.textColor = UIColor.black
             reserveDesc.textColor = UIColor.black
             

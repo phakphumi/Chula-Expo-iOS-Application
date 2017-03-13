@@ -363,7 +363,7 @@ class EventsTableViewController: CoreDataTableViewController {
                 print("remove")
                 
             }
-            remove.backgroundColor = UIColor.red
+            remove.backgroundColor = UIColor(red: 0.9922, green: 0.431, blue: 0.604, alpha: 1)
             
             return [remove]
         }
@@ -440,6 +440,7 @@ class EventsTableViewController: CoreDataTableViewController {
                                 destination.latitude = activityData.latitude
                                 destination.longitude = activityData.longitude
                                 destination.pdf = activityData.pdf
+                                destination.video = activityData.video
                                 destination.toImages = activityData.toImages
                                 destination.toTags = activityData.toTags
                                 destination.start = activityData.start

@@ -89,6 +89,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print(error)
             
         }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
 
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
@@ -110,8 +113,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.map.showsCompass = false
             }
         })
+        requestForNearByEvent()
         locationManager.stopUpdatingLocation()
-        tableView.reloadData()
+        
     }
     
     
@@ -302,12 +306,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
             else if indexPath.section == 0 && indexPath.row == 1 {
-                // ForJoe
+            
                 cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
-                if let mapCell = cell as? MapSearchTableViewCell{
-//                    mapCell.map
-//                    mapCell.locationDesc
-                }
+//                if let mapCell = cell as? MapSearchTableViewCell{
+////                    mapCell.map
+////                    mapCell.locationDesc
+//                }
             }
 
             else if indexPath.section == 1 && indexPath.row == 0 {
@@ -489,6 +493,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 destination.latitude = activityData.latitude
                                 destination.longitude = activityData.longitude
                                 destination.pdf = activityData.pdf
+                                destination.video = activityData.video
                                 destination.toImages = activityData.toImages
                                 destination.toTags = activityData.toTags
                                 destination.start = activityData.start
@@ -514,16 +519,16 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if controller == fetchedResultsController{
             
             switch type {
-            case .insert: tableView.insertSections(IndexSet(integer: 1), with: .fade)
-            case .delete: tableView.deleteSections(IndexSet(integer: 1), with: .fade)
+            case .insert: tableView.insertSections(IndexSet(integer: 1), with: .automatic)
+            case .delete: tableView.deleteSections(IndexSet(integer: 1), with: .automatic)
             default: break
             }
             
         } else {
             
             switch type {
-            case .insert: tableView.insertSections(IndexSet(integer: 0), with: .fade)
-            case .delete: tableView.deleteSections(IndexSet(integer: 0), with: .fade)
+            case .insert: tableView.insertSections(IndexSet(integer: 0), with: .automatic)
+            case .delete: tableView.deleteSections(IndexSet(integer: 0), with: .automatic)
             default: break
             }
             

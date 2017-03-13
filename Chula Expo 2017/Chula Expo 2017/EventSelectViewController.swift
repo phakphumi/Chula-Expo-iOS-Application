@@ -138,6 +138,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
         var zoneId: String = ""
         
     }
+    
     struct interestData {
         
         var imgName: String = ""
@@ -403,7 +404,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             facultyData(imgName: "17_AHS",  tagName: "สหเวชศาสตร์",  tagBack: "17-AHS-bg",  tagEngName: "Faculty of Allied Health Sciences", shortName: "AHS", zoneId: "5899ac185eeecd3698f6cfd5"),
             facultyData(imgName: "18_PSY",  tagName: "จิตวิทยา",  tagBack: "18-PSY-bg",  tagEngName: "Faculty of Psychology", shortName: "PSY", zoneId: "5899aaf15eeecd3698f6cfcd"),
             facultyData(imgName: "19_SPSC",  tagName: "วิทยาศาสตร์การกีฬา",  tagBack: "19-SPSC-bg",  tagEngName: "Faculty of Sports Science", shortName: "SPSC", zoneId: "5899abae5eeecd3698f6cfd2"),
-            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural resources", shortName: "SAR", zoneId: "5899acd95eeecd3698f6cfda"),
+            facultyData(imgName: "20_SAR",  tagName: "สำนักวิชาทรัพยากรการเกษตร",  tagBack: "20-SAR-bg",  tagEngName: "School of Agricultural Resources", shortName: "SAR", zoneId: "5899acd95eeecd3698f6cfda"),
             facultyData(imgName: "21-TRCN",  tagName: "พยาบาลกาชาด",  tagBack: "21-TRCN-bg",  tagEngName: "Thai Red Cross College of Nursing", shortName: "TRCN", zoneId: "58c3dc0335603307a26ed634"),
             facultyData(imgName: "22-PNC",  tagName: "วิทยาลัยพยาบาลตำรวจ",  tagBack: "22-PNC-bg",  tagEngName: "Police Nursing College", shortName: "PNC", zoneId: "58bd7c2099b6e403ca3a6552"),
             facultyData(imgName: "23_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "23-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", zoneId: "5899acfe5eeecd3698f6cfdb"),

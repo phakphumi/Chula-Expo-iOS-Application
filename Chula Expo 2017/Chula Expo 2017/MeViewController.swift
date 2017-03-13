@@ -233,8 +233,8 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     
     @IBAction func equest(_ sender: UIButton) {
         
-        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
-        button2Alert.show()
+//        let button2Alert: UIAlertView = UIAlertView(title: "", message: "Coming soon", delegate: self, cancelButtonTitle: "OK")
+//        button2Alert.show()
         
     }
     

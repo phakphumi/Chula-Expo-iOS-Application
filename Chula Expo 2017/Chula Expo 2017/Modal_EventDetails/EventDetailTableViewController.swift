@@ -69,6 +69,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
     var latitude: Double!
     var longitude: Double!
     var pdf: String!
+    var video: String!
     var toImages: NSSet!
     var toTags: NSSet!
     var managedObjectContext: NSManagedObjectContext?
@@ -206,7 +207,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
                 if success {
                     
-                    let alert = UIAlertController(title: "สำเร็จ", message: "ส่งความรู้สึกของท่านเรียบร้อยแล้ว", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "สำเร็จ", message: "ส่งความรู้สึกเรียบร้อยแล้ว", preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                     
@@ -300,7 +301,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         }
         
-        return 6
+        return 7
         
     }
 
@@ -343,24 +344,24 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
 //                    
 //                    dateFormatter.dateFormat = "dd มีนาคม"
 //                    timeFormatter.dateFormat = "HH.mm"
-                    if let start = start{
-                        if let end = end{
-                            let date = start.toThaiTextOnlyDate(withEnd: end)
-                            let timeFormatter = DateFormatter()
-                            timeFormatter.calendar = Calendar(identifier: .gregorian)
-                            timeFormatter.dateFormat = "HH.mm"
-                            
-                            let sTime = timeFormatter.string(from: start)
-                            let eTime = timeFormatter.string(from: end)
-                            dates.append(date)
-                            times[date] = [String]()
-                            times[date]?.append("\(sTime)-\(eTime)")
-                            dateTimeList.append("\(date) \(sTime)-\(eTime)")
+                    if roundsObj.count == 0{
+                        if let start = start{
+                            if let end = end{
+                                let date = start.toThaiTextOnlyDate(withEnd: end)
+                                let timeFormatter = DateFormatter()
+                                timeFormatter.calendar = Calendar(identifier: .gregorian)
+                                timeFormatter.dateFormat = "HH.mm"
+                                
+                                let sTime = timeFormatter.string(from: start)
+                                let eTime = timeFormatter.string(from: end)
+                                dates.append(date)
+                                times[date] = [String]()
+                                times[date]?.append("\(sTime)-\(eTime)")
+                                dateTimeList.append("\(date) \(sTime)-\(eTime)")
+                            }
                         }
                     }
-                   
-
-//                    
+      
 //                    if !dates.contains(date) {
 //                        
 //                        dates.append(date)
@@ -433,6 +434,16 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         } else if indexPath.row == 2 {
             
+            cell = tableView.dequeueReusableCell(withIdentifier: "VidCell", for: indexPath)
+            
+            if let dtvc = cell as? DocumentTableViewCell {
+                
+                dtvc.pdfUrl = video
+                
+            }
+            
+        } else if indexPath.row == 3 {
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "DocCell", for: indexPath)
             
             if let dtvc = cell as? DocumentTableViewCell {
@@ -441,7 +452,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
             }
             
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "GalleryCell", for: indexPath)
             
@@ -469,7 +480,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
             }
             
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "MapsCell", for: indexPath)
             
@@ -480,7 +491,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
                 
             }
             
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 6 {
             
             cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
             
@@ -520,7 +531,7 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         } else if indexPath.row == 2 {
             
-            if pdf == ""{
+            if video == ""{
                 return 0
             }
             
@@ -528,18 +539,29 @@ class EventDetailTableViewController: UITableViewController , UIGestureRecognize
             
         } else if indexPath.row == 3 {
             
+            if pdf == ""{
+                return 0
+            }
+            
+            return 62
+            
+        } else if indexPath.row == 4 {
+            
             if images.count == 0{
                 return 0
             }
             
             return 71
             
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             
             return 230
             
         } else {
             
+            if tags.count == 0{
+                return 8
+            }
             return 45
             
         }

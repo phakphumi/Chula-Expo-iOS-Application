@@ -240,6 +240,9 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
             destination.latitude = activity?.latitude
             destination.longitude = activity?.longitude
             destination.pdf = activity?.pdf
+            destination.video = activity?.video
+            destination.start = activity?.start
+            destination.end = activity?.end
             destination.toImages = activity?.toImages
             destination.toTags = activity?.toTags
             destination.managedObjectContext = self.managedObjectContext

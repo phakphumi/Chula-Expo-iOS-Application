@@ -117,6 +117,7 @@
 		8059FF201E41AEE800B013B3 /* StageExpandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */; };
 		8059FF221E41B1F800B013B3 /* StageExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */; };
 		8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */; };
+		806AB3051E7618AA00E1EAD7 /* FaqTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806AB3041E7618AA00E1EAD7 /* FaqTableViewController.swift */; };
 		807FF6461E21438200A9CA08 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FF6451E21438200A9CA08 /* EventsTableViewController.swift */; };
 		808B67FC1E2DEBC700AAB37A /* CapsuleUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */; };
 		80BAEF411E69A18C00CEA0B2 /* FacultyAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BAEF401E69A18C00CEA0B2 /* FacultyAsset.xcassets */; };
@@ -264,6 +265,7 @@
 		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = First_home/StageEvent/StageExpandTableViewController.swift; sourceTree = "<group>"; };
 		8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCell.swift; path = First_home/StageEvent/StageExpandableCell.swift; sourceTree = "<group>"; };
 		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCoreDataTableViewController.swift; path = First_home/StageEvent/StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
+		806AB3041E7618AA00E1EAD7 /* FaqTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqTableViewController.swift; sourceTree = "<group>"; };
 		807FF6451E21438200A9CA08 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Third_events/EventsTableViewController.swift; sourceTree = "<group>"; };
 		808228511E75DDE300DE950A /* LocationForsim.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationForsim.gpx; sourceTree = "<group>"; };
 		808B67FB1E2DEBC700AAB37A /* CapsuleUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CapsuleUILabel.swift; path = First_home/CapsuleUILabel.swift; sourceTree = "<group>"; };
@@ -402,8 +404,9 @@
 			children = (
 				80E2AE741E58C3A6003E2148 /* fourthAsset.xcassets */,
 				5F5C7D4F1E10DE1500C9D0F2 /* Fourth.storyboard */,
-				801BD4821E7594110069C618 /* AboutAppTableViewCell.swift */,
+				806AB3041E7618AA00E1EAD7 /* FaqTableViewController.swift */,
 				801BD4801E7590E10069C618 /* AboutAppTableViewController.swift */,
+				801BD4821E7594110069C618 /* AboutAppTableViewCell.swift */,
 				5F25B2341E10E027008A3B11 /* FourthViewController.swift */,
 				58611AA71E2B598F00B0BFDA /* FourthHeadTableViewCell.swift */,
 				58611AA91E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift */,
@@ -882,6 +885,7 @@
 				5F6F34BD1E2F99D00090F378 /* SlideshowPageViewController.swift in Sources */,
 				581940D11E4463AB000C566C /* SearchViewController.swift in Sources */,
 				80DC942E1E366B5300A1D01A /* VideoData+CoreDataProperties.swift in Sources */,
+				806AB3051E7618AA00E1EAD7 /* FaqTableViewController.swift in Sources */,
 				803C5DFD1E37B66A00079A97 /* HeaderTableViewCell.swift in Sources */,
 				800E2A191E1E2B3D00677A54 /* FacityTableViewController.swift in Sources */,
 				5FB054591E23CEEF00428428 /* TagController.swift in Sources */,

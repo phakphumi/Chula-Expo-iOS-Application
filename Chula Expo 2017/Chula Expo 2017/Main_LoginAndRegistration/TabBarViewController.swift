@@ -85,11 +85,11 @@ class TabBarViewController: UITabBarController {
                     destination.latitude = activityData.latitude
                     destination.longitude = activityData.longitude
                     destination.pdf = activityData.pdf
+                    destination.video = activityData.video
                     destination.toImages = activityData.toImages
                     destination.toTags = activityData.toTags
                     destination.start = activityData.start
                     destination.end = activityData.end
-//                    destination.timeDesc = eventcell.timeText
                     destination.managedObjectContext = self.managedObjectContext!
                     }
 
@@ -113,6 +113,9 @@ class TabBarViewController: UITabBarController {
                 destination.latitude = SecondViewController.showingMyActivity.latitude
                 destination.longitude = SecondViewController.showingMyActivity.longitude
                 destination.pdf = SecondViewController.showingMyActivity.pdf
+                destination.video = SecondViewController.showingMyActivity.video
+                destination.start = SecondViewController.showingMyActivity.start
+                destination.end = SecondViewController.showingMyActivity.end
                 destination.toImages = SecondViewController.showingMyActivity.toImages
                 destination.toTags = SecondViewController.showingMyActivity.toTags
                 destination.managedObjectContext = self.managedObjectContext

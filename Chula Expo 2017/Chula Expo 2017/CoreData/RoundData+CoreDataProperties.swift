@@ -161,7 +161,6 @@ extension Date {
         
         let day = calendar.component(.day, from: self)
         let month = calendar.component(.month, from: self)
-        let year = calendar.component(.year, from: self)
         let hour = calendar.component(.hour, from: self)
         let minuite = calendar.component(.minute, from: self)
         let endDay = calendar.component(.day, from: end)
@@ -196,16 +195,12 @@ extension Date {
         var dayText = "\(day)"
         
         if endDay != day {
-            if day == 15 && endDay == 19{
-                dayText = "ทุกวัน"
-                return ("\(dayText) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
-                
-            } else {
+            
             dayText = ("\(dayText)-\(endDay)")
-            }
+            
         }
         
-        return ("\(dayText) \(monthText) \(year) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
+        return ("\(dayText) \(monthText) • \(hour):\(minuiteText)-\(endHour):\(endMinuiteText)")
     }
 
     
@@ -237,13 +232,7 @@ extension Date {
         var dayText = "\(day)"
         
         if endDay != day {
-            if day == 15 && endDay == 19{
-                dayText = "ทุกวัน"
-                return ("    \(dayText)")
-                
-            } else {
-                dayText = ("\(dayText)-\(endDay)")
-            }
+        dayText = ("\(dayText)-\(endDay)")
         }
         
         return ("\(dayText) \(monthText)")

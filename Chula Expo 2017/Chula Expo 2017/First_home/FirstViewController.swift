@@ -17,8 +17,7 @@ class FirstViewController: MainCoreDataTableViewController{
     
     var fetchActivityNowOnstage = [ActivityData?](){
         didSet{
-            tableView.beginUpdates()
-            tableView.endUpdates()
+            tableView.reloadData()
         }
     }
     
@@ -85,8 +84,8 @@ class FirstViewController: MainCoreDataTableViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.tableView.reloadData()
-
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
     
     
@@ -95,7 +94,8 @@ class FirstViewController: MainCoreDataTableViewController{
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
-        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)        
+        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
+        
         let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
         let fetchStageData = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
@@ -114,7 +114,7 @@ class FirstViewController: MainCoreDataTableViewController{
             print(error)
             
         }
-        fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
+        
 
         
 //        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
@@ -145,8 +145,7 @@ class FirstViewController: MainCoreDataTableViewController{
 //            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
 //
 //        }
-        
-        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+            APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
             if success {
                 
                 APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
@@ -345,7 +344,8 @@ class FirstViewController: MainCoreDataTableViewController{
                 }
                 else{
                     
-                    stageCell.name = "ไม่พบกิจกรรมบนเวทีในขณะนี้"
+                    stageCell.name = "ไม่พบข้อมูลกิจกรรมบนเวทีในขณะนี้"
+                    stageCell.time = ("แตะเพื่อดูกิจกรรมในช่วงเวลาอื่น")
                     stageCell.stage = indexPath.row
                 }
                 
@@ -519,6 +519,7 @@ class FirstViewController: MainCoreDataTableViewController{
                         destination.latitude = activityData.latitude
                         destination.longitude = activityData.longitude
                         destination.pdf = activityData.pdf
+                        destination.video = activityData.video
                         destination.toImages = activityData.toImages
                         destination.toTags = activityData.toTags
                         destination.start = activityData.start
@@ -557,6 +558,7 @@ class FirstViewController: MainCoreDataTableViewController{
                                 destination.latitude = activityData.latitude
                                 destination.longitude = activityData.longitude
                                 destination.pdf = activityData.pdf
+                                destination.video = activityData.video
                                 destination.toImages = activityData.toImages
                                 destination.toTags = activityData.toTags
                                 destination.start = activityData.start

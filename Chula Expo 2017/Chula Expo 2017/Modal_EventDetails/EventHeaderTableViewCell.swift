@@ -140,7 +140,7 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             reserveDesc.text = "กิจกรรมนี้ต้องสำรองที่นั่งก่อนเข้าร่วม"
             
         } else if wasFavorited {
-            
+            reserveIcon.image = #imageLiteral(resourceName: "star")
             reserveTitle.text = "สนใจกิจกรรมแล้ว"
             reserveDesc.text = "แตะเพื่อยกเลิกการสนใจกิจกรรม"
             reserveView.backgroundColor = UIColor(red: 0.9922, green: 0.431, blue: 0.604, alpha: 1)

@@ -186,9 +186,23 @@ class ScanQRCodeViewController: UIViewController, AVCaptureMetadataOutputObjects
                 
             }
             
+        } else {
+            
+            if code.contains("http://") || code.contains("https://") {
+                
+                if let url = URL(string: code) {
+                    
+                    UIApplication.shared.openURL(url)
+                    
+                    return
+                    
+                }
+                
+            }
+            
         }
         
-        let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "ไม่พบข้อมูลกิจกรรมนี้ใน Application", preferredStyle: UIAlertControllerStyle.alert)
+        let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: "Application รองรับเฉพาะ QR Code ที่ประกอบไปด้วย HTTP หรือ HTTPS เท่านั้น", preferredStyle: UIAlertControllerStyle.alert)
         
         confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
             

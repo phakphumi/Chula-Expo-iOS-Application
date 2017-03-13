@@ -286,6 +286,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         } else {
             
+            self.view.viewWithTag(9)?.removeFromSuperview()
             saveButton.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height * 0.05)
             
         }

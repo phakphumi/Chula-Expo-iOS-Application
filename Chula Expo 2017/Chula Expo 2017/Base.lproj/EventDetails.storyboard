@@ -659,10 +659,10 @@
                                     <constraint firstAttribute="width" secondItem="OjM-j6-hhw" secondAttribute="height" multiplier="149:40" id="u6D-L1-XMz"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
-                                <rect key="frame" x="16" y="215" width="343" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
+                                <rect key="frame" x="16" y="200" width="343" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oOR-m2-Uen" secondAttribute="height" multiplier="343:40" id="ZIj-IJ-TsS"/>
+                                    <constraint firstAttribute="width" secondItem="oOR-m2-Uen" secondAttribute="height" multiplier="343:70" id="ZIj-IJ-TsS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -743,14 +743,24 @@
                                     <action selector="cancel:" destination="vfu-aM-YRW" eventType="touchUpInside" id="D7F-cH-uq5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKi-U0-ryc">
+                                <rect key="frame" x="24" y="539" width="327" height="38"/>
+                                <string key="text">ผู้ใช้สามารถยกเลิกการจองกิจกรรมได้ที่เมนู
+ME &gt; กิจกรรมที่จอง &gt; ลากหัวข้อกิจกรรมจากขวาไปซ้าย &gt; Cancel</string>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.89530714897260277" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OjM-j6-hhw" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="0.47976" id="2py-An-jLA"/>
                             <constraint firstItem="Px6-zb-DUJ" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="0.974513" id="6Un-nT-QIY"/>
                             <constraint firstItem="Qcm-d7-PQW" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="1.46927" id="7mP-pW-3FZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nKi-U0-ryc" secondAttribute="trailing" constant="8" id="AFs-v8-uFR"/>
                             <constraint firstItem="Qcm-d7-PQW" firstAttribute="centerX" secondItem="DRb-OA-jMf" secondAttribute="centerX" id="Dqt-7w-2l1"/>
                             <constraint firstItem="8CT-KQ-Adv" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="1.56222" id="EuZ-HQ-aLv"/>
+                            <constraint firstItem="nKi-U0-ryc" firstAttribute="leading" secondItem="DRb-OA-jMf" secondAttribute="leadingMargin" constant="8" id="KA0-wA-QfD"/>
                             <constraint firstItem="Px6-zb-DUJ" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.773333" id="Kjq-5L-Rgd"/>
                             <constraint firstItem="oWN-aK-ZEn" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="1.18441" id="MPM-ln-1PG"/>
                             <constraint firstItem="OjM-j6-hhw" firstAttribute="centerX" secondItem="DRb-OA-jMf" secondAttribute="centerX" id="PKK-OZ-efh"/>
@@ -765,6 +775,7 @@
                             <constraint firstItem="z07-dn-DVR" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="0.134933" id="pmR-tI-CGU"/>
                             <constraint firstItem="z07-dn-DVR" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.133333" id="rxY-MI-ARk"/>
                             <constraint firstItem="Qcm-d7-PQW" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.914667" id="s5m-X9-dp1"/>
+                            <constraint firstItem="nKi-U0-ryc" firstAttribute="top" secondItem="8CT-KQ-Adv" secondAttribute="bottom" id="wmJ-8J-vJu"/>
                             <constraint firstItem="z07-dn-DVR" firstAttribute="centerX" secondItem="DRb-OA-jMf" secondAttribute="centerX" multiplier="1.78133" id="xc3-Oz-fRB"/>
                             <constraint firstItem="oWN-aK-ZEn" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.773333" id="yTz-le-qVT"/>
                         </constraints>

@@ -61,8 +61,8 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
             
-            case .insert: tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-            case .delete: tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            case .insert: tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+            case .delete: tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
             default: break
         }
     }
@@ -80,14 +80,14 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
         
         switch type {
             case .insert:
-                tableView.insertRows(at: [fixedNewIndexpath], with: .fade)
+                tableView.insertRows(at: [fixedNewIndexpath], with: .automatic)
             case .delete:
-                tableView.deleteRows(at: [fixedIndexpath], with: .fade)
+                tableView.deleteRows(at: [fixedIndexpath], with: .automatic)
             case .update:
-                tableView.reloadRows(at: [fixedIndexpath], with: .fade)
+                tableView.reloadRows(at: [fixedIndexpath], with: .automatic)
             case .move:
-                tableView.deleteRows(at: [fixedIndexpath], with: .fade)
-                tableView.insertRows(at: [fixedNewIndexpath], with: .fade)
+                tableView.deleteRows(at: [fixedIndexpath], with: .automatic)
+                tableView.insertRows(at: [fixedNewIndexpath], with: .automatic)
         }
     }
     

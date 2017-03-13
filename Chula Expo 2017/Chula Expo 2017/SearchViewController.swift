@@ -7,10 +7,11 @@
 
 import UIKit
 import CoreData
+import CoreLocation
+import MapKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
 
-    
     var managedObjectContext: NSManagedObjectContext? =
         (UIApplication.shared.delegate as? AppDelegate)?.managedObjectContext
     
@@ -20,81 +21,48 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var Events = [ActivityData]()
     let searchController = UISearchController(searchResultsController: nil)
+    let locationManager = CLLocationManager()
     
     var ShouldShowResult = false
     var fetchActivity = [ActivityData]()
-   
 
-    /*func filterContentForSearchText(searchText: String, scope: String = "All"){
-        filterEvents = Events.filter{ ActivityData in
-              //  return (ActivityData.name?.lowercased()
-        }
-        tableView.reloadData()
-     
-    }*/
     //@IBOutlet var tableHeader: TableHeaderView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
 
-           /* var name: String?
-            var toRound: NSSet?
-            var thumbnail: String?
-            var facity: String?
-            fetchData.managedObjectContext?.performAndWait{
-                // it's easy to forget to do this on the proper queue
-                name = fetchData.name
-                thumbnail = fetchData.thumbnailsUrl
-                facity = fetchData.faculty
-                toRound = fetchData.toRound
-                // we're not assuming the context is a main queue context
-                // so we'll grab the screenName and return to the main queue
-                // to do the cell.textLabel?.text setting
-            }
-            print("feedCell name == \(name)")
-            if let eventFeedCell = cell as? EventfeedTableViewCell{
-                print("feedCell name == \(name)")
-                eventFeedCell.name = name
-                eventFeedCell.toRound = toRound
-                eventFeedCell.thumbnail = thumbnail
-                eventFeedCell.facity = facity
-            }
-        }
-             */
-        
         requestForSearchFeedEvent()
-//        self.navigationController?.navigationBar.isTranslucent = false
-        // ย้ายตำแหน่งลงมาข้างล่างมันยังบัคต้องหาวิธีอื่น
-//        tableView.contentInset = UIEdgeInsetsMake(((self.navigationController?.navigationBar.frame)?.height)! + (self.navigationController?.navigationBar.frame)!.origin.y, 0.0,  ((self.tabBarController?.tabBar.frame)?.height)!, 0);
+        requestForNearByEvent()
 
-        //navigationController?.navigationBar.barTintColor = UIColor.white
-       // homeTableView.tableFooterView = UIView(frame: CGRect.zero)
-       // searchBar.showsCancelButton = true
-        for subView in self.searchBar.subviews
-        {
-            for subsubView in subView.subviews
-            {
-                if let textField = subsubView as? UITextField
-                {
-                    textField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search", comment: ""), attributes: [NSForegroundColorAttributeName: UIColor.red])
-                    textField.backgroundColor = UIColor(red:0.92, green:0.92, blue:0.92, alpha:1.0)
-//                    textField.layer.cornerRadius = textField.bounds.height/2
-//                    textField.clipsToBounds = true
-//                    searchBar.layer.cornerRadius = textField.bounds.height / 2
-//                    searchBar.clipsToBounds = true
-                    textField.textColor = UIColor(red:1.00, green:0.42, blue:0.60, alpha:1.0)
-                }
-            }
+//        for subView in self.searchBar.subviews
+//        {
+//            for subsubView in subView.subviews
+//            {
+//                if let textField = subsubView as? UITextField
+//                {
+//                    textField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Search", comment: ""), attributes: [NSForegroundColorAttributeName: UIColor.red])
+//                    textField.backgroundColor = UIColor(red:0.92, green:0.92, blue:0.92, alpha:1.0)
+//                    textField.textColor = UIColor(red:1.00, green:0.42, blue:0.60, alpha:1.0)
+//                }
+//            }
+//        }
+        
+        self.locationManager.requestAlwaysAuthorization()
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
         }
-        searchBar.placeholder = "ค้นหากิจกรรม"
-       // searchBar.barStyle = UIBarStyle.blackOpaque
+        
+        tableView.estimatedRowHeight = 150
+        searchBar.placeholder = "Search"
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
-        /*searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar*/
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -103,7 +71,60 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.reloadData()
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+        print(error)
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let fetchNearbyData = NSFetchRequest<NSFetchRequestResult>(entityName: "NearbyActivity")
+        let requestDeleteNearbyData = NSBatchDeleteRequest(fetchRequest: fetchNearbyData)
+        do{
+            
+            try managedObjectContext!.execute(requestDeleteNearbyData)
+            
+        } catch let error {
+            
+            print(error)
+            
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        
+        let location = locations.last! as CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+
+        
+        APIController.downloadNearbyActivities(fromLatitude: locValue.latitude, longitude: locValue.longitude, inManageobjectcontext: managedObjectContext!, completion: nil)
+        
+        APIController.getWhereAmI(latitude: locValue.latitude, longitude: locValue.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
+            
+            if let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? MapSearchTableViewCell{
+                print("\(locValue.latitude) , \(locValue.latitude)")
+                cell.locationDesc = "คุณอยู่ที่\(zone?["th"] ?? "\'ไม่พบข้อมูล\'")"
+                cell.map.setRegion(region, animated: true)
+                cell.map.showsUserLocation = true
+                cell.map.showsCompass = false
+            }
+        })
+        requestForNearByEvent()
+        locationManager.stopUpdatingLocation()
+        
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+    }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
         searchBar.text = nil
         searchBar.showsCancelButton = false
         ShouldShowResult = false
@@ -128,12 +149,26 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
+    var fetchedResultsController2: NSFetchedResultsController<NSFetchRequestResult>? {
+        didSet {
+            do {
+                if let frc = fetchedResultsController2 {
+                    frc.delegate = self
+                    try frc.performFetch()
+                }
+                tableView.reloadData()
+            } catch let error {
+                print("NSFetchedResultsController2.performFetch() failed: \(error)")
+            }
+        }
+    }
 
     func requestForSearchFeedEvent(){
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
         request.sortDescriptors = [NSSortDescriptor(
-            key: "activityId",
+            key: "toActivity.activityId",
             ascending: true
             )]
         if let context = managedObjectContext {
@@ -147,18 +182,37 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func requestForNearByEvent(){
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NearbyActivity")
+        request.sortDescriptors = [NSSortDescriptor(
+            key: "toActivity.activityId",
+            ascending: true
+            )]
+        if let context = managedObjectContext {
+            
+            fetchedResultsController2 = NSFetchedResultsController(
+                fetchRequest: request,
+                managedObjectContext: context,
+                sectionNameKeyPath: nil,
+                cacheName: nil
+            )
+        }
+        
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-       // filterEvents =
+        
         managedObjectContext?.performAndWait {
+            
             self.fetchActivity = ActivityData.fetchActivityFromSearch(name: searchText, inManageobjectcontext: self.managedObjectContext!)
         }
         
         self.tableView.reloadData()
-        
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .default
         tableView.reloadData()
@@ -166,36 +220,49 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if(ShouldShowResult){
+        
+        if(ShouldShowResult) {
+            
             return 1
         }
         else {
+            
             return 2
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if(ShouldShowResult) {
+            
             return fetchActivity.count
         }
         else{
-                if(section == 1){
-                    if let i = fetchedResultsController?.sections?[0]{
-                        return i.numberOfObjects+1
-                    }
+            if(section == 0){
+                
+                if let i = (fetchedResultsController2?.sections?[0])?.numberOfObjects{
+                    return i+2
                 }
-
-                return 2
+            }
+            else{
+                
+                if let i = (fetchedResultsController?.sections?[0])?.numberOfObjects{
+                    return i+1
+                }
+            }
         }
-        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         
-        if(ShouldShowResult){
+        if(ShouldShowResult) {
+            
             cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
+            
             if let eventFeedCell = cell as? EventFeedCell{
 
                 eventFeedCell.manageObjectContext = managedObjectContext
@@ -225,60 +292,59 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
         else {
-        
-                if indexPath.section == 0 && indexPath.row == 0 {
-                    cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
-                    if let headerCell = cell as? HeaderSearchTableViewCell{
-                        headerCell.title1 = "WHERE AM I ?"
-                        headerCell.title2 = "แนะนำ Events จากสถานที่ปัจจุบันของคุณ"
-                        headerCell.iconImage = "heartIcon"
-                    }
-                    cell.selectionStyle = .none
-                }
-                    
-                else if indexPath.section == 0 && indexPath.row == 1 {
-        
-                    /*cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
-                    cell.selectionStyle = .none*/
-                    cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
-                    if let headerCell = cell as? HeaderSearchTableViewCell{
-                        headerCell.title1 = "POPULAR EVENTS"
-                        headerCell.title2 = "กิจกรรมที่กำลังได้รับความนิยมในขณะนี้"
-                        headerCell.iconImage = "heartIcon"
-                    }
-                    cell.selectionStyle = .none
-            
-        
-                }
-        
-                else if indexPath.section == 1 && indexPath.row == 0{
-                    cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
-                    if let headerCell = cell as? HeaderSearchTableViewCell{
-                        headerCell.title1 = "POPULAR EVENTS"
-                        headerCell.title2 = "กิจกรรมที่กำลังได้รับความนิยมในขณะนี้"
-                        headerCell.iconImage = "heartIcon"
-                    }
-                    cell.selectionStyle = .none
-              }
-                    
-               else {
-                    
-                    cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
+
+            if indexPath.section == 0 && indexPath.row == 0 {
                 
-                    if let fetchData = (fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity{
+                cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
+                if let headerCell = cell as? HeaderSearchTableViewCell{
+                    headerCell.title1 = "WHERE AM I ?"
+                    headerCell.title2 = "แนะนำ Events จากสถานที่ปัจจุบันของคุณ"
+                    headerCell.iconImage = "location-mark"
+                }
+                cell.selectionStyle = .none
+                
+            }
+            
+            else if indexPath.section == 0 && indexPath.row == 1 {
+            
+                cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
+//                if let mapCell = cell as? MapSearchTableViewCell{
+////                    mapCell.map
+////                    mapCell.locationDesc
+//                }
+            }
+
+            else if indexPath.section == 1 && indexPath.row == 0 {
+
+                    cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
+                    if let headerCell = cell as? HeaderSearchTableViewCell{
+                        headerCell.title1 = "EVENT FOR YOU"
+                        headerCell.title2 = "แนะนำกิจกรรมที่คุณอาจสนใจ"
+                        headerCell.iconImage = "heartIcon"
+                    }
+                    cell.selectionStyle = .none
+            }
+
+            else {
+
+                cell = tableView.dequeueReusableCell(withIdentifier: "EventSearchFeed", for: indexPath)
+
+                var name: String?
+                var thumbnail: String?
+                var toRound: NSSet?
+                var facity: String?
+                var activityId: String?
+                var time: String?
+
+                if indexPath.section == 0{
+                    
+                    if let fetchData = (fetchedResultsController2?.object(at: IndexPath(row: indexPath.row-2, section: 0)) as? NearbyActivity)?.toActivity {
                         
-                        var name: String?
-                        var thumbnail: String?
-                        var toRound: NSSet?
-                        var facity: String?
-                        var activityId: String?
-                        var time: String?
                         fetchData.managedObjectContext?.performAndWait{
                             name = fetchData.name
                             thumbnail = fetchData.thumbnailsUrl
                             facity = fetchData.faculty
                             toRound = fetchData.toRound
-                            
                             activityId = fetchData.activityId
                             if let stime = fetchData.start{
                                 if let eTime = fetchData.end{
@@ -293,50 +359,78 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 }
                             }
                         }
-                        
-                        if let eventFeedCell = cell as? EventFeedCell{
-                            eventFeedCell.manageObjectContext = managedObjectContext
-                            if name != nil{
-                                eventFeedCell.name = name
+                    }
+                }
+                    
+                else if indexPath.section == 1{
+                    
+                    if let fetchData = (fetchedResultsController?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? RecommendActivity)?.toActivity {
+                        fetchData.managedObjectContext?.performAndWait{
+                            name = fetchData.name
+                            thumbnail = fetchData.thumbnailsUrl
+                            facity = fetchData.faculty
+                            toRound = fetchData.toRound
+                            activityId = fetchData.activityId
+                            if let stime = fetchData.start{
+                                if let eTime = fetchData.end{
+                                    time = stime.toThaiText(withEnd: eTime)
+                                }
                             }
-                            if time != nil{
-                                eventFeedCell.timeText = time
+                            if let toRound = toRound{
+                                if time != nil{
+                                    if toRound.count > 0 {
+                                        time = ("\(time!) + \(toRound.count) รอบ")
+                                    }
+                                }
                             }
-                            eventFeedCell.eventTumbnailImage.image = #imageLiteral(resourceName: "defaultImage")
-                            eventFeedCell.thumbnail = thumbnail
-                            eventFeedCell.facity = facity
-                            eventFeedCell.activityId = activityId
-                            eventFeedCell.toRound = toRound
                         }
                     }
+                }
+                
+                if let eventFeedCell = cell as? EventFeedCell{
+                    
+                    eventFeedCell.manageObjectContext = managedObjectContext
+                    
+                    if name != nil{
+                        eventFeedCell.name = name
+                    }
+                    
+                    if time != nil{
+                        eventFeedCell.timeText = time
+                    }
+                    
+                    eventFeedCell.eventTumbnailImage.image = #imageLiteral(resourceName: "defaultImage")
+                    eventFeedCell.thumbnail = thumbnail
+                    eventFeedCell.facity = facity
+                    eventFeedCell.activityId = activityId
+                    eventFeedCell.toRound = toRound
+                    
+                }
             }
         }
-        
         cell.selectionStyle = .none
         return cell
         
     }
     
     func searchButtonClicked(searchBar: UISearchBar){
+        
         ShouldShowResult = true
         searchBar.endEditing(true)
         self.tableView.reloadData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if(!ShouldShowResult){
-            if section == 0 {
-                return 4
-            }
-        }
-            return 0
-    }
+
+//     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        if(!ShouldShowResult){
+//            if section == 0 {
+//                return 4
+//            }
+//        }
+//            return 0
+//    }
     
-     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if(!ShouldShowResult){
             if section == 0{
                 let view = UIView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
@@ -348,27 +442,29 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if(!ShouldShowResult){
+            
             if indexPath.row == 1 && indexPath.section == 0 {
-                return 0
-            }
-            else if indexPath.row == 0{
                 
-                if indexPath.section == 0{
-                    return 0
-                }
-                    return 58
-                }
-            else if indexPath.section == 1 {
+                return UITableViewAutomaticDimension
+            }
+            else if indexPath.row == 0 {
+                
+                return 58
+            }
+            else {
+                
                 return 78
             }
+            
         }
+            
         else {
+            
             return 78
         }
-        
-        return UITableViewAutomaticDimension
-        
+                
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -397,6 +493,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 destination.latitude = activityData.latitude
                                 destination.longitude = activityData.longitude
                                 destination.pdf = activityData.pdf
+                                destination.video = activityData.video
                                 destination.toImages = activityData.toImages
                                 destination.toTags = activityData.toTags
                                 destination.start = activityData.start
@@ -412,84 +509,91 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
+    
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        if controller == fetchedResultsController{
+            
+            switch type {
+            case .insert: tableView.insertSections(IndexSet(integer: 1), with: .automatic)
+            case .delete: tableView.deleteSections(IndexSet(integer: 1), with: .automatic)
+            default: break
+            }
+            
+        } else {
+            
+            switch type {
+            case .insert: tableView.insertSections(IndexSet(integer: 0), with: .automatic)
+            case .delete: tableView.deleteSections(IndexSet(integer: 0), with: .automatic)
+            default: break
+            }
+            
+        }
+        
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        if controller == fetchedResultsController{
+            var newIndex = IndexPath()
+            var index = IndexPath()
+            
+            if newIndexPath != nil {
+                newIndex = IndexPath(row: newIndexPath!.row+1, section: newIndexPath!.section + 1)
+            }
+            
+            if indexPath != nil {
+                index = IndexPath(row: indexPath!.row+1, section: indexPath!.section + 1)
+            }
+            
+            switch type {
+            case .insert:
+                tableView.insertRows(at: [newIndex], with: .automatic)
+            case .delete:
+                print("delete")
+                tableView.deleteRows(at: [index], with: .automatic)
+            case .update:
+                tableView.reloadRows(at: [index], with: .automatic)
+            case .move:
+                tableView.deleteRows(at: [index], with: .automatic)
+                tableView.insertRows(at: [newIndex], with: .automatic)
+            }
+        }
+        else{
+            var newIndex = IndexPath()
+            var index = IndexPath()
+            
+            if newIndexPath != nil {
+                newIndex = IndexPath(row: newIndexPath!.row+2, section: newIndexPath!.section)
+            }
+            
+            if indexPath != nil {
+                index = IndexPath(row: indexPath!.row+2, section: indexPath!.section)
+            }
+            
+            switch type {
+            case .insert:
+                tableView.insertRows(at: [newIndex], with: .automatic)
+            case .delete:
+                tableView.deleteRows(at: [index], with: .automatic)
+            case .update:
+                tableView.reloadRows(at: [index], with: .automatic)
+            case .move:
+                tableView.deleteRows(at: [index], with: .automatic)
+                tableView.insertRows(at: [newIndex], with: .automatic)
+            }
+
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 
 
 }
 
-    // Core Data
-
-
-//
-//    
-
-
-//    // MARK: - Table view data source
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        ((
-//        var cell: UITableViewCell
-//        
-//        if indexPath.section == 0 && indexPath.row == 0 {
-//            
-//            cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
-//            cell.selectionStyle = .none
-//           
-//        }
-//            
-//        else if indexPath.section == 1 && indexPath.row == 0{
-//            cell = tableView.dequeueReusableCell(withIdentifier: "HeaderSearch", for: indexPath)
-//            if let headerCell = cell as? HeaderSearchTableViewCell{
-//                headerCell.title1 = "EVENTS FOR YOU"
-//                headerCell.title2 = "แนะนำกิจกรรมที่คุณอาจสนใจ"
-//                headerCell.iconImage = "heartIcon"
-//            }
-//            cell.selectionStyle = .none
-//        }
-//        else {
-//            cell = tableView.dequeueReusableCell(withIdentifier: "Map", for: indexPath)
-//            cell.selectionStyle = .none
-//        }
-//        
-//           
-       /* else {
- 
-            cell = tableView.dequeueReusableCell(withIdentifier: "EventFeed", for: indexPath)
-            if let fetchData = fetchedResultsController2?.object(at: IndexPath(row: indexPath.row-1, section: 0)) as? ActivityData{
-                var name: String?
-                 var toRound: NSSet?
-                var thumbnail: String?
-                var facity: NSSet?
-                fetchData.managedObjectContext?.performAndWait{
-                    // it's easy to forget to do this on the proper queue
-                    name = fetchData.name
-                    thumbnail = fetchData.thumbnailsUrl
-                    facity = fetchData.toFaculty
-                    toRound = fetchData.toRound
-                    // we're not assuming the context is a main queue context
-                    // so we'll grab the screenName and return to the main queue
-                    // to do the cell.textLabel?.text setting
-                }
-                print("feedCell name == \(name)")
-                if let eventFeedCell = cell as? EventFeedCell{
-                    print("feedCell name == \(name)")
-                    eventFeedCell.name = name
-                    eventFeedCell.toRound = toRound
-                    eventFeedCell.thumbnail = thumbnail
-                    eventFeedCell.facity = facity
-                }
-            }
-        }*/
-//        
-//        return cell
-//    }
-//    
-
-//    private func printDatabaseStatistics(){
-//        managedObjectContext?.perform {
-//            if let result = try? self.managedObjectContext!.fetch(NSFetchRequest(entityName: "ActivityData")){
-//                print("Total ActivityDatas in coredata \(result.count)")
-//            }
-//        }
-//    }
-//    
-//}

@@ -125,10 +125,9 @@ public class StageActivity: NSManagedObject {
         let request1 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request2 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
         let request3 = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+        
         let nowDate = Date()
-        
-        
-        print("time  \(nowDate.toThaiText())")
+    
         request1.predicate = NSPredicate(format: "toActivity.end >= %@ AND toActivity.start <= %@ AND stage == 1", nowDate as NSDate, nowDate as NSDate)
         request2.predicate = NSPredicate(format: "toActivity.end >= %@ AND toActivity.start <= %@ AND stage == 2", nowDate as NSDate, nowDate as NSDate)
         request3.predicate = NSPredicate(format: "toActivity.end >= %@ AND toActivity.start <= %@ AND stage == 3", nowDate as NSDate, nowDate as NSDate)

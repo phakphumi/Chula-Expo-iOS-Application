@@ -92,7 +92,7 @@ class AboutAppTableViewController: UITableViewController {
         datas = [
             data(thumb: #imageLiteral(resourceName: "ico-design"), headtext: "Application Designer", descText: "Nutthawat Pradujdecha (CP41)"),
             data(thumb: #imageLiteral(resourceName: "ico-ios"), headtext: "Application Developer", descText: "Pakpoom Thaweesitthichat (CP41)\nPanupong Tongtawach (CP41)\nThanapon Sirisompark (CP41)\nEkkalak Leelasornchai (CP42)"),
-            data(thumb: #imageLiteral(resourceName: "ico-ios"), headtext: "Other Platform Developer", descText: "Sirinthra Chantharaj (CP41)\nNutthaphol Rakratchatakul (CP41)\nSupakrit Paoliwat (CP41)\nTeerapat Prompunjai (CP42))"),
+            data(thumb: #imageLiteral(resourceName: "ico-ios"), headtext: "Other Platform Developer", descText: "Sirinthra Chantharaj (CP41)\nNutthaphol Rakratchatakul (CP41)\nSupakrit Paoliwat (CP41)\nTeerapat Prompunjai (CP42)"),
             data(thumb: #imageLiteral(resourceName: "ico-backend"), headtext: "Back-end Developer", descText: "Atikhun Orisoon (CP40)\nApiruj Choomwattana (CP41)\nKitipong Sirirueangsakul (CP41)\nNuttapat Kirawittaya (CP41)\nPongsathorn Chotipanvidhayakul (CP41)\nPuttiphat Sriratpinyo (CP41)\nWasin Watthanasrisong (CP41)"),
             data(thumb: #imageLiteral(resourceName: "ico-recommendation"), headtext: "Recommendation System", descText: "Asst.Prof. Dr.Natawut Nupairoj"),
             data(thumb: #imageLiteral(resourceName: "ico-indoor"), headtext: "Indoor Localization System", descText: "Assc.Prof. Dr.Kultida Rojviboonchai\nTeerapat Vongsuteera (CP39)"),

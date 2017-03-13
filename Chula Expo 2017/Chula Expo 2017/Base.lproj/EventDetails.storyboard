@@ -311,7 +311,7 @@
                                     <outlet property="descText" destination="FZt-BE-kb1" id="tDv-V5-Ym3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DocCell" rowHeight="62" id="qkz-nY-gKD" customClass="DocumentTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="VidCell" rowHeight="62" id="qkz-nY-gKD" userLabel="VideoCell" customClass="DocumentTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="677" width="375" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qkz-nY-gKD" id="yYu-gx-h0R">
@@ -324,15 +324,15 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dy-ya-LdP">
                                                     <rect key="frame" x="20" y="0.0" width="319" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdfRed" translatesAutoresizingMaskIntoConstraints="NO" id="3Yn-ye-Pjo">
-                                                            <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playred" translatesAutoresizingMaskIntoConstraints="NO" id="3Yn-ye-Pjo">
+                                                            <rect key="frame" x="17" y="15" width="20" height="20"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="FjM-v1-z5e"/>
-                                                                <constraint firstAttribute="width" constant="30" id="dZP-7f-FTG"/>
+                                                                <constraint firstAttribute="height" constant="20" id="FjM-v1-z5e"/>
+                                                                <constraint firstAttribute="width" constant="20" id="dZP-7f-FTG"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ดาวน์โหลดรายละเอียดเพิ่มเติม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p31-PF-upb">
-                                                            <rect key="frame" x="52" y="16" width="201.5" height="19"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ดูวิดีโอ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p31-PF-upb">
+                                                            <rect key="frame" x="52" y="13" width="43" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -340,7 +340,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="3Yn-ye-Pjo" firstAttribute="leading" secondItem="0dy-ya-LdP" secondAttribute="leading" constant="10" id="Vof-YN-UAv"/>
+                                                        <constraint firstItem="3Yn-ye-Pjo" firstAttribute="leading" secondItem="0dy-ya-LdP" secondAttribute="leading" constant="17" id="Vof-YN-UAv"/>
                                                         <constraint firstItem="3Yn-ye-Pjo" firstAttribute="centerY" secondItem="0dy-ya-LdP" secondAttribute="centerY" id="emt-ts-QJr"/>
                                                         <constraint firstItem="p31-PF-upb" firstAttribute="leading" secondItem="0dy-ya-LdP" secondAttribute="leading" constant="52" id="mDz-fh-ZBa"/>
                                                         <constraint firstItem="p31-PF-upb" firstAttribute="centerY" secondItem="3Yn-ye-Pjo" secondAttribute="centerY" id="vXR-Co-Ile"/>
@@ -370,8 +370,67 @@
                                     <outlet property="iconImage" destination="3Yn-ye-Pjo" id="BCN-OX-f9n"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DocCell" rowHeight="62" id="edV-cG-gan" customClass="DocumentTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="739" width="375" height="62"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="edV-cG-gan" id="RWr-Z6-A9v">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T0B-AO-PTB">
+                                            <rect key="frame" x="8" y="0.0" width="359" height="62"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Haz-y9-ZFF">
+                                                    <rect key="frame" x="20" y="0.0" width="319" height="50"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdfRed" translatesAutoresizingMaskIntoConstraints="NO" id="QGf-51-cdl">
+                                                            <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="Uw3-1l-cTL"/>
+                                                                <constraint firstAttribute="height" constant="30" id="vP3-RQ-oHs"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ดาวน์โหลดรายละเอียดเพิ่มเติม" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-4A-mBM">
+                                                            <rect key="frame" x="52" y="13" width="192.5" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="6Aa-4A-mBM" firstAttribute="centerY" secondItem="QGf-51-cdl" secondAttribute="centerY" id="8Bd-x8-aoQ"/>
+                                                        <constraint firstItem="6Aa-4A-mBM" firstAttribute="leading" secondItem="Haz-y9-ZFF" secondAttribute="leading" constant="52" id="8D1-51-2C4"/>
+                                                        <constraint firstItem="QGf-51-cdl" firstAttribute="centerY" secondItem="Haz-y9-ZFF" secondAttribute="centerY" id="9Mn-Wp-scl"/>
+                                                        <constraint firstItem="QGf-51-cdl" firstAttribute="leading" secondItem="Haz-y9-ZFF" secondAttribute="leading" constant="10" id="Wl1-EA-QEC"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="Haz-y9-ZFF" firstAttribute="top" secondItem="T0B-AO-PTB" secondAttribute="top" id="5pq-eC-bCt"/>
+                                                <constraint firstItem="Haz-y9-ZFF" firstAttribute="leading" secondItem="T0B-AO-PTB" secondAttribute="leading" constant="20" id="O9t-xb-8TE"/>
+                                                <constraint firstAttribute="trailing" secondItem="Haz-y9-ZFF" secondAttribute="trailing" constant="20" id="PIJ-pB-lT3"/>
+                                                <constraint firstAttribute="bottom" secondItem="Haz-y9-ZFF" secondAttribute="bottom" constant="12" id="iVT-8e-aEm"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="T0B-AO-PTB" firstAttribute="leading" secondItem="RWr-Z6-A9v" secondAttribute="leading" constant="8" id="1zp-jg-ZLX"/>
+                                        <constraint firstAttribute="bottom" secondItem="T0B-AO-PTB" secondAttribute="bottom" id="9LG-Vu-I0K"/>
+                                        <constraint firstAttribute="trailing" secondItem="T0B-AO-PTB" secondAttribute="trailing" constant="8" id="LS0-94-kld"/>
+                                        <constraint firstItem="T0B-AO-PTB" firstAttribute="top" secondItem="RWr-Z6-A9v" secondAttribute="top" id="Ogj-4O-txf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="descLabel" destination="6Aa-4A-mBM" id="lJl-GG-1cD"/>
+                                    <outlet property="documentView" destination="Haz-y9-ZFF" id="ees-Bh-gVN"/>
+                                    <outlet property="iconImage" destination="QGf-51-cdl" id="hYW-sv-faK"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="GalleryCell" rowHeight="71" id="ag5-NI-HPH" customClass="GalleryTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="739" width="375" height="71"/>
+                                <rect key="frame" x="0.0" y="801" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ag5-NI-HPH" id="BjB-pC-4a5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
@@ -382,7 +441,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QKq-HZ-Csp">
                                                     <rect key="frame" x="8" y="8" width="343" height="50"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="kmg-97-P9L">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -434,7 +493,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapsCell" rowHeight="230" id="lt2-hg-nCh" customClass="MapTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="810" width="375" height="230"/>
+                                <rect key="frame" x="0.0" y="872" width="375" height="230"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lt2-hg-nCh" id="cdi-L1-9LZ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
@@ -471,7 +530,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TagCell" rowHeight="45" id="ZUt-0T-0wW" customClass="TagTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1040" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="1102" width="375" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUt-0T-0wW" id="UGY-hx-irQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
@@ -480,17 +539,11 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-6y-3yz">
                                             <rect key="frame" x="8" y="0.0" width="359" height="35"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag" translatesAutoresizingMaskIntoConstraints="NO" id="xrC-kc-0rf">
-                                                    <rect key="frame" x="15" y="5" width="15" height="15"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="xrC-kc-0rf" secondAttribute="height" multiplier="1:1" id="AR1-Z2-st7"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEY-Rf-skA">
-                                                    <rect key="frame" x="38" y="0.0" width="306" height="25"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <rect key="frame" x="15" y="0.0" width="329" height="25"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="fEY-Rf-skA" secondAttribute="height" multiplier="306:25" id="AXx-PA-g7i"/>
+                                                        <constraint firstAttribute="height" constant="25" id="a0g-IY-P1H"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Yku-au-1pe">
                                                         <size key="itemSize" width="60" height="25"/>
@@ -528,12 +581,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="fEY-Rf-skA" firstAttribute="centerX" secondItem="w7j-6y-3yz" secondAttribute="centerX" multiplier="1.06407" id="1fw-sL-FyJ"/>
-                                                <constraint firstItem="xrC-kc-0rf" firstAttribute="centerX" secondItem="w7j-6y-3yz" secondAttribute="centerX" multiplier="0.125348" id="C3W-rF-RVl"/>
-                                                <constraint firstItem="xrC-kc-0rf" firstAttribute="width" secondItem="w7j-6y-3yz" secondAttribute="width" multiplier="0.0417827" id="IhQ-7Q-Ay0"/>
-                                                <constraint firstItem="fEY-Rf-skA" firstAttribute="width" secondItem="w7j-6y-3yz" secondAttribute="width" multiplier="0.852368" id="Qju-30-5Rw"/>
-                                                <constraint firstItem="xrC-kc-0rf" firstAttribute="centerY" secondItem="w7j-6y-3yz" secondAttribute="centerY" multiplier="0.714286" id="S5H-VI-Vkm"/>
-                                                <constraint firstItem="fEY-Rf-skA" firstAttribute="centerY" secondItem="w7j-6y-3yz" secondAttribute="centerY" multiplier="0.714286" id="cYC-gp-4Wc"/>
+                                                <constraint firstAttribute="trailing" secondItem="fEY-Rf-skA" secondAttribute="trailing" constant="15" id="Euv-ka-j1j"/>
+                                                <constraint firstItem="fEY-Rf-skA" firstAttribute="top" secondItem="w7j-6y-3yz" secondAttribute="top" id="hyW-Dh-GRQ"/>
+                                                <constraint firstItem="fEY-Rf-skA" firstAttribute="leading" secondItem="w7j-6y-3yz" secondAttribute="leading" constant="15" id="upd-1J-bKV"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -609,10 +659,10 @@
                                     <constraint firstAttribute="width" secondItem="OjM-j6-hhw" secondAttribute="height" multiplier="149:40" id="u6D-L1-XMz"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
-                                <rect key="frame" x="16" y="215" width="343" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="การแสดงสาธิต หุ่นยนต์ดูดฝุ่น" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="oOR-m2-Uen">
+                                <rect key="frame" x="16" y="200" width="343" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oOR-m2-Uen" secondAttribute="height" multiplier="343:40" id="ZIj-IJ-TsS"/>
+                                    <constraint firstAttribute="width" secondItem="oOR-m2-Uen" secondAttribute="height" multiplier="343:70" id="ZIj-IJ-TsS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SukhumvitSet-SemiBold" family="Sukhumvit Set" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -693,14 +743,24 @@
                                     <action selector="cancel:" destination="vfu-aM-YRW" eventType="touchUpInside" id="D7F-cH-uq5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKi-U0-ryc">
+                                <rect key="frame" x="24" y="539" width="327" height="38"/>
+                                <string key="text">ผู้ใช้สามารถยกเลิกการจองกิจกรรมได้ที่เมนู
+ME &gt; กิจกรรมที่จอง &gt; ลากหัวข้อกิจกรรมจากขวาไปซ้าย &gt; Cancel</string>
+                                <fontDescription key="fontDescription" name="SukhumvitSet-Bold" family="Sukhumvit Set" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.89530714897260277" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="OjM-j6-hhw" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="0.47976" id="2py-An-jLA"/>
                             <constraint firstItem="Px6-zb-DUJ" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="0.974513" id="6Un-nT-QIY"/>
                             <constraint firstItem="Qcm-d7-PQW" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="1.46927" id="7mP-pW-3FZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nKi-U0-ryc" secondAttribute="trailing" constant="8" id="AFs-v8-uFR"/>
                             <constraint firstItem="Qcm-d7-PQW" firstAttribute="centerX" secondItem="DRb-OA-jMf" secondAttribute="centerX" id="Dqt-7w-2l1"/>
                             <constraint firstItem="8CT-KQ-Adv" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="1.56222" id="EuZ-HQ-aLv"/>
+                            <constraint firstItem="nKi-U0-ryc" firstAttribute="leading" secondItem="DRb-OA-jMf" secondAttribute="leadingMargin" constant="8" id="KA0-wA-QfD"/>
                             <constraint firstItem="Px6-zb-DUJ" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.773333" id="Kjq-5L-Rgd"/>
                             <constraint firstItem="oWN-aK-ZEn" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="1.18441" id="MPM-ln-1PG"/>
                             <constraint firstItem="OjM-j6-hhw" firstAttribute="centerX" secondItem="DRb-OA-jMf" secondAttribute="centerX" id="PKK-OZ-efh"/>
@@ -715,6 +775,7 @@
                             <constraint firstItem="z07-dn-DVR" firstAttribute="centerY" secondItem="DRb-OA-jMf" secondAttribute="centerY" multiplier="0.134933" id="pmR-tI-CGU"/>
                             <constraint firstItem="z07-dn-DVR" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.133333" id="rxY-MI-ARk"/>
                             <constraint firstItem="Qcm-d7-PQW" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.914667" id="s5m-X9-dp1"/>
+                            <constraint firstItem="nKi-U0-ryc" firstAttribute="top" secondItem="8CT-KQ-Adv" secondAttribute="bottom" id="wmJ-8J-vJu"/>
                             <constraint firstItem="z07-dn-DVR" firstAttribute="centerX" secondItem="DRb-OA-jMf" secondAttribute="centerX" multiplier="1.78133" id="xc3-Oz-fRB"/>
                             <constraint firstItem="oWN-aK-ZEn" firstAttribute="width" secondItem="DRb-OA-jMf" secondAttribute="width" multiplier="0.773333" id="yTz-le-qVT"/>
                         </constraints>
@@ -741,10 +802,10 @@
         <image name="down-arrow" width="64" height="64"/>
         <image name="loca-icon" width="47" height="47"/>
         <image name="pdfRed" width="128" height="128"/>
+        <image name="playred" width="26" height="32"/>
         <image name="schedule icon" width="48" height="48"/>
         <image name="starPink" width="128" height="128"/>
         <image name="starYellow" width="64" height="64"/>
-        <image name="tag" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="T2M-I4-7RB"/>

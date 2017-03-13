@@ -30,11 +30,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var roundsId = [String]()
     var dates = [String]()
     var times = [String: [String]]()
-    var dateTimeList = [String](){
-        didSet{
-            dateTimeList.remove(at: 0)
-        }
-    }
+    var dateTimeList = [String]()
     var selectedRow = 0
 
     let dateTimePicker = UIPickerView()
@@ -104,7 +100,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     
                                     try self.managedObjectContext?.save()
                                     
-                                    let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                                    let confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "", preferredStyle: UIAlertControllerStyle.alert)
                                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
                                         
                                         self.delegate?.updateData(wasUpdated: true)
@@ -143,11 +139,11 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     
                                 case "28":
                                     
-                                    message = "คุณเคยจองกิจกรรมรอบนี้แล้ว"
+                                    message = "คุณได้จองกิจกรรมรอบนี้แล้ว"
                                     
                                 case "30":
                                     
-                                    message = "ตั๋วกิจกรรมบน Application สำหรับรอบนี้ถูกจองหมดแล้ว. (บางกิจกรรมอาจมีการเปิดรับเพิ่มที่หน้างาน)"
+                                    message = "ตั๋วกิจกรรมบน Application สำหรับรอบนี้ถูกจองหมดแล้ว. (บางกิจกรรมอาจมีการเปิดรับเพิ่มบริเวณหน้างาน)"
                                     
                                 default:
                                     
@@ -155,7 +151,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                     
                                 }
                                 
-                                let confirm = UIAlertController(title: "เกิดข้อผิดพลาด", message: message, preferredStyle: UIAlertControllerStyle.alert)
+                                let confirm = UIAlertController(title: "ข้อผิดพลาด", message: message, preferredStyle: UIAlertControllerStyle.alert)
                                 
                                 confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                                 
@@ -207,7 +203,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     
                     try managedObjectContext?.save()
                     
-                    confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                    confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: " ", preferredStyle: UIAlertControllerStyle.alert)
                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
                        
                         self.delegate?.updateData(wasUpdated: true)
@@ -243,7 +239,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     
                     try managedObjectContext?.save()
                     
-                    confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "ดำเนินการเรียบร้อย", preferredStyle: UIAlertControllerStyle.alert)
+                    confirm = UIAlertController(title: "ยืนยันสำเร็จ", message: "", preferredStyle: UIAlertControllerStyle.alert)
                     confirm.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (alert) in
                         
                         self.delegate?.updateData(wasUpdated: true)
@@ -314,6 +310,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         } else {
             
+            self.view.viewWithTag(9)?.removeFromSuperview()
             saveButton.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height * 0.05)
             
         }
@@ -400,7 +397,7 @@ class FavoriteViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         } else if wasFavorited {
             
             titleText.text = "ยกเลิกการสนใจ"
-            titleText.textColor = UIColor.red
+//            titleText.textColor = UIColor.red
             
         }
         

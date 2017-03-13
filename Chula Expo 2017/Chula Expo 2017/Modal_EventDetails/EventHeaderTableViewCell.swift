@@ -148,7 +148,8 @@ class EventHeaderTableViewCell: UITableViewCell, UICollectionViewDataSource, UIC
             reserveDesc.textColor = UIColor.white
             
         } else if !wasFavorited {
-            
+            reserveIcon.image = #imageLiteral(resourceName: "starPink")
+            reserveView.backgroundColor = UIColor.white
             reserveTitle.text = "สนใจกิจกรรม"
             reserveDesc.text = "กิจกรรมนี้สามารถเข้าร่วมได้โดยไม่ต้องจอง"
             reserveTitle.textColor = UIColor.black

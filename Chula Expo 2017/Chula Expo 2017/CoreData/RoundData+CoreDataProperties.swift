@@ -142,7 +142,7 @@ extension Date {
         case 2:
             monthText = "กุมภาพันธ์"
         case 3:
-            monthText = "มีนาคม"
+            monthText = "March"
         case 4:
             monthText = "เมษายน"
         case 5:
@@ -184,7 +184,7 @@ extension Date {
         case 2:
             monthText = "กุมภาพันธ์"
         case 3:
-            monthText = "มีนาคม"
+            monthText = "March"
         case 4:
             monthText = "เมษายน"
         case 5:
@@ -221,7 +221,7 @@ extension Date {
         case 2:
             monthText = "กุมภาพันธ์"
         case 3:
-            monthText = "มีนาคม"
+            monthText = "March"
         case 4:
             monthText = "เมษายน"
         case 5:

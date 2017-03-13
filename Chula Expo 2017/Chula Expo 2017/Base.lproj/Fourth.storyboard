@@ -86,15 +86,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.96080243587493896" green="0.96076643466949463" blue="0.96079087257385254" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutCell" rowHeight="105" id="O1A-tW-AKx" customClass="AboutAppTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="105"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="aboutCell" rowHeight="115" id="O1A-tW-AKx" customClass="AboutAppTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1A-tW-AKx" id="rdr-Ik-dLL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbC-Y9-KRz">
-                                            <rect key="frame" x="8" y="4" width="359" height="97"/>
+                                            <rect key="frame" x="8" y="4" width="359" height="107"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k5r-MX-SGX">
                                                     <rect key="frame" x="15" y="15" width="35" height="35"/>
@@ -109,9 +109,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Vhw-le-8GY">
-                                                    <rect key="frame" x="80" y="60" width="273" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Vhw-le-8GY">
+                                                    <rect key="frame" x="72" y="57" width="281" height="20"/>
+                                                    <fontDescription key="fontDescription" name="SukhumvitSet-Text" family="Sukhumvit Set" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -126,7 +126,7 @@
                                                 <constraint firstItem="k5r-MX-SGX" firstAttribute="leading" secondItem="EbC-Y9-KRz" secondAttribute="leading" constant="15" id="XPl-l1-i5Z"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="k5r-MX-SGX" secondAttribute="bottom" constant="15" id="ZbU-bW-MKr"/>
                                                 <constraint firstAttribute="bottom" secondItem="Vhw-le-8GY" secondAttribute="bottom" constant="20" id="eCi-E7-HA8"/>
-                                                <constraint firstItem="Vhw-le-8GY" firstAttribute="leading" secondItem="cEG-kc-dfi" secondAttribute="leading" constant="10" id="tOO-UN-C6H"/>
+                                                <constraint firstItem="Vhw-le-8GY" firstAttribute="leading" secondItem="cEG-kc-dfi" secondAttribute="leading" constant="2" id="tOO-UN-C6H"/>
                                                 <constraint firstItem="Vhw-le-8GY" firstAttribute="top" secondItem="cEG-kc-dfi" secondAttribute="bottom" constant="20" id="waY-7i-cZJ"/>
                                             </constraints>
                                         </view>
@@ -147,7 +147,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="supportCell" rowHeight="220" id="HFu-1f-9L9" customClass="AboutAppTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="133" width="375" height="220"/>
+                                <rect key="frame" x="0.0" y="143" width="375" height="220"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HFu-1f-9L9" id="D0W-jl-b47">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
@@ -191,7 +191,7 @@
                                 <color key="backgroundColor" red="0.96080243590000003" green="0.9607664347" blue="0.96079087259999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sponCell" rowHeight="285" id="RzM-xS-ROP" customClass="AboutAppTableViewCell" customModule="Chula_Expo_2017" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="353" width="375" height="285"/>
+                                <rect key="frame" x="0.0" y="363" width="375" height="285"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RzM-xS-ROP" id="gTn-45-ACq">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="285"/>

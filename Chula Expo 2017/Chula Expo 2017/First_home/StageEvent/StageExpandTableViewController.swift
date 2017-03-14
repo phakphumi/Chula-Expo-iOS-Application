@@ -11,6 +11,7 @@ import CoreData
 
 class StageExpandTableViewController: StageExpandableCoreDataTableViewController {
     
+    
     @IBOutlet weak var topTab: UIView!
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
@@ -289,14 +290,19 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
             if let fetchData = fetchedResultsController?.object(at: IndexPath(row: 0, section: indexPath.section)) as? StageActivity{
                 
                 var desc: String?
+                var id: String?
                 fetchData.managedObjectContext?.performAndWait {
                     
                     desc = fetchData.toActivity?.desc
+                    id = fetchData.toActivity?.activityId
+                    
                 }
                 
                 if let stageDetailCell = cell as? StageDetailCell{
                     
                     stageDetailCell.desc = desc
+                    stageDetailCell.button.actID = id
+                    
                 }
             }
         }
@@ -312,6 +318,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         if selectSection == indexPath.section && indexPath.row == 0 {
             
             selectSection = nil
+            
         }
         else {
     
@@ -338,7 +345,7 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
         
        }
        else if indexPath.row == 0 {
-            return 46
+            return UITableViewAutomaticDimension
         
         }
         return 0;
@@ -348,7 +355,48 @@ class StageExpandTableViewController: StageExpandableCoreDataTableViewController
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toDetailFromStage"{
+            if let destination = segue.destination as? EventDetailTableViewController {
+                
+                if let button = sender as? DetailButton{
+                    
+                    if let id = button.actID{
+                        
+                        ActivityData.fetchActivityData(activityId: id, inManageobjectcontext: managedObjectContext!, completion: { (activityData) in
+                            
+                            if let activityData = activityData {
+                                
+                                destination.activityId = activityData.activityId
+                                destination.bannerUrl = activityData.bannerUrl
+                                destination.topic = activityData.name
+                                destination.locationDesc = ""
+                                destination.toRounds = activityData.toRound
+                                destination.desc = activityData.desc
+                                destination.room = activityData.room
+                                destination.place = activityData.place
+                                destination.zoneId = activityData.faculty
+                                destination.latitude = activityData.latitude
+                                destination.longitude = activityData.longitude
+                                destination.pdf = activityData.pdf
+                                destination.video = activityData.video
+                                destination.toImages = activityData.toImages
+                                destination.toTags = activityData.toTags
+                                destination.start = activityData.start
+                                destination.end = activityData.end
+                                destination.managedObjectContext = self.managedObjectContext
+                                
+                            }
+                            
+                        })
+                        
+                    }
+                }
+
+            }
+            
+        }
+        
     }
+    
  }

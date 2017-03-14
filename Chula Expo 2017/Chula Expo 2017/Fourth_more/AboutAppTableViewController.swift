@@ -52,7 +52,7 @@ class AboutAppTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return datas.count + 2
+        return datas.count + 3
     }
 
 
@@ -73,11 +73,14 @@ class AboutAppTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "supportCell", for: indexPath)
             cell.viewWithTag(3)?.cardStyle(background: cell.viewWithTag(3)!)
         }
-        else{
+        else if indexPath.row == datas.count+1{
             cell = tableView.dequeueReusableCell(withIdentifier: "sponCell", for: indexPath)
             cell.viewWithTag(3)?.cardStyle(background: cell.viewWithTag(3)!)
         }
-        
+        else if indexPath.row == datas.count+2{
+            cell = tableView.dequeueReusableCell(withIdentifier: "thankCell", for: indexPath)
+            cell.viewWithTag(3)?.cardStyle(background: cell.viewWithTag(3)!)
+        }
         
         // Configure the cell...
         cell.selectionStyle = .none
@@ -93,12 +96,13 @@ class AboutAppTableViewController: UITableViewController {
             data(thumb: #imageLiteral(resourceName: "ico-design"), headtext: "Application Designer", descText: "Nutthawat Pradujdecha (CP41)"),
             data(thumb: #imageLiteral(resourceName: "ico-ios"), headtext: "Application Developer", descText: "Pakpoom Thaweesitthichat (CP41)\nPanupong Tongtawach (CP41)\nThanapon Sirisompark (CP41)\nEkkalak Leelasornchai (CP42)"),
             data(thumb: #imageLiteral(resourceName: "ico-ios"), headtext: "Other Platform Developer", descText: "Sirinthra Chantharaj (CP41)\nNutthaphol Rakratchatakul (CP41)\nSupakrit Paoliwat (CP41)\nTeerapat Prompunjai (CP42)"),
-            data(thumb: #imageLiteral(resourceName: "ico-backend"), headtext: "Back-end Developer", descText: "Atikhun Orisoon (CP40)\nApiruj Choomwattana (CP41)\nKitipong Sirirueangsakul (CP41)\nNuttapat Kirawittaya (CP41)\nPongsathorn Chotipanvidhayakul (CP41)\nPuttiphat Sriratpinyo (CP41)\nWasin Watthanasrisong (CP41)"),
+            data(thumb: #imageLiteral(resourceName: "ico-backend"), headtext: "Front-end and Back-end Developer", descText: "Atikhun Orisoon (CP40)\nApiruj Choomwattana (CP41)\nKitipong Sirirueangsakul (CP41)\nNuttapat Kirawittaya (CP41)\nPongsathorn Chotipanvidhayakul (CP41)\nPuttiphat Sriratpinyo (CP41)\nWasin Watthanasrisong (CP41)\nNoppawit Thairungroj (CP41)\nSitthichai Saejia (CP41)"),
+            data(thumb: #imageLiteral(resourceName: "ico-sponsor"), headtext: "Project Initiator", descText: "Chonpeeti Pornrungroj\nKrit Pattarawongvisut\nNarut Wasoontaramas"),
+            data(thumb: #imageLiteral(resourceName: "ico-monitor"), headtext: "Project Monitoring", descText: "Krit Gangwanpongpun (CP40)\nTananan Tangthanachaikul (CP40)"),
             data(thumb: #imageLiteral(resourceName: "ico-recommendation"), headtext: "Recommendation System", descText: "Asst.Prof. Dr.Natawut Nupairoj"),
             data(thumb: #imageLiteral(resourceName: "ico-indoor"), headtext: "Indoor Localization System", descText: "Assc.Prof. Dr.Kultida Rojviboonchai\nTeerapat Vongsuteera (CP39)"),
-            data(thumb: #imageLiteral(resourceName: "ico-advisor"), headtext: "Project Advisor", descText: "Asst.Prof. Dr.Athasit Surarerks"),
-            data(thumb: #imageLiteral(resourceName: "ico-monitor"), headtext: "Project Monitoring", descText: "Krit Gangwanpongpun (CP40)\nTananan Tangthanachaikul (CP40)"),
-            data(thumb: #imageLiteral(resourceName: "ico-sponsor"), headtext: "Project Sponsor", descText: "Chonpeeti Pornrungroj\nKrit Pattarawongvisut\nNarut Wasoontaramas")
+            data(thumb: #imageLiteral(resourceName: "ico-advisor"), headtext: "Project Advisor", descText: "Asst.Prof. Dr.Athasit Surarerks")          
+            
         ]
     }
     /*

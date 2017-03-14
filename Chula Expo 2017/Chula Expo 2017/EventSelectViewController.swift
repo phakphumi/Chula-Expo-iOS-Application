@@ -377,7 +377,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             cityData(name: "CU Talk", subName: "589c5330a8bbbb1c7165d3f2", bgImage: "CUTALK-bg", iconImage: "cutalk-icon", tagName: "CUTALK", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
             cityData(name: "CU@100 Exhibition", subName: "589c536ca8bbbb1c7165d3f3", bgImage: "CU100-bg", iconImage: "cu100-icon", tagName: "CU100", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
             cityData(name: "Art gallery", subName: "589c52b4a8bbbb1c7165d3f0", bgImage: "ARTGAL-bg", iconImage: "artgal-icon", tagName: "ARTGAL", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)),
-            cityData(name: "International Forum", subName: "589c5391a8bbbb1c7165d3f4", bgImage: "FORUM-bg", iconImage: "forum-icon", tagName: "FORUM", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0))
+            cityData(name: "International Forum", subName: "589c5391a8bbbb1c7165d3f4", bgImage: "FORUM-bg", iconImage: "forum-icon", tagName: "INTERFORUM", tagColor: UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0))
         ]
     }
     
@@ -410,7 +410,7 @@ class EventSelectViewController: UIViewController, UICollectionViewDelegate, UIC
             facultyData(imgName: "23_GRAD",  tagName: "บัณฑิตวิทยาลัย",  tagBack: "23-GRAD-bg",  tagEngName: "Graduate School", shortName: "GRAD", zoneId: "5899acfe5eeecd3698f6cfdb"),
             facultyData(imgName: "24-RCU",  tagName: "หอพักนิสิต",  tagBack: "24-RCU-bg",  tagEngName: "Residence of Chulalongkorn University", shortName: "RCU", zoneId: "58c47c3f7b4c6d6cf35dbe2b"),
             
-    ]
+        ]
     }
     func setupInterestData(){
         

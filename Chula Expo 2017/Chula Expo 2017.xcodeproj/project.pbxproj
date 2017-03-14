@@ -114,6 +114,7 @@
 		805029BF1E2AA139009ABF2C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0861E150EDE00E984AB /* FBSDKCoreKit.framework */; };
 		805029C11E2AA139009ABF2C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0871E150EDE00E984AB /* FBSDKLoginKit.framework */; };
 		805029C31E2AA139009ABF2C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9FB0881E150EDE00E984AB /* FBSDKShareKit.framework */; };
+		80571DB21E7824E900DAB5F2 /* DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80571DB11E7824E900DAB5F2 /* DetailButton.swift */; };
 		8059FF201E41AEE800B013B3 /* StageExpandTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */; };
 		8059FF221E41B1F800B013B3 /* StageExpandableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */; };
 		8059FF241E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */; };
@@ -262,6 +263,7 @@
 		803688AA1E42595300C1FB58 /* StageDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageDetailCell.swift; path = First_home/StageEvent/StageDetailCell.swift; sourceTree = "<group>"; };
 		803C5DFC1E37B66A00079A97 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = First_home/HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		80403F351E5DECDB009C1937 /* InterestBG.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = InterestBG.xcassets; sourceTree = "<group>"; };
+		80571DB11E7824E900DAB5F2 /* DetailButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailButton.swift; path = First_home/StageEvent/DetailButton.swift; sourceTree = "<group>"; };
 		8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandTableViewController.swift; path = First_home/StageEvent/StageExpandTableViewController.swift; sourceTree = "<group>"; };
 		8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCell.swift; path = First_home/StageEvent/StageExpandableCell.swift; sourceTree = "<group>"; };
 		8059FF231E41B24800B013B3 /* StageExpandableCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StageExpandableCoreDataTableViewController.swift; path = First_home/StageEvent/StageExpandableCoreDataTableViewController.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 				8059FF1F1E41AEE800B013B3 /* StageExpandTableViewController.swift */,
 				8059FF211E41B1F800B013B3 /* StageExpandableCell.swift */,
 				803688AA1E42595300C1FB58 /* StageDetailCell.swift */,
+				80571DB11E7824E900DAB5F2 /* DetailButton.swift */,
 			);
 			name = StageEvent;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				800641DB1E215BAC00760834 /* EventData+CoreDataClass.swift in Sources */,
 				5FF51A5C1E40AF51000DF788 /* EventDetailTableViewController.swift in Sources */,
 				802DEC861E709A390041E303 /* NotificationList.swift in Sources */,
+				80571DB21E7824E900DAB5F2 /* DetailButton.swift in Sources */,
 				80314F411E4A2F1E003DB96A /* FacultyCollectionViewCell.swift in Sources */,
 				80F456691E620C3B00D06378 /* FacultyDescCell.swift in Sources */,
 				5FAA77661E601E930099809E /* HighlightActivity+CoreDataClass.swift in Sources */,

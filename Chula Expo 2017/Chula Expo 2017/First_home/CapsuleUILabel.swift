@@ -58,8 +58,8 @@ class CapsuleUILabel: UILabel {
             backgroundColor = UIColor(red:1.00, green:0.87, blue:0.00, alpha:1.0)
             self.textColor = UIColor.black
             self.layer.borderWidth = 0
-        case "POLISC":
-            backgroundColor = UIColor(red:0.00, green:0.00, blue:0.00, alpha:1.0)
+        case "POLSCI":
+            backgroundColor = UIColor.black
             self.layer.borderColor = UIColor.black.cgColor
             self.layer.borderWidth = 1.0
         case "ARCH":
@@ -137,6 +137,21 @@ class CapsuleUILabel: UILabel {
             self.layer.borderWidth = 0
         case "RCU":
             backgroundColor = UIColor(red:0.93, green:0.02, blue:0.47, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "HALL":
+            self.text = "CUTALK"
+            backgroundColor = UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "SALA":
+            self.text = "CU100"
+            backgroundColor = UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "ART":
+            self.text = "ARTGAL"
+            backgroundColor = UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)
+            self.layer.borderWidth = 0
+        case "INTERFORUM":
+            backgroundColor = UIColor(red:1.00, green:0.31, blue:0.62, alpha:1.0)
             self.layer.borderWidth = 0
         default:
             

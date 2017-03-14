@@ -39,7 +39,7 @@
                                     <action selector="cancle:" destination="fGA-5k-K08" eventType="touchUpInside" id="LjY-4D-5eC"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="liV-hZ-JeP">
                                 <rect key="frame" x="122" y="80" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="liV-hZ-JeP" secondAttribute="height" multiplier="1:1" id="pbj-2n-RqS"/>

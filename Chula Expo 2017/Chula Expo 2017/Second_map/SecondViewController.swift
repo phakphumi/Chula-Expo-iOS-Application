@@ -220,7 +220,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
                             "SPONSOR2-PLACE": #imageLiteral(resourceName: "CTY-SPONSOR"),
                             "LEARNNET": #imageLiteral(resourceName: "LEARNNET"),
                             "LEARNNET-PLACE": #imageLiteral(resourceName: "LEARNNET"),
-                            "ACTIVITY": #imageLiteral(resourceName: "EVENT-IOS")
+                            "ACTIVITY": #imageLiteral(resourceName: "CTY-ACTIVITY")
                             
     
     ]

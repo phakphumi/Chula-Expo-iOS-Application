@@ -33,16 +33,16 @@ class StageCell: UITableViewCell {
         didSet{
             if let stageNo = stage{
                 if stageNo == 1{
-                    stageNoLabel.text = "STAGE 1"
-                    stageNameLabel.text = "เวทีกลาง"
+                    stageNoLabel.text = "เวทีกลาง"
+                    stageNameLabel.text = "CENTRAL"
                 }
                 if stageNo == 2{
-                    stageNoLabel.text = "STAGE 2"
-                    stageNameLabel.text = "หอประชุมใหญ่"
+                    stageNoLabel.text = "หอประชุมใหญ่"
+                    stageNameLabel.text = "GRAND"
                 }
                 if stageNo == 3{
-                    stageNoLabel.text = "STAGE 3"
-                    stageNameLabel.text = "ศาลาพระเกี้ยว"
+                    stageNoLabel.text = "ศาลาพระเกี้ยว"
+                    stageNameLabel.text = "CU@100"
                 }
             }
 

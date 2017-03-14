@@ -486,7 +486,17 @@ class FirstViewController: MainCoreDataTableViewController{
                 
                 if let stageNo = (sender as? StageCell)?.stage{
                     dest.stageNo = stageNo
-                    dest.title = "Stage \(stageNo) Schedule"
+                    switch stageNo {
+                    case 1:
+                        dest.title = "Central Stage Schedule"
+                    case 2:
+                        dest.title = "Grand Auditorium Schedule"
+                    case 3:
+                        dest.title = "CU@100 Exhibition Schedule"
+                    default:
+                        dest.title = "CU@100 Exhibition Schedule"
+                    }
+//                    dest.title = "Stage \(stageNo) Schedule"
                     let day = nowDate.checkInday()
                     if day > 0{
                         dest.dateForDefault = day

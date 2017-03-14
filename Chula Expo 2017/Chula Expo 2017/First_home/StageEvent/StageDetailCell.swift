@@ -10,6 +10,9 @@ import UIKit
 
 class StageDetailCell: UITableViewCell {
     
+    
+    @IBOutlet var button: DetailButton!
+    @IBOutlet var buttonBackground: UIView!
     @IBOutlet var descLabel: UILabel!
     
 //    var textAttribute = NSAttributedString()
@@ -25,13 +28,19 @@ class StageDetailCell: UITableViewCell {
         }
     }
     
+    var actId: String?
+    
     func updateUI () {
         
         if let desc = desc{
 //            descLabel. = textAttribute.heightWithConstrainedWidth(width: descLabel.bounds.width)
             descLabel.text = desc
             descLabel.sizeToFit()
-            
+            buttonBackground.layer.cornerRadius = 5
+            buttonBackground.clipsToBounds = true
+            buttonBackground.layer.borderWidth = 1
+            buttonBackground.layer.borderColor = UIColor.gray.cgColor
+//            button.actID = actId
         }
         
     }
@@ -46,8 +55,10 @@ class StageDetailCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+  
 
 }
+
 
 extension NSAttributedString {
     func heightWithConstrainedWidth(width: CGFloat) -> CGFloat {

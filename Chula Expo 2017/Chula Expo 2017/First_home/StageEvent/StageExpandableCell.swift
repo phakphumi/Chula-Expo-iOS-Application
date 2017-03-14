@@ -39,25 +39,26 @@ class StageExpandableCell: UITableViewCell {
             if let name1 = name{
                 
                 nameLabel.text = name1
-                cardStyle(background: background)
+                
             }
         }
     }
+    
     
     func expandTitle(){
         
         nameLabel.numberOfLines = 0
         nameLabel.textColor = UIColor(red:1.00, green:0.42, blue:0.60, alpha:1.0)
         nameLabel.lineBreakMode = .byWordWrapping
-        
+        cardStyle(background: background)
     }
     
     func closeTitle(){
         
-        nameLabel.numberOfLines = 1
+        nameLabel.numberOfLines = 0
         nameLabel.textColor = UIColor.black
-        nameLabel.lineBreakMode = .byTruncatingTail
-
+        nameLabel.lineBreakMode = .byWordWrapping
+        cardStyle(background: background)
     }
     
     override func awakeFromNib() {

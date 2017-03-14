@@ -1956,8 +1956,6 @@ class APIController {
             
         }
         
-        print(parameters)
-        
         Alamofire.request("https://api.chulaexpo.com/api/facilities", method: .get, parameters: parameters).responseJSON { (response) in
             
             if response.result.isSuccess {

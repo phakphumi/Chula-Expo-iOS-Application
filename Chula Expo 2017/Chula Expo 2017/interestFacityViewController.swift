@@ -397,7 +397,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
             selectedList[indexPath.row] = false
             
         }
-        print("Selecr ", indexPath.row)
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? interestCollectionViewCell1{
             
             //cell.didSelectCell = selectedList[indexPath.row]
@@ -421,9 +421,9 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
                 cell.interestName1.textColor = UIColor.white
                 cell.engName1.textColor = UIColor.white
             }
-      //      print("\(cell.didSelectCell)")
             
         }
+        
     }
     var facultyList: [facultyData] = []
     
@@ -431,7 +431,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         var check = false
         facultyList.removeAll()
         for i in 0...tagList.count {
-            print(selectedList[i])
+            
             if selectedList[i] {
                 facultyList.append(tagList[i])
                 check = true
@@ -472,7 +472,7 @@ class interestFacityViewController: UIViewController, UICollectionViewDelegate, 
         var check = false
         facultyList.removeAll()
         for i in 0...tagList.count {
-            print(selectedList[i])
+            
             if selectedList[i] {
                 facultyList.append(tagList[i])
                 check = true

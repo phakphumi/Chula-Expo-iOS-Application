@@ -464,6 +464,7 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
         APIController.getWhereAmI(latitude: map.userLocation.coordinate.latitude, longitude: map.userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
             
+            self.whereAmILabel.text = zone?["th"] ?? "\'ไม่พบข้อมูล\'"
             self.map.userLocation.title = "คุณอยู่ที่\(zone?["th"] ?? "\'ไม่พบข้อมูล\'")"
             
         })
@@ -824,11 +825,11 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
             
             setCurrentRegion(lat: userLocation.coordinate.latitude, lon: userLocation.coordinate.longitude, latDelta: 0.0124, lonDelta: 0.0124)
             
-            APIController.getWhereAmI(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
-                
-                self.whereAmILabel.text = zone?["th"]
-                
-            })
+//            APIController.getWhereAmI(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
+//                
+//                self.whereAmILabel.text = zone?["th"]
+//                
+//            })
             
         }
         

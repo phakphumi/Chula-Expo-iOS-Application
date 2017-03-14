@@ -15,7 +15,7 @@ import Fabric
 import Answers
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SirenDelegate {
 
     var window: UIWindow?
 
@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Answers.self])
         
         let siren = Siren.sharedInstance
+        siren.delegate = self
         siren.alertType = .force
         siren.checkVersion(checkType: .immediately)
         
@@ -38,47 +39,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-//        let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
-//        let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
+        NSTimeZone.default = TimeZone(secondsFromGMT: 25200)!
         
-//        let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
-//        let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
-        
-//        let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
-//        let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+        return true
+    }
+    
+    func sirenLatestVersionInstalled() {
         
         let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
         let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
-        
-//        let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
-//        let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
-        
-//        let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
-//        let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
-        
-//        let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
-//        let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
-        
-//        let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
-//        let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
-        
-//        let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
-//        let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
         
         let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
         let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
         
         do {
             
-//            try managedObjectContext.execute(requestDeleteZoneData)
-//            try managedObjectContext.execute(requestDeleteImageData)
-//            try managedObjectContext.execute(requestDeleteTagData)
             try managedObjectContext.execute(requestDeleteUserData)
-//            try managedObjectContext.execute(requestDeleteVideoData)
-//            try managedObjectContext.execute(requestDeletePlaceData)
-//            try managedObjectContext.execute(requestDeleteRoomData)
-//            try managedObjectContext.execute(requestDeleteFacilityData)
-//            try managedObjectContext.execute(requestDeleteFavoritedActivity)
             try managedObjectContext.execute(requestDeleteReservedActivity)
             
         } catch let error {
@@ -102,24 +78,106 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }
-
+        
         APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext) { (success) in
-
+            
             if success {
-
+                
                 APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
-        
+                
             }
-        
+            
         }
-        
-//        APIController.downloadActivities(inManageobjectcontext: self.managedObjectContext)
         
         APIController.downloadZone(inManageobjectcontext: self.managedObjectContext)
         APIController.downloadFacility(inManageobjectcontext: self.managedObjectContext)
-        NSTimeZone.default = TimeZone(secondsFromGMT: 25200)!
-//        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext, completion: nil)
-        return true
+        
+    }
+    
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType) {
+        
+        self.managedObjectContext.performAndWait {
+            
+            let fetchActivityData = NSFetchRequest<NSFetchRequestResult>(entityName: "ActivityData")
+            let requestDeleteActivityData = NSBatchDeleteRequest(fetchRequest: fetchActivityData)
+            
+            let fetchEntityHistory = NSFetchRequest<NSFetchRequestResult>(entityName: "EntityHistory")
+            let requestDeleteEntitiyHistory = NSBatchDeleteRequest(fetchRequest: fetchEntityHistory)
+            
+            let fetchFacilityData = NSFetchRequest<NSFetchRequestResult>(entityName: "FacilityData")
+            let requestDeleteFacilityData = NSBatchDeleteRequest(fetchRequest: fetchFacilityData)
+            
+            let fetchFavoritedData = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritedActivity")
+            let requestDeleteFavoritedActivity = NSBatchDeleteRequest(fetchRequest: fetchFavoritedData)
+            
+            let fetchHighlighActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+            let requestDeleteHighlightActivity = NSBatchDeleteRequest(fetchRequest: fetchHighlighActivity)
+            
+            let fetchImageData = NSFetchRequest<NSFetchRequestResult>(entityName: "ImageData")
+            let requestDeleteImageData = NSBatchDeleteRequest(fetchRequest: fetchImageData)
+            
+            let fetchNearbyActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "NearbyActivity")
+            let requestDeleteNearbyActivity = NSBatchDeleteRequest(fetchRequest: fetchNearbyActivity)
+            
+            let fetchPlaceData = NSFetchRequest<NSFetchRequestResult>(entityName: "PlaceData")
+            let requestDeletePlaceData = NSBatchDeleteRequest(fetchRequest: fetchPlaceData)
+            
+            let fetchRecommendActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+            let requestDeleteRecommendActivity = NSBatchDeleteRequest(fetchRequest: fetchRecommendActivity)
+            
+            let fetchReservedData = NSFetchRequest<NSFetchRequestResult>(entityName: "ReservedActivity")
+            let requestDeleteReservedActivity = NSBatchDeleteRequest(fetchRequest: fetchReservedData)
+            
+            let fetchRoomData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoomData")
+            let requestDeleteRoomData = NSBatchDeleteRequest(fetchRequest: fetchRoomData)
+            
+            let fetchRoundData = NSFetchRequest<NSFetchRequestResult>(entityName: "RoundData")
+            let requestDeleteRoundData = NSBatchDeleteRequest(fetchRequest: fetchRoundData)
+            
+            let fetchStageActivity = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+            let requestDeleteStageActivity = NSBatchDeleteRequest(fetchRequest: fetchStageActivity)
+            
+            let fetchTagData = NSFetchRequest<NSFetchRequestResult>(entityName: "TagData")
+            let requestDeleteTagData = NSBatchDeleteRequest(fetchRequest: fetchTagData)
+            
+            let fetchVideoData = NSFetchRequest<NSFetchRequestResult>(entityName: "VideoData")
+            let requestDeleteVideoData = NSBatchDeleteRequest(fetchRequest: fetchVideoData)
+            
+            let fetchZoneData = NSFetchRequest<NSFetchRequestResult>(entityName: "ZoneData")
+            let requestDeleteZoneData = NSBatchDeleteRequest(fetchRequest: fetchZoneData)
+            
+            
+            let fetchUserData = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+            let requestDeleteUserData = NSBatchDeleteRequest(fetchRequest: fetchUserData)
+            
+            do {
+                
+                try self.managedObjectContext.execute(requestDeleteActivityData)
+                try self.managedObjectContext.execute(requestDeleteEntitiyHistory)
+                try self.managedObjectContext.execute(requestDeleteFacilityData)
+                try self.managedObjectContext.execute(requestDeleteFavoritedActivity)
+                try self.managedObjectContext.execute(requestDeleteHighlightActivity)
+                try self.managedObjectContext.execute(requestDeleteImageData)
+                try self.managedObjectContext.execute(requestDeleteNearbyActivity)
+                try self.managedObjectContext.execute(requestDeletePlaceData)
+                try self.managedObjectContext.execute(requestDeleteRecommendActivity)
+                try self.managedObjectContext.execute(requestDeleteReservedActivity)
+                try self.managedObjectContext.execute(requestDeleteRoomData)
+                try self.managedObjectContext.execute(requestDeleteRoundData)
+                try self.managedObjectContext.execute(requestDeleteStageActivity)
+                try self.managedObjectContext.execute(requestDeleteTagData)
+                try self.managedObjectContext.execute(requestDeleteVideoData)
+                try self.managedObjectContext.execute(requestDeleteZoneData)
+                try self.managedObjectContext.execute(requestDeleteUserData)
+                
+            } catch let error {
+                
+                print(error)
+                
+            }
+            
+        }
+        
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {

@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapTableViewCell: UITableViewCell {
+class MapTableViewCell: UITableViewCell, MKMapViewDelegate {
 
     @IBOutlet weak var map: MKMapView!
     
@@ -24,6 +24,8 @@ class MapTableViewCell: UITableViewCell {
         
         self.layoutIfNeeded()
         self.setNeedsLayout()
+        
+        map.delegate = self
         
     }
     
@@ -44,6 +46,30 @@ class MapTableViewCell: UITableViewCell {
         annotation.coordinate = location
         
         map.addAnnotation(annotation)
+        
+        map.showsUserLocation = true
+        map.userLocation.title = "ตำแหน่งของฉัน"
+        
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            
+            return nil
+            
+        }
+        
+        let annotationIdentifier = "CustomerIdentifier"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+        
+        annotationView?.image = #imageLiteral(resourceName: "EVENT-IOS")
+        annotationView?.contentMode = .scaleAspectFit
+        annotationView?.frame = CGRect(x: (annotationView?.frame.origin.x)!, y: (annotationView?.frame.origin.y)!, width: 20, height: 29.01)
+        
+        return annotationView
         
     }
 

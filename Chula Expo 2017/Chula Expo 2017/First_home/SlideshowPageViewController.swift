@@ -236,7 +236,7 @@ class SlideshowPageViewController: UIPageViewController, UIPageViewControllerDel
             
             self.pageControl.currentPage = frameIndex
             if finished{
-                print("add timer")
+                
                 timer.invalidate()
                 timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(SlideshowPageViewController.nextViewController), userInfo: nil, repeats: false)
             }

@@ -72,7 +72,7 @@ class TabBarViewController: UITabBarController {
                 }
                 
                 if let activityData = activity {
-                        print(activityData)
+                        
                     destination.activityId = activityData.activityId
                     destination.bannerUrl = activityData.bannerUrl
                     destination.topic = activityData.name

@@ -96,7 +96,7 @@ class InterestCollectionViewCell: UICollectionViewCell {
     }
      /// ปลยังหาวิธีเรียกให้มันได้ค่าที่ถูกต้องไม่ได้เลยย
     func setupFrame(){
-        print("FM",f)
+        
         f+=1
         bigBackImgFrame = CGRect(origin: CGPoint(x:backImg1.frame.origin.x-1, y: backImg1.frame.origin.y-1), size: CGSize(width: backImg1.bounds.size.width+1,height: backImg1.bounds.size.height+1))
         bigInterestImagFrame = CGRect(origin: CGPoint(x:interestImg1.frame.origin.x-1, y: interestImg1.frame.origin.y-1), size: CGSize(width: interestImg1.bounds.size.width+1,height: interestImg1.bounds.size.height+1))

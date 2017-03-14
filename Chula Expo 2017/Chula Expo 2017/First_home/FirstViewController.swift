@@ -55,8 +55,6 @@ class FirstViewController: MainCoreDataTableViewController{
         APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         
-        print("now time is == \(nowDate.toThaiText())")
-        
         requestForFeedEvent()
         
         

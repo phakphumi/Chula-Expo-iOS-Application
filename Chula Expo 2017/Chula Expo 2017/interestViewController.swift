@@ -293,7 +293,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
             selectedList[indexPath.row] = false
             
         }
-        print("Selecr ", indexPath.row)
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? InterestCollectionViewCell{
             
 //            cell.didSelectCell = selectedList[indexPath.row]
@@ -343,7 +343,7 @@ class interestViewController: UIViewController, UICollectionViewDelegate, UIColl
                 check = true
             }
         }
-        print(check)
+        
         if(check == false){
             let button2Alert: UIAlertView = UIAlertView(title: "", message: "please select", delegate: self, cancelButtonTitle: "OK")
             button2Alert.show()

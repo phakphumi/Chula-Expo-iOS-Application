@@ -105,9 +105,9 @@ class MeViewController: UIViewController, UIAlertViewDelegate {
     
     @IBAction func changeLanguage(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "Change Activity's Language", message: "The application content need to be reloaded when you change the language. Are you sure to continue?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Change Activity's Language", message: "The application content need to be reloaded when you change the language and favorited activity will be lost. Are you sure to continue?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (alert) in
+        alert.addAction(UIAlertAction(title: "Continue", style: .destructive, handler: { (alert) in
             
             if var currentLanguage = EntityHistory.getLanguage(inManageobjectcontext: self.managedObjectContext!) {
                 

@@ -28,8 +28,6 @@ class FirstViewController: MainCoreDataTableViewController{
     var nowDate = Date()
     let slideshowPageViewController = SlideshowPageViewController()
     
-    var didRefreshFirstTime = false
-    
     @IBOutlet var homeTableView: UITableView!
     
     override func viewDidLoad() {

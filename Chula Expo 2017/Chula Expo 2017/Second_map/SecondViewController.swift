@@ -283,6 +283,8 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     var isPrayerShowing = false
     var isBusStopShowing = false
     
+    var countToSend = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -454,22 +456,22 @@ class SecondViewController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-//        userLocation = locations[0]
-//        
-//        map.removeAnnotation(annotation)
-//        
-//        annotation.coordinate = userLocation.coordinate
-//        
-//        map.addAnnotation(annotation)
-        
-        APIController.getWhereAmI(latitude: map.userLocation.coordinate.latitude, longitude: map.userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
+        if countToSend % 25 == 0 {
             
-            self.whereAmILabel.text = zone?["th"] ?? "\'ไม่พบข้อมูล\'"
-            self.map.userLocation.title = "คุณอยู่ที่\(zone?["th"] ?? "\'ไม่พบข้อมูล\'")"
+            APIController.getWhereAmI(latitude: map.userLocation.coordinate.latitude, longitude: map.userLocation.coordinate.longitude, inManageobjectcontext: managedObjectContext!, completion: { (zone) in
+                
+                self.whereAmILabel.text = zone?["th"] ?? "\'ไม่พบข้อมูล\'"
+                self.map.userLocation.title = "คุณอยู่ที่\(zone?["th"] ?? "\'ไม่พบข้อมูล\'")"
+                
+            })
             
-        })
+            
+        }
         
         map.showsUserLocation = true
+        
+        countToSend += 1
+        print(countToSend)
         
     }
     

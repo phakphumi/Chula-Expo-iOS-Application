@@ -34,29 +34,34 @@ class FirstViewController: MainCoreDataTableViewController{
         
         super.viewDidLoad()
         
-        Answers.logContentView(withName: "First",
-                               contentType: nil,
-                               contentId: nil,
-                               customAttributes: nil)
+        if Reachability.isThereInternetConnection() {
         
-//        StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
-        
-        let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
-        let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
-        do{
-            try managedObjectContext!.execute(requestDeleteRecommendData)
-        } catch let error {
+            Answers.logContentView(withName: "First",
+                                   contentType: nil,
+                                   contentId: nil,
+                                   customAttributes: nil)
             
-            print(error)
+            let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+            let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
+            
+            do{
+                try managedObjectContext!.execute(requestDeleteRecommendData)
+            } catch let error {
+                
+                print(error)
+                
+            }
+            
+            APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
+            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
             
         }
         
+        //        StageActivity.getNumberOfStage(inManageobejectcontext: managedObjectContext!)
+        
         fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
-        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
-        APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
         
         requestForFeedEvent()
-        
         
         homeTableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tabBarController?.tabBar.backgroundColor = UIColor.white
@@ -95,85 +100,59 @@ class FirstViewController: MainCoreDataTableViewController{
         // Fetch more objects from a web service, for example...
         
         // Simply adding an object to the data source for this example
+        
         fetchActivityNowOnstage = StageActivity.fetchNowOnStageID(manageObjectContext: managedObjectContext!)
         
-        let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
-        let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
-        let fetchStageData = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
-        let requestDeleteStageData = NSBatchDeleteRequest(fetchRequest: fetchStageData)
-        let fetchHighlightData = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
-        let requestDeleteHighlightData = NSBatchDeleteRequest(fetchRequest: fetchHighlightData)
-        
-        do{
+        if Reachability.isThereInternetConnection() {
             
-            try managedObjectContext!.execute(requestDeleteRecommendData)
-            try managedObjectContext!.execute(requestDeleteStageData)
-            try managedObjectContext!.execute(requestDeleteHighlightData)
-            try managedObjectContext!.save()
-        } catch let error {
+            let fetchRecommendData = NSFetchRequest<NSFetchRequestResult>(entityName: "RecommendActivity")
+            let requestDeleteRecommendData = NSBatchDeleteRequest(fetchRequest: fetchRecommendData)
+            let fetchStageData = NSFetchRequest<NSFetchRequestResult>(entityName: "StageActivity")
+            let requestDeleteStageData = NSBatchDeleteRequest(fetchRequest: fetchStageData)
+            let fetchHighlightData = NSFetchRequest<NSFetchRequestResult>(entityName: "HighlightActivity")
+            let requestDeleteHighlightData = NSBatchDeleteRequest(fetchRequest: fetchHighlightData)
             
-            print(error)
-            
-        }
-        
-
-        
-//        APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
-//
-//            if success {
-//                
-//                APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
-//                    
-//                    if success {
-////                        self.reloadSlideShow(finishload: true)
-//                        APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
-//                        (finish) in
-//                            if finish {
-////                                self.reloadSlideShow(finishload: true)
-//                                StageActivity.getNumberOfStage(inManageobejectcontext: self.managedObjectContext!)
-//                            }
-//                        })
-//                    }
-//                })
-//            }
-//        }
-
-        
-//        managedObjectContext?.performAndWait {
-//            
-//            APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
-//            APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
-//            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: nil)
-//
-//        }
-            APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
-            if success {
+            do{
                 
-                APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
-                    
-                    if success {
-                        //                        self.reloadSlideShow(finishload: true)
-                        APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
-                            (finish) in
-                            if finish {
-                                //                                self.reloadSlideShow(finishload: true)
-//                                StageActivity.getNumberOfStage(inManageobejectcontext: self.managedObjectContext!)
-                            }
-                        })
-                    }
-                })
+                try managedObjectContext!.execute(requestDeleteRecommendData)
+                try managedObjectContext!.execute(requestDeleteStageData)
+                try managedObjectContext!.execute(requestDeleteHighlightData)
+                try managedObjectContext!.save()
+            } catch let error {
+                
+                print(error)
+                
             }
+            
+            APIController.downloadRecommendActivities(inManageobjectcontext: self.managedObjectContext!) { (success) in
+                if success {
+                    
+                    APIController.downloadHightlightActivities(inManageobjectcontext: self.managedObjectContext!, completion: { (success) in
+                        
+                        if success {
+                            
+                            APIController.downloadStageActivities(inManageobjectcontext: self.managedObjectContext!, completion: {
+                                (finish) in
+                                if finish {
+                                    
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                    })
+                    
+                }
+                
+            }
+            
         }
         
-//        StageActivity.fetchStageActivities(inManageobjectcontext: self.managedObjectContext!)
-        
-//        tableView.reloadRows(at: [indexPath], with: .none)
         tableView.reloadSections([0], with: .none)
         tableView.reloadData()
         requestForFeedEvent()
         StageActivity.getNumberOfStage(inManageobejectcontext: self.managedObjectContext!)
-        
-        
         
         refreshControl.endRefreshing()
     }

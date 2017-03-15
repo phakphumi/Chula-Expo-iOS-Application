@@ -41,11 +41,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
             
         if FBSDKAccessToken.current() != nil {
-            
-            checkRegisterStatus(completion: { (success, token) in
-                
+        
+            checkRegisterStatus(completion: { (success, message, token) in
+        
                 if success {
-                    
+        
                     let header: HTTPHeaders = ["Authorization": "JWT \(token)"]
                     
                     Alamofire.request("https://api.chulaexpo.com/api/me", headers: header).responseJSON { response in
@@ -117,7 +117,62 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                         } else {
                             
+                            if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+                                
+                                Answers.logLogin(withMethod: "Auto Log in", success: false, customAttributes: nil)
+                                
+                                self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+                                
+                            } else {
+                                
+                                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                
+                                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
+                                    
+                                    self.createFacebookLoginButton()
+                                    
+                                    self.createGuestLoginButton()
+                                    
+                                    self.createUsernameLoginButton()
+                                    
+                                }))
+                                
+                                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                                
+                                self.present(confirm, animated: true, completion: nil)
+                                
+                                Answers.logLogin(withMethod: "Auto Log in", success: false, customAttributes: nil)
+                                
+                            }
+                            
+                        }
+                        
+                    }
+
+                } else {
+                    
+                    if message == "No Internet" {
+                        
+                        if UserData.isThereUser(inManageobjectcontext: self.managedObjectContext!) {
+                            
+                            Answers.logLogin(withMethod: "Auto Log in", success: false, customAttributes: nil)
+                            
+                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
+                            
+                        } else {
+                            
                             let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+                            
+                            confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { (alert) in
+                                
+                                self.createFacebookLoginButton()
+                                
+                                self.createGuestLoginButton()
+                                
+                                self.createUsernameLoginButton()
+                                
+                            }))
                             
                             confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                             
@@ -127,13 +182,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                         }
                         
+                    } else {
+                        
+                        Answers.logSignUp(withMethod: "Auto Sign up", success: true, customAttributes: nil)
+                        
+                        self.prepareToRegister()
+                        
                     }
-
-                } else {
-                    
-                    Answers.logSignUp(withMethod: "Auto Sign up", success: true, customAttributes: nil)
-                    
-                    self.prepareToRegister()
                     
                 }
                 
@@ -265,7 +320,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 if (result?.grantedPermissions.contains("email"))! {
                     
-                    self.checkRegisterStatus(completion: { (success, token) in
+                    self.checkRegisterStatus(completion: { (success, message, token) in
                     
                         if success {
                             
@@ -363,7 +418,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     
-    private func checkRegisterStatus(completion:@escaping (Bool, String) -> Void) {
+    private func checkRegisterStatus(completion:@escaping (Bool, String, String) -> Void) {
         
         Alamofire.request("https://api.chulaexpo.com/auth/facebook/token?access_token=\(FBSDKAccessToken.current().tokenString!)").responseJSON { response in
 
@@ -377,23 +432,25 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                     if let token = (JSON["results"] as! NSDictionary)["token"] as? String{
                     
-                        completion(success, token)
+                        completion(success, "", token)
                     
                     }
                 
                 } else {
                 
-                    completion(success, "")
+                    completion(success, "Did not register", "")
                 
                 }
                 
             } else {
                 
-                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
-                
-                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                
-                self.present(confirm, animated: true, completion: nil)
+                completion(false, "No Internet", "")
+//                
+//                let confirm = UIAlertController(title: "Error", message: "Can't connect to the server, please try again.", preferredStyle: UIAlertControllerStyle.alert)
+//                
+//                confirm.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//                
+//                self.present(confirm, animated: true, completion: nil)
                 
             }
             

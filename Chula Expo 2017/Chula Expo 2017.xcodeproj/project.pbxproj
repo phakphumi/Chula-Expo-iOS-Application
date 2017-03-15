@@ -64,6 +64,7 @@
 		5F7A1F241E2E10CE00349134 /* ImageFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */; };
 		5F7A296D1E44B4AF00BC3CA6 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */; };
 		5F7E8E841E424A6400241904 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E8E831E424A6400241904 /* MapTableViewCell.swift */; };
+		5F873DC61E793DA50086BAA2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F873DC51E793DA50086BAA2 /* Reachability.swift */; };
 		5F9CD2D21E64808F00EAC5A9 /* ScanQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9CD2D11E64808F00EAC5A9 /* ScanQRCodeViewController.swift */; };
 		5FA88E581E420CF2004E7F12 /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA88E571E420CF2004E7F12 /* DocumentTableViewCell.swift */; };
 		5FAA77661E601E930099809E /* HighlightActivity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAA77601E601E930099809E /* HighlightActivity+CoreDataClass.swift */; };
@@ -213,6 +214,7 @@
 		5F7A1F231E2E10CE00349134 /* ImageFrameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFrameViewController.swift; path = Modal_EventDetails/ImageFrameViewController.swift; sourceTree = "<group>"; };
 		5F7A296C1E44B4AF00BC3CA6 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoriteViewController.swift; path = Modal_EventDetails/FavoriteViewController.swift; sourceTree = "<group>"; };
 		5F7E8E831E424A6400241904 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTableViewCell.swift; path = Modal_EventDetails/MapTableViewCell.swift; sourceTree = "<group>"; };
+		5F873DC51E793DA50086BAA2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5F9CD2D11E64808F00EAC5A9 /* ScanQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScanQRCodeViewController.swift; path = Modal_QR/ScanQRCodeViewController.swift; sourceTree = "<group>"; };
 		5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Chula Expo 2017.entitlements"; sourceTree = "<group>"; };
 		5F9FB0851E150EDE00E984AB /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				800052CB1E326F7D006C4E95 /* CoreData */,
 				5F9FB0811E1508C000E984AB /* Chula Expo 2017.entitlements */,
 				802368F01E262F1000ECF9EF /* UserData+CoreDataClass.swift */,
+				5F873DC51E793DA50086BAA2 /* Reachability.swift */,
 				5F07EDC01E2B48420017ECD5 /* UserController.swift */,
 				5FBD91981E5ECE4C00EDC311 /* APIController.swift */,
 				802368F11E262F1000ECF9EF /* UserData+CoreDataProperties.swift */,
@@ -819,6 +822,7 @@
 				80DC942D1E366B5300A1D01A /* VideoData+CoreDataClass.swift in Sources */,
 				5FF7C0E21E2D2142002D6DBD /* GalleryTableViewCell.swift in Sources */,
 				802368F31E262F1000ECF9EF /* UserData+CoreDataProperties.swift in Sources */,
+				5F873DC61E793DA50086BAA2 /* Reachability.swift in Sources */,
 				58611AAA1E2B5A3600B0BFDA /* FourthMenuTableViewCell.swift in Sources */,
 				5FAA77681E601E930099809E /* StageActivity+CoreDataClass.swift in Sources */,
 				5F629CF41E5EB1E400801941 /* ReservedActivity+CoreDataClass.swift in Sources */,
